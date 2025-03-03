@@ -2158,278 +2158,6 @@ public:
 
   virtual ~CreateEventStreamingRequestRunOptionsDeadLetterQueue() = default;
 };
-class CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> endpoint{};
-  shared_ptr<string> instanceId{};
-  shared_ptr<string> topic{};
-
-  CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters() {}
-
-  explicit CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (endpoint) {
-      res["Endpoint"] = boost::any(*endpoint);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (topic) {
-      res["Topic"] = boost::any(*topic);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
-      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters() = default;
-};
-class CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> logstoreName{};
-  shared_ptr<string> projectName{};
-
-  CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters() {}
-
-  explicit CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (logstoreName) {
-      res["LogstoreName"] = boost::any(*logstoreName);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("LogstoreName") != m.end() && !m["LogstoreName"].empty()) {
-      logstoreName = make_shared<string>(boost::any_cast<string>(m["LogstoreName"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters() = default;
-};
-class CreateEventStreamingRequestRunOptionsLogDelivery : public Darabonba::Model {
-public:
-  shared_ptr<vector<CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters>> kafkaLogParameters{};
-  shared_ptr<vector<CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters>> SLSLogParameters{};
-
-  CreateEventStreamingRequestRunOptionsLogDelivery() {}
-
-  explicit CreateEventStreamingRequestRunOptionsLogDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (kafkaLogParameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*kafkaLogParameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["KafkaLogParameters"] = boost::any(temp1);
-    }
-    if (SLSLogParameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*SLSLogParameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["SLSLogParameters"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("KafkaLogParameters") != m.end() && !m["KafkaLogParameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["KafkaLogParameters"].type()) {
-        vector<CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["KafkaLogParameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        kafkaLogParameters = make_shared<vector<CreateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters>>(expect1);
-      }
-    }
-    if (m.find("SLSLogParameters") != m.end() && !m["SLSLogParameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["SLSLogParameters"].type()) {
-        vector<CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["SLSLogParameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        SLSLogParameters = make_shared<vector<CreateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsLogDelivery() = default;
-};
-class CreateEventStreamingRequestRunOptionsNetwork : public Darabonba::Model {
-public:
-  shared_ptr<string> securityGroupId{};
-  shared_ptr<vector<string>> vSwitchIds{};
-  shared_ptr<string> vpcId{};
-
-  CreateEventStreamingRequestRunOptionsNetwork() {}
-
-  explicit CreateEventStreamingRequestRunOptionsNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (securityGroupId) {
-      res["SecurityGroupId"] = boost::any(*securityGroupId);
-    }
-    if (vSwitchIds) {
-      res["VSwitchIds"] = boost::any(*vSwitchIds);
-    }
-    if (vpcId) {
-      res["VpcId"] = boost::any(*vpcId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
-      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
-    }
-    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      vSwitchIds = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
-      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsNetwork() = default;
-};
-class CreateEventStreamingRequestRunOptionsResourceSpecResources : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<long> value{};
-
-  CreateEventStreamingRequestRunOptionsResourceSpecResources() {}
-
-  explicit CreateEventStreamingRequestRunOptionsResourceSpecResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsResourceSpecResources() = default;
-};
-class CreateEventStreamingRequestRunOptionsResourceSpec : public Darabonba::Model {
-public:
-  shared_ptr<vector<CreateEventStreamingRequestRunOptionsResourceSpecResources>> resources{};
-
-  CreateEventStreamingRequestRunOptionsResourceSpec() {}
-
-  explicit CreateEventStreamingRequestRunOptionsResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (resources) {
-      vector<boost::any> temp1;
-      for(auto item1:*resources){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Resources"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
-      if (typeid(vector<boost::any>) == m["Resources"].type()) {
-        vector<CreateEventStreamingRequestRunOptionsResourceSpecResources> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Resources"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateEventStreamingRequestRunOptionsResourceSpecResources model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        resources = make_shared<vector<CreateEventStreamingRequestRunOptionsResourceSpecResources>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsResourceSpec() = default;
-};
 class CreateEventStreamingRequestRunOptionsRetryStrategy : public Darabonba::Model {
 public:
   shared_ptr<long> maximumEventAgeInSeconds{};
@@ -2473,151 +2201,13 @@ public:
 
   virtual ~CreateEventStreamingRequestRunOptionsRetryStrategy() = default;
 };
-class CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<long> value{};
-
-  CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata() {}
-
-  explicit CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata() = default;
-};
-class CreateEventStreamingRequestRunOptionsScaledObjectTriggers : public Darabonba::Model {
-public:
-  shared_ptr<CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata> metadata{};
-  shared_ptr<string> type{};
-
-  CreateEventStreamingRequestRunOptionsScaledObjectTriggers() {}
-
-  explicit CreateEventStreamingRequestRunOptionsScaledObjectTriggers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (metadata) {
-      res["Metadata"] = metadata ? boost::any(metadata->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Metadata"].type()) {
-        CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Metadata"]));
-        metadata = make_shared<CreateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata>(model1);
-      }
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsScaledObjectTriggers() = default;
-};
-class CreateEventStreamingRequestRunOptionsScaledObject : public Darabonba::Model {
-public:
-  shared_ptr<long> maxReplicaCount{};
-  shared_ptr<long> minReplicaCount{};
-  shared_ptr<vector<CreateEventStreamingRequestRunOptionsScaledObjectTriggers>> triggers{};
-
-  CreateEventStreamingRequestRunOptionsScaledObject() {}
-
-  explicit CreateEventStreamingRequestRunOptionsScaledObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (maxReplicaCount) {
-      res["MaxReplicaCount"] = boost::any(*maxReplicaCount);
-    }
-    if (minReplicaCount) {
-      res["MinReplicaCount"] = boost::any(*minReplicaCount);
-    }
-    if (triggers) {
-      vector<boost::any> temp1;
-      for(auto item1:*triggers){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Triggers"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("MaxReplicaCount") != m.end() && !m["MaxReplicaCount"].empty()) {
-      maxReplicaCount = make_shared<long>(boost::any_cast<long>(m["MaxReplicaCount"]));
-    }
-    if (m.find("MinReplicaCount") != m.end() && !m["MinReplicaCount"].empty()) {
-      minReplicaCount = make_shared<long>(boost::any_cast<long>(m["MinReplicaCount"]));
-    }
-    if (m.find("Triggers") != m.end() && !m["Triggers"].empty()) {
-      if (typeid(vector<boost::any>) == m["Triggers"].type()) {
-        vector<CreateEventStreamingRequestRunOptionsScaledObjectTriggers> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Triggers"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateEventStreamingRequestRunOptionsScaledObjectTriggers model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        triggers = make_shared<vector<CreateEventStreamingRequestRunOptionsScaledObjectTriggers>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~CreateEventStreamingRequestRunOptionsScaledObject() = default;
-};
 class CreateEventStreamingRequestRunOptions : public Darabonba::Model {
 public:
   shared_ptr<CreateEventStreamingRequestRunOptionsBatchWindow> batchWindow{};
   shared_ptr<CreateEventStreamingRequestRunOptionsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> errorsTolerance{};
-  shared_ptr<CreateEventStreamingRequestRunOptionsLogDelivery> logDelivery{};
   shared_ptr<long> maximumTasks{};
-  shared_ptr<CreateEventStreamingRequestRunOptionsNetwork> network{};
-  shared_ptr<CreateEventStreamingRequestRunOptionsResourceSpec> resourceSpec{};
   shared_ptr<CreateEventStreamingRequestRunOptionsRetryStrategy> retryStrategy{};
-  shared_ptr<string> roleName{};
-  shared_ptr<CreateEventStreamingRequestRunOptionsScaledObject> scaledObject{};
 
   CreateEventStreamingRequestRunOptions() {}
 
@@ -2638,26 +2228,11 @@ public:
     if (errorsTolerance) {
       res["ErrorsTolerance"] = boost::any(*errorsTolerance);
     }
-    if (logDelivery) {
-      res["LogDelivery"] = logDelivery ? boost::any(logDelivery->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (maximumTasks) {
       res["MaximumTasks"] = boost::any(*maximumTasks);
     }
-    if (network) {
-      res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (resourceSpec) {
-      res["ResourceSpec"] = resourceSpec ? boost::any(resourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (retryStrategy) {
       res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (roleName) {
-      res["RoleName"] = boost::any(*roleName);
-    }
-    if (scaledObject) {
-      res["ScaledObject"] = scaledObject ? boost::any(scaledObject->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -2680,29 +2255,8 @@ public:
     if (m.find("ErrorsTolerance") != m.end() && !m["ErrorsTolerance"].empty()) {
       errorsTolerance = make_shared<string>(boost::any_cast<string>(m["ErrorsTolerance"]));
     }
-    if (m.find("LogDelivery") != m.end() && !m["LogDelivery"].empty()) {
-      if (typeid(map<string, boost::any>) == m["LogDelivery"].type()) {
-        CreateEventStreamingRequestRunOptionsLogDelivery model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogDelivery"]));
-        logDelivery = make_shared<CreateEventStreamingRequestRunOptionsLogDelivery>(model1);
-      }
-    }
     if (m.find("MaximumTasks") != m.end() && !m["MaximumTasks"].empty()) {
       maximumTasks = make_shared<long>(boost::any_cast<long>(m["MaximumTasks"]));
-    }
-    if (m.find("Network") != m.end() && !m["Network"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Network"].type()) {
-        CreateEventStreamingRequestRunOptionsNetwork model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
-        network = make_shared<CreateEventStreamingRequestRunOptionsNetwork>(model1);
-      }
-    }
-    if (m.find("ResourceSpec") != m.end() && !m["ResourceSpec"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ResourceSpec"].type()) {
-        CreateEventStreamingRequestRunOptionsResourceSpec model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSpec"]));
-        resourceSpec = make_shared<CreateEventStreamingRequestRunOptionsResourceSpec>(model1);
-      }
     }
     if (m.find("RetryStrategy") != m.end() && !m["RetryStrategy"].empty()) {
       if (typeid(map<string, boost::any>) == m["RetryStrategy"].type()) {
@@ -2711,20 +2265,243 @@ public:
         retryStrategy = make_shared<CreateEventStreamingRequestRunOptionsRetryStrategy>(model1);
       }
     }
-    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
-      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
-    }
-    if (m.find("ScaledObject") != m.end() && !m["ScaledObject"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ScaledObject"].type()) {
-        CreateEventStreamingRequestRunOptionsScaledObject model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScaledObject"]));
-        scaledObject = make_shared<CreateEventStreamingRequestRunOptionsScaledObject>(model1);
-      }
-    }
   }
 
 
   virtual ~CreateEventStreamingRequestRunOptions() = default;
+};
+class CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp() {}
+
+  explicit CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp() = default;
+};
+class CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup() {}
+
+  explicit CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup() = default;
+};
+class CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic() {}
+
+  explicit CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic() = default;
+};
+class CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp> consumeTimestamp{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup> group{};
+  shared_ptr<string> instanceEndpoint{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceUsername{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic> topic{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters() {}
+
+  explicit CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumeTimestamp) {
+      res["ConsumeTimestamp"] = consumeTimestamp ? boost::any(consumeTimestamp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (group) {
+      res["Group"] = group ? boost::any(group->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (topic) {
+      res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumeTimestamp") != m.end() && !m["ConsumeTimestamp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsumeTimestamp"].type()) {
+        CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsumeTimestamp"]));
+        consumeTimestamp = make_shared<CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp>(model1);
+      }
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Group"].type()) {
+        CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Group"]));
+        group = make_shared<CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup>(model1);
+      }
+    }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Topic"].type()) {
+        CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
+        topic = make_shared<CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic>(model1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters() = default;
 };
 class CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters : public Darabonba::Model {
 public:
@@ -3553,6 +3330,49 @@ public:
 
   virtual ~CreateEventStreamingRequestSinkSinkFcParametersConcurrency() = default;
 };
+class CreateEventStreamingRequestSinkSinkFcParametersDataFormat : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkFcParametersDataFormat() {}
+
+  explicit CreateEventStreamingRequestSinkSinkFcParametersDataFormat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkFcParametersDataFormat() = default;
+};
 class CreateEventStreamingRequestSinkSinkFcParametersFunctionName : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -3729,6 +3549,7 @@ class CreateEventStreamingRequestSinkSinkFcParameters : public Darabonba::Model 
 public:
   shared_ptr<CreateEventStreamingRequestSinkSinkFcParametersBody> body{};
   shared_ptr<CreateEventStreamingRequestSinkSinkFcParametersConcurrency> concurrency{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkFcParametersDataFormat> dataFormat{};
   shared_ptr<CreateEventStreamingRequestSinkSinkFcParametersFunctionName> functionName{};
   shared_ptr<CreateEventStreamingRequestSinkSinkFcParametersInvocationType> invocationType{};
   shared_ptr<CreateEventStreamingRequestSinkSinkFcParametersQualifier> qualifier{};
@@ -3749,6 +3570,9 @@ public:
     }
     if (concurrency) {
       res["Concurrency"] = concurrency ? boost::any(concurrency->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataFormat) {
+      res["DataFormat"] = dataFormat ? boost::any(dataFormat->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (functionName) {
       res["FunctionName"] = functionName ? boost::any(functionName->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3778,6 +3602,13 @@ public:
         CreateEventStreamingRequestSinkSinkFcParametersConcurrency model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Concurrency"]));
         concurrency = make_shared<CreateEventStreamingRequestSinkSinkFcParametersConcurrency>(model1);
+      }
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataFormat"].type()) {
+        CreateEventStreamingRequestSinkSinkFcParametersDataFormat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataFormat"]));
+        dataFormat = make_shared<CreateEventStreamingRequestSinkSinkFcParametersDataFormat>(model1);
       }
     }
     if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
@@ -4526,6 +4357,415 @@ public:
 
 
   virtual ~CreateEventStreamingRequestSinkSinkMNSParameters() = default;
+};
+class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody() {}
+
+  explicit CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody() = default;
+};
+class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange() {}
+
+  explicit CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange() = default;
+};
+class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId() {}
+
+  explicit CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId() = default;
+};
+class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties() {}
+
+  explicit CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties() = default;
+};
+class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName() {}
+
+  explicit CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName() = default;
+};
+class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey() {}
+
+  explicit CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey() = default;
+};
+class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters : public Darabonba::Model {
+public:
+  shared_ptr<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody> body{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange> exchange{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId> messageId{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> password{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties> properties{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName> queueName{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey> routingKey{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> targetType{};
+  shared_ptr<string> username{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> virtualHostName{};
+  shared_ptr<string> vpcId{};
+
+  CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters() {}
+
+  explicit CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (exchange) {
+      res["Exchange"] = exchange ? boost::any(exchange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (messageId) {
+      res["MessageId"] = messageId ? boost::any(messageId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (properties) {
+      res["Properties"] = properties ? boost::any(properties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (queueName) {
+      res["QueueName"] = queueName ? boost::any(queueName->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (routingKey) {
+      res["RoutingKey"] = routingKey ? boost::any(routingKey->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (virtualHostName) {
+      res["VirtualHostName"] = boost::any(*virtualHostName);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Body"].type()) {
+        CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
+        body = make_shared<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody>(model1);
+      }
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("Exchange") != m.end() && !m["Exchange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Exchange"].type()) {
+        CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Exchange"]));
+        exchange = make_shared<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange>(model1);
+      }
+    }
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MessageId"].type()) {
+        CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MessageId"]));
+        messageId = make_shared<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Properties"].type()) {
+        CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Properties"]));
+        properties = make_shared<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties>(model1);
+      }
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QueueName"].type()) {
+        CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueueName"]));
+        queueName = make_shared<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName>(model1);
+      }
+    }
+    if (m.find("RoutingKey") != m.end() && !m["RoutingKey"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RoutingKey"].type()) {
+        CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RoutingKey"]));
+        routingKey = make_shared<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VirtualHostName") != m.end() && !m["VirtualHostName"].empty()) {
+      virtualHostName = make_shared<string>(boost::any_cast<string>(m["VirtualHostName"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters() = default;
 };
 class CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType : public Darabonba::Model {
 public:
@@ -5597,6 +5837,204 @@ public:
 
   virtual ~CreateEventStreamingRequestSinkSinkRabbitMQParameters() = default;
 };
+class CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp() {}
+
+  explicit CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp() = default;
+};
+class CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup() {}
+
+  explicit CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup() = default;
+};
+class CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic() {}
+
+  explicit CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic() = default;
+};
+class CreateEventStreamingRequestSinkSinkRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp> consumeTimestamp{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup> group{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic> topic{};
+
+  CreateEventStreamingRequestSinkSinkRocketMQCheckpointParameters() {}
+
+  explicit CreateEventStreamingRequestSinkSinkRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumeTimestamp) {
+      res["ConsumeTimestamp"] = consumeTimestamp ? boost::any(consumeTimestamp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (group) {
+      res["Group"] = group ? boost::any(group->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (topic) {
+      res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumeTimestamp") != m.end() && !m["ConsumeTimestamp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsumeTimestamp"].type()) {
+        CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsumeTimestamp"]));
+        consumeTimestamp = make_shared<CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp>(model1);
+      }
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Group"].type()) {
+        CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Group"]));
+        group = make_shared<CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Topic"].type()) {
+        CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
+        topic = make_shared<CreateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkRocketMQCheckpointParameters() = default;
+};
 class CreateEventStreamingRequestSinkSinkRocketMQParametersBody : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -5639,6 +6077,49 @@ public:
 
 
   virtual ~CreateEventStreamingRequestSinkSinkRocketMQParametersBody() = default;
+};
+class CreateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType() {}
+
+  explicit CreateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType() = default;
 };
 class CreateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint : public Darabonba::Model {
 public:
@@ -6027,6 +6508,49 @@ public:
 
   virtual ~CreateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId() = default;
 };
+class CreateEventStreamingRequestSinkSinkRocketMQParametersShardingKey : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkRocketMQParametersShardingKey() {}
+
+  explicit CreateEventStreamingRequestSinkSinkRocketMQParametersShardingKey(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkRocketMQParametersShardingKey() = default;
+};
 class CreateEventStreamingRequestSinkSinkRocketMQParametersTags : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -6202,6 +6726,7 @@ public:
 class CreateEventStreamingRequestSinkSinkRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersBody> body{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType> deliveryOrderType{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint> instanceEndpoint{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersInstanceId> instanceId{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword> instancePassword{};
@@ -6211,6 +6736,7 @@ public:
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersNetwork> network{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersProperties> properties{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersShardingKey> shardingKey{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersTags> tags{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersTopic> topic{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds> vSwitchIds{};
@@ -6228,6 +6754,9 @@ public:
     map<string, boost::any> res;
     if (body) {
       res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryOrderType) {
+      res["DeliveryOrderType"] = deliveryOrderType ? boost::any(deliveryOrderType->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceEndpoint) {
       res["InstanceEndpoint"] = instanceEndpoint ? boost::any(instanceEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6256,6 +6785,9 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (shardingKey) {
+      res["ShardingKey"] = shardingKey ? boost::any(shardingKey->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -6277,6 +6809,13 @@ public:
         CreateEventStreamingRequestSinkSinkRocketMQParametersBody model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
         body = make_shared<CreateEventStreamingRequestSinkSinkRocketMQParametersBody>(model1);
+      }
+    }
+    if (m.find("DeliveryOrderType") != m.end() && !m["DeliveryOrderType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryOrderType"].type()) {
+        CreateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryOrderType"]));
+        deliveryOrderType = make_shared<CreateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType>(model1);
       }
     }
     if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
@@ -6340,6 +6879,13 @@ public:
         CreateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
         securityGroupId = make_shared<CreateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("ShardingKey") != m.end() && !m["ShardingKey"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ShardingKey"].type()) {
+        CreateEventStreamingRequestSinkSinkRocketMQParametersShardingKey model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ShardingKey"]));
+        shardingKey = make_shared<CreateEventStreamingRequestSinkSinkRocketMQParametersShardingKey>(model1);
       }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
@@ -6777,6 +7323,7 @@ public:
 };
 class CreateEventStreamingRequestSink : public Darabonba::Model {
 public:
+  shared_ptr<CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters> sinkApacheRocketMQCheckpointParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters> sinkCustomizedKafkaConnectorParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkDashVectorParameters> sinkDashVectorParameters{};
@@ -6785,8 +7332,10 @@ public:
   shared_ptr<CreateEventStreamingRequestSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkKafkaParameters> sinkKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkMNSParameters> sinkMNSParameters{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters> sinkOpenSourceRabbitMQParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParameters> sinkPrometheusParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRabbitMQParameters> sinkRabbitMQParameters{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQCheckpointParameters> sinkRocketMQCheckpointParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParameters> sinkRocketMQParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkSLSParameters> sinkSLSParameters{};
 
@@ -6800,6 +7349,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (sinkApacheRocketMQCheckpointParameters) {
+      res["SinkApacheRocketMQCheckpointParameters"] = sinkApacheRocketMQCheckpointParameters ? boost::any(sinkApacheRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sinkCustomizedKafkaConnectorParameters) {
       res["SinkCustomizedKafkaConnectorParameters"] = sinkCustomizedKafkaConnectorParameters ? boost::any(sinkCustomizedKafkaConnectorParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -6824,11 +7376,17 @@ public:
     if (sinkMNSParameters) {
       res["SinkMNSParameters"] = sinkMNSParameters ? boost::any(sinkMNSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sinkOpenSourceRabbitMQParameters) {
+      res["SinkOpenSourceRabbitMQParameters"] = sinkOpenSourceRabbitMQParameters ? boost::any(sinkOpenSourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sinkPrometheusParameters) {
       res["SinkPrometheusParameters"] = sinkPrometheusParameters ? boost::any(sinkPrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkRabbitMQParameters) {
       res["SinkRabbitMQParameters"] = sinkRabbitMQParameters ? boost::any(sinkRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkRocketMQCheckpointParameters) {
+      res["SinkRocketMQCheckpointParameters"] = sinkRocketMQCheckpointParameters ? boost::any(sinkRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkRocketMQParameters) {
       res["SinkRocketMQParameters"] = sinkRocketMQParameters ? boost::any(sinkRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6840,6 +7398,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SinkApacheRocketMQCheckpointParameters") != m.end() && !m["SinkApacheRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkApacheRocketMQCheckpointParameters"].type()) {
+        CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkApacheRocketMQCheckpointParameters"]));
+        sinkApacheRocketMQCheckpointParameters = make_shared<CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters>(model1);
+      }
+    }
     if (m.find("SinkCustomizedKafkaConnectorParameters") != m.end() && !m["SinkCustomizedKafkaConnectorParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkCustomizedKafkaConnectorParameters"].type()) {
         CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters model1;
@@ -6896,6 +7461,13 @@ public:
         sinkMNSParameters = make_shared<CreateEventStreamingRequestSinkSinkMNSParameters>(model1);
       }
     }
+    if (m.find("SinkOpenSourceRabbitMQParameters") != m.end() && !m["SinkOpenSourceRabbitMQParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkOpenSourceRabbitMQParameters"].type()) {
+        CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkOpenSourceRabbitMQParameters"]));
+        sinkOpenSourceRabbitMQParameters = make_shared<CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters>(model1);
+      }
+    }
     if (m.find("SinkPrometheusParameters") != m.end() && !m["SinkPrometheusParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkPrometheusParameters"].type()) {
         CreateEventStreamingRequestSinkSinkPrometheusParameters model1;
@@ -6908,6 +7480,13 @@ public:
         CreateEventStreamingRequestSinkSinkRabbitMQParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkRabbitMQParameters"]));
         sinkRabbitMQParameters = make_shared<CreateEventStreamingRequestSinkSinkRabbitMQParameters>(model1);
+      }
+    }
+    if (m.find("SinkRocketMQCheckpointParameters") != m.end() && !m["SinkRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkRocketMQCheckpointParameters"].type()) {
+        CreateEventStreamingRequestSinkSinkRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkRocketMQCheckpointParameters"]));
+        sinkRocketMQCheckpointParameters = make_shared<CreateEventStreamingRequestSinkSinkRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SinkRocketMQParameters") != m.end() && !m["SinkRocketMQParameters"].empty()) {
@@ -6929,25 +7508,21 @@ public:
 
   virtual ~CreateEventStreamingRequestSink() = default;
 };
-class CreateEventStreamingRequestSourceSourceApacheKafkaParameters : public Darabonba::Model {
+class CreateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters : public Darabonba::Model {
 public:
-  shared_ptr<string> bootstraps{};
-  shared_ptr<string> consumerGroup{};
+  shared_ptr<string> instanceEndpoint{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceUsername{};
   shared_ptr<string> networkType{};
-  shared_ptr<string> offsetReset{};
-  shared_ptr<string> saslMechanism{};
-  shared_ptr<string> saslPassword{};
-  shared_ptr<string> saslUser{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> securityGroupId{};
-  shared_ptr<string> securityProtocol{};
-  shared_ptr<string> topic{};
-  shared_ptr<string> vSwitchIds{};
-  shared_ptr<string> valueDataType{};
+  shared_ptr<vector<string>> topics{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
 
-  CreateEventStreamingRequestSourceSourceApacheKafkaParameters() {}
+  CreateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters() {}
 
-  explicit CreateEventStreamingRequestSourceSourceApacheKafkaParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit CreateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -6955,41 +7530,29 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (bootstraps) {
-      res["Bootstraps"] = boost::any(*bootstraps);
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
     }
-    if (consumerGroup) {
-      res["ConsumerGroup"] = boost::any(*consumerGroup);
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
     }
     if (networkType) {
       res["NetworkType"] = boost::any(*networkType);
     }
-    if (offsetReset) {
-      res["OffsetReset"] = boost::any(*offsetReset);
-    }
-    if (saslMechanism) {
-      res["SaslMechanism"] = boost::any(*saslMechanism);
-    }
-    if (saslPassword) {
-      res["SaslPassword"] = boost::any(*saslPassword);
-    }
-    if (saslUser) {
-      res["SaslUser"] = boost::any(*saslUser);
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
-    if (securityProtocol) {
-      res["SecurityProtocol"] = boost::any(*securityProtocol);
+    if (topics) {
+      res["Topics"] = boost::any(*topics);
     }
-    if (topic) {
-      res["Topic"] = boost::any(*topic);
-    }
-    if (vSwitchIds) {
-      res["VSwitchIds"] = boost::any(*vSwitchIds);
-    }
-    if (valueDataType) {
-      res["ValueDataType"] = boost::any(*valueDataType);
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -6998,41 +7561,36 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Bootstraps") != m.end() && !m["Bootstraps"].empty()) {
-      bootstraps = make_shared<string>(boost::any_cast<string>(m["Bootstraps"]));
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
     }
-    if (m.find("ConsumerGroup") != m.end() && !m["ConsumerGroup"].empty()) {
-      consumerGroup = make_shared<string>(boost::any_cast<string>(m["ConsumerGroup"]));
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
     }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
       networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
-    if (m.find("OffsetReset") != m.end() && !m["OffsetReset"].empty()) {
-      offsetReset = make_shared<string>(boost::any_cast<string>(m["OffsetReset"]));
-    }
-    if (m.find("SaslMechanism") != m.end() && !m["SaslMechanism"].empty()) {
-      saslMechanism = make_shared<string>(boost::any_cast<string>(m["SaslMechanism"]));
-    }
-    if (m.find("SaslPassword") != m.end() && !m["SaslPassword"].empty()) {
-      saslPassword = make_shared<string>(boost::any_cast<string>(m["SaslPassword"]));
-    }
-    if (m.find("SaslUser") != m.end() && !m["SaslUser"].empty()) {
-      saslUser = make_shared<string>(boost::any_cast<string>(m["SaslUser"]));
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
-    if (m.find("SecurityProtocol") != m.end() && !m["SecurityProtocol"].empty()) {
-      securityProtocol = make_shared<string>(boost::any_cast<string>(m["SecurityProtocol"]));
+    if (m.find("Topics") != m.end() && !m["Topics"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Topics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Topics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      topics = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
-      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
-    }
-    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
-      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
-    }
-    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
-      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -7040,7 +7598,7 @@ public:
   }
 
 
-  virtual ~CreateEventStreamingRequestSourceSourceApacheKafkaParameters() = default;
+  virtual ~CreateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters() = default;
 };
 class CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters : public Darabonba::Model {
 public:
@@ -7235,6 +7793,42 @@ public:
 
   virtual ~CreateEventStreamingRequestSourceSourceDTSParameters() = default;
 };
+class CreateEventStreamingRequestSourceSourceEventBusParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> eventBusName{};
+  shared_ptr<string> eventRuleName{};
+
+  CreateEventStreamingRequestSourceSourceEventBusParameters() {}
+
+  explicit CreateEventStreamingRequestSourceSourceEventBusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventBusName) {
+      res["EventBusName"] = boost::any(*eventBusName);
+    }
+    if (eventRuleName) {
+      res["EventRuleName"] = boost::any(*eventRuleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBusName") != m.end() && !m["EventBusName"].empty()) {
+      eventBusName = make_shared<string>(boost::any_cast<string>(m["EventBusName"]));
+    }
+    if (m.find("EventRuleName") != m.end() && !m["EventRuleName"].empty()) {
+      eventRuleName = make_shared<string>(boost::any_cast<string>(m["EventRuleName"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSourceSourceEventBusParameters() = default;
+};
 class CreateEventStreamingRequestSourceSourceKafkaParameters : public Darabonba::Model {
 public:
   shared_ptr<string> consumerGroup{};
@@ -7420,12 +8014,170 @@ public:
 
   virtual ~CreateEventStreamingRequestSourceSourceMQTTParameters() = default;
 };
+class CreateEventStreamingRequestSourceSourceOSSParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bucketName{};
+  shared_ptr<string> delimiter{};
+  shared_ptr<string> loadFormat{};
+  shared_ptr<string> loadMode{};
+  shared_ptr<string> prefix{};
+  shared_ptr<string> roleName{};
+
+  CreateEventStreamingRequestSourceSourceOSSParameters() {}
+
+  explicit CreateEventStreamingRequestSourceSourceOSSParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucketName) {
+      res["BucketName"] = boost::any(*bucketName);
+    }
+    if (delimiter) {
+      res["Delimiter"] = boost::any(*delimiter);
+    }
+    if (loadFormat) {
+      res["LoadFormat"] = boost::any(*loadFormat);
+    }
+    if (loadMode) {
+      res["LoadMode"] = boost::any(*loadMode);
+    }
+    if (prefix) {
+      res["Prefix"] = boost::any(*prefix);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BucketName") != m.end() && !m["BucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["BucketName"]));
+    }
+    if (m.find("Delimiter") != m.end() && !m["Delimiter"].empty()) {
+      delimiter = make_shared<string>(boost::any_cast<string>(m["Delimiter"]));
+    }
+    if (m.find("LoadFormat") != m.end() && !m["LoadFormat"].empty()) {
+      loadFormat = make_shared<string>(boost::any_cast<string>(m["LoadFormat"]));
+    }
+    if (m.find("LoadMode") != m.end() && !m["LoadMode"].empty()) {
+      loadMode = make_shared<string>(boost::any_cast<string>(m["LoadMode"]));
+    }
+    if (m.find("Prefix") != m.end() && !m["Prefix"].empty()) {
+      prefix = make_shared<string>(boost::any_cast<string>(m["Prefix"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSourceSourceOSSParameters() = default;
+};
+class CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bodyDataType{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> password{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> username{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> virtualHostName{};
+  shared_ptr<string> vpcId{};
+
+  CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters() {}
+
+  explicit CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (virtualHostName) {
+      res["VirtualHostName"] = boost::any(*virtualHostName);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VirtualHostName") != m.end() && !m["VirtualHostName"].empty()) {
+      virtualHostName = make_shared<string>(boost::any_cast<string>(m["VirtualHostName"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters() = default;
+};
 class CreateEventStreamingRequestSourceSourcePrometheusParameters : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> externalLabels{};
   shared_ptr<string> labels{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> roleName{};
 
   CreateEventStreamingRequestSourceSourcePrometheusParameters() {}
 
@@ -7443,11 +8195,17 @@ public:
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
     }
+    if (externalLabels) {
+      res["ExternalLabels"] = boost::any(*externalLabels);
+    }
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
     }
     return res;
   }
@@ -7459,11 +8217,17 @@ public:
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
     }
+    if (m.find("ExternalLabels") != m.end() && !m["ExternalLabels"].empty()) {
+      externalLabels = make_shared<string>(boost::any_cast<string>(m["ExternalLabels"]));
+    }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
     }
   }
 
@@ -7519,6 +8283,63 @@ public:
 
 
   virtual ~CreateEventStreamingRequestSourceSourceRabbitMQParameters() = default;
+};
+class CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> topics{};
+
+  CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters() {}
+
+  explicit CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (topics) {
+      res["Topics"] = boost::any(*topics);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Topics") != m.end() && !m["Topics"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Topics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Topics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      topics = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters() = default;
 };
 class CreateEventStreamingRequestSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
@@ -7755,15 +8576,19 @@ public:
 };
 class CreateEventStreamingRequestSource : public Darabonba::Model {
 public:
-  shared_ptr<CreateEventStreamingRequestSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters{};
+  shared_ptr<CreateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters> sourceApacheRocketMQCheckpointParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParameters> sourceCustomizedKafkaConnectorParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceCustomizedKafkaParameters> sourceCustomizedKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceDTSParameters> sourceDTSParameters{};
+  shared_ptr<CreateEventStreamingRequestSourceSourceEventBusParameters> sourceEventBusParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceMNSParameters> sourceMNSParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceMQTTParameters> sourceMQTTParameters{};
+  shared_ptr<CreateEventStreamingRequestSourceSourceOSSParameters> sourceOSSParameters{};
+  shared_ptr<CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters> sourceOpenSourceRabbitMQParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourcePrometheusParameters> sourcePrometheusParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceRabbitMQParameters> sourceRabbitMQParameters{};
+  shared_ptr<CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters> sourceRocketMQCheckpointParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceRocketMQParameters> sourceRocketMQParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceSLSParameters> sourceSLSParameters{};
 
@@ -7777,8 +8602,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (sourceApacheKafkaParameters) {
-      res["SourceApacheKafkaParameters"] = sourceApacheKafkaParameters ? boost::any(sourceApacheKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    if (sourceApacheRocketMQCheckpointParameters) {
+      res["SourceApacheRocketMQCheckpointParameters"] = sourceApacheRocketMQCheckpointParameters ? boost::any(sourceApacheRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceCustomizedKafkaConnectorParameters) {
       res["SourceCustomizedKafkaConnectorParameters"] = sourceCustomizedKafkaConnectorParameters ? boost::any(sourceCustomizedKafkaConnectorParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -7789,6 +8614,9 @@ public:
     if (sourceDTSParameters) {
       res["SourceDTSParameters"] = sourceDTSParameters ? boost::any(sourceDTSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sourceEventBusParameters) {
+      res["SourceEventBusParameters"] = sourceEventBusParameters ? boost::any(sourceEventBusParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceKafkaParameters) {
       res["SourceKafkaParameters"] = sourceKafkaParameters ? boost::any(sourceKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -7798,11 +8626,20 @@ public:
     if (sourceMQTTParameters) {
       res["SourceMQTTParameters"] = sourceMQTTParameters ? boost::any(sourceMQTTParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sourceOSSParameters) {
+      res["SourceOSSParameters"] = sourceOSSParameters ? boost::any(sourceOSSParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceOpenSourceRabbitMQParameters) {
+      res["SourceOpenSourceRabbitMQParameters"] = sourceOpenSourceRabbitMQParameters ? boost::any(sourceOpenSourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourcePrometheusParameters) {
       res["SourcePrometheusParameters"] = sourcePrometheusParameters ? boost::any(sourcePrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRabbitMQParameters) {
       res["SourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceRocketMQCheckpointParameters) {
+      res["SourceRocketMQCheckpointParameters"] = sourceRocketMQCheckpointParameters ? boost::any(sourceRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRocketMQParameters) {
       res["SourceRocketMQParameters"] = sourceRocketMQParameters ? boost::any(sourceRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -7814,11 +8651,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SourceApacheKafkaParameters") != m.end() && !m["SourceApacheKafkaParameters"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SourceApacheKafkaParameters"].type()) {
-        CreateEventStreamingRequestSourceSourceApacheKafkaParameters model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheKafkaParameters"]));
-        sourceApacheKafkaParameters = make_shared<CreateEventStreamingRequestSourceSourceApacheKafkaParameters>(model1);
+    if (m.find("SourceApacheRocketMQCheckpointParameters") != m.end() && !m["SourceApacheRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceApacheRocketMQCheckpointParameters"].type()) {
+        CreateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheRocketMQCheckpointParameters"]));
+        sourceApacheRocketMQCheckpointParameters = make_shared<CreateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SourceCustomizedKafkaConnectorParameters") != m.end() && !m["SourceCustomizedKafkaConnectorParameters"].empty()) {
@@ -7842,6 +8679,13 @@ public:
         sourceDTSParameters = make_shared<CreateEventStreamingRequestSourceSourceDTSParameters>(model1);
       }
     }
+    if (m.find("SourceEventBusParameters") != m.end() && !m["SourceEventBusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceEventBusParameters"].type()) {
+        CreateEventStreamingRequestSourceSourceEventBusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceEventBusParameters"]));
+        sourceEventBusParameters = make_shared<CreateEventStreamingRequestSourceSourceEventBusParameters>(model1);
+      }
+    }
     if (m.find("SourceKafkaParameters") != m.end() && !m["SourceKafkaParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceKafkaParameters"].type()) {
         CreateEventStreamingRequestSourceSourceKafkaParameters model1;
@@ -7863,6 +8707,20 @@ public:
         sourceMQTTParameters = make_shared<CreateEventStreamingRequestSourceSourceMQTTParameters>(model1);
       }
     }
+    if (m.find("SourceOSSParameters") != m.end() && !m["SourceOSSParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceOSSParameters"].type()) {
+        CreateEventStreamingRequestSourceSourceOSSParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceOSSParameters"]));
+        sourceOSSParameters = make_shared<CreateEventStreamingRequestSourceSourceOSSParameters>(model1);
+      }
+    }
+    if (m.find("SourceOpenSourceRabbitMQParameters") != m.end() && !m["SourceOpenSourceRabbitMQParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceOpenSourceRabbitMQParameters"].type()) {
+        CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceOpenSourceRabbitMQParameters"]));
+        sourceOpenSourceRabbitMQParameters = make_shared<CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters>(model1);
+      }
+    }
     if (m.find("SourcePrometheusParameters") != m.end() && !m["SourcePrometheusParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourcePrometheusParameters"].type()) {
         CreateEventStreamingRequestSourceSourcePrometheusParameters model1;
@@ -7875,6 +8733,13 @@ public:
         CreateEventStreamingRequestSourceSourceRabbitMQParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceRabbitMQParameters"]));
         sourceRabbitMQParameters = make_shared<CreateEventStreamingRequestSourceSourceRabbitMQParameters>(model1);
+      }
+    }
+    if (m.find("SourceRocketMQCheckpointParameters") != m.end() && !m["SourceRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceRocketMQCheckpointParameters"].type()) {
+        CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceRocketMQCheckpointParameters"]));
+        sourceRocketMQCheckpointParameters = make_shared<CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SourceRocketMQParameters") != m.end() && !m["SourceRocketMQParameters"].empty()) {
@@ -8235,6 +9100,35 @@ public:
 
   virtual ~CreateEventStreamingResponse() = default;
 };
+class CreateRuleRequestEventTargetsConcurrentConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> concurrency{};
+
+  CreateRuleRequestEventTargetsConcurrentConfig() {}
+
+  explicit CreateRuleRequestEventTargetsConcurrentConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (concurrency) {
+      res["Concurrency"] = boost::any(*concurrency);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
+      concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
+    }
+  }
+
+
+  virtual ~CreateRuleRequestEventTargetsConcurrentConfig() = default;
+};
 class CreateRuleRequestEventTargetsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
@@ -8316,6 +9210,7 @@ public:
 };
 class CreateRuleRequestEventTargets : public Darabonba::Model {
 public:
+  shared_ptr<CreateRuleRequestEventTargetsConcurrentConfig> concurrentConfig{};
   shared_ptr<CreateRuleRequestEventTargetsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> errorsTolerance{};
@@ -8334,6 +9229,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (concurrentConfig) {
+      res["ConcurrentConfig"] = concurrentConfig ? boost::any(concurrentConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (deadLetterQueue) {
       res["DeadLetterQueue"] = deadLetterQueue ? boost::any(deadLetterQueue->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -8363,6 +9261,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConcurrentConfig") != m.end() && !m["ConcurrentConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConcurrentConfig"].type()) {
+        CreateRuleRequestEventTargetsConcurrentConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConcurrentConfig"]));
+        concurrentConfig = make_shared<CreateRuleRequestEventTargetsConcurrentConfig>(model1);
+      }
+    }
     if (m.find("DeadLetterQueue") != m.end() && !m["DeadLetterQueue"].empty()) {
       if (typeid(map<string, boost::any>) == m["DeadLetterQueue"].type()) {
         CreateRuleRequestEventTargetsDeadLetterQueue model1;
@@ -10193,352 +11098,6 @@ public:
 
   virtual ~EnableRuleResponse() = default;
 };
-class EventCenterCheckEnabledOnDefaultBusResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<bool> enabled{};
-
-  EventCenterCheckEnabledOnDefaultBusResponseBodyData() {}
-
-  explicit EventCenterCheckEnabledOnDefaultBusResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (enabled) {
-      res["Enabled"] = boost::any(*enabled);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
-      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
-    }
-  }
-
-
-  virtual ~EventCenterCheckEnabledOnDefaultBusResponseBodyData() = default;
-};
-class EventCenterCheckEnabledOnDefaultBusResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<EventCenterCheckEnabledOnDefaultBusResponseBodyData> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  EventCenterCheckEnabledOnDefaultBusResponseBody() {}
-
-  explicit EventCenterCheckEnabledOnDefaultBusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        EventCenterCheckEnabledOnDefaultBusResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<EventCenterCheckEnabledOnDefaultBusResponseBodyData>(model1);
-      }
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~EventCenterCheckEnabledOnDefaultBusResponseBody() = default;
-};
-class EventCenterCheckEnabledOnDefaultBusResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<EventCenterCheckEnabledOnDefaultBusResponseBody> body{};
-
-  EventCenterCheckEnabledOnDefaultBusResponse() {}
-
-  explicit EventCenterCheckEnabledOnDefaultBusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        EventCenterCheckEnabledOnDefaultBusResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<EventCenterCheckEnabledOnDefaultBusResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~EventCenterCheckEnabledOnDefaultBusResponse() = default;
-};
-class EventCenterDisableOnDefaultBusResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  EventCenterDisableOnDefaultBusResponseBody() {}
-
-  explicit EventCenterDisableOnDefaultBusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~EventCenterDisableOnDefaultBusResponseBody() = default;
-};
-class EventCenterDisableOnDefaultBusResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<EventCenterDisableOnDefaultBusResponseBody> body{};
-
-  EventCenterDisableOnDefaultBusResponse() {}
-
-  explicit EventCenterDisableOnDefaultBusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        EventCenterDisableOnDefaultBusResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<EventCenterDisableOnDefaultBusResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~EventCenterDisableOnDefaultBusResponse() = default;
-};
-class EventCenterEnableOnDefaultBusResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  EventCenterEnableOnDefaultBusResponseBody() {}
-
-  explicit EventCenterEnableOnDefaultBusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~EventCenterEnableOnDefaultBusResponseBody() = default;
-};
-class EventCenterEnableOnDefaultBusResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<EventCenterEnableOnDefaultBusResponseBody> body{};
-
-  EventCenterEnableOnDefaultBusResponse() {}
-
-  explicit EventCenterEnableOnDefaultBusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        EventCenterEnableOnDefaultBusResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<EventCenterEnableOnDefaultBusResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~EventCenterEnableOnDefaultBusResponse() = default;
-};
 class EventCenterQueryEventsRequestBodyParametersCalculations : public Darabonba::Model {
 public:
   shared_ptr<string> column{};
@@ -10575,15 +11134,15 @@ public:
 
   virtual ~EventCenterQueryEventsRequestBodyParametersCalculations() = default;
 };
-class EventCenterQueryEventsRequestBodyParametersFilters : public Darabonba::Model {
+class EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters : public Darabonba::Model {
 public:
   shared_ptr<string> column{};
   shared_ptr<string> op{};
   shared_ptr<vector<string>> values{};
 
-  EventCenterQueryEventsRequestBodyParametersFilters() {}
+  EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters() {}
 
-  explicit EventCenterQueryEventsRequestBodyParametersFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10606,6 +11165,84 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Column") != m.end() && !m["Column"].empty()) {
       column = make_shared<string>(boost::any_cast<string>(m["Column"]));
+    }
+    if (m.find("Op") != m.end() && !m["Op"].empty()) {
+      op = make_shared<string>(boost::any_cast<string>(m["Op"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters() = default;
+};
+class EventCenterQueryEventsRequestBodyParametersFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> column{};
+  shared_ptr<string> nestedFilterCombination{};
+  shared_ptr<vector<EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters>> nestedFilters{};
+  shared_ptr<string> op{};
+  shared_ptr<vector<string>> values{};
+
+  EventCenterQueryEventsRequestBodyParametersFilters() {}
+
+  explicit EventCenterQueryEventsRequestBodyParametersFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (column) {
+      res["Column"] = boost::any(*column);
+    }
+    if (nestedFilterCombination) {
+      res["NestedFilterCombination"] = boost::any(*nestedFilterCombination);
+    }
+    if (nestedFilters) {
+      vector<boost::any> temp1;
+      for(auto item1:*nestedFilters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NestedFilters"] = boost::any(temp1);
+    }
+    if (op) {
+      res["Op"] = boost::any(*op);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Column") != m.end() && !m["Column"].empty()) {
+      column = make_shared<string>(boost::any_cast<string>(m["Column"]));
+    }
+    if (m.find("NestedFilterCombination") != m.end() && !m["NestedFilterCombination"].empty()) {
+      nestedFilterCombination = make_shared<string>(boost::any_cast<string>(m["NestedFilterCombination"]));
+    }
+    if (m.find("NestedFilters") != m.end() && !m["NestedFilters"].empty()) {
+      if (typeid(vector<boost::any>) == m["NestedFilters"].type()) {
+        vector<EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NestedFilters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nestedFilters = make_shared<vector<EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters>>(expect1);
+      }
     }
     if (m.find("Op") != m.end() && !m["Op"].empty()) {
       op = make_shared<string>(boost::any_cast<string>(m["Op"]));
@@ -10672,15 +11309,15 @@ class EventCenterQueryEventsRequestBodyParameters : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> breakdowns{};
   shared_ptr<vector<EventCenterQueryEventsRequestBodyParametersCalculations>> calculations{};
-  shared_ptr<int> endTime{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> filterCombination{};
   shared_ptr<vector<EventCenterQueryEventsRequestBodyParametersFilters>> filters{};
   shared_ptr<int> granularity{};
   shared_ptr<int> limit{};
   shared_ptr<int> offset{};
   shared_ptr<vector<EventCenterQueryEventsRequestBodyParametersOrders>> orders{};
-  shared_ptr<int> startTime{};
-  shared_ptr<int> timeRange{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> timeRange{};
 
   EventCenterQueryEventsRequestBodyParameters() {}
 
@@ -10765,7 +11402,7 @@ public:
       }
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
-      endTime = make_shared<int>(boost::any_cast<int>(m["EndTime"]));
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
     if (m.find("FilterCombination") != m.end() && !m["FilterCombination"].empty()) {
       filterCombination = make_shared<string>(boost::any_cast<string>(m["FilterCombination"]));
@@ -10806,10 +11443,10 @@ public:
       }
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<int>(boost::any_cast<int>(m["StartTime"]));
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("TimeRange") != m.end() && !m["TimeRange"].empty()) {
-      timeRange = make_shared<int>(boost::any_cast<int>(m["TimeRange"]));
+      timeRange = make_shared<long>(boost::any_cast<long>(m["TimeRange"]));
     }
   }
 
@@ -12562,278 +13199,6 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue() = default;
 };
-class GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> endpoint{};
-  shared_ptr<string> instanceId{};
-  shared_ptr<string> topic{};
-
-  GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (endpoint) {
-      res["Endpoint"] = boost::any(*endpoint);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (topic) {
-      res["Topic"] = boost::any(*topic);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
-      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters() = default;
-};
-class GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> logstoreName{};
-  shared_ptr<string> projectName{};
-
-  GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (logstoreName) {
-      res["LogstoreName"] = boost::any(*logstoreName);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("LogstoreName") != m.end() && !m["LogstoreName"].empty()) {
-      logstoreName = make_shared<string>(boost::any_cast<string>(m["LogstoreName"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters() = default;
-};
-class GetEventStreamingResponseBodyDataRunOptionsLogDelivery : public Darabonba::Model {
-public:
-  shared_ptr<vector<GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters>> kafkaLogParameters{};
-  shared_ptr<vector<GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters>> SLSLogParameters{};
-
-  GetEventStreamingResponseBodyDataRunOptionsLogDelivery() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsLogDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (kafkaLogParameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*kafkaLogParameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["KafkaLogParameters"] = boost::any(temp1);
-    }
-    if (SLSLogParameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*SLSLogParameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["SLSLogParameters"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("KafkaLogParameters") != m.end() && !m["KafkaLogParameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["KafkaLogParameters"].type()) {
-        vector<GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["KafkaLogParameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        kafkaLogParameters = make_shared<vector<GetEventStreamingResponseBodyDataRunOptionsLogDeliveryKafkaLogParameters>>(expect1);
-      }
-    }
-    if (m.find("SLSLogParameters") != m.end() && !m["SLSLogParameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["SLSLogParameters"].type()) {
-        vector<GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["SLSLogParameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        SLSLogParameters = make_shared<vector<GetEventStreamingResponseBodyDataRunOptionsLogDeliverySLSLogParameters>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsLogDelivery() = default;
-};
-class GetEventStreamingResponseBodyDataRunOptionsNetwork : public Darabonba::Model {
-public:
-  shared_ptr<string> securityGroupId{};
-  shared_ptr<vector<string>> vSwitchIds{};
-  shared_ptr<string> vpcId{};
-
-  GetEventStreamingResponseBodyDataRunOptionsNetwork() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (securityGroupId) {
-      res["SecurityGroupId"] = boost::any(*securityGroupId);
-    }
-    if (vSwitchIds) {
-      res["VSwitchIds"] = boost::any(*vSwitchIds);
-    }
-    if (vpcId) {
-      res["VpcId"] = boost::any(*vpcId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
-      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
-    }
-    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      vSwitchIds = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
-      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsNetwork() = default;
-};
-class GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<long> value{};
-
-  GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources() = default;
-};
-class GetEventStreamingResponseBodyDataRunOptionsResourceSpec : public Darabonba::Model {
-public:
-  shared_ptr<vector<GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources>> resources{};
-
-  GetEventStreamingResponseBodyDataRunOptionsResourceSpec() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (resources) {
-      vector<boost::any> temp1;
-      for(auto item1:*resources){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Resources"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
-      if (typeid(vector<boost::any>) == m["Resources"].type()) {
-        vector<GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Resources"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        resources = make_shared<vector<GetEventStreamingResponseBodyDataRunOptionsResourceSpecResources>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsResourceSpec() = default;
-};
 class GetEventStreamingResponseBodyDataRunOptionsRetryStrategy : public Darabonba::Model {
 public:
   shared_ptr<double> maximumEventAgeInSeconds{};
@@ -12877,151 +13242,13 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataRunOptionsRetryStrategy() = default;
 };
-class GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<long> value{};
-
-  GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata() = default;
-};
-class GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers : public Darabonba::Model {
-public:
-  shared_ptr<GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata> metadata{};
-  shared_ptr<string> type{};
-
-  GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (metadata) {
-      res["Metadata"] = metadata ? boost::any(metadata->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Metadata"].type()) {
-        GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Metadata"]));
-        metadata = make_shared<GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggersMetadata>(model1);
-      }
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers() = default;
-};
-class GetEventStreamingResponseBodyDataRunOptionsScaledObject : public Darabonba::Model {
-public:
-  shared_ptr<long> maxReplicaCount{};
-  shared_ptr<long> minReplicaCount{};
-  shared_ptr<vector<GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers>> triggers{};
-
-  GetEventStreamingResponseBodyDataRunOptionsScaledObject() {}
-
-  explicit GetEventStreamingResponseBodyDataRunOptionsScaledObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (maxReplicaCount) {
-      res["MaxReplicaCount"] = boost::any(*maxReplicaCount);
-    }
-    if (minReplicaCount) {
-      res["MinReplicaCount"] = boost::any(*minReplicaCount);
-    }
-    if (triggers) {
-      vector<boost::any> temp1;
-      for(auto item1:*triggers){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Triggers"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("MaxReplicaCount") != m.end() && !m["MaxReplicaCount"].empty()) {
-      maxReplicaCount = make_shared<long>(boost::any_cast<long>(m["MaxReplicaCount"]));
-    }
-    if (m.find("MinReplicaCount") != m.end() && !m["MinReplicaCount"].empty()) {
-      minReplicaCount = make_shared<long>(boost::any_cast<long>(m["MinReplicaCount"]));
-    }
-    if (m.find("Triggers") != m.end() && !m["Triggers"].empty()) {
-      if (typeid(vector<boost::any>) == m["Triggers"].type()) {
-        vector<GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Triggers"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        triggers = make_shared<vector<GetEventStreamingResponseBodyDataRunOptionsScaledObjectTriggers>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~GetEventStreamingResponseBodyDataRunOptionsScaledObject() = default;
-};
 class GetEventStreamingResponseBodyDataRunOptions : public Darabonba::Model {
 public:
   shared_ptr<GetEventStreamingResponseBodyDataRunOptionsBatchWindow> batchWindow{};
   shared_ptr<GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> errorsTolerance{};
-  shared_ptr<GetEventStreamingResponseBodyDataRunOptionsLogDelivery> logDelivery{};
   shared_ptr<long> maximumTasks{};
-  shared_ptr<GetEventStreamingResponseBodyDataRunOptionsNetwork> network{};
-  shared_ptr<GetEventStreamingResponseBodyDataRunOptionsResourceSpec> resourceSpec{};
   shared_ptr<GetEventStreamingResponseBodyDataRunOptionsRetryStrategy> retryStrategy{};
-  shared_ptr<string> roleName{};
-  shared_ptr<GetEventStreamingResponseBodyDataRunOptionsScaledObject> scaledObject{};
 
   GetEventStreamingResponseBodyDataRunOptions() {}
 
@@ -13042,26 +13269,11 @@ public:
     if (errorsTolerance) {
       res["ErrorsTolerance"] = boost::any(*errorsTolerance);
     }
-    if (logDelivery) {
-      res["LogDelivery"] = logDelivery ? boost::any(logDelivery->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (maximumTasks) {
       res["MaximumTasks"] = boost::any(*maximumTasks);
     }
-    if (network) {
-      res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (resourceSpec) {
-      res["ResourceSpec"] = resourceSpec ? boost::any(resourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (retryStrategy) {
       res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (roleName) {
-      res["RoleName"] = boost::any(*roleName);
-    }
-    if (scaledObject) {
-      res["ScaledObject"] = scaledObject ? boost::any(scaledObject->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -13084,29 +13296,8 @@ public:
     if (m.find("ErrorsTolerance") != m.end() && !m["ErrorsTolerance"].empty()) {
       errorsTolerance = make_shared<string>(boost::any_cast<string>(m["ErrorsTolerance"]));
     }
-    if (m.find("LogDelivery") != m.end() && !m["LogDelivery"].empty()) {
-      if (typeid(map<string, boost::any>) == m["LogDelivery"].type()) {
-        GetEventStreamingResponseBodyDataRunOptionsLogDelivery model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogDelivery"]));
-        logDelivery = make_shared<GetEventStreamingResponseBodyDataRunOptionsLogDelivery>(model1);
-      }
-    }
     if (m.find("MaximumTasks") != m.end() && !m["MaximumTasks"].empty()) {
       maximumTasks = make_shared<long>(boost::any_cast<long>(m["MaximumTasks"]));
-    }
-    if (m.find("Network") != m.end() && !m["Network"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Network"].type()) {
-        GetEventStreamingResponseBodyDataRunOptionsNetwork model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
-        network = make_shared<GetEventStreamingResponseBodyDataRunOptionsNetwork>(model1);
-      }
-    }
-    if (m.find("ResourceSpec") != m.end() && !m["ResourceSpec"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ResourceSpec"].type()) {
-        GetEventStreamingResponseBodyDataRunOptionsResourceSpec model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSpec"]));
-        resourceSpec = make_shared<GetEventStreamingResponseBodyDataRunOptionsResourceSpec>(model1);
-      }
     }
     if (m.find("RetryStrategy") != m.end() && !m["RetryStrategy"].empty()) {
       if (typeid(map<string, boost::any>) == m["RetryStrategy"].type()) {
@@ -13115,20 +13306,243 @@ public:
         retryStrategy = make_shared<GetEventStreamingResponseBodyDataRunOptionsRetryStrategy>(model1);
       }
     }
-    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
-      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
-    }
-    if (m.find("ScaledObject") != m.end() && !m["ScaledObject"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ScaledObject"].type()) {
-        GetEventStreamingResponseBodyDataRunOptionsScaledObject model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScaledObject"]));
-        scaledObject = make_shared<GetEventStreamingResponseBodyDataRunOptionsScaledObject>(model1);
-      }
-    }
   }
 
 
   virtual ~GetEventStreamingResponseBodyDataRunOptions() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersTopic() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersTopic() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp> consumeTimestamp{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup> group{};
+  shared_ptr<string> instanceEndpoint{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceUsername{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersTopic> topic{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumeTimestamp) {
+      res["ConsumeTimestamp"] = consumeTimestamp ? boost::any(consumeTimestamp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (group) {
+      res["Group"] = group ? boost::any(group->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (topic) {
+      res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumeTimestamp") != m.end() && !m["ConsumeTimestamp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsumeTimestamp"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsumeTimestamp"]));
+        consumeTimestamp = make_shared<GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp>(model1);
+      }
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Group"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Group"]));
+        group = make_shared<GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup>(model1);
+      }
+    }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Topic"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersTopic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
+        topic = make_shared<GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersTopic>(model1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters() = default;
 };
 class GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParametersConnectorParameters : public Darabonba::Model {
 public:
@@ -13957,6 +14371,49 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSinkSinkFcParametersConcurrency() = default;
 };
+class GetEventStreamingResponseBodyDataSinkSinkFcParametersDataFormat : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkFcParametersDataFormat() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkFcParametersDataFormat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkFcParametersDataFormat() = default;
+};
 class GetEventStreamingResponseBodyDataSinkSinkFcParametersFunctionName : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -14133,6 +14590,7 @@ class GetEventStreamingResponseBodyDataSinkSinkFcParameters : public Darabonba::
 public:
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFcParametersBody> body{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFcParametersConcurrency> concurrency{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFcParametersDataFormat> dataFormat{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFcParametersFunctionName> functionName{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFcParametersInvocationType> invocationType{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFcParametersQualifier> qualifier{};
@@ -14153,6 +14611,9 @@ public:
     }
     if (concurrency) {
       res["Concurrency"] = concurrency ? boost::any(concurrency->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataFormat) {
+      res["DataFormat"] = dataFormat ? boost::any(dataFormat->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (functionName) {
       res["FunctionName"] = functionName ? boost::any(functionName->toMap()) : boost::any(map<string,boost::any>({}));
@@ -14182,6 +14643,13 @@ public:
         GetEventStreamingResponseBodyDataSinkSinkFcParametersConcurrency model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Concurrency"]));
         concurrency = make_shared<GetEventStreamingResponseBodyDataSinkSinkFcParametersConcurrency>(model1);
+      }
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataFormat"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkFcParametersDataFormat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataFormat"]));
+        dataFormat = make_shared<GetEventStreamingResponseBodyDataSinkSinkFcParametersDataFormat>(model1);
       }
     }
     if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
@@ -14931,6 +15399,509 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSinkSinkMNSParameters() = default;
 };
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters : public Darabonba::Model {
+public:
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody> body{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> exchange{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId> messageId{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType> networkType{};
+  shared_ptr<string> password{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties> properties{};
+  shared_ptr<string> queueName{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey> routingKey{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<string> targetType{};
+  shared_ptr<string> username{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds> vSwitchIds{};
+  shared_ptr<string> virtualHostName{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId> vpcId{};
+
+  GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (exchange) {
+      res["Exchange"] = boost::any(*exchange);
+    }
+    if (messageId) {
+      res["MessageId"] = messageId ? boost::any(messageId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (properties) {
+      res["Properties"] = properties ? boost::any(properties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (routingKey) {
+      res["RoutingKey"] = routingKey ? boost::any(routingKey->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (virtualHostName) {
+      res["VirtualHostName"] = boost::any(*virtualHostName);
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Body"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
+        body = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody>(model1);
+      }
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("Exchange") != m.end() && !m["Exchange"].empty()) {
+      exchange = make_shared<string>(boost::any_cast<string>(m["Exchange"]));
+    }
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MessageId"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MessageId"]));
+        messageId = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkType"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkType"]));
+        networkType = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType>(model1);
+      }
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Properties"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Properties"]));
+        properties = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties>(model1);
+      }
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("RoutingKey") != m.end() && !m["RoutingKey"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RoutingKey"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RoutingKey"]));
+        routingKey = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds>(model1);
+      }
+    }
+    if (m.find("VirtualHostName") != m.end() && !m["VirtualHostName"].empty()) {
+      virtualHostName = make_shared<string>(boost::any_cast<string>(m["VirtualHostName"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters() = default;
+};
 class GetEventStreamingResponseBodyDataSinkSinkRabbitMQParametersBody : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -15439,6 +16410,204 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSinkSinkRabbitMQParameters() = default;
 };
+class GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersConsumeTimestamp : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersConsumeTimestamp() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersConsumeTimestamp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersConsumeTimestamp() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersGroup() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersGroup() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTopic() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTopic() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersConsumeTimestamp> consumeTimestamp{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersGroup> group{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTopic> topic{};
+
+  GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumeTimestamp) {
+      res["ConsumeTimestamp"] = consumeTimestamp ? boost::any(consumeTimestamp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (group) {
+      res["Group"] = group ? boost::any(group->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (topic) {
+      res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumeTimestamp") != m.end() && !m["ConsumeTimestamp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsumeTimestamp"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersConsumeTimestamp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsumeTimestamp"]));
+        consumeTimestamp = make_shared<GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersConsumeTimestamp>(model1);
+      }
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Group"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Group"]));
+        group = make_shared<GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersGroup>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Topic"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTopic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
+        topic = make_shared<GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTopic>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters() = default;
+};
 class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersBody : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -15481,6 +16650,49 @@ public:
 
 
   virtual ~GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersBody() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersDeliveryOrderType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersDeliveryOrderType() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersDeliveryOrderType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersDeliveryOrderType() = default;
 };
 class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceEndpoint : public Darabonba::Model {
 public:
@@ -15869,6 +17081,49 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersSecurityGroupId() = default;
 };
+class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersShardingKey : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersShardingKey() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersShardingKey(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersShardingKey() = default;
+};
 class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTags : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -16044,6 +17299,7 @@ public:
 class GetEventStreamingResponseBodyDataSinkSinkRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersBody> body{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersDeliveryOrderType> deliveryOrderType{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceEndpoint> instanceEndpoint{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceId> instanceId{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstancePassword> instancePassword{};
@@ -16053,6 +17309,7 @@ public:
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersNetwork> network{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersProperties> properties{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersShardingKey> shardingKey{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTags> tags{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTopic> topic{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersVSwitchIds> vSwitchIds{};
@@ -16070,6 +17327,9 @@ public:
     map<string, boost::any> res;
     if (body) {
       res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryOrderType) {
+      res["DeliveryOrderType"] = deliveryOrderType ? boost::any(deliveryOrderType->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceEndpoint) {
       res["InstanceEndpoint"] = instanceEndpoint ? boost::any(instanceEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16098,6 +17358,9 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (shardingKey) {
+      res["ShardingKey"] = shardingKey ? boost::any(shardingKey->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -16119,6 +17382,13 @@ public:
         GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersBody model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
         body = make_shared<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersBody>(model1);
+      }
+    }
+    if (m.find("DeliveryOrderType") != m.end() && !m["DeliveryOrderType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryOrderType"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersDeliveryOrderType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryOrderType"]));
+        deliveryOrderType = make_shared<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersDeliveryOrderType>(model1);
       }
     }
     if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
@@ -16182,6 +17452,13 @@ public:
         GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersSecurityGroupId model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
         securityGroupId = make_shared<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("ShardingKey") != m.end() && !m["ShardingKey"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ShardingKey"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersShardingKey model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ShardingKey"]));
+        shardingKey = make_shared<GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersShardingKey>(model1);
       }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
@@ -16619,6 +17896,7 @@ public:
 };
 class GetEventStreamingResponseBodyDataSink : public Darabonba::Model {
 public:
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters> sinkApacheRocketMQCheckpointParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters> sinkCustomizedKafkaConnectorParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters> sinkDashVectorParameters{};
@@ -16627,7 +17905,9 @@ public:
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkKafkaParameters> sinkKafkaParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkMNSParameters> sinkMNSParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters> sinkOpenSourceRabbitMQParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRabbitMQParameters> sinkRabbitMQParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters> sinkRocketMQCheckpointParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkRocketMQParameters> sinkRocketMQParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkSLSParameters> sinkSLSParameters{};
 
@@ -16641,6 +17921,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (sinkApacheRocketMQCheckpointParameters) {
+      res["SinkApacheRocketMQCheckpointParameters"] = sinkApacheRocketMQCheckpointParameters ? boost::any(sinkApacheRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sinkCustomizedKafkaConnectorParameters) {
       res["SinkCustomizedKafkaConnectorParameters"] = sinkCustomizedKafkaConnectorParameters ? boost::any(sinkCustomizedKafkaConnectorParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -16665,8 +17948,14 @@ public:
     if (sinkMNSParameters) {
       res["SinkMNSParameters"] = sinkMNSParameters ? boost::any(sinkMNSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sinkOpenSourceRabbitMQParameters) {
+      res["SinkOpenSourceRabbitMQParameters"] = sinkOpenSourceRabbitMQParameters ? boost::any(sinkOpenSourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sinkRabbitMQParameters) {
       res["SinkRabbitMQParameters"] = sinkRabbitMQParameters ? boost::any(sinkRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkRocketMQCheckpointParameters) {
+      res["SinkRocketMQCheckpointParameters"] = sinkRocketMQCheckpointParameters ? boost::any(sinkRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkRocketMQParameters) {
       res["SinkRocketMQParameters"] = sinkRocketMQParameters ? boost::any(sinkRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16678,6 +17967,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SinkApacheRocketMQCheckpointParameters") != m.end() && !m["SinkApacheRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkApacheRocketMQCheckpointParameters"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkApacheRocketMQCheckpointParameters"]));
+        sinkApacheRocketMQCheckpointParameters = make_shared<GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters>(model1);
+      }
+    }
     if (m.find("SinkCustomizedKafkaConnectorParameters") != m.end() && !m["SinkCustomizedKafkaConnectorParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkCustomizedKafkaConnectorParameters"].type()) {
         GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters model1;
@@ -16734,11 +18030,25 @@ public:
         sinkMNSParameters = make_shared<GetEventStreamingResponseBodyDataSinkSinkMNSParameters>(model1);
       }
     }
+    if (m.find("SinkOpenSourceRabbitMQParameters") != m.end() && !m["SinkOpenSourceRabbitMQParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkOpenSourceRabbitMQParameters"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkOpenSourceRabbitMQParameters"]));
+        sinkOpenSourceRabbitMQParameters = make_shared<GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters>(model1);
+      }
+    }
     if (m.find("SinkRabbitMQParameters") != m.end() && !m["SinkRabbitMQParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkRabbitMQParameters"].type()) {
         GetEventStreamingResponseBodyDataSinkSinkRabbitMQParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkRabbitMQParameters"]));
         sinkRabbitMQParameters = make_shared<GetEventStreamingResponseBodyDataSinkSinkRabbitMQParameters>(model1);
+      }
+    }
+    if (m.find("SinkRocketMQCheckpointParameters") != m.end() && !m["SinkRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkRocketMQCheckpointParameters"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkRocketMQCheckpointParameters"]));
+        sinkRocketMQCheckpointParameters = make_shared<GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SinkRocketMQParameters") != m.end() && !m["SinkRocketMQParameters"].empty()) {
@@ -16760,25 +18070,22 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSink() = default;
 };
-class GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters : public Darabonba::Model {
+class GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters : public Darabonba::Model {
 public:
-  shared_ptr<string> bootstraps{};
-  shared_ptr<string> consumerGroup{};
+  shared_ptr<string> instanceEndpoint{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceUsername{};
   shared_ptr<string> networkType{};
-  shared_ptr<string> offsetReset{};
-  shared_ptr<string> saslMechanism{};
-  shared_ptr<string> saslPassword{};
-  shared_ptr<string> saslUser{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> securityGroupId{};
-  shared_ptr<string> securityProtocol{};
-  shared_ptr<string> topic{};
-  shared_ptr<string> vSwitchIds{};
-  shared_ptr<string> valueDataType{};
+  shared_ptr<vector<string>> topics{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
 
-  GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters() {}
+  GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters() {}
 
-  explicit GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -16786,41 +18093,32 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (bootstraps) {
-      res["Bootstraps"] = boost::any(*bootstraps);
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
     }
-    if (consumerGroup) {
-      res["ConsumerGroup"] = boost::any(*consumerGroup);
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
     }
     if (networkType) {
       res["NetworkType"] = boost::any(*networkType);
     }
-    if (offsetReset) {
-      res["OffsetReset"] = boost::any(*offsetReset);
-    }
-    if (saslMechanism) {
-      res["SaslMechanism"] = boost::any(*saslMechanism);
-    }
-    if (saslPassword) {
-      res["SaslPassword"] = boost::any(*saslPassword);
-    }
-    if (saslUser) {
-      res["SaslUser"] = boost::any(*saslUser);
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
-    if (securityProtocol) {
-      res["SecurityProtocol"] = boost::any(*securityProtocol);
+    if (topics) {
+      res["Topics"] = boost::any(*topics);
     }
-    if (topic) {
-      res["Topic"] = boost::any(*topic);
-    }
-    if (vSwitchIds) {
-      res["VSwitchIds"] = boost::any(*vSwitchIds);
-    }
-    if (valueDataType) {
-      res["ValueDataType"] = boost::any(*valueDataType);
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -16829,41 +18127,39 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Bootstraps") != m.end() && !m["Bootstraps"].empty()) {
-      bootstraps = make_shared<string>(boost::any_cast<string>(m["Bootstraps"]));
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
     }
-    if (m.find("ConsumerGroup") != m.end() && !m["ConsumerGroup"].empty()) {
-      consumerGroup = make_shared<string>(boost::any_cast<string>(m["ConsumerGroup"]));
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
     }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
       networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
-    if (m.find("OffsetReset") != m.end() && !m["OffsetReset"].empty()) {
-      offsetReset = make_shared<string>(boost::any_cast<string>(m["OffsetReset"]));
-    }
-    if (m.find("SaslMechanism") != m.end() && !m["SaslMechanism"].empty()) {
-      saslMechanism = make_shared<string>(boost::any_cast<string>(m["SaslMechanism"]));
-    }
-    if (m.find("SaslPassword") != m.end() && !m["SaslPassword"].empty()) {
-      saslPassword = make_shared<string>(boost::any_cast<string>(m["SaslPassword"]));
-    }
-    if (m.find("SaslUser") != m.end() && !m["SaslUser"].empty()) {
-      saslUser = make_shared<string>(boost::any_cast<string>(m["SaslUser"]));
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
-    if (m.find("SecurityProtocol") != m.end() && !m["SecurityProtocol"].empty()) {
-      securityProtocol = make_shared<string>(boost::any_cast<string>(m["SecurityProtocol"]));
+    if (m.find("Topics") != m.end() && !m["Topics"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Topics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Topics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      topics = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
-      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
-    }
-    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
-      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
-    }
-    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
-      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -16871,7 +18167,7 @@ public:
   }
 
 
-  virtual ~GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters() = default;
+  virtual ~GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters() = default;
 };
 class GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParametersConnectorParameters : public Darabonba::Model {
 public:
@@ -17066,6 +18362,42 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSourceSourceDTSParameters() = default;
 };
+class GetEventStreamingResponseBodyDataSourceSourceEventBusParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> eventBusName{};
+  shared_ptr<string> eventRuleName{};
+
+  GetEventStreamingResponseBodyDataSourceSourceEventBusParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSourceSourceEventBusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventBusName) {
+      res["EventBusName"] = boost::any(*eventBusName);
+    }
+    if (eventRuleName) {
+      res["EventRuleName"] = boost::any(*eventRuleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBusName") != m.end() && !m["EventBusName"].empty()) {
+      eventBusName = make_shared<string>(boost::any_cast<string>(m["EventBusName"]));
+    }
+    if (m.find("EventRuleName") != m.end() && !m["EventRuleName"].empty()) {
+      eventRuleName = make_shared<string>(boost::any_cast<string>(m["EventRuleName"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSourceSourceEventBusParameters() = default;
+};
 class GetEventStreamingResponseBodyDataSourceSourceKafkaParameters : public Darabonba::Model {
 public:
   shared_ptr<string> consumerGroup{};
@@ -17251,12 +18583,170 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSourceSourceMQTTParameters() = default;
 };
+class GetEventStreamingResponseBodyDataSourceSourceOSSParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bucketName{};
+  shared_ptr<string> delimiter{};
+  shared_ptr<string> loadFormat{};
+  shared_ptr<string> loadMode{};
+  shared_ptr<string> prefix{};
+  shared_ptr<string> roleName{};
+
+  GetEventStreamingResponseBodyDataSourceSourceOSSParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSourceSourceOSSParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucketName) {
+      res["BucketName"] = boost::any(*bucketName);
+    }
+    if (delimiter) {
+      res["Delimiter"] = boost::any(*delimiter);
+    }
+    if (loadFormat) {
+      res["LoadFormat"] = boost::any(*loadFormat);
+    }
+    if (loadMode) {
+      res["LoadMode"] = boost::any(*loadMode);
+    }
+    if (prefix) {
+      res["Prefix"] = boost::any(*prefix);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BucketName") != m.end() && !m["BucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["BucketName"]));
+    }
+    if (m.find("Delimiter") != m.end() && !m["Delimiter"].empty()) {
+      delimiter = make_shared<string>(boost::any_cast<string>(m["Delimiter"]));
+    }
+    if (m.find("LoadFormat") != m.end() && !m["LoadFormat"].empty()) {
+      loadFormat = make_shared<string>(boost::any_cast<string>(m["LoadFormat"]));
+    }
+    if (m.find("LoadMode") != m.end() && !m["LoadMode"].empty()) {
+      loadMode = make_shared<string>(boost::any_cast<string>(m["LoadMode"]));
+    }
+    if (m.find("Prefix") != m.end() && !m["Prefix"].empty()) {
+      prefix = make_shared<string>(boost::any_cast<string>(m["Prefix"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSourceSourceOSSParameters() = default;
+};
+class GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bodyDataType{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> password{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> username{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> virtualHostName{};
+  shared_ptr<string> vpcId{};
+
+  GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (virtualHostName) {
+      res["VirtualHostName"] = boost::any(*virtualHostName);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VirtualHostName") != m.end() && !m["VirtualHostName"].empty()) {
+      virtualHostName = make_shared<string>(boost::any_cast<string>(m["VirtualHostName"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters() = default;
+};
 class GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> externalLabels{};
   shared_ptr<string> labels{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> roleName{};
 
   GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters() {}
 
@@ -17274,11 +18764,17 @@ public:
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
     }
+    if (externalLabels) {
+      res["ExternalLabels"] = boost::any(*externalLabels);
+    }
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
     }
     return res;
   }
@@ -17290,11 +18786,17 @@ public:
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
     }
+    if (m.find("ExternalLabels") != m.end() && !m["ExternalLabels"].empty()) {
+      externalLabels = make_shared<string>(boost::any_cast<string>(m["ExternalLabels"]));
+    }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
     }
   }
 
@@ -17350,6 +18852,63 @@ public:
 
 
   virtual ~GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters() = default;
+};
+class GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> topics{};
+
+  GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (topics) {
+      res["Topics"] = boost::any(*topics);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Topics") != m.end() && !m["Topics"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Topics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Topics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      topics = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters() = default;
 };
 class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
@@ -17593,15 +19152,19 @@ public:
 };
 class GetEventStreamingResponseBodyDataSource : public Darabonba::Model {
 public:
-  shared_ptr<GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters> sourceApacheRocketMQCheckpointParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParameters> sourceCustomizedKafkaConnectorParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaParameters> sourceCustomizedKafkaParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceDTSParameters> sourceDTSParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSourceSourceEventBusParameters> sourceEventBusParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceMNSParameters> sourceMNSParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceMQTTParameters> sourceMQTTParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSourceSourceOSSParameters> sourceOSSParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters> sourceOpenSourceRabbitMQParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters> sourcePrometheusParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters> sourceRabbitMQParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters> sourceRocketMQCheckpointParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters> sourceRocketMQParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceSLSParameters> sourceSLSParameters{};
 
@@ -17615,8 +19178,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (sourceApacheKafkaParameters) {
-      res["SourceApacheKafkaParameters"] = sourceApacheKafkaParameters ? boost::any(sourceApacheKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    if (sourceApacheRocketMQCheckpointParameters) {
+      res["SourceApacheRocketMQCheckpointParameters"] = sourceApacheRocketMQCheckpointParameters ? boost::any(sourceApacheRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceCustomizedKafkaConnectorParameters) {
       res["SourceCustomizedKafkaConnectorParameters"] = sourceCustomizedKafkaConnectorParameters ? boost::any(sourceCustomizedKafkaConnectorParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -17627,6 +19190,9 @@ public:
     if (sourceDTSParameters) {
       res["SourceDTSParameters"] = sourceDTSParameters ? boost::any(sourceDTSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sourceEventBusParameters) {
+      res["SourceEventBusParameters"] = sourceEventBusParameters ? boost::any(sourceEventBusParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceKafkaParameters) {
       res["SourceKafkaParameters"] = sourceKafkaParameters ? boost::any(sourceKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -17636,11 +19202,20 @@ public:
     if (sourceMQTTParameters) {
       res["SourceMQTTParameters"] = sourceMQTTParameters ? boost::any(sourceMQTTParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sourceOSSParameters) {
+      res["SourceOSSParameters"] = sourceOSSParameters ? boost::any(sourceOSSParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceOpenSourceRabbitMQParameters) {
+      res["SourceOpenSourceRabbitMQParameters"] = sourceOpenSourceRabbitMQParameters ? boost::any(sourceOpenSourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourcePrometheusParameters) {
       res["SourcePrometheusParameters"] = sourcePrometheusParameters ? boost::any(sourcePrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRabbitMQParameters) {
       res["SourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceRocketMQCheckpointParameters) {
+      res["SourceRocketMQCheckpointParameters"] = sourceRocketMQCheckpointParameters ? boost::any(sourceRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRocketMQParameters) {
       res["SourceRocketMQParameters"] = sourceRocketMQParameters ? boost::any(sourceRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -17652,11 +19227,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SourceApacheKafkaParameters") != m.end() && !m["SourceApacheKafkaParameters"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SourceApacheKafkaParameters"].type()) {
-        GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheKafkaParameters"]));
-        sourceApacheKafkaParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters>(model1);
+    if (m.find("SourceApacheRocketMQCheckpointParameters") != m.end() && !m["SourceApacheRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceApacheRocketMQCheckpointParameters"].type()) {
+        GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheRocketMQCheckpointParameters"]));
+        sourceApacheRocketMQCheckpointParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SourceCustomizedKafkaConnectorParameters") != m.end() && !m["SourceCustomizedKafkaConnectorParameters"].empty()) {
@@ -17680,6 +19255,13 @@ public:
         sourceDTSParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceDTSParameters>(model1);
       }
     }
+    if (m.find("SourceEventBusParameters") != m.end() && !m["SourceEventBusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceEventBusParameters"].type()) {
+        GetEventStreamingResponseBodyDataSourceSourceEventBusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceEventBusParameters"]));
+        sourceEventBusParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceEventBusParameters>(model1);
+      }
+    }
     if (m.find("SourceKafkaParameters") != m.end() && !m["SourceKafkaParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceKafkaParameters"].type()) {
         GetEventStreamingResponseBodyDataSourceSourceKafkaParameters model1;
@@ -17701,6 +19283,20 @@ public:
         sourceMQTTParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceMQTTParameters>(model1);
       }
     }
+    if (m.find("SourceOSSParameters") != m.end() && !m["SourceOSSParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceOSSParameters"].type()) {
+        GetEventStreamingResponseBodyDataSourceSourceOSSParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceOSSParameters"]));
+        sourceOSSParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceOSSParameters>(model1);
+      }
+    }
+    if (m.find("SourceOpenSourceRabbitMQParameters") != m.end() && !m["SourceOpenSourceRabbitMQParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceOpenSourceRabbitMQParameters"].type()) {
+        GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceOpenSourceRabbitMQParameters"]));
+        sourceOpenSourceRabbitMQParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters>(model1);
+      }
+    }
     if (m.find("SourcePrometheusParameters") != m.end() && !m["SourcePrometheusParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourcePrometheusParameters"].type()) {
         GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters model1;
@@ -17713,6 +19309,13 @@ public:
         GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceRabbitMQParameters"]));
         sourceRabbitMQParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters>(model1);
+      }
+    }
+    if (m.find("SourceRocketMQCheckpointParameters") != m.end() && !m["SourceRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceRocketMQCheckpointParameters"].type()) {
+        GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceRocketMQCheckpointParameters"]));
+        sourceRocketMQCheckpointParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SourceRocketMQParameters") != m.end() && !m["SourceRocketMQParameters"].empty()) {
@@ -20243,278 +21846,6 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue() = default;
 };
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> endpoint{};
-  shared_ptr<string> instanceId{};
-  shared_ptr<string> topic{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (endpoint) {
-      res["Endpoint"] = boost::any(*endpoint);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (topic) {
-      res["Topic"] = boost::any(*topic);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
-      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters() = default;
-};
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> logstoreName{};
-  shared_ptr<string> projectName{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (logstoreName) {
-      res["LogstoreName"] = boost::any(*logstoreName);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("LogstoreName") != m.end() && !m["LogstoreName"].empty()) {
-      logstoreName = make_shared<string>(boost::any_cast<string>(m["LogstoreName"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters() = default;
-};
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery : public Darabonba::Model {
-public:
-  shared_ptr<vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters>> kafkaLogParameters{};
-  shared_ptr<vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters>> SLSLogParameters{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (kafkaLogParameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*kafkaLogParameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["KafkaLogParameters"] = boost::any(temp1);
-    }
-    if (SLSLogParameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*SLSLogParameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["SLSLogParameters"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("KafkaLogParameters") != m.end() && !m["KafkaLogParameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["KafkaLogParameters"].type()) {
-        vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["KafkaLogParameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        kafkaLogParameters = make_shared<vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliveryKafkaLogParameters>>(expect1);
-      }
-    }
-    if (m.find("SLSLogParameters") != m.end() && !m["SLSLogParameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["SLSLogParameters"].type()) {
-        vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["SLSLogParameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        SLSLogParameters = make_shared<vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDeliverySLSLogParameters>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery() = default;
-};
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork : public Darabonba::Model {
-public:
-  shared_ptr<string> securityGroupId{};
-  shared_ptr<vector<string>> vSwitchIds{};
-  shared_ptr<string> vpcId{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (securityGroupId) {
-      res["SecurityGroupId"] = boost::any(*securityGroupId);
-    }
-    if (vSwitchIds) {
-      res["VSwitchIds"] = boost::any(*vSwitchIds);
-    }
-    if (vpcId) {
-      res["VpcId"] = boost::any(*vpcId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
-      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
-    }
-    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      vSwitchIds = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
-      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork() = default;
-};
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<long> value{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources() = default;
-};
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec : public Darabonba::Model {
-public:
-  shared_ptr<vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources>> resources{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (resources) {
-      vector<boost::any> temp1;
-      for(auto item1:*resources){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Resources"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
-      if (typeid(vector<boost::any>) == m["Resources"].type()) {
-        vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Resources"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        resources = make_shared<vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpecResources>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec() = default;
-};
 class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy : public Darabonba::Model {
 public:
   shared_ptr<double> maximumEventAgeInSeconds{};
@@ -20558,151 +21889,13 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy() = default;
 };
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<long> value{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata() = default;
-};
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers : public Darabonba::Model {
-public:
-  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata> metadata{};
-  shared_ptr<string> type{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (metadata) {
-      res["Metadata"] = metadata ? boost::any(metadata->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Metadata"].type()) {
-        ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Metadata"]));
-        metadata = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggersMetadata>(model1);
-      }
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers() = default;
-};
-class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject : public Darabonba::Model {
-public:
-  shared_ptr<long> maxReplicaCount{};
-  shared_ptr<long> minReplicaCount{};
-  shared_ptr<vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers>> triggers{};
-
-  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject() {}
-
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (maxReplicaCount) {
-      res["MaxReplicaCount"] = boost::any(*maxReplicaCount);
-    }
-    if (minReplicaCount) {
-      res["MinReplicaCount"] = boost::any(*minReplicaCount);
-    }
-    if (triggers) {
-      vector<boost::any> temp1;
-      for(auto item1:*triggers){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Triggers"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("MaxReplicaCount") != m.end() && !m["MaxReplicaCount"].empty()) {
-      maxReplicaCount = make_shared<long>(boost::any_cast<long>(m["MaxReplicaCount"]));
-    }
-    if (m.find("MinReplicaCount") != m.end() && !m["MinReplicaCount"].empty()) {
-      minReplicaCount = make_shared<long>(boost::any_cast<long>(m["MinReplicaCount"]));
-    }
-    if (m.find("Triggers") != m.end() && !m["Triggers"].empty()) {
-      if (typeid(vector<boost::any>) == m["Triggers"].type()) {
-        vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Triggers"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        triggers = make_shared<vector<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObjectTriggers>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject() = default;
-};
 class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions : public Darabonba::Model {
 public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow> batchWindow{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> errorsTolerance{};
-  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery> logDelivery{};
   shared_ptr<long> maximumTasks{};
-  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork> network{};
-  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec> resourceSpec{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy> retryStrategy{};
-  shared_ptr<string> roleName{};
-  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject> scaledObject{};
 
   ListEventStreamingsResponseBodyDataEventStreamingsRunOptions() {}
 
@@ -20723,26 +21916,11 @@ public:
     if (errorsTolerance) {
       res["ErrorsTolerance"] = boost::any(*errorsTolerance);
     }
-    if (logDelivery) {
-      res["LogDelivery"] = logDelivery ? boost::any(logDelivery->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (maximumTasks) {
       res["MaximumTasks"] = boost::any(*maximumTasks);
     }
-    if (network) {
-      res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (resourceSpec) {
-      res["ResourceSpec"] = resourceSpec ? boost::any(resourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (retryStrategy) {
       res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (roleName) {
-      res["RoleName"] = boost::any(*roleName);
-    }
-    if (scaledObject) {
-      res["ScaledObject"] = scaledObject ? boost::any(scaledObject->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -20765,29 +21943,8 @@ public:
     if (m.find("ErrorsTolerance") != m.end() && !m["ErrorsTolerance"].empty()) {
       errorsTolerance = make_shared<string>(boost::any_cast<string>(m["ErrorsTolerance"]));
     }
-    if (m.find("LogDelivery") != m.end() && !m["LogDelivery"].empty()) {
-      if (typeid(map<string, boost::any>) == m["LogDelivery"].type()) {
-        ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogDelivery"]));
-        logDelivery = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsLogDelivery>(model1);
-      }
-    }
     if (m.find("MaximumTasks") != m.end() && !m["MaximumTasks"].empty()) {
       maximumTasks = make_shared<long>(boost::any_cast<long>(m["MaximumTasks"]));
-    }
-    if (m.find("Network") != m.end() && !m["Network"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Network"].type()) {
-        ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
-        network = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsNetwork>(model1);
-      }
-    }
-    if (m.find("ResourceSpec") != m.end() && !m["ResourceSpec"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ResourceSpec"].type()) {
-        ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSpec"]));
-        resourceSpec = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsResourceSpec>(model1);
-      }
     }
     if (m.find("RetryStrategy") != m.end() && !m["RetryStrategy"].empty()) {
       if (typeid(map<string, boost::any>) == m["RetryStrategy"].type()) {
@@ -20796,20 +21953,243 @@ public:
         retryStrategy = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy>(model1);
       }
     }
-    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
-      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
-    }
-    if (m.find("ScaledObject") != m.end() && !m["ScaledObject"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ScaledObject"].type()) {
-        ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScaledObject"]));
-        scaledObject = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsScaledObject>(model1);
-      }
-    }
   }
 
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptions() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersGroup() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersGroup() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersTopic() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersTopic() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp> consumeTimestamp{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersGroup> group{};
+  shared_ptr<string> instanceEndpoint{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceUsername{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersTopic> topic{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumeTimestamp) {
+      res["ConsumeTimestamp"] = consumeTimestamp ? boost::any(consumeTimestamp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (group) {
+      res["Group"] = group ? boost::any(group->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (topic) {
+      res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumeTimestamp") != m.end() && !m["ConsumeTimestamp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsumeTimestamp"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsumeTimestamp"]));
+        consumeTimestamp = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp>(model1);
+      }
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Group"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Group"]));
+        group = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersGroup>(model1);
+      }
+    }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Topic"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersTopic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
+        topic = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersTopic>(model1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters() = default;
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParametersConnectorParameters : public Darabonba::Model {
 public:
@@ -21638,6 +23018,49 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersConcurrency() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersDataFormat : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersDataFormat() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersDataFormat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersDataFormat() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersFunctionName : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -21814,6 +23237,7 @@ class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters : p
 public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersBody> body{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersConcurrency> concurrency{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersDataFormat> dataFormat{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersFunctionName> functionName{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersInvocationType> invocationType{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersQualifier> qualifier{};
@@ -21834,6 +23258,9 @@ public:
     }
     if (concurrency) {
       res["Concurrency"] = concurrency ? boost::any(concurrency->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataFormat) {
+      res["DataFormat"] = dataFormat ? boost::any(dataFormat->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (functionName) {
       res["FunctionName"] = functionName ? boost::any(functionName->toMap()) : boost::any(map<string,boost::any>({}));
@@ -21863,6 +23290,13 @@ public:
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersConcurrency model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Concurrency"]));
         concurrency = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersConcurrency>(model1);
+      }
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataFormat"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersDataFormat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataFormat"]));
+        dataFormat = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersDataFormat>(model1);
       }
     }
     if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
@@ -22612,6 +24046,603 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters : public Darabonba::Model {
+public:
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody> body{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange> exchange{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId> messageId{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType> networkType{};
+  shared_ptr<string> password{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties> properties{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName> queueName{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey> routingKey{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<string> targetType{};
+  shared_ptr<string> username{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds> vSwitchIds{};
+  shared_ptr<string> virtualHostName{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId> vpcId{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (exchange) {
+      res["Exchange"] = exchange ? boost::any(exchange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (messageId) {
+      res["MessageId"] = messageId ? boost::any(messageId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (properties) {
+      res["Properties"] = properties ? boost::any(properties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (queueName) {
+      res["QueueName"] = queueName ? boost::any(queueName->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (routingKey) {
+      res["RoutingKey"] = routingKey ? boost::any(routingKey->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (virtualHostName) {
+      res["VirtualHostName"] = boost::any(*virtualHostName);
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Body"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
+        body = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody>(model1);
+      }
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("Exchange") != m.end() && !m["Exchange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Exchange"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Exchange"]));
+        exchange = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange>(model1);
+      }
+    }
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MessageId"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MessageId"]));
+        messageId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkType"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkType"]));
+        networkType = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType>(model1);
+      }
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Properties"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Properties"]));
+        properties = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties>(model1);
+      }
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QueueName"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueueName"]));
+        queueName = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName>(model1);
+      }
+    }
+    if (m.find("RoutingKey") != m.end() && !m["RoutingKey"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RoutingKey"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RoutingKey"]));
+        routingKey = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds>(model1);
+      }
+    }
+    if (m.find("VirtualHostName") != m.end() && !m["VirtualHostName"].empty()) {
+      virtualHostName = make_shared<string>(boost::any_cast<string>(m["VirtualHostName"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersBody : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -23120,6 +25151,204 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp> consumeTimestamp{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup> group{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic> topic{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumeTimestamp) {
+      res["ConsumeTimestamp"] = consumeTimestamp ? boost::any(consumeTimestamp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (group) {
+      res["Group"] = group ? boost::any(group->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (topic) {
+      res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumeTimestamp") != m.end() && !m["ConsumeTimestamp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsumeTimestamp"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsumeTimestamp"]));
+        consumeTimestamp = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp>(model1);
+      }
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Group"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Group"]));
+        group = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Topic"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
+        topic = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -23162,6 +25391,49 @@ public:
 
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersDeliveryOrderType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersDeliveryOrderType() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersDeliveryOrderType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersDeliveryOrderType() = default;
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint : public Darabonba::Model {
 public:
@@ -23550,6 +25822,49 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersShardingKey : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersShardingKey() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersShardingKey(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersShardingKey() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTags : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -23725,6 +26040,7 @@ public:
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody> body{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersDeliveryOrderType> deliveryOrderType{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint> instanceEndpoint{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId> instanceId{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword> instancePassword{};
@@ -23734,6 +26050,7 @@ public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork> network{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties> properties{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersShardingKey> shardingKey{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTags> tags{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTopic> topic{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds> vSwitchIds{};
@@ -23751,6 +26068,9 @@ public:
     map<string, boost::any> res;
     if (body) {
       res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryOrderType) {
+      res["DeliveryOrderType"] = deliveryOrderType ? boost::any(deliveryOrderType->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceEndpoint) {
       res["InstanceEndpoint"] = instanceEndpoint ? boost::any(instanceEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
@@ -23779,6 +26099,9 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (shardingKey) {
+      res["ShardingKey"] = shardingKey ? boost::any(shardingKey->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -23800,6 +26123,13 @@ public:
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
         body = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody>(model1);
+      }
+    }
+    if (m.find("DeliveryOrderType") != m.end() && !m["DeliveryOrderType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryOrderType"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersDeliveryOrderType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryOrderType"]));
+        deliveryOrderType = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersDeliveryOrderType>(model1);
       }
     }
     if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
@@ -23863,6 +26193,13 @@ public:
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
         securityGroupId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("ShardingKey") != m.end() && !m["ShardingKey"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ShardingKey"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersShardingKey model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ShardingKey"]));
+        shardingKey = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersShardingKey>(model1);
       }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
@@ -24300,6 +26637,7 @@ public:
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSink : public Darabonba::Model {
 public:
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters> sinkApacheRocketMQCheckpointParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters> sinkCustomizedKafkaConnectorParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters> sinkDashVectorParameters{};
@@ -24308,7 +26646,9 @@ public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters> sinkKafkaParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters> sinkMNSParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters> sinkOpenSourceRabbitMQParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters> sinkRabbitMQParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters> sinkRocketMQCheckpointParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParameters> sinkRocketMQParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParameters> sinkSLSParameters{};
 
@@ -24322,6 +26662,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (sinkApacheRocketMQCheckpointParameters) {
+      res["SinkApacheRocketMQCheckpointParameters"] = sinkApacheRocketMQCheckpointParameters ? boost::any(sinkApacheRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sinkCustomizedKafkaConnectorParameters) {
       res["SinkCustomizedKafkaConnectorParameters"] = sinkCustomizedKafkaConnectorParameters ? boost::any(sinkCustomizedKafkaConnectorParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -24346,8 +26689,14 @@ public:
     if (sinkMNSParameters) {
       res["SinkMNSParameters"] = sinkMNSParameters ? boost::any(sinkMNSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sinkOpenSourceRabbitMQParameters) {
+      res["SinkOpenSourceRabbitMQParameters"] = sinkOpenSourceRabbitMQParameters ? boost::any(sinkOpenSourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sinkRabbitMQParameters) {
       res["SinkRabbitMQParameters"] = sinkRabbitMQParameters ? boost::any(sinkRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkRocketMQCheckpointParameters) {
+      res["SinkRocketMQCheckpointParameters"] = sinkRocketMQCheckpointParameters ? boost::any(sinkRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkRocketMQParameters) {
       res["SinkRocketMQParameters"] = sinkRocketMQParameters ? boost::any(sinkRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -24359,6 +26708,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SinkApacheRocketMQCheckpointParameters") != m.end() && !m["SinkApacheRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkApacheRocketMQCheckpointParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkApacheRocketMQCheckpointParameters"]));
+        sinkApacheRocketMQCheckpointParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters>(model1);
+      }
+    }
     if (m.find("SinkCustomizedKafkaConnectorParameters") != m.end() && !m["SinkCustomizedKafkaConnectorParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkCustomizedKafkaConnectorParameters"].type()) {
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters model1;
@@ -24415,11 +26771,25 @@ public:
         sinkMNSParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters>(model1);
       }
     }
+    if (m.find("SinkOpenSourceRabbitMQParameters") != m.end() && !m["SinkOpenSourceRabbitMQParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkOpenSourceRabbitMQParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkOpenSourceRabbitMQParameters"]));
+        sinkOpenSourceRabbitMQParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters>(model1);
+      }
+    }
     if (m.find("SinkRabbitMQParameters") != m.end() && !m["SinkRabbitMQParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkRabbitMQParameters"].type()) {
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkRabbitMQParameters"]));
         sinkRabbitMQParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters>(model1);
+      }
+    }
+    if (m.find("SinkRocketMQCheckpointParameters") != m.end() && !m["SinkRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkRocketMQCheckpointParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkRocketMQCheckpointParameters"]));
+        sinkRocketMQCheckpointParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SinkRocketMQParameters") != m.end() && !m["SinkRocketMQParameters"].empty()) {
@@ -24441,25 +26811,21 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSink() = default;
 };
-class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters : public Darabonba::Model {
+class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters : public Darabonba::Model {
 public:
-  shared_ptr<string> bootstraps{};
-  shared_ptr<string> consumerGroup{};
+  shared_ptr<string> instanceEndpoint{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceUsername{};
   shared_ptr<string> networkType{};
-  shared_ptr<string> offsetReset{};
-  shared_ptr<string> saslMechanism{};
-  shared_ptr<string> saslPassword{};
-  shared_ptr<string> saslUser{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> securityGroupId{};
-  shared_ptr<string> securityProtocol{};
-  shared_ptr<string> topic{};
-  shared_ptr<string> vSwitchIds{};
-  shared_ptr<string> valueDataType{};
+  shared_ptr<vector<string>> topics{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
 
-  ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters() {}
+  ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters() {}
 
-  explicit ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -24467,41 +26833,29 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (bootstraps) {
-      res["Bootstraps"] = boost::any(*bootstraps);
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
     }
-    if (consumerGroup) {
-      res["ConsumerGroup"] = boost::any(*consumerGroup);
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
     }
     if (networkType) {
       res["NetworkType"] = boost::any(*networkType);
     }
-    if (offsetReset) {
-      res["OffsetReset"] = boost::any(*offsetReset);
-    }
-    if (saslMechanism) {
-      res["SaslMechanism"] = boost::any(*saslMechanism);
-    }
-    if (saslPassword) {
-      res["SaslPassword"] = boost::any(*saslPassword);
-    }
-    if (saslUser) {
-      res["SaslUser"] = boost::any(*saslUser);
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
-    if (securityProtocol) {
-      res["SecurityProtocol"] = boost::any(*securityProtocol);
+    if (topics) {
+      res["Topics"] = boost::any(*topics);
     }
-    if (topic) {
-      res["Topic"] = boost::any(*topic);
-    }
-    if (vSwitchIds) {
-      res["VSwitchIds"] = boost::any(*vSwitchIds);
-    }
-    if (valueDataType) {
-      res["ValueDataType"] = boost::any(*valueDataType);
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -24510,41 +26864,36 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Bootstraps") != m.end() && !m["Bootstraps"].empty()) {
-      bootstraps = make_shared<string>(boost::any_cast<string>(m["Bootstraps"]));
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
     }
-    if (m.find("ConsumerGroup") != m.end() && !m["ConsumerGroup"].empty()) {
-      consumerGroup = make_shared<string>(boost::any_cast<string>(m["ConsumerGroup"]));
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
     }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
       networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
-    if (m.find("OffsetReset") != m.end() && !m["OffsetReset"].empty()) {
-      offsetReset = make_shared<string>(boost::any_cast<string>(m["OffsetReset"]));
-    }
-    if (m.find("SaslMechanism") != m.end() && !m["SaslMechanism"].empty()) {
-      saslMechanism = make_shared<string>(boost::any_cast<string>(m["SaslMechanism"]));
-    }
-    if (m.find("SaslPassword") != m.end() && !m["SaslPassword"].empty()) {
-      saslPassword = make_shared<string>(boost::any_cast<string>(m["SaslPassword"]));
-    }
-    if (m.find("SaslUser") != m.end() && !m["SaslUser"].empty()) {
-      saslUser = make_shared<string>(boost::any_cast<string>(m["SaslUser"]));
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
-    if (m.find("SecurityProtocol") != m.end() && !m["SecurityProtocol"].empty()) {
-      securityProtocol = make_shared<string>(boost::any_cast<string>(m["SecurityProtocol"]));
+    if (m.find("Topics") != m.end() && !m["Topics"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Topics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Topics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      topics = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
-      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
-    }
-    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
-      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
-    }
-    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
-      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -24552,7 +26901,7 @@ public:
   }
 
 
-  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters() = default;
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters() = default;
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParametersConnectorParameters : public Darabonba::Model {
 public:
@@ -24747,6 +27096,42 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> eventBusName{};
+  shared_ptr<string> eventRuleName{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventBusName) {
+      res["EventBusName"] = boost::any(*eventBusName);
+    }
+    if (eventRuleName) {
+      res["EventRuleName"] = boost::any(*eventRuleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBusName") != m.end() && !m["EventBusName"].empty()) {
+      eventBusName = make_shared<string>(boost::any_cast<string>(m["EventBusName"]));
+    }
+    if (m.find("EventRuleName") != m.end() && !m["EventRuleName"].empty()) {
+      eventRuleName = make_shared<string>(boost::any_cast<string>(m["EventRuleName"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters : public Darabonba::Model {
 public:
   shared_ptr<string> consumerGroup{};
@@ -24932,12 +27317,170 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bucketName{};
+  shared_ptr<string> delimiter{};
+  shared_ptr<string> loadFormat{};
+  shared_ptr<string> loadMode{};
+  shared_ptr<string> prefix{};
+  shared_ptr<string> roleName{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucketName) {
+      res["BucketName"] = boost::any(*bucketName);
+    }
+    if (delimiter) {
+      res["Delimiter"] = boost::any(*delimiter);
+    }
+    if (loadFormat) {
+      res["LoadFormat"] = boost::any(*loadFormat);
+    }
+    if (loadMode) {
+      res["LoadMode"] = boost::any(*loadMode);
+    }
+    if (prefix) {
+      res["Prefix"] = boost::any(*prefix);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BucketName") != m.end() && !m["BucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["BucketName"]));
+    }
+    if (m.find("Delimiter") != m.end() && !m["Delimiter"].empty()) {
+      delimiter = make_shared<string>(boost::any_cast<string>(m["Delimiter"]));
+    }
+    if (m.find("LoadFormat") != m.end() && !m["LoadFormat"].empty()) {
+      loadFormat = make_shared<string>(boost::any_cast<string>(m["LoadFormat"]));
+    }
+    if (m.find("LoadMode") != m.end() && !m["LoadMode"].empty()) {
+      loadMode = make_shared<string>(boost::any_cast<string>(m["LoadMode"]));
+    }
+    if (m.find("Prefix") != m.end() && !m["Prefix"].empty()) {
+      prefix = make_shared<string>(boost::any_cast<string>(m["Prefix"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bodyDataType{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> password{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> username{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> virtualHostName{};
+  shared_ptr<string> vpcId{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (virtualHostName) {
+      res["VirtualHostName"] = boost::any(*virtualHostName);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VirtualHostName") != m.end() && !m["VirtualHostName"].empty()) {
+      virtualHostName = make_shared<string>(boost::any_cast<string>(m["VirtualHostName"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> externalLabels{};
   shared_ptr<string> labels{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> roleName{};
 
   ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters() {}
 
@@ -24955,11 +27498,17 @@ public:
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
     }
+    if (externalLabels) {
+      res["ExternalLabels"] = boost::any(*externalLabels);
+    }
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
     }
     return res;
   }
@@ -24971,11 +27520,17 @@ public:
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
     }
+    if (m.find("ExternalLabels") != m.end() && !m["ExternalLabels"].empty()) {
+      externalLabels = make_shared<string>(boost::any_cast<string>(m["ExternalLabels"]));
+    }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
     }
   }
 
@@ -25031,6 +27586,63 @@ public:
 
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> topics{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (topics) {
+      res["Topics"] = boost::any(*topics);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Topics") != m.end() && !m["Topics"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Topics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Topics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      topics = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters() = default;
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
@@ -25274,15 +27886,19 @@ public:
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSource : public Darabonba::Model {
 public:
-  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters> sourceApacheRocketMQCheckpointParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParameters> sourceCustomizedKafkaConnectorParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaParameters> sourceCustomizedKafkaParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters> sourceDTSParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters> sourceEventBusParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters> sourceMNSParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters> sourceMQTTParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters> sourceOSSParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters> sourceOpenSourceRabbitMQParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters> sourcePrometheusParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters> sourceRabbitMQParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters> sourceRocketMQCheckpointParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters> sourceRocketMQParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSParameters> sourceSLSParameters{};
 
@@ -25296,8 +27912,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (sourceApacheKafkaParameters) {
-      res["SourceApacheKafkaParameters"] = sourceApacheKafkaParameters ? boost::any(sourceApacheKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    if (sourceApacheRocketMQCheckpointParameters) {
+      res["SourceApacheRocketMQCheckpointParameters"] = sourceApacheRocketMQCheckpointParameters ? boost::any(sourceApacheRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceCustomizedKafkaConnectorParameters) {
       res["SourceCustomizedKafkaConnectorParameters"] = sourceCustomizedKafkaConnectorParameters ? boost::any(sourceCustomizedKafkaConnectorParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -25308,6 +27924,9 @@ public:
     if (sourceDTSParameters) {
       res["SourceDTSParameters"] = sourceDTSParameters ? boost::any(sourceDTSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sourceEventBusParameters) {
+      res["SourceEventBusParameters"] = sourceEventBusParameters ? boost::any(sourceEventBusParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceKafkaParameters) {
       res["SourceKafkaParameters"] = sourceKafkaParameters ? boost::any(sourceKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -25317,11 +27936,20 @@ public:
     if (sourceMQTTParameters) {
       res["SourceMQTTParameters"] = sourceMQTTParameters ? boost::any(sourceMQTTParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sourceOSSParameters) {
+      res["SourceOSSParameters"] = sourceOSSParameters ? boost::any(sourceOSSParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceOpenSourceRabbitMQParameters) {
+      res["SourceOpenSourceRabbitMQParameters"] = sourceOpenSourceRabbitMQParameters ? boost::any(sourceOpenSourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourcePrometheusParameters) {
       res["SourcePrometheusParameters"] = sourcePrometheusParameters ? boost::any(sourcePrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRabbitMQParameters) {
       res["SourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceRocketMQCheckpointParameters) {
+      res["SourceRocketMQCheckpointParameters"] = sourceRocketMQCheckpointParameters ? boost::any(sourceRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRocketMQParameters) {
       res["SourceRocketMQParameters"] = sourceRocketMQParameters ? boost::any(sourceRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -25333,11 +27961,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SourceApacheKafkaParameters") != m.end() && !m["SourceApacheKafkaParameters"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SourceApacheKafkaParameters"].type()) {
-        ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheKafkaParameters"]));
-        sourceApacheKafkaParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters>(model1);
+    if (m.find("SourceApacheRocketMQCheckpointParameters") != m.end() && !m["SourceApacheRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceApacheRocketMQCheckpointParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheRocketMQCheckpointParameters"]));
+        sourceApacheRocketMQCheckpointParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SourceCustomizedKafkaConnectorParameters") != m.end() && !m["SourceCustomizedKafkaConnectorParameters"].empty()) {
@@ -25361,6 +27989,13 @@ public:
         sourceDTSParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters>(model1);
       }
     }
+    if (m.find("SourceEventBusParameters") != m.end() && !m["SourceEventBusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceEventBusParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceEventBusParameters"]));
+        sourceEventBusParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters>(model1);
+      }
+    }
     if (m.find("SourceKafkaParameters") != m.end() && !m["SourceKafkaParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceKafkaParameters"].type()) {
         ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters model1;
@@ -25382,6 +28017,20 @@ public:
         sourceMQTTParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters>(model1);
       }
     }
+    if (m.find("SourceOSSParameters") != m.end() && !m["SourceOSSParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceOSSParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceOSSParameters"]));
+        sourceOSSParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters>(model1);
+      }
+    }
+    if (m.find("SourceOpenSourceRabbitMQParameters") != m.end() && !m["SourceOpenSourceRabbitMQParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceOpenSourceRabbitMQParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceOpenSourceRabbitMQParameters"]));
+        sourceOpenSourceRabbitMQParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters>(model1);
+      }
+    }
     if (m.find("SourcePrometheusParameters") != m.end() && !m["SourcePrometheusParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourcePrometheusParameters"].type()) {
         ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters model1;
@@ -25394,6 +28043,13 @@ public:
         ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceRabbitMQParameters"]));
         sourceRabbitMQParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters>(model1);
+      }
+    }
+    if (m.find("SourceRocketMQCheckpointParameters") != m.end() && !m["SourceRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceRocketMQCheckpointParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceRocketMQCheckpointParameters"]));
+        sourceRocketMQCheckpointParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SourceRocketMQParameters") != m.end() && !m["SourceRocketMQParameters"].empty()) {
@@ -26156,6 +28812,35 @@ public:
 
   virtual ~ListTargetsRequest() = default;
 };
+class ListTargetsResponseBodyDataTargetsConcurrentConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> concurrency{};
+
+  ListTargetsResponseBodyDataTargetsConcurrentConfig() {}
+
+  explicit ListTargetsResponseBodyDataTargetsConcurrentConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (concurrency) {
+      res["Concurrency"] = boost::any(*concurrency);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
+      concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
+    }
+  }
+
+
+  virtual ~ListTargetsResponseBodyDataTargetsConcurrentConfig() = default;
+};
 class ListTargetsResponseBodyDataTargetsParamList : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -26208,6 +28893,7 @@ public:
 };
 class ListTargetsResponseBodyDataTargets : public Darabonba::Model {
 public:
+  shared_ptr<ListTargetsResponseBodyDataTargetsConcurrentConfig> concurrentConfig{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> errorsTolerance{};
   shared_ptr<string> eventBusName{};
@@ -26226,6 +28912,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (concurrentConfig) {
+      res["ConcurrentConfig"] = concurrentConfig ? boost::any(concurrentConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
     }
@@ -26255,6 +28944,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConcurrentConfig") != m.end() && !m["ConcurrentConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConcurrentConfig"].type()) {
+        ListTargetsResponseBodyDataTargetsConcurrentConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConcurrentConfig"]));
+        concurrentConfig = make_shared<ListTargetsResponseBodyDataTargetsConcurrentConfig>(model1);
+      }
+    }
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
     }
@@ -27478,6 +30174,35 @@ public:
 
   virtual ~PauseEventStreamingResponse() = default;
 };
+class PutTargetsRequestTargetsConcurrentConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> concurrency{};
+
+  PutTargetsRequestTargetsConcurrentConfig() {}
+
+  explicit PutTargetsRequestTargetsConcurrentConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (concurrency) {
+      res["Concurrency"] = boost::any(*concurrency);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
+      concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
+    }
+  }
+
+
+  virtual ~PutTargetsRequestTargetsConcurrentConfig() = default;
+};
 class PutTargetsRequestTargetsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
@@ -27559,6 +30284,7 @@ public:
 };
 class PutTargetsRequestTargets : public Darabonba::Model {
 public:
+  shared_ptr<PutTargetsRequestTargetsConcurrentConfig> concurrentConfig{};
   shared_ptr<PutTargetsRequestTargetsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> errorsTolerance{};
@@ -27577,6 +30303,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (concurrentConfig) {
+      res["ConcurrentConfig"] = concurrentConfig ? boost::any(concurrentConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (deadLetterQueue) {
       res["DeadLetterQueue"] = deadLetterQueue ? boost::any(deadLetterQueue->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -27606,6 +30335,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConcurrentConfig") != m.end() && !m["ConcurrentConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConcurrentConfig"].type()) {
+        PutTargetsRequestTargetsConcurrentConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConcurrentConfig"]));
+        concurrentConfig = make_shared<PutTargetsRequestTargetsConcurrentConfig>(model1);
+      }
+    }
     if (m.find("DeadLetterQueue") != m.end() && !m["DeadLetterQueue"].empty()) {
       if (typeid(map<string, boost::any>) == m["DeadLetterQueue"].type()) {
         PutTargetsRequestTargetsDeadLetterQueue model1;
@@ -31266,278 +34002,6 @@ public:
 
   virtual ~UpdateEventStreamingRequestRunOptionsDeadLetterQueue() = default;
 };
-class UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> endpoint{};
-  shared_ptr<string> instanceId{};
-  shared_ptr<string> topic{};
-
-  UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (endpoint) {
-      res["Endpoint"] = boost::any(*endpoint);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (topic) {
-      res["Topic"] = boost::any(*topic);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
-      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters() = default;
-};
-class UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> logstoreName{};
-  shared_ptr<string> projectName{};
-
-  UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (logstoreName) {
-      res["LogstoreName"] = boost::any(*logstoreName);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("LogstoreName") != m.end() && !m["LogstoreName"].empty()) {
-      logstoreName = make_shared<string>(boost::any_cast<string>(m["LogstoreName"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters() = default;
-};
-class UpdateEventStreamingRequestRunOptionsLogDelivery : public Darabonba::Model {
-public:
-  shared_ptr<vector<UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters>> kafkaLogParameters{};
-  shared_ptr<vector<UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters>> SLSLogParameters{};
-
-  UpdateEventStreamingRequestRunOptionsLogDelivery() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsLogDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (kafkaLogParameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*kafkaLogParameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["KafkaLogParameters"] = boost::any(temp1);
-    }
-    if (SLSLogParameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*SLSLogParameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["SLSLogParameters"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("KafkaLogParameters") != m.end() && !m["KafkaLogParameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["KafkaLogParameters"].type()) {
-        vector<UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["KafkaLogParameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        kafkaLogParameters = make_shared<vector<UpdateEventStreamingRequestRunOptionsLogDeliveryKafkaLogParameters>>(expect1);
-      }
-    }
-    if (m.find("SLSLogParameters") != m.end() && !m["SLSLogParameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["SLSLogParameters"].type()) {
-        vector<UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["SLSLogParameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        SLSLogParameters = make_shared<vector<UpdateEventStreamingRequestRunOptionsLogDeliverySLSLogParameters>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsLogDelivery() = default;
-};
-class UpdateEventStreamingRequestRunOptionsNetwork : public Darabonba::Model {
-public:
-  shared_ptr<string> securityGroupId{};
-  shared_ptr<vector<string>> vSwitchIds{};
-  shared_ptr<string> vpcId{};
-
-  UpdateEventStreamingRequestRunOptionsNetwork() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (securityGroupId) {
-      res["SecurityGroupId"] = boost::any(*securityGroupId);
-    }
-    if (vSwitchIds) {
-      res["VSwitchIds"] = boost::any(*vSwitchIds);
-    }
-    if (vpcId) {
-      res["VpcId"] = boost::any(*vpcId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
-      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
-    }
-    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      vSwitchIds = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
-      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsNetwork() = default;
-};
-class UpdateEventStreamingRequestRunOptionsResourceSpecResources : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<long> value{};
-
-  UpdateEventStreamingRequestRunOptionsResourceSpecResources() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsResourceSpecResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsResourceSpecResources() = default;
-};
-class UpdateEventStreamingRequestRunOptionsResourceSpec : public Darabonba::Model {
-public:
-  shared_ptr<vector<UpdateEventStreamingRequestRunOptionsResourceSpecResources>> resources{};
-
-  UpdateEventStreamingRequestRunOptionsResourceSpec() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (resources) {
-      vector<boost::any> temp1;
-      for(auto item1:*resources){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Resources"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
-      if (typeid(vector<boost::any>) == m["Resources"].type()) {
-        vector<UpdateEventStreamingRequestRunOptionsResourceSpecResources> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Resources"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            UpdateEventStreamingRequestRunOptionsResourceSpecResources model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        resources = make_shared<vector<UpdateEventStreamingRequestRunOptionsResourceSpecResources>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsResourceSpec() = default;
-};
 class UpdateEventStreamingRequestRunOptionsRetryStrategy : public Darabonba::Model {
 public:
   shared_ptr<long> maximumEventAgeInSeconds{};
@@ -31581,151 +34045,13 @@ public:
 
   virtual ~UpdateEventStreamingRequestRunOptionsRetryStrategy() = default;
 };
-class UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<long> value{};
-
-  UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata() = default;
-};
-class UpdateEventStreamingRequestRunOptionsScaledObjectTriggers : public Darabonba::Model {
-public:
-  shared_ptr<UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata> metadata{};
-  shared_ptr<string> type{};
-
-  UpdateEventStreamingRequestRunOptionsScaledObjectTriggers() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsScaledObjectTriggers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (metadata) {
-      res["Metadata"] = metadata ? boost::any(metadata->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Metadata"].type()) {
-        UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Metadata"]));
-        metadata = make_shared<UpdateEventStreamingRequestRunOptionsScaledObjectTriggersMetadata>(model1);
-      }
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsScaledObjectTriggers() = default;
-};
-class UpdateEventStreamingRequestRunOptionsScaledObject : public Darabonba::Model {
-public:
-  shared_ptr<long> maxReplicaCount{};
-  shared_ptr<long> minReplicaCount{};
-  shared_ptr<vector<UpdateEventStreamingRequestRunOptionsScaledObjectTriggers>> triggers{};
-
-  UpdateEventStreamingRequestRunOptionsScaledObject() {}
-
-  explicit UpdateEventStreamingRequestRunOptionsScaledObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (maxReplicaCount) {
-      res["MaxReplicaCount"] = boost::any(*maxReplicaCount);
-    }
-    if (minReplicaCount) {
-      res["MinReplicaCount"] = boost::any(*minReplicaCount);
-    }
-    if (triggers) {
-      vector<boost::any> temp1;
-      for(auto item1:*triggers){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Triggers"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("MaxReplicaCount") != m.end() && !m["MaxReplicaCount"].empty()) {
-      maxReplicaCount = make_shared<long>(boost::any_cast<long>(m["MaxReplicaCount"]));
-    }
-    if (m.find("MinReplicaCount") != m.end() && !m["MinReplicaCount"].empty()) {
-      minReplicaCount = make_shared<long>(boost::any_cast<long>(m["MinReplicaCount"]));
-    }
-    if (m.find("Triggers") != m.end() && !m["Triggers"].empty()) {
-      if (typeid(vector<boost::any>) == m["Triggers"].type()) {
-        vector<UpdateEventStreamingRequestRunOptionsScaledObjectTriggers> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Triggers"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            UpdateEventStreamingRequestRunOptionsScaledObjectTriggers model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        triggers = make_shared<vector<UpdateEventStreamingRequestRunOptionsScaledObjectTriggers>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateEventStreamingRequestRunOptionsScaledObject() = default;
-};
 class UpdateEventStreamingRequestRunOptions : public Darabonba::Model {
 public:
   shared_ptr<UpdateEventStreamingRequestRunOptionsBatchWindow> batchWindow{};
   shared_ptr<UpdateEventStreamingRequestRunOptionsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> errorsTolerance{};
-  shared_ptr<UpdateEventStreamingRequestRunOptionsLogDelivery> logDelivery{};
   shared_ptr<long> maximumTasks{};
-  shared_ptr<UpdateEventStreamingRequestRunOptionsNetwork> network{};
-  shared_ptr<UpdateEventStreamingRequestRunOptionsResourceSpec> resourceSpec{};
   shared_ptr<UpdateEventStreamingRequestRunOptionsRetryStrategy> retryStrategy{};
-  shared_ptr<string> roleName{};
-  shared_ptr<UpdateEventStreamingRequestRunOptionsScaledObject> scaledObject{};
 
   UpdateEventStreamingRequestRunOptions() {}
 
@@ -31746,26 +34072,11 @@ public:
     if (errorsTolerance) {
       res["ErrorsTolerance"] = boost::any(*errorsTolerance);
     }
-    if (logDelivery) {
-      res["LogDelivery"] = logDelivery ? boost::any(logDelivery->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (maximumTasks) {
       res["MaximumTasks"] = boost::any(*maximumTasks);
     }
-    if (network) {
-      res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (resourceSpec) {
-      res["ResourceSpec"] = resourceSpec ? boost::any(resourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (retryStrategy) {
       res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (roleName) {
-      res["RoleName"] = boost::any(*roleName);
-    }
-    if (scaledObject) {
-      res["ScaledObject"] = scaledObject ? boost::any(scaledObject->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -31788,29 +34099,8 @@ public:
     if (m.find("ErrorsTolerance") != m.end() && !m["ErrorsTolerance"].empty()) {
       errorsTolerance = make_shared<string>(boost::any_cast<string>(m["ErrorsTolerance"]));
     }
-    if (m.find("LogDelivery") != m.end() && !m["LogDelivery"].empty()) {
-      if (typeid(map<string, boost::any>) == m["LogDelivery"].type()) {
-        UpdateEventStreamingRequestRunOptionsLogDelivery model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogDelivery"]));
-        logDelivery = make_shared<UpdateEventStreamingRequestRunOptionsLogDelivery>(model1);
-      }
-    }
     if (m.find("MaximumTasks") != m.end() && !m["MaximumTasks"].empty()) {
       maximumTasks = make_shared<long>(boost::any_cast<long>(m["MaximumTasks"]));
-    }
-    if (m.find("Network") != m.end() && !m["Network"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Network"].type()) {
-        UpdateEventStreamingRequestRunOptionsNetwork model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
-        network = make_shared<UpdateEventStreamingRequestRunOptionsNetwork>(model1);
-      }
-    }
-    if (m.find("ResourceSpec") != m.end() && !m["ResourceSpec"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ResourceSpec"].type()) {
-        UpdateEventStreamingRequestRunOptionsResourceSpec model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSpec"]));
-        resourceSpec = make_shared<UpdateEventStreamingRequestRunOptionsResourceSpec>(model1);
-      }
     }
     if (m.find("RetryStrategy") != m.end() && !m["RetryStrategy"].empty()) {
       if (typeid(map<string, boost::any>) == m["RetryStrategy"].type()) {
@@ -31819,20 +34109,243 @@ public:
         retryStrategy = make_shared<UpdateEventStreamingRequestRunOptionsRetryStrategy>(model1);
       }
     }
-    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
-      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
-    }
-    if (m.find("ScaledObject") != m.end() && !m["ScaledObject"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ScaledObject"].type()) {
-        UpdateEventStreamingRequestRunOptionsScaledObject model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScaledObject"]));
-        scaledObject = make_shared<UpdateEventStreamingRequestRunOptionsScaledObject>(model1);
-      }
-    }
   }
 
 
   virtual ~UpdateEventStreamingRequestRunOptions() = default;
+};
+class UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp() = default;
+};
+class UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup() = default;
+};
+class UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic() = default;
+};
+class UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp> consumeTimestamp{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup> group{};
+  shared_ptr<string> instanceEndpoint{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceUsername{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic> topic{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumeTimestamp) {
+      res["ConsumeTimestamp"] = consumeTimestamp ? boost::any(consumeTimestamp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (group) {
+      res["Group"] = group ? boost::any(group->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (topic) {
+      res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumeTimestamp") != m.end() && !m["ConsumeTimestamp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsumeTimestamp"].type()) {
+        UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsumeTimestamp"]));
+        consumeTimestamp = make_shared<UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp>(model1);
+      }
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Group"].type()) {
+        UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Group"]));
+        group = make_shared<UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersGroup>(model1);
+      }
+    }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Topic"].type()) {
+        UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
+        topic = make_shared<UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParametersTopic>(model1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters() = default;
 };
 class UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters : public Darabonba::Model {
 public:
@@ -32769,6 +35282,49 @@ public:
 
   virtual ~UpdateEventStreamingRequestSinkSinkFcParametersConcurrency() = default;
 };
+class UpdateEventStreamingRequestSinkSinkFcParametersDataFormat : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkFcParametersDataFormat() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkFcParametersDataFormat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkFcParametersDataFormat() = default;
+};
 class UpdateEventStreamingRequestSinkSinkFcParametersFunctionName : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -32945,6 +35501,7 @@ class UpdateEventStreamingRequestSinkSinkFcParameters : public Darabonba::Model 
 public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkFcParametersBody> body{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkFcParametersConcurrency> concurrency{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkFcParametersDataFormat> dataFormat{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkFcParametersFunctionName> functionName{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkFcParametersInvocationType> invocationType{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkFcParametersQualifier> qualifier{};
@@ -32965,6 +35522,9 @@ public:
     }
     if (concurrency) {
       res["Concurrency"] = concurrency ? boost::any(concurrency->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataFormat) {
+      res["DataFormat"] = dataFormat ? boost::any(dataFormat->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (functionName) {
       res["FunctionName"] = functionName ? boost::any(functionName->toMap()) : boost::any(map<string,boost::any>({}));
@@ -32994,6 +35554,13 @@ public:
         UpdateEventStreamingRequestSinkSinkFcParametersConcurrency model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Concurrency"]));
         concurrency = make_shared<UpdateEventStreamingRequestSinkSinkFcParametersConcurrency>(model1);
+      }
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataFormat"].type()) {
+        UpdateEventStreamingRequestSinkSinkFcParametersDataFormat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataFormat"]));
+        dataFormat = make_shared<UpdateEventStreamingRequestSinkSinkFcParametersDataFormat>(model1);
       }
     }
     if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
@@ -34813,6 +37380,204 @@ public:
 
   virtual ~UpdateEventStreamingRequestSinkSinkRabbitMQParameters() = default;
 };
+class UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp> consumeTimestamp{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup> group{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic> topic{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumeTimestamp) {
+      res["ConsumeTimestamp"] = consumeTimestamp ? boost::any(consumeTimestamp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (group) {
+      res["Group"] = group ? boost::any(group->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (topic) {
+      res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumeTimestamp") != m.end() && !m["ConsumeTimestamp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsumeTimestamp"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsumeTimestamp"]));
+        consumeTimestamp = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp>(model1);
+      }
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Group"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Group"]));
+        group = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Topic"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
+        topic = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters() = default;
+};
 class UpdateEventStreamingRequestSinkSinkRocketMQParametersBody : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -34855,6 +37620,49 @@ public:
 
 
   virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersBody() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType() = default;
 };
 class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint : public Darabonba::Model {
 public:
@@ -35243,6 +38051,49 @@ public:
 
   virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId() = default;
 };
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey() = default;
+};
 class UpdateEventStreamingRequestSinkSinkRocketMQParametersTags : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -35418,6 +38269,7 @@ public:
 class UpdateEventStreamingRequestSinkSinkRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersBody> body{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType> deliveryOrderType{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint> instanceEndpoint{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId> instanceId{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword> instancePassword{};
@@ -35427,6 +38279,7 @@ public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork> network{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties> properties{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey> shardingKey{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersTags> tags{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic> topic{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds> vSwitchIds{};
@@ -35444,6 +38297,9 @@ public:
     map<string, boost::any> res;
     if (body) {
       res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryOrderType) {
+      res["DeliveryOrderType"] = deliveryOrderType ? boost::any(deliveryOrderType->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceEndpoint) {
       res["InstanceEndpoint"] = instanceEndpoint ? boost::any(instanceEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
@@ -35472,6 +38328,9 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (shardingKey) {
+      res["ShardingKey"] = shardingKey ? boost::any(shardingKey->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -35493,6 +38352,13 @@ public:
         UpdateEventStreamingRequestSinkSinkRocketMQParametersBody model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
         body = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersBody>(model1);
+      }
+    }
+    if (m.find("DeliveryOrderType") != m.end() && !m["DeliveryOrderType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryOrderType"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryOrderType"]));
+        deliveryOrderType = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType>(model1);
       }
     }
     if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
@@ -35556,6 +38422,13 @@ public:
         UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
         securityGroupId = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("ShardingKey") != m.end() && !m["ShardingKey"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ShardingKey"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ShardingKey"]));
+        shardingKey = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey>(model1);
       }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
@@ -35633,6 +38506,92 @@ public:
 
 
   virtual ~UpdateEventStreamingRequestSinkSinkSLSParametersBody() = default;
+};
+class UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema() = default;
+};
+class UpdateEventStreamingRequestSinkSinkSLSParametersContentType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkSLSParametersContentType() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkSLSParametersContentType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkSLSParametersContentType() = default;
 };
 class UpdateEventStreamingRequestSinkSinkSLSParametersLogStore : public Darabonba::Model {
 public:
@@ -35809,6 +38768,8 @@ public:
 class UpdateEventStreamingRequestSinkSinkSLSParameters : public Darabonba::Model {
 public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkSLSParametersBody> body{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema> contentSchema{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkSLSParametersContentType> contentType{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkSLSParametersLogStore> logStore{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkSLSParametersProject> project{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkSLSParametersRoleName> roleName{};
@@ -35826,6 +38787,12 @@ public:
     map<string, boost::any> res;
     if (body) {
       res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (contentSchema) {
+      res["ContentSchema"] = contentSchema ? boost::any(contentSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (contentType) {
+      res["ContentType"] = contentType ? boost::any(contentType->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (logStore) {
       res["LogStore"] = logStore ? boost::any(logStore->toMap()) : boost::any(map<string,boost::any>({}));
@@ -35848,6 +38815,20 @@ public:
         UpdateEventStreamingRequestSinkSinkSLSParametersBody model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
         body = make_shared<UpdateEventStreamingRequestSinkSinkSLSParametersBody>(model1);
+      }
+    }
+    if (m.find("ContentSchema") != m.end() && !m["ContentSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ContentSchema"].type()) {
+        UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ContentSchema"]));
+        contentSchema = make_shared<UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema>(model1);
+      }
+    }
+    if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ContentType"].type()) {
+        UpdateEventStreamingRequestSinkSinkSLSParametersContentType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ContentType"]));
+        contentType = make_shared<UpdateEventStreamingRequestSinkSinkSLSParametersContentType>(model1);
       }
     }
     if (m.find("LogStore") != m.end() && !m["LogStore"].empty()) {
@@ -35885,6 +38866,7 @@ public:
 };
 class UpdateEventStreamingRequestSink : public Darabonba::Model {
 public:
+  shared_ptr<UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters> sinkApacheRocketMQCheckpointParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters> sinkCustomizedKafkaConnectorParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkDashVectorParameters> sinkDashVectorParameters{};
@@ -35895,6 +38877,7 @@ public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkMNSParameters> sinkMNSParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParameters> sinkPrometheusParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRabbitMQParameters> sinkRabbitMQParameters{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters> sinkRocketMQCheckpointParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParameters> sinkRocketMQParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkSLSParameters> sinkSLSParameters{};
 
@@ -35908,6 +38891,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (sinkApacheRocketMQCheckpointParameters) {
+      res["SinkApacheRocketMQCheckpointParameters"] = sinkApacheRocketMQCheckpointParameters ? boost::any(sinkApacheRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sinkCustomizedKafkaConnectorParameters) {
       res["SinkCustomizedKafkaConnectorParameters"] = sinkCustomizedKafkaConnectorParameters ? boost::any(sinkCustomizedKafkaConnectorParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -35938,6 +38924,9 @@ public:
     if (sinkRabbitMQParameters) {
       res["SinkRabbitMQParameters"] = sinkRabbitMQParameters ? boost::any(sinkRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sinkRocketMQCheckpointParameters) {
+      res["SinkRocketMQCheckpointParameters"] = sinkRocketMQCheckpointParameters ? boost::any(sinkRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sinkRocketMQParameters) {
       res["SinkRocketMQParameters"] = sinkRocketMQParameters ? boost::any(sinkRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -35948,6 +38937,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SinkApacheRocketMQCheckpointParameters") != m.end() && !m["SinkApacheRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkApacheRocketMQCheckpointParameters"].type()) {
+        UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkApacheRocketMQCheckpointParameters"]));
+        sinkApacheRocketMQCheckpointParameters = make_shared<UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters>(model1);
+      }
+    }
     if (m.find("SinkCustomizedKafkaConnectorParameters") != m.end() && !m["SinkCustomizedKafkaConnectorParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkCustomizedKafkaConnectorParameters"].type()) {
         UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters model1;
@@ -36018,6 +39014,13 @@ public:
         sinkRabbitMQParameters = make_shared<UpdateEventStreamingRequestSinkSinkRabbitMQParameters>(model1);
       }
     }
+    if (m.find("SinkRocketMQCheckpointParameters") != m.end() && !m["SinkRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkRocketMQCheckpointParameters"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkRocketMQCheckpointParameters"]));
+        sinkRocketMQCheckpointParameters = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters>(model1);
+      }
+    }
     if (m.find("SinkRocketMQParameters") != m.end() && !m["SinkRocketMQParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkRocketMQParameters"].type()) {
         UpdateEventStreamingRequestSinkSinkRocketMQParameters model1;
@@ -36037,25 +39040,21 @@ public:
 
   virtual ~UpdateEventStreamingRequestSink() = default;
 };
-class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters : public Darabonba::Model {
+class UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters : public Darabonba::Model {
 public:
-  shared_ptr<string> bootstraps{};
-  shared_ptr<string> consumerGroup{};
+  shared_ptr<string> instanceEndpoint{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceUsername{};
   shared_ptr<string> networkType{};
-  shared_ptr<string> offsetReset{};
-  shared_ptr<string> saslMechanism{};
-  shared_ptr<string> saslPassword{};
-  shared_ptr<string> saslUser{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> securityGroupId{};
-  shared_ptr<string> securityProtocol{};
-  shared_ptr<string> topic{};
-  shared_ptr<string> vSwitchIds{};
-  shared_ptr<string> valueDataType{};
+  shared_ptr<vector<string>> topics{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
 
-  UpdateEventStreamingRequestSourceSourceApacheKafkaParameters() {}
+  UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters() {}
 
-  explicit UpdateEventStreamingRequestSourceSourceApacheKafkaParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -36063,41 +39062,29 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (bootstraps) {
-      res["Bootstraps"] = boost::any(*bootstraps);
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
     }
-    if (consumerGroup) {
-      res["ConsumerGroup"] = boost::any(*consumerGroup);
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
     }
     if (networkType) {
       res["NetworkType"] = boost::any(*networkType);
     }
-    if (offsetReset) {
-      res["OffsetReset"] = boost::any(*offsetReset);
-    }
-    if (saslMechanism) {
-      res["SaslMechanism"] = boost::any(*saslMechanism);
-    }
-    if (saslPassword) {
-      res["SaslPassword"] = boost::any(*saslPassword);
-    }
-    if (saslUser) {
-      res["SaslUser"] = boost::any(*saslUser);
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
-    if (securityProtocol) {
-      res["SecurityProtocol"] = boost::any(*securityProtocol);
+    if (topics) {
+      res["Topics"] = boost::any(*topics);
     }
-    if (topic) {
-      res["Topic"] = boost::any(*topic);
-    }
-    if (vSwitchIds) {
-      res["VSwitchIds"] = boost::any(*vSwitchIds);
-    }
-    if (valueDataType) {
-      res["ValueDataType"] = boost::any(*valueDataType);
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -36106,41 +39093,36 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Bootstraps") != m.end() && !m["Bootstraps"].empty()) {
-      bootstraps = make_shared<string>(boost::any_cast<string>(m["Bootstraps"]));
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
     }
-    if (m.find("ConsumerGroup") != m.end() && !m["ConsumerGroup"].empty()) {
-      consumerGroup = make_shared<string>(boost::any_cast<string>(m["ConsumerGroup"]));
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
     }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
       networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
-    if (m.find("OffsetReset") != m.end() && !m["OffsetReset"].empty()) {
-      offsetReset = make_shared<string>(boost::any_cast<string>(m["OffsetReset"]));
-    }
-    if (m.find("SaslMechanism") != m.end() && !m["SaslMechanism"].empty()) {
-      saslMechanism = make_shared<string>(boost::any_cast<string>(m["SaslMechanism"]));
-    }
-    if (m.find("SaslPassword") != m.end() && !m["SaslPassword"].empty()) {
-      saslPassword = make_shared<string>(boost::any_cast<string>(m["SaslPassword"]));
-    }
-    if (m.find("SaslUser") != m.end() && !m["SaslUser"].empty()) {
-      saslUser = make_shared<string>(boost::any_cast<string>(m["SaslUser"]));
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
-    if (m.find("SecurityProtocol") != m.end() && !m["SecurityProtocol"].empty()) {
-      securityProtocol = make_shared<string>(boost::any_cast<string>(m["SecurityProtocol"]));
+    if (m.find("Topics") != m.end() && !m["Topics"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Topics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Topics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      topics = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
-      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
-    }
-    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
-      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
-    }
-    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
-      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -36148,7 +39130,7 @@ public:
   }
 
 
-  virtual ~UpdateEventStreamingRequestSourceSourceApacheKafkaParameters() = default;
+  virtual ~UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters() = default;
 };
 class UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters : public Darabonba::Model {
 public:
@@ -36343,6 +39325,42 @@ public:
 
   virtual ~UpdateEventStreamingRequestSourceSourceDTSParameters() = default;
 };
+class UpdateEventStreamingRequestSourceSourceEventBusParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> eventBusName{};
+  shared_ptr<string> eventRuleName{};
+
+  UpdateEventStreamingRequestSourceSourceEventBusParameters() {}
+
+  explicit UpdateEventStreamingRequestSourceSourceEventBusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventBusName) {
+      res["EventBusName"] = boost::any(*eventBusName);
+    }
+    if (eventRuleName) {
+      res["EventRuleName"] = boost::any(*eventRuleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBusName") != m.end() && !m["EventBusName"].empty()) {
+      eventBusName = make_shared<string>(boost::any_cast<string>(m["EventBusName"]));
+    }
+    if (m.find("EventRuleName") != m.end() && !m["EventRuleName"].empty()) {
+      eventRuleName = make_shared<string>(boost::any_cast<string>(m["EventRuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSourceSourceEventBusParameters() = default;
+};
 class UpdateEventStreamingRequestSourceSourceKafkaParameters : public Darabonba::Model {
 public:
   shared_ptr<string> consumerGroup{};
@@ -36480,6 +39498,7 @@ public:
 };
 class UpdateEventStreamingRequestSourceSourceMQTTParameters : public Darabonba::Model {
 public:
+  shared_ptr<string> bodyDataType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> topic{};
@@ -36494,6 +39513,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -36507,6 +39529,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -36521,12 +39546,78 @@ public:
 
   virtual ~UpdateEventStreamingRequestSourceSourceMQTTParameters() = default;
 };
+class UpdateEventStreamingRequestSourceSourceOSSParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bucketName{};
+  shared_ptr<string> delimiter{};
+  shared_ptr<string> loadFormat{};
+  shared_ptr<string> loadMode{};
+  shared_ptr<string> prefix{};
+  shared_ptr<string> roleName{};
+
+  UpdateEventStreamingRequestSourceSourceOSSParameters() {}
+
+  explicit UpdateEventStreamingRequestSourceSourceOSSParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucketName) {
+      res["BucketName"] = boost::any(*bucketName);
+    }
+    if (delimiter) {
+      res["Delimiter"] = boost::any(*delimiter);
+    }
+    if (loadFormat) {
+      res["LoadFormat"] = boost::any(*loadFormat);
+    }
+    if (loadMode) {
+      res["LoadMode"] = boost::any(*loadMode);
+    }
+    if (prefix) {
+      res["Prefix"] = boost::any(*prefix);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BucketName") != m.end() && !m["BucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["BucketName"]));
+    }
+    if (m.find("Delimiter") != m.end() && !m["Delimiter"].empty()) {
+      delimiter = make_shared<string>(boost::any_cast<string>(m["Delimiter"]));
+    }
+    if (m.find("LoadFormat") != m.end() && !m["LoadFormat"].empty()) {
+      loadFormat = make_shared<string>(boost::any_cast<string>(m["LoadFormat"]));
+    }
+    if (m.find("LoadMode") != m.end() && !m["LoadMode"].empty()) {
+      loadMode = make_shared<string>(boost::any_cast<string>(m["LoadMode"]));
+    }
+    if (m.find("Prefix") != m.end() && !m["Prefix"].empty()) {
+      prefix = make_shared<string>(boost::any_cast<string>(m["Prefix"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSourceSourceOSSParameters() = default;
+};
 class UpdateEventStreamingRequestSourceSourcePrometheusParameters : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> externalLabels{};
   shared_ptr<string> labels{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> roleName{};
 
   UpdateEventStreamingRequestSourceSourcePrometheusParameters() {}
 
@@ -36544,11 +39635,17 @@ public:
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
     }
+    if (externalLabels) {
+      res["ExternalLabels"] = boost::any(*externalLabels);
+    }
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
     }
     return res;
   }
@@ -36560,11 +39657,17 @@ public:
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
     }
+    if (m.find("ExternalLabels") != m.end() && !m["ExternalLabels"].empty()) {
+      externalLabels = make_shared<string>(boost::any_cast<string>(m["ExternalLabels"]));
+    }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
     }
   }
 
@@ -36620,6 +39723,63 @@ public:
 
 
   virtual ~UpdateEventStreamingRequestSourceSourceRabbitMQParameters() = default;
+};
+class UpdateEventStreamingRequestSourceSourceRocketMQCheckpointParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> topics{};
+
+  UpdateEventStreamingRequestSourceSourceRocketMQCheckpointParameters() {}
+
+  explicit UpdateEventStreamingRequestSourceSourceRocketMQCheckpointParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (topics) {
+      res["Topics"] = boost::any(*topics);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Topics") != m.end() && !m["Topics"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Topics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Topics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      topics = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSourceSourceRocketMQCheckpointParameters() = default;
 };
 class UpdateEventStreamingRequestSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
@@ -36835,15 +39995,18 @@ public:
 };
 class UpdateEventStreamingRequestSource : public Darabonba::Model {
 public:
-  shared_ptr<UpdateEventStreamingRequestSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters{};
+  shared_ptr<UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters> sourceApacheRocketMQCheckpointParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParameters> sourceCustomizedKafkaConnectorParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceCustomizedKafkaParameters> sourceCustomizedKafkaParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceDTSParameters> sourceDTSParameters{};
+  shared_ptr<UpdateEventStreamingRequestSourceSourceEventBusParameters> sourceEventBusParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceMNSParameters> sourceMNSParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceMQTTParameters> sourceMQTTParameters{};
+  shared_ptr<UpdateEventStreamingRequestSourceSourceOSSParameters> sourceOSSParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourcePrometheusParameters> sourcePrometheusParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceRabbitMQParameters> sourceRabbitMQParameters{};
+  shared_ptr<UpdateEventStreamingRequestSourceSourceRocketMQCheckpointParameters> sourceRocketMQCheckpointParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceRocketMQParameters> sourceRocketMQParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceSLSParameters> sourceSLSParameters{};
 
@@ -36857,8 +40020,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (sourceApacheKafkaParameters) {
-      res["SourceApacheKafkaParameters"] = sourceApacheKafkaParameters ? boost::any(sourceApacheKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    if (sourceApacheRocketMQCheckpointParameters) {
+      res["SourceApacheRocketMQCheckpointParameters"] = sourceApacheRocketMQCheckpointParameters ? boost::any(sourceApacheRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceCustomizedKafkaConnectorParameters) {
       res["SourceCustomizedKafkaConnectorParameters"] = sourceCustomizedKafkaConnectorParameters ? boost::any(sourceCustomizedKafkaConnectorParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -36869,6 +40032,9 @@ public:
     if (sourceDTSParameters) {
       res["SourceDTSParameters"] = sourceDTSParameters ? boost::any(sourceDTSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sourceEventBusParameters) {
+      res["SourceEventBusParameters"] = sourceEventBusParameters ? boost::any(sourceEventBusParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceKafkaParameters) {
       res["SourceKafkaParameters"] = sourceKafkaParameters ? boost::any(sourceKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -36878,11 +40044,17 @@ public:
     if (sourceMQTTParameters) {
       res["SourceMQTTParameters"] = sourceMQTTParameters ? boost::any(sourceMQTTParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (sourceOSSParameters) {
+      res["SourceOSSParameters"] = sourceOSSParameters ? boost::any(sourceOSSParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourcePrometheusParameters) {
       res["SourcePrometheusParameters"] = sourcePrometheusParameters ? boost::any(sourcePrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRabbitMQParameters) {
       res["SourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceRocketMQCheckpointParameters) {
+      res["SourceRocketMQCheckpointParameters"] = sourceRocketMQCheckpointParameters ? boost::any(sourceRocketMQCheckpointParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRocketMQParameters) {
       res["SourceRocketMQParameters"] = sourceRocketMQParameters ? boost::any(sourceRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -36894,11 +40066,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SourceApacheKafkaParameters") != m.end() && !m["SourceApacheKafkaParameters"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SourceApacheKafkaParameters"].type()) {
-        UpdateEventStreamingRequestSourceSourceApacheKafkaParameters model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheKafkaParameters"]));
-        sourceApacheKafkaParameters = make_shared<UpdateEventStreamingRequestSourceSourceApacheKafkaParameters>(model1);
+    if (m.find("SourceApacheRocketMQCheckpointParameters") != m.end() && !m["SourceApacheRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceApacheRocketMQCheckpointParameters"].type()) {
+        UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheRocketMQCheckpointParameters"]));
+        sourceApacheRocketMQCheckpointParameters = make_shared<UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SourceCustomizedKafkaConnectorParameters") != m.end() && !m["SourceCustomizedKafkaConnectorParameters"].empty()) {
@@ -36922,6 +40094,13 @@ public:
         sourceDTSParameters = make_shared<UpdateEventStreamingRequestSourceSourceDTSParameters>(model1);
       }
     }
+    if (m.find("SourceEventBusParameters") != m.end() && !m["SourceEventBusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceEventBusParameters"].type()) {
+        UpdateEventStreamingRequestSourceSourceEventBusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceEventBusParameters"]));
+        sourceEventBusParameters = make_shared<UpdateEventStreamingRequestSourceSourceEventBusParameters>(model1);
+      }
+    }
     if (m.find("SourceKafkaParameters") != m.end() && !m["SourceKafkaParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceKafkaParameters"].type()) {
         UpdateEventStreamingRequestSourceSourceKafkaParameters model1;
@@ -36943,6 +40122,13 @@ public:
         sourceMQTTParameters = make_shared<UpdateEventStreamingRequestSourceSourceMQTTParameters>(model1);
       }
     }
+    if (m.find("SourceOSSParameters") != m.end() && !m["SourceOSSParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceOSSParameters"].type()) {
+        UpdateEventStreamingRequestSourceSourceOSSParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceOSSParameters"]));
+        sourceOSSParameters = make_shared<UpdateEventStreamingRequestSourceSourceOSSParameters>(model1);
+      }
+    }
     if (m.find("SourcePrometheusParameters") != m.end() && !m["SourcePrometheusParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourcePrometheusParameters"].type()) {
         UpdateEventStreamingRequestSourceSourcePrometheusParameters model1;
@@ -36955,6 +40141,13 @@ public:
         UpdateEventStreamingRequestSourceSourceRabbitMQParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceRabbitMQParameters"]));
         sourceRabbitMQParameters = make_shared<UpdateEventStreamingRequestSourceSourceRabbitMQParameters>(model1);
+      }
+    }
+    if (m.find("SourceRocketMQCheckpointParameters") != m.end() && !m["SourceRocketMQCheckpointParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceRocketMQCheckpointParameters"].type()) {
+        UpdateEventStreamingRequestSourceSourceRocketMQCheckpointParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceRocketMQCheckpointParameters"]));
+        sourceRocketMQCheckpointParameters = make_shared<UpdateEventStreamingRequestSourceSourceRocketMQCheckpointParameters>(model1);
       }
     }
     if (m.find("SourceRocketMQParameters") != m.end() && !m["SourceRocketMQParameters"].empty()) {
@@ -37483,12 +40676,6 @@ public:
   DisableRuleResponse disableRule(shared_ptr<DisableRuleRequest> request);
   EnableRuleResponse enableRuleWithOptions(shared_ptr<EnableRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableRuleResponse enableRule(shared_ptr<EnableRuleRequest> request);
-  EventCenterCheckEnabledOnDefaultBusResponse eventCenterCheckEnabledOnDefaultBusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EventCenterCheckEnabledOnDefaultBusResponse eventCenterCheckEnabledOnDefaultBus();
-  EventCenterDisableOnDefaultBusResponse eventCenterDisableOnDefaultBusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EventCenterDisableOnDefaultBusResponse eventCenterDisableOnDefaultBus();
-  EventCenterEnableOnDefaultBusResponse eventCenterEnableOnDefaultBusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EventCenterEnableOnDefaultBusResponse eventCenterEnableOnDefaultBus();
   EventCenterQueryEventsResponse eventCenterQueryEventsWithOptions(shared_ptr<EventCenterQueryEventsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EventCenterQueryEventsResponse eventCenterQueryEvents(shared_ptr<EventCenterQueryEventsRequest> request);
   GetApiDestinationResponse getApiDestinationWithOptions(shared_ptr<GetApiDestinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
