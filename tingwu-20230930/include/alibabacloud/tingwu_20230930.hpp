@@ -633,6 +633,7 @@ public:
   shared_ptr<string> model{};
   shared_ptr<long> outputLevel{};
   shared_ptr<string> phraseId{};
+  shared_ptr<bool> realtimeDiarizationEnabled{};
 
   CreateTaskRequestParametersTranscription() {}
 
@@ -665,6 +666,9 @@ public:
     if (phraseId) {
       res["PhraseId"] = boost::any(*phraseId);
     }
+    if (realtimeDiarizationEnabled) {
+      res["RealtimeDiarizationEnabled"] = boost::any(*realtimeDiarizationEnabled);
+    }
     return res;
   }
 
@@ -693,6 +697,9 @@ public:
     }
     if (m.find("PhraseId") != m.end() && !m["PhraseId"].empty()) {
       phraseId = make_shared<string>(boost::any_cast<string>(m["PhraseId"]));
+    }
+    if (m.find("RealtimeDiarizationEnabled") != m.end() && !m["RealtimeDiarizationEnabled"].empty()) {
+      realtimeDiarizationEnabled = make_shared<bool>(boost::any_cast<bool>(m["RealtimeDiarizationEnabled"]));
     }
   }
 
