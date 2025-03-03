@@ -1323,7 +1323,6 @@ class DrivingDirectionResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DrivingDirectionResponseBodyData>> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   DrivingDirectionResponseBody() {}
 
@@ -1345,9 +1344,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -1367,9 +1363,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
