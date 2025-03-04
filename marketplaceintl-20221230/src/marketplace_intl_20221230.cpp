@@ -37,6 +37,45 @@ string Alibabacloud_MarketplaceIntl20221230::Client::getEndpoint(shared_ptr<stri
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+NoticeInstanceUserResponse Alibabacloud_MarketplaceIntl20221230::Client::noticeInstanceUserWithOptions(shared_ptr<NoticeInstanceUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->instanceId)) {
+    body->insert(pair<string, long>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->noticeParam)) {
+    body->insert(pair<string, string>("NoticeParam", *request->noticeParam));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->noticeType)) {
+    body->insert(pair<string, long>("NoticeType", *request->noticeType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("NoticeInstanceUser"))},
+    {"version", boost::any(string("2022-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return NoticeInstanceUserResponse(callApi(params, req, runtime));
+  }
+  else {
+    return NoticeInstanceUserResponse(execute(params, req, runtime));
+  }
+}
+
+NoticeInstanceUserResponse Alibabacloud_MarketplaceIntl20221230::Client::noticeInstanceUser(shared_ptr<NoticeInstanceUserRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return noticeInstanceUserWithOptions(request, runtime);
+}
+
 PushMeteringDataResponse Alibabacloud_MarketplaceIntl20221230::Client::pushMeteringDataWithOptions(shared_ptr<PushMeteringDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
