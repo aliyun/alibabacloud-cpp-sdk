@@ -1783,6 +1783,7 @@ public:
   shared_ptr<string> healthCheckTemplateName{};
   shared_ptr<long> healthCheckTimeout{};
   shared_ptr<long> healthyThreshold{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<CreateHealthCheckTemplateRequestTag>> tag{};
   shared_ptr<long> unhealthyThreshold{};
 
@@ -1834,6 +1835,9 @@ public:
     }
     if (healthyThreshold) {
       res["HealthyThreshold"] = boost::any(*healthyThreshold);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -1894,6 +1898,9 @@ public:
     }
     if (m.find("HealthyThreshold") != m.end() && !m["HealthyThreshold"].empty()) {
       healthyThreshold = make_shared<long>(boost::any_cast<long>(m["HealthyThreshold"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -9926,6 +9933,7 @@ public:
   shared_ptr<long> healthCheckTimeout{};
   shared_ptr<long> healthyThreshold{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<GetHealthCheckTemplateAttributeResponseBodyTags>> tags{};
   shared_ptr<long> unhealthyThreshold{};
 
@@ -9977,6 +9985,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -10037,6 +10048,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -13791,6 +13805,7 @@ public:
   shared_ptr<vector<string>> healthCheckTemplateNames{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<ListHealthCheckTemplatesRequestTag>> tag{};
 
   ListHealthCheckTemplatesRequest() {}
@@ -13814,6 +13829,9 @@ public:
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -13851,6 +13869,9 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -13920,6 +13941,7 @@ public:
   shared_ptr<string> healthCheckTemplateName{};
   shared_ptr<long> healthCheckTimeout{};
   shared_ptr<long> healthyThreshold{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags>> tags{};
   shared_ptr<long> unhealthyThreshold{};
 
@@ -13968,6 +13990,9 @@ public:
     }
     if (healthyThreshold) {
       res["HealthyThreshold"] = boost::any(*healthyThreshold);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -14025,6 +14050,9 @@ public:
     }
     if (m.find("HealthyThreshold") != m.end() && !m["HealthyThreshold"].empty()) {
       healthyThreshold = make_shared<long>(boost::any_cast<long>(m["HealthyThreshold"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {

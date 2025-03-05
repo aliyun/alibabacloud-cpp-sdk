@@ -466,6 +466,9 @@ CreateHealthCheckTemplateResponse Alibabacloud_Alb20200616::Client::createHealth
   if (!Darabonba_Util::Client::isUnset<long>(request->healthyThreshold)) {
     query->insert(pair<string, long>("HealthyThreshold", *request->healthyThreshold));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateHealthCheckTemplateRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreateHealthCheckTemplateRequestTag>>("Tag", *request->tag));
   }
@@ -2053,6 +2056,9 @@ ListHealthCheckTemplatesResponse Alibabacloud_Alb20200616::Client::listHealthChe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ListHealthCheckTemplatesRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<ListHealthCheckTemplatesRequestTag>>("Tag", *request->tag));
