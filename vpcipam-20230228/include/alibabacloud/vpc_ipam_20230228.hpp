@@ -151,6 +151,172 @@ public:
 
   virtual ~AddIpamPoolCidrResponse() = default;
 };
+class AssociateIpamResourceDiscoveryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ipamId{};
+  shared_ptr<string> ipamResourceDiscoveryId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  AssociateIpamResourceDiscoveryRequest() {}
+
+  explicit AssociateIpamResourceDiscoveryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ipamId) {
+      res["IpamId"] = boost::any(*ipamId);
+    }
+    if (ipamResourceDiscoveryId) {
+      res["IpamResourceDiscoveryId"] = boost::any(*ipamResourceDiscoveryId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IpamId") != m.end() && !m["IpamId"].empty()) {
+      ipamId = make_shared<string>(boost::any_cast<string>(m["IpamId"]));
+    }
+    if (m.find("IpamResourceDiscoveryId") != m.end() && !m["IpamResourceDiscoveryId"].empty()) {
+      ipamResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~AssociateIpamResourceDiscoveryRequest() = default;
+};
+class AssociateIpamResourceDiscoveryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AssociateIpamResourceDiscoveryResponseBody() {}
+
+  explicit AssociateIpamResourceDiscoveryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AssociateIpamResourceDiscoveryResponseBody() = default;
+};
+class AssociateIpamResourceDiscoveryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AssociateIpamResourceDiscoveryResponseBody> body{};
+
+  AssociateIpamResourceDiscoveryResponse() {}
+
+  explicit AssociateIpamResourceDiscoveryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AssociateIpamResourceDiscoveryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AssociateIpamResourceDiscoveryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AssociateIpamResourceDiscoveryResponse() = default;
+};
 class ChangeResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> newResourceGroupId{};
@@ -1069,6 +1235,257 @@ public:
 
   virtual ~CreateIpamPoolAllocationResponse() = default;
 };
+class CreateIpamResourceDiscoveryRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateIpamResourceDiscoveryRequestTag() {}
+
+  explicit CreateIpamResourceDiscoveryRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIpamResourceDiscoveryRequestTag() = default;
+};
+class CreateIpamResourceDiscoveryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ipamResourceDiscoveryDescription{};
+  shared_ptr<string> ipamResourceDiscoveryName{};
+  shared_ptr<vector<string>> operatingRegionList{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<CreateIpamResourceDiscoveryRequestTag>> tag{};
+
+  CreateIpamResourceDiscoveryRequest() {}
+
+  explicit CreateIpamResourceDiscoveryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ipamResourceDiscoveryDescription) {
+      res["IpamResourceDiscoveryDescription"] = boost::any(*ipamResourceDiscoveryDescription);
+    }
+    if (ipamResourceDiscoveryName) {
+      res["IpamResourceDiscoveryName"] = boost::any(*ipamResourceDiscoveryName);
+    }
+    if (operatingRegionList) {
+      res["OperatingRegionList"] = boost::any(*operatingRegionList);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IpamResourceDiscoveryDescription") != m.end() && !m["IpamResourceDiscoveryDescription"].empty()) {
+      ipamResourceDiscoveryDescription = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryDescription"]));
+    }
+    if (m.find("IpamResourceDiscoveryName") != m.end() && !m["IpamResourceDiscoveryName"].empty()) {
+      ipamResourceDiscoveryName = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryName"]));
+    }
+    if (m.find("OperatingRegionList") != m.end() && !m["OperatingRegionList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OperatingRegionList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OperatingRegionList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      operatingRegionList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateIpamResourceDiscoveryRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIpamResourceDiscoveryRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateIpamResourceDiscoveryRequestTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIpamResourceDiscoveryRequest() = default;
+};
+class CreateIpamResourceDiscoveryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> ipamResourceDiscoveryId{};
+  shared_ptr<string> requestId{};
+
+  CreateIpamResourceDiscoveryResponseBody() {}
+
+  explicit CreateIpamResourceDiscoveryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipamResourceDiscoveryId) {
+      res["IpamResourceDiscoveryId"] = boost::any(*ipamResourceDiscoveryId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpamResourceDiscoveryId") != m.end() && !m["IpamResourceDiscoveryId"].empty()) {
+      ipamResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateIpamResourceDiscoveryResponseBody() = default;
+};
+class CreateIpamResourceDiscoveryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateIpamResourceDiscoveryResponseBody> body{};
+
+  CreateIpamResourceDiscoveryResponse() {}
+
+  explicit CreateIpamResourceDiscoveryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateIpamResourceDiscoveryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateIpamResourceDiscoveryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIpamResourceDiscoveryResponse() = default;
+};
 class CreateIpamScopeRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -1907,6 +2324,165 @@ public:
 
   virtual ~DeleteIpamPoolCidrResponse() = default;
 };
+class DeleteIpamResourceDiscoveryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ipamResourceDiscoveryId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteIpamResourceDiscoveryRequest() {}
+
+  explicit DeleteIpamResourceDiscoveryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ipamResourceDiscoveryId) {
+      res["IpamResourceDiscoveryId"] = boost::any(*ipamResourceDiscoveryId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IpamResourceDiscoveryId") != m.end() && !m["IpamResourceDiscoveryId"].empty()) {
+      ipamResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteIpamResourceDiscoveryRequest() = default;
+};
+class DeleteIpamResourceDiscoveryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteIpamResourceDiscoveryResponseBody() {}
+
+  explicit DeleteIpamResourceDiscoveryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteIpamResourceDiscoveryResponseBody() = default;
+};
+class DeleteIpamResourceDiscoveryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteIpamResourceDiscoveryResponseBody> body{};
+
+  DeleteIpamResourceDiscoveryResponse() {}
+
+  explicit DeleteIpamResourceDiscoveryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteIpamResourceDiscoveryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteIpamResourceDiscoveryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteIpamResourceDiscoveryResponse() = default;
+};
 class DeleteIpamScopeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -2065,6 +2641,172 @@ public:
 
 
   virtual ~DeleteIpamScopeResponse() = default;
+};
+class DissociateIpamResourceDiscoveryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ipamId{};
+  shared_ptr<string> ipamResourceDiscoveryId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DissociateIpamResourceDiscoveryRequest() {}
+
+  explicit DissociateIpamResourceDiscoveryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ipamId) {
+      res["IpamId"] = boost::any(*ipamId);
+    }
+    if (ipamResourceDiscoveryId) {
+      res["IpamResourceDiscoveryId"] = boost::any(*ipamResourceDiscoveryId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IpamId") != m.end() && !m["IpamId"].empty()) {
+      ipamId = make_shared<string>(boost::any_cast<string>(m["IpamId"]));
+    }
+    if (m.find("IpamResourceDiscoveryId") != m.end() && !m["IpamResourceDiscoveryId"].empty()) {
+      ipamResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DissociateIpamResourceDiscoveryRequest() = default;
+};
+class DissociateIpamResourceDiscoveryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DissociateIpamResourceDiscoveryResponseBody() {}
+
+  explicit DissociateIpamResourceDiscoveryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DissociateIpamResourceDiscoveryResponseBody() = default;
+};
+class DissociateIpamResourceDiscoveryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DissociateIpamResourceDiscoveryResponseBody> body{};
+
+  DissociateIpamResourceDiscoveryResponse() {}
+
+  explicit DissociateIpamResourceDiscoveryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DissociateIpamResourceDiscoveryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DissociateIpamResourceDiscoveryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DissociateIpamResourceDiscoveryResponse() = default;
 };
 class GetIpamPoolAllocationRequest : public Darabonba::Model {
 public:
@@ -2273,6 +3015,151 @@ public:
 
 
   virtual ~GetIpamPoolAllocationResponse() = default;
+};
+class GetIpamPoolNextAvailableCidrRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrBlock{};
+  shared_ptr<long> cidrMask{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ipamPoolId{};
+  shared_ptr<string> regionId{};
+
+  GetIpamPoolNextAvailableCidrRequest() {}
+
+  explicit GetIpamPoolNextAvailableCidrRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrBlock) {
+      res["CidrBlock"] = boost::any(*cidrBlock);
+    }
+    if (cidrMask) {
+      res["CidrMask"] = boost::any(*cidrMask);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ipamPoolId) {
+      res["IpamPoolId"] = boost::any(*ipamPoolId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrBlock") != m.end() && !m["CidrBlock"].empty()) {
+      cidrBlock = make_shared<string>(boost::any_cast<string>(m["CidrBlock"]));
+    }
+    if (m.find("CidrMask") != m.end() && !m["CidrMask"].empty()) {
+      cidrMask = make_shared<long>(boost::any_cast<long>(m["CidrMask"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("IpamPoolId") != m.end() && !m["IpamPoolId"].empty()) {
+      ipamPoolId = make_shared<string>(boost::any_cast<string>(m["IpamPoolId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetIpamPoolNextAvailableCidrRequest() = default;
+};
+class GetIpamPoolNextAvailableCidrResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrBlock{};
+  shared_ptr<string> requestId{};
+
+  GetIpamPoolNextAvailableCidrResponseBody() {}
+
+  explicit GetIpamPoolNextAvailableCidrResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrBlock) {
+      res["CidrBlock"] = boost::any(*cidrBlock);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrBlock") != m.end() && !m["CidrBlock"].empty()) {
+      cidrBlock = make_shared<string>(boost::any_cast<string>(m["CidrBlock"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetIpamPoolNextAvailableCidrResponseBody() = default;
+};
+class GetIpamPoolNextAvailableCidrResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetIpamPoolNextAvailableCidrResponseBody> body{};
+
+  GetIpamPoolNextAvailableCidrResponse() {}
+
+  explicit GetIpamPoolNextAvailableCidrResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetIpamPoolNextAvailableCidrResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetIpamPoolNextAvailableCidrResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIpamPoolNextAvailableCidrResponse() = default;
 };
 class GetVpcIpamServiceStatusRequest : public Darabonba::Model {
 public:
@@ -4277,6 +5164,7 @@ class ListIpamResourceDiscoveriesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> ipamResourceDiscoveryIds{};
   shared_ptr<string> ipamResourceDiscoveryName{};
+  shared_ptr<bool> isShared{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> ownerAccount{};
@@ -4303,6 +5191,9 @@ public:
     }
     if (ipamResourceDiscoveryName) {
       res["IpamResourceDiscoveryName"] = boost::any(*ipamResourceDiscoveryName);
+    }
+    if (isShared) {
+      res["IsShared"] = boost::any(*isShared);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -4354,6 +5245,9 @@ public:
     }
     if (m.find("IpamResourceDiscoveryName") != m.end() && !m["IpamResourceDiscoveryName"].empty()) {
       ipamResourceDiscoveryName = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryName"]));
+    }
+    if (m.find("IsShared") != m.end() && !m["IsShared"].empty()) {
+      isShared = make_shared<bool>(boost::any_cast<bool>(m["IsShared"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -4447,6 +5341,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> shareType{};
   shared_ptr<vector<ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveriesTags>> tags{};
   shared_ptr<string> type{};
 
@@ -4486,6 +5381,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -4534,6 +5432,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -4685,6 +5586,285 @@ public:
 
 
   virtual ~ListIpamResourceDiscoveriesResponse() = default;
+};
+class ListIpamResourceDiscoveryAssociationsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ipamId{};
+  shared_ptr<string> ipamResourceDiscoveryId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ListIpamResourceDiscoveryAssociationsRequest() {}
+
+  explicit ListIpamResourceDiscoveryAssociationsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipamId) {
+      res["IpamId"] = boost::any(*ipamId);
+    }
+    if (ipamResourceDiscoveryId) {
+      res["IpamResourceDiscoveryId"] = boost::any(*ipamResourceDiscoveryId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpamId") != m.end() && !m["IpamId"].empty()) {
+      ipamId = make_shared<string>(boost::any_cast<string>(m["IpamId"]));
+    }
+    if (m.find("IpamResourceDiscoveryId") != m.end() && !m["IpamResourceDiscoveryId"].empty()) {
+      ipamResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ListIpamResourceDiscoveryAssociationsRequest() = default;
+};
+class ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations : public Darabonba::Model {
+public:
+  shared_ptr<string> ipamId{};
+  shared_ptr<string> ipamResourceDiscoveryId{};
+  shared_ptr<string> ipamResourceDiscoveryOwnerId{};
+  shared_ptr<string> ipamResourceDiscoveryStatus{};
+  shared_ptr<string> ipamResourceDiscoveryType{};
+  shared_ptr<string> status{};
+
+  ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations() {}
+
+  explicit ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipamId) {
+      res["IpamId"] = boost::any(*ipamId);
+    }
+    if (ipamResourceDiscoveryId) {
+      res["IpamResourceDiscoveryId"] = boost::any(*ipamResourceDiscoveryId);
+    }
+    if (ipamResourceDiscoveryOwnerId) {
+      res["IpamResourceDiscoveryOwnerId"] = boost::any(*ipamResourceDiscoveryOwnerId);
+    }
+    if (ipamResourceDiscoveryStatus) {
+      res["IpamResourceDiscoveryStatus"] = boost::any(*ipamResourceDiscoveryStatus);
+    }
+    if (ipamResourceDiscoveryType) {
+      res["IpamResourceDiscoveryType"] = boost::any(*ipamResourceDiscoveryType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpamId") != m.end() && !m["IpamId"].empty()) {
+      ipamId = make_shared<string>(boost::any_cast<string>(m["IpamId"]));
+    }
+    if (m.find("IpamResourceDiscoveryId") != m.end() && !m["IpamResourceDiscoveryId"].empty()) {
+      ipamResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryId"]));
+    }
+    if (m.find("IpamResourceDiscoveryOwnerId") != m.end() && !m["IpamResourceDiscoveryOwnerId"].empty()) {
+      ipamResourceDiscoveryOwnerId = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryOwnerId"]));
+    }
+    if (m.find("IpamResourceDiscoveryStatus") != m.end() && !m["IpamResourceDiscoveryStatus"].empty()) {
+      ipamResourceDiscoveryStatus = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryStatus"]));
+    }
+    if (m.find("IpamResourceDiscoveryType") != m.end() && !m["IpamResourceDiscoveryType"].empty()) {
+      ipamResourceDiscoveryType = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations() = default;
+};
+class ListIpamResourceDiscoveryAssociationsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations>> ipamResourceDiscoveryAssociations{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListIpamResourceDiscoveryAssociationsResponseBody() {}
+
+  explicit ListIpamResourceDiscoveryAssociationsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (ipamResourceDiscoveryAssociations) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipamResourceDiscoveryAssociations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpamResourceDiscoveryAssociations"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("IpamResourceDiscoveryAssociations") != m.end() && !m["IpamResourceDiscoveryAssociations"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpamResourceDiscoveryAssociations"].type()) {
+        vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpamResourceDiscoveryAssociations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipamResourceDiscoveryAssociations = make_shared<vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListIpamResourceDiscoveryAssociationsResponseBody() = default;
+};
+class ListIpamResourceDiscoveryAssociationsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListIpamResourceDiscoveryAssociationsResponseBody> body{};
+
+  ListIpamResourceDiscoveryAssociationsResponse() {}
+
+  explicit ListIpamResourceDiscoveryAssociationsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListIpamResourceDiscoveryAssociationsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListIpamResourceDiscoveryAssociationsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListIpamResourceDiscoveryAssociationsResponse() = default;
 };
 class ListIpamScopesRequestTags : public Darabonba::Model {
 public:
@@ -7043,6 +8223,207 @@ public:
 
   virtual ~UpdateIpamPoolAllocationResponse() = default;
 };
+class UpdateIpamResourceDiscoveryRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> addOperatingRegion{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ipamResourceDiscoveryDescription{};
+  shared_ptr<string> ipamResourceDiscoveryId{};
+  shared_ptr<string> ipamResourceDiscoveryName{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> removeOperatingRegion{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  UpdateIpamResourceDiscoveryRequest() {}
+
+  explicit UpdateIpamResourceDiscoveryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addOperatingRegion) {
+      res["AddOperatingRegion"] = boost::any(*addOperatingRegion);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ipamResourceDiscoveryDescription) {
+      res["IpamResourceDiscoveryDescription"] = boost::any(*ipamResourceDiscoveryDescription);
+    }
+    if (ipamResourceDiscoveryId) {
+      res["IpamResourceDiscoveryId"] = boost::any(*ipamResourceDiscoveryId);
+    }
+    if (ipamResourceDiscoveryName) {
+      res["IpamResourceDiscoveryName"] = boost::any(*ipamResourceDiscoveryName);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (removeOperatingRegion) {
+      res["RemoveOperatingRegion"] = boost::any(*removeOperatingRegion);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddOperatingRegion") != m.end() && !m["AddOperatingRegion"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AddOperatingRegion"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AddOperatingRegion"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      addOperatingRegion = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IpamResourceDiscoveryDescription") != m.end() && !m["IpamResourceDiscoveryDescription"].empty()) {
+      ipamResourceDiscoveryDescription = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryDescription"]));
+    }
+    if (m.find("IpamResourceDiscoveryId") != m.end() && !m["IpamResourceDiscoveryId"].empty()) {
+      ipamResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryId"]));
+    }
+    if (m.find("IpamResourceDiscoveryName") != m.end() && !m["IpamResourceDiscoveryName"].empty()) {
+      ipamResourceDiscoveryName = make_shared<string>(boost::any_cast<string>(m["IpamResourceDiscoveryName"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoveOperatingRegion") != m.end() && !m["RemoveOperatingRegion"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RemoveOperatingRegion"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RemoveOperatingRegion"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      removeOperatingRegion = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~UpdateIpamResourceDiscoveryRequest() = default;
+};
+class UpdateIpamResourceDiscoveryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateIpamResourceDiscoveryResponseBody() {}
+
+  explicit UpdateIpamResourceDiscoveryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateIpamResourceDiscoveryResponseBody() = default;
+};
+class UpdateIpamResourceDiscoveryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateIpamResourceDiscoveryResponseBody> body{};
+
+  UpdateIpamResourceDiscoveryResponse() {}
+
+  explicit UpdateIpamResourceDiscoveryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateIpamResourceDiscoveryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateIpamResourceDiscoveryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIpamResourceDiscoveryResponse() = default;
+};
 class UpdateIpamScopeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -7228,6 +8609,8 @@ public:
                      shared_ptr<string> endpoint);
   AddIpamPoolCidrResponse addIpamPoolCidrWithOptions(shared_ptr<AddIpamPoolCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddIpamPoolCidrResponse addIpamPoolCidr(shared_ptr<AddIpamPoolCidrRequest> request);
+  AssociateIpamResourceDiscoveryResponse associateIpamResourceDiscoveryWithOptions(shared_ptr<AssociateIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AssociateIpamResourceDiscoveryResponse associateIpamResourceDiscovery(shared_ptr<AssociateIpamResourceDiscoveryRequest> request);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CreateIpamResponse createIpamWithOptions(shared_ptr<CreateIpamRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7236,6 +8619,8 @@ public:
   CreateIpamPoolResponse createIpamPool(shared_ptr<CreateIpamPoolRequest> request);
   CreateIpamPoolAllocationResponse createIpamPoolAllocationWithOptions(shared_ptr<CreateIpamPoolAllocationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIpamPoolAllocationResponse createIpamPoolAllocation(shared_ptr<CreateIpamPoolAllocationRequest> request);
+  CreateIpamResourceDiscoveryResponse createIpamResourceDiscoveryWithOptions(shared_ptr<CreateIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateIpamResourceDiscoveryResponse createIpamResourceDiscovery(shared_ptr<CreateIpamResourceDiscoveryRequest> request);
   CreateIpamScopeResponse createIpamScopeWithOptions(shared_ptr<CreateIpamScopeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIpamScopeResponse createIpamScope(shared_ptr<CreateIpamScopeRequest> request);
   DeleteIpamResponse deleteIpamWithOptions(shared_ptr<DeleteIpamRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7246,10 +8631,16 @@ public:
   DeleteIpamPoolAllocationResponse deleteIpamPoolAllocation(shared_ptr<DeleteIpamPoolAllocationRequest> request);
   DeleteIpamPoolCidrResponse deleteIpamPoolCidrWithOptions(shared_ptr<DeleteIpamPoolCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIpamPoolCidrResponse deleteIpamPoolCidr(shared_ptr<DeleteIpamPoolCidrRequest> request);
+  DeleteIpamResourceDiscoveryResponse deleteIpamResourceDiscoveryWithOptions(shared_ptr<DeleteIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteIpamResourceDiscoveryResponse deleteIpamResourceDiscovery(shared_ptr<DeleteIpamResourceDiscoveryRequest> request);
   DeleteIpamScopeResponse deleteIpamScopeWithOptions(shared_ptr<DeleteIpamScopeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIpamScopeResponse deleteIpamScope(shared_ptr<DeleteIpamScopeRequest> request);
+  DissociateIpamResourceDiscoveryResponse dissociateIpamResourceDiscoveryWithOptions(shared_ptr<DissociateIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DissociateIpamResourceDiscoveryResponse dissociateIpamResourceDiscovery(shared_ptr<DissociateIpamResourceDiscoveryRequest> request);
   GetIpamPoolAllocationResponse getIpamPoolAllocationWithOptions(shared_ptr<GetIpamPoolAllocationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIpamPoolAllocationResponse getIpamPoolAllocation(shared_ptr<GetIpamPoolAllocationRequest> request);
+  GetIpamPoolNextAvailableCidrResponse getIpamPoolNextAvailableCidrWithOptions(shared_ptr<GetIpamPoolNextAvailableCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetIpamPoolNextAvailableCidrResponse getIpamPoolNextAvailableCidr(shared_ptr<GetIpamPoolNextAvailableCidrRequest> request);
   GetVpcIpamServiceStatusResponse getVpcIpamServiceStatusWithOptions(shared_ptr<GetVpcIpamServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVpcIpamServiceStatusResponse getVpcIpamServiceStatus(shared_ptr<GetVpcIpamServiceStatusRequest> request);
   ListIpamDiscoveredResourceResponse listIpamDiscoveredResourceWithOptions(shared_ptr<ListIpamDiscoveredResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7264,6 +8655,8 @@ public:
   ListIpamResourceCidrsResponse listIpamResourceCidrs(shared_ptr<ListIpamResourceCidrsRequest> request);
   ListIpamResourceDiscoveriesResponse listIpamResourceDiscoveriesWithOptions(shared_ptr<ListIpamResourceDiscoveriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIpamResourceDiscoveriesResponse listIpamResourceDiscoveries(shared_ptr<ListIpamResourceDiscoveriesRequest> request);
+  ListIpamResourceDiscoveryAssociationsResponse listIpamResourceDiscoveryAssociationsWithOptions(shared_ptr<ListIpamResourceDiscoveryAssociationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListIpamResourceDiscoveryAssociationsResponse listIpamResourceDiscoveryAssociations(shared_ptr<ListIpamResourceDiscoveryAssociationsRequest> request);
   ListIpamScopesResponse listIpamScopesWithOptions(shared_ptr<ListIpamScopesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIpamScopesResponse listIpamScopes(shared_ptr<ListIpamScopesRequest> request);
   ListIpamsResponse listIpamsWithOptions(shared_ptr<ListIpamsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7282,6 +8675,8 @@ public:
   UpdateIpamPoolResponse updateIpamPool(shared_ptr<UpdateIpamPoolRequest> request);
   UpdateIpamPoolAllocationResponse updateIpamPoolAllocationWithOptions(shared_ptr<UpdateIpamPoolAllocationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIpamPoolAllocationResponse updateIpamPoolAllocation(shared_ptr<UpdateIpamPoolAllocationRequest> request);
+  UpdateIpamResourceDiscoveryResponse updateIpamResourceDiscoveryWithOptions(shared_ptr<UpdateIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateIpamResourceDiscoveryResponse updateIpamResourceDiscovery(shared_ptr<UpdateIpamResourceDiscoveryRequest> request);
   UpdateIpamScopeResponse updateIpamScopeWithOptions(shared_ptr<UpdateIpamScopeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIpamScopeResponse updateIpamScope(shared_ptr<UpdateIpamScopeRequest> request);
 

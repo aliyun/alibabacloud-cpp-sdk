@@ -82,6 +82,63 @@ AddIpamPoolCidrResponse Alibabacloud_VpcIpam20230228::Client::addIpamPoolCidr(sh
   return addIpamPoolCidrWithOptions(request, runtime);
 }
 
+AssociateIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::associateIpamResourceDiscoveryWithOptions(shared_ptr<AssociateIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamId)) {
+    query->insert(pair<string, string>("IpamId", *request->ipamId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryId)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryId", *request->ipamResourceDiscoveryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AssociateIpamResourceDiscovery"))},
+    {"version", boost::any(string("2023-02-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AssociateIpamResourceDiscoveryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AssociateIpamResourceDiscoveryResponse(execute(params, req, runtime));
+  }
+}
+
+AssociateIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::associateIpamResourceDiscovery(shared_ptr<AssociateIpamResourceDiscoveryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return associateIpamResourceDiscoveryWithOptions(request, runtime);
+}
+
 ChangeResourceGroupResponse Alibabacloud_VpcIpam20230228::Client::changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -341,6 +398,72 @@ CreateIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::createIpa
 CreateIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::createIpamPoolAllocation(shared_ptr<CreateIpamPoolAllocationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createIpamPoolAllocationWithOptions(request, runtime);
+}
+
+CreateIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::createIpamResourceDiscoveryWithOptions(shared_ptr<CreateIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryDescription)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryDescription", *request->ipamResourceDiscoveryDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryName)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryName", *request->ipamResourceDiscoveryName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->operatingRegionList)) {
+    query->insert(pair<string, vector<string>>("OperatingRegionList", *request->operatingRegionList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateIpamResourceDiscoveryRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateIpamResourceDiscoveryRequestTag>>("Tag", *request->tag));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateIpamResourceDiscovery"))},
+    {"version", boost::any(string("2023-02-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateIpamResourceDiscoveryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateIpamResourceDiscoveryResponse(execute(params, req, runtime));
+  }
+}
+
+CreateIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::createIpamResourceDiscovery(shared_ptr<CreateIpamResourceDiscoveryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createIpamResourceDiscoveryWithOptions(request, runtime);
 }
 
 CreateIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::createIpamScopeWithOptions(shared_ptr<CreateIpamScopeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -607,6 +730,60 @@ DeleteIpamPoolCidrResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamPoolC
   return deleteIpamPoolCidrWithOptions(request, runtime);
 }
 
+DeleteIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamResourceDiscoveryWithOptions(shared_ptr<DeleteIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryId)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryId", *request->ipamResourceDiscoveryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteIpamResourceDiscovery"))},
+    {"version", boost::any(string("2023-02-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteIpamResourceDiscoveryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteIpamResourceDiscoveryResponse(execute(params, req, runtime));
+  }
+}
+
+DeleteIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamResourceDiscovery(shared_ptr<DeleteIpamResourceDiscoveryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteIpamResourceDiscoveryWithOptions(request, runtime);
+}
+
 DeleteIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamScopeWithOptions(shared_ptr<DeleteIpamScopeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -661,6 +838,63 @@ DeleteIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamScope(sh
   return deleteIpamScopeWithOptions(request, runtime);
 }
 
+DissociateIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::dissociateIpamResourceDiscoveryWithOptions(shared_ptr<DissociateIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamId)) {
+    query->insert(pair<string, string>("IpamId", *request->ipamId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryId)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryId", *request->ipamResourceDiscoveryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DissociateIpamResourceDiscovery"))},
+    {"version", boost::any(string("2023-02-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DissociateIpamResourceDiscoveryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DissociateIpamResourceDiscoveryResponse(execute(params, req, runtime));
+  }
+}
+
+DissociateIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::dissociateIpamResourceDiscovery(shared_ptr<DissociateIpamResourceDiscoveryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return dissociateIpamResourceDiscoveryWithOptions(request, runtime);
+}
+
 GetIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::getIpamPoolAllocationWithOptions(shared_ptr<GetIpamPoolAllocationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -689,6 +923,36 @@ GetIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::getIpamPoolA
 GetIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::getIpamPoolAllocation(shared_ptr<GetIpamPoolAllocationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getIpamPoolAllocationWithOptions(request, runtime);
+}
+
+GetIpamPoolNextAvailableCidrResponse Alibabacloud_VpcIpam20230228::Client::getIpamPoolNextAvailableCidrWithOptions(shared_ptr<GetIpamPoolNextAvailableCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetIpamPoolNextAvailableCidr"))},
+    {"version", boost::any(string("2023-02-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetIpamPoolNextAvailableCidrResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetIpamPoolNextAvailableCidrResponse(execute(params, req, runtime));
+  }
+}
+
+GetIpamPoolNextAvailableCidrResponse Alibabacloud_VpcIpam20230228::Client::getIpamPoolNextAvailableCidr(shared_ptr<GetIpamPoolNextAvailableCidrRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getIpamPoolNextAvailableCidrWithOptions(request, runtime);
 }
 
 GetVpcIpamServiceStatusResponse Alibabacloud_VpcIpam20230228::Client::getVpcIpamServiceStatusWithOptions(shared_ptr<GetVpcIpamServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1024,6 +1288,9 @@ ListIpamResourceDiscoveriesResponse Alibabacloud_VpcIpam20230228::Client::listIp
   if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryName)) {
     query->insert(pair<string, string>("IpamResourceDiscoveryName", *request->ipamResourceDiscoveryName));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isShared)) {
+    query->insert(pair<string, bool>("IsShared", *request->isShared));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -1079,6 +1346,63 @@ ListIpamResourceDiscoveriesResponse Alibabacloud_VpcIpam20230228::Client::listIp
 ListIpamResourceDiscoveriesResponse Alibabacloud_VpcIpam20230228::Client::listIpamResourceDiscoveries(shared_ptr<ListIpamResourceDiscoveriesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listIpamResourceDiscoveriesWithOptions(request, runtime);
+}
+
+ListIpamResourceDiscoveryAssociationsResponse Alibabacloud_VpcIpam20230228::Client::listIpamResourceDiscoveryAssociationsWithOptions(shared_ptr<ListIpamResourceDiscoveryAssociationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamId)) {
+    query->insert(pair<string, string>("IpamId", *request->ipamId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryId)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryId", *request->ipamResourceDiscoveryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListIpamResourceDiscoveryAssociations"))},
+    {"version", boost::any(string("2023-02-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamResourceDiscoveryAssociationsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamResourceDiscoveryAssociationsResponse(execute(params, req, runtime));
+  }
+}
+
+ListIpamResourceDiscoveryAssociationsResponse Alibabacloud_VpcIpam20230228::Client::listIpamResourceDiscoveryAssociations(shared_ptr<ListIpamResourceDiscoveryAssociationsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listIpamResourceDiscoveryAssociationsWithOptions(request, runtime);
 }
 
 ListIpamScopesResponse Alibabacloud_VpcIpam20230228::Client::listIpamScopesWithOptions(shared_ptr<ListIpamScopesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1619,6 +1943,72 @@ UpdateIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::updateIpa
 UpdateIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::updateIpamPoolAllocation(shared_ptr<UpdateIpamPoolAllocationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateIpamPoolAllocationWithOptions(request, runtime);
+}
+
+UpdateIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::updateIpamResourceDiscoveryWithOptions(shared_ptr<UpdateIpamResourceDiscoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->addOperatingRegion)) {
+    query->insert(pair<string, vector<string>>("AddOperatingRegion", *request->addOperatingRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryDescription)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryDescription", *request->ipamResourceDiscoveryDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryId)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryId", *request->ipamResourceDiscoveryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipamResourceDiscoveryName)) {
+    query->insert(pair<string, string>("IpamResourceDiscoveryName", *request->ipamResourceDiscoveryName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->removeOperatingRegion)) {
+    query->insert(pair<string, vector<string>>("RemoveOperatingRegion", *request->removeOperatingRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateIpamResourceDiscovery"))},
+    {"version", boost::any(string("2023-02-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateIpamResourceDiscoveryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateIpamResourceDiscoveryResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateIpamResourceDiscoveryResponse Alibabacloud_VpcIpam20230228::Client::updateIpamResourceDiscovery(shared_ptr<UpdateIpamResourceDiscoveryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateIpamResourceDiscoveryWithOptions(request, runtime);
 }
 
 UpdateIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::updateIpamScopeWithOptions(shared_ptr<UpdateIpamScopeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
