@@ -10291,6 +10291,7 @@ public:
   shared_ptr<string> clientVersion{};
   shared_ptr<string> clusterId{};
   shared_ptr<long> createdTime{};
+  shared_ptr<long> heartBeatTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> maxVersion{};
@@ -10331,6 +10332,9 @@ public:
     }
     if (createdTime) {
       res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (heartBeatTime) {
+      res["HeartBeatTime"] = boost::any(*heartBeatTime);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -10383,6 +10387,9 @@ public:
     }
     if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
       createdTime = make_shared<long>(boost::any_cast<long>(m["CreatedTime"]));
+    }
+    if (m.find("HeartBeatTime") != m.end() && !m["HeartBeatTime"].empty()) {
+      heartBeatTime = make_shared<long>(boost::any_cast<long>(m["HeartBeatTime"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -24168,6 +24175,7 @@ public:
   shared_ptr<string> ruleType{};
   shared_ptr<string> schedule{};
   shared_ptr<vector<UpdatePolicyV2RequestRulesTagFilters>> tagFilters{};
+  shared_ptr<string> vaultId{};
 
   UpdatePolicyV2RequestRules() {}
 
@@ -24229,6 +24237,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["TagFilters"] = boost::any(temp1);
+    }
+    if (vaultId) {
+      res["VaultId"] = boost::any(*vaultId);
     }
     return res;
   }
@@ -24302,6 +24313,9 @@ public:
         }
         tagFilters = make_shared<vector<UpdatePolicyV2RequestRulesTagFilters>>(expect1);
       }
+    }
+    if (m.find("VaultId") != m.end() && !m["VaultId"].empty()) {
+      vaultId = make_shared<string>(boost::any_cast<string>(m["VaultId"]));
     }
   }
 
