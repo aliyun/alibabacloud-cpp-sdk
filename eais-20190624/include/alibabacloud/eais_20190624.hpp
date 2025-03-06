@@ -2813,6 +2813,7 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> jupyterUrl{};
+  shared_ptr<string> paymentType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityGroupId{};
@@ -2861,6 +2862,9 @@ public:
     }
     if (jupyterUrl) {
       res["JupyterUrl"] = boost::any(*jupyterUrl);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -2919,6 +2923,9 @@ public:
     }
     if (m.find("JupyterUrl") != m.end() && !m["JupyterUrl"].empty()) {
       jupyterUrl = make_shared<string>(boost::any_cast<string>(m["JupyterUrl"]));
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
