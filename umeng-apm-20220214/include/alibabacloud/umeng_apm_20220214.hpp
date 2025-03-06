@@ -215,6 +215,208 @@ public:
 
   virtual ~DeleteSymRecordsResponse() = default;
 };
+class GetErrorMinuteStatTrendRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<long> type{};
+
+  GetErrorMinuteStatTrendRequest() {}
+
+  explicit GetErrorMinuteStatTrendRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceId) {
+      res["dataSourceId"] = boost::any(*dataSourceId);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataSourceId") != m.end() && !m["dataSourceId"].empty()) {
+      dataSourceId = make_shared<string>(boost::any_cast<string>(m["dataSourceId"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetErrorMinuteStatTrendRequest() = default;
+};
+class GetErrorMinuteStatTrendResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> errorCount{};
+  shared_ptr<long> launchCount{};
+  shared_ptr<string> timePoint{};
+
+  GetErrorMinuteStatTrendResponseBodyData() {}
+
+  explicit GetErrorMinuteStatTrendResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCount) {
+      res["errorCount"] = boost::any(*errorCount);
+    }
+    if (launchCount) {
+      res["launchCount"] = boost::any(*launchCount);
+    }
+    if (timePoint) {
+      res["timePoint"] = boost::any(*timePoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCount") != m.end() && !m["errorCount"].empty()) {
+      errorCount = make_shared<long>(boost::any_cast<long>(m["errorCount"]));
+    }
+    if (m.find("launchCount") != m.end() && !m["launchCount"].empty()) {
+      launchCount = make_shared<long>(boost::any_cast<long>(m["launchCount"]));
+    }
+    if (m.find("timePoint") != m.end() && !m["timePoint"].empty()) {
+      timePoint = make_shared<string>(boost::any_cast<string>(m["timePoint"]));
+    }
+  }
+
+
+  virtual ~GetErrorMinuteStatTrendResponseBodyData() = default;
+};
+class GetErrorMinuteStatTrendResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<vector<GetErrorMinuteStatTrendResponseBodyData>> data{};
+  shared_ptr<string> msg{};
+  shared_ptr<bool> success{};
+
+  GetErrorMinuteStatTrendResponseBody() {}
+
+  explicit GetErrorMinuteStatTrendResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (msg) {
+      res["msg"] = boost::any(*msg);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<GetErrorMinuteStatTrendResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetErrorMinuteStatTrendResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetErrorMinuteStatTrendResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("msg") != m.end() && !m["msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["msg"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetErrorMinuteStatTrendResponseBody() = default;
+};
+class GetErrorMinuteStatTrendResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetErrorMinuteStatTrendResponseBody> body{};
+
+  GetErrorMinuteStatTrendResponse() {}
+
+  explicit GetErrorMinuteStatTrendResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetErrorMinuteStatTrendResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetErrorMinuteStatTrendResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetErrorMinuteStatTrendResponse() = default;
+};
 class GetH5PageTrendRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appVersion{};
@@ -1037,6 +1239,201 @@ public:
 
 
   virtual ~GetNativePageTrendResponse() = default;
+};
+class GetNetworkMinuteTrendRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceId{};
+  shared_ptr<string> startTime{};
+
+  GetNetworkMinuteTrendRequest() {}
+
+  explicit GetNetworkMinuteTrendRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceId) {
+      res["dataSourceId"] = boost::any(*dataSourceId);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataSourceId") != m.end() && !m["dataSourceId"].empty()) {
+      dataSourceId = make_shared<string>(boost::any_cast<string>(m["dataSourceId"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~GetNetworkMinuteTrendRequest() = default;
+};
+class GetNetworkMinuteTrendResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> errorCount{};
+  shared_ptr<long> requestCount{};
+  shared_ptr<string> timePoint{};
+
+  GetNetworkMinuteTrendResponseBodyData() {}
+
+  explicit GetNetworkMinuteTrendResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCount) {
+      res["errorCount"] = boost::any(*errorCount);
+    }
+    if (requestCount) {
+      res["requestCount"] = boost::any(*requestCount);
+    }
+    if (timePoint) {
+      res["timePoint"] = boost::any(*timePoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCount") != m.end() && !m["errorCount"].empty()) {
+      errorCount = make_shared<long>(boost::any_cast<long>(m["errorCount"]));
+    }
+    if (m.find("requestCount") != m.end() && !m["requestCount"].empty()) {
+      requestCount = make_shared<long>(boost::any_cast<long>(m["requestCount"]));
+    }
+    if (m.find("timePoint") != m.end() && !m["timePoint"].empty()) {
+      timePoint = make_shared<string>(boost::any_cast<string>(m["timePoint"]));
+    }
+  }
+
+
+  virtual ~GetNetworkMinuteTrendResponseBodyData() = default;
+};
+class GetNetworkMinuteTrendResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<vector<GetNetworkMinuteTrendResponseBodyData>> data{};
+  shared_ptr<string> msg{};
+  shared_ptr<bool> success{};
+
+  GetNetworkMinuteTrendResponseBody() {}
+
+  explicit GetNetworkMinuteTrendResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (msg) {
+      res["msg"] = boost::any(*msg);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<GetNetworkMinuteTrendResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetNetworkMinuteTrendResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetNetworkMinuteTrendResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("msg") != m.end() && !m["msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["msg"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetNetworkMinuteTrendResponseBody() = default;
+};
+class GetNetworkMinuteTrendResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetNetworkMinuteTrendResponseBody> body{};
+
+  GetNetworkMinuteTrendResponse() {}
+
+  explicit GetNetworkMinuteTrendResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetNetworkMinuteTrendResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetNetworkMinuteTrendResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetNetworkMinuteTrendResponse() = default;
 };
 class GetNetworkTrendRequest : public Darabonba::Model {
 public:
@@ -2335,12 +2732,16 @@ public:
                      shared_ptr<string> endpoint);
   DeleteSymRecordsResponse deleteSymRecordsWithOptions(shared_ptr<DeleteSymRecordsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSymRecordsResponse deleteSymRecords(shared_ptr<DeleteSymRecordsRequest> request);
+  GetErrorMinuteStatTrendResponse getErrorMinuteStatTrendWithOptions(shared_ptr<GetErrorMinuteStatTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetErrorMinuteStatTrendResponse getErrorMinuteStatTrend(shared_ptr<GetErrorMinuteStatTrendRequest> request);
   GetH5PageTrendResponse getH5PageTrendWithOptions(shared_ptr<GetH5PageTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetH5PageTrendResponse getH5PageTrend(shared_ptr<GetH5PageTrendRequest> request);
   GetLaunchTrendResponse getLaunchTrendWithOptions(shared_ptr<GetLaunchTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLaunchTrendResponse getLaunchTrend(shared_ptr<GetLaunchTrendRequest> request);
   GetNativePageTrendResponse getNativePageTrendWithOptions(shared_ptr<GetNativePageTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNativePageTrendResponse getNativePageTrend(shared_ptr<GetNativePageTrendRequest> request);
+  GetNetworkMinuteTrendResponse getNetworkMinuteTrendWithOptions(shared_ptr<GetNetworkMinuteTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetNetworkMinuteTrendResponse getNetworkMinuteTrend(shared_ptr<GetNetworkMinuteTrendRequest> request);
   GetNetworkTrendResponse getNetworkTrendWithOptions(shared_ptr<GetNetworkTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNetworkTrendResponse getNetworkTrend(shared_ptr<GetNetworkTrendRequest> request);
   GetStatTrendResponse getStatTrendWithOptions(shared_ptr<GetStatTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

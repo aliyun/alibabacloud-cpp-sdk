@@ -87,6 +87,47 @@ DeleteSymRecordsResponse Alibabacloud_Umeng-apm20220214::Client::deleteSymRecord
   return deleteSymRecordsWithOptions(request, headers, runtime);
 }
 
+GetErrorMinuteStatTrendResponse Alibabacloud_Umeng-apm20220214::Client::getErrorMinuteStatTrendWithOptions(shared_ptr<GetErrorMinuteStatTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceId)) {
+    query->insert(pair<string, string>("dataSourceId", *request->dataSourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("startTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->type)) {
+    query->insert(pair<string, long>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetErrorMinuteStatTrend"))},
+    {"version", boost::any(string("2022-02-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/stat/GetErrorMinuteStatTrend"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetErrorMinuteStatTrendResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetErrorMinuteStatTrendResponse(execute(params, req, runtime));
+  }
+}
+
+GetErrorMinuteStatTrendResponse Alibabacloud_Umeng-apm20220214::Client::getErrorMinuteStatTrend(shared_ptr<GetErrorMinuteStatTrendRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getErrorMinuteStatTrendWithOptions(request, headers, runtime);
+}
+
 GetH5PageTrendResponse Alibabacloud_Umeng-apm20220214::Client::getH5PageTrendWithOptions(shared_ptr<GetH5PageTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -226,6 +267,44 @@ GetNativePageTrendResponse Alibabacloud_Umeng-apm20220214::Client::getNativePage
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getNativePageTrendWithOptions(request, headers, runtime);
+}
+
+GetNetworkMinuteTrendResponse Alibabacloud_Umeng-apm20220214::Client::getNetworkMinuteTrendWithOptions(shared_ptr<GetNetworkMinuteTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceId)) {
+    query->insert(pair<string, string>("dataSourceId", *request->dataSourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("startTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetNetworkMinuteTrend"))},
+    {"version", boost::any(string("2022-02-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/stat/getNetworkMinuteTrend"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetNetworkMinuteTrendResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetNetworkMinuteTrendResponse(execute(params, req, runtime));
+  }
+}
+
+GetNetworkMinuteTrendResponse Alibabacloud_Umeng-apm20220214::Client::getNetworkMinuteTrend(shared_ptr<GetNetworkMinuteTrendRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getNetworkMinuteTrendWithOptions(request, headers, runtime);
 }
 
 GetNetworkTrendResponse Alibabacloud_Umeng-apm20220214::Client::getNetworkTrendWithOptions(shared_ptr<GetNetworkTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
