@@ -893,6 +893,137 @@ public:
 
   virtual ~AttachApiProductResponse() = default;
 };
+class AttachGroupPluginRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+  shared_ptr<string> pluginId{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> stageName{};
+
+  AttachGroupPluginRequest() {}
+
+  explicit AttachGroupPluginRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (pluginId) {
+      res["PluginId"] = boost::any(*pluginId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
+      pluginId = make_shared<string>(boost::any_cast<string>(m["PluginId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+  }
+
+
+  virtual ~AttachGroupPluginRequest() = default;
+};
+class AttachGroupPluginResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AttachGroupPluginResponseBody() {}
+
+  explicit AttachGroupPluginResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AttachGroupPluginResponseBody() = default;
+};
+class AttachGroupPluginResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AttachGroupPluginResponseBody> body{};
+
+  AttachGroupPluginResponse() {}
+
+  explicit AttachGroupPluginResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AttachGroupPluginResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AttachGroupPluginResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AttachGroupPluginResponse() = default;
+};
 class AttachPluginRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
@@ -34926,6 +35057,304 @@ public:
 
   virtual ~DescribePluginApisResponse() = default;
 };
+class DescribePluginGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> pluginId{};
+  shared_ptr<string> securityToken{};
+
+  DescribePluginGroupsRequest() {}
+
+  explicit DescribePluginGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (pluginId) {
+      res["PluginId"] = boost::any(*pluginId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
+      pluginId = make_shared<string>(boost::any_cast<string>(m["PluginId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DescribePluginGroupsRequest() = default;
+};
+class DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary : public Darabonba::Model {
+public:
+  shared_ptr<string> basePath{};
+  shared_ptr<string> description{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> stageAlias{};
+  shared_ptr<string> stageName{};
+
+  DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary() {}
+
+  explicit DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (basePath) {
+      res["BasePath"] = boost::any(*basePath);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (stageAlias) {
+      res["StageAlias"] = boost::any(*stageAlias);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BasePath") != m.end() && !m["BasePath"].empty()) {
+      basePath = make_shared<string>(boost::any_cast<string>(m["BasePath"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StageAlias") != m.end() && !m["StageAlias"].empty()) {
+      stageAlias = make_shared<string>(boost::any_cast<string>(m["StageAlias"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+  }
+
+
+  virtual ~DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary() = default;
+};
+class DescribePluginGroupsResponseBodyGroupSummarys : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary>> groupPluginSummary{};
+
+  DescribePluginGroupsResponseBodyGroupSummarys() {}
+
+  explicit DescribePluginGroupsResponseBodyGroupSummarys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupPluginSummary) {
+      vector<boost::any> temp1;
+      for(auto item1:*groupPluginSummary){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GroupPluginSummary"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupPluginSummary") != m.end() && !m["GroupPluginSummary"].empty()) {
+      if (typeid(vector<boost::any>) == m["GroupPluginSummary"].type()) {
+        vector<DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GroupPluginSummary"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        groupPluginSummary = make_shared<vector<DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePluginGroupsResponseBodyGroupSummarys() = default;
+};
+class DescribePluginGroupsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribePluginGroupsResponseBodyGroupSummarys> groupSummarys{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribePluginGroupsResponseBody() {}
+
+  explicit DescribePluginGroupsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupSummarys) {
+      res["GroupSummarys"] = groupSummarys ? boost::any(groupSummarys->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupSummarys") != m.end() && !m["GroupSummarys"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GroupSummarys"].type()) {
+        DescribePluginGroupsResponseBodyGroupSummarys model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GroupSummarys"]));
+        groupSummarys = make_shared<DescribePluginGroupsResponseBodyGroupSummarys>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribePluginGroupsResponseBody() = default;
+};
+class DescribePluginGroupsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribePluginGroupsResponseBody> body{};
+
+  DescribePluginGroupsResponse() {}
+
+  explicit DescribePluginGroupsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribePluginGroupsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribePluginGroupsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePluginGroupsResponse() = default;
+};
 class DescribePluginSchemasRequest : public Darabonba::Model {
 public:
   shared_ptr<string> language{};
@@ -36131,6 +36560,297 @@ public:
 
 
   virtual ~DescribePluginsByApiResponse() = default;
+};
+class DescribePluginsByGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> stageName{};
+
+  DescribePluginsByGroupRequest() {}
+
+  explicit DescribePluginsByGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+  }
+
+
+  virtual ~DescribePluginsByGroupRequest() = default;
+};
+class DescribePluginsByGroupResponseBodyPluginsPluginAttribute : public Darabonba::Model {
+public:
+  shared_ptr<string> createdTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> modifiedTime{};
+  shared_ptr<string> pluginData{};
+  shared_ptr<string> pluginId{};
+  shared_ptr<string> pluginName{};
+  shared_ptr<string> pluginType{};
+  shared_ptr<string> regionId{};
+
+  DescribePluginsByGroupResponseBodyPluginsPluginAttribute() {}
+
+  explicit DescribePluginsByGroupResponseBodyPluginsPluginAttribute(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createdTime) {
+      res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (modifiedTime) {
+      res["ModifiedTime"] = boost::any(*modifiedTime);
+    }
+    if (pluginData) {
+      res["PluginData"] = boost::any(*pluginData);
+    }
+    if (pluginId) {
+      res["PluginId"] = boost::any(*pluginId);
+    }
+    if (pluginName) {
+      res["PluginName"] = boost::any(*pluginName);
+    }
+    if (pluginType) {
+      res["PluginType"] = boost::any(*pluginType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
+      modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
+    }
+    if (m.find("PluginData") != m.end() && !m["PluginData"].empty()) {
+      pluginData = make_shared<string>(boost::any_cast<string>(m["PluginData"]));
+    }
+    if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
+      pluginId = make_shared<string>(boost::any_cast<string>(m["PluginId"]));
+    }
+    if (m.find("PluginName") != m.end() && !m["PluginName"].empty()) {
+      pluginName = make_shared<string>(boost::any_cast<string>(m["PluginName"]));
+    }
+    if (m.find("PluginType") != m.end() && !m["PluginType"].empty()) {
+      pluginType = make_shared<string>(boost::any_cast<string>(m["PluginType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribePluginsByGroupResponseBodyPluginsPluginAttribute() = default;
+};
+class DescribePluginsByGroupResponseBodyPlugins : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribePluginsByGroupResponseBodyPluginsPluginAttribute>> pluginAttribute{};
+
+  DescribePluginsByGroupResponseBodyPlugins() {}
+
+  explicit DescribePluginsByGroupResponseBodyPlugins(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pluginAttribute) {
+      vector<boost::any> temp1;
+      for(auto item1:*pluginAttribute){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PluginAttribute"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PluginAttribute") != m.end() && !m["PluginAttribute"].empty()) {
+      if (typeid(vector<boost::any>) == m["PluginAttribute"].type()) {
+        vector<DescribePluginsByGroupResponseBodyPluginsPluginAttribute> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PluginAttribute"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePluginsByGroupResponseBodyPluginsPluginAttribute model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pluginAttribute = make_shared<vector<DescribePluginsByGroupResponseBodyPluginsPluginAttribute>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePluginsByGroupResponseBodyPlugins() = default;
+};
+class DescribePluginsByGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<DescribePluginsByGroupResponseBodyPlugins> plugins{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribePluginsByGroupResponseBody() {}
+
+  explicit DescribePluginsByGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (plugins) {
+      res["Plugins"] = plugins ? boost::any(plugins->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Plugins") != m.end() && !m["Plugins"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Plugins"].type()) {
+        DescribePluginsByGroupResponseBodyPlugins model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Plugins"]));
+        plugins = make_shared<DescribePluginsByGroupResponseBodyPlugins>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribePluginsByGroupResponseBody() = default;
+};
+class DescribePluginsByGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribePluginsByGroupResponseBody> body{};
+
+  DescribePluginsByGroupResponse() {}
+
+  explicit DescribePluginsByGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribePluginsByGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribePluginsByGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePluginsByGroupResponse() = default;
 };
 class DescribePurchasedApiGroupRequest : public Darabonba::Model {
 public:
@@ -40162,6 +40882,137 @@ public:
 
   virtual ~DetachApiProductResponse() = default;
 };
+class DetachGroupPluginRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+  shared_ptr<string> pluginId{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> stageName{};
+
+  DetachGroupPluginRequest() {}
+
+  explicit DetachGroupPluginRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (pluginId) {
+      res["PluginId"] = boost::any(*pluginId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
+      pluginId = make_shared<string>(boost::any_cast<string>(m["PluginId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+  }
+
+
+  virtual ~DetachGroupPluginRequest() = default;
+};
+class DetachGroupPluginResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DetachGroupPluginResponseBody() {}
+
+  explicit DetachGroupPluginResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DetachGroupPluginResponseBody() = default;
+};
+class DetachGroupPluginResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DetachGroupPluginResponseBody> body{};
+
+  DetachGroupPluginResponse() {}
+
+  explicit DetachGroupPluginResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DetachGroupPluginResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DetachGroupPluginResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DetachGroupPluginResponse() = default;
+};
 class DetachPluginRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
@@ -42933,6 +43784,8 @@ public:
 class ListPrivateDNSRequest : public Darabonba::Model {
 public:
   shared_ptr<string> intranetDomain{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> type{};
 
@@ -42949,6 +43802,12 @@ public:
     if (intranetDomain) {
       res["IntranetDomain"] = boost::any(*intranetDomain);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
@@ -42961,6 +43820,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
       intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
@@ -53574,6 +54439,8 @@ public:
   AssociateInstanceWithPrivateDNSResponse associateInstanceWithPrivateDNS(shared_ptr<AssociateInstanceWithPrivateDNSRequest> request);
   AttachApiProductResponse attachApiProductWithOptions(shared_ptr<AttachApiProductRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachApiProductResponse attachApiProduct(shared_ptr<AttachApiProductRequest> request);
+  AttachGroupPluginResponse attachGroupPluginWithOptions(shared_ptr<AttachGroupPluginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AttachGroupPluginResponse attachGroupPlugin(shared_ptr<AttachGroupPluginRequest> request);
   AttachPluginResponse attachPluginWithOptions(shared_ptr<AttachPluginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachPluginResponse attachPlugin(shared_ptr<AttachPluginRequest> request);
   BatchAbolishApisResponse batchAbolishApisWithOptions(shared_ptr<BatchAbolishApisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -53810,6 +54677,8 @@ public:
   DescribeModelsResponse describeModels(shared_ptr<DescribeModelsRequest> request);
   DescribePluginApisResponse describePluginApisWithOptions(shared_ptr<DescribePluginApisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePluginApisResponse describePluginApis(shared_ptr<DescribePluginApisRequest> request);
+  DescribePluginGroupsResponse describePluginGroupsWithOptions(shared_ptr<DescribePluginGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribePluginGroupsResponse describePluginGroups(shared_ptr<DescribePluginGroupsRequest> request);
   DescribePluginSchemasResponse describePluginSchemasWithOptions(shared_ptr<DescribePluginSchemasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePluginSchemasResponse describePluginSchemas(shared_ptr<DescribePluginSchemasRequest> request);
   DescribePluginTemplatesResponse describePluginTemplatesWithOptions(shared_ptr<DescribePluginTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -53818,6 +54687,8 @@ public:
   DescribePluginsResponse describePlugins(shared_ptr<DescribePluginsRequest> request);
   DescribePluginsByApiResponse describePluginsByApiWithOptions(shared_ptr<DescribePluginsByApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePluginsByApiResponse describePluginsByApi(shared_ptr<DescribePluginsByApiRequest> request);
+  DescribePluginsByGroupResponse describePluginsByGroupWithOptions(shared_ptr<DescribePluginsByGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribePluginsByGroupResponse describePluginsByGroup(shared_ptr<DescribePluginsByGroupRequest> request);
   DescribePurchasedApiGroupResponse describePurchasedApiGroupWithOptions(shared_ptr<DescribePurchasedApiGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePurchasedApiGroupResponse describePurchasedApiGroup(shared_ptr<DescribePurchasedApiGroupRequest> request);
   DescribePurchasedApiGroupsResponse describePurchasedApiGroupsWithOptions(shared_ptr<DescribePurchasedApiGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -53848,6 +54719,8 @@ public:
   DescribeZonesResponse describeZones(shared_ptr<DescribeZonesRequest> request);
   DetachApiProductResponse detachApiProductWithOptions(shared_ptr<DetachApiProductRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachApiProductResponse detachApiProduct(shared_ptr<DetachApiProductRequest> request);
+  DetachGroupPluginResponse detachGroupPluginWithOptions(shared_ptr<DetachGroupPluginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DetachGroupPluginResponse detachGroupPlugin(shared_ptr<DetachGroupPluginRequest> request);
   DetachPluginResponse detachPluginWithOptions(shared_ptr<DetachPluginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachPluginResponse detachPlugin(shared_ptr<DetachPluginRequest> request);
   DisableInstanceAccessControlResponse disableInstanceAccessControlWithOptions(shared_ptr<DisableInstanceAccessControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
