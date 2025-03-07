@@ -957,6 +957,9 @@ CreateDocumentCollectionResponse Alibabacloud_Gpdb20160503::Client::createDocume
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dimension)) {
+    query->insert(pair<string, long>("Dimension", *request->dimension));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->embeddingModel)) {
     query->insert(pair<string, string>("EmbeddingModel", *request->embeddingModel));
   }

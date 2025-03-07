@@ -3226,6 +3226,7 @@ class CreateDocumentCollectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<long> dimension{};
   shared_ptr<string> embeddingModel{};
   shared_ptr<long> externalStorage{};
   shared_ptr<string> fullTextRetrievalFields{};
@@ -3257,6 +3258,9 @@ public:
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (dimension) {
+      res["Dimension"] = boost::any(*dimension);
     }
     if (embeddingModel) {
       res["EmbeddingModel"] = boost::any(*embeddingModel);
@@ -3312,6 +3316,9 @@ public:
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Dimension") != m.end() && !m["Dimension"].empty()) {
+      dimension = make_shared<long>(boost::any_cast<long>(m["Dimension"]));
     }
     if (m.find("EmbeddingModel") != m.end() && !m["EmbeddingModel"].empty()) {
       embeddingModel = make_shared<string>(boost::any_cast<string>(m["EmbeddingModel"]));
