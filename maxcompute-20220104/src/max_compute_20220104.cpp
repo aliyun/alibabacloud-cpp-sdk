@@ -715,6 +715,35 @@ GetComputeQuotaScheduleResponse Alibabacloud_MaxCompute20220104::Client::getComp
   return getComputeQuotaScheduleWithOptions(nickname, request, headers, runtime);
 }
 
+GetJobInfoResponse Alibabacloud_MaxCompute20220104::Client::getJobInfoWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJobInfo"))},
+    {"version", boost::any(string("2022-01-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/info"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetJobInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetJobInfoResponse(execute(params, req, runtime));
+  }
+}
+
+GetJobInfoResponse Alibabacloud_MaxCompute20220104::Client::getJobInfo(shared_ptr<string> instanceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getJobInfoWithOptions(instanceId, headers, runtime);
+}
+
 GetJobResourceUsageResponse Alibabacloud_MaxCompute20220104::Client::getJobResourceUsageWithOptions(shared_ptr<GetJobResourceUsageRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetJobResourceUsageShrinkRequest> request = make_shared<GetJobResourceUsageShrinkRequest>();

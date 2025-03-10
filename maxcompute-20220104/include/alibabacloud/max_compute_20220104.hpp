@@ -3138,6 +3138,456 @@ public:
 
   virtual ~GetComputeQuotaScheduleResponse() = default;
 };
+class GetJobInfoResponseBodyDataJobSubStatusList : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> description{};
+  shared_ptr<string> startTime{};
+
+  GetJobInfoResponseBodyDataJobSubStatusList() {}
+
+  explicit GetJobInfoResponseBodyDataJobSubStatusList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~GetJobInfoResponseBodyDataJobSubStatusList() = default;
+};
+class GetJobInfoResponseBodyDataSceneResults : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<map<string, string>> params{};
+  shared_ptr<string> scene{};
+  shared_ptr<string> sceneTag{};
+  shared_ptr<string> summary{};
+  shared_ptr<string> type{};
+
+  GetJobInfoResponseBodyDataSceneResults() {}
+
+  explicit GetJobInfoResponseBodyDataSceneResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (params) {
+      res["params"] = boost::any(*params);
+    }
+    if (scene) {
+      res["scene"] = boost::any(*scene);
+    }
+    if (sceneTag) {
+      res["sceneTag"] = boost::any(*sceneTag);
+    }
+    if (summary) {
+      res["summary"] = boost::any(*summary);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("params") != m.end() && !m["params"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["params"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      params = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("scene") != m.end() && !m["scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["scene"]));
+    }
+    if (m.find("sceneTag") != m.end() && !m["sceneTag"].empty()) {
+      sceneTag = make_shared<string>(boost::any_cast<string>(m["sceneTag"]));
+    }
+    if (m.find("summary") != m.end() && !m["summary"].empty()) {
+      summary = make_shared<string>(boost::any_cast<string>(m["summary"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetJobInfoResponseBodyDataSceneResults() = default;
+};
+class GetJobInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> cuUsage{};
+  shared_ptr<long> endAtTime{};
+  shared_ptr<string> extNodeId{};
+  shared_ptr<string> extNodeOnDuty{};
+  shared_ptr<string> extPlantFrom{};
+  shared_ptr<double> inputBytes{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> jobOwner{};
+  shared_ptr<vector<GetJobInfoResponseBodyDataJobSubStatusList>> jobSubStatusList{};
+  shared_ptr<string> jobType{};
+  shared_ptr<long> memoryUsage{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> project{};
+  shared_ptr<string> quotaNickname{};
+  shared_ptr<string> quotaType{};
+  shared_ptr<string> region{};
+  shared_ptr<long> runningAtTime{};
+  shared_ptr<long> runningTime{};
+  shared_ptr<vector<GetJobInfoResponseBodyDataSceneResults>> sceneResults{};
+  shared_ptr<string> signature{};
+  shared_ptr<string> status{};
+  shared_ptr<long> submittedAtTime{};
+  shared_ptr<string> tenantId{};
+  shared_ptr<long> totalTime{};
+  shared_ptr<long> waitingTime{};
+
+  GetJobInfoResponseBodyData() {}
+
+  explicit GetJobInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cuUsage) {
+      res["cuUsage"] = boost::any(*cuUsage);
+    }
+    if (endAtTime) {
+      res["endAtTime"] = boost::any(*endAtTime);
+    }
+    if (extNodeId) {
+      res["extNodeId"] = boost::any(*extNodeId);
+    }
+    if (extNodeOnDuty) {
+      res["extNodeOnDuty"] = boost::any(*extNodeOnDuty);
+    }
+    if (extPlantFrom) {
+      res["extPlantFrom"] = boost::any(*extPlantFrom);
+    }
+    if (inputBytes) {
+      res["inputBytes"] = boost::any(*inputBytes);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (jobOwner) {
+      res["jobOwner"] = boost::any(*jobOwner);
+    }
+    if (jobSubStatusList) {
+      vector<boost::any> temp1;
+      for(auto item1:*jobSubStatusList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["jobSubStatusList"] = boost::any(temp1);
+    }
+    if (jobType) {
+      res["jobType"] = boost::any(*jobType);
+    }
+    if (memoryUsage) {
+      res["memoryUsage"] = boost::any(*memoryUsage);
+    }
+    if (priority) {
+      res["priority"] = boost::any(*priority);
+    }
+    if (project) {
+      res["project"] = boost::any(*project);
+    }
+    if (quotaNickname) {
+      res["quotaNickname"] = boost::any(*quotaNickname);
+    }
+    if (quotaType) {
+      res["quotaType"] = boost::any(*quotaType);
+    }
+    if (region) {
+      res["region"] = boost::any(*region);
+    }
+    if (runningAtTime) {
+      res["runningAtTime"] = boost::any(*runningAtTime);
+    }
+    if (runningTime) {
+      res["runningTime"] = boost::any(*runningTime);
+    }
+    if (sceneResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*sceneResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sceneResults"] = boost::any(temp1);
+    }
+    if (signature) {
+      res["signature"] = boost::any(*signature);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (submittedAtTime) {
+      res["submittedAtTime"] = boost::any(*submittedAtTime);
+    }
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    if (totalTime) {
+      res["totalTime"] = boost::any(*totalTime);
+    }
+    if (waitingTime) {
+      res["waitingTime"] = boost::any(*waitingTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cuUsage") != m.end() && !m["cuUsage"].empty()) {
+      cuUsage = make_shared<long>(boost::any_cast<long>(m["cuUsage"]));
+    }
+    if (m.find("endAtTime") != m.end() && !m["endAtTime"].empty()) {
+      endAtTime = make_shared<long>(boost::any_cast<long>(m["endAtTime"]));
+    }
+    if (m.find("extNodeId") != m.end() && !m["extNodeId"].empty()) {
+      extNodeId = make_shared<string>(boost::any_cast<string>(m["extNodeId"]));
+    }
+    if (m.find("extNodeOnDuty") != m.end() && !m["extNodeOnDuty"].empty()) {
+      extNodeOnDuty = make_shared<string>(boost::any_cast<string>(m["extNodeOnDuty"]));
+    }
+    if (m.find("extPlantFrom") != m.end() && !m["extPlantFrom"].empty()) {
+      extPlantFrom = make_shared<string>(boost::any_cast<string>(m["extPlantFrom"]));
+    }
+    if (m.find("inputBytes") != m.end() && !m["inputBytes"].empty()) {
+      inputBytes = make_shared<double>(boost::any_cast<double>(m["inputBytes"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("jobOwner") != m.end() && !m["jobOwner"].empty()) {
+      jobOwner = make_shared<string>(boost::any_cast<string>(m["jobOwner"]));
+    }
+    if (m.find("jobSubStatusList") != m.end() && !m["jobSubStatusList"].empty()) {
+      if (typeid(vector<boost::any>) == m["jobSubStatusList"].type()) {
+        vector<GetJobInfoResponseBodyDataJobSubStatusList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["jobSubStatusList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetJobInfoResponseBodyDataJobSubStatusList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        jobSubStatusList = make_shared<vector<GetJobInfoResponseBodyDataJobSubStatusList>>(expect1);
+      }
+    }
+    if (m.find("jobType") != m.end() && !m["jobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["jobType"]));
+    }
+    if (m.find("memoryUsage") != m.end() && !m["memoryUsage"].empty()) {
+      memoryUsage = make_shared<long>(boost::any_cast<long>(m["memoryUsage"]));
+    }
+    if (m.find("priority") != m.end() && !m["priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["priority"]));
+    }
+    if (m.find("project") != m.end() && !m["project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["project"]));
+    }
+    if (m.find("quotaNickname") != m.end() && !m["quotaNickname"].empty()) {
+      quotaNickname = make_shared<string>(boost::any_cast<string>(m["quotaNickname"]));
+    }
+    if (m.find("quotaType") != m.end() && !m["quotaType"].empty()) {
+      quotaType = make_shared<string>(boost::any_cast<string>(m["quotaType"]));
+    }
+    if (m.find("region") != m.end() && !m["region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["region"]));
+    }
+    if (m.find("runningAtTime") != m.end() && !m["runningAtTime"].empty()) {
+      runningAtTime = make_shared<long>(boost::any_cast<long>(m["runningAtTime"]));
+    }
+    if (m.find("runningTime") != m.end() && !m["runningTime"].empty()) {
+      runningTime = make_shared<long>(boost::any_cast<long>(m["runningTime"]));
+    }
+    if (m.find("sceneResults") != m.end() && !m["sceneResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["sceneResults"].type()) {
+        vector<GetJobInfoResponseBodyDataSceneResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sceneResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetJobInfoResponseBodyDataSceneResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sceneResults = make_shared<vector<GetJobInfoResponseBodyDataSceneResults>>(expect1);
+      }
+    }
+    if (m.find("signature") != m.end() && !m["signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["signature"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("submittedAtTime") != m.end() && !m["submittedAtTime"].empty()) {
+      submittedAtTime = make_shared<long>(boost::any_cast<long>(m["submittedAtTime"]));
+    }
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+    if (m.find("totalTime") != m.end() && !m["totalTime"].empty()) {
+      totalTime = make_shared<long>(boost::any_cast<long>(m["totalTime"]));
+    }
+    if (m.find("waitingTime") != m.end() && !m["waitingTime"].empty()) {
+      waitingTime = make_shared<long>(boost::any_cast<long>(m["waitingTime"]));
+    }
+  }
+
+
+  virtual ~GetJobInfoResponseBodyData() = default;
+};
+class GetJobInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetJobInfoResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<string> requestId{};
+
+  GetJobInfoResponseBody() {}
+
+  explicit GetJobInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetJobInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetJobInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetJobInfoResponseBody() = default;
+};
+class GetJobInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetJobInfoResponseBody> body{};
+
+  GetJobInfoResponse() {}
+
+  explicit GetJobInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetJobInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetJobInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetJobInfoResponse() = default;
+};
 class GetJobResourceUsageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> date{};
@@ -6758,8 +7208,11 @@ public:
 class GetProjectResponseBodyDataProperties : public Darabonba::Model {
 public:
   shared_ptr<bool> allowFullScan{};
+  shared_ptr<long> autoMvQuotaGb{};
   shared_ptr<string> elderTunnelQuota{};
+  shared_ptr<bool> enableAutoMv{};
   shared_ptr<bool> enableDecimal2{};
+  shared_ptr<bool> enableDr{};
   shared_ptr<bool> enableFdcCacheForce{};
   shared_ptr<bool> enableTieredStorage{};
   shared_ptr<bool> enableTunnelQuotaRoute{};
@@ -6788,11 +7241,20 @@ public:
     if (allowFullScan) {
       res["allowFullScan"] = boost::any(*allowFullScan);
     }
+    if (autoMvQuotaGb) {
+      res["autoMvQuotaGb"] = boost::any(*autoMvQuotaGb);
+    }
     if (elderTunnelQuota) {
       res["elderTunnelQuota"] = boost::any(*elderTunnelQuota);
     }
+    if (enableAutoMv) {
+      res["enableAutoMv"] = boost::any(*enableAutoMv);
+    }
     if (enableDecimal2) {
       res["enableDecimal2"] = boost::any(*enableDecimal2);
+    }
+    if (enableDr) {
+      res["enableDr"] = boost::any(*enableDr);
     }
     if (enableFdcCacheForce) {
       res["enableFdcCacheForce"] = boost::any(*enableFdcCacheForce);
@@ -6843,11 +7305,20 @@ public:
     if (m.find("allowFullScan") != m.end() && !m["allowFullScan"].empty()) {
       allowFullScan = make_shared<bool>(boost::any_cast<bool>(m["allowFullScan"]));
     }
+    if (m.find("autoMvQuotaGb") != m.end() && !m["autoMvQuotaGb"].empty()) {
+      autoMvQuotaGb = make_shared<long>(boost::any_cast<long>(m["autoMvQuotaGb"]));
+    }
     if (m.find("elderTunnelQuota") != m.end() && !m["elderTunnelQuota"].empty()) {
       elderTunnelQuota = make_shared<string>(boost::any_cast<string>(m["elderTunnelQuota"]));
     }
+    if (m.find("enableAutoMv") != m.end() && !m["enableAutoMv"].empty()) {
+      enableAutoMv = make_shared<bool>(boost::any_cast<bool>(m["enableAutoMv"]));
+    }
     if (m.find("enableDecimal2") != m.end() && !m["enableDecimal2"].empty()) {
       enableDecimal2 = make_shared<bool>(boost::any_cast<bool>(m["enableDecimal2"]));
+    }
+    if (m.find("enableDr") != m.end() && !m["enableDr"].empty()) {
+      enableDr = make_shared<bool>(boost::any_cast<bool>(m["enableDr"]));
     }
     if (m.find("enableFdcCacheForce") != m.end() && !m["enableFdcCacheForce"].empty()) {
       enableFdcCacheForce = make_shared<bool>(boost::any_cast<bool>(m["enableFdcCacheForce"]));
@@ -13749,6 +14220,7 @@ public:
   shared_ptr<string> extNodeId{};
   shared_ptr<string> extNodeOnDuty{};
   shared_ptr<string> extPlantFrom{};
+  shared_ptr<double> inputBytes{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> jobOwner{};
   shared_ptr<string> jobType{};
@@ -13801,6 +14273,9 @@ public:
     }
     if (extPlantFrom) {
       res["extPlantFrom"] = boost::any(*extPlantFrom);
+    }
+    if (inputBytes) {
+      res["inputBytes"] = boost::any(*inputBytes);
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
@@ -13893,6 +14368,9 @@ public:
     }
     if (m.find("extPlantFrom") != m.end() && !m["extPlantFrom"].empty()) {
       extPlantFrom = make_shared<string>(boost::any_cast<string>(m["extPlantFrom"]));
+    }
+    if (m.find("inputBytes") != m.end() && !m["inputBytes"].empty()) {
+      inputBytes = make_shared<double>(boost::any_cast<double>(m["inputBytes"]));
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
@@ -28660,6 +29138,8 @@ public:
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetComputeQuotaScheduleResponse getComputeQuotaSchedule(shared_ptr<string> nickname, shared_ptr<GetComputeQuotaScheduleRequest> request);
+  GetJobInfoResponse getJobInfoWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetJobInfoResponse getJobInfo(shared_ptr<string> instanceId);
   GetJobResourceUsageResponse getJobResourceUsageWithOptions(shared_ptr<GetJobResourceUsageRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobResourceUsageResponse getJobResourceUsage(shared_ptr<GetJobResourceUsageRequest> request);
   GetMmsAsyncTaskResponse getMmsAsyncTaskWithOptions(shared_ptr<string> sourceId,
