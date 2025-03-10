@@ -130,6 +130,44 @@ GenerateOutputFormatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::gene
   return generateOutputFormatWithOptions(workspaceId, request, headers, runtime);
 }
 
+GetTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getTagMiningAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                    shared_ptr<GetTagMiningAnalysisTaskRequest> request,
+                                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTagMiningAnalysisTask"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/getTagMiningAnalysisTask"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTagMiningAnalysisTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTagMiningAnalysisTaskResponse(execute(params, req, runtime));
+  }
+}
+
+GetTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getTagMiningAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<GetTagMiningAnalysisTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getTagMiningAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
 GetVideoAnalysisConfigResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getVideoAnalysisConfigWithOptions(shared_ptr<string> workspaceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -940,6 +978,73 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return runVideoAnalysisWithOptions(workspaceId, request, headers, runtime);
+}
+
+SubmitTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitTagMiningAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                          shared_ptr<SubmitTagMiningAnalysisTaskRequest> tmpReq,
+                                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitTagMiningAnalysisTaskShrinkRequest> request = make_shared<SubmitTagMiningAnalysisTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->contents)) {
+    request->contentsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->contents, make_shared<string>("contents"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitTagMiningAnalysisTaskRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessType)) {
+    body->insert(pair<string, string>("businessType", *request->businessType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentsShrink)) {
+    body->insert(pair<string, string>("contents", *request->contentsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extraInfo)) {
+    body->insert(pair<string, string>("extraInfo", *request->extraInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputFormat)) {
+    body->insert(pair<string, string>("outputFormat", *request->outputFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    body->insert(pair<string, string>("tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskDescription)) {
+    body->insert(pair<string, string>("taskDescription", *request->taskDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    body->insert(pair<string, string>("url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitTagMiningAnalysisTask"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/submitTagMiningAnalysisTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SubmitTagMiningAnalysisTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SubmitTagMiningAnalysisTaskResponse(execute(params, req, runtime));
+  }
+}
+
+SubmitTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitTagMiningAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<SubmitTagMiningAnalysisTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitTagMiningAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
 }
 
 SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitVideoAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
