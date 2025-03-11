@@ -6568,6 +6568,7 @@ public:
   shared_ptr<string> dns{};
   shared_ptr<long> expireDays{};
   shared_ptr<string> port{};
+  shared_ptr<bool> removeWeight{};
   shared_ptr<string> type{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vswitchId{};
@@ -6591,6 +6592,9 @@ public:
     if (port) {
       res["Port"] = boost::any(*port);
     }
+    if (removeWeight) {
+      res["RemoveWeight"] = boost::any(*removeWeight);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -6612,6 +6616,9 @@ public:
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("RemoveWeight") != m.end() && !m["RemoveWeight"].empty()) {
+      removeWeight = make_shared<bool>(boost::any_cast<bool>(m["RemoveWeight"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -9525,6 +9532,7 @@ public:
   shared_ptr<long> exeTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> startTime{};
 
   DescribeDrdsSlowSqlsRequest() {}
@@ -9555,6 +9563,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -9579,6 +9590,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
