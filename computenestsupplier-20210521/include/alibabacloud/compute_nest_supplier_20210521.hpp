@@ -730,8 +730,11 @@ public:
 class CreateArtifactRequestArtifactBuildPropertyCodeRepo : public Darabonba::Model {
 public:
   shared_ptr<string> branch{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> orgId{};
   shared_ptr<string> owner{};
   shared_ptr<string> platform{};
+  shared_ptr<long> repoId{};
   shared_ptr<string> repoName{};
 
   CreateArtifactRequestArtifactBuildPropertyCodeRepo() {}
@@ -747,11 +750,20 @@ public:
     if (branch) {
       res["Branch"] = boost::any(*branch);
     }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
     if (owner) {
       res["Owner"] = boost::any(*owner);
     }
     if (platform) {
       res["Platform"] = boost::any(*platform);
+    }
+    if (repoId) {
+      res["RepoId"] = boost::any(*repoId);
     }
     if (repoName) {
       res["RepoName"] = boost::any(*repoName);
@@ -763,11 +775,20 @@ public:
     if (m.find("Branch") != m.end() && !m["Branch"].empty()) {
       branch = make_shared<string>(boost::any_cast<string>(m["Branch"]));
     }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
     }
     if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
       platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("RepoId") != m.end() && !m["RepoId"].empty()) {
+      repoId = make_shared<long>(boost::any_cast<long>(m["RepoId"]));
     }
     if (m.find("RepoName") != m.end() && !m["RepoName"].empty()) {
       repoName = make_shared<string>(boost::any_cast<string>(m["RepoName"]));
@@ -19290,8 +19311,11 @@ public:
 class UpdateArtifactRequestArtifactBuildPropertyCodeRepo : public Darabonba::Model {
 public:
   shared_ptr<string> branch{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> orgId{};
   shared_ptr<string> owner{};
   shared_ptr<string> platform{};
+  shared_ptr<long> repoId{};
   shared_ptr<string> repoName{};
 
   UpdateArtifactRequestArtifactBuildPropertyCodeRepo() {}
@@ -19307,11 +19331,20 @@ public:
     if (branch) {
       res["Branch"] = boost::any(*branch);
     }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
     if (owner) {
       res["Owner"] = boost::any(*owner);
     }
     if (platform) {
       res["Platform"] = boost::any(*platform);
+    }
+    if (repoId) {
+      res["RepoId"] = boost::any(*repoId);
     }
     if (repoName) {
       res["RepoName"] = boost::any(*repoName);
@@ -19323,11 +19356,20 @@ public:
     if (m.find("Branch") != m.end() && !m["Branch"].empty()) {
       branch = make_shared<string>(boost::any_cast<string>(m["Branch"]));
     }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
     }
     if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
       platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("RepoId") != m.end() && !m["RepoId"].empty()) {
+      repoId = make_shared<long>(boost::any_cast<long>(m["RepoId"]));
     }
     if (m.find("RepoName") != m.end() && !m["RepoName"].empty()) {
       repoName = make_shared<string>(boost::any_cast<string>(m["RepoName"]));
