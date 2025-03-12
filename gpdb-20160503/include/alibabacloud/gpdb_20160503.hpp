@@ -2108,6 +2108,42 @@ public:
 
   virtual ~CreateBackupResponse() = default;
 };
+class CreateCollectionRequestSparseVectorIndexConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> hnswEfConstruction{};
+  shared_ptr<long> hnswM{};
+
+  CreateCollectionRequestSparseVectorIndexConfig() {}
+
+  explicit CreateCollectionRequestSparseVectorIndexConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hnswEfConstruction) {
+      res["HnswEfConstruction"] = boost::any(*hnswEfConstruction);
+    }
+    if (hnswM) {
+      res["HnswM"] = boost::any(*hnswM);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HnswEfConstruction") != m.end() && !m["HnswEfConstruction"].empty()) {
+      hnswEfConstruction = make_shared<long>(boost::any_cast<long>(m["HnswEfConstruction"]));
+    }
+    if (m.find("HnswM") != m.end() && !m["HnswM"].empty()) {
+      hnswM = make_shared<long>(boost::any_cast<long>(m["HnswM"]));
+    }
+  }
+
+
+  virtual ~CreateCollectionRequestSparseVectorIndexConfig() = default;
+};
 class CreateCollectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
@@ -2127,6 +2163,8 @@ public:
   shared_ptr<string> parser{};
   shared_ptr<long> pqEnable{};
   shared_ptr<string> regionId{};
+  shared_ptr<CreateCollectionRequestSparseVectorIndexConfig> sparseVectorIndexConfig{};
+  shared_ptr<bool> supportSparse{};
   shared_ptr<string> workspaceId{};
 
   CreateCollectionRequest() {}
@@ -2190,6 +2228,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (sparseVectorIndexConfig) {
+      res["SparseVectorIndexConfig"] = sparseVectorIndexConfig ? boost::any(sparseVectorIndexConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (supportSparse) {
+      res["SupportSparse"] = boost::any(*supportSparse);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -2248,6 +2292,16 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("SparseVectorIndexConfig") != m.end() && !m["SparseVectorIndexConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SparseVectorIndexConfig"].type()) {
+        CreateCollectionRequestSparseVectorIndexConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SparseVectorIndexConfig"]));
+        sparseVectorIndexConfig = make_shared<CreateCollectionRequestSparseVectorIndexConfig>(model1);
+      }
+    }
+    if (m.find("SupportSparse") != m.end() && !m["SupportSparse"].empty()) {
+      supportSparse = make_shared<bool>(boost::any_cast<bool>(m["SupportSparse"]));
+    }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
@@ -2255,6 +2309,168 @@ public:
 
 
   virtual ~CreateCollectionRequest() = default;
+};
+class CreateCollectionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<long> dimension{};
+  shared_ptr<long> externalStorage{};
+  shared_ptr<string> fullTextRetrievalFields{};
+  shared_ptr<string> hnswEfConstruction{};
+  shared_ptr<long> hnswM{};
+  shared_ptr<string> managerAccount{};
+  shared_ptr<string> managerAccountPassword{};
+  shared_ptr<string> metadata{};
+  shared_ptr<string> metadataIndices{};
+  shared_ptr<string> metrics{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> parser{};
+  shared_ptr<long> pqEnable{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sparseVectorIndexConfigShrink{};
+  shared_ptr<bool> supportSparse{};
+  shared_ptr<string> workspaceId{};
+
+  CreateCollectionShrinkRequest() {}
+
+  explicit CreateCollectionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (dimension) {
+      res["Dimension"] = boost::any(*dimension);
+    }
+    if (externalStorage) {
+      res["ExternalStorage"] = boost::any(*externalStorage);
+    }
+    if (fullTextRetrievalFields) {
+      res["FullTextRetrievalFields"] = boost::any(*fullTextRetrievalFields);
+    }
+    if (hnswEfConstruction) {
+      res["HnswEfConstruction"] = boost::any(*hnswEfConstruction);
+    }
+    if (hnswM) {
+      res["HnswM"] = boost::any(*hnswM);
+    }
+    if (managerAccount) {
+      res["ManagerAccount"] = boost::any(*managerAccount);
+    }
+    if (managerAccountPassword) {
+      res["ManagerAccountPassword"] = boost::any(*managerAccountPassword);
+    }
+    if (metadata) {
+      res["Metadata"] = boost::any(*metadata);
+    }
+    if (metadataIndices) {
+      res["MetadataIndices"] = boost::any(*metadataIndices);
+    }
+    if (metrics) {
+      res["Metrics"] = boost::any(*metrics);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (parser) {
+      res["Parser"] = boost::any(*parser);
+    }
+    if (pqEnable) {
+      res["PqEnable"] = boost::any(*pqEnable);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sparseVectorIndexConfigShrink) {
+      res["SparseVectorIndexConfig"] = boost::any(*sparseVectorIndexConfigShrink);
+    }
+    if (supportSparse) {
+      res["SupportSparse"] = boost::any(*supportSparse);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Dimension") != m.end() && !m["Dimension"].empty()) {
+      dimension = make_shared<long>(boost::any_cast<long>(m["Dimension"]));
+    }
+    if (m.find("ExternalStorage") != m.end() && !m["ExternalStorage"].empty()) {
+      externalStorage = make_shared<long>(boost::any_cast<long>(m["ExternalStorage"]));
+    }
+    if (m.find("FullTextRetrievalFields") != m.end() && !m["FullTextRetrievalFields"].empty()) {
+      fullTextRetrievalFields = make_shared<string>(boost::any_cast<string>(m["FullTextRetrievalFields"]));
+    }
+    if (m.find("HnswEfConstruction") != m.end() && !m["HnswEfConstruction"].empty()) {
+      hnswEfConstruction = make_shared<string>(boost::any_cast<string>(m["HnswEfConstruction"]));
+    }
+    if (m.find("HnswM") != m.end() && !m["HnswM"].empty()) {
+      hnswM = make_shared<long>(boost::any_cast<long>(m["HnswM"]));
+    }
+    if (m.find("ManagerAccount") != m.end() && !m["ManagerAccount"].empty()) {
+      managerAccount = make_shared<string>(boost::any_cast<string>(m["ManagerAccount"]));
+    }
+    if (m.find("ManagerAccountPassword") != m.end() && !m["ManagerAccountPassword"].empty()) {
+      managerAccountPassword = make_shared<string>(boost::any_cast<string>(m["ManagerAccountPassword"]));
+    }
+    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
+      metadata = make_shared<string>(boost::any_cast<string>(m["Metadata"]));
+    }
+    if (m.find("MetadataIndices") != m.end() && !m["MetadataIndices"].empty()) {
+      metadataIndices = make_shared<string>(boost::any_cast<string>(m["MetadataIndices"]));
+    }
+    if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
+      metrics = make_shared<string>(boost::any_cast<string>(m["Metrics"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Parser") != m.end() && !m["Parser"].empty()) {
+      parser = make_shared<string>(boost::any_cast<string>(m["Parser"]));
+    }
+    if (m.find("PqEnable") != m.end() && !m["PqEnable"].empty()) {
+      pqEnable = make_shared<long>(boost::any_cast<long>(m["PqEnable"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SparseVectorIndexConfig") != m.end() && !m["SparseVectorIndexConfig"].empty()) {
+      sparseVectorIndexConfigShrink = make_shared<string>(boost::any_cast<string>(m["SparseVectorIndexConfig"]));
+    }
+    if (m.find("SupportSparse") != m.end() && !m["SupportSparse"].empty()) {
+      supportSparse = make_shared<bool>(boost::any_cast<bool>(m["SupportSparse"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~CreateCollectionShrinkRequest() = default;
 };
 class CreateCollectionResponseBody : public Darabonba::Model {
 public:
@@ -4920,6 +5136,7 @@ public:
   shared_ptr<string> secretName{};
   shared_ptr<bool> testConnection{};
   shared_ptr<string> username{};
+  shared_ptr<string> workspaceId{};
 
   CreateSecretRequest() {}
 
@@ -4955,6 +5172,9 @@ public:
     if (username) {
       res["Username"] = boost::any(*username);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -4982,6 +5202,9 @@ public:
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -6001,6 +6224,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<long> pqEnable{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
 
   CreateVectorIndexRequest() {}
 
@@ -6051,6 +6275,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -6093,6 +6320,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -8493,6 +8723,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> secretArn{};
   shared_ptr<string> secretName{};
+  shared_ptr<string> workspaceId{};
 
   DeleteSecretRequest() {}
 
@@ -8519,6 +8750,9 @@ public:
     if (secretName) {
       res["SecretName"] = boost::any(*secretName);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -8537,6 +8771,9 @@ public:
     }
     if (m.find("SecretName") != m.end() && !m["SecretName"].empty()) {
       secretName = make_shared<string>(boost::any_cast<string>(m["SecretName"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -9040,6 +9277,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
 
   DeleteVectorIndexRequest() {}
 
@@ -9072,6 +9310,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -9096,6 +9337,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -10536,7 +10780,9 @@ public:
   shared_ptr<string> parser{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> sparseVectorMetrics{};
   shared_ptr<string> status{};
+  shared_ptr<bool> supportSparse{};
 
   DescribeCollectionResponseBody() {}
 
@@ -10578,8 +10824,14 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (sparseVectorMetrics) {
+      res["SparseVectorMetrics"] = boost::any(*sparseVectorMetrics);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (supportSparse) {
+      res["SupportSparse"] = boost::any(*supportSparse);
     }
     return res;
   }
@@ -10620,8 +10872,14 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("SparseVectorMetrics") != m.end() && !m["SparseVectorMetrics"].empty()) {
+      sparseVectorMetrics = make_shared<string>(boost::any_cast<string>(m["SparseVectorMetrics"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SupportSparse") != m.end() && !m["SupportSparse"].empty()) {
+      supportSparse = make_shared<bool>(boost::any_cast<bool>(m["SupportSparse"]));
     }
   }
 
@@ -25410,6 +25668,7 @@ public:
   shared_ptr<string> schema{};
   shared_ptr<string> secretArn{};
   shared_ptr<string> table{};
+  shared_ptr<string> workspaceId{};
 
   DescribeTableRequest() {}
 
@@ -25442,6 +25701,9 @@ public:
     if (table) {
       res["Table"] = boost::any(*table);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -25466,6 +25728,9 @@ public:
     }
     if (m.find("Table") != m.end() && !m["Table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["Table"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -27163,18 +27428,56 @@ public:
 
   virtual ~EnableDBResourceGroupResponse() = default;
 };
+class ExecuteStatementRequestRagWorkspaceCollection : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> namespace_{};
+
+  ExecuteStatementRequestRagWorkspaceCollection() {}
+
+  explicit ExecuteStatementRequestRagWorkspaceCollection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~ExecuteStatementRequestRagWorkspaceCollection() = default;
+};
 class ExecuteStatementRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> database{};
   shared_ptr<long> ownerId{};
   shared_ptr<vector<boost::any>> parameters{};
+  shared_ptr<ExecuteStatementRequestRagWorkspaceCollection> ragWorkspaceCollection{};
   shared_ptr<string> regionId{};
   shared_ptr<string> runType{};
   shared_ptr<string> secretArn{};
   shared_ptr<string> sql{};
   shared_ptr<vector<string>> sqls{};
   shared_ptr<string> statementName{};
+  shared_ptr<string> workspaceId{};
 
   ExecuteStatementRequest() {}
 
@@ -27198,6 +27501,9 @@ public:
     if (parameters) {
       res["Parameters"] = boost::any(*parameters);
     }
+    if (ragWorkspaceCollection) {
+      res["RagWorkspaceCollection"] = ragWorkspaceCollection ? boost::any(ragWorkspaceCollection->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -27215,6 +27521,9 @@ public:
     }
     if (statementName) {
       res["StatementName"] = boost::any(*statementName);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -27238,6 +27547,13 @@ public:
         }
       }
       parameters = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("RagWorkspaceCollection") != m.end() && !m["RagWorkspaceCollection"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RagWorkspaceCollection"].type()) {
+        ExecuteStatementRequestRagWorkspaceCollection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RagWorkspaceCollection"]));
+        ragWorkspaceCollection = make_shared<ExecuteStatementRequestRagWorkspaceCollection>(model1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -27264,6 +27580,9 @@ public:
     if (m.find("StatementName") != m.end() && !m["StatementName"].empty()) {
       statementName = make_shared<string>(boost::any_cast<string>(m["StatementName"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -27275,12 +27594,14 @@ public:
   shared_ptr<string> database{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> parametersShrink{};
+  shared_ptr<string> ragWorkspaceCollectionShrink{};
   shared_ptr<string> regionId{};
   shared_ptr<string> runType{};
   shared_ptr<string> secretArn{};
   shared_ptr<string> sql{};
   shared_ptr<string> sqlsShrink{};
   shared_ptr<string> statementName{};
+  shared_ptr<string> workspaceId{};
 
   ExecuteStatementShrinkRequest() {}
 
@@ -27304,6 +27625,9 @@ public:
     if (parametersShrink) {
       res["Parameters"] = boost::any(*parametersShrink);
     }
+    if (ragWorkspaceCollectionShrink) {
+      res["RagWorkspaceCollection"] = boost::any(*ragWorkspaceCollectionShrink);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -27322,6 +27646,9 @@ public:
     if (statementName) {
       res["StatementName"] = boost::any(*statementName);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -27337,6 +27664,9 @@ public:
     }
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
+    }
+    if (m.find("RagWorkspaceCollection") != m.end() && !m["RagWorkspaceCollection"].empty()) {
+      ragWorkspaceCollectionShrink = make_shared<string>(boost::any_cast<string>(m["RagWorkspaceCollection"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -27355,6 +27685,9 @@ public:
     }
     if (m.find("StatementName") != m.end() && !m["StatementName"].empty()) {
       statementName = make_shared<string>(boost::any_cast<string>(m["StatementName"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -27841,6 +28174,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> secretArn{};
   shared_ptr<string> secretName{};
+  shared_ptr<string> workspaceId{};
 
   GetSecretValueRequest() {}
 
@@ -27867,6 +28201,9 @@ public:
     if (secretName) {
       res["SecretName"] = boost::any(*secretName);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -27885,6 +28222,9 @@ public:
     }
     if (m.find("SecretName") != m.end() && !m["SecretName"].empty()) {
       secretName = make_shared<string>(boost::any_cast<string>(m["SecretName"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -32546,6 +32886,7 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   ListSecretsRequest() {}
 
@@ -32566,6 +32907,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -32578,6 +32922,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -38471,6 +38818,56 @@ public:
 
   virtual ~QueryCollectionDataRequestRelationalTableFilter() = default;
 };
+class QueryCollectionDataRequestSparseVector : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> indices{};
+  shared_ptr<vector<double>> values{};
+
+  QueryCollectionDataRequestSparseVector() {}
+
+  explicit QueryCollectionDataRequestSparseVector(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (indices) {
+      res["Indices"] = boost::any(*indices);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Indices") != m.end() && !m["Indices"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Indices"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Indices"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      indices = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      values = make_shared<vector<double>>(toVec1);
+    }
+  }
+
+
+  virtual ~QueryCollectionDataRequestSparseVector() = default;
+};
 class QueryCollectionDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
@@ -38489,6 +38886,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<QueryCollectionDataRequestRelationalTableFilter> relationalTableFilter{};
+  shared_ptr<QueryCollectionDataRequestSparseVector> sparseVector{};
   shared_ptr<long> topK{};
   shared_ptr<vector<double>> vector{};
   shared_ptr<string> workspaceId{};
@@ -38550,6 +38948,9 @@ public:
     }
     if (relationalTableFilter) {
       res["RelationalTableFilter"] = relationalTableFilter ? boost::any(relationalTableFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sparseVector) {
+      res["SparseVector"] = sparseVector ? boost::any(sparseVector->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (topK) {
       res["TopK"] = boost::any(*topK);
@@ -38626,6 +39027,13 @@ public:
         relationalTableFilter = make_shared<QueryCollectionDataRequestRelationalTableFilter>(model1);
       }
     }
+    if (m.find("SparseVector") != m.end() && !m["SparseVector"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SparseVector"].type()) {
+        QueryCollectionDataRequestSparseVector model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SparseVector"]));
+        sparseVector = make_shared<QueryCollectionDataRequestSparseVector>(model1);
+      }
+    }
     if (m.find("TopK") != m.end() && !m["TopK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["TopK"]));
     }
@@ -38665,6 +39073,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> relationalTableFilterShrink{};
+  shared_ptr<string> sparseVectorShrink{};
   shared_ptr<long> topK{};
   shared_ptr<string> vectorShrink{};
   shared_ptr<string> workspaceId{};
@@ -38727,6 +39136,9 @@ public:
     if (relationalTableFilterShrink) {
       res["RelationalTableFilter"] = boost::any(*relationalTableFilterShrink);
     }
+    if (sparseVectorShrink) {
+      res["SparseVector"] = boost::any(*sparseVectorShrink);
+    }
     if (topK) {
       res["TopK"] = boost::any(*topK);
     }
@@ -38787,6 +39199,9 @@ public:
     }
     if (m.find("RelationalTableFilter") != m.end() && !m["RelationalTableFilter"].empty()) {
       relationalTableFilterShrink = make_shared<string>(boost::any_cast<string>(m["RelationalTableFilter"]));
+    }
+    if (m.find("SparseVector") != m.end() && !m["SparseVector"].empty()) {
+      sparseVectorShrink = make_shared<string>(boost::any_cast<string>(m["SparseVector"]));
     }
     if (m.find("TopK") != m.end() && !m["TopK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["TopK"]));
@@ -44740,10 +45155,61 @@ public:
 
   virtual ~UpsertChunksResponse() = default;
 };
+class UpsertCollectionDataRequestRowsSparseVector : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> indices{};
+  shared_ptr<vector<double>> values{};
+
+  UpsertCollectionDataRequestRowsSparseVector() {}
+
+  explicit UpsertCollectionDataRequestRowsSparseVector(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (indices) {
+      res["Indices"] = boost::any(*indices);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Indices") != m.end() && !m["Indices"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Indices"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Indices"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      indices = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      values = make_shared<vector<double>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpsertCollectionDataRequestRowsSparseVector() = default;
+};
 class UpsertCollectionDataRequestRows : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
   shared_ptr<map<string, string>> metadata{};
+  shared_ptr<UpsertCollectionDataRequestRowsSparseVector> sparseVector{};
   shared_ptr<vector<double>> vector{};
 
   UpsertCollectionDataRequestRows() {}
@@ -44762,6 +45228,9 @@ public:
     if (metadata) {
       res["Metadata"] = boost::any(*metadata);
     }
+    if (sparseVector) {
+      res["SparseVector"] = sparseVector ? boost::any(sparseVector->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (vector) {
       res["Vector"] = boost::any(*vector);
     }
@@ -44779,6 +45248,13 @@ public:
          toMap1[item.first] = item.second;
       }
       metadata = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("SparseVector") != m.end() && !m["SparseVector"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SparseVector"].type()) {
+        UpsertCollectionDataRequestRowsSparseVector model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SparseVector"]));
+        sparseVector = make_shared<UpsertCollectionDataRequestRowsSparseVector>(model1);
+      }
     }
     if (m.find("Vector") != m.end() && !m["Vector"].empty()) {
       vector<double> toVec1;
@@ -45352,7 +45828,7 @@ public:
   CreateAccountResponse createAccount(shared_ptr<CreateAccountRequest> request);
   CreateBackupResponse createBackupWithOptions(shared_ptr<CreateBackupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBackupResponse createBackup(shared_ptr<CreateBackupRequest> request);
-  CreateCollectionResponse createCollectionWithOptions(shared_ptr<CreateCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCollectionResponse createCollectionWithOptions(shared_ptr<CreateCollectionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCollectionResponse createCollection(shared_ptr<CreateCollectionRequest> request);
   CreateDBInstanceResponse createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBInstanceResponse createDBInstance(shared_ptr<CreateDBInstanceRequest> request);

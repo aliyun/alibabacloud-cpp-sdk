@@ -600,8 +600,13 @@ CreateBackupResponse Alibabacloud_Gpdb20160503::Client::createBackup(shared_ptr<
   return createBackupWithOptions(request, runtime);
 }
 
-CreateCollectionResponse Alibabacloud_Gpdb20160503::Client::createCollectionWithOptions(shared_ptr<CreateCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateCollectionResponse Alibabacloud_Gpdb20160503::Client::createCollectionWithOptions(shared_ptr<CreateCollectionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateCollectionShrinkRequest> request = make_shared<CreateCollectionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateCollectionRequestSparseVectorIndexConfig>(tmpReq->sparseVectorIndexConfig)) {
+    request->sparseVectorIndexConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sparseVectorIndexConfig, make_shared<string>("SparseVectorIndexConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->collection)) {
     query->insert(pair<string, string>("Collection", *request->collection));
@@ -653,6 +658,12 @@ CreateCollectionResponse Alibabacloud_Gpdb20160503::Client::createCollectionWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sparseVectorIndexConfigShrink)) {
+    query->insert(pair<string, string>("SparseVectorIndexConfig", *request->sparseVectorIndexConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->supportSparse)) {
+    query->insert(pair<string, bool>("SupportSparse", *request->supportSparse));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -1479,6 +1490,9 @@ CreateSecretResponse Alibabacloud_Gpdb20160503::Client::createSecretWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
     query->insert(pair<string, string>("Username", *request->username));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1789,6 +1803,9 @@ CreateVectorIndexResponse Alibabacloud_Gpdb20160503::Client::createVectorIndexWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2537,6 +2554,9 @@ DeleteSecretResponse Alibabacloud_Gpdb20160503::Client::deleteSecretWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->secretName)) {
     query->insert(pair<string, string>("SecretName", *request->secretName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2704,6 +2724,9 @@ DeleteVectorIndexResponse Alibabacloud_Gpdb20160503::Client::deleteVectorIndexWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5446,6 +5469,9 @@ DescribeTableResponse Alibabacloud_Gpdb20160503::Client::describeTableWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->table)) {
     query->insert(pair<string, string>("Table", *request->table));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5873,6 +5899,9 @@ ExecuteStatementResponse Alibabacloud_Gpdb20160503::Client::executeStatementWith
   if (!Darabonba_Util::Client::isUnset<vector<boost::any>>(tmpReq->parameters)) {
     request->parametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->parameters, make_shared<string>("Parameters"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<ExecuteStatementRequestRagWorkspaceCollection>(tmpReq->ragWorkspaceCollection)) {
+    request->ragWorkspaceCollectionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ragWorkspaceCollection, make_shared<string>("RagWorkspaceCollection"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->sqls)) {
     request->sqlsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sqls, make_shared<string>("Sqls"), make_shared<string>("json")));
   }
@@ -5886,6 +5915,9 @@ ExecuteStatementResponse Alibabacloud_Gpdb20160503::Client::executeStatementWith
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ragWorkspaceCollectionShrink)) {
+    query->insert(pair<string, string>("RagWorkspaceCollection", *request->ragWorkspaceCollectionShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -5897,6 +5929,9 @@ ExecuteStatementResponse Alibabacloud_Gpdb20160503::Client::executeStatementWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->statementName)) {
     query->insert(pair<string, string>("StatementName", *request->statementName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->parametersShrink)) {
@@ -5989,6 +6024,9 @@ GetSecretValueResponse Alibabacloud_Gpdb20160503::Client::getSecretValueWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->secretName)) {
     query->insert(pair<string, string>("SecretName", *request->secretName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -6887,6 +6925,9 @@ ListSecretsResponse Alibabacloud_Gpdb20160503::Client::listSecretsWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -8378,6 +8419,9 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   if (!Darabonba_Util::Client::isUnset<QueryCollectionDataRequestRelationalTableFilter>(tmpReq->relationalTableFilter)) {
     request->relationalTableFilterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->relationalTableFilter, make_shared<string>("RelationalTableFilter"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<QueryCollectionDataRequestSparseVector>(tmpReq->sparseVector)) {
+    request->sparseVectorShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sparseVector, make_shared<string>("SparseVector"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<double>>(tmpReq->vector)) {
     request->vectorShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vector, make_shared<string>("Vector"), make_shared<string>("json")));
   }
@@ -8429,6 +8473,9 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->relationalTableFilterShrink)) {
     query->insert(pair<string, string>("RelationalTableFilter", *request->relationalTableFilterShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sparseVectorShrink)) {
+    query->insert(pair<string, string>("SparseVector", *request->sparseVectorShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->topK)) {
     query->insert(pair<string, long>("TopK", *request->topK));
