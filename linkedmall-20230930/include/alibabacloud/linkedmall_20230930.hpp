@@ -2867,6 +2867,7 @@ public:
   shared_ptr<long> quantity{};
   shared_ptr<long> rankValue{};
   shared_ptr<string> shopId{};
+  shared_ptr<string> skuAlias{};
   shared_ptr<string> skuId{};
   shared_ptr<vector<SkuSpec>> skuSpecs{};
   shared_ptr<string> skuSpecsCode{};
@@ -2922,6 +2923,9 @@ public:
     }
     if (shopId) {
       res["shopId"] = boost::any(*shopId);
+    }
+    if (skuAlias) {
+      res["skuAlias"] = boost::any(*skuAlias);
     }
     if (skuId) {
       res["skuId"] = boost::any(*skuId);
@@ -2987,6 +2991,9 @@ public:
     }
     if (m.find("shopId") != m.end() && !m["shopId"].empty()) {
       shopId = make_shared<string>(boost::any_cast<string>(m["shopId"]));
+    }
+    if (m.find("skuAlias") != m.end() && !m["skuAlias"].empty()) {
+      skuAlias = make_shared<string>(boost::any_cast<string>(m["skuAlias"]));
     }
     if (m.find("skuId") != m.end() && !m["skuId"].empty()) {
       skuId = make_shared<string>(boost::any_cast<string>(m["skuId"]));
