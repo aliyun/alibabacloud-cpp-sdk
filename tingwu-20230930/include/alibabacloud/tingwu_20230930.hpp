@@ -1360,15 +1360,15 @@ public:
 
   virtual ~CreateTranscriptionPhrasesResponse() = default;
 };
-class DeleteTranscriptionPhrasesResponseBody : public Darabonba::Model {
+class DeleteTranscriptionPhrasesResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> status{};
 
-  DeleteTranscriptionPhrasesResponseBody() {}
+  DeleteTranscriptionPhrasesResponseBodyData() {}
 
-  explicit DeleteTranscriptionPhrasesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DeleteTranscriptionPhrasesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -1389,6 +1389,60 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DeleteTranscriptionPhrasesResponseBodyData() = default;
+};
+class DeleteTranscriptionPhrasesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DeleteTranscriptionPhrasesResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> status{};
+
+  DeleteTranscriptionPhrasesResponseBody() {}
+
+  explicit DeleteTranscriptionPhrasesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DeleteTranscriptionPhrasesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DeleteTranscriptionPhrasesResponseBodyData>(model1);
+      }
+    }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
