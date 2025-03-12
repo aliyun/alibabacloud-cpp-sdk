@@ -818,7 +818,6 @@ class BicyclingDirectionNovaResponseBody : public Darabonba::Model {
 public:
   shared_ptr<BicyclingDirectionNovaResponseBodyData> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   BicyclingDirectionNovaResponseBody() {}
 
@@ -836,9 +835,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -852,9 +848,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
@@ -1866,7 +1859,6 @@ class DrivingDirectionNovaResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DrivingDirectionNovaResponseBodyData> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   DrivingDirectionNovaResponseBody() {}
 
@@ -1884,9 +1876,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -1900,9 +1889,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
@@ -2392,7 +2378,6 @@ class ElectrobikeDirectionNovaResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ElectrobikeDirectionNovaResponseBodyData> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   ElectrobikeDirectionNovaResponseBody() {}
 
@@ -2410,9 +2395,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -2426,9 +2408,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
@@ -2666,7 +2645,6 @@ class GeoCodeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<GeoCodeResponseBodyData>> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   GeoCodeResponseBody() {}
 
@@ -2688,9 +2666,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -2710,9 +2685,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
@@ -3126,7 +3098,6 @@ class NearbySearchNovaResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<NearbySearchNovaResponseBodyData>> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   NearbySearchNovaResponseBody() {}
 
@@ -3148,9 +3119,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -3170,9 +3138,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
@@ -3565,7 +3530,6 @@ class PlaceSearchNovaResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<PlaceSearchNovaResponseBodyData>> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   PlaceSearchNovaResponseBody() {}
 
@@ -3587,9 +3551,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -3609,9 +3570,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
@@ -4665,7 +4623,6 @@ class RgeoCodeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<RgeoCodeResponseBodyData> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   RgeoCodeResponseBody() {}
 
@@ -4683,9 +4640,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -4699,9 +4653,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
@@ -5788,6 +5739,35 @@ public:
 
   virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway() = default;
 };
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline : public Darabonba::Model {
+public:
+  shared_ptr<string> polyline{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (polyline) {
+      res["polyline"] = boost::any(*polyline);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      polyline = make_shared<string>(boost::any_cast<string>(m["polyline"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline() = default;
+};
 class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi : public Darabonba::Model {
 public:
   shared_ptr<string> destinationName{};
@@ -5797,6 +5777,7 @@ public:
   shared_ptr<string> index{};
   shared_ptr<string> originName{};
   shared_ptr<string> originPoint{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline> polyline{};
   shared_ptr<string> price{};
 
   TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi() {}
@@ -5830,6 +5811,9 @@ public:
     if (originPoint) {
       res["originPoint"] = boost::any(*originPoint);
     }
+    if (polyline) {
+      res["polyline"] = polyline ? boost::any(polyline->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (price) {
       res["price"] = boost::any(*price);
     }
@@ -5857,6 +5841,13 @@ public:
     }
     if (m.find("originPoint") != m.end() && !m["originPoint"].empty()) {
       originPoint = make_shared<string>(boost::any_cast<string>(m["originPoint"]));
+    }
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      if (typeid(map<string, boost::any>) == m["polyline"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["polyline"]));
+        polyline = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline>(model1);
+      }
     }
     if (m.find("price") != m.end() && !m["price"].empty()) {
       price = make_shared<string>(boost::any_cast<string>(m["price"]));
@@ -6432,7 +6423,6 @@ class TransitIntegratedDirectionResponseBody : public Darabonba::Model {
 public:
   shared_ptr<TransitIntegratedDirectionResponseBodyData> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   TransitIntegratedDirectionResponseBody() {}
 
@@ -6450,9 +6440,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -6466,9 +6453,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
@@ -6958,7 +6942,6 @@ class WalkingDirectionNovaResponseBody : public Darabonba::Model {
 public:
   shared_ptr<WalkingDirectionNovaResponseBodyData> data{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   WalkingDirectionNovaResponseBody() {}
 
@@ -6976,9 +6959,6 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
-    if (success) {
-      res["success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -6992,9 +6972,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
     }
   }
 
