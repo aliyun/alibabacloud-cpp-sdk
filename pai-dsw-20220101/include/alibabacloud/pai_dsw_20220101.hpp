@@ -949,6 +949,8 @@ public:
 class CreateInstanceRequestDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
+  shared_ptr<string> datasetVersion{};
+  shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> optionType{};
   shared_ptr<string> options{};
@@ -966,6 +968,12 @@ public:
     map<string, boost::any> res;
     if (datasetId) {
       res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (datasetVersion) {
+      res["DatasetVersion"] = boost::any(*datasetVersion);
+    }
+    if (mountAccess) {
+      res["MountAccess"] = boost::any(*mountAccess);
     }
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
@@ -985,6 +993,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
       datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
+      datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
+    }
+    if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
+      mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
@@ -2830,6 +2844,7 @@ public:
 class GetInstanceResponseBodyDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
+  shared_ptr<string> datasetVersion{};
   shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> optionType{};
@@ -2848,6 +2863,9 @@ public:
     map<string, boost::any> res;
     if (datasetId) {
       res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (datasetVersion) {
+      res["DatasetVersion"] = boost::any(*datasetVersion);
     }
     if (mountAccess) {
       res["MountAccess"] = boost::any(*mountAccess);
@@ -2870,6 +2888,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
       datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
+      datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
     }
     if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
       mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
@@ -7245,6 +7266,8 @@ public:
 class ListInstancesResponseBodyInstancesDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
+  shared_ptr<string> datasetVersion{};
+  shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> optionType{};
   shared_ptr<string> options{};
@@ -7262,6 +7285,12 @@ public:
     map<string, boost::any> res;
     if (datasetId) {
       res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (datasetVersion) {
+      res["DatasetVersion"] = boost::any(*datasetVersion);
+    }
+    if (mountAccess) {
+      res["MountAccess"] = boost::any(*mountAccess);
     }
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
@@ -7281,6 +7310,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
       datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
+      datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
+    }
+    if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
+      mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
@@ -8715,6 +8750,8 @@ public:
 class UpdateInstanceRequestDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
+  shared_ptr<string> datasetVersion{};
+  shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> optionType{};
   shared_ptr<string> options{};
@@ -8732,6 +8769,12 @@ public:
     map<string, boost::any> res;
     if (datasetId) {
       res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (datasetVersion) {
+      res["DatasetVersion"] = boost::any(*datasetVersion);
+    }
+    if (mountAccess) {
+      res["MountAccess"] = boost::any(*mountAccess);
     }
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
@@ -8751,6 +8794,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
       datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
+      datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
+    }
+    if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
+      mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
