@@ -582,6 +582,9 @@ BatchCreateDataLakePartitionsResponse Alibabacloud_Dms-enterprise20181101::Clien
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->partitionInputsShrink)) {
     body->insert(pair<string, string>("PartitionInputs", *request->partitionInputsShrink));
@@ -638,6 +641,9 @@ BatchDeleteDataLakePartitionsResponse Alibabacloud_Dms-enterprise20181101::Clien
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -687,6 +693,9 @@ BatchUpdateDataLakePartitionsResponse Alibabacloud_Dms-enterprise20181101::Clien
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->partitionInputsShrink)) {
@@ -1374,6 +1383,9 @@ CreateDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::crea
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1485,6 +1497,9 @@ CreateDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::cre
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->partitionInputShrink)) {
     body->insert(pair<string, string>("PartitionInput", *request->partitionInputShrink));
@@ -1536,6 +1551,9 @@ CreateDataLakeTableResponse Alibabacloud_Dms-enterprise20181101::Client::createD
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->tableInputShrink)) {
@@ -2756,6 +2774,9 @@ DeleteDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::dele
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2860,6 +2881,9 @@ DeleteDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::del
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2904,6 +2928,9 @@ DeleteDataLakeTableResponse Alibabacloud_Dms-enterprise20181101::Client::deleteD
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4593,6 +4620,9 @@ GetDataLakeCatalogResponse Alibabacloud_Dms-enterprise20181101::Client::getDataL
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4634,6 +4664,9 @@ GetDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::getData
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4736,6 +4769,9 @@ GetDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::getDat
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4780,6 +4816,9 @@ GetDataLakeTableResponse Alibabacloud_Dms-enterprise20181101::Client::getDataLak
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -7213,6 +7252,9 @@ ListDataLakeCatalogResponse Alibabacloud_Dms-enterprise20181101::Client::listDat
   if (!Darabonba_Util::Client::isUnset<string>(request->searchKey)) {
     query->insert(pair<string, string>("SearchKey", *request->searchKey));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionToken)) {
+    query->insert(pair<string, string>("SessionToken", *request->sessionToken));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
@@ -7263,6 +7305,9 @@ ListDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::listDa
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -7315,6 +7360,9 @@ ListDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::listDa
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -7365,6 +7413,9 @@ ListDataLakeFunctionNameResponse Alibabacloud_Dms-enterprise20181101::Client::li
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -7422,6 +7473,9 @@ ListDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::listD
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->partNamesShrink)) {
     body->insert(pair<string, string>("PartNames", *request->partNamesShrink));
@@ -7477,6 +7531,9 @@ ListDataLakePartitionByFilterResponse Alibabacloud_Dms-enterprise20181101::Clien
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
@@ -7534,6 +7591,9 @@ ListDataLakePartitionNameResponse Alibabacloud_Dms-enterprise20181101::Client::l
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -7587,6 +7647,9 @@ ListDataLakeTableResponse Alibabacloud_Dms-enterprise20181101::Client::listDataL
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -7642,6 +7705,9 @@ ListDataLakeTableNameResponse Alibabacloud_Dms-enterprise20181101::Client::listD
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -7692,6 +7758,9 @@ ListDataLakeTablebaseInfoResponse Alibabacloud_Dms-enterprise20181101::Client::l
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -11203,6 +11272,39 @@ SyncInstanceMetaResponse Alibabacloud_Dms-enterprise20181101::Client::syncInstan
   return syncInstanceMetaWithOptions(request, runtime);
 }
 
+TryRunTaskFlowResponse Alibabacloud_Dms-enterprise20181101::Client::tryRunTaskFlowWithOptions(shared_ptr<TryRunTaskFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->dagId)) {
+    query->insert(pair<string, long>("DagId", *request->dagId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TryRunTaskFlow"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TryRunTaskFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TryRunTaskFlowResponse(execute(params, req, runtime));
+  }
+}
+
+TryRunTaskFlowResponse Alibabacloud_Dms-enterprise20181101::Client::tryRunTaskFlow(shared_ptr<TryRunTaskFlowRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return tryRunTaskFlowWithOptions(request, runtime);
+}
+
 UpdateAbacPolicyResponse Alibabacloud_Dms-enterprise20181101::Client::updateAbacPolicyWithOptions(shared_ptr<UpdateAbacPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -11319,6 +11421,9 @@ UpdateDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::upda
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -11427,6 +11532,9 @@ UpdateDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::upd
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->partitionInputShrink)) {
     body->insert(pair<string, string>("PartitionInput", *request->partitionInputShrink));
@@ -11481,6 +11589,9 @@ UpdateDataLakeTableResponse Alibabacloud_Dms-enterprise20181101::Client::updateD
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->tableInputShrink)) {

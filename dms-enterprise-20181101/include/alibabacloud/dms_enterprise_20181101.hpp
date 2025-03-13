@@ -4589,6 +4589,7 @@ public:
   shared_ptr<vector<DLPartitionInput>> partitionInputs{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   BatchCreateDataLakePartitionsRequest() {}
 
@@ -4628,6 +4629,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -4666,6 +4670,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -4681,6 +4688,7 @@ public:
   shared_ptr<string> partitionInputsShrink{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   BatchCreateDataLakePartitionsShrinkRequest() {}
 
@@ -4716,6 +4724,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -4743,6 +4754,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -4881,6 +4895,7 @@ public:
   shared_ptr<vector<vector<string>>> partitionValuesList{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   BatchDeleteDataLakePartitionsRequest() {}
 
@@ -4912,6 +4927,9 @@ public:
     }
     if (tid) {
       res["Tid"] = boost::any(*tid);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -4951,6 +4969,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -5088,6 +5109,7 @@ public:
   shared_ptr<vector<DLPartitionInput>> partitionInputs{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   BatchUpdateDataLakePartitionsRequest() {}
 
@@ -5121,6 +5143,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -5153,6 +5178,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -5166,6 +5194,7 @@ public:
   shared_ptr<string> partitionInputsShrink{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   BatchUpdateDataLakePartitionsShrinkRequest() {}
 
@@ -5195,6 +5224,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -5216,6 +5248,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -8879,6 +8914,7 @@ public:
   shared_ptr<string> location{};
   shared_ptr<map<string, string>> parameters{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   CreateDataLakeDatabaseRequest() {}
 
@@ -8911,6 +8947,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -8941,6 +8980,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -8955,6 +8997,7 @@ public:
   shared_ptr<string> location{};
   shared_ptr<string> parametersShrink{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   CreateDataLakeDatabaseShrinkRequest() {}
 
@@ -8987,6 +9030,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -9011,6 +9057,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -9374,6 +9423,7 @@ public:
   shared_ptr<DLPartitionInput> partitionInput{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   CreateDataLakePartitionRequest() {}
 
@@ -9409,6 +9459,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -9441,6 +9494,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -9456,6 +9512,7 @@ public:
   shared_ptr<string> partitionInputShrink{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   CreateDataLakePartitionShrinkRequest() {}
 
@@ -9491,6 +9548,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -9518,6 +9578,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -9644,6 +9707,7 @@ public:
   shared_ptr<string> dbName{};
   shared_ptr<OpenStructDLTableInput> tableInput{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   CreateDataLakeTableRequest() {}
 
@@ -9670,6 +9734,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -9693,6 +9760,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -9705,6 +9775,7 @@ public:
   shared_ptr<string> dbName{};
   shared_ptr<string> tableInputShrink{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   CreateDataLakeTableShrinkRequest() {}
 
@@ -9731,6 +9802,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -9749,6 +9823,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -15466,6 +15543,7 @@ public:
   shared_ptr<string> dataRegion{};
   shared_ptr<string> dbName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   DeleteDataLakeDatabaseRequest() {}
 
@@ -15489,6 +15567,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -15504,6 +15585,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -15787,6 +15871,7 @@ public:
   shared_ptr<vector<string>> partitionValues{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   DeleteDataLakePartitionRequest() {}
 
@@ -15818,6 +15903,9 @@ public:
     }
     if (tid) {
       res["Tid"] = boost::any(*tid);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -15851,6 +15939,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -15865,6 +15956,7 @@ public:
   shared_ptr<string> partitionValuesShrink{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   DeleteDataLakePartitionShrinkRequest() {}
 
@@ -15897,6 +15989,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -15921,6 +16016,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -16036,6 +16134,7 @@ public:
   shared_ptr<string> dbName{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   DeleteDataLakeTableRequest() {}
 
@@ -16062,6 +16161,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -16080,6 +16182,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -26317,6 +26422,7 @@ public:
   shared_ptr<string> catalogName{};
   shared_ptr<string> dataRegion{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   GetDataLakeCatalogRequest() {}
 
@@ -26337,6 +26443,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -26349,6 +26458,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -26474,6 +26586,7 @@ public:
   shared_ptr<string> dataRegion{};
   shared_ptr<string> name{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   GetDataLakeDatabaseRequest() {}
 
@@ -26497,6 +26610,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -26512,6 +26628,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -26816,6 +26935,7 @@ public:
   shared_ptr<vector<string>> partitionValues{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   GetDataLakePartitionRequest() {}
 
@@ -26844,6 +26964,9 @@ public:
     }
     if (tid) {
       res["Tid"] = boost::any(*tid);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -26874,6 +26997,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -26887,6 +27013,7 @@ public:
   shared_ptr<string> partitionValuesShrink{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   GetDataLakePartitionShrinkRequest() {}
 
@@ -26916,6 +27043,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -26937,6 +27067,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -27063,6 +27196,7 @@ public:
   shared_ptr<string> dbName{};
   shared_ptr<string> name{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   GetDataLakeTableRequest() {}
 
@@ -27089,6 +27223,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -27107,6 +27244,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -44610,6 +44750,7 @@ class ListDataLakeCatalogRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dataRegion{};
   shared_ptr<string> searchKey{};
+  shared_ptr<string> sessionToken{};
   shared_ptr<long> tid{};
 
   ListDataLakeCatalogRequest() {}
@@ -44628,6 +44769,9 @@ public:
     if (searchKey) {
       res["SearchKey"] = boost::any(*searchKey);
     }
+    if (sessionToken) {
+      res["SessionToken"] = boost::any(*sessionToken);
+    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -44640,6 +44784,9 @@ public:
     }
     if (m.find("SearchKey") != m.end() && !m["SearchKey"].empty()) {
       searchKey = make_shared<string>(boost::any_cast<string>(m["SearchKey"]));
+    }
+    if (m.find("SessionToken") != m.end() && !m["SessionToken"].empty()) {
+      sessionToken = make_shared<string>(boost::any_cast<string>(m["SessionToken"]));
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
@@ -44780,6 +44927,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> searchKey{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakeDatabaseRequest() {}
 
@@ -44809,6 +44957,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -44830,6 +44981,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -44982,6 +45136,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakeFunctionRequest() {}
 
@@ -45014,6 +45169,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -45038,6 +45196,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -45190,6 +45351,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakeFunctionNameRequest() {}
 
@@ -45222,6 +45384,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -45246,6 +45411,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -45392,6 +45560,7 @@ public:
   shared_ptr<vector<string>> partNames{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakePartitionRequest() {}
 
@@ -45426,6 +45595,9 @@ public:
     }
     if (tid) {
       res["Tid"] = boost::any(*tid);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -45462,6 +45634,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -45477,6 +45652,7 @@ public:
   shared_ptr<string> partNamesShrink{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakePartitionShrinkRequest() {}
 
@@ -45512,6 +45688,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -45539,6 +45718,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -45692,6 +45874,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakePartitionByFilterRequest() {}
 
@@ -45727,6 +45910,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -45754,6 +45940,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -45906,6 +46095,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakePartitionNameRequest() {}
 
@@ -45938,6 +46128,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -45962,6 +46155,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -46108,6 +46304,7 @@ public:
   shared_ptr<string> tableNamePattern{};
   shared_ptr<string> tableType{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakeTableRequest() {}
 
@@ -46143,6 +46340,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -46170,6 +46370,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -46323,6 +46526,7 @@ public:
   shared_ptr<string> tableNamePattern{};
   shared_ptr<string> tableType{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakeTableNameRequest() {}
 
@@ -46358,6 +46562,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -46385,6 +46592,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -46530,6 +46740,7 @@ public:
   shared_ptr<long> rows{};
   shared_ptr<string> searchKey{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakeTablebaseInfoRequest() {}
 
@@ -46562,6 +46773,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -46586,6 +46800,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -67778,6 +67995,144 @@ public:
 
   virtual ~SyncInstanceMetaResponse() = default;
 };
+class TryRunTaskFlowRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dagId{};
+
+  TryRunTaskFlowRequest() {}
+
+  explicit TryRunTaskFlowRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dagId) {
+      res["DagId"] = boost::any(*dagId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DagId") != m.end() && !m["DagId"].empty()) {
+      dagId = make_shared<long>(boost::any_cast<long>(m["DagId"]));
+    }
+  }
+
+
+  virtual ~TryRunTaskFlowRequest() = default;
+};
+class TryRunTaskFlowResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  TryRunTaskFlowResponseBody() {}
+
+  explicit TryRunTaskFlowResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~TryRunTaskFlowResponseBody() = default;
+};
+class TryRunTaskFlowResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<TryRunTaskFlowResponseBody> body{};
+
+  TryRunTaskFlowResponse() {}
+
+  explicit TryRunTaskFlowResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        TryRunTaskFlowResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<TryRunTaskFlowResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TryRunTaskFlowResponse() = default;
+};
 class UpdateAbacPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> abacPolicyContent{};
@@ -68173,6 +68528,7 @@ public:
   shared_ptr<string> location{};
   shared_ptr<map<string, string>> parameters{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   UpdateDataLakeDatabaseRequest() {}
 
@@ -68205,6 +68561,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -68235,6 +68594,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -68249,6 +68611,7 @@ public:
   shared_ptr<string> location{};
   shared_ptr<string> parametersShrink{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   UpdateDataLakeDatabaseShrinkRequest() {}
 
@@ -68281,6 +68644,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -68305,6 +68671,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -68691,6 +69060,7 @@ public:
   shared_ptr<DLPartitionInput> partitionInput{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   UpdateDataLakePartitionRequest() {}
 
@@ -68720,6 +69090,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -68746,6 +69119,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -68759,6 +69135,7 @@ public:
   shared_ptr<string> partitionInputShrink{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   UpdateDataLakePartitionShrinkRequest() {}
 
@@ -68788,6 +69165,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -68809,6 +69189,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -68925,6 +69308,7 @@ public:
   shared_ptr<OpenStructDLTableInput> tableInput{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   UpdateDataLakeTableRequest() {}
 
@@ -68954,6 +69338,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -68980,6 +69367,9 @@ public:
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -68993,6 +69383,7 @@ public:
   shared_ptr<string> tableInputShrink{};
   shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   UpdateDataLakeTableShrinkRequest() {}
 
@@ -69022,6 +69413,9 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -69043,6 +69437,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
@@ -73363,6 +73760,8 @@ public:
   SyncDatabaseMetaResponse syncDatabaseMeta(shared_ptr<SyncDatabaseMetaRequest> request);
   SyncInstanceMetaResponse syncInstanceMetaWithOptions(shared_ptr<SyncInstanceMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SyncInstanceMetaResponse syncInstanceMeta(shared_ptr<SyncInstanceMetaRequest> request);
+  TryRunTaskFlowResponse tryRunTaskFlowWithOptions(shared_ptr<TryRunTaskFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TryRunTaskFlowResponse tryRunTaskFlow(shared_ptr<TryRunTaskFlowRequest> request);
   UpdateAbacPolicyResponse updateAbacPolicyWithOptions(shared_ptr<UpdateAbacPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAbacPolicyResponse updateAbacPolicy(shared_ptr<UpdateAbacPolicyRequest> request);
   UpdateAuthorityTemplateResponse updateAuthorityTemplateWithOptions(shared_ptr<UpdateAuthorityTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
