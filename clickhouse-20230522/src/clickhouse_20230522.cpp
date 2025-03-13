@@ -193,6 +193,9 @@ CreateDBInstanceResponse Alibabacloud_Clickhouse20230522::Client::createDBInstan
     request->multiZoneShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->multiZone, make_shared<string>("MultiZone"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->backupSetId)) {
+    query->insert(pair<string, string>("BackupSetId", *request->backupSetId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -219,6 +222,9 @@ CreateDBInstanceResponse Alibabacloud_Clickhouse20230522::Client::createDBInstan
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scaleMin)) {
     query->insert(pair<string, string>("ScaleMin", *request->scaleMin));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDBInstanceId)) {
+    query->insert(pair<string, string>("SourceDBInstanceId", *request->sourceDBInstanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
@@ -1070,7 +1076,19 @@ ModifyDBInstanceAttributeResponse Alibabacloud_Clickhouse20230522::Client::modif
 
 ModifyDBInstanceClassResponse Alibabacloud_Clickhouse20230522::Client::modifyDBInstanceClassWithOptions(shared_ptr<ModifyDBInstanceClassRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->scaleMax)) {
+    query->insert(pair<string, long>("ScaleMax", *request->scaleMax));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->scaleMin)) {
+    query->insert(pair<string, long>("ScaleMin", *request->scaleMin));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1079,7 +1097,7 @@ ModifyDBInstanceClassResponse Alibabacloud_Clickhouse20230522::Client::modifyDBI
     {"version", boost::any(string("2023-05-22"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
