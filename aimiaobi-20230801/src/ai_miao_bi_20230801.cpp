@@ -3805,8 +3805,14 @@ RunBookIntroductionResponse Alibabacloud_AiMiaoBi20230801::Client::runBookIntrod
   if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
     body->insert(pair<string, string>("DocId", *request->docId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyPointPrompt)) {
+    body->insert(pair<string, string>("KeyPointPrompt", *request->keyPointPrompt));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->summaryPrompt)) {
+    body->insert(pair<string, string>("SummaryPrompt", *request->summaryPrompt));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -3908,6 +3914,9 @@ RunCommentGenerationResponse Alibabacloud_AiMiaoBi20230801::Client::runCommentGe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sentimentShrink)) {
     body->insert(pair<string, string>("Sentiment", *request->sentimentShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceMaterial)) {
     body->insert(pair<string, string>("SourceMaterial", *request->sourceMaterial));
@@ -4098,11 +4107,23 @@ RunCustomHotTopicViewPointAnalysisResponse Alibabacloud_AiMiaoBi20230801::Client
 RunDocBrainmapResponse Alibabacloud_AiMiaoBi20230801::Client::runDocBrainmapWithOptions(shared_ptr<RunDocBrainmapRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cleanCache)) {
+    body->insert(pair<string, bool>("CleanCache", *request->cleanCache));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
     body->insert(pair<string, string>("DocId", *request->docId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->nodeNumber)) {
+    body->insert(pair<string, long>("NodeNumber", *request->nodeNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->wordNumber)) {
+    body->insert(pair<string, long>("WordNumber", *request->wordNumber));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -4136,17 +4157,31 @@ RunDocBrainmapResponse Alibabacloud_AiMiaoBi20230801::Client::runDocBrainmap(sha
 
 RunDocIntroductionResponse Alibabacloud_AiMiaoBi20230801::Client::runDocIntroductionWithOptions(shared_ptr<RunDocIntroductionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cleanCache)) {
+    query->insert(pair<string, bool>("CleanCache", *request->cleanCache));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
     body->insert(pair<string, string>("DocId", *request->docId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->introductionPrompt)) {
+    body->insert(pair<string, string>("IntroductionPrompt", *request->introductionPrompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyPointPrompt)) {
+    body->insert(pair<string, string>("KeyPointPrompt", *request->keyPointPrompt));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->summaryPrompt)) {
+    body->insert(pair<string, string>("SummaryPrompt", *request->summaryPrompt));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -4280,6 +4315,9 @@ RunDocSmartCardResponse Alibabacloud_AiMiaoBi20230801::Client::runDocSmartCard(s
 RunDocSummaryResponse Alibabacloud_AiMiaoBi20230801::Client::runDocSummaryWithOptions(shared_ptr<RunDocSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cleanCache)) {
+    body->insert(pair<string, bool>("CleanCache", *request->cleanCache));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
     body->insert(pair<string, string>("DocId", *request->docId));
   }
@@ -4325,6 +4363,9 @@ RunDocSummaryResponse Alibabacloud_AiMiaoBi20230801::Client::runDocSummary(share
 RunDocTranslationResponse Alibabacloud_AiMiaoBi20230801::Client::runDocTranslationWithOptions(shared_ptr<RunDocTranslationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cleanCache)) {
+    body->insert(pair<string, bool>("CleanCache", *request->cleanCache));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
     body->insert(pair<string, string>("DocId", *request->docId));
   }
@@ -4365,6 +4406,60 @@ RunDocTranslationResponse Alibabacloud_AiMiaoBi20230801::Client::runDocTranslati
 RunDocTranslationResponse Alibabacloud_AiMiaoBi20230801::Client::runDocTranslation(shared_ptr<RunDocTranslationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return runDocTranslationWithOptions(request, runtime);
+}
+
+RunDocWashingResponse Alibabacloud_AiMiaoBi20230801::Client::runDocWashingWithOptions(shared_ptr<RunDocWashingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->referenceContent)) {
+    body->insert(pair<string, string>("ReferenceContent", *request->referenceContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    body->insert(pair<string, string>("Topic", *request->topic));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->wordNumber)) {
+    body->insert(pair<string, long>("WordNumber", *request->wordNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->writingTypeName)) {
+    body->insert(pair<string, string>("WritingTypeName", *request->writingTypeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->writingTypeRefDoc)) {
+    body->insert(pair<string, string>("WritingTypeRefDoc", *request->writingTypeRefDoc));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunDocWashing"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RunDocWashingResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RunDocWashingResponse(execute(params, req, runtime));
+  }
+}
+
+RunDocWashingResponse Alibabacloud_AiMiaoBi20230801::Client::runDocWashing(shared_ptr<RunDocWashingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return runDocWashingWithOptions(request, runtime);
 }
 
 RunExpandContentResponse Alibabacloud_AiMiaoBi20230801::Client::runExpandContentWithOptions(shared_ptr<RunExpandContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
