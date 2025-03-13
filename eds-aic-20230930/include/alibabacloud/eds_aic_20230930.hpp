@@ -9034,6 +9034,179 @@ public:
 
   virtual ~ModifyAppResponse() = default;
 };
+class ModifyInstanceChargeTypeRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<vector<string>> instanceGroupIds{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
+
+  ModifyInstanceChargeTypeRequest() {}
+
+  explicit ModifyInstanceChargeTypeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (instanceGroupIds) {
+      res["InstanceGroupIds"] = boost::any(*instanceGroupIds);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["PeriodUnit"] = boost::any(*periodUnit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("InstanceGroupIds") != m.end() && !m["InstanceGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
+  }
+
+
+  virtual ~ModifyInstanceChargeTypeRequest() = default;
+};
+class ModifyInstanceChargeTypeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceGroupIds{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  ModifyInstanceChargeTypeResponseBody() {}
+
+  explicit ModifyInstanceChargeTypeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceGroupIds) {
+      res["InstanceGroupIds"] = boost::any(*instanceGroupIds);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceGroupIds") != m.end() && !m["InstanceGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyInstanceChargeTypeResponseBody() = default;
+};
+class ModifyInstanceChargeTypeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyInstanceChargeTypeResponseBody> body{};
+
+  ModifyInstanceChargeTypeResponse() {}
+
+  explicit ModifyInstanceChargeTypeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyInstanceChargeTypeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyInstanceChargeTypeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyInstanceChargeTypeResponse() = default;
+};
 class ModifyKeyPairNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> keyPairId{};
@@ -11637,6 +11810,8 @@ public:
   ModifyAndroidInstanceGroupResponse modifyAndroidInstanceGroup(shared_ptr<ModifyAndroidInstanceGroupRequest> request);
   ModifyAppResponse modifyAppWithOptions(shared_ptr<ModifyAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAppResponse modifyApp(shared_ptr<ModifyAppRequest> request);
+  ModifyInstanceChargeTypeResponse modifyInstanceChargeTypeWithOptions(shared_ptr<ModifyInstanceChargeTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyInstanceChargeTypeResponse modifyInstanceChargeType(shared_ptr<ModifyInstanceChargeTypeRequest> request);
   ModifyKeyPairNameResponse modifyKeyPairNameWithOptions(shared_ptr<ModifyKeyPairNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyKeyPairNameResponse modifyKeyPairName(shared_ptr<ModifyKeyPairNameRequest> request);
   ModifyPolicyGroupResponse modifyPolicyGroupWithOptions(shared_ptr<ModifyPolicyGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
