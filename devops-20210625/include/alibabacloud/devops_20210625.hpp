@@ -2848,10 +2848,12 @@ public:
   shared_ptr<string> content{};
   shared_ptr<bool> draft{};
   shared_ptr<string> filePath{};
+  shared_ptr<string> fromPachSetBizId{};
   shared_ptr<long> lineNumber{};
   shared_ptr<string> parentCommentBizId{};
   shared_ptr<string> patchSetBizId{};
   shared_ptr<bool> resolved{};
+  shared_ptr<string> toPatchSetBizId{};
   shared_ptr<long> localId{};
   shared_ptr<string> organizationId{};
   shared_ptr<string> repositoryIdentity{};
@@ -2881,6 +2883,9 @@ public:
     if (filePath) {
       res["filePath"] = boost::any(*filePath);
     }
+    if (fromPachSetBizId) {
+      res["fromPachSetBizId"] = boost::any(*fromPachSetBizId);
+    }
     if (lineNumber) {
       res["lineNumber"] = boost::any(*lineNumber);
     }
@@ -2892,6 +2897,9 @@ public:
     }
     if (resolved) {
       res["resolved"] = boost::any(*resolved);
+    }
+    if (toPatchSetBizId) {
+      res["toPatchSetBizId"] = boost::any(*toPatchSetBizId);
     }
     if (localId) {
       res["localId"] = boost::any(*localId);
@@ -2921,6 +2929,9 @@ public:
     if (m.find("filePath") != m.end() && !m["filePath"].empty()) {
       filePath = make_shared<string>(boost::any_cast<string>(m["filePath"]));
     }
+    if (m.find("fromPachSetBizId") != m.end() && !m["fromPachSetBizId"].empty()) {
+      fromPachSetBizId = make_shared<string>(boost::any_cast<string>(m["fromPachSetBizId"]));
+    }
     if (m.find("lineNumber") != m.end() && !m["lineNumber"].empty()) {
       lineNumber = make_shared<long>(boost::any_cast<long>(m["lineNumber"]));
     }
@@ -2932,6 +2943,9 @@ public:
     }
     if (m.find("resolved") != m.end() && !m["resolved"].empty()) {
       resolved = make_shared<bool>(boost::any_cast<bool>(m["resolved"]));
+    }
+    if (m.find("toPatchSetBizId") != m.end() && !m["toPatchSetBizId"].empty()) {
+      toPatchSetBizId = make_shared<string>(boost::any_cast<string>(m["toPatchSetBizId"]));
     }
     if (m.find("localId") != m.end() && !m["localId"].empty()) {
       localId = make_shared<long>(boost::any_cast<long>(m["localId"]));
