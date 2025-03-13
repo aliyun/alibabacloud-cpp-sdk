@@ -147,6 +147,56 @@ CreateDialogResponse Alibabacloud_DianJin20240628::Client::createDialog(shared_p
   return createDialogWithOptions(workspaceId, request, headers, runtime);
 }
 
+CreateDialogAnalysisTaskResponse Alibabacloud_DianJin20240628::Client::createDialogAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                           shared_ptr<CreateDialogAnalysisTaskRequest> request,
+                                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->analysisNodes)) {
+    body->insert(pair<string, vector<string>>("analysisNodes", *request->analysisNodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDialogAnalysisTaskRequestConversationList>>(request->conversationList)) {
+    body->insert(pair<string, vector<CreateDialogAnalysisTaskRequestConversationList>>("conversationList", *request->conversationList));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->metaData)) {
+    body->insert(pair<string, map<string, boost::any>>("metaData", *request->metaData));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->playCode)) {
+    body->insert(pair<string, string>("playCode", *request->playCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    body->insert(pair<string, string>("requestId", *request->requestId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDialogAnalysisTask"))},
+    {"version", boost::any(string("2024-06-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/api/virtualHuman/dialog/analysis/submit"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateDialogAnalysisTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateDialogAnalysisTaskResponse(execute(params, req, runtime));
+  }
+}
+
+CreateDialogAnalysisTaskResponse Alibabacloud_DianJin20240628::Client::createDialogAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<CreateDialogAnalysisTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createDialogAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
 CreateDocsSummaryTaskResponse Alibabacloud_DianJin20240628::Client::createDocsSummaryTaskWithOptions(shared_ptr<string> workspaceId,
                                                                                                      shared_ptr<CreateDocsSummaryTaskRequest> request,
                                                                                                      shared_ptr<map<string, string>> headers,
