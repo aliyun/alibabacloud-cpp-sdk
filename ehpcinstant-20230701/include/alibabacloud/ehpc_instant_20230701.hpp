@@ -459,6 +459,7 @@ public:
 class CreateJobRequestDeploymentPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> allocationSpec{};
+  shared_ptr<string> level{};
   shared_ptr<CreateJobRequestDeploymentPolicyNetwork> network{};
   shared_ptr<vector<CreateJobRequestDeploymentPolicyTag>> tag{};
 
@@ -474,6 +475,9 @@ public:
     map<string, boost::any> res;
     if (allocationSpec) {
       res["AllocationSpec"] = boost::any(*allocationSpec);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
     }
     if (network) {
       res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
@@ -491,6 +495,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllocationSpec") != m.end() && !m["AllocationSpec"].empty()) {
       allocationSpec = make_shared<string>(boost::any_cast<string>(m["AllocationSpec"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
     }
     if (m.find("Network") != m.end() && !m["Network"].empty()) {
       if (typeid(map<string, boost::any>) == m["Network"].type()) {
@@ -3197,6 +3204,7 @@ public:
 };
 class GetJobResponseBodyJobInfoDeploymentPolicyNetwork : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableENIMapping{};
   shared_ptr<bool> enableExternalIpAddress{};
   shared_ptr<vector<string>> vswitch{};
 
@@ -3210,6 +3218,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableENIMapping) {
+      res["EnableENIMapping"] = boost::any(*enableENIMapping);
+    }
     if (enableExternalIpAddress) {
       res["EnableExternalIpAddress"] = boost::any(*enableExternalIpAddress);
     }
@@ -3220,6 +3231,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableENIMapping") != m.end() && !m["EnableENIMapping"].empty()) {
+      enableENIMapping = make_shared<bool>(boost::any_cast<bool>(m["EnableENIMapping"]));
+    }
     if (m.find("EnableExternalIpAddress") != m.end() && !m["EnableExternalIpAddress"].empty()) {
       enableExternalIpAddress = make_shared<bool>(boost::any_cast<bool>(m["EnableExternalIpAddress"]));
     }
@@ -3277,6 +3291,7 @@ public:
 class GetJobResponseBodyJobInfoDeploymentPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> allocationSpec{};
+  shared_ptr<string> level{};
   shared_ptr<GetJobResponseBodyJobInfoDeploymentPolicyNetwork> network{};
   shared_ptr<vector<GetJobResponseBodyJobInfoDeploymentPolicyTags>> tags{};
 
@@ -3292,6 +3307,9 @@ public:
     map<string, boost::any> res;
     if (allocationSpec) {
       res["AllocationSpec"] = boost::any(*allocationSpec);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
     }
     if (network) {
       res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3309,6 +3327,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllocationSpec") != m.end() && !m["AllocationSpec"].empty()) {
       allocationSpec = make_shared<string>(boost::any_cast<string>(m["AllocationSpec"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
     }
     if (m.find("Network") != m.end() && !m["Network"].empty()) {
       if (typeid(map<string, boost::any>) == m["Network"].type()) {
