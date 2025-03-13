@@ -20163,6 +20163,112 @@ public:
 
   virtual ~DescribeDesktopsRequest() = default;
 };
+class DescribeDesktopsResponseBodyDesktopsDesktopDurationList : public Darabonba::Model {
+public:
+  shared_ptr<string> orderInstanceId{};
+  shared_ptr<string> packageCreationTime{};
+  shared_ptr<string> packageExpiredTime{};
+  shared_ptr<string> packageId{};
+  shared_ptr<string> packageStatus{};
+  shared_ptr<string> packageType{};
+  shared_ptr<string> packageUsedUpStrategy{};
+  shared_ptr<string> periodEndTime{};
+  shared_ptr<string> periodStartTime{};
+  shared_ptr<double> postPaidLimitFee{};
+  shared_ptr<long> totalDuration{};
+  shared_ptr<long> usedDuration{};
+
+  DescribeDesktopsResponseBodyDesktopsDesktopDurationList() {}
+
+  explicit DescribeDesktopsResponseBodyDesktopsDesktopDurationList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderInstanceId) {
+      res["OrderInstanceId"] = boost::any(*orderInstanceId);
+    }
+    if (packageCreationTime) {
+      res["PackageCreationTime"] = boost::any(*packageCreationTime);
+    }
+    if (packageExpiredTime) {
+      res["PackageExpiredTime"] = boost::any(*packageExpiredTime);
+    }
+    if (packageId) {
+      res["PackageId"] = boost::any(*packageId);
+    }
+    if (packageStatus) {
+      res["PackageStatus"] = boost::any(*packageStatus);
+    }
+    if (packageType) {
+      res["PackageType"] = boost::any(*packageType);
+    }
+    if (packageUsedUpStrategy) {
+      res["PackageUsedUpStrategy"] = boost::any(*packageUsedUpStrategy);
+    }
+    if (periodEndTime) {
+      res["PeriodEndTime"] = boost::any(*periodEndTime);
+    }
+    if (periodStartTime) {
+      res["PeriodStartTime"] = boost::any(*periodStartTime);
+    }
+    if (postPaidLimitFee) {
+      res["PostPaidLimitFee"] = boost::any(*postPaidLimitFee);
+    }
+    if (totalDuration) {
+      res["TotalDuration"] = boost::any(*totalDuration);
+    }
+    if (usedDuration) {
+      res["UsedDuration"] = boost::any(*usedDuration);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderInstanceId") != m.end() && !m["OrderInstanceId"].empty()) {
+      orderInstanceId = make_shared<string>(boost::any_cast<string>(m["OrderInstanceId"]));
+    }
+    if (m.find("PackageCreationTime") != m.end() && !m["PackageCreationTime"].empty()) {
+      packageCreationTime = make_shared<string>(boost::any_cast<string>(m["PackageCreationTime"]));
+    }
+    if (m.find("PackageExpiredTime") != m.end() && !m["PackageExpiredTime"].empty()) {
+      packageExpiredTime = make_shared<string>(boost::any_cast<string>(m["PackageExpiredTime"]));
+    }
+    if (m.find("PackageId") != m.end() && !m["PackageId"].empty()) {
+      packageId = make_shared<string>(boost::any_cast<string>(m["PackageId"]));
+    }
+    if (m.find("PackageStatus") != m.end() && !m["PackageStatus"].empty()) {
+      packageStatus = make_shared<string>(boost::any_cast<string>(m["PackageStatus"]));
+    }
+    if (m.find("PackageType") != m.end() && !m["PackageType"].empty()) {
+      packageType = make_shared<string>(boost::any_cast<string>(m["PackageType"]));
+    }
+    if (m.find("PackageUsedUpStrategy") != m.end() && !m["PackageUsedUpStrategy"].empty()) {
+      packageUsedUpStrategy = make_shared<string>(boost::any_cast<string>(m["PackageUsedUpStrategy"]));
+    }
+    if (m.find("PeriodEndTime") != m.end() && !m["PeriodEndTime"].empty()) {
+      periodEndTime = make_shared<string>(boost::any_cast<string>(m["PeriodEndTime"]));
+    }
+    if (m.find("PeriodStartTime") != m.end() && !m["PeriodStartTime"].empty()) {
+      periodStartTime = make_shared<string>(boost::any_cast<string>(m["PeriodStartTime"]));
+    }
+    if (m.find("PostPaidLimitFee") != m.end() && !m["PostPaidLimitFee"].empty()) {
+      postPaidLimitFee = make_shared<double>(boost::any_cast<double>(m["PostPaidLimitFee"]));
+    }
+    if (m.find("TotalDuration") != m.end() && !m["TotalDuration"].empty()) {
+      totalDuration = make_shared<long>(boost::any_cast<long>(m["TotalDuration"]));
+    }
+    if (m.find("UsedDuration") != m.end() && !m["UsedDuration"].empty()) {
+      usedDuration = make_shared<long>(boost::any_cast<long>(m["UsedDuration"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopsResponseBodyDesktopsDesktopDurationList() = default;
+};
 class DescribeDesktopsResponseBodyDesktopsDisks : public Darabonba::Model {
 public:
   shared_ptr<string> diskCategory{};
@@ -20410,6 +20516,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> dataDiskCategory{};
   shared_ptr<string> dataDiskSize{};
+  shared_ptr<vector<DescribeDesktopsResponseBodyDesktopsDesktopDurationList>> desktopDurationList{};
   shared_ptr<string> desktopGroupId{};
   shared_ptr<string> desktopId{};
   shared_ptr<string> desktopName{};
@@ -20499,6 +20606,13 @@ public:
     }
     if (dataDiskSize) {
       res["DataDiskSize"] = boost::any(*dataDiskSize);
+    }
+    if (desktopDurationList) {
+      vector<boost::any> temp1;
+      for(auto item1:*desktopDurationList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DesktopDurationList"] = boost::any(temp1);
     }
     if (desktopGroupId) {
       res["DesktopGroupId"] = boost::any(*desktopGroupId);
@@ -20702,6 +20816,19 @@ public:
     }
     if (m.find("DataDiskSize") != m.end() && !m["DataDiskSize"].empty()) {
       dataDiskSize = make_shared<string>(boost::any_cast<string>(m["DataDiskSize"]));
+    }
+    if (m.find("DesktopDurationList") != m.end() && !m["DesktopDurationList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DesktopDurationList"].type()) {
+        vector<DescribeDesktopsResponseBodyDesktopsDesktopDurationList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DesktopDurationList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDesktopsResponseBodyDesktopsDesktopDurationList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        desktopDurationList = make_shared<vector<DescribeDesktopsResponseBodyDesktopsDesktopDurationList>>(expect1);
+      }
     }
     if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
       desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));
