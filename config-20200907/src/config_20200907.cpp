@@ -4466,6 +4466,9 @@ ListIntegratedServiceResponse Alibabacloud_Config20200907::Client::listIntegrate
 ListManagedRulesResponse Alibabacloud_Config20200907::Client::listManagedRulesWithOptions(shared_ptr<ListManagedRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterType)) {
+    query->insert(pair<string, string>("FilterType", *request->filterType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
     query->insert(pair<string, string>("Keyword", *request->keyword));
   }

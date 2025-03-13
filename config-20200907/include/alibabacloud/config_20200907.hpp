@@ -30219,6 +30219,7 @@ public:
 };
 class ListManagedRulesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> filterType{};
   shared_ptr<string> keyword{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -30235,6 +30236,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (filterType) {
+      res["FilterType"] = boost::any(*filterType);
+    }
     if (keyword) {
       res["Keyword"] = boost::any(*keyword);
     }
@@ -30254,6 +30258,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterType") != m.end() && !m["FilterType"].empty()) {
+      filterType = make_shared<string>(boost::any_cast<string>(m["FilterType"]));
+    }
     if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
       keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
     }
