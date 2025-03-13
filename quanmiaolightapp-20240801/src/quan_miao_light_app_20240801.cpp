@@ -905,10 +905,16 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->generateOptions)) {
     request->generateOptionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->generateOptions, make_shared<string>("generateOptions"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<RunVideoAnalysisRequestTextProcessTasks>>(tmpReq->textProcessTasks)) {
+    request->textProcessTasksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->textProcessTasks, make_shared<string>("textProcessTasks"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<RunVideoAnalysisRequestVideoRoles>>(tmpReq->videoRoles)) {
     request->videoRolesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoRoles, make_shared<string>("videoRoles"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<double>(request->faceIdentitySimilarityMinScore)) {
+    body->insert(pair<string, double>("faceIdentitySimilarityMinScore", *request->faceIdentitySimilarityMinScore));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->frameSampleMethodShrink)) {
     body->insert(pair<string, string>("frameSampleMethod", *request->frameSampleMethodShrink));
   }
@@ -936,6 +942,9 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     body->insert(pair<string, string>("taskId", *request->taskId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->textProcessTasksShrink)) {
+    body->insert(pair<string, string>("textProcessTasks", *request->textProcessTasksShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoExtraInfo)) {
     body->insert(pair<string, string>("videoExtraInfo", *request->videoExtraInfo));
   }
@@ -947,6 +956,9 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoRolesShrink)) {
     body->insert(pair<string, string>("videoRoles", *request->videoRolesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoShotFaceIdentityCount)) {
+    body->insert(pair<string, long>("videoShotFaceIdentityCount", *request->videoShotFaceIdentityCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoUrl)) {
     body->insert(pair<string, string>("videoUrl", *request->videoUrl));
@@ -1060,10 +1072,16 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->generateOptions)) {
     request->generateOptionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->generateOptions, make_shared<string>("generateOptions"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitVideoAnalysisTaskRequestTextProcessTasks>>(tmpReq->textProcessTasks)) {
+    request->textProcessTasksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->textProcessTasks, make_shared<string>("textProcessTasks"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<SubmitVideoAnalysisTaskRequestVideoRoles>>(tmpReq->videoRoles)) {
     request->videoRolesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoRoles, make_shared<string>("videoRoles"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<double>(request->faceIdentitySimilarityMinScore)) {
+    body->insert(pair<string, double>("faceIdentitySimilarityMinScore", *request->faceIdentitySimilarityMinScore));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->frameSampleMethodShrink)) {
     body->insert(pair<string, string>("frameSampleMethod", *request->frameSampleMethodShrink));
   }
@@ -1085,6 +1103,9 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
   if (!Darabonba_Util::Client::isUnset<double>(request->snapshotInterval)) {
     body->insert(pair<string, double>("snapshotInterval", *request->snapshotInterval));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->textProcessTasksShrink)) {
+    body->insert(pair<string, string>("textProcessTasks", *request->textProcessTasksShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoExtraInfo)) {
     body->insert(pair<string, string>("videoExtraInfo", *request->videoExtraInfo));
   }
@@ -1096,6 +1117,9 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoRolesShrink)) {
     body->insert(pair<string, string>("videoRoles", *request->videoRolesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoShotFaceIdentityCount)) {
+    body->insert(pair<string, long>("videoShotFaceIdentityCount", *request->videoShotFaceIdentityCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoUrl)) {
     body->insert(pair<string, string>("videoUrl", *request->videoUrl));
