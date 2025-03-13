@@ -37,6 +37,51 @@ string Alibabacloud_MarketplaceIntl20221230::Client::getEndpoint(shared_ptr<stri
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+DescribeSellerInstancesResponse Alibabacloud_MarketplaceIntl20221230::Client::describeSellerInstancesWithOptions(shared_ptr<DescribeSellerInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->instanceId)) {
+    query->insert(pair<string, long>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceStatus)) {
+    query->insert(pair<string, string>("InstanceStatus", *request->instanceStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    query->insert(pair<string, long>("PageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->userId)) {
+    query->insert(pair<string, long>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeSellerInstances"))},
+    {"version", boost::any(string("2022-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeSellerInstancesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeSellerInstancesResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeSellerInstancesResponse Alibabacloud_MarketplaceIntl20221230::Client::describeSellerInstances(shared_ptr<DescribeSellerInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeSellerInstancesWithOptions(request, runtime);
+}
+
 NoticeInstanceUserResponse Alibabacloud_MarketplaceIntl20221230::Client::noticeInstanceUserWithOptions(shared_ptr<NoticeInstanceUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
