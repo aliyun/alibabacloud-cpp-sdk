@@ -1,3 +1,7 @@
+2025-03-14 Version: 1.0.11
+- Update API RunDataAnalysis: update response param.
+
+
 2025-02-27 Version: 1.0.10
 - Generated cpp 2024-08-23 for DataAnalysisGBI.
 

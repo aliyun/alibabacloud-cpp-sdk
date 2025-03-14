@@ -3003,6 +3003,7 @@ public:
 };
 class RunDataAnalysisResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<vector<boost::any>> attempts{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> event{};
   shared_ptr<string> evidence{};
@@ -3026,6 +3027,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (attempts) {
+      res["attempts"] = boost::any(*attempts);
+    }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
     }
@@ -3066,6 +3070,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("attempts") != m.end() && !m["attempts"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["attempts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["attempts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      attempts = make_shared<vector<boost::any>>(toVec1);
+    }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
     }
