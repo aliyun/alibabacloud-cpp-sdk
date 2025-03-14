@@ -18695,6 +18695,7 @@ public:
   shared_ptr<string> accountName{};
   shared_ptr<bool> adminUser{};
   shared_ptr<bool> authAdminUser{};
+  shared_ptr<bool> isDeleted{};
   shared_ptr<long> joinedDate{};
   shared_ptr<long> lastLoginTime{};
   shared_ptr<string> nickName{};
@@ -18723,6 +18724,9 @@ public:
     }
     if (authAdminUser) {
       res["AuthAdminUser"] = boost::any(*authAdminUser);
+    }
+    if (isDeleted) {
+      res["IsDeleted"] = boost::any(*isDeleted);
     }
     if (joinedDate) {
       res["JoinedDate"] = boost::any(*joinedDate);
@@ -18757,6 +18761,9 @@ public:
     }
     if (m.find("AuthAdminUser") != m.end() && !m["AuthAdminUser"].empty()) {
       authAdminUser = make_shared<bool>(boost::any_cast<bool>(m["AuthAdminUser"]));
+    }
+    if (m.find("IsDeleted") != m.end() && !m["IsDeleted"].empty()) {
+      isDeleted = make_shared<bool>(boost::any_cast<bool>(m["IsDeleted"]));
     }
     if (m.find("JoinedDate") != m.end() && !m["JoinedDate"].empty()) {
       joinedDate = make_shared<long>(boost::any_cast<long>(m["JoinedDate"]));

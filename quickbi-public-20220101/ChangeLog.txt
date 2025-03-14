@@ -1,3 +1,10 @@
+2025-03-14 Version: 0.1.20
+- Update API AddUser: update param AccountName.
+- Update API ListWorkspaceRoleUsers: update param WorkspaceId.
+- Update API QueryUserList: update response param.
+- Update API UpdateWorkspaceUserRole: update param RoleId.
+
+
 2024-12-30 Version: 0.1.19
 - Generated cpp 2022-01-01 for quickbi-public.
 
