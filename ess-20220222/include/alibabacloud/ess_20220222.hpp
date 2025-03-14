@@ -16871,11 +16871,63 @@ public:
 
   virtual ~DescribeElasticStrengthResponseBodyElasticStrengthModels() = default;
 };
+class DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth : public Darabonba::Model {
+public:
+  shared_ptr<long> adequacyScore{};
+  shared_ptr<long> healthScore{};
+  shared_ptr<long> hotScore{};
+  shared_ptr<long> supplyScore{};
+
+  DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth() {}
+
+  explicit DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adequacyScore) {
+      res["AdequacyScore"] = boost::any(*adequacyScore);
+    }
+    if (healthScore) {
+      res["HealthScore"] = boost::any(*healthScore);
+    }
+    if (hotScore) {
+      res["HotScore"] = boost::any(*hotScore);
+    }
+    if (supplyScore) {
+      res["SupplyScore"] = boost::any(*supplyScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdequacyScore") != m.end() && !m["AdequacyScore"].empty()) {
+      adequacyScore = make_shared<long>(boost::any_cast<long>(m["AdequacyScore"]));
+    }
+    if (m.find("HealthScore") != m.end() && !m["HealthScore"].empty()) {
+      healthScore = make_shared<long>(boost::any_cast<long>(m["HealthScore"]));
+    }
+    if (m.find("HotScore") != m.end() && !m["HotScore"].empty()) {
+      hotScore = make_shared<long>(boost::any_cast<long>(m["HotScore"]));
+    }
+    if (m.find("SupplyScore") != m.end() && !m["SupplyScore"].empty()) {
+      supplyScore = make_shared<long>(boost::any_cast<long>(m["SupplyScore"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth() = default;
+};
 class DescribeElasticStrengthResponseBodyResourcePools : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> instanceType{};
+  shared_ptr<DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth> inventoryHealth{};
   shared_ptr<string> msg{};
+  shared_ptr<string> status{};
   shared_ptr<double> strength{};
   shared_ptr<vector<string>> vSwitchIds{};
   shared_ptr<string> zoneId{};
@@ -16896,8 +16948,14 @@ public:
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
+    if (inventoryHealth) {
+      res["InventoryHealth"] = inventoryHealth ? boost::any(inventoryHealth->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (msg) {
       res["Msg"] = boost::any(*msg);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (strength) {
       res["Strength"] = boost::any(*strength);
@@ -16918,8 +16976,18 @@ public:
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
+    if (m.find("InventoryHealth") != m.end() && !m["InventoryHealth"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InventoryHealth"].type()) {
+        DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InventoryHealth"]));
+        inventoryHealth = make_shared<DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth>(model1);
+      }
+    }
     if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
       msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Strength") != m.end() && !m["Strength"].empty()) {
       strength = make_shared<double>(boost::any_cast<double>(m["Strength"]));
@@ -16944,6 +17012,7 @@ public:
 };
 class DescribeElasticStrengthResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> elasticStrength{};
   shared_ptr<vector<DescribeElasticStrengthResponseBodyElasticStrengthModels>> elasticStrengthModels{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<DescribeElasticStrengthResponseBodyResourcePools>> resourcePools{};
@@ -16959,6 +17028,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (elasticStrength) {
+      res["ElasticStrength"] = boost::any(*elasticStrength);
+    }
     if (elasticStrengthModels) {
       vector<boost::any> temp1;
       for(auto item1:*elasticStrengthModels){
@@ -16983,6 +17055,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ElasticStrength") != m.end() && !m["ElasticStrength"].empty()) {
+      elasticStrength = make_shared<string>(boost::any_cast<string>(m["ElasticStrength"]));
+    }
     if (m.find("ElasticStrengthModels") != m.end() && !m["ElasticStrengthModels"].empty()) {
       if (typeid(vector<boost::any>) == m["ElasticStrengthModels"].type()) {
         vector<DescribeElasticStrengthResponseBodyElasticStrengthModels> expect1;
