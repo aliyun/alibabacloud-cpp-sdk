@@ -1918,8 +1918,13 @@ CreateAgentlessScanTaskResponse Alibabacloud_Sas20181203::Client::createAgentles
   return createAgentlessScanTaskWithOptions(request, runtime);
 }
 
-CreateAntiBruteForceRuleResponse Alibabacloud_Sas20181203::Client::createAntiBruteForceRuleWithOptions(shared_ptr<CreateAntiBruteForceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateAntiBruteForceRuleResponse Alibabacloud_Sas20181203::Client::createAntiBruteForceRuleWithOptions(shared_ptr<CreateAntiBruteForceRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateAntiBruteForceRuleShrinkRequest> request = make_shared<CreateAntiBruteForceRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateAntiBruteForceRuleRequestProtocolType>(tmpReq->protocolType)) {
+    request->protocolTypeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->protocolType, make_shared<string>("ProtocolType"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->defaultRule)) {
     query->insert(pair<string, bool>("DefaultRule", *request->defaultRule));
@@ -1932,6 +1937,9 @@ CreateAntiBruteForceRuleResponse Alibabacloud_Sas20181203::Client::createAntiBru
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocolTypeShrink)) {
+    query->insert(pair<string, string>("ProtocolType", *request->protocolTypeShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
@@ -28645,8 +28653,13 @@ ModifyAccessKeyLeakDealResponse Alibabacloud_Sas20181203::Client::modifyAccessKe
   return modifyAccessKeyLeakDealWithOptions(request, runtime);
 }
 
-ModifyAntiBruteForceRuleResponse Alibabacloud_Sas20181203::Client::modifyAntiBruteForceRuleWithOptions(shared_ptr<ModifyAntiBruteForceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ModifyAntiBruteForceRuleResponse Alibabacloud_Sas20181203::Client::modifyAntiBruteForceRuleWithOptions(shared_ptr<ModifyAntiBruteForceRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyAntiBruteForceRuleShrinkRequest> request = make_shared<ModifyAntiBruteForceRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyAntiBruteForceRuleRequestProtocolType>(tmpReq->protocolType)) {
+    request->protocolTypeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->protocolType, make_shared<string>("ProtocolType"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->defaultRule)) {
     query->insert(pair<string, bool>("DefaultRule", *request->defaultRule));
@@ -28662,6 +28675,9 @@ ModifyAntiBruteForceRuleResponse Alibabacloud_Sas20181203::Client::modifyAntiBru
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocolTypeShrink)) {
+    query->insert(pair<string, string>("ProtocolType", *request->protocolTypeShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
