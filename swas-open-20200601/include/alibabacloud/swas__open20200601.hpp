@@ -12972,6 +12972,56 @@ public:
 
   virtual ~ListInstancesResponseBodyInstancesImage() = default;
 };
+class ListInstancesResponseBodyInstancesNetworkAttributes : public Darabonba::Model {
+public:
+  shared_ptr<long> peakBandwidth{};
+  shared_ptr<string> privateIpAddress{};
+  shared_ptr<string> publicIpAddress{};
+  shared_ptr<string> publicIpDdosStatus{};
+
+  ListInstancesResponseBodyInstancesNetworkAttributes() {}
+
+  explicit ListInstancesResponseBodyInstancesNetworkAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (peakBandwidth) {
+      res["PeakBandwidth"] = boost::any(*peakBandwidth);
+    }
+    if (privateIpAddress) {
+      res["PrivateIpAddress"] = boost::any(*privateIpAddress);
+    }
+    if (publicIpAddress) {
+      res["PublicIpAddress"] = boost::any(*publicIpAddress);
+    }
+    if (publicIpDdosStatus) {
+      res["PublicIpDdosStatus"] = boost::any(*publicIpDdosStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PeakBandwidth") != m.end() && !m["PeakBandwidth"].empty()) {
+      peakBandwidth = make_shared<long>(boost::any_cast<long>(m["PeakBandwidth"]));
+    }
+    if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
+      privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
+    }
+    if (m.find("PublicIpAddress") != m.end() && !m["PublicIpAddress"].empty()) {
+      publicIpAddress = make_shared<string>(boost::any_cast<string>(m["PublicIpAddress"]));
+    }
+    if (m.find("PublicIpDdosStatus") != m.end() && !m["PublicIpDdosStatus"].empty()) {
+      publicIpDdosStatus = make_shared<string>(boost::any_cast<string>(m["PublicIpDdosStatus"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyInstancesNetworkAttributes() = default;
+};
 class ListInstancesResponseBodyInstancesResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -13088,6 +13138,7 @@ public:
   shared_ptr<string> innerIpAddress{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<vector<ListInstancesResponseBodyInstancesNetworkAttributes>> networkAttributes{};
   shared_ptr<string> planId{};
   shared_ptr<string> publicIpAddress{};
   shared_ptr<string> regionId{};
@@ -13152,6 +13203,13 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (networkAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkAttributes"] = boost::any(temp1);
     }
     if (planId) {
       res["PlanId"] = boost::any(*planId);
@@ -13240,6 +13298,19 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("NetworkAttributes") != m.end() && !m["NetworkAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkAttributes"].type()) {
+        vector<ListInstancesResponseBodyInstancesNetworkAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInstancesResponseBodyInstancesNetworkAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkAttributes = make_shared<vector<ListInstancesResponseBodyInstancesNetworkAttributes>>(expect1);
+      }
     }
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
       planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
