@@ -3521,6 +3521,7 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<string> cpu{};
   shared_ptr<vector<DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks>> disks{};
+  shared_ptr<bool> enableIpv6{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtExpired{};
@@ -3532,6 +3533,7 @@ public:
   shared_ptr<string> instanceGroupSpec{};
   shared_ptr<string> instanceGroupSpecDescribe{};
   shared_ptr<string> instanceGroupStatus{};
+  shared_ptr<long> ipv6Bandwidth{};
   shared_ptr<long> memory{};
   shared_ptr<string> numberOfInstances{};
   shared_ptr<string> officeSiteId{};
@@ -3576,6 +3578,9 @@ public:
       }
       res["Disks"] = boost::any(temp1);
     }
+    if (enableIpv6) {
+      res["EnableIpv6"] = boost::any(*enableIpv6);
+    }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
     }
@@ -3608,6 +3613,9 @@ public:
     }
     if (instanceGroupStatus) {
       res["InstanceGroupStatus"] = boost::any(*instanceGroupStatus);
+    }
+    if (ipv6Bandwidth) {
+      res["Ipv6Bandwidth"] = boost::any(*ipv6Bandwidth);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -3674,6 +3682,9 @@ public:
         disks = make_shared<vector<DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks>>(expect1);
       }
     }
+    if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
+      enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
+    }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
@@ -3706,6 +3717,9 @@ public:
     }
     if (m.find("InstanceGroupStatus") != m.end() && !m["InstanceGroupStatus"].empty()) {
       instanceGroupStatus = make_shared<string>(boost::any_cast<string>(m["InstanceGroupStatus"]));
+    }
+    if (m.find("Ipv6Bandwidth") != m.end() && !m["Ipv6Bandwidth"].empty()) {
+      ipv6Bandwidth = make_shared<long>(boost::any_cast<long>(m["Ipv6Bandwidth"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
@@ -4142,6 +4156,7 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtExpired{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<string> imageId{};
   shared_ptr<string> imageVersion{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> keyPairId{};
@@ -4220,6 +4235,9 @@ public:
     }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
     }
     if (imageVersion) {
       res["ImageVersion"] = boost::any(*imageVersion);
@@ -4334,6 +4352,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
     if (m.find("ImageVersion") != m.end() && !m["ImageVersion"].empty()) {
       imageVersion = make_shared<string>(boost::any_cast<string>(m["ImageVersion"]));
@@ -5336,6 +5357,7 @@ public:
   shared_ptr<map<string, DataImageRegionDistributeMapValue>> imageRegionDistributeMap{};
   shared_ptr<vector<string>> imageRegionList{};
   shared_ptr<string> imageType{};
+  shared_ptr<string> imageVersion{};
   shared_ptr<string> language{};
   shared_ptr<string> releaseTime{};
   shared_ptr<string> renderingType{};
@@ -5382,6 +5404,9 @@ public:
     }
     if (imageType) {
       res["ImageType"] = boost::any(*imageType);
+    }
+    if (imageVersion) {
+      res["ImageVersion"] = boost::any(*imageVersion);
     }
     if (language) {
       res["Language"] = boost::any(*language);
@@ -5445,6 +5470,9 @@ public:
     }
     if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
+    if (m.find("ImageVersion") != m.end() && !m["ImageVersion"].empty()) {
+      imageVersion = make_shared<string>(boost::any_cast<string>(m["ImageVersion"]));
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
@@ -6276,7 +6304,9 @@ public:
 class DescribeSpecResponseBodySpecInfoModel : public Darabonba::Model {
 public:
   shared_ptr<long> core{};
+  shared_ptr<string> maxPhoneCount{};
   shared_ptr<long> memory{};
+  shared_ptr<string> minPhoneCount{};
   shared_ptr<string> phoneCount{};
   shared_ptr<string> resolution{};
   shared_ptr<string> specId{};
@@ -6297,8 +6327,14 @@ public:
     if (core) {
       res["Core"] = boost::any(*core);
     }
+    if (maxPhoneCount) {
+      res["MaxPhoneCount"] = boost::any(*maxPhoneCount);
+    }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (minPhoneCount) {
+      res["MinPhoneCount"] = boost::any(*minPhoneCount);
     }
     if (phoneCount) {
       res["PhoneCount"] = boost::any(*phoneCount);
@@ -6325,8 +6361,14 @@ public:
     if (m.find("Core") != m.end() && !m["Core"].empty()) {
       core = make_shared<long>(boost::any_cast<long>(m["Core"]));
     }
+    if (m.find("MaxPhoneCount") != m.end() && !m["MaxPhoneCount"].empty()) {
+      maxPhoneCount = make_shared<string>(boost::any_cast<string>(m["MaxPhoneCount"]));
+    }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("MinPhoneCount") != m.end() && !m["MinPhoneCount"].empty()) {
+      minPhoneCount = make_shared<string>(boost::any_cast<string>(m["MinPhoneCount"]));
     }
     if (m.find("PhoneCount") != m.end() && !m["PhoneCount"].empty()) {
       phoneCount = make_shared<string>(boost::any_cast<string>(m["PhoneCount"]));
@@ -10560,6 +10602,7 @@ class SendFileRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIdList{};
   shared_ptr<string> sourceFilePath{};
+  shared_ptr<string> targetFileName{};
   shared_ptr<string> uploadEndpoint{};
   shared_ptr<string> uploadType{};
   shared_ptr<string> uploadUrl{};
@@ -10579,6 +10622,9 @@ public:
     }
     if (sourceFilePath) {
       res["SourceFilePath"] = boost::any(*sourceFilePath);
+    }
+    if (targetFileName) {
+      res["TargetFileName"] = boost::any(*targetFileName);
     }
     if (uploadEndpoint) {
       res["UploadEndpoint"] = boost::any(*uploadEndpoint);
@@ -10605,6 +10651,9 @@ public:
     }
     if (m.find("SourceFilePath") != m.end() && !m["SourceFilePath"].empty()) {
       sourceFilePath = make_shared<string>(boost::any_cast<string>(m["SourceFilePath"]));
+    }
+    if (m.find("TargetFileName") != m.end() && !m["TargetFileName"].empty()) {
+      targetFileName = make_shared<string>(boost::any_cast<string>(m["TargetFileName"]));
     }
     if (m.find("UploadEndpoint") != m.end() && !m["UploadEndpoint"].empty()) {
       uploadEndpoint = make_shared<string>(boost::any_cast<string>(m["UploadEndpoint"]));

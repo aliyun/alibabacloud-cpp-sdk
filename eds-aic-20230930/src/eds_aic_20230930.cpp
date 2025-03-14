@@ -2202,6 +2202,9 @@ SendFileResponse Alibabacloud_Eds-aic20230930::Client::sendFileWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceFilePath)) {
     query->insert(pair<string, string>("SourceFilePath", *request->sourceFilePath));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetFileName)) {
+    query->insert(pair<string, string>("TargetFileName", *request->targetFileName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->uploadEndpoint)) {
     query->insert(pair<string, string>("UploadEndpoint", *request->uploadEndpoint));
   }
