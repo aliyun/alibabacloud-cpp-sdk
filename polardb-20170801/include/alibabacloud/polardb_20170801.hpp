@@ -1246,6 +1246,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> DBName{};
+  shared_ptr<string> nodeType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> privForAllDB{};
@@ -1285,6 +1286,9 @@ public:
     }
     if (DBName) {
       res["DBName"] = boost::any(*DBName);
+    }
+    if (nodeType) {
+      res["NodeType"] = boost::any(*nodeType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -1328,6 +1332,9 @@ public:
     }
     if (m.find("DBName") != m.end() && !m["DBName"].empty()) {
       DBName = make_shared<string>(boost::any_cast<string>(m["DBName"]));
+    }
+    if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
+      nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -6454,6 +6461,7 @@ public:
 class DeleteMaskingRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> interfaceVersion{};
   shared_ptr<string> ruleNameList{};
 
   DeleteMaskingRulesRequest() {}
@@ -6469,6 +6477,9 @@ public:
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
+    if (interfaceVersion) {
+      res["InterfaceVersion"] = boost::any(*interfaceVersion);
+    }
     if (ruleNameList) {
       res["RuleNameList"] = boost::any(*ruleNameList);
     }
@@ -6478,6 +6489,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("InterfaceVersion") != m.end() && !m["InterfaceVersion"].empty()) {
+      interfaceVersion = make_shared<string>(boost::any_cast<string>(m["InterfaceVersion"]));
     }
     if (m.find("RuleNameList") != m.end() && !m["RuleNameList"].empty()) {
       ruleNameList = make_shared<string>(boost::any_cast<string>(m["RuleNameList"]));
@@ -6911,6 +6925,7 @@ class DescribeAccountsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> nodeType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
@@ -6933,6 +6948,9 @@ public:
     }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (nodeType) {
+      res["NodeType"] = boost::any(*nodeType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -6961,6 +6979,9 @@ public:
     }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
+      nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -12187,6 +12208,7 @@ public:
 class DescribeDBClusterEndpointsResponseBodyItemsAddressItems : public Darabonba::Model {
 public:
   shared_ptr<string> connectionString{};
+  shared_ptr<bool> dashboardUsed{};
   shared_ptr<string> IPAddress{};
   shared_ptr<string> netType{};
   shared_ptr<string> port{};
@@ -12207,6 +12229,9 @@ public:
     map<string, boost::any> res;
     if (connectionString) {
       res["ConnectionString"] = boost::any(*connectionString);
+    }
+    if (dashboardUsed) {
+      res["DashboardUsed"] = boost::any(*dashboardUsed);
     }
     if (IPAddress) {
       res["IPAddress"] = boost::any(*IPAddress);
@@ -12235,6 +12260,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConnectionString") != m.end() && !m["ConnectionString"].empty()) {
       connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
+    }
+    if (m.find("DashboardUsed") != m.end() && !m["DashboardUsed"].empty()) {
+      dashboardUsed = make_shared<bool>(boost::any_cast<bool>(m["DashboardUsed"]));
     }
     if (m.find("IPAddress") != m.end() && !m["IPAddress"].empty()) {
       IPAddress = make_shared<string>(boost::any_cast<string>(m["IPAddress"]));
@@ -20938,6 +20966,7 @@ public:
 class DescribeMaskingRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> interfaceVersion{};
   shared_ptr<string> ruleNameList{};
 
   DescribeMaskingRulesRequest() {}
@@ -20953,6 +20982,9 @@ public:
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
+    if (interfaceVersion) {
+      res["InterfaceVersion"] = boost::any(*interfaceVersion);
+    }
     if (ruleNameList) {
       res["RuleNameList"] = boost::any(*ruleNameList);
     }
@@ -20962,6 +20994,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("InterfaceVersion") != m.end() && !m["InterfaceVersion"].empty()) {
+      interfaceVersion = make_shared<string>(boost::any_cast<string>(m["InterfaceVersion"]));
     }
     if (m.find("RuleNameList") != m.end() && !m["RuleNameList"].empty()) {
       ruleNameList = make_shared<string>(boost::any_cast<string>(m["RuleNameList"]));
@@ -28403,6 +28438,151 @@ public:
 
   virtual ~ModifyDBClusterAndNodesParametersResponse() = default;
 };
+class ModifyDBClusterArchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> hotStandbyCluster{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> standbyAZ{};
+
+  ModifyDBClusterArchRequest() {}
+
+  explicit ModifyDBClusterArchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (hotStandbyCluster) {
+      res["HotStandbyCluster"] = boost::any(*hotStandbyCluster);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (standbyAZ) {
+      res["StandbyAZ"] = boost::any(*standbyAZ);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("HotStandbyCluster") != m.end() && !m["HotStandbyCluster"].empty()) {
+      hotStandbyCluster = make_shared<string>(boost::any_cast<string>(m["HotStandbyCluster"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StandbyAZ") != m.end() && !m["StandbyAZ"].empty()) {
+      standbyAZ = make_shared<string>(boost::any_cast<string>(m["StandbyAZ"]));
+    }
+  }
+
+
+  virtual ~ModifyDBClusterArchRequest() = default;
+};
+class ModifyDBClusterArchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  ModifyDBClusterArchResponseBody() {}
+
+  explicit ModifyDBClusterArchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyDBClusterArchResponseBody() = default;
+};
+class ModifyDBClusterArchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyDBClusterArchResponseBody> body{};
+
+  ModifyDBClusterArchResponse() {}
+
+  explicit ModifyDBClusterArchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyDBClusterArchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyDBClusterArchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyDBClusterArchResponse() = default;
+};
 class ModifyDBClusterAuditLogCollectorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collectorStatus{};
@@ -33175,6 +33355,7 @@ class ModifyMaskingRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> enable{};
+  shared_ptr<string> interfaceVersion{};
   shared_ptr<string> ruleConfig{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> ruleNameList{};
@@ -33195,6 +33376,9 @@ public:
     }
     if (enable) {
       res["Enable"] = boost::any(*enable);
+    }
+    if (interfaceVersion) {
+      res["InterfaceVersion"] = boost::any(*interfaceVersion);
     }
     if (ruleConfig) {
       res["RuleConfig"] = boost::any(*ruleConfig);
@@ -33217,6 +33401,9 @@ public:
     }
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("InterfaceVersion") != m.end() && !m["InterfaceVersion"].empty()) {
+      interfaceVersion = make_shared<string>(boost::any_cast<string>(m["InterfaceVersion"]));
     }
     if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
       ruleConfig = make_shared<string>(boost::any_cast<string>(m["RuleConfig"]));
@@ -36351,6 +36538,8 @@ public:
   ModifyDBClusterAccessWhitelistResponse modifyDBClusterAccessWhitelist(shared_ptr<ModifyDBClusterAccessWhitelistRequest> request);
   ModifyDBClusterAndNodesParametersResponse modifyDBClusterAndNodesParametersWithOptions(shared_ptr<ModifyDBClusterAndNodesParametersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBClusterAndNodesParametersResponse modifyDBClusterAndNodesParameters(shared_ptr<ModifyDBClusterAndNodesParametersRequest> request);
+  ModifyDBClusterArchResponse modifyDBClusterArchWithOptions(shared_ptr<ModifyDBClusterArchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDBClusterArchResponse modifyDBClusterArch(shared_ptr<ModifyDBClusterArchRequest> request);
   ModifyDBClusterAuditLogCollectorResponse modifyDBClusterAuditLogCollectorWithOptions(shared_ptr<ModifyDBClusterAuditLogCollectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBClusterAuditLogCollectorResponse modifyDBClusterAuditLogCollector(shared_ptr<ModifyDBClusterAuditLogCollectorRequest> request);
   ModifyDBClusterDeletionResponse modifyDBClusterDeletionWithOptions(shared_ptr<ModifyDBClusterDeletionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
