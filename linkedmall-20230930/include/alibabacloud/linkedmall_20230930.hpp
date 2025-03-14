@@ -3518,6 +3518,7 @@ public:
 };
 class SkuSaleInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> canNotSellReason{};
   shared_ptr<bool> canSell{};
   shared_ptr<string> divisionCode{};
   shared_ptr<string> fuzzyQuantity{};
@@ -3540,6 +3541,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (canNotSellReason) {
+      res["canNotSellReason"] = boost::any(*canNotSellReason);
+    }
     if (canSell) {
       res["canSell"] = boost::any(*canSell);
     }
@@ -3577,6 +3581,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("canNotSellReason") != m.end() && !m["canNotSellReason"].empty()) {
+      canNotSellReason = make_shared<string>(boost::any_cast<string>(m["canNotSellReason"]));
+    }
     if (m.find("canSell") != m.end() && !m["canSell"].empty()) {
       canSell = make_shared<bool>(boost::any_cast<bool>(m["canSell"]));
     }
@@ -5180,6 +5187,7 @@ public:
 };
 class SkuQueryParam : public Darabonba::Model {
 public:
+  shared_ptr<long> buyAmount{};
   shared_ptr<string> productId{};
   shared_ptr<string> skuId{};
 
@@ -5193,6 +5201,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (buyAmount) {
+      res["buyAmount"] = boost::any(*buyAmount);
+    }
     if (productId) {
       res["productId"] = boost::any(*productId);
     }
@@ -5203,6 +5214,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("buyAmount") != m.end() && !m["buyAmount"].empty()) {
+      buyAmount = make_shared<long>(boost::any_cast<long>(m["buyAmount"]));
+    }
     if (m.find("productId") != m.end() && !m["productId"].empty()) {
       productId = make_shared<string>(boost::any_cast<string>(m["productId"]));
     }
