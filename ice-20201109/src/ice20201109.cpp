@@ -11726,6 +11726,53 @@ SubmitScreenMediaHighlightsJobResponse Alibabacloud_ICE20201109::Client::submitS
   return submitScreenMediaHighlightsJobWithOptions(request, runtime);
 }
 
+SubmitSegmentationJobResponse Alibabacloud_ICE20201109::Client::submitSegmentationJobWithOptions(shared_ptr<SubmitSegmentationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobParams)) {
+    query->insert(pair<string, string>("JobParams", *request->jobParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputConfig)) {
+    query->insert(pair<string, string>("OutputConfig", *request->outputConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputConfig)) {
+    body->insert(pair<string, string>("InputConfig", *request->inputConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitSegmentationJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SubmitSegmentationJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SubmitSegmentationJobResponse(execute(params, req, runtime));
+  }
+}
+
+SubmitSegmentationJobResponse Alibabacloud_ICE20201109::Client::submitSegmentationJob(shared_ptr<SubmitSegmentationJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitSegmentationJobWithOptions(request, runtime);
+}
+
 SubmitSmarttagJobResponse Alibabacloud_ICE20201109::Client::submitSmarttagJobWithOptions(shared_ptr<SubmitSmarttagJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SubmitSmarttagJobShrinkRequest> request = make_shared<SubmitSmarttagJobShrinkRequest>();

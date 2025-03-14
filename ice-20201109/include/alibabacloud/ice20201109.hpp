@@ -81761,6 +81761,151 @@ public:
 
   virtual ~SubmitScreenMediaHighlightsJobResponse() = default;
 };
+class SubmitSegmentationJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> inputConfig{};
+  shared_ptr<string> jobParams{};
+  shared_ptr<string> outputConfig{};
+  shared_ptr<string> userData{};
+
+  SubmitSegmentationJobRequest() {}
+
+  explicit SubmitSegmentationJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (inputConfig) {
+      res["InputConfig"] = boost::any(*inputConfig);
+    }
+    if (jobParams) {
+      res["JobParams"] = boost::any(*jobParams);
+    }
+    if (outputConfig) {
+      res["OutputConfig"] = boost::any(*outputConfig);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("InputConfig") != m.end() && !m["InputConfig"].empty()) {
+      inputConfig = make_shared<string>(boost::any_cast<string>(m["InputConfig"]));
+    }
+    if (m.find("JobParams") != m.end() && !m["JobParams"].empty()) {
+      jobParams = make_shared<string>(boost::any_cast<string>(m["JobParams"]));
+    }
+    if (m.find("OutputConfig") != m.end() && !m["OutputConfig"].empty()) {
+      outputConfig = make_shared<string>(boost::any_cast<string>(m["OutputConfig"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~SubmitSegmentationJobRequest() = default;
+};
+class SubmitSegmentationJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> requestId{};
+
+  SubmitSegmentationJobResponseBody() {}
+
+  explicit SubmitSegmentationJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SubmitSegmentationJobResponseBody() = default;
+};
+class SubmitSegmentationJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitSegmentationJobResponseBody> body{};
+
+  SubmitSegmentationJobResponse() {}
+
+  explicit SubmitSegmentationJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitSegmentationJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitSegmentationJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitSegmentationJobResponse() = default;
+};
 class SubmitSmarttagJobRequestInput : public Darabonba::Model {
 public:
   shared_ptr<string> media{};
@@ -98444,6 +98589,8 @@ public:
   SubmitProjectExportJobResponse submitProjectExportJob(shared_ptr<SubmitProjectExportJobRequest> request);
   SubmitScreenMediaHighlightsJobResponse submitScreenMediaHighlightsJobWithOptions(shared_ptr<SubmitScreenMediaHighlightsJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitScreenMediaHighlightsJobResponse submitScreenMediaHighlightsJob(shared_ptr<SubmitScreenMediaHighlightsJobRequest> request);
+  SubmitSegmentationJobResponse submitSegmentationJobWithOptions(shared_ptr<SubmitSegmentationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitSegmentationJobResponse submitSegmentationJob(shared_ptr<SubmitSegmentationJobRequest> request);
   SubmitSmarttagJobResponse submitSmarttagJobWithOptions(shared_ptr<SubmitSmarttagJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitSmarttagJobResponse submitSmarttagJob(shared_ptr<SubmitSmarttagJobRequest> request);
   SubmitSnapshotJobResponse submitSnapshotJobWithOptions(shared_ptr<SubmitSnapshotJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
