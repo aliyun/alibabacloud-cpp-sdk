@@ -430,6 +430,9 @@ DeleteEndpointResponse Alibabacloud_Clickhouse20230522::Client::deleteEndpointWi
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceNetType)) {
+    query->insert(pair<string, string>("DBInstanceNetType", *request->DBInstanceNetType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -1127,6 +1130,9 @@ ModifyDBInstanceConnectionStringResponse Alibabacloud_Clickhouse20230522::Client
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceNetType)) {
+    query->insert(pair<string, string>("DBInstanceNetType", *request->DBInstanceNetType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->disablePorts)) {
     query->insert(pair<string, string>("DisablePorts", *request->disablePorts));

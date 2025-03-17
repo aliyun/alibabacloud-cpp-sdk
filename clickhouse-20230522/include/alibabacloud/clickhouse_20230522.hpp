@@ -1616,6 +1616,7 @@ class DeleteEndpointRequest : public Darabonba::Model {
 public:
   shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBInstanceNetType{};
   shared_ptr<string> regionId{};
 
   DeleteEndpointRequest() {}
@@ -1634,6 +1635,9 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (DBInstanceNetType) {
+      res["DBInstanceNetType"] = boost::any(*DBInstanceNetType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -1646,6 +1650,9 @@ public:
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBInstanceNetType") != m.end() && !m["DBInstanceNetType"].empty()) {
+      DBInstanceNetType = make_shared<string>(boost::any_cast<string>(m["DBInstanceNetType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -5951,6 +5958,7 @@ public:
   shared_ptr<string> connectionString{};
   shared_ptr<string> connectionStringPrefix{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBInstanceNetType{};
   shared_ptr<string> disablePorts{};
   shared_ptr<string> regionId{};
 
@@ -5973,6 +5981,9 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (DBInstanceNetType) {
+      res["DBInstanceNetType"] = boost::any(*DBInstanceNetType);
+    }
     if (disablePorts) {
       res["DisablePorts"] = boost::any(*disablePorts);
     }
@@ -5991,6 +6002,9 @@ public:
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBInstanceNetType") != m.end() && !m["DBInstanceNetType"].empty()) {
+      DBInstanceNetType = make_shared<string>(boost::any_cast<string>(m["DBInstanceNetType"]));
     }
     if (m.find("DisablePorts") != m.end() && !m["DisablePorts"].empty()) {
       disablePorts = make_shared<string>(boost::any_cast<string>(m["DisablePorts"]));
