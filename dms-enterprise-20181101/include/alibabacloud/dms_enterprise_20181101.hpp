@@ -10730,6 +10730,7 @@ public:
   shared_ptr<string> kvStoreType{};
   shared_ptr<string> modelId{};
   shared_ptr<string> modelOption{};
+  shared_ptr<string> natGatewayOption{};
   shared_ptr<string> ossPath{};
   shared_ptr<long> ossResourceId{};
   shared_ptr<long> payPeriod{};
@@ -10843,6 +10844,9 @@ public:
     }
     if (modelOption) {
       res["ModelOption"] = boost::any(*modelOption);
+    }
+    if (natGatewayOption) {
+      res["NatGatewayOption"] = boost::any(*natGatewayOption);
     }
     if (ossPath) {
       res["OssPath"] = boost::any(*ossPath);
@@ -11006,6 +11010,9 @@ public:
     }
     if (m.find("ModelOption") != m.end() && !m["ModelOption"].empty()) {
       modelOption = make_shared<string>(boost::any_cast<string>(m["ModelOption"]));
+    }
+    if (m.find("NatGatewayOption") != m.end() && !m["NatGatewayOption"].empty()) {
+      natGatewayOption = make_shared<string>(boost::any_cast<string>(m["NatGatewayOption"]));
     }
     if (m.find("OssPath") != m.end() && !m["OssPath"].empty()) {
       ossPath = make_shared<string>(boost::any_cast<string>(m["OssPath"]));
@@ -44750,8 +44757,8 @@ class ListDataLakeCatalogRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dataRegion{};
   shared_ptr<string> searchKey{};
-  shared_ptr<string> sessionToken{};
   shared_ptr<long> tid{};
+  shared_ptr<long> workspaceId{};
 
   ListDataLakeCatalogRequest() {}
 
@@ -44769,11 +44776,11 @@ public:
     if (searchKey) {
       res["SearchKey"] = boost::any(*searchKey);
     }
-    if (sessionToken) {
-      res["SessionToken"] = boost::any(*sessionToken);
-    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -44785,11 +44792,11 @@ public:
     if (m.find("SearchKey") != m.end() && !m["SearchKey"].empty()) {
       searchKey = make_shared<string>(boost::any_cast<string>(m["SearchKey"]));
     }
-    if (m.find("SessionToken") != m.end() && !m["SessionToken"].empty()) {
-      sessionToken = make_shared<string>(boost::any_cast<string>(m["SessionToken"]));
-    }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<long>(boost::any_cast<long>(m["WorkspaceId"]));
     }
   }
 
