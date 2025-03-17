@@ -24549,6 +24549,92 @@ public:
 
   virtual ~GetGatewayConfigRequest() = default;
 };
+class GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<string> filterOpt{};
+  shared_ptr<string> labelKey{};
+  shared_ptr<string> labelValue{};
+
+  GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter() {}
+
+  explicit GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (filterOpt) {
+      res["FilterOpt"] = boost::any(*filterOpt);
+    }
+    if (labelKey) {
+      res["LabelKey"] = boost::any(*labelKey);
+    }
+    if (labelValue) {
+      res["LabelValue"] = boost::any(*labelValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("FilterOpt") != m.end() && !m["FilterOpt"].empty()) {
+      filterOpt = make_shared<string>(boost::any_cast<string>(m["FilterOpt"]));
+    }
+    if (m.find("LabelKey") != m.end() && !m["LabelKey"].empty()) {
+      labelKey = make_shared<string>(boost::any_cast<string>(m["LabelKey"]));
+    }
+    if (m.find("LabelValue") != m.end() && !m["LabelValue"].empty()) {
+      labelValue = make_shared<string>(boost::any_cast<string>(m["LabelValue"]));
+    }
+  }
+
+
+  virtual ~GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter() = default;
+};
+class GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<string> ipListContent{};
+
+  GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs() {}
+
+  explicit GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (ipListContent) {
+      res["IpListContent"] = boost::any(*ipListContent);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("IpListContent") != m.end() && !m["IpListContent"].empty()) {
+      ipListContent = make_shared<string>(boost::any_cast<string>(m["IpListContent"]));
+    }
+  }
+
+
+  virtual ~GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs() = default;
+};
 class GetGatewayConfigResponseBodyDataSlsConfigDetails : public Darabonba::Model {
 public:
   shared_ptr<long> gatewayId{};
@@ -24738,9 +24824,11 @@ public:
   shared_ptr<bool> enableHardwareAccelerate{};
   shared_ptr<bool> enableHttp2{};
   shared_ptr<bool> enableHttp3{};
+  shared_ptr<GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter> enableK8sSourceWorkloadFilter{};
   shared_ptr<bool> enableProxyProtocol{};
   shared_ptr<bool> enableSlashMerge{};
   shared_ptr<bool> enableWaf{};
+  shared_ptr<GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs> enableXffTrustedCidrs{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> initialConnectionWindowSize{};
   shared_ptr<long> initialStreamWindowSize{};
@@ -24797,6 +24885,9 @@ public:
     if (enableHttp3) {
       res["EnableHttp3"] = boost::any(*enableHttp3);
     }
+    if (enableK8sSourceWorkloadFilter) {
+      res["EnableK8sSourceWorkloadFilter"] = enableK8sSourceWorkloadFilter ? boost::any(enableK8sSourceWorkloadFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (enableProxyProtocol) {
       res["EnableProxyProtocol"] = boost::any(*enableProxyProtocol);
     }
@@ -24805,6 +24896,9 @@ public:
     }
     if (enableWaf) {
       res["EnableWaf"] = boost::any(*enableWaf);
+    }
+    if (enableXffTrustedCidrs) {
+      res["EnableXffTrustedCidrs"] = enableXffTrustedCidrs ? boost::any(enableXffTrustedCidrs->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
@@ -24885,6 +24979,13 @@ public:
     if (m.find("EnableHttp3") != m.end() && !m["EnableHttp3"].empty()) {
       enableHttp3 = make_shared<bool>(boost::any_cast<bool>(m["EnableHttp3"]));
     }
+    if (m.find("EnableK8sSourceWorkloadFilter") != m.end() && !m["EnableK8sSourceWorkloadFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EnableK8sSourceWorkloadFilter"].type()) {
+        GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EnableK8sSourceWorkloadFilter"]));
+        enableK8sSourceWorkloadFilter = make_shared<GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter>(model1);
+      }
+    }
     if (m.find("EnableProxyProtocol") != m.end() && !m["EnableProxyProtocol"].empty()) {
       enableProxyProtocol = make_shared<bool>(boost::any_cast<bool>(m["EnableProxyProtocol"]));
     }
@@ -24893,6 +24994,13 @@ public:
     }
     if (m.find("EnableWaf") != m.end() && !m["EnableWaf"].empty()) {
       enableWaf = make_shared<bool>(boost::any_cast<bool>(m["EnableWaf"]));
+    }
+    if (m.find("EnableXffTrustedCidrs") != m.end() && !m["EnableXffTrustedCidrs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EnableXffTrustedCidrs"].type()) {
+        GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EnableXffTrustedCidrs"]));
+        enableXffTrustedCidrs = make_shared<GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs>(model1);
+      }
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
@@ -38074,6 +38182,7 @@ public:
 class ListClusterHealthCheckTaskResponseBodyDataResultRiskList : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> descriptionEn{};
   shared_ptr<long> id{};
   shared_ptr<string> module{};
   shared_ptr<bool> mute{};
@@ -38082,9 +38191,12 @@ public:
   shared_ptr<string> riskCode{};
   shared_ptr<string> riskLevel{};
   shared_ptr<string> riskName{};
+  shared_ptr<string> riskNameEn{};
   shared_ptr<string> riskType{};
   shared_ptr<string> situation{};
+  shared_ptr<string> situationEn{};
   shared_ptr<string> suggestion{};
+  shared_ptr<string> suggestionEn{};
   shared_ptr<long> taskId{};
   shared_ptr<long> type{};
   shared_ptr<string> values{};
@@ -38101,6 +38213,9 @@ public:
     map<string, boost::any> res;
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (descriptionEn) {
+      res["DescriptionEn"] = boost::any(*descriptionEn);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -38126,14 +38241,23 @@ public:
     if (riskName) {
       res["RiskName"] = boost::any(*riskName);
     }
+    if (riskNameEn) {
+      res["RiskNameEn"] = boost::any(*riskNameEn);
+    }
     if (riskType) {
       res["RiskType"] = boost::any(*riskType);
     }
     if (situation) {
       res["Situation"] = boost::any(*situation);
     }
+    if (situationEn) {
+      res["SituationEn"] = boost::any(*situationEn);
+    }
     if (suggestion) {
       res["Suggestion"] = boost::any(*suggestion);
+    }
+    if (suggestionEn) {
+      res["SuggestionEn"] = boost::any(*suggestionEn);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -38150,6 +38274,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DescriptionEn") != m.end() && !m["DescriptionEn"].empty()) {
+      descriptionEn = make_shared<string>(boost::any_cast<string>(m["DescriptionEn"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
@@ -38175,14 +38302,23 @@ public:
     if (m.find("RiskName") != m.end() && !m["RiskName"].empty()) {
       riskName = make_shared<string>(boost::any_cast<string>(m["RiskName"]));
     }
+    if (m.find("RiskNameEn") != m.end() && !m["RiskNameEn"].empty()) {
+      riskNameEn = make_shared<string>(boost::any_cast<string>(m["RiskNameEn"]));
+    }
     if (m.find("RiskType") != m.end() && !m["RiskType"].empty()) {
       riskType = make_shared<string>(boost::any_cast<string>(m["RiskType"]));
     }
     if (m.find("Situation") != m.end() && !m["Situation"].empty()) {
       situation = make_shared<string>(boost::any_cast<string>(m["Situation"]));
     }
+    if (m.find("SituationEn") != m.end() && !m["SituationEn"].empty()) {
+      situationEn = make_shared<string>(boost::any_cast<string>(m["SituationEn"]));
+    }
     if (m.find("Suggestion") != m.end() && !m["Suggestion"].empty()) {
       suggestion = make_shared<string>(boost::any_cast<string>(m["Suggestion"]));
+    }
+    if (m.find("SuggestionEn") != m.end() && !m["SuggestionEn"].empty()) {
+      suggestionEn = make_shared<string>(boost::any_cast<string>(m["SuggestionEn"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
@@ -65627,6 +65763,137 @@ public:
 
   virtual ~UpdateGatewayCircuitBreakerRuleResponse() = default;
 };
+class UpdateGatewayConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> configName{};
+  shared_ptr<string> configValue{};
+  shared_ptr<string> gatewayUniqueId{};
+
+  UpdateGatewayConfigRequest() {}
+
+  explicit UpdateGatewayConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (configName) {
+      res["ConfigName"] = boost::any(*configName);
+    }
+    if (configValue) {
+      res["ConfigValue"] = boost::any(*configValue);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("ConfigName") != m.end() && !m["ConfigName"].empty()) {
+      configName = make_shared<string>(boost::any_cast<string>(m["ConfigName"]));
+    }
+    if (m.find("ConfigValue") != m.end() && !m["ConfigValue"].empty()) {
+      configValue = make_shared<string>(boost::any_cast<string>(m["ConfigValue"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayConfigRequest() = default;
+};
+class UpdateGatewayConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateGatewayConfigResponseBody() {}
+
+  explicit UpdateGatewayConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayConfigResponseBody() = default;
+};
+class UpdateGatewayConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGatewayConfigResponseBody> body{};
+
+  UpdateGatewayConfigResponse() {}
+
+  explicit UpdateGatewayConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGatewayConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGatewayConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGatewayConfigResponse() = default;
+};
 class UpdateGatewayDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -75774,6 +76041,8 @@ public:
   UpdateGatewayAuthConsumerStatusResponse updateGatewayAuthConsumerStatus(shared_ptr<UpdateGatewayAuthConsumerStatusRequest> request);
   UpdateGatewayCircuitBreakerRuleResponse updateGatewayCircuitBreakerRuleWithOptions(shared_ptr<UpdateGatewayCircuitBreakerRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayCircuitBreakerRuleResponse updateGatewayCircuitBreakerRule(shared_ptr<UpdateGatewayCircuitBreakerRuleRequest> request);
+  UpdateGatewayConfigResponse updateGatewayConfigWithOptions(shared_ptr<UpdateGatewayConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGatewayConfigResponse updateGatewayConfig(shared_ptr<UpdateGatewayConfigRequest> request);
   UpdateGatewayDomainResponse updateGatewayDomainWithOptions(shared_ptr<UpdateGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayDomainResponse updateGatewayDomain(shared_ptr<UpdateGatewayDomainRequest> request);
   UpdateGatewayFlowRuleResponse updateGatewayFlowRuleWithOptions(shared_ptr<UpdateGatewayFlowRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
