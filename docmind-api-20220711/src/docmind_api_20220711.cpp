@@ -1004,6 +1004,12 @@ SubmitConvertPdfToWordJobResponse Alibabacloud_Docmind-api20220711::Client::subm
   if (!Darabonba_Util::Client::isUnset<bool>(request->forceExportInnerImage)) {
     query->insert(pair<string, bool>("ForceExportInnerImage", *request->forceExportInnerImage));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->formulaEnhancement)) {
+    query->insert(pair<string, bool>("FormulaEnhancement", *request->formulaEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->option)) {
+    query->insert(pair<string, string>("Option", *request->option));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ossBucket)) {
     query->insert(pair<string, string>("OssBucket", *request->ossBucket));
   }

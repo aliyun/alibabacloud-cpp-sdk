@@ -3414,6 +3414,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
   shared_ptr<bool> forceExportInnerImage{};
+  shared_ptr<bool> formulaEnhancement{};
+  shared_ptr<string> option{};
   shared_ptr<string> ossBucket{};
   shared_ptr<string> ossEndpoint{};
 
@@ -3436,6 +3438,12 @@ public:
     if (forceExportInnerImage) {
       res["ForceExportInnerImage"] = boost::any(*forceExportInnerImage);
     }
+    if (formulaEnhancement) {
+      res["FormulaEnhancement"] = boost::any(*formulaEnhancement);
+    }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
     if (ossBucket) {
       res["OssBucket"] = boost::any(*ossBucket);
     }
@@ -3455,6 +3463,12 @@ public:
     if (m.find("ForceExportInnerImage") != m.end() && !m["ForceExportInnerImage"].empty()) {
       forceExportInnerImage = make_shared<bool>(boost::any_cast<bool>(m["ForceExportInnerImage"]));
     }
+    if (m.find("FormulaEnhancement") != m.end() && !m["FormulaEnhancement"].empty()) {
+      formulaEnhancement = make_shared<bool>(boost::any_cast<bool>(m["FormulaEnhancement"]));
+    }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
+    }
     if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
       ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
     }
@@ -3471,6 +3485,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<bool> forceExportInnerImage{};
+  shared_ptr<bool> formulaEnhancement{};
+  shared_ptr<string> option{};
   shared_ptr<string> ossBucket{};
   shared_ptr<string> ossEndpoint{};
 
@@ -3493,6 +3509,12 @@ public:
     if (forceExportInnerImage) {
       res["ForceExportInnerImage"] = boost::any(*forceExportInnerImage);
     }
+    if (formulaEnhancement) {
+      res["FormulaEnhancement"] = boost::any(*formulaEnhancement);
+    }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
     if (ossBucket) {
       res["OssBucket"] = boost::any(*ossBucket);
     }
@@ -3511,6 +3533,12 @@ public:
     }
     if (m.find("ForceExportInnerImage") != m.end() && !m["ForceExportInnerImage"].empty()) {
       forceExportInnerImage = make_shared<bool>(boost::any_cast<bool>(m["ForceExportInnerImage"]));
+    }
+    if (m.find("FormulaEnhancement") != m.end() && !m["FormulaEnhancement"].empty()) {
+      formulaEnhancement = make_shared<bool>(boost::any_cast<bool>(m["FormulaEnhancement"]));
+    }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
     }
     if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
       ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
