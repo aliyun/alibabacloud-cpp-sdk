@@ -847,6 +847,7 @@ public:
   shared_ptr<double> confidence{};
   shared_ptr<string> description{};
   shared_ptr<string> label{};
+  shared_ptr<string> riskLevel{};
 
   DescribeImageModerationResultResponseBodyDataResult() {}
 
@@ -867,6 +868,9 @@ public:
     if (label) {
       res["Label"] = boost::any(*label);
     }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
     return res;
   }
 
@@ -879,6 +883,9 @@ public:
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
   }
 
@@ -4583,6 +4590,7 @@ public:
   shared_ptr<double> confidence{};
   shared_ptr<string> description{};
   shared_ptr<string> label{};
+  shared_ptr<string> riskLevel{};
 
   ImageModerationResponseBodyDataResult() {}
 
@@ -4603,6 +4611,9 @@ public:
     if (label) {
       res["Label"] = boost::any(*label);
     }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
     return res;
   }
 
@@ -4615,6 +4626,9 @@ public:
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
   }
 
