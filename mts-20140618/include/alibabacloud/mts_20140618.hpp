@@ -1390,6 +1390,8 @@ public:
   shared_ptr<bool> isDefault{};
   shared_ptr<string> keywordConfig{};
   shared_ptr<string> knowledgeConfig{};
+  shared_ptr<string> labelCustomCategoryIds{};
+  shared_ptr<string> labelCustomParamsConfig{};
   shared_ptr<string> labelType{};
   shared_ptr<string> labelVersion{};
   shared_ptr<string> landmarkGroupIds{};
@@ -1431,6 +1433,12 @@ public:
     }
     if (knowledgeConfig) {
       res["KnowledgeConfig"] = boost::any(*knowledgeConfig);
+    }
+    if (labelCustomCategoryIds) {
+      res["LabelCustomCategoryIds"] = boost::any(*labelCustomCategoryIds);
+    }
+    if (labelCustomParamsConfig) {
+      res["LabelCustomParamsConfig"] = boost::any(*labelCustomParamsConfig);
     }
     if (labelType) {
       res["LabelType"] = boost::any(*labelType);
@@ -1486,6 +1494,12 @@ public:
     }
     if (m.find("KnowledgeConfig") != m.end() && !m["KnowledgeConfig"].empty()) {
       knowledgeConfig = make_shared<string>(boost::any_cast<string>(m["KnowledgeConfig"]));
+    }
+    if (m.find("LabelCustomCategoryIds") != m.end() && !m["LabelCustomCategoryIds"].empty()) {
+      labelCustomCategoryIds = make_shared<string>(boost::any_cast<string>(m["LabelCustomCategoryIds"]));
+    }
+    if (m.find("LabelCustomParamsConfig") != m.end() && !m["LabelCustomParamsConfig"].empty()) {
+      labelCustomParamsConfig = make_shared<string>(boost::any_cast<string>(m["LabelCustomParamsConfig"]));
     }
     if (m.find("LabelType") != m.end() && !m["LabelType"].empty()) {
       labelType = make_shared<string>(boost::any_cast<string>(m["LabelType"]));
@@ -32753,6 +32767,7 @@ public:
   shared_ptr<string> customEntityId{};
   shared_ptr<string> customGroupId{};
   shared_ptr<string> imageUrl{};
+  shared_ptr<string> labelPrompt{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -32779,6 +32794,9 @@ public:
     }
     if (imageUrl) {
       res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (labelPrompt) {
+      res["LabelPrompt"] = boost::any(*labelPrompt);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -32807,6 +32825,9 @@ public:
     }
     if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
       imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("LabelPrompt") != m.end() && !m["LabelPrompt"].empty()) {
+      labelPrompt = make_shared<string>(boost::any_cast<string>(m["LabelPrompt"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
