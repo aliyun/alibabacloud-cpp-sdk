@@ -8007,6 +8007,7 @@ public:
   shared_ptr<vector<CreateDesktopsRequestDesktopTimers>> desktopTimers{};
   shared_ptr<string> directoryId{};
   shared_ptr<vector<string>> endUserId{};
+  shared_ptr<string> extendInfo{};
   shared_ptr<string> groupId{};
   shared_ptr<string> hostname{};
   shared_ptr<CreateDesktopsRequestMonthDesktopSetting> monthDesktopSetting{};
@@ -8084,6 +8085,9 @@ public:
     }
     if (endUserId) {
       res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (extendInfo) {
+      res["ExtendInfo"] = boost::any(*extendInfo);
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
@@ -8226,6 +8230,9 @@ public:
         }
       }
       endUserId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExtendInfo") != m.end() && !m["ExtendInfo"].empty()) {
+      extendInfo = make_shared<string>(boost::any_cast<string>(m["ExtendInfo"]));
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
@@ -8602,6 +8609,7 @@ public:
   shared_ptr<vector<CreateDesktopsShrinkRequestDesktopTimers>> desktopTimers{};
   shared_ptr<string> directoryId{};
   shared_ptr<vector<string>> endUserId{};
+  shared_ptr<string> extendInfo{};
   shared_ptr<string> groupId{};
   shared_ptr<string> hostname{};
   shared_ptr<CreateDesktopsShrinkRequestMonthDesktopSetting> monthDesktopSetting{};
@@ -8679,6 +8687,9 @@ public:
     }
     if (endUserId) {
       res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (extendInfo) {
+      res["ExtendInfo"] = boost::any(*extendInfo);
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
@@ -8817,6 +8828,9 @@ public:
         }
       }
       endUserId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExtendInfo") != m.end() && !m["ExtendInfo"].empty()) {
+      extendInfo = make_shared<string>(boost::any_cast<string>(m["ExtendInfo"]));
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));

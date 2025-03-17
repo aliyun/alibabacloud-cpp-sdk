@@ -2073,6 +2073,9 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->endUserId)) {
     query->insert(pair<string, vector<string>>("EndUserId", *request->endUserId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendInfo)) {
+    query->insert(pair<string, string>("ExtendInfo", *request->extendInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
