@@ -16848,7 +16848,6 @@ public:
 };
 class ListPostQueryResultRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> address{};
   shared_ptr<map<string, boost::any>> body{};
   shared_ptr<string> type{};
 
@@ -16862,9 +16861,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (address) {
-      res["address"] = boost::any(*address);
-    }
     if (body) {
       res["body"] = boost::any(*body);
     }
@@ -16875,9 +16871,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("address") != m.end() && !m["address"].empty()) {
-      address = make_shared<string>(boost::any_cast<string>(m["address"]));
-    }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
       map<string, boost::any> toMap1;
@@ -17101,7 +17094,6 @@ public:
 };
 class ListRestQueryResultRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> address{};
   shared_ptr<string> indexName{};
   shared_ptr<map<string, boost::any>> query{};
 
@@ -17115,9 +17107,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (address) {
-      res["address"] = boost::any(*address);
-    }
     if (indexName) {
       res["indexName"] = boost::any(*indexName);
     }
@@ -17128,9 +17117,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("address") != m.end() && !m["address"].empty()) {
-      address = make_shared<string>(boost::any_cast<string>(m["address"]));
-    }
     if (m.find("indexName") != m.end() && !m["indexName"].empty()) {
       indexName = make_shared<string>(boost::any_cast<string>(m["indexName"]));
     }
@@ -18148,8 +18134,8 @@ public:
 };
 class ListVectorQueryResultRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> address{};
   shared_ptr<map<string, boost::any>> body{};
+  shared_ptr<string> path{};
   shared_ptr<string> queryType{};
   shared_ptr<string> vectorQueryType{};
 
@@ -18163,11 +18149,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (address) {
-      res["address"] = boost::any(*address);
-    }
     if (body) {
       res["body"] = boost::any(*body);
+    }
+    if (path) {
+      res["path"] = boost::any(*path);
     }
     if (queryType) {
       res["queryType"] = boost::any(*queryType);
@@ -18179,9 +18165,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("address") != m.end() && !m["address"].empty()) {
-      address = make_shared<string>(boost::any_cast<string>(m["address"]));
-    }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
       map<string, boost::any> toMap1;
@@ -18189,6 +18172,9 @@ public:
          toMap1[item.first] = item.second;
       }
       body = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("path") != m.end() && !m["path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["path"]));
     }
     if (m.find("queryType") != m.end() && !m["queryType"].empty()) {
       queryType = make_shared<string>(boost::any_cast<string>(m["queryType"]));
