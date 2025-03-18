@@ -266,6 +266,317 @@ public:
 
   virtual ~AuthorizeEndpointAclResponse() = default;
 };
+class CreateEventRuleRequestEndpoints : public Darabonba::Model {
+public:
+  shared_ptr<string> endpointType{};
+  shared_ptr<string> endpointValue{};
+
+  CreateEventRuleRequestEndpoints() {}
+
+  explicit CreateEventRuleRequestEndpoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointType) {
+      res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (endpointValue) {
+      res["EndpointValue"] = boost::any(*endpointValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
+      endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("EndpointValue") != m.end() && !m["EndpointValue"].empty()) {
+      endpointValue = make_shared<string>(boost::any_cast<string>(m["EndpointValue"]));
+    }
+  }
+
+
+  virtual ~CreateEventRuleRequestEndpoints() = default;
+};
+class CreateEventRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateEventRuleRequestEndpoints>> endpoints{};
+  shared_ptr<vector<string>> eventTypes{};
+  shared_ptr<vector<vector<EventMatchRule>>> matchRules{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> ruleName{};
+
+  CreateEventRuleRequest() {}
+
+  explicit CreateEventRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Endpoints"] = boost::any(temp1);
+    }
+    if (eventTypes) {
+      res["EventTypes"] = boost::any(*eventTypes);
+    }
+    if (matchRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*matchRules){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["MatchRules"] = boost::any(temp1);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["Endpoints"].type()) {
+        vector<CreateEventRuleRequestEndpoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Endpoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateEventRuleRequestEndpoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpoints = make_shared<vector<CreateEventRuleRequestEndpoints>>(expect1);
+      }
+    }
+    if (m.find("EventTypes") != m.end() && !m["EventTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EventTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EventTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      eventTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MatchRules") != m.end() && !m["MatchRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["MatchRules"].type()) {
+        vector<vector<EventMatchRule>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MatchRules"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<EventMatchRule> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                EventMatchRule model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        matchRules = make_shared<vector<vector<EventMatchRule>>>(expect1);
+      }
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateEventRuleRequest() = default;
+};
+class CreateEventRuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endpointsShrink{};
+  shared_ptr<string> eventTypesShrink{};
+  shared_ptr<string> matchRulesShrink{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> ruleName{};
+
+  CreateEventRuleShrinkRequest() {}
+
+  explicit CreateEventRuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointsShrink) {
+      res["Endpoints"] = boost::any(*endpointsShrink);
+    }
+    if (eventTypesShrink) {
+      res["EventTypes"] = boost::any(*eventTypesShrink);
+    }
+    if (matchRulesShrink) {
+      res["MatchRules"] = boost::any(*matchRulesShrink);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
+      endpointsShrink = make_shared<string>(boost::any_cast<string>(m["Endpoints"]));
+    }
+    if (m.find("EventTypes") != m.end() && !m["EventTypes"].empty()) {
+      eventTypesShrink = make_shared<string>(boost::any_cast<string>(m["EventTypes"]));
+    }
+    if (m.find("MatchRules") != m.end() && !m["MatchRules"].empty()) {
+      matchRulesShrink = make_shared<string>(boost::any_cast<string>(m["MatchRules"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateEventRuleShrinkRequest() = default;
+};
+class CreateEventRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<bool> success{};
+
+  CreateEventRuleResponseBody() {}
+
+  explicit CreateEventRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateEventRuleResponseBody() = default;
+};
+class CreateEventRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateEventRuleResponseBody> body{};
+
+  CreateEventRuleResponse() {}
+
+  explicit CreateEventRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateEventRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateEventRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateEventRuleResponse() = default;
+};
 class CreateQueueRequestDlqPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> deadLetterTargetQueue{};
@@ -1008,6 +1319,151 @@ public:
 
 
   virtual ~CreateTopicResponse() = default;
+};
+class DeleteEventRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> productName{};
+  shared_ptr<string> ruleName{};
+
+  DeleteEventRuleRequest() {}
+
+  explicit DeleteEventRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~DeleteEventRuleRequest() = default;
+};
+class DeleteEventRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<bool> success{};
+
+  DeleteEventRuleResponseBody() {}
+
+  explicit DeleteEventRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteEventRuleResponseBody() = default;
+};
+class DeleteEventRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteEventRuleResponseBody> body{};
+
+  DeleteEventRuleResponse() {}
+
+  explicit DeleteEventRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteEventRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteEventRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteEventRuleResponse() = default;
 };
 class DeleteQueueRequest : public Darabonba::Model {
 public:
@@ -5835,10 +6291,14 @@ public:
                      shared_ptr<string> endpoint);
   AuthorizeEndpointAclResponse authorizeEndpointAclWithOptions(shared_ptr<AuthorizeEndpointAclRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AuthorizeEndpointAclResponse authorizeEndpointAcl(shared_ptr<AuthorizeEndpointAclRequest> request);
+  CreateEventRuleResponse createEventRuleWithOptions(shared_ptr<CreateEventRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateEventRuleResponse createEventRule(shared_ptr<CreateEventRuleRequest> request);
   CreateQueueResponse createQueueWithOptions(shared_ptr<CreateQueueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateQueueResponse createQueue(shared_ptr<CreateQueueRequest> request);
   CreateTopicResponse createTopicWithOptions(shared_ptr<CreateTopicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTopicResponse createTopic(shared_ptr<CreateTopicRequest> request);
+  DeleteEventRuleResponse deleteEventRuleWithOptions(shared_ptr<DeleteEventRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteEventRuleResponse deleteEventRule(shared_ptr<DeleteEventRuleRequest> request);
   DeleteQueueResponse deleteQueueWithOptions(shared_ptr<DeleteQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteQueueResponse deleteQueue(shared_ptr<DeleteQueueRequest> request);
   DeleteTopicResponse deleteTopicWithOptions(shared_ptr<DeleteTopicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

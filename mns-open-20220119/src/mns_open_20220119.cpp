@@ -81,6 +81,62 @@ AuthorizeEndpointAclResponse Alibabacloud_Mns-open20220119::Client::authorizeEnd
   return authorizeEndpointAclWithOptions(request, runtime);
 }
 
+CreateEventRuleResponse Alibabacloud_Mns-open20220119::Client::createEventRuleWithOptions(shared_ptr<CreateEventRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateEventRuleShrinkRequest> request = make_shared<CreateEventRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEventRuleRequestEndpoints>>(tmpReq->endpoints)) {
+    request->endpointsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->endpoints, make_shared<string>("Endpoints"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->eventTypes)) {
+    request->eventTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->eventTypes, make_shared<string>("EventTypes"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<vector<EventMatchRule>>>(tmpReq->matchRules)) {
+    request->matchRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->matchRules, make_shared<string>("MatchRules"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointsShrink)) {
+    query->insert(pair<string, string>("Endpoints", *request->endpointsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventTypesShrink)) {
+    query->insert(pair<string, string>("EventTypes", *request->eventTypesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->matchRulesShrink)) {
+    query->insert(pair<string, string>("MatchRules", *request->matchRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productName)) {
+    query->insert(pair<string, string>("ProductName", *request->productName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
+    query->insert(pair<string, string>("RuleName", *request->ruleName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateEventRule"))},
+    {"version", boost::any(string("2022-01-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateEventRuleResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateEventRuleResponse(execute(params, req, runtime));
+  }
+}
+
+CreateEventRuleResponse Alibabacloud_Mns-open20220119::Client::createEventRule(shared_ptr<CreateEventRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createEventRuleWithOptions(request, runtime);
+}
+
 CreateQueueResponse Alibabacloud_Mns-open20220119::Client::createQueueWithOptions(shared_ptr<CreateQueueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateQueueShrinkRequest> request = make_shared<CreateQueueShrinkRequest>();
@@ -185,6 +241,42 @@ CreateTopicResponse Alibabacloud_Mns-open20220119::Client::createTopicWithOption
 CreateTopicResponse Alibabacloud_Mns-open20220119::Client::createTopic(shared_ptr<CreateTopicRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createTopicWithOptions(request, runtime);
+}
+
+DeleteEventRuleResponse Alibabacloud_Mns-open20220119::Client::deleteEventRuleWithOptions(shared_ptr<DeleteEventRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->productName)) {
+    query->insert(pair<string, string>("ProductName", *request->productName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
+    query->insert(pair<string, string>("RuleName", *request->ruleName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteEventRule"))},
+    {"version", boost::any(string("2022-01-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteEventRuleResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteEventRuleResponse(execute(params, req, runtime));
+  }
+}
+
+DeleteEventRuleResponse Alibabacloud_Mns-open20220119::Client::deleteEventRule(shared_ptr<DeleteEventRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteEventRuleWithOptions(request, runtime);
 }
 
 DeleteQueueResponse Alibabacloud_Mns-open20220119::Client::deleteQueueWithOptions(shared_ptr<DeleteQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
