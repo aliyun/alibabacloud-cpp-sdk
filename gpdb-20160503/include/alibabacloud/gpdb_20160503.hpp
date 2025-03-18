@@ -19001,6 +19001,7 @@ public:
 class DescribeDownloadRecordsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> downloadTaskType{};
 
   DescribeDownloadRecordsRequest() {}
 
@@ -19015,12 +19016,18 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (downloadTaskType) {
+      res["DownloadTaskType"] = boost::any(*downloadTaskType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DownloadTaskType") != m.end() && !m["DownloadTaskType"].empty()) {
+      downloadTaskType = make_shared<string>(boost::any_cast<string>(m["DownloadTaskType"]));
     }
   }
 

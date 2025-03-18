@@ -4302,6 +4302,9 @@ DescribeDownloadRecordsResponse Alibabacloud_Gpdb20160503::Client::describeDownl
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->downloadTaskType)) {
+    query->insert(pair<string, string>("DownloadTaskType", *request->downloadTaskType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
