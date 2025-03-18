@@ -85,6 +85,7 @@ public:
   shared_ptr<string> loginToken{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
+  shared_ptr<string> targetStatus{};
   shared_ptr<string> uuid{};
 
   ApproveFotaUpdateRequest() {}
@@ -115,6 +116,9 @@ public:
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
+    if (targetStatus) {
+      res["TargetStatus"] = boost::any(*targetStatus);
+    }
     if (uuid) {
       res["Uuid"] = boost::any(*uuid);
     }
@@ -139,6 +143,9 @@ public:
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("TargetStatus") != m.end() && !m["TargetStatus"].empty()) {
+      targetStatus = make_shared<string>(boost::any_cast<string>(m["TargetStatus"]));
     }
     if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
       uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
@@ -3145,6 +3152,120 @@ public:
 
   virtual ~DescribeUserResourcesResponseBodyResourcesFotaUpdate() = default;
 };
+class DescribeUserResourcesResponseBodyResourcesOsUpdatePackages : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> kb{};
+  shared_ptr<string> title{};
+
+  DescribeUserResourcesResponseBodyResourcesOsUpdatePackages() {}
+
+  explicit DescribeUserResourcesResponseBodyResourcesOsUpdatePackages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (kb) {
+      res["Kb"] = boost::any(*kb);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Kb") != m.end() && !m["Kb"].empty()) {
+      kb = make_shared<string>(boost::any_cast<string>(m["Kb"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~DescribeUserResourcesResponseBodyResourcesOsUpdatePackages() = default;
+};
+class DescribeUserResourcesResponseBodyResourcesOsUpdate : public Darabonba::Model {
+public:
+  shared_ptr<string> checkId{};
+  shared_ptr<string> kbListString{};
+  shared_ptr<long> packageCount{};
+  shared_ptr<vector<DescribeUserResourcesResponseBodyResourcesOsUpdatePackages>> packages{};
+  shared_ptr<string> updateCatalogUrl{};
+
+  DescribeUserResourcesResponseBodyResourcesOsUpdate() {}
+
+  explicit DescribeUserResourcesResponseBodyResourcesOsUpdate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkId) {
+      res["CheckId"] = boost::any(*checkId);
+    }
+    if (kbListString) {
+      res["KbListString"] = boost::any(*kbListString);
+    }
+    if (packageCount) {
+      res["PackageCount"] = boost::any(*packageCount);
+    }
+    if (packages) {
+      vector<boost::any> temp1;
+      for(auto item1:*packages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Packages"] = boost::any(temp1);
+    }
+    if (updateCatalogUrl) {
+      res["UpdateCatalogUrl"] = boost::any(*updateCatalogUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckId") != m.end() && !m["CheckId"].empty()) {
+      checkId = make_shared<string>(boost::any_cast<string>(m["CheckId"]));
+    }
+    if (m.find("KbListString") != m.end() && !m["KbListString"].empty()) {
+      kbListString = make_shared<string>(boost::any_cast<string>(m["KbListString"]));
+    }
+    if (m.find("PackageCount") != m.end() && !m["PackageCount"].empty()) {
+      packageCount = make_shared<long>(boost::any_cast<long>(m["PackageCount"]));
+    }
+    if (m.find("Packages") != m.end() && !m["Packages"].empty()) {
+      if (typeid(vector<boost::any>) == m["Packages"].type()) {
+        vector<DescribeUserResourcesResponseBodyResourcesOsUpdatePackages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Packages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeUserResourcesResponseBodyResourcesOsUpdatePackages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        packages = make_shared<vector<DescribeUserResourcesResponseBodyResourcesOsUpdatePackages>>(expect1);
+      }
+    }
+    if (m.find("UpdateCatalogUrl") != m.end() && !m["UpdateCatalogUrl"].empty()) {
+      updateCatalogUrl = make_shared<string>(boost::any_cast<string>(m["UpdateCatalogUrl"]));
+    }
+  }
+
+
+  virtual ~DescribeUserResourcesResponseBodyResourcesOsUpdate() = default;
+};
 class DescribeUserResourcesResponseBodyResourcesSessions : public Darabonba::Model {
 public:
   shared_ptr<string> resourceSessionStartTime{};
@@ -3209,6 +3330,7 @@ public:
   shared_ptr<string> externalUserId{};
   shared_ptr<DescribeUserResourcesResponseBodyResourcesFotaUpdate> fotaUpdate{};
   shared_ptr<bool> globalStatus{};
+  shared_ptr<bool> hasUpgrade{};
   shared_ptr<bool> hibernationBeta{};
   shared_ptr<string> icon{};
   shared_ptr<string> lastStartTime{};
@@ -3219,6 +3341,7 @@ public:
   shared_ptr<string> os{};
   shared_ptr<string> osDescription{};
   shared_ptr<string> osType{};
+  shared_ptr<DescribeUserResourcesResponseBodyResourcesOsUpdate> osUpdate{};
   shared_ptr<string> productType{};
   shared_ptr<string> protocolType{};
   shared_ptr<string> realDesktopId{};
@@ -3319,6 +3442,9 @@ public:
     if (globalStatus) {
       res["GlobalStatus"] = boost::any(*globalStatus);
     }
+    if (hasUpgrade) {
+      res["HasUpgrade"] = boost::any(*hasUpgrade);
+    }
     if (hibernationBeta) {
       res["HibernationBeta"] = boost::any(*hibernationBeta);
     }
@@ -3348,6 +3474,9 @@ public:
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
+    }
+    if (osUpdate) {
+      res["OsUpdate"] = osUpdate ? boost::any(osUpdate->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
@@ -3508,6 +3637,9 @@ public:
     if (m.find("GlobalStatus") != m.end() && !m["GlobalStatus"].empty()) {
       globalStatus = make_shared<bool>(boost::any_cast<bool>(m["GlobalStatus"]));
     }
+    if (m.find("HasUpgrade") != m.end() && !m["HasUpgrade"].empty()) {
+      hasUpgrade = make_shared<bool>(boost::any_cast<bool>(m["HasUpgrade"]));
+    }
     if (m.find("HibernationBeta") != m.end() && !m["HibernationBeta"].empty()) {
       hibernationBeta = make_shared<bool>(boost::any_cast<bool>(m["HibernationBeta"]));
     }
@@ -3544,6 +3676,13 @@ public:
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("OsUpdate") != m.end() && !m["OsUpdate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OsUpdate"].type()) {
+        DescribeUserResourcesResponseBodyResourcesOsUpdate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OsUpdate"]));
+        osUpdate = make_shared<DescribeUserResourcesResponseBodyResourcesOsUpdate>(model1);
+      }
     }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
@@ -5193,6 +5332,7 @@ public:
   shared_ptr<string> clientVersion{};
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> loginToken{};
+  shared_ptr<bool> osUpdate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> sessionToken{};
@@ -5225,6 +5365,9 @@ public:
     }
     if (loginToken) {
       res["LoginToken"] = boost::any(*loginToken);
+    }
+    if (osUpdate) {
+      res["OsUpdate"] = boost::any(*osUpdate);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -5266,6 +5409,9 @@ public:
     }
     if (m.find("LoginToken") != m.end() && !m["LoginToken"].empty()) {
       loginToken = make_shared<string>(boost::any_cast<string>(m["LoginToken"]));
+    }
+    if (m.find("OsUpdate") != m.end() && !m["OsUpdate"].empty()) {
+      osUpdate = make_shared<bool>(boost::any_cast<bool>(m["OsUpdate"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -6942,6 +7088,7 @@ public:
   shared_ptr<string> clientVersion{};
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> loginToken{};
+  shared_ptr<bool> osUpdate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> sessionToken{};
@@ -6973,6 +7120,9 @@ public:
     }
     if (loginToken) {
       res["LoginToken"] = boost::any(*loginToken);
+    }
+    if (osUpdate) {
+      res["OsUpdate"] = boost::any(*osUpdate);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -7011,6 +7161,9 @@ public:
     }
     if (m.find("LoginToken") != m.end() && !m["LoginToken"].empty()) {
       loginToken = make_shared<string>(boost::any_cast<string>(m["LoginToken"]));
+    }
+    if (m.find("OsUpdate") != m.end() && !m["OsUpdate"].empty()) {
+      osUpdate = make_shared<bool>(boost::any_cast<bool>(m["OsUpdate"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

@@ -59,6 +59,9 @@ ApproveFotaUpdateResponse Alibabacloud_Ecd20201002::Client::approveFotaUpdateWit
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetStatus)) {
+    query->insert(pair<string, string>("TargetStatus", *request->targetStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
     query->insert(pair<string, string>("Uuid", *request->uuid));
   }
@@ -953,6 +956,9 @@ RebootDesktopsResponse Alibabacloud_Ecd20201002::Client::rebootDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->loginToken)) {
     query->insert(pair<string, string>("LoginToken", *request->loginToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->osUpdate)) {
+    query->insert(pair<string, bool>("OsUpdate", *request->osUpdate));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -1531,6 +1537,9 @@ StopDesktopsResponse Alibabacloud_Ecd20201002::Client::stopDesktopsWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loginToken)) {
     query->insert(pair<string, string>("LoginToken", *request->loginToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->osUpdate)) {
+    query->insert(pair<string, bool>("OsUpdate", *request->osUpdate));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
