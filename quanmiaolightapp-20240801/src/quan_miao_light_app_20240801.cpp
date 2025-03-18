@@ -939,6 +939,9 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   if (!Darabonba_Util::Client::isUnset<double>(request->snapshotInterval)) {
     body->insert(pair<string, double>("snapshotInterval", *request->snapshotInterval));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->splitInterval)) {
+    body->insert(pair<string, long>("splitInterval", *request->splitInterval));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     body->insert(pair<string, string>("taskId", *request->taskId));
   }
@@ -1102,6 +1105,9 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
   }
   if (!Darabonba_Util::Client::isUnset<double>(request->snapshotInterval)) {
     body->insert(pair<string, double>("snapshotInterval", *request->snapshotInterval));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->splitInterval)) {
+    body->insert(pair<string, long>("splitInterval", *request->splitInterval));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->textProcessTasksShrink)) {
     body->insert(pair<string, string>("textProcessTasks", *request->textProcessTasksShrink));

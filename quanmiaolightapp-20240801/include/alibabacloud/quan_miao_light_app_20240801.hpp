@@ -8290,6 +8290,7 @@ public:
   shared_ptr<string> modelId{};
   shared_ptr<string> originalSessionId{};
   shared_ptr<double> snapshotInterval{};
+  shared_ptr<long> splitInterval{};
   shared_ptr<string> taskId{};
   shared_ptr<vector<RunVideoAnalysisRequestTextProcessTasks>> textProcessTasks{};
   shared_ptr<string> videoExtraInfo{};
@@ -8335,6 +8336,9 @@ public:
     }
     if (snapshotInterval) {
       res["snapshotInterval"] = boost::any(*snapshotInterval);
+    }
+    if (splitInterval) {
+      res["splitInterval"] = boost::any(*splitInterval);
     }
     if (taskId) {
       res["taskId"] = boost::any(*taskId);
@@ -8410,6 +8414,9 @@ public:
     if (m.find("snapshotInterval") != m.end() && !m["snapshotInterval"].empty()) {
       snapshotInterval = make_shared<double>(boost::any_cast<double>(m["snapshotInterval"]));
     }
+    if (m.find("splitInterval") != m.end() && !m["splitInterval"].empty()) {
+      splitInterval = make_shared<long>(boost::any_cast<long>(m["splitInterval"]));
+    }
     if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
     }
@@ -8470,6 +8477,7 @@ public:
   shared_ptr<string> modelId{};
   shared_ptr<string> originalSessionId{};
   shared_ptr<double> snapshotInterval{};
+  shared_ptr<long> splitInterval{};
   shared_ptr<string> taskId{};
   shared_ptr<string> textProcessTasksShrink{};
   shared_ptr<string> videoExtraInfo{};
@@ -8515,6 +8523,9 @@ public:
     }
     if (snapshotInterval) {
       res["snapshotInterval"] = boost::any(*snapshotInterval);
+    }
+    if (splitInterval) {
+      res["splitInterval"] = boost::any(*splitInterval);
     }
     if (taskId) {
       res["taskId"] = boost::any(*taskId);
@@ -8570,6 +8581,9 @@ public:
     }
     if (m.find("snapshotInterval") != m.end() && !m["snapshotInterval"].empty()) {
       snapshotInterval = make_shared<double>(boost::any_cast<double>(m["snapshotInterval"]));
+    }
+    if (m.find("splitInterval") != m.end() && !m["splitInterval"].empty()) {
+      splitInterval = make_shared<long>(boost::any_cast<long>(m["splitInterval"]));
     }
     if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
@@ -10483,6 +10497,7 @@ public:
   shared_ptr<string> modelCustomPromptTemplateId{};
   shared_ptr<string> modelId{};
   shared_ptr<double> snapshotInterval{};
+  shared_ptr<long> splitInterval{};
   shared_ptr<vector<SubmitVideoAnalysisTaskRequestTextProcessTasks>> textProcessTasks{};
   shared_ptr<string> videoExtraInfo{};
   shared_ptr<string> videoModelCustomPromptTemplate{};
@@ -10524,6 +10539,9 @@ public:
     }
     if (snapshotInterval) {
       res["snapshotInterval"] = boost::any(*snapshotInterval);
+    }
+    if (splitInterval) {
+      res["splitInterval"] = boost::any(*splitInterval);
     }
     if (textProcessTasks) {
       vector<boost::any> temp1;
@@ -10593,6 +10611,9 @@ public:
     if (m.find("snapshotInterval") != m.end() && !m["snapshotInterval"].empty()) {
       snapshotInterval = make_shared<double>(boost::any_cast<double>(m["snapshotInterval"]));
     }
+    if (m.find("splitInterval") != m.end() && !m["splitInterval"].empty()) {
+      splitInterval = make_shared<long>(boost::any_cast<long>(m["splitInterval"]));
+    }
     if (m.find("textProcessTasks") != m.end() && !m["textProcessTasks"].empty()) {
       if (typeid(vector<boost::any>) == m["textProcessTasks"].type()) {
         vector<SubmitVideoAnalysisTaskRequestTextProcessTasks> expect1;
@@ -10649,6 +10670,7 @@ public:
   shared_ptr<string> modelCustomPromptTemplateId{};
   shared_ptr<string> modelId{};
   shared_ptr<double> snapshotInterval{};
+  shared_ptr<long> splitInterval{};
   shared_ptr<string> textProcessTasksShrink{};
   shared_ptr<string> videoExtraInfo{};
   shared_ptr<string> videoModelCustomPromptTemplate{};
@@ -10690,6 +10712,9 @@ public:
     }
     if (snapshotInterval) {
       res["snapshotInterval"] = boost::any(*snapshotInterval);
+    }
+    if (splitInterval) {
+      res["splitInterval"] = boost::any(*splitInterval);
     }
     if (textProcessTasksShrink) {
       res["textProcessTasks"] = boost::any(*textProcessTasksShrink);
@@ -10739,6 +10764,9 @@ public:
     }
     if (m.find("snapshotInterval") != m.end() && !m["snapshotInterval"].empty()) {
       snapshotInterval = make_shared<double>(boost::any_cast<double>(m["snapshotInterval"]));
+    }
+    if (m.find("splitInterval") != m.end() && !m["splitInterval"].empty()) {
+      splitInterval = make_shared<long>(boost::any_cast<long>(m["splitInterval"]));
     }
     if (m.find("textProcessTasks") != m.end() && !m["textProcessTasks"].empty()) {
       textProcessTasksShrink = make_shared<string>(boost::any_cast<string>(m["textProcessTasks"]));
