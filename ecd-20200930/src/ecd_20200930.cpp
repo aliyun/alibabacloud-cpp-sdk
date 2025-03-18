@@ -9608,6 +9608,9 @@ RebootDesktopsResponse Alibabacloud_Ecd20200930::Client::rebootDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->desktopId)) {
     query->insert(pair<string, vector<string>>("DesktopId", *request->desktopId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->osUpdate)) {
+    query->insert(pair<string, bool>("OsUpdate", *request->osUpdate));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -10649,6 +10652,9 @@ StopDesktopsResponse Alibabacloud_Ecd20200930::Client::stopDesktopsWithOptions(s
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->desktopId)) {
     query->insert(pair<string, vector<string>>("DesktopId", *request->desktopId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->osUpdate)) {
+    query->insert(pair<string, bool>("OsUpdate", *request->osUpdate));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

@@ -20404,6 +20404,106 @@ public:
 
   virtual ~DescribeDesktopsResponseBodyDesktopsFotaUpdate() = default;
 };
+class DescribeDesktopsResponseBodyDesktopsOsUpdatePackages : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> kb{};
+  shared_ptr<string> title{};
+
+  DescribeDesktopsResponseBodyDesktopsOsUpdatePackages() {}
+
+  explicit DescribeDesktopsResponseBodyDesktopsOsUpdatePackages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (kb) {
+      res["Kb"] = boost::any(*kb);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Kb") != m.end() && !m["Kb"].empty()) {
+      kb = make_shared<string>(boost::any_cast<string>(m["Kb"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopsResponseBodyDesktopsOsUpdatePackages() = default;
+};
+class DescribeDesktopsResponseBodyDesktopsOsUpdate : public Darabonba::Model {
+public:
+  shared_ptr<string> checkId{};
+  shared_ptr<long> packageCount{};
+  shared_ptr<vector<DescribeDesktopsResponseBodyDesktopsOsUpdatePackages>> packages{};
+
+  DescribeDesktopsResponseBodyDesktopsOsUpdate() {}
+
+  explicit DescribeDesktopsResponseBodyDesktopsOsUpdate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkId) {
+      res["CheckId"] = boost::any(*checkId);
+    }
+    if (packageCount) {
+      res["PackageCount"] = boost::any(*packageCount);
+    }
+    if (packages) {
+      vector<boost::any> temp1;
+      for(auto item1:*packages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Packages"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckId") != m.end() && !m["CheckId"].empty()) {
+      checkId = make_shared<string>(boost::any_cast<string>(m["CheckId"]));
+    }
+    if (m.find("PackageCount") != m.end() && !m["PackageCount"].empty()) {
+      packageCount = make_shared<long>(boost::any_cast<long>(m["PackageCount"]));
+    }
+    if (m.find("Packages") != m.end() && !m["Packages"].empty()) {
+      if (typeid(vector<boost::any>) == m["Packages"].type()) {
+        vector<DescribeDesktopsResponseBodyDesktopsOsUpdatePackages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Packages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDesktopsResponseBodyDesktopsOsUpdatePackages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        packages = make_shared<vector<DescribeDesktopsResponseBodyDesktopsOsUpdatePackages>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDesktopsResponseBodyDesktopsOsUpdate() = default;
+};
 class DescribeDesktopsResponseBodyDesktopsResourceGroups : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -20562,6 +20662,7 @@ public:
   shared_ptr<string> officeSiteType{};
   shared_ptr<string> officeSiteVpcType{};
   shared_ptr<string> osType{};
+  shared_ptr<DescribeDesktopsResponseBodyDesktopsOsUpdate> osUpdate{};
   shared_ptr<string> platform{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<vector<string>> policyGroupIdList{};
@@ -20724,6 +20825,9 @@ public:
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
+    }
+    if (osUpdate) {
+      res["OsUpdate"] = osUpdate ? boost::any(osUpdate->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (platform) {
       res["Platform"] = boost::any(*platform);
@@ -20964,6 +21068,13 @@ public:
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("OsUpdate") != m.end() && !m["OsUpdate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OsUpdate"].type()) {
+        DescribeDesktopsResponseBodyDesktopsOsUpdate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OsUpdate"]));
+        osUpdate = make_shared<DescribeDesktopsResponseBodyDesktopsOsUpdate>(model1);
+      }
     }
     if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
       platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
@@ -28051,6 +28162,7 @@ public:
   shared_ptr<long> edsCount{};
   shared_ptr<string> endUserApplyAdminCoordinate{};
   shared_ptr<string> endUserGroupCoordinate{};
+  shared_ptr<string> fileMigrate{};
   shared_ptr<string> fileTransfer{};
   shared_ptr<string> gpuAcceleration{};
   shared_ptr<string> html5Access{};
@@ -28125,6 +28237,7 @@ public:
   shared_ptr<string> watermarkTransparency{};
   shared_ptr<long> watermarkTransparencyValue{};
   shared_ptr<string> watermarkType{};
+  shared_ptr<string> wuyingKeeper{};
   shared_ptr<string> wyAssistant{};
 
   DescribePolicyGroupsResponseBodyDescribePolicyGroups() {}
@@ -28238,6 +28351,9 @@ public:
     }
     if (endUserGroupCoordinate) {
       res["EndUserGroupCoordinate"] = boost::any(*endUserGroupCoordinate);
+    }
+    if (fileMigrate) {
+      res["FileMigrate"] = boost::any(*fileMigrate);
     }
     if (fileTransfer) {
       res["FileTransfer"] = boost::any(*fileTransfer);
@@ -28469,6 +28585,9 @@ public:
     if (watermarkType) {
       res["WatermarkType"] = boost::any(*watermarkType);
     }
+    if (wuyingKeeper) {
+      res["WuyingKeeper"] = boost::any(*wuyingKeeper);
+    }
     if (wyAssistant) {
       res["WyAssistant"] = boost::any(*wyAssistant);
     }
@@ -28620,6 +28739,9 @@ public:
     }
     if (m.find("EndUserGroupCoordinate") != m.end() && !m["EndUserGroupCoordinate"].empty()) {
       endUserGroupCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserGroupCoordinate"]));
+    }
+    if (m.find("FileMigrate") != m.end() && !m["FileMigrate"].empty()) {
+      fileMigrate = make_shared<string>(boost::any_cast<string>(m["FileMigrate"]));
     }
     if (m.find("FileTransfer") != m.end() && !m["FileTransfer"].empty()) {
       fileTransfer = make_shared<string>(boost::any_cast<string>(m["FileTransfer"]));
@@ -28897,6 +29019,9 @@ public:
     }
     if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
       watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
+    }
+    if (m.find("WuyingKeeper") != m.end() && !m["WuyingKeeper"].empty()) {
+      wuyingKeeper = make_shared<string>(boost::any_cast<string>(m["WuyingKeeper"]));
     }
     if (m.find("WyAssistant") != m.end() && !m["WyAssistant"].empty()) {
       wyAssistant = make_shared<string>(boost::any_cast<string>(m["WyAssistant"]));
@@ -47110,6 +47235,7 @@ public:
 class RebootDesktopsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> desktopId{};
+  shared_ptr<bool> osUpdate{};
   shared_ptr<string> regionId{};
 
   RebootDesktopsRequest() {}
@@ -47124,6 +47250,9 @@ public:
     map<string, boost::any> res;
     if (desktopId) {
       res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (osUpdate) {
+      res["OsUpdate"] = boost::any(*osUpdate);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -47141,6 +47270,9 @@ public:
         }
       }
       desktopId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OsUpdate") != m.end() && !m["OsUpdate"].empty()) {
+      osUpdate = make_shared<bool>(boost::any_cast<bool>(m["OsUpdate"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -50976,6 +51108,7 @@ public:
 class StopDesktopsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> desktopId{};
+  shared_ptr<bool> osUpdate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> stoppedMode{};
 
@@ -50991,6 +51124,9 @@ public:
     map<string, boost::any> res;
     if (desktopId) {
       res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (osUpdate) {
+      res["OsUpdate"] = boost::any(*osUpdate);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -51011,6 +51147,9 @@ public:
         }
       }
       desktopId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OsUpdate") != m.end() && !m["OsUpdate"].empty()) {
+      osUpdate = make_shared<bool>(boost::any_cast<bool>(m["OsUpdate"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
