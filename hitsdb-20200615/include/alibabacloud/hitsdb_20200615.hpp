@@ -5973,6 +5973,7 @@ public:
   shared_ptr<bool> isLastVersion{};
   shared_ptr<string> latestVersion{};
   shared_ptr<string> memorySize{};
+  shared_ptr<string> specification{};
   shared_ptr<string> version{};
 
   GetLindormInstanceResponseBodyEngineList() {}
@@ -6003,6 +6004,9 @@ public:
     if (memorySize) {
       res["MemorySize"] = boost::any(*memorySize);
     }
+    if (specification) {
+      res["Specification"] = boost::any(*specification);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
     }
@@ -6027,6 +6031,9 @@ public:
     }
     if (m.find("MemorySize") != m.end() && !m["MemorySize"].empty()) {
       memorySize = make_shared<string>(boost::any_cast<string>(m["MemorySize"]));
+    }
+    if (m.find("Specification") != m.end() && !m["Specification"].empty()) {
+      specification = make_shared<string>(boost::any_cast<string>(m["Specification"]));
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
