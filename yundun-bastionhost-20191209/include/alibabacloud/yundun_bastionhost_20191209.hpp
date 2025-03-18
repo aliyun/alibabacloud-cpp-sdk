@@ -10787,6 +10787,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> loginAttribute{};
   shared_ptr<string> operationMode{};
+  shared_ptr<string> operationNote{};
   shared_ptr<string> regionId{};
   shared_ptr<string> ssoClient{};
 
@@ -10830,6 +10831,9 @@ public:
     if (operationMode) {
       res["OperationMode"] = boost::any(*operationMode);
     }
+    if (operationNote) {
+      res["OperationNote"] = boost::any(*operationNote);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -10869,6 +10873,9 @@ public:
     }
     if (m.find("OperationMode") != m.end() && !m["OperationMode"].empty()) {
       operationMode = make_shared<string>(boost::any_cast<string>(m["OperationMode"]));
+    }
+    if (m.find("OperationNote") != m.end() && !m["OperationNote"].empty()) {
+      operationNote = make_shared<string>(boost::any_cast<string>(m["OperationNote"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -11746,6 +11753,7 @@ public:
   shared_ptr<string> hostPublicAddress{};
   shared_ptr<string> networkDomainId{};
   shared_ptr<string> OSType{};
+  shared_ptr<string> prefKex{};
   shared_ptr<vector<GetHostResponseBodyHostProtocols>> protocols{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceInstanceId{};
@@ -11784,6 +11792,9 @@ public:
     }
     if (OSType) {
       res["OSType"] = boost::any(*OSType);
+    }
+    if (prefKex) {
+      res["PrefKex"] = boost::any(*prefKex);
     }
     if (protocols) {
       vector<boost::any> temp1;
@@ -11828,6 +11839,9 @@ public:
     }
     if (m.find("OSType") != m.end() && !m["OSType"].empty()) {
       OSType = make_shared<string>(boost::any_cast<string>(m["OSType"]));
+    }
+    if (m.find("PrefKex") != m.end() && !m["PrefKex"].empty()) {
+      prefKex = make_shared<string>(boost::any_cast<string>(m["PrefKex"]));
     }
     if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
       if (typeid(vector<boost::any>) == m["Protocols"].type()) {
@@ -24724,6 +24738,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> networkDomainId{};
   shared_ptr<string> OSType{};
+  shared_ptr<string> prefKex{};
   shared_ptr<string> regionId{};
 
   ModifyHostRequest() {}
@@ -24760,6 +24775,9 @@ public:
     if (OSType) {
       res["OSType"] = boost::any(*OSType);
     }
+    if (prefKex) {
+      res["PrefKex"] = boost::any(*prefKex);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -24790,6 +24808,9 @@ public:
     }
     if (m.find("OSType") != m.end() && !m["OSType"].empty()) {
       OSType = make_shared<string>(boost::any_cast<string>(m["OSType"]));
+    }
+    if (m.find("PrefKex") != m.end() && !m["PrefKex"].empty()) {
+      prefKex = make_shared<string>(boost::any_cast<string>(m["PrefKex"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
