@@ -9458,6 +9458,7 @@ public:
 class DescribeClusterAttachScriptsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> arch{};
+  shared_ptr<long> expired{};
   shared_ptr<bool> formatDisk{};
   shared_ptr<bool> keepInstanceName{};
   shared_ptr<string> nodepoolId{};
@@ -9476,6 +9477,9 @@ public:
     map<string, boost::any> res;
     if (arch) {
       res["arch"] = boost::any(*arch);
+    }
+    if (expired) {
+      res["expired"] = boost::any(*expired);
     }
     if (formatDisk) {
       res["format_disk"] = boost::any(*formatDisk);
@@ -9498,6 +9502,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("arch") != m.end() && !m["arch"].empty()) {
       arch = make_shared<string>(boost::any_cast<string>(m["arch"]));
+    }
+    if (m.find("expired") != m.end() && !m["expired"].empty()) {
+      expired = make_shared<long>(boost::any_cast<long>(m["expired"]));
     }
     if (m.find("format_disk") != m.end() && !m["format_disk"].empty()) {
       formatDisk = make_shared<bool>(boost::any_cast<bool>(m["format_disk"]));
@@ -25217,7 +25224,9 @@ public:
   shared_ptr<MaintenanceWindow> maintenanceWindow{};
   shared_ptr<ModifyClusterRequestOperationPolicy> operationPolicy{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> securityGroupId{};
   shared_ptr<ModifyClusterRequestSystemEventsLogging> systemEventsLogging{};
+  shared_ptr<string> timezone{};
   shared_ptr<vector<string>> vswitchIds{};
 
   ModifyClusterRequest() {}
@@ -25272,8 +25281,14 @@ public:
     if (resourceGroupId) {
       res["resource_group_id"] = boost::any(*resourceGroupId);
     }
+    if (securityGroupId) {
+      res["security_group_id"] = boost::any(*securityGroupId);
+    }
     if (systemEventsLogging) {
       res["system_events_logging"] = systemEventsLogging ? boost::any(systemEventsLogging->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (timezone) {
+      res["timezone"] = boost::any(*timezone);
     }
     if (vswitchIds) {
       res["vswitch_ids"] = boost::any(*vswitchIds);
@@ -25347,12 +25362,18 @@ public:
     if (m.find("resource_group_id") != m.end() && !m["resource_group_id"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resource_group_id"]));
     }
+    if (m.find("security_group_id") != m.end() && !m["security_group_id"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["security_group_id"]));
+    }
     if (m.find("system_events_logging") != m.end() && !m["system_events_logging"].empty()) {
       if (typeid(map<string, boost::any>) == m["system_events_logging"].type()) {
         ModifyClusterRequestSystemEventsLogging model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["system_events_logging"]));
         systemEventsLogging = make_shared<ModifyClusterRequestSystemEventsLogging>(model1);
       }
+    }
+    if (m.find("timezone") != m.end() && !m["timezone"].empty()) {
+      timezone = make_shared<string>(boost::any_cast<string>(m["timezone"]));
     }
     if (m.find("vswitch_ids") != m.end() && !m["vswitch_ids"].empty()) {
       vector<string> toVec1;

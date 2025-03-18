@@ -1881,6 +1881,9 @@ DescribeClusterAttachScriptsResponse Alibabacloud_CS20151215::Client::describeCl
   if (!Darabonba_Util::Client::isUnset<string>(request->arch)) {
     body->insert(pair<string, string>("arch", *request->arch));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->expired)) {
+    body->insert(pair<string, long>("expired", *request->expired));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->formatDisk)) {
     body->insert(pair<string, bool>("format_disk", *request->formatDisk));
   }
@@ -4123,8 +4126,14 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("resource_group_id", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
+    body->insert(pair<string, string>("security_group_id", *request->securityGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<ModifyClusterRequestSystemEventsLogging>(request->systemEventsLogging)) {
     body->insert(pair<string, ModifyClusterRequestSystemEventsLogging>("system_events_logging", *request->systemEventsLogging));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timezone)) {
+    body->insert(pair<string, string>("timezone", *request->timezone));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vswitchIds)) {
     body->insert(pair<string, vector<string>>("vswitch_ids", *request->vswitchIds));
