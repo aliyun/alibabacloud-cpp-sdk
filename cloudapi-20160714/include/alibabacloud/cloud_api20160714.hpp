@@ -25377,6 +25377,7 @@ public:
 class DescribeDatasetListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetIds{};
+  shared_ptr<string> datasetName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> securityToken{};
@@ -25394,6 +25395,9 @@ public:
     map<string, boost::any> res;
     if (datasetIds) {
       res["DatasetIds"] = boost::any(*datasetIds);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -25417,6 +25421,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DatasetIds") != m.end() && !m["DatasetIds"].empty()) {
       datasetIds = make_shared<string>(boost::any_cast<string>(m["DatasetIds"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));

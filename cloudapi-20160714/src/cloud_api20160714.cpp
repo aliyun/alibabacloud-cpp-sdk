@@ -4378,6 +4378,9 @@ DescribeDatasetListResponse Alibabacloud_CloudAPI20160714::Client::describeDatas
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetIds)) {
     query->insert(pair<string, string>("DatasetIds", *request->datasetIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
+    query->insert(pair<string, string>("DatasetName", *request->datasetName));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
