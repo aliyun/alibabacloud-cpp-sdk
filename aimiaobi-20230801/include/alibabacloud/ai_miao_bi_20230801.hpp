@@ -35980,6 +35980,7 @@ public:
 class RunSearchGenerationRequestAgentContextBizContext : public Darabonba::Model {
 public:
   shared_ptr<RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection> multimodalMediaSelection{};
+  shared_ptr<bool> skipCurrentSupplement{};
 
   RunSearchGenerationRequestAgentContextBizContext() {}
 
@@ -35994,6 +35995,9 @@ public:
     if (multimodalMediaSelection) {
       res["MultimodalMediaSelection"] = multimodalMediaSelection ? boost::any(multimodalMediaSelection->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (skipCurrentSupplement) {
+      res["SkipCurrentSupplement"] = boost::any(*skipCurrentSupplement);
+    }
     return res;
   }
 
@@ -36004,6 +36008,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MultimodalMediaSelection"]));
         multimodalMediaSelection = make_shared<RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection>(model1);
       }
+    }
+    if (m.find("SkipCurrentSupplement") != m.end() && !m["SkipCurrentSupplement"].empty()) {
+      skipCurrentSupplement = make_shared<bool>(boost::any_cast<bool>(m["SkipCurrentSupplement"]));
     }
   }
 
@@ -40571,6 +40578,7 @@ public:
 class RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<string> datasetName{};
   shared_ptr<string> name{};
 
   RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources() {}
@@ -40586,6 +40594,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -40595,6 +40606,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -40857,6 +40871,7 @@ public:
 };
 class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles : public Darabonba::Model {
 public:
+  shared_ptr<string> docId{};
   shared_ptr<string> docUuid{};
   shared_ptr<string> pubTime{};
   shared_ptr<string> searchSourceName{};
@@ -40875,6 +40890,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (docId) {
+      res["DocId"] = boost::any(*docId);
+    }
     if (docUuid) {
       res["DocUuid"] = boost::any(*docUuid);
     }
@@ -40900,6 +40918,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
+      docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
+    }
     if (m.find("DocUuid") != m.end() && !m["DocUuid"].empty()) {
       docUuid = make_shared<string>(boost::any_cast<string>(m["DocUuid"]));
     }
