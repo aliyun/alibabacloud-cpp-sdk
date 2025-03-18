@@ -2906,7 +2906,9 @@ public:
 };
 class RunDataAnalysisResponseBodyDataVisualizationData : public Darabonba::Model {
 public:
+  shared_ptr<string> option{};
   shared_ptr<string> plotType{};
+  shared_ptr<bool> stack{};
   shared_ptr<vector<string>> xAxis{};
   shared_ptr<vector<string>> yAxis{};
 
@@ -2920,8 +2922,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (option) {
+      res["option"] = boost::any(*option);
+    }
     if (plotType) {
       res["plotType"] = boost::any(*plotType);
+    }
+    if (stack) {
+      res["stack"] = boost::any(*stack);
     }
     if (xAxis) {
       res["xAxis"] = boost::any(*xAxis);
@@ -2933,8 +2941,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("option") != m.end() && !m["option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["option"]));
+    }
     if (m.find("plotType") != m.end() && !m["plotType"].empty()) {
       plotType = make_shared<string>(boost::any_cast<string>(m["plotType"]));
+    }
+    if (m.find("stack") != m.end() && !m["stack"].empty()) {
+      stack = make_shared<bool>(boost::any_cast<bool>(m["stack"]));
     }
     if (m.find("xAxis") != m.end() && !m["xAxis"].empty()) {
       vector<string> toVec1;
