@@ -279,6 +279,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> storageSize{};
+  shared_ptr<string> storageType{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -341,6 +342,9 @@ public:
     if (storageSize) {
       res["storageSize"] = boost::any(*storageSize);
     }
+    if (storageType) {
+      res["storageType"] = boost::any(*storageType);
+    }
     if (vSwitchId) {
       res["vSwitchId"] = boost::any(*vSwitchId);
     }
@@ -401,6 +405,9 @@ public:
     }
     if (m.find("storageSize") != m.end() && !m["storageSize"].empty()) {
       storageSize = make_shared<long>(boost::any_cast<long>(m["storageSize"]));
+    }
+    if (m.find("storageType") != m.end() && !m["storageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["storageType"]));
     }
     if (m.find("vSwitchId") != m.end() && !m["vSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["vSwitchId"]));

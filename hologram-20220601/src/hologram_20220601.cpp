@@ -61,7 +61,12 @@ ChangeResourceGroupResponse Alibabacloud_Hologram20220601::Client::changeResourc
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChangeResourceGroupResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChangeResourceGroupResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChangeResourceGroupResponse(execute(params, req, runtime));
+  }
 }
 
 ChangeResourceGroupResponse Alibabacloud_Hologram20220601::Client::changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request) {
@@ -97,7 +102,12 @@ CreateHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::createHoloWar
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateHoloWarehouseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateHoloWarehouseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateHoloWarehouseResponse(execute(params, req, runtime));
+  }
 }
 
 CreateHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::createHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<CreateHoloWarehouseRequest> request) {
@@ -157,6 +167,9 @@ CreateInstanceResponse Alibabacloud_Hologram20220601::Client::createInstanceWith
   if (!Darabonba_Util::Client::isUnset<long>(request->storageSize)) {
     body->insert(pair<string, long>("storageSize", *request->storageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageType)) {
+    body->insert(pair<string, string>("storageType", *request->storageType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     body->insert(pair<string, string>("vSwitchId", *request->vSwitchId));
   }
@@ -181,7 +194,12 @@ CreateInstanceResponse Alibabacloud_Hologram20220601::Client::createInstanceWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 CreateInstanceResponse Alibabacloud_Hologram20220601::Client::createInstance(shared_ptr<CreateInstanceRequest> request) {
@@ -214,7 +232,12 @@ DeleteHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::deleteHoloWar
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteHoloWarehouseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteHoloWarehouseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteHoloWarehouseResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::deleteHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<DeleteHoloWarehouseRequest> request) {
@@ -247,7 +270,12 @@ DeleteInstanceResponse Alibabacloud_Hologram20220601::Client::deleteInstanceWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteInstanceResponse Alibabacloud_Hologram20220601::Client::deleteInstance(shared_ptr<string> instanceId, shared_ptr<DeleteInstanceRequest> request) {
@@ -280,7 +308,12 @@ DisableHiveAccessResponse Alibabacloud_Hologram20220601::Client::disableHiveAcce
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DisableHiveAccessResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DisableHiveAccessResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DisableHiveAccessResponse(execute(params, req, runtime));
+  }
 }
 
 DisableHiveAccessResponse Alibabacloud_Hologram20220601::Client::disableHiveAccess(shared_ptr<string> instanceId, shared_ptr<DisableHiveAccessRequest> request) {
@@ -313,7 +346,12 @@ EnableHiveAccessResponse Alibabacloud_Hologram20220601::Client::enableHiveAccess
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return EnableHiveAccessResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EnableHiveAccessResponse(callApi(params, req, runtime));
+  }
+  else {
+    return EnableHiveAccessResponse(execute(params, req, runtime));
+  }
 }
 
 EnableHiveAccessResponse Alibabacloud_Hologram20220601::Client::enableHiveAccess(shared_ptr<string> instanceId, shared_ptr<EnableHiveAccessRequest> request) {
@@ -337,7 +375,12 @@ GetInstanceResponse Alibabacloud_Hologram20220601::Client::getInstanceWithOption
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 GetInstanceResponse Alibabacloud_Hologram20220601::Client::getInstance(shared_ptr<string> instanceId) {
@@ -361,7 +404,12 @@ GetWarehouseDetailResponse Alibabacloud_Hologram20220601::Client::getWarehouseDe
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetWarehouseDetailResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetWarehouseDetailResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetWarehouseDetailResponse(execute(params, req, runtime));
+  }
 }
 
 GetWarehouseDetailResponse Alibabacloud_Hologram20220601::Client::getWarehouseDetail(shared_ptr<string> instanceId) {
@@ -394,7 +442,12 @@ ListBackupDataResponse Alibabacloud_Hologram20220601::Client::listBackupDataWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListBackupDataResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListBackupDataResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListBackupDataResponse(execute(params, req, runtime));
+  }
 }
 
 ListBackupDataResponse Alibabacloud_Hologram20220601::Client::listBackupData(shared_ptr<ListBackupDataRequest> request) {
@@ -430,7 +483,12 @@ ListInstancesResponse Alibabacloud_Hologram20220601::Client::listInstancesWithOp
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListInstancesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListInstancesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListInstancesResponse(execute(params, req, runtime));
+  }
 }
 
 ListInstancesResponse Alibabacloud_Hologram20220601::Client::listInstances(shared_ptr<ListInstancesRequest> request) {
@@ -454,7 +512,12 @@ ListWarehousesResponse Alibabacloud_Hologram20220601::Client::listWarehousesWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListWarehousesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListWarehousesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListWarehousesResponse(execute(params, req, runtime));
+  }
 }
 
 ListWarehousesResponse Alibabacloud_Hologram20220601::Client::listWarehouses(shared_ptr<string> instanceId) {
@@ -487,7 +550,12 @@ RebalanceHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::rebalanceH
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RebalanceHoloWarehouseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RebalanceHoloWarehouseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RebalanceHoloWarehouseResponse(execute(params, req, runtime));
+  }
 }
 
 RebalanceHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::rebalanceHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RebalanceHoloWarehouseRequest> request) {
@@ -523,7 +591,12 @@ RenameHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::renameHoloWar
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RenameHoloWarehouseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RenameHoloWarehouseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RenameHoloWarehouseResponse(execute(params, req, runtime));
+  }
 }
 
 RenameHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::renameHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RenameHoloWarehouseRequest> request) {
@@ -559,7 +632,12 @@ RenewInstanceResponse Alibabacloud_Hologram20220601::Client::renewInstanceWithOp
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RenewInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RenewInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RenewInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 RenewInstanceResponse Alibabacloud_Hologram20220601::Client::renewInstance(shared_ptr<string> instanceId, shared_ptr<RenewInstanceRequest> request) {
@@ -592,7 +670,12 @@ RestartHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::restartHoloW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RestartHoloWarehouseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RestartHoloWarehouseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RestartHoloWarehouseResponse(execute(params, req, runtime));
+  }
 }
 
 RestartHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::restartHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RestartHoloWarehouseRequest> request) {
@@ -616,7 +699,12 @@ RestartInstanceResponse Alibabacloud_Hologram20220601::Client::restartInstanceWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RestartInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RestartInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RestartInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 RestartInstanceResponse Alibabacloud_Hologram20220601::Client::restartInstance(shared_ptr<string> instanceId) {
@@ -649,7 +737,12 @@ ResumeHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::resumeHoloWar
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ResumeHoloWarehouseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ResumeHoloWarehouseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ResumeHoloWarehouseResponse(execute(params, req, runtime));
+  }
 }
 
 ResumeHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::resumeHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<ResumeHoloWarehouseRequest> request) {
@@ -673,7 +766,12 @@ ResumeInstanceResponse Alibabacloud_Hologram20220601::Client::resumeInstanceWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ResumeInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ResumeInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ResumeInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 ResumeInstanceResponse Alibabacloud_Hologram20220601::Client::resumeInstance(shared_ptr<string> instanceId) {
@@ -709,7 +807,12 @@ ScaleHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::scaleHoloWareh
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ScaleHoloWarehouseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ScaleHoloWarehouseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ScaleHoloWarehouseResponse(execute(params, req, runtime));
+  }
 }
 
 ScaleHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::scaleHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<ScaleHoloWarehouseRequest> request) {
@@ -757,7 +860,12 @@ ScaleInstanceResponse Alibabacloud_Hologram20220601::Client::scaleInstanceWithOp
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ScaleInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ScaleInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ScaleInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 ScaleInstanceResponse Alibabacloud_Hologram20220601::Client::scaleInstance(shared_ptr<string> instanceId, shared_ptr<ScaleInstanceRequest> request) {
@@ -781,7 +889,12 @@ StopInstanceResponse Alibabacloud_Hologram20220601::Client::stopInstanceWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StopInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StopInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StopInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 StopInstanceResponse Alibabacloud_Hologram20220601::Client::stopInstance(shared_ptr<string> instanceId) {
@@ -814,7 +927,12 @@ SuspendHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::suspendHoloW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SuspendHoloWarehouseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SuspendHoloWarehouseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SuspendHoloWarehouseResponse(execute(params, req, runtime));
+  }
 }
 
 SuspendHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::suspendHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<SuspendHoloWarehouseRequest> request) {
@@ -847,7 +965,12 @@ UpdateInstanceNameResponse Alibabacloud_Hologram20220601::Client::updateInstance
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateInstanceNameResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateInstanceNameResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateInstanceNameResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateInstanceNameResponse Alibabacloud_Hologram20220601::Client::updateInstanceName(shared_ptr<string> instanceId, shared_ptr<UpdateInstanceNameRequest> request) {
@@ -895,7 +1018,12 @@ UpdateInstanceNetworkTypeResponse Alibabacloud_Hologram20220601::Client::updateI
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateInstanceNetworkTypeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateInstanceNetworkTypeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateInstanceNetworkTypeResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateInstanceNetworkTypeResponse Alibabacloud_Hologram20220601::Client::updateInstanceNetworkType(shared_ptr<string> instanceId, shared_ptr<UpdateInstanceNetworkTypeRequest> request) {
