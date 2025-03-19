@@ -5666,6 +5666,56 @@ public:
 
   virtual ~TextModerationPlusResponseBodyDataAdvice() = default;
 };
+class TextModerationPlusResponseBodyDataAttackResult : public Darabonba::Model {
+public:
+  shared_ptr<string> attackLevel{};
+  shared_ptr<double> confidence{};
+  shared_ptr<string> description{};
+  shared_ptr<string> label{};
+
+  TextModerationPlusResponseBodyDataAttackResult() {}
+
+  explicit TextModerationPlusResponseBodyDataAttackResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attackLevel) {
+      res["AttackLevel"] = boost::any(*attackLevel);
+    }
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttackLevel") != m.end() && !m["AttackLevel"].empty()) {
+      attackLevel = make_shared<string>(boost::any_cast<string>(m["AttackLevel"]));
+    }
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+  }
+
+
+  virtual ~TextModerationPlusResponseBodyDataAttackResult() = default;
+};
 class TextModerationPlusResponseBodyDataResultCustomizedHit : public Darabonba::Model {
 public:
   shared_ptr<string> keyWords{};
@@ -5773,13 +5823,74 @@ public:
 
   virtual ~TextModerationPlusResponseBodyDataResult() = default;
 };
+class TextModerationPlusResponseBodyDataSensitiveResult : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> label{};
+  shared_ptr<vector<string>> sensitiveData{};
+  shared_ptr<string> sensitiveLevel{};
+
+  TextModerationPlusResponseBodyDataSensitiveResult() {}
+
+  explicit TextModerationPlusResponseBodyDataSensitiveResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (sensitiveData) {
+      res["SensitiveData"] = boost::any(*sensitiveData);
+    }
+    if (sensitiveLevel) {
+      res["SensitiveLevel"] = boost::any(*sensitiveLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("SensitiveData") != m.end() && !m["SensitiveData"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SensitiveData"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SensitiveData"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sensitiveData = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SensitiveLevel") != m.end() && !m["SensitiveLevel"].empty()) {
+      sensitiveLevel = make_shared<string>(boost::any_cast<string>(m["SensitiveLevel"]));
+    }
+  }
+
+
+  virtual ~TextModerationPlusResponseBodyDataSensitiveResult() = default;
+};
 class TextModerationPlusResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<TextModerationPlusResponseBodyDataAdvice>> advice{};
+  shared_ptr<string> attackLevel{};
+  shared_ptr<vector<TextModerationPlusResponseBodyDataAttackResult>> attackResult{};
   shared_ptr<string> dataId{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataResult>> result{};
   shared_ptr<string> riskLevel{};
   shared_ptr<double> score{};
+  shared_ptr<string> sensitiveLevel{};
+  shared_ptr<vector<TextModerationPlusResponseBodyDataSensitiveResult>> sensitiveResult{};
 
   TextModerationPlusResponseBodyData() {}
 
@@ -5798,6 +5909,16 @@ public:
       }
       res["Advice"] = boost::any(temp1);
     }
+    if (attackLevel) {
+      res["AttackLevel"] = boost::any(*attackLevel);
+    }
+    if (attackResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*attackResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AttackResult"] = boost::any(temp1);
+    }
     if (dataId) {
       res["DataId"] = boost::any(*dataId);
     }
@@ -5814,6 +5935,16 @@ public:
     if (score) {
       res["Score"] = boost::any(*score);
     }
+    if (sensitiveLevel) {
+      res["SensitiveLevel"] = boost::any(*sensitiveLevel);
+    }
+    if (sensitiveResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*sensitiveResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SensitiveResult"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -5829,6 +5960,22 @@ public:
           }
         }
         advice = make_shared<vector<TextModerationPlusResponseBodyDataAdvice>>(expect1);
+      }
+    }
+    if (m.find("AttackLevel") != m.end() && !m["AttackLevel"].empty()) {
+      attackLevel = make_shared<string>(boost::any_cast<string>(m["AttackLevel"]));
+    }
+    if (m.find("AttackResult") != m.end() && !m["AttackResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["AttackResult"].type()) {
+        vector<TextModerationPlusResponseBodyDataAttackResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AttackResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TextModerationPlusResponseBodyDataAttackResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        attackResult = make_shared<vector<TextModerationPlusResponseBodyDataAttackResult>>(expect1);
       }
     }
     if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
@@ -5852,6 +5999,22 @@ public:
     }
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
       score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("SensitiveLevel") != m.end() && !m["SensitiveLevel"].empty()) {
+      sensitiveLevel = make_shared<string>(boost::any_cast<string>(m["SensitiveLevel"]));
+    }
+    if (m.find("SensitiveResult") != m.end() && !m["SensitiveResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["SensitiveResult"].type()) {
+        vector<TextModerationPlusResponseBodyDataSensitiveResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SensitiveResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TextModerationPlusResponseBodyDataSensitiveResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sensitiveResult = make_shared<vector<TextModerationPlusResponseBodyDataSensitiveResult>>(expect1);
+      }
     }
   }
 
