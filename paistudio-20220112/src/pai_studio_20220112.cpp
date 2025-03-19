@@ -1363,6 +1363,9 @@ ListNodesResponse Alibabacloud_PaiStudio20220112::Client::listNodesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->GPUType)) {
     query->insert(pair<string, string>("GPUType", *request->GPUType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->machineGroupIds)) {
+    query->insert(pair<string, string>("MachineGroupIds", *request->machineGroupIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeNames)) {
     query->insert(pair<string, string>("NodeNames", *request->nodeNames));
   }
@@ -1469,6 +1472,9 @@ ListQuotaWorkloadsResponse Alibabacloud_PaiStudio20220112::Client::listQuotaWork
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userIds)) {
     query->insert(pair<string, string>("UserIds", *request->userIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withHistoricalData)) {
+    query->insert(pair<string, bool>("WithHistoricalData", *request->withHistoricalData));
   }
   if (!Darabonba_Util::Client::isUnset<TimeRangeFilter>(request->workloadCreatedTimeRange)) {
     query->insert(pair<string, TimeRangeFilter>("WorkloadCreatedTimeRange", *request->workloadCreatedTimeRange));
@@ -1599,6 +1605,9 @@ ListResourceGroupMachineGroupsResponse Alibabacloud_PaiStudio20220112::Client::l
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsSpec)) {
     query->insert(pair<string, string>("EcsSpec", *request->ecsSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->machineGroupIDs)) {
+    query->insert(pair<string, string>("MachineGroupIDs", *request->machineGroupIDs));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));

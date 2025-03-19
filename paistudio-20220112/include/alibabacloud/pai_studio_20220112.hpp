@@ -883,8 +883,66 @@ public:
 
   virtual ~AlgorithmSpec() = default;
 };
+class BindingPolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeNodes{};
+  shared_ptr<vector<string>> includeNodes{};
+  shared_ptr<long> nodeSpecCount{};
+
+  BindingPolicy() {}
+
+  explicit BindingPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeNodes) {
+      res["ExcludeNodes"] = boost::any(*excludeNodes);
+    }
+    if (includeNodes) {
+      res["IncludeNodes"] = boost::any(*includeNodes);
+    }
+    if (nodeSpecCount) {
+      res["NodeSpecCount"] = boost::any(*nodeSpecCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeNodes") != m.end() && !m["ExcludeNodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeNodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeNodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeNodes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeNodes") != m.end() && !m["IncludeNodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeNodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeNodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeNodes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("NodeSpecCount") != m.end() && !m["NodeSpecCount"].empty()) {
+      nodeSpecCount = make_shared<long>(boost::any_cast<long>(m["NodeSpecCount"]));
+    }
+  }
+
+
+  virtual ~BindingPolicy() = default;
+};
 class NodeSpec : public Darabonba::Model {
 public:
+  shared_ptr<BindingPolicy> bindingPolicy{};
   shared_ptr<long> count{};
   shared_ptr<string> type{};
 
@@ -898,6 +956,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindingPolicy) {
+      res["BindingPolicy"] = bindingPolicy ? boost::any(bindingPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (count) {
       res["Count"] = boost::any(*count);
     }
@@ -908,6 +969,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindingPolicy") != m.end() && !m["BindingPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BindingPolicy"].type()) {
+        BindingPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BindingPolicy"]));
+        bindingPolicy = make_shared<BindingPolicy>(model1);
+      }
+    }
     if (m.find("Count") != m.end() && !m["Count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["Count"]));
     }
@@ -2354,6 +2422,49 @@ public:
 
 
   virtual ~NodeMetric() = default;
+};
+class NodeOperationResult : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> nodeName{};
+  shared_ptr<string> status{};
+
+  NodeOperationResult() {}
+
+  explicit NodeOperationResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (nodeName) {
+      res["NodeName"] = boost::any(*nodeName);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~NodeOperationResult() = default;
 };
 class ResourceAmount : public Darabonba::Model {
 public:
@@ -5027,6 +5138,54 @@ public:
 
 
   virtual ~ResourceGroupMetric() = default;
+};
+class ResourceLimitDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> GCLevel{};
+  shared_ptr<map<string, boost::any>> resourceLimit{};
+  shared_ptr<bool> shouldIgnoreResourceCheck{};
+
+  ResourceLimitDetails() {}
+
+  explicit ResourceLimitDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GCLevel) {
+      res["GCLevel"] = boost::any(*GCLevel);
+    }
+    if (resourceLimit) {
+      res["ResourceLimit"] = boost::any(*resourceLimit);
+    }
+    if (shouldIgnoreResourceCheck) {
+      res["ShouldIgnoreResourceCheck"] = boost::any(*shouldIgnoreResourceCheck);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GCLevel") != m.end() && !m["GCLevel"].empty()) {
+      GCLevel = make_shared<string>(boost::any_cast<string>(m["GCLevel"]));
+    }
+    if (m.find("ResourceLimit") != m.end() && !m["ResourceLimit"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ResourceLimit"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      resourceLimit = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ShouldIgnoreResourceCheck") != m.end() && !m["ShouldIgnoreResourceCheck"].empty()) {
+      shouldIgnoreResourceCheck = make_shared<bool>(boost::any_cast<bool>(m["ShouldIgnoreResourceCheck"]));
+    }
+  }
+
+
+  virtual ~ResourceLimitDetails() = default;
 };
 class ResourceOperation : public Darabonba::Model {
 public:
@@ -12931,6 +13090,7 @@ public:
   shared_ptr<string> filterByQuotaId{};
   shared_ptr<string> filterByResourceGroupIds{};
   shared_ptr<string> GPUType{};
+  shared_ptr<string> machineGroupIds{};
   shared_ptr<string> nodeNames{};
   shared_ptr<string> nodeStatuses{};
   shared_ptr<string> nodeTypes{};
@@ -12964,6 +13124,9 @@ public:
     }
     if (GPUType) {
       res["GPUType"] = boost::any(*GPUType);
+    }
+    if (machineGroupIds) {
+      res["MachineGroupIds"] = boost::any(*machineGroupIds);
     }
     if (nodeNames) {
       res["NodeNames"] = boost::any(*nodeNames);
@@ -13013,6 +13176,9 @@ public:
     }
     if (m.find("GPUType") != m.end() && !m["GPUType"].empty()) {
       GPUType = make_shared<string>(boost::any_cast<string>(m["GPUType"]));
+    }
+    if (m.find("MachineGroupIds") != m.end() && !m["MachineGroupIds"].empty()) {
+      machineGroupIds = make_shared<string>(boost::any_cast<string>(m["MachineGroupIds"]));
     }
     if (m.find("NodeNames") != m.end() && !m["NodeNames"].empty()) {
       nodeNames = make_shared<string>(boost::any_cast<string>(m["NodeNames"]));
@@ -13176,6 +13342,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> subQuotaIds{};
   shared_ptr<string> userIds{};
+  shared_ptr<bool> withHistoricalData{};
   shared_ptr<TimeRangeFilter> workloadCreatedTimeRange{};
   shared_ptr<string> workloadIds{};
   shared_ptr<string> workloadStatuses{};
@@ -13230,6 +13397,9 @@ public:
     }
     if (userIds) {
       res["UserIds"] = boost::any(*userIds);
+    }
+    if (withHistoricalData) {
+      res["WithHistoricalData"] = boost::any(*withHistoricalData);
     }
     if (workloadCreatedTimeRange) {
       res["WorkloadCreatedTimeRange"] = workloadCreatedTimeRange ? boost::any(workloadCreatedTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
@@ -13300,6 +13470,9 @@ public:
     }
     if (m.find("UserIds") != m.end() && !m["UserIds"].empty()) {
       userIds = make_shared<string>(boost::any_cast<string>(m["UserIds"]));
+    }
+    if (m.find("WithHistoricalData") != m.end() && !m["WithHistoricalData"].empty()) {
+      withHistoricalData = make_shared<bool>(boost::any_cast<bool>(m["WithHistoricalData"]));
     }
     if (m.find("WorkloadCreatedTimeRange") != m.end() && !m["WorkloadCreatedTimeRange"].empty()) {
       if (typeid(map<string, boost::any>) == m["WorkloadCreatedTimeRange"].type()) {
@@ -13667,6 +13840,7 @@ class ListResourceGroupMachineGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> creatorID{};
   shared_ptr<string> ecsSpec{};
+  shared_ptr<string> machineGroupIDs{};
   shared_ptr<string> name{};
   shared_ptr<string> order{};
   shared_ptr<string> orderInstanceId{};
@@ -13693,6 +13867,9 @@ public:
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
+    }
+    if (machineGroupIDs) {
+      res["MachineGroupIDs"] = boost::any(*machineGroupIDs);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -13733,6 +13910,9 @@ public:
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
+    }
+    if (m.find("MachineGroupIDs") != m.end() && !m["MachineGroupIDs"].empty()) {
+      machineGroupIDs = make_shared<string>(boost::any_cast<string>(m["MachineGroupIDs"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
