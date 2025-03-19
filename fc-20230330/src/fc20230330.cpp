@@ -1267,8 +1267,13 @@ ListFunctionVersionsResponse Alibabacloud_FC20230330::Client::listFunctionVersio
   return listFunctionVersionsWithOptions(functionName, request, headers, runtime);
 }
 
-ListFunctionsResponse Alibabacloud_FC20230330::Client::listFunctionsWithOptions(shared_ptr<ListFunctionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListFunctionsResponse Alibabacloud_FC20230330::Client::listFunctionsWithOptions(shared_ptr<ListFunctionsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListFunctionsShrinkRequest> request = make_shared<ListFunctionsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<Tag>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->fcVersion)) {
     query->insert(pair<string, string>("fcVersion", *request->fcVersion));
@@ -1281,6 +1286,9 @@ ListFunctionsResponse Alibabacloud_FC20230330::Client::listFunctionsWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->prefix)) {
     query->insert(pair<string, string>("prefix", *request->prefix));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("tags", *request->tagsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

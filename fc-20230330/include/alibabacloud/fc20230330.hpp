@@ -2284,6 +2284,7 @@ public:
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
+  shared_ptr<bool> disableOndemand{};
   shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionName{};
@@ -2331,6 +2332,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (disableOndemand) {
+      res["disableOndemand"] = boost::any(*disableOndemand);
     }
     if (diskSize) {
       res["diskSize"] = boost::any(*diskSize);
@@ -2430,6 +2434,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("disableOndemand") != m.end() && !m["disableOndemand"].empty()) {
+      disableOndemand = make_shared<bool>(boost::any_cast<bool>(m["disableOndemand"]));
     }
     if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
@@ -3828,6 +3835,7 @@ public:
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
+  shared_ptr<bool> disableOndemand{};
   shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionArn{};
@@ -3890,6 +3898,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (disableOndemand) {
+      res["disableOndemand"] = boost::any(*disableOndemand);
     }
     if (diskSize) {
       res["diskSize"] = boost::any(*diskSize);
@@ -4022,6 +4033,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("disableOndemand") != m.end() && !m["disableOndemand"].empty()) {
+      disableOndemand = make_shared<bool>(boost::any_cast<bool>(m["disableOndemand"]));
     }
     if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
@@ -6707,6 +6721,7 @@ public:
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
+  shared_ptr<bool> disableOndemand{};
   shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<GPUConfig> gpuConfig{};
@@ -6752,6 +6767,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (disableOndemand) {
+      res["disableOndemand"] = boost::any(*disableOndemand);
     }
     if (diskSize) {
       res["diskSize"] = boost::any(*diskSize);
@@ -6841,6 +6859,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("disableOndemand") != m.end() && !m["disableOndemand"].empty()) {
+      disableOndemand = make_shared<bool>(boost::any_cast<bool>(m["disableOndemand"]));
     }
     if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
@@ -9541,6 +9562,7 @@ public:
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> prefix{};
+  shared_ptr<vector<Tag>> tags{};
 
   ListFunctionsRequest() {}
 
@@ -9564,6 +9586,13 @@ public:
     if (prefix) {
       res["prefix"] = boost::any(*prefix);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -9580,10 +9609,80 @@ public:
     if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
       prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
     }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<Tag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Tag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<Tag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListFunctionsRequest() = default;
+};
+class ListFunctionsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fcVersion{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> prefix{};
+  shared_ptr<string> tagsShrink{};
+
+  ListFunctionsShrinkRequest() {}
+
+  explicit ListFunctionsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fcVersion) {
+      res["fcVersion"] = boost::any(*fcVersion);
+    }
+    if (limit) {
+      res["limit"] = boost::any(*limit);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (prefix) {
+      res["prefix"] = boost::any(*prefix);
+    }
+    if (tagsShrink) {
+      res["tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fcVersion") != m.end() && !m["fcVersion"].empty()) {
+      fcVersion = make_shared<string>(boost::any_cast<string>(m["fcVersion"]));
+    }
+    if (m.find("limit") != m.end() && !m["limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
+      prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
+    }
+  }
+
+
+  virtual ~ListFunctionsShrinkRequest() = default;
 };
 class ListFunctionsResponse : public Darabonba::Model {
 public:
@@ -11739,7 +11838,7 @@ public:
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListFunctionVersionsResponse listFunctionVersions(shared_ptr<string> functionName, shared_ptr<ListFunctionVersionsRequest> request);
-  ListFunctionsResponse listFunctionsWithOptions(shared_ptr<ListFunctionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListFunctionsResponse listFunctionsWithOptions(shared_ptr<ListFunctionsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListFunctionsResponse listFunctions(shared_ptr<ListFunctionsRequest> request);
   ListInstancesResponse listInstancesWithOptions(shared_ptr<string> functionName,
                                                  shared_ptr<ListInstancesRequest> tmpReq,
