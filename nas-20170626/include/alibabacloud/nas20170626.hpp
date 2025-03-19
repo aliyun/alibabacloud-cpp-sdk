@@ -3946,8 +3946,10 @@ public:
 class CreateLifecyclePolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileSystemId{};
+  shared_ptr<vector<string>> fsetIds{};
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<string> lifecycleRuleName{};
+  shared_ptr<string> lifecycleRuleType{};
   shared_ptr<string> path{};
   shared_ptr<vector<string>> paths{};
   shared_ptr<string> storageType{};
@@ -3965,11 +3967,17 @@ public:
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
     }
+    if (fsetIds) {
+      res["FsetIds"] = boost::any(*fsetIds);
+    }
     if (lifecyclePolicyName) {
       res["LifecyclePolicyName"] = boost::any(*lifecyclePolicyName);
     }
     if (lifecycleRuleName) {
       res["LifecycleRuleName"] = boost::any(*lifecycleRuleName);
+    }
+    if (lifecycleRuleType) {
+      res["LifecycleRuleType"] = boost::any(*lifecycleRuleType);
     }
     if (path) {
       res["Path"] = boost::any(*path);
@@ -3987,11 +3995,24 @@ public:
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
     }
+    if (m.find("FsetIds") != m.end() && !m["FsetIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FsetIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FsetIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      fsetIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("LifecyclePolicyName") != m.end() && !m["LifecyclePolicyName"].empty()) {
       lifecyclePolicyName = make_shared<string>(boost::any_cast<string>(m["LifecyclePolicyName"]));
     }
     if (m.find("LifecycleRuleName") != m.end() && !m["LifecycleRuleName"].empty()) {
       lifecycleRuleName = make_shared<string>(boost::any_cast<string>(m["LifecycleRuleName"]));
+    }
+    if (m.find("LifecycleRuleType") != m.end() && !m["LifecycleRuleType"].empty()) {
+      lifecycleRuleType = make_shared<string>(boost::any_cast<string>(m["LifecycleRuleType"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -12158,6 +12179,8 @@ public:
   shared_ptr<string> quorumVswId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<long> secondaryBandwidth{};
+  shared_ptr<long> secondaryCapacity{};
   shared_ptr<string> status{};
   shared_ptr<string> storageType{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures> supportedFeatures{};
@@ -12245,6 +12268,12 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (secondaryBandwidth) {
+      res["SecondaryBandwidth"] = boost::any(*secondaryBandwidth);
+    }
+    if (secondaryCapacity) {
+      res["SecondaryCapacity"] = boost::any(*secondaryCapacity);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -12358,6 +12387,12 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecondaryBandwidth") != m.end() && !m["SecondaryBandwidth"].empty()) {
+      secondaryBandwidth = make_shared<long>(boost::any_cast<long>(m["SecondaryBandwidth"]));
+    }
+    if (m.find("SecondaryCapacity") != m.end() && !m["SecondaryCapacity"].empty()) {
+      secondaryCapacity = make_shared<long>(boost::any_cast<long>(m["SecondaryCapacity"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -12961,6 +12996,8 @@ public:
 class DescribeLifecyclePoliciesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileSystemId{};
+  shared_ptr<string> fileSystemType{};
+  shared_ptr<string> fsetId{};
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -12978,6 +13015,12 @@ public:
     map<string, boost::any> res;
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (fileSystemType) {
+      res["FileSystemType"] = boost::any(*fileSystemType);
+    }
+    if (fsetId) {
+      res["FsetId"] = boost::any(*fsetId);
     }
     if (lifecyclePolicyName) {
       res["LifecyclePolicyName"] = boost::any(*lifecyclePolicyName);
@@ -12997,6 +13040,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("FileSystemType") != m.end() && !m["FileSystemType"].empty()) {
+      fileSystemType = make_shared<string>(boost::any_cast<string>(m["FileSystemType"]));
+    }
+    if (m.find("FsetId") != m.end() && !m["FsetId"].empty()) {
+      fsetId = make_shared<string>(boost::any_cast<string>(m["FsetId"]));
     }
     if (m.find("LifecyclePolicyName") != m.end() && !m["LifecyclePolicyName"].empty()) {
       lifecyclePolicyName = make_shared<string>(boost::any_cast<string>(m["LifecyclePolicyName"]));
@@ -13018,11 +13067,15 @@ public:
 class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<bool> enableLifecycle{};
   shared_ptr<string> fileSystemId{};
+  shared_ptr<vector<string>> fsetIds{};
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<string> lifecycleRuleName{};
+  shared_ptr<string> lifecycleRuleType{};
   shared_ptr<string> path{};
   shared_ptr<vector<string>> paths{};
+  shared_ptr<string> status{};
   shared_ptr<string> storageType{};
 
   DescribeLifecyclePoliciesResponseBodyLifecyclePolicies() {}
@@ -13038,8 +13091,14 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (enableLifecycle) {
+      res["EnableLifecycle"] = boost::any(*enableLifecycle);
+    }
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (fsetIds) {
+      res["FsetIds"] = boost::any(*fsetIds);
     }
     if (lifecyclePolicyName) {
       res["LifecyclePolicyName"] = boost::any(*lifecyclePolicyName);
@@ -13047,11 +13106,17 @@ public:
     if (lifecycleRuleName) {
       res["LifecycleRuleName"] = boost::any(*lifecycleRuleName);
     }
+    if (lifecycleRuleType) {
+      res["LifecycleRuleType"] = boost::any(*lifecycleRuleType);
+    }
     if (path) {
       res["Path"] = boost::any(*path);
     }
     if (paths) {
       res["Paths"] = boost::any(*paths);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (storageType) {
       res["StorageType"] = boost::any(*storageType);
@@ -13063,14 +13128,30 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
+    if (m.find("EnableLifecycle") != m.end() && !m["EnableLifecycle"].empty()) {
+      enableLifecycle = make_shared<bool>(boost::any_cast<bool>(m["EnableLifecycle"]));
+    }
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("FsetIds") != m.end() && !m["FsetIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FsetIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FsetIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      fsetIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("LifecyclePolicyName") != m.end() && !m["LifecyclePolicyName"].empty()) {
       lifecyclePolicyName = make_shared<string>(boost::any_cast<string>(m["LifecyclePolicyName"]));
     }
     if (m.find("LifecycleRuleName") != m.end() && !m["LifecycleRuleName"].empty()) {
       lifecycleRuleName = make_shared<string>(boost::any_cast<string>(m["LifecycleRuleName"]));
+    }
+    if (m.find("LifecycleRuleType") != m.end() && !m["LifecycleRuleType"].empty()) {
+      lifecycleRuleType = make_shared<string>(boost::any_cast<string>(m["LifecycleRuleType"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -13084,6 +13165,9 @@ public:
         }
       }
       paths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
       storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
@@ -20358,7 +20442,9 @@ public:
 };
 class ModifyLifecyclePolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableLifecycle{};
   shared_ptr<string> fileSystemId{};
+  shared_ptr<vector<string>> fsetIds{};
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<string> lifecycleRuleName{};
   shared_ptr<string> path{};
@@ -20374,8 +20460,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableLifecycle) {
+      res["EnableLifecycle"] = boost::any(*enableLifecycle);
+    }
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (fsetIds) {
+      res["FsetIds"] = boost::any(*fsetIds);
     }
     if (lifecyclePolicyName) {
       res["LifecyclePolicyName"] = boost::any(*lifecyclePolicyName);
@@ -20393,8 +20485,21 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableLifecycle") != m.end() && !m["EnableLifecycle"].empty()) {
+      enableLifecycle = make_shared<bool>(boost::any_cast<bool>(m["EnableLifecycle"]));
+    }
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("FsetIds") != m.end() && !m["FsetIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FsetIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FsetIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      fsetIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("LifecyclePolicyName") != m.end() && !m["LifecyclePolicyName"].empty()) {
       lifecyclePolicyName = make_shared<string>(boost::any_cast<string>(m["LifecyclePolicyName"]));

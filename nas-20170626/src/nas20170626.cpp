@@ -1237,11 +1237,17 @@ CreateLifecyclePolicyResponse Alibabacloud_NAS20170626::Client::createLifecycleP
   if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
     query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->fsetIds)) {
+    query->insert(pair<string, vector<string>>("FsetIds", *request->fsetIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lifecyclePolicyName)) {
     query->insert(pair<string, string>("LifecyclePolicyName", *request->lifecyclePolicyName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lifecycleRuleName)) {
     query->insert(pair<string, string>("LifecycleRuleName", *request->lifecycleRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lifecycleRuleType)) {
+    query->insert(pair<string, string>("LifecycleRuleType", *request->lifecycleRuleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     query->insert(pair<string, string>("Path", *request->path));
@@ -4155,8 +4161,14 @@ ModifyLDAPConfigResponse Alibabacloud_NAS20170626::Client::modifyLDAPConfig(shar
 ModifyLifecyclePolicyResponse Alibabacloud_NAS20170626::Client::modifyLifecyclePolicyWithOptions(shared_ptr<ModifyLifecyclePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableLifecycle)) {
+    query->insert(pair<string, bool>("EnableLifecycle", *request->enableLifecycle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
     query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->fsetIds)) {
+    query->insert(pair<string, vector<string>>("FsetIds", *request->fsetIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lifecyclePolicyName)) {
     query->insert(pair<string, string>("LifecyclePolicyName", *request->lifecyclePolicyName));
