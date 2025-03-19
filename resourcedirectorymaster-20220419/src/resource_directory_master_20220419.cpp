@@ -2381,6 +2381,39 @@ SetMemberDeletionPermissionResponse Alibabacloud_ResourceDirectoryMaster20220419
   return setMemberDeletionPermissionWithOptions(request, runtime);
 }
 
+SetMemberDisplayNameSyncStatusResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::setMemberDisplayNameSyncStatusWithOptions(shared_ptr<SetMemberDisplayNameSyncStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetMemberDisplayNameSyncStatus"))},
+    {"version", boost::any(string("2022-04-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SetMemberDisplayNameSyncStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SetMemberDisplayNameSyncStatusResponse(execute(params, req, runtime));
+  }
+}
+
+SetMemberDisplayNameSyncStatusResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::setMemberDisplayNameSyncStatus(shared_ptr<SetMemberDisplayNameSyncStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setMemberDisplayNameSyncStatusWithOptions(request, runtime);
+}
+
 TagResourcesResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

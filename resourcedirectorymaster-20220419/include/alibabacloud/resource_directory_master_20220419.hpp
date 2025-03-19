@@ -12654,6 +12654,123 @@ public:
 
   virtual ~SetMemberDeletionPermissionResponse() = default;
 };
+class SetMemberDisplayNameSyncStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+
+  SetMemberDisplayNameSyncStatusRequest() {}
+
+  explicit SetMemberDisplayNameSyncStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~SetMemberDisplayNameSyncStatusRequest() = default;
+};
+class SetMemberDisplayNameSyncStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> memberAccountDisplayNameSyncStatus{};
+  shared_ptr<string> requestId{};
+
+  SetMemberDisplayNameSyncStatusResponseBody() {}
+
+  explicit SetMemberDisplayNameSyncStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (memberAccountDisplayNameSyncStatus) {
+      res["MemberAccountDisplayNameSyncStatus"] = boost::any(*memberAccountDisplayNameSyncStatus);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MemberAccountDisplayNameSyncStatus") != m.end() && !m["MemberAccountDisplayNameSyncStatus"].empty()) {
+      memberAccountDisplayNameSyncStatus = make_shared<string>(boost::any_cast<string>(m["MemberAccountDisplayNameSyncStatus"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetMemberDisplayNameSyncStatusResponseBody() = default;
+};
+class SetMemberDisplayNameSyncStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetMemberDisplayNameSyncStatusResponseBody> body{};
+
+  SetMemberDisplayNameSyncStatusResponse() {}
+
+  explicit SetMemberDisplayNameSyncStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetMemberDisplayNameSyncStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetMemberDisplayNameSyncStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetMemberDisplayNameSyncStatusResponse() = default;
+};
 class TagResourcesRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -14019,6 +14136,8 @@ public:
   SendVerificationCodeForEnableRDResponse sendVerificationCodeForEnableRD(shared_ptr<SendVerificationCodeForEnableRDRequest> request);
   SetMemberDeletionPermissionResponse setMemberDeletionPermissionWithOptions(shared_ptr<SetMemberDeletionPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetMemberDeletionPermissionResponse setMemberDeletionPermission(shared_ptr<SetMemberDeletionPermissionRequest> request);
+  SetMemberDisplayNameSyncStatusResponse setMemberDisplayNameSyncStatusWithOptions(shared_ptr<SetMemberDisplayNameSyncStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetMemberDisplayNameSyncStatusResponse setMemberDisplayNameSyncStatus(shared_ptr<SetMemberDisplayNameSyncStatusRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
