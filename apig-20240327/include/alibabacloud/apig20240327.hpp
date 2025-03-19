@@ -1305,10 +1305,12 @@ public:
 class DomainInfo : public Darabonba::Model {
 public:
   shared_ptr<string> certIdentifier{};
+  shared_ptr<string> clientCACert{};
   shared_ptr<string> createFrom{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> domainId{};
   shared_ptr<bool> forceHttps{};
+  shared_ptr<bool> mTLSEnabled{};
   shared_ptr<string> name{};
   shared_ptr<string> protocol{};
   shared_ptr<string> resourceGroupId{};
@@ -1328,6 +1330,9 @@ public:
     if (certIdentifier) {
       res["certIdentifier"] = boost::any(*certIdentifier);
     }
+    if (clientCACert) {
+      res["clientCACert"] = boost::any(*clientCACert);
+    }
     if (createFrom) {
       res["createFrom"] = boost::any(*createFrom);
     }
@@ -1339,6 +1344,9 @@ public:
     }
     if (forceHttps) {
       res["forceHttps"] = boost::any(*forceHttps);
+    }
+    if (mTLSEnabled) {
+      res["mTLSEnabled"] = boost::any(*mTLSEnabled);
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -1362,6 +1370,9 @@ public:
     if (m.find("certIdentifier") != m.end() && !m["certIdentifier"].empty()) {
       certIdentifier = make_shared<string>(boost::any_cast<string>(m["certIdentifier"]));
     }
+    if (m.find("clientCACert") != m.end() && !m["clientCACert"].empty()) {
+      clientCACert = make_shared<string>(boost::any_cast<string>(m["clientCACert"]));
+    }
     if (m.find("createFrom") != m.end() && !m["createFrom"].empty()) {
       createFrom = make_shared<string>(boost::any_cast<string>(m["createFrom"]));
     }
@@ -1373,6 +1384,9 @@ public:
     }
     if (m.find("forceHttps") != m.end() && !m["forceHttps"].empty()) {
       forceHttps = make_shared<bool>(boost::any_cast<bool>(m["forceHttps"]));
+    }
+    if (m.find("mTLSEnabled") != m.end() && !m["mTLSEnabled"].empty()) {
+      mTLSEnabled = make_shared<bool>(boost::any_cast<bool>(m["mTLSEnabled"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
@@ -6331,8 +6345,10 @@ class CreateDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> caCertIdentifier{};
   shared_ptr<string> certIdentifier{};
+  shared_ptr<string> clientCACert{};
   shared_ptr<bool> forceHttps{};
   shared_ptr<string> http2Option{};
+  shared_ptr<bool> mTLSEnabled{};
   shared_ptr<string> name{};
   shared_ptr<string> protocol{};
   shared_ptr<string> resourceGroupId{};
@@ -6356,11 +6372,17 @@ public:
     if (certIdentifier) {
       res["certIdentifier"] = boost::any(*certIdentifier);
     }
+    if (clientCACert) {
+      res["clientCACert"] = boost::any(*clientCACert);
+    }
     if (forceHttps) {
       res["forceHttps"] = boost::any(*forceHttps);
     }
     if (http2Option) {
       res["http2Option"] = boost::any(*http2Option);
+    }
+    if (mTLSEnabled) {
+      res["mTLSEnabled"] = boost::any(*mTLSEnabled);
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -6390,11 +6412,17 @@ public:
     if (m.find("certIdentifier") != m.end() && !m["certIdentifier"].empty()) {
       certIdentifier = make_shared<string>(boost::any_cast<string>(m["certIdentifier"]));
     }
+    if (m.find("clientCACert") != m.end() && !m["clientCACert"].empty()) {
+      clientCACert = make_shared<string>(boost::any_cast<string>(m["clientCACert"]));
+    }
     if (m.find("forceHttps") != m.end() && !m["forceHttps"].empty()) {
       forceHttps = make_shared<bool>(boost::any_cast<bool>(m["forceHttps"]));
     }
     if (m.find("http2Option") != m.end() && !m["http2Option"].empty()) {
       http2Option = make_shared<string>(boost::any_cast<string>(m["http2Option"]));
+    }
+    if (m.find("mTLSEnabled") != m.end() && !m["mTLSEnabled"].empty()) {
+      mTLSEnabled = make_shared<bool>(boost::any_cast<bool>(m["mTLSEnabled"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
@@ -8018,6 +8046,7 @@ class CreateServiceRequestServiceConfigs : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<AiServiceConfig> aiServiceConfig{};
+  shared_ptr<vector<string>> dnsServers{};
   shared_ptr<string> groupName{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
@@ -8038,6 +8067,9 @@ public:
     }
     if (aiServiceConfig) {
       res["aiServiceConfig"] = aiServiceConfig ? boost::any(aiServiceConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dnsServers) {
+      res["dnsServers"] = boost::any(*dnsServers);
     }
     if (groupName) {
       res["groupName"] = boost::any(*groupName);
@@ -8071,6 +8103,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["aiServiceConfig"]));
         aiServiceConfig = make_shared<AiServiceConfig>(model1);
       }
+    }
+    if (m.find("dnsServers") != m.end() && !m["dnsServers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["dnsServers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["dnsServers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dnsServers = make_shared<vector<string>>(toVec1);
     }
     if (m.find("groupName") != m.end() && !m["groupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["groupName"]));
@@ -10051,6 +10093,7 @@ public:
   shared_ptr<string> caCertIdentifier{};
   shared_ptr<string> certIdentifier{};
   shared_ptr<string> certName{};
+  shared_ptr<string> clientCACert{};
   shared_ptr<string> createFrom{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<bool> default_{};
@@ -10058,6 +10101,7 @@ public:
   shared_ptr<bool> forceHttps{};
   shared_ptr<string> http2Option{};
   shared_ptr<string> issuer{};
+  shared_ptr<bool> mTLSEnabled{};
   shared_ptr<string> name{};
   shared_ptr<long> notAfterTimstamp{};
   shared_ptr<long> notBeforeTimestamp{};
@@ -10092,6 +10136,9 @@ public:
     if (certName) {
       res["certName"] = boost::any(*certName);
     }
+    if (clientCACert) {
+      res["clientCACert"] = boost::any(*clientCACert);
+    }
     if (createFrom) {
       res["createFrom"] = boost::any(*createFrom);
     }
@@ -10112,6 +10159,9 @@ public:
     }
     if (issuer) {
       res["issuer"] = boost::any(*issuer);
+    }
+    if (mTLSEnabled) {
+      res["mTLSEnabled"] = boost::any(*mTLSEnabled);
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -10162,6 +10212,9 @@ public:
     if (m.find("certName") != m.end() && !m["certName"].empty()) {
       certName = make_shared<string>(boost::any_cast<string>(m["certName"]));
     }
+    if (m.find("clientCACert") != m.end() && !m["clientCACert"].empty()) {
+      clientCACert = make_shared<string>(boost::any_cast<string>(m["clientCACert"]));
+    }
     if (m.find("createFrom") != m.end() && !m["createFrom"].empty()) {
       createFrom = make_shared<string>(boost::any_cast<string>(m["createFrom"]));
     }
@@ -10182,6 +10235,9 @@ public:
     }
     if (m.find("issuer") != m.end() && !m["issuer"].empty()) {
       issuer = make_shared<string>(boost::any_cast<string>(m["issuer"]));
+    }
+    if (m.find("mTLSEnabled") != m.end() && !m["mTLSEnabled"].empty()) {
+      mTLSEnabled = make_shared<bool>(boost::any_cast<bool>(m["mTLSEnabled"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
@@ -16299,12 +16355,145 @@ public:
 
   virtual ~RestartGatewayResponse() = default;
 };
+class UndeployHttpApiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> environmentId{};
+  shared_ptr<string> routeId{};
+
+  UndeployHttpApiRequest() {}
+
+  explicit UndeployHttpApiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (routeId) {
+      res["routeId"] = boost::any(*routeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("routeId") != m.end() && !m["routeId"].empty()) {
+      routeId = make_shared<string>(boost::any_cast<string>(m["routeId"]));
+    }
+  }
+
+
+  virtual ~UndeployHttpApiRequest() = default;
+};
+class UndeployHttpApiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  UndeployHttpApiResponseBody() {}
+
+  explicit UndeployHttpApiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~UndeployHttpApiResponseBody() = default;
+};
+class UndeployHttpApiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UndeployHttpApiResponseBody> body{};
+
+  UndeployHttpApiResponse() {}
+
+  explicit UndeployHttpApiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UndeployHttpApiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UndeployHttpApiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UndeployHttpApiResponse() = default;
+};
 class UpdateDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> caCertIdentifier{};
   shared_ptr<string> certIdentifier{};
+  shared_ptr<string> clientCACert{};
   shared_ptr<bool> forceHttps{};
   shared_ptr<string> http2Option{};
+  shared_ptr<bool> mTLSEnabled{};
   shared_ptr<string> protocol{};
   shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig{};
   shared_ptr<string> tlsMax{};
@@ -16326,11 +16515,17 @@ public:
     if (certIdentifier) {
       res["certIdentifier"] = boost::any(*certIdentifier);
     }
+    if (clientCACert) {
+      res["clientCACert"] = boost::any(*clientCACert);
+    }
     if (forceHttps) {
       res["forceHttps"] = boost::any(*forceHttps);
     }
     if (http2Option) {
       res["http2Option"] = boost::any(*http2Option);
+    }
+    if (mTLSEnabled) {
+      res["mTLSEnabled"] = boost::any(*mTLSEnabled);
     }
     if (protocol) {
       res["protocol"] = boost::any(*protocol);
@@ -16354,11 +16549,17 @@ public:
     if (m.find("certIdentifier") != m.end() && !m["certIdentifier"].empty()) {
       certIdentifier = make_shared<string>(boost::any_cast<string>(m["certIdentifier"]));
     }
+    if (m.find("clientCACert") != m.end() && !m["clientCACert"].empty()) {
+      clientCACert = make_shared<string>(boost::any_cast<string>(m["clientCACert"]));
+    }
     if (m.find("forceHttps") != m.end() && !m["forceHttps"].empty()) {
       forceHttps = make_shared<bool>(boost::any_cast<bool>(m["forceHttps"]));
     }
     if (m.find("http2Option") != m.end() && !m["http2Option"].empty()) {
       http2Option = make_shared<string>(boost::any_cast<string>(m["http2Option"]));
+    }
+    if (m.find("mTLSEnabled") != m.end() && !m["mTLSEnabled"].empty()) {
+      mTLSEnabled = make_shared<bool>(boost::any_cast<bool>(m["mTLSEnabled"]));
     }
     if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
@@ -17982,6 +18183,11 @@ public:
   ListZonesResponse listZones();
   RestartGatewayResponse restartGatewayWithOptions(shared_ptr<string> gatewayId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RestartGatewayResponse restartGateway(shared_ptr<string> gatewayId);
+  UndeployHttpApiResponse undeployHttpApiWithOptions(shared_ptr<string> httpApiId,
+                                                     shared_ptr<UndeployHttpApiRequest> request,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UndeployHttpApiResponse undeployHttpApi(shared_ptr<string> httpApiId, shared_ptr<UndeployHttpApiRequest> request);
   UpdateDomainResponse updateDomainWithOptions(shared_ptr<string> domainId,
                                                shared_ptr<UpdateDomainRequest> request,
                                                shared_ptr<map<string, string>> headers,

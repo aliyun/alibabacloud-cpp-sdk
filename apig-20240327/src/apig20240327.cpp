@@ -134,11 +134,17 @@ CreateDomainResponse Alibabacloud_APIG20240327::Client::createDomainWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->certIdentifier)) {
     body->insert(pair<string, string>("certIdentifier", *request->certIdentifier));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientCACert)) {
+    body->insert(pair<string, string>("clientCACert", *request->clientCACert));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->forceHttps)) {
     body->insert(pair<string, bool>("forceHttps", *request->forceHttps));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->http2Option)) {
     body->insert(pair<string, string>("http2Option", *request->http2Option));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->mTLSEnabled)) {
+    body->insert(pair<string, bool>("mTLSEnabled", *request->mTLSEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
@@ -1920,6 +1926,47 @@ RestartGatewayResponse Alibabacloud_APIG20240327::Client::restartGateway(shared_
   return restartGatewayWithOptions(gatewayId, headers, runtime);
 }
 
+UndeployHttpApiResponse Alibabacloud_APIG20240327::Client::undeployHttpApiWithOptions(shared_ptr<string> httpApiId,
+                                                                                      shared_ptr<UndeployHttpApiRequest> request,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
+    body->insert(pair<string, string>("environmentId", *request->environmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeId)) {
+    body->insert(pair<string, string>("routeId", *request->routeId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UndeployHttpApi"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/http-apis/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(httpApiId)) + string("/undeploy"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UndeployHttpApiResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UndeployHttpApiResponse(execute(params, req, runtime));
+  }
+}
+
+UndeployHttpApiResponse Alibabacloud_APIG20240327::Client::undeployHttpApi(shared_ptr<string> httpApiId, shared_ptr<UndeployHttpApiRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return undeployHttpApiWithOptions(httpApiId, request, headers, runtime);
+}
+
 UpdateDomainResponse Alibabacloud_APIG20240327::Client::updateDomainWithOptions(shared_ptr<string> domainId,
                                                                                 shared_ptr<UpdateDomainRequest> request,
                                                                                 shared_ptr<map<string, string>> headers,
@@ -1932,11 +1979,17 @@ UpdateDomainResponse Alibabacloud_APIG20240327::Client::updateDomainWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->certIdentifier)) {
     body->insert(pair<string, string>("certIdentifier", *request->certIdentifier));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientCACert)) {
+    body->insert(pair<string, string>("clientCACert", *request->clientCACert));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->forceHttps)) {
     body->insert(pair<string, bool>("forceHttps", *request->forceHttps));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->http2Option)) {
     body->insert(pair<string, string>("http2Option", *request->http2Option));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->mTLSEnabled)) {
+    body->insert(pair<string, bool>("mTLSEnabled", *request->mTLSEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
     body->insert(pair<string, string>("protocol", *request->protocol));
