@@ -37,6 +37,35 @@ string Alibabacloud_Milvus20231012::Client::getEndpoint(shared_ptr<string> produ
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CreateDefaultRoleResponse Alibabacloud_Milvus20231012::Client::createDefaultRoleWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDefaultRole"))},
+    {"version", boost::any(string("2023-10-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/webapi/user/create_default_role"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateDefaultRoleResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateDefaultRoleResponse(execute(params, req, runtime));
+  }
+}
+
+CreateDefaultRoleResponse Alibabacloud_Milvus20231012::Client::createDefaultRole() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createDefaultRoleWithOptions(headers, runtime);
+}
+
 DescribeAccessControlListResponse Alibabacloud_Milvus20231012::Client::describeAccessControlListWithOptions(shared_ptr<DescribeAccessControlListRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -58,7 +87,12 @@ DescribeAccessControlListResponse Alibabacloud_Milvus20231012::Client::describeA
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeAccessControlListResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeAccessControlListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeAccessControlListResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeAccessControlListResponse Alibabacloud_Milvus20231012::Client::describeAccessControlList(shared_ptr<DescribeAccessControlListRequest> request) {
@@ -88,7 +122,12 @@ DescribeInstanceConfigsResponse Alibabacloud_Milvus20231012::Client::describeIns
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeInstanceConfigsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeInstanceConfigsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeInstanceConfigsResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeInstanceConfigsResponse Alibabacloud_Milvus20231012::Client::describeInstanceConfigs(shared_ptr<DescribeInstanceConfigsRequest> request) {
@@ -118,7 +157,12 @@ GetInstanceDetailResponse Alibabacloud_Milvus20231012::Client::getInstanceDetail
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetInstanceDetailResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetInstanceDetailResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetInstanceDetailResponse(execute(params, req, runtime));
+  }
 }
 
 GetInstanceDetailResponse Alibabacloud_Milvus20231012::Client::getInstanceDetail(shared_ptr<GetInstanceDetailRequest> request) {
@@ -127,8 +171,13 @@ GetInstanceDetailResponse Alibabacloud_Milvus20231012::Client::getInstanceDetail
   return getInstanceDetailWithOptions(request, headers, runtime);
 }
 
-ListInstancesResponse Alibabacloud_Milvus20231012::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListInstancesResponse Alibabacloud_Milvus20231012::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListInstancesShrinkRequest> request = make_shared<ListInstancesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListInstancesRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
@@ -148,6 +197,9 @@ ListInstancesResponse Alibabacloud_Milvus20231012::Client::listInstancesWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -163,7 +215,12 @@ ListInstancesResponse Alibabacloud_Milvus20231012::Client::listInstancesWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListInstancesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListInstancesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListInstancesResponse(execute(params, req, runtime));
+  }
 }
 
 ListInstancesResponse Alibabacloud_Milvus20231012::Client::listInstances(shared_ptr<ListInstancesRequest> request) {
@@ -199,7 +256,12 @@ ModifyInstanceConfigResponse Alibabacloud_Milvus20231012::Client::modifyInstance
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyInstanceConfigResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyInstanceConfigResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyInstanceConfigResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyInstanceConfigResponse Alibabacloud_Milvus20231012::Client::modifyInstanceConfig(shared_ptr<ModifyInstanceConfigRequest> request) {
@@ -235,7 +297,12 @@ UpdateAccessControlListResponse Alibabacloud_Milvus20231012::Client::updateAcces
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateAccessControlListResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateAccessControlListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateAccessControlListResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateAccessControlListResponse Alibabacloud_Milvus20231012::Client::updateAccessControlList(shared_ptr<UpdateAccessControlListRequest> request) {
@@ -268,7 +335,12 @@ UpdateInstanceNameResponse Alibabacloud_Milvus20231012::Client::updateInstanceNa
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateInstanceNameResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateInstanceNameResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateInstanceNameResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateInstanceNameResponse Alibabacloud_Milvus20231012::Client::updateInstanceName(shared_ptr<UpdateInstanceNameRequest> request) {
@@ -307,7 +379,12 @@ UpdatePublicNetworkStatusResponse Alibabacloud_Milvus20231012::Client::updatePub
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdatePublicNetworkStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdatePublicNetworkStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdatePublicNetworkStatusResponse(execute(params, req, runtime));
+  }
 }
 
 UpdatePublicNetworkStatusResponse Alibabacloud_Milvus20231012::Client::updatePublicNetworkStatus(shared_ptr<UpdatePublicNetworkStatusRequest> request) {
