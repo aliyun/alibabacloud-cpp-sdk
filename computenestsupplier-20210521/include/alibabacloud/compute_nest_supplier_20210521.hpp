@@ -9616,6 +9616,7 @@ public:
 };
 class GetSupplierInformationResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> acrNamespace{};
   shared_ptr<GetSupplierInformationResponseBodyDeliverySettings> deliverySettings{};
   shared_ptr<bool> enableReseller{};
   shared_ptr<string> operationIp{};
@@ -9636,6 +9637,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acrNamespace) {
+      res["AcrNamespace"] = boost::any(*acrNamespace);
+    }
     if (deliverySettings) {
       res["DeliverySettings"] = deliverySettings ? boost::any(deliverySettings->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -9667,6 +9671,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcrNamespace") != m.end() && !m["AcrNamespace"].empty()) {
+      acrNamespace = make_shared<string>(boost::any_cast<string>(m["AcrNamespace"]));
+    }
     if (m.find("DeliverySettings") != m.end() && !m["DeliverySettings"].empty()) {
       if (typeid(map<string, boost::any>) == m["DeliverySettings"].type()) {
         GetSupplierInformationResponseBodyDeliverySettings model1;
@@ -10202,6 +10209,7 @@ class ListAcrImageRepositoriesResponseBodyRepositories : public Darabonba::Model
 public:
   shared_ptr<string> createTime{};
   shared_ptr<string> modifiedTime{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> repoId{};
   shared_ptr<string> repoName{};
   shared_ptr<string> repoType{};
@@ -10222,6 +10230,9 @@ public:
     if (modifiedTime) {
       res["ModifiedTime"] = boost::any(*modifiedTime);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (repoId) {
       res["RepoId"] = boost::any(*repoId);
     }
@@ -10240,6 +10251,9 @@ public:
     }
     if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
       modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("RepoId") != m.end() && !m["RepoId"].empty()) {
       repoId = make_shared<string>(boost::any_cast<string>(m["RepoId"]));
