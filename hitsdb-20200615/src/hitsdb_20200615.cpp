@@ -483,6 +483,9 @@ CreateLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::createLindorm
   if (!Darabonba_Util::Client::isUnset<string>(request->streamSpec)) {
     query->insert(pair<string, string>("StreamSpec", *request->streamSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateLindormInstanceRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateLindormInstanceRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->tsdbNum)) {
     query->insert(pair<string, long>("TsdbNum", *request->tsdbNum));
   }
