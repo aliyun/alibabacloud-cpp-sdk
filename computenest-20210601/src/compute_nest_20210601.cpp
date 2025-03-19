@@ -867,6 +867,45 @@ GetUserInformationResponse Alibabacloud_ComputeNest20210601::Client::getUserInfo
   return getUserInformationWithOptions(request, runtime);
 }
 
+ListPoliciesResponse Alibabacloud_ComputeNest20210601::Client::listPoliciesWithOptions(shared_ptr<ListPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListPolicies"))},
+    {"version", boost::any(string("2021-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListPoliciesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListPoliciesResponse(execute(params, req, runtime));
+  }
+}
+
+ListPoliciesResponse Alibabacloud_ComputeNest20210601::Client::listPolicies(shared_ptr<ListPoliciesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listPoliciesWithOptions(request, runtime);
+}
+
 ListServiceCategoriesResponse Alibabacloud_ComputeNest20210601::Client::listServiceCategoriesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -950,12 +989,6 @@ ListServiceInstanceLogsResponse Alibabacloud_ComputeNest20210601::Client::listSe
 ListServiceInstanceResourcesResponse Alibabacloud_ComputeNest20210601::Client::listServiceInstanceResourcesWithOptions(shared_ptr<ListServiceInstanceResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->expireTimeEnd)) {
-    query->insert(pair<string, string>("ExpireTimeEnd", *request->expireTimeEnd));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->expireTimeStart)) {
-    query->insert(pair<string, string>("ExpireTimeStart", *request->expireTimeStart));
-  }
   if (!Darabonba_Util::Client::isUnset<vector<ListServiceInstanceResourcesRequestFilters>>(request->filters)) {
     query->insert(pair<string, vector<ListServiceInstanceResourcesRequestFilters>>("Filters", *request->filters));
   }
@@ -965,14 +998,8 @@ ListServiceInstanceResourcesResponse Alibabacloud_ComputeNest20210601::Client::l
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->payType)) {
-    query->insert(pair<string, string>("PayType", *request->payType));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceARN)) {
-    query->insert(pair<string, vector<string>>("ResourceARN", *request->resourceARN));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceInstanceId)) {
     query->insert(pair<string, string>("ServiceInstanceId", *request->serviceInstanceId));
