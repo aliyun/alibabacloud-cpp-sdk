@@ -4486,6 +4486,9 @@ SetIdentityProviderUdPullConfigurationResponse Alibabacloud_Eiam20211201::Client
   if (!Darabonba_Util::Client::isUnset<SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig>(request->ldapUdPullConfig)) {
     query->insert(pair<string, SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig>("LdapUdPullConfig", *request->ldapUdPullConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig>(request->periodicSyncConfig)) {
+    query->insert(pair<string, SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig>("PeriodicSyncConfig", *request->periodicSyncConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodicSyncStatus)) {
     query->insert(pair<string, string>("PeriodicSyncStatus", *request->periodicSyncStatus));
   }

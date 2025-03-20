@@ -2572,6 +2572,56 @@ public:
 
   virtual ~CreateIdentityProviderRequestOidcConfig() = default;
 };
+class CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> periodicSyncCron{};
+  shared_ptr<vector<long>> periodicSyncTimes{};
+  shared_ptr<string> periodicSyncType{};
+
+  CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig() {}
+
+  explicit CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (periodicSyncCron) {
+      res["PeriodicSyncCron"] = boost::any(*periodicSyncCron);
+    }
+    if (periodicSyncTimes) {
+      res["PeriodicSyncTimes"] = boost::any(*periodicSyncTimes);
+    }
+    if (periodicSyncType) {
+      res["PeriodicSyncType"] = boost::any(*periodicSyncType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PeriodicSyncCron") != m.end() && !m["PeriodicSyncCron"].empty()) {
+      periodicSyncCron = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncCron"]));
+    }
+    if (m.find("PeriodicSyncTimes") != m.end() && !m["PeriodicSyncTimes"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["PeriodicSyncTimes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PeriodicSyncTimes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      periodicSyncTimes = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("PeriodicSyncType") != m.end() && !m["PeriodicSyncType"].empty()) {
+      periodicSyncType = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncType"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig() = default;
+};
 class CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> sourceScopes{};
@@ -2619,6 +2669,7 @@ class CreateIdentityProviderRequestUdPullConfig : public Darabonba::Model {
 public:
   shared_ptr<string> groupSyncStatus{};
   shared_ptr<string> incrementalCallbackStatus{};
+  shared_ptr<CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig> periodicSyncConfig{};
   shared_ptr<string> periodicSyncStatus{};
   shared_ptr<CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig> udSyncScopeConfig{};
 
@@ -2638,6 +2689,9 @@ public:
     if (incrementalCallbackStatus) {
       res["IncrementalCallbackStatus"] = boost::any(*incrementalCallbackStatus);
     }
+    if (periodicSyncConfig) {
+      res["PeriodicSyncConfig"] = periodicSyncConfig ? boost::any(periodicSyncConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (periodicSyncStatus) {
       res["PeriodicSyncStatus"] = boost::any(*periodicSyncStatus);
     }
@@ -2653,6 +2707,13 @@ public:
     }
     if (m.find("IncrementalCallbackStatus") != m.end() && !m["IncrementalCallbackStatus"].empty()) {
       incrementalCallbackStatus = make_shared<string>(boost::any_cast<string>(m["IncrementalCallbackStatus"]));
+    }
+    if (m.find("PeriodicSyncConfig") != m.end() && !m["PeriodicSyncConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PeriodicSyncConfig"].type()) {
+        CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PeriodicSyncConfig"]));
+        periodicSyncConfig = make_shared<CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig>(model1);
+      }
     }
     if (m.find("PeriodicSyncStatus") != m.end() && !m["PeriodicSyncStatus"].empty()) {
       periodicSyncStatus = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncStatus"]));
@@ -12049,6 +12110,49 @@ public:
 
   virtual ~GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig() = default;
 };
+class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> periodicSyncCron{};
+  shared_ptr<long> periodicSyncTimes{};
+  shared_ptr<string> periodicSyncType{};
+
+  GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig() {}
+
+  explicit GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (periodicSyncCron) {
+      res["PeriodicSyncCron"] = boost::any(*periodicSyncCron);
+    }
+    if (periodicSyncTimes) {
+      res["PeriodicSyncTimes"] = boost::any(*periodicSyncTimes);
+    }
+    if (periodicSyncType) {
+      res["PeriodicSyncType"] = boost::any(*periodicSyncType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PeriodicSyncCron") != m.end() && !m["PeriodicSyncCron"].empty()) {
+      periodicSyncCron = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncCron"]));
+    }
+    if (m.find("PeriodicSyncTimes") != m.end() && !m["PeriodicSyncTimes"].empty()) {
+      periodicSyncTimes = make_shared<long>(boost::any_cast<long>(m["PeriodicSyncTimes"]));
+    }
+    if (m.find("PeriodicSyncType") != m.end() && !m["PeriodicSyncType"].empty()) {
+      periodicSyncType = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncType"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig() = default;
+};
 class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule : public Darabonba::Model {
 public:
   shared_ptr<long> groupDeletedThreshold{};
@@ -12142,6 +12246,7 @@ public:
   shared_ptr<string> incrementalCallbackStatus{};
   shared_ptr<string> instanceId{};
   shared_ptr<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig> ldapUdPullConfig{};
+  shared_ptr<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig> periodicSyncConfig{};
   shared_ptr<string> periodicSyncStatus{};
   shared_ptr<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule> pullProtectedRule{};
   shared_ptr<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig> udSyncScopeConfig{};
@@ -12170,6 +12275,9 @@ public:
     }
     if (ldapUdPullConfig) {
       res["LdapUdPullConfig"] = ldapUdPullConfig ? boost::any(ldapUdPullConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (periodicSyncConfig) {
+      res["PeriodicSyncConfig"] = periodicSyncConfig ? boost::any(periodicSyncConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (periodicSyncStatus) {
       res["PeriodicSyncStatus"] = boost::any(*periodicSyncStatus);
@@ -12201,6 +12309,13 @@ public:
         GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapUdPullConfig"]));
         ldapUdPullConfig = make_shared<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig>(model1);
+      }
+    }
+    if (m.find("PeriodicSyncConfig") != m.end() && !m["PeriodicSyncConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PeriodicSyncConfig"].type()) {
+        GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PeriodicSyncConfig"]));
+        periodicSyncConfig = make_shared<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig>(model1);
       }
     }
     if (m.find("PeriodicSyncStatus") != m.end() && !m["PeriodicSyncStatus"].empty()) {
@@ -28265,6 +28380,56 @@ public:
 
   virtual ~SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig() = default;
 };
+class SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> periodicSyncCron{};
+  shared_ptr<vector<long>> periodicSyncTimes{};
+  shared_ptr<string> periodicSyncType{};
+
+  SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig() {}
+
+  explicit SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (periodicSyncCron) {
+      res["PeriodicSyncCron"] = boost::any(*periodicSyncCron);
+    }
+    if (periodicSyncTimes) {
+      res["PeriodicSyncTimes"] = boost::any(*periodicSyncTimes);
+    }
+    if (periodicSyncType) {
+      res["PeriodicSyncType"] = boost::any(*periodicSyncType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PeriodicSyncCron") != m.end() && !m["PeriodicSyncCron"].empty()) {
+      periodicSyncCron = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncCron"]));
+    }
+    if (m.find("PeriodicSyncTimes") != m.end() && !m["PeriodicSyncTimes"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["PeriodicSyncTimes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PeriodicSyncTimes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      periodicSyncTimes = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("PeriodicSyncType") != m.end() && !m["PeriodicSyncType"].empty()) {
+      periodicSyncType = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncType"]));
+    }
+  }
+
+
+  virtual ~SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig() = default;
+};
 class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule : public Darabonba::Model {
 public:
   shared_ptr<long> groupDeletedThreshold{};
@@ -28358,6 +28523,7 @@ public:
   shared_ptr<string> incrementalCallbackStatus{};
   shared_ptr<string> instanceId{};
   shared_ptr<SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig> ldapUdPullConfig{};
+  shared_ptr<SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig> periodicSyncConfig{};
   shared_ptr<string> periodicSyncStatus{};
   shared_ptr<SetIdentityProviderUdPullConfigurationRequestPullProtectedRule> pullProtectedRule{};
   shared_ptr<SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig> udSyncScopeConfig{};
@@ -28386,6 +28552,9 @@ public:
     }
     if (ldapUdPullConfig) {
       res["LdapUdPullConfig"] = ldapUdPullConfig ? boost::any(ldapUdPullConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (periodicSyncConfig) {
+      res["PeriodicSyncConfig"] = periodicSyncConfig ? boost::any(periodicSyncConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (periodicSyncStatus) {
       res["PeriodicSyncStatus"] = boost::any(*periodicSyncStatus);
@@ -28417,6 +28586,13 @@ public:
         SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapUdPullConfig"]));
         ldapUdPullConfig = make_shared<SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig>(model1);
+      }
+    }
+    if (m.find("PeriodicSyncConfig") != m.end() && !m["PeriodicSyncConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PeriodicSyncConfig"].type()) {
+        SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PeriodicSyncConfig"]));
+        periodicSyncConfig = make_shared<SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig>(model1);
       }
     }
     if (m.find("PeriodicSyncStatus") != m.end() && !m["PeriodicSyncStatus"].empty()) {
