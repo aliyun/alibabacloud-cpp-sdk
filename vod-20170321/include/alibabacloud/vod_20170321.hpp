@@ -166,6 +166,7 @@ class LicenseInstanceAppDTOLicenseConfigs : public Darabonba::Model {
 public:
   shared_ptr<string> businessType{};
   shared_ptr<string> featureIds{};
+  shared_ptr<bool> isTrial{};
   shared_ptr<long> sdkId{};
   shared_ptr<string> sdkName{};
   shared_ptr<string> subscription{};
@@ -187,6 +188,9 @@ public:
     }
     if (featureIds) {
       res["FeatureIds"] = boost::any(*featureIds);
+    }
+    if (isTrial) {
+      res["IsTrial"] = boost::any(*isTrial);
     }
     if (sdkId) {
       res["SdkId"] = boost::any(*sdkId);
@@ -212,6 +216,9 @@ public:
     }
     if (m.find("FeatureIds") != m.end() && !m["FeatureIds"].empty()) {
       featureIds = make_shared<string>(boost::any_cast<string>(m["FeatureIds"]));
+    }
+    if (m.find("IsTrial") != m.end() && !m["IsTrial"].empty()) {
+      isTrial = make_shared<bool>(boost::any_cast<bool>(m["IsTrial"]));
     }
     if (m.find("SdkId") != m.end() && !m["SdkId"].empty()) {
       sdkId = make_shared<long>(boost::any_cast<long>(m["SdkId"]));
@@ -15200,6 +15207,236 @@ public:
 
   virtual ~DescribeVodDomainUsageDataResponse() = default;
 };
+class DescribeVodEditingUsageDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> region{};
+  shared_ptr<string> specification{};
+  shared_ptr<string> startTime{};
+
+  DescribeVodEditingUsageDataRequest() {}
+
+  explicit DescribeVodEditingUsageDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (specification) {
+      res["Specification"] = boost::any(*specification);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Specification") != m.end() && !m["Specification"].empty()) {
+      specification = make_shared<string>(boost::any_cast<string>(m["Specification"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeVodEditingUsageDataRequest() = default;
+};
+class DescribeVodEditingUsageDataResponseBodyEditingData : public Darabonba::Model {
+public:
+  shared_ptr<long> duration{};
+  shared_ptr<string> region{};
+  shared_ptr<string> specification{};
+  shared_ptr<string> timeStamp{};
+
+  DescribeVodEditingUsageDataResponseBodyEditingData() {}
+
+  explicit DescribeVodEditingUsageDataResponseBodyEditingData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (specification) {
+      res["Specification"] = boost::any(*specification);
+    }
+    if (timeStamp) {
+      res["TimeStamp"] = boost::any(*timeStamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Specification") != m.end() && !m["Specification"].empty()) {
+      specification = make_shared<string>(boost::any_cast<string>(m["Specification"]));
+    }
+    if (m.find("TimeStamp") != m.end() && !m["TimeStamp"].empty()) {
+      timeStamp = make_shared<string>(boost::any_cast<string>(m["TimeStamp"]));
+    }
+  }
+
+
+  virtual ~DescribeVodEditingUsageDataResponseBodyEditingData() = default;
+};
+class DescribeVodEditingUsageDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVodEditingUsageDataResponseBodyEditingData>> editingData{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> startTime{};
+
+  DescribeVodEditingUsageDataResponseBody() {}
+
+  explicit DescribeVodEditingUsageDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (editingData) {
+      vector<boost::any> temp1;
+      for(auto item1:*editingData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EditingData"] = boost::any(temp1);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EditingData") != m.end() && !m["EditingData"].empty()) {
+      if (typeid(vector<boost::any>) == m["EditingData"].type()) {
+        vector<DescribeVodEditingUsageDataResponseBodyEditingData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EditingData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVodEditingUsageDataResponseBodyEditingData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        editingData = make_shared<vector<DescribeVodEditingUsageDataResponseBodyEditingData>>(expect1);
+      }
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeVodEditingUsageDataResponseBody() = default;
+};
+class DescribeVodEditingUsageDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeVodEditingUsageDataResponseBody> body{};
+
+  DescribeVodEditingUsageDataResponse() {}
+
+  explicit DescribeVodEditingUsageDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVodEditingUsageDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVodEditingUsageDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodEditingUsageDataResponse() = default;
+};
 class DescribeVodMediaPlayDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mediaId{};
@@ -16719,6 +16956,7 @@ public:
 };
 class DescribeVodTieringStorageDataRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> endTime{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> region{};
@@ -16735,6 +16973,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -16754,6 +16995,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -16935,6 +17179,7 @@ public:
 };
 class DescribeVodTieringStorageRetrievalDataRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> endTime{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> region{};
@@ -16951,6 +17196,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -16970,6 +17218,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -31512,6 +31763,7 @@ public:
   shared_ptr<string> storageLocation{};
   shared_ptr<string> tags{};
   shared_ptr<string> title{};
+  shared_ptr<string> userData{};
   shared_ptr<string> videoId{};
 
   GetVideoListResponseBodyVideoListVideo() {}
@@ -31575,6 +31827,9 @@ public:
     if (title) {
       res["Title"] = boost::any(*title);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     if (videoId) {
       res["VideoId"] = boost::any(*videoId);
     }
@@ -31636,6 +31891,9 @@ public:
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
     if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
       videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));
@@ -44843,6 +45101,8 @@ public:
   DescribeVodDomainTrafficDataResponse describeVodDomainTrafficData(shared_ptr<DescribeVodDomainTrafficDataRequest> request);
   DescribeVodDomainUsageDataResponse describeVodDomainUsageDataWithOptions(shared_ptr<DescribeVodDomainUsageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodDomainUsageDataResponse describeVodDomainUsageData(shared_ptr<DescribeVodDomainUsageDataRequest> request);
+  DescribeVodEditingUsageDataResponse describeVodEditingUsageDataWithOptions(shared_ptr<DescribeVodEditingUsageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVodEditingUsageDataResponse describeVodEditingUsageData(shared_ptr<DescribeVodEditingUsageDataRequest> request);
   DescribeVodMediaPlayDataResponse describeVodMediaPlayDataWithOptions(shared_ptr<DescribeVodMediaPlayDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodMediaPlayDataResponse describeVodMediaPlayData(shared_ptr<DescribeVodMediaPlayDataRequest> request);
   DescribeVodRangeDataByLocateAndIspServiceResponse describeVodRangeDataByLocateAndIspServiceWithOptions(shared_ptr<DescribeVodRangeDataByLocateAndIspServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
