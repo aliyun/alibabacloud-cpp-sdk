@@ -3740,11 +3740,14 @@ class ExportCipStatsRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> byMonth{};
   shared_ptr<string> endDate{};
+  shared_ptr<string> exportType{};
   shared_ptr<string> label{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> serviceCode{};
   shared_ptr<string> startDate{};
   shared_ptr<string> subUid{};
+  shared_ptr<string> type{};
 
   ExportCipStatsRequest() {}
 
@@ -3762,6 +3765,9 @@ public:
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
     }
+    if (exportType) {
+      res["ExportType"] = boost::any(*exportType);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -3771,11 +3777,17 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (serviceCode) {
+      res["ServiceCode"] = boost::any(*serviceCode);
+    }
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
     }
     if (subUid) {
       res["SubUid"] = boost::any(*subUid);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     return res;
   }
@@ -3787,6 +3799,9 @@ public:
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
     }
+    if (m.find("ExportType") != m.end() && !m["ExportType"].empty()) {
+      exportType = make_shared<string>(boost::any_cast<string>(m["ExportType"]));
+    }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
     }
@@ -3796,11 +3811,17 @@ public:
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
+    if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
+      serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
+    }
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
     if (m.find("SubUid") != m.end() && !m["SubUid"].empty()) {
       subUid = make_shared<string>(boost::any_cast<string>(m["SubUid"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -5846,8 +5867,10 @@ public:
   shared_ptr<string> label{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> serviceCode{};
   shared_ptr<string> startDate{};
   shared_ptr<string> subUid{};
+  shared_ptr<string> type{};
 
   GetCipStatsRequest() {}
 
@@ -5874,11 +5897,17 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (serviceCode) {
+      res["ServiceCode"] = boost::any(*serviceCode);
+    }
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
     }
     if (subUid) {
       res["SubUid"] = boost::any(*subUid);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     return res;
   }
@@ -5899,19 +5928,69 @@ public:
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
+    if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
+      serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
+    }
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
     if (m.find("SubUid") != m.end() && !m["SubUid"].empty()) {
       subUid = make_shared<string>(boost::any_cast<string>(m["SubUid"]));
     }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
   }
 
 
   virtual ~GetCipStatsRequest() = default;
 };
+class GetCipStatsResponseBodyDataLabelStatChartImageTreeChar : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  GetCipStatsResponseBodyDataLabelStatChartImageTreeChar() {}
+
+  explicit GetCipStatsResponseBodyDataLabelStatChartImageTreeChar(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetCipStatsResponseBodyDataLabelStatChartImageTreeChar() = default;
+};
 class GetCipStatsResponseBodyDataLabelStatChartTreeChart : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> value{};
 
@@ -5925,6 +6004,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -5935,6 +6017,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -5948,6 +6033,7 @@ public:
 };
 class GetCipStatsResponseBodyDataLabelStatChartVoiceTreeChart : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> value{};
 
@@ -5961,6 +6047,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -5971,6 +6060,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -6027,6 +6119,7 @@ public:
 };
 class GetCipStatsResponseBodyDataLabelStatChart : public Darabonba::Model {
 public:
+  shared_ptr<vector<GetCipStatsResponseBodyDataLabelStatChartImageTreeChar>> imageTreeChar{};
   shared_ptr<string> serviceCode{};
   shared_ptr<long> totalCount{};
   shared_ptr<vector<GetCipStatsResponseBodyDataLabelStatChartTreeChart>> treeChart{};
@@ -6044,6 +6137,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (imageTreeChar) {
+      vector<boost::any> temp1;
+      for(auto item1:*imageTreeChar){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ImageTreeChar"] = boost::any(temp1);
+    }
     if (serviceCode) {
       res["ServiceCode"] = boost::any(*serviceCode);
     }
@@ -6078,6 +6178,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageTreeChar") != m.end() && !m["ImageTreeChar"].empty()) {
+      if (typeid(vector<boost::any>) == m["ImageTreeChar"].type()) {
+        vector<GetCipStatsResponseBodyDataLabelStatChartImageTreeChar> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ImageTreeChar"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCipStatsResponseBodyDataLabelStatChartImageTreeChar model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        imageTreeChar = make_shared<vector<GetCipStatsResponseBodyDataLabelStatChartImageTreeChar>>(expect1);
+      }
+    }
     if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
       serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
     }
@@ -6227,6 +6340,7 @@ public:
 class GetCipStatsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<GetCipStatsResponseBodyDataLabelStatChart>> labelStatChart{};
+  shared_ptr<map<string, boost::any>> totalStat{};
   shared_ptr<vector<string>> uids{};
   shared_ptr<vector<string>> x{};
   shared_ptr<vector<GetCipStatsResponseBodyDataY>> y{};
@@ -6248,6 +6362,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["LabelStatChart"] = boost::any(temp1);
+    }
+    if (totalStat) {
+      res["TotalStat"] = boost::any(*totalStat);
     }
     if (uids) {
       res["Uids"] = boost::any(*uids);
@@ -6285,6 +6402,14 @@ public:
         }
         labelStatChart = make_shared<vector<GetCipStatsResponseBodyDataLabelStatChart>>(expect1);
       }
+    }
+    if (m.find("TotalStat") != m.end() && !m["TotalStat"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TotalStat"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      totalStat = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Uids") != m.end() && !m["Uids"].empty()) {
       vector<string> toVec1;
@@ -10853,6 +10978,7 @@ public:
 };
 class GetUserBuyStatusRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> commodityCode{};
   shared_ptr<string> regionId{};
 
   GetUserBuyStatusRequest() {}
@@ -10865,6 +10991,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commodityCode) {
+      res["CommodityCode"] = boost::any(*commodityCode);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -10872,6 +11001,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
+      commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -12074,6 +12206,7 @@ public:
   shared_ptr<string> keywordCount{};
   shared_ptr<string> libId{};
   shared_ptr<string> libName{};
+  shared_ptr<string> serviceCodes{};
   shared_ptr<string> uid{};
 
   ListKeywordLibsResponseBodyData() {}
@@ -12098,6 +12231,9 @@ public:
     if (libName) {
       res["LibName"] = boost::any(*libName);
     }
+    if (serviceCodes) {
+      res["ServiceCodes"] = boost::any(*serviceCodes);
+    }
     if (uid) {
       res["Uid"] = boost::any(*uid);
     }
@@ -12116,6 +12252,9 @@ public:
     }
     if (m.find("LibName") != m.end() && !m["LibName"].empty()) {
       libName = make_shared<string>(boost::any_cast<string>(m["LibName"]));
+    }
+    if (m.find("ServiceCodes") != m.end() && !m["ServiceCodes"].empty()) {
+      serviceCodes = make_shared<string>(boost::any_cast<string>(m["ServiceCodes"]));
     }
     if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
       uid = make_shared<string>(boost::any_cast<string>(m["Uid"]));
