@@ -998,6 +998,519 @@ public:
 
   virtual ~CreateApplicationClientSecretResponse() = default;
 };
+class CreateConditionalAccessPolicyRequestConditionsConfigApplications : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeApplications{};
+  shared_ptr<vector<string>> includeApplications{};
+
+  CreateConditionalAccessPolicyRequestConditionsConfigApplications() {}
+
+  explicit CreateConditionalAccessPolicyRequestConditionsConfigApplications(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeApplications) {
+      res["ExcludeApplications"] = boost::any(*excludeApplications);
+    }
+    if (includeApplications) {
+      res["IncludeApplications"] = boost::any(*includeApplications);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeApplications") != m.end() && !m["ExcludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeApplications = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeApplications") != m.end() && !m["IncludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeApplications = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateConditionalAccessPolicyRequestConditionsConfigApplications() = default;
+};
+class CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeNetworkZones{};
+  shared_ptr<vector<string>> includeNetworkZones{};
+
+  CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones() {}
+
+  explicit CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeNetworkZones) {
+      res["ExcludeNetworkZones"] = boost::any(*excludeNetworkZones);
+    }
+    if (includeNetworkZones) {
+      res["IncludeNetworkZones"] = boost::any(*includeNetworkZones);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeNetworkZones") != m.end() && !m["ExcludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeNetworkZones") != m.end() && !m["IncludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones() = default;
+};
+class CreateConditionalAccessPolicyRequestConditionsConfigUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeGroups{};
+  shared_ptr<vector<string>> excludeOrganizationalUnits{};
+  shared_ptr<vector<string>> excludeUsers{};
+  shared_ptr<vector<string>> includeGroups{};
+  shared_ptr<vector<string>> includeOrganizationalUnits{};
+  shared_ptr<vector<string>> includeUsers{};
+
+  CreateConditionalAccessPolicyRequestConditionsConfigUsers() {}
+
+  explicit CreateConditionalAccessPolicyRequestConditionsConfigUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeGroups) {
+      res["ExcludeGroups"] = boost::any(*excludeGroups);
+    }
+    if (excludeOrganizationalUnits) {
+      res["ExcludeOrganizationalUnits"] = boost::any(*excludeOrganizationalUnits);
+    }
+    if (excludeUsers) {
+      res["ExcludeUsers"] = boost::any(*excludeUsers);
+    }
+    if (includeGroups) {
+      res["IncludeGroups"] = boost::any(*includeGroups);
+    }
+    if (includeOrganizationalUnits) {
+      res["IncludeOrganizationalUnits"] = boost::any(*includeOrganizationalUnits);
+    }
+    if (includeUsers) {
+      res["IncludeUsers"] = boost::any(*includeUsers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeGroups") != m.end() && !m["ExcludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeOrganizationalUnits") != m.end() && !m["ExcludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeUsers") != m.end() && !m["ExcludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeUsers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeGroups") != m.end() && !m["IncludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeOrganizationalUnits") != m.end() && !m["IncludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeUsers") != m.end() && !m["IncludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeUsers = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateConditionalAccessPolicyRequestConditionsConfigUsers() = default;
+};
+class CreateConditionalAccessPolicyRequestConditionsConfig : public Darabonba::Model {
+public:
+  shared_ptr<CreateConditionalAccessPolicyRequestConditionsConfigApplications> applications{};
+  shared_ptr<CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones> networkZones{};
+  shared_ptr<CreateConditionalAccessPolicyRequestConditionsConfigUsers> users{};
+
+  CreateConditionalAccessPolicyRequestConditionsConfig() {}
+
+  explicit CreateConditionalAccessPolicyRequestConditionsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applications) {
+      res["Applications"] = applications ? boost::any(applications->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkZones) {
+      res["NetworkZones"] = networkZones ? boost::any(networkZones->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (users) {
+      res["Users"] = users ? boost::any(users->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Applications"].type()) {
+        CreateConditionalAccessPolicyRequestConditionsConfigApplications model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Applications"]));
+        applications = make_shared<CreateConditionalAccessPolicyRequestConditionsConfigApplications>(model1);
+      }
+    }
+    if (m.find("NetworkZones") != m.end() && !m["NetworkZones"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkZones"].type()) {
+        CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkZones"]));
+        networkZones = make_shared<CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones>(model1);
+      }
+    }
+    if (m.find("Users") != m.end() && !m["Users"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Users"].type()) {
+        CreateConditionalAccessPolicyRequestConditionsConfigUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Users"]));
+        users = make_shared<CreateConditionalAccessPolicyRequestConditionsConfigUsers>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateConditionalAccessPolicyRequestConditionsConfig() = default;
+};
+class CreateConditionalAccessPolicyRequestDecisionConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> activeSessionReuseStatus{};
+  shared_ptr<string> effect{};
+  shared_ptr<long> mfaAuthenticationIntervalSeconds{};
+  shared_ptr<vector<string>> mfaAuthenticationMethods{};
+  shared_ptr<string> mfaType{};
+
+  CreateConditionalAccessPolicyRequestDecisionConfig() {}
+
+  explicit CreateConditionalAccessPolicyRequestDecisionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activeSessionReuseStatus) {
+      res["ActiveSessionReuseStatus"] = boost::any(*activeSessionReuseStatus);
+    }
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (mfaAuthenticationIntervalSeconds) {
+      res["MfaAuthenticationIntervalSeconds"] = boost::any(*mfaAuthenticationIntervalSeconds);
+    }
+    if (mfaAuthenticationMethods) {
+      res["MfaAuthenticationMethods"] = boost::any(*mfaAuthenticationMethods);
+    }
+    if (mfaType) {
+      res["MfaType"] = boost::any(*mfaType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveSessionReuseStatus") != m.end() && !m["ActiveSessionReuseStatus"].empty()) {
+      activeSessionReuseStatus = make_shared<string>(boost::any_cast<string>(m["ActiveSessionReuseStatus"]));
+    }
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("MfaAuthenticationIntervalSeconds") != m.end() && !m["MfaAuthenticationIntervalSeconds"].empty()) {
+      mfaAuthenticationIntervalSeconds = make_shared<long>(boost::any_cast<long>(m["MfaAuthenticationIntervalSeconds"]));
+    }
+    if (m.find("MfaAuthenticationMethods") != m.end() && !m["MfaAuthenticationMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MfaAuthenticationMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MfaAuthenticationMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      mfaAuthenticationMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MfaType") != m.end() && !m["MfaType"].empty()) {
+      mfaType = make_shared<string>(boost::any_cast<string>(m["MfaType"]));
+    }
+  }
+
+
+  virtual ~CreateConditionalAccessPolicyRequestDecisionConfig() = default;
+};
+class CreateConditionalAccessPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> conditionalAccessPolicyName{};
+  shared_ptr<string> conditionalAccessPolicyType{};
+  shared_ptr<CreateConditionalAccessPolicyRequestConditionsConfig> conditionsConfig{};
+  shared_ptr<CreateConditionalAccessPolicyRequestDecisionConfig> decisionConfig{};
+  shared_ptr<string> decisionType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> evaluateAt{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> priority{};
+
+  CreateConditionalAccessPolicyRequest() {}
+
+  explicit CreateConditionalAccessPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (conditionalAccessPolicyName) {
+      res["ConditionalAccessPolicyName"] = boost::any(*conditionalAccessPolicyName);
+    }
+    if (conditionalAccessPolicyType) {
+      res["ConditionalAccessPolicyType"] = boost::any(*conditionalAccessPolicyType);
+    }
+    if (conditionsConfig) {
+      res["ConditionsConfig"] = conditionsConfig ? boost::any(conditionsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (decisionConfig) {
+      res["DecisionConfig"] = decisionConfig ? boost::any(decisionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (decisionType) {
+      res["DecisionType"] = boost::any(*decisionType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (evaluateAt) {
+      res["EvaluateAt"] = boost::any(*evaluateAt);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ConditionalAccessPolicyName") != m.end() && !m["ConditionalAccessPolicyName"].empty()) {
+      conditionalAccessPolicyName = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyName"]));
+    }
+    if (m.find("ConditionalAccessPolicyType") != m.end() && !m["ConditionalAccessPolicyType"].empty()) {
+      conditionalAccessPolicyType = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyType"]));
+    }
+    if (m.find("ConditionsConfig") != m.end() && !m["ConditionsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConditionsConfig"].type()) {
+        CreateConditionalAccessPolicyRequestConditionsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConditionsConfig"]));
+        conditionsConfig = make_shared<CreateConditionalAccessPolicyRequestConditionsConfig>(model1);
+      }
+    }
+    if (m.find("DecisionConfig") != m.end() && !m["DecisionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DecisionConfig"].type()) {
+        CreateConditionalAccessPolicyRequestDecisionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DecisionConfig"]));
+        decisionConfig = make_shared<CreateConditionalAccessPolicyRequestDecisionConfig>(model1);
+      }
+    }
+    if (m.find("DecisionType") != m.end() && !m["DecisionType"].empty()) {
+      decisionType = make_shared<string>(boost::any_cast<string>(m["DecisionType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EvaluateAt") != m.end() && !m["EvaluateAt"].empty()) {
+      evaluateAt = make_shared<string>(boost::any_cast<string>(m["EvaluateAt"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+  }
+
+
+  virtual ~CreateConditionalAccessPolicyRequest() = default;
+};
+class CreateConditionalAccessPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> requestId{};
+
+  CreateConditionalAccessPolicyResponseBody() {}
+
+  explicit CreateConditionalAccessPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateConditionalAccessPolicyResponseBody() = default;
+};
+class CreateConditionalAccessPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateConditionalAccessPolicyResponseBody> body{};
+
+  CreateConditionalAccessPolicyResponse() {}
+
+  explicit CreateConditionalAccessPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateConditionalAccessPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateConditionalAccessPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateConditionalAccessPolicyResponse() = default;
+};
 class CreateDomainRequestFiling : public Darabonba::Model {
 public:
   shared_ptr<string> icpNumber{};
@@ -3574,6 +4087,123 @@ public:
 
   virtual ~DeleteApplicationClientSecretResponse() = default;
 };
+class DeleteConditionalAccessPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> instanceId{};
+
+  DeleteConditionalAccessPolicyRequest() {}
+
+  explicit DeleteConditionalAccessPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DeleteConditionalAccessPolicyRequest() = default;
+};
+class DeleteConditionalAccessPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteConditionalAccessPolicyResponseBody() {}
+
+  explicit DeleteConditionalAccessPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteConditionalAccessPolicyResponseBody() = default;
+};
+class DeleteConditionalAccessPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteConditionalAccessPolicyResponseBody> body{};
+
+  DeleteConditionalAccessPolicyResponse() {}
+
+  explicit DeleteConditionalAccessPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteConditionalAccessPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteConditionalAccessPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteConditionalAccessPolicyResponse() = default;
+};
 class DeleteDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainId{};
@@ -5219,6 +5849,123 @@ public:
 
   virtual ~DisableApplicationSsoResponse() = default;
 };
+class DisableConditionalAccessPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> instanceId{};
+
+  DisableConditionalAccessPolicyRequest() {}
+
+  explicit DisableConditionalAccessPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DisableConditionalAccessPolicyRequest() = default;
+};
+class DisableConditionalAccessPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DisableConditionalAccessPolicyResponseBody() {}
+
+  explicit DisableConditionalAccessPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DisableConditionalAccessPolicyResponseBody() = default;
+};
+class DisableConditionalAccessPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisableConditionalAccessPolicyResponseBody> body{};
+
+  DisableConditionalAccessPolicyResponse() {}
+
+  explicit DisableConditionalAccessPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableConditionalAccessPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableConditionalAccessPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableConditionalAccessPolicyResponse() = default;
+};
 class DisableDomainProxyTokenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainId{};
@@ -6279,6 +7026,123 @@ public:
 
   virtual ~EnableApplicationSsoResponse() = default;
 };
+class EnableConditionalAccessPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> instanceId{};
+
+  EnableConditionalAccessPolicyRequest() {}
+
+  explicit EnableConditionalAccessPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~EnableConditionalAccessPolicyRequest() = default;
+};
+class EnableConditionalAccessPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  EnableConditionalAccessPolicyResponseBody() {}
+
+  explicit EnableConditionalAccessPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnableConditionalAccessPolicyResponseBody() = default;
+};
+class EnableConditionalAccessPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableConditionalAccessPolicyResponseBody> body{};
+
+  EnableConditionalAccessPolicyResponse() {}
+
+  explicit EnableConditionalAccessPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableConditionalAccessPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableConditionalAccessPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableConditionalAccessPolicyResponse() = default;
+};
 class EnableDomainProxyTokenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainId{};
@@ -6798,7 +7662,10 @@ public:
   shared_ptr<string> features{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> logoUrl{};
+  shared_ptr<string> m2MClientStatus{};
   shared_ptr<string> managedServiceCode{};
+  shared_ptr<string> resourceServerIdentifier{};
+  shared_ptr<string> resourceServerStatus{};
   shared_ptr<bool> serviceManaged{};
   shared_ptr<string> ssoType{};
   shared_ptr<string> status{};
@@ -6853,8 +7720,17 @@ public:
     if (logoUrl) {
       res["LogoUrl"] = boost::any(*logoUrl);
     }
+    if (m2MClientStatus) {
+      res["M2MClientStatus"] = boost::any(*m2MClientStatus);
+    }
     if (managedServiceCode) {
       res["ManagedServiceCode"] = boost::any(*managedServiceCode);
+    }
+    if (resourceServerIdentifier) {
+      res["ResourceServerIdentifier"] = boost::any(*resourceServerIdentifier);
+    }
+    if (resourceServerStatus) {
+      res["ResourceServerStatus"] = boost::any(*resourceServerStatus);
     }
     if (serviceManaged) {
       res["ServiceManaged"] = boost::any(*serviceManaged);
@@ -6918,8 +7794,17 @@ public:
     if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
       logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
     }
+    if (m.find("M2MClientStatus") != m.end() && !m["M2MClientStatus"].empty()) {
+      m2MClientStatus = make_shared<string>(boost::any_cast<string>(m["M2MClientStatus"]));
+    }
     if (m.find("ManagedServiceCode") != m.end() && !m["ManagedServiceCode"].empty()) {
       managedServiceCode = make_shared<string>(boost::any_cast<string>(m["ManagedServiceCode"]));
+    }
+    if (m.find("ResourceServerIdentifier") != m.end() && !m["ResourceServerIdentifier"].empty()) {
+      resourceServerIdentifier = make_shared<string>(boost::any_cast<string>(m["ResourceServerIdentifier"]));
+    }
+    if (m.find("ResourceServerStatus") != m.end() && !m["ResourceServerStatus"].empty()) {
+      resourceServerStatus = make_shared<string>(boost::any_cast<string>(m["ResourceServerStatus"]));
     }
     if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
       serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
@@ -8549,6 +9434,580 @@ public:
 
 
   virtual ~GetApplicationSsoConfigResponse() = default;
+};
+class GetConditionalAccessPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> instanceId{};
+
+  GetConditionalAccessPolicyRequest() {}
+
+  explicit GetConditionalAccessPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyRequest() = default;
+};
+class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeApplications{};
+  shared_ptr<vector<string>> includeApplications{};
+
+  GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications() {}
+
+  explicit GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeApplications) {
+      res["ExcludeApplications"] = boost::any(*excludeApplications);
+    }
+    if (includeApplications) {
+      res["IncludeApplications"] = boost::any(*includeApplications);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeApplications") != m.end() && !m["ExcludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeApplications = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeApplications") != m.end() && !m["IncludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeApplications = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications() = default;
+};
+class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeNetworkZones{};
+  shared_ptr<vector<string>> includeNetworkZones{};
+
+  GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones() {}
+
+  explicit GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeNetworkZones) {
+      res["ExcludeNetworkZones"] = boost::any(*excludeNetworkZones);
+    }
+    if (includeNetworkZones) {
+      res["IncludeNetworkZones"] = boost::any(*includeNetworkZones);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeNetworkZones") != m.end() && !m["ExcludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeNetworkZones") != m.end() && !m["IncludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones() = default;
+};
+class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeGroups{};
+  shared_ptr<vector<string>> excludeOrganizationalUnits{};
+  shared_ptr<vector<string>> excludeUsers{};
+  shared_ptr<vector<string>> includeGroups{};
+  shared_ptr<vector<string>> includeOrganizationalUnits{};
+  shared_ptr<vector<string>> includeUsers{};
+
+  GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers() {}
+
+  explicit GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeGroups) {
+      res["ExcludeGroups"] = boost::any(*excludeGroups);
+    }
+    if (excludeOrganizationalUnits) {
+      res["ExcludeOrganizationalUnits"] = boost::any(*excludeOrganizationalUnits);
+    }
+    if (excludeUsers) {
+      res["ExcludeUsers"] = boost::any(*excludeUsers);
+    }
+    if (includeGroups) {
+      res["IncludeGroups"] = boost::any(*includeGroups);
+    }
+    if (includeOrganizationalUnits) {
+      res["IncludeOrganizationalUnits"] = boost::any(*includeOrganizationalUnits);
+    }
+    if (includeUsers) {
+      res["IncludeUsers"] = boost::any(*includeUsers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeGroups") != m.end() && !m["ExcludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeOrganizationalUnits") != m.end() && !m["ExcludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeUsers") != m.end() && !m["ExcludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeUsers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeGroups") != m.end() && !m["IncludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeOrganizationalUnits") != m.end() && !m["IncludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeUsers") != m.end() && !m["IncludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeUsers = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers() = default;
+};
+class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig : public Darabonba::Model {
+public:
+  shared_ptr<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications> applications{};
+  shared_ptr<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones> networkZones{};
+  shared_ptr<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers> users{};
+
+  GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig() {}
+
+  explicit GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applications) {
+      res["Applications"] = applications ? boost::any(applications->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkZones) {
+      res["NetworkZones"] = networkZones ? boost::any(networkZones->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (users) {
+      res["Users"] = users ? boost::any(users->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Applications"].type()) {
+        GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Applications"]));
+        applications = make_shared<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications>(model1);
+      }
+    }
+    if (m.find("NetworkZones") != m.end() && !m["NetworkZones"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkZones"].type()) {
+        GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkZones"]));
+        networkZones = make_shared<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones>(model1);
+      }
+    }
+    if (m.find("Users") != m.end() && !m["Users"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Users"].type()) {
+        GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Users"]));
+        users = make_shared<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig() = default;
+};
+class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> activeSessionReuseStatus{};
+  shared_ptr<string> effect{};
+  shared_ptr<long> mfaAuthenticationIntervalSeconds{};
+  shared_ptr<vector<string>> mfaAuthenticationMethods{};
+  shared_ptr<string> mfaType{};
+
+  GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig() {}
+
+  explicit GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activeSessionReuseStatus) {
+      res["ActiveSessionReuseStatus"] = boost::any(*activeSessionReuseStatus);
+    }
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (mfaAuthenticationIntervalSeconds) {
+      res["MfaAuthenticationIntervalSeconds"] = boost::any(*mfaAuthenticationIntervalSeconds);
+    }
+    if (mfaAuthenticationMethods) {
+      res["MfaAuthenticationMethods"] = boost::any(*mfaAuthenticationMethods);
+    }
+    if (mfaType) {
+      res["MfaType"] = boost::any(*mfaType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveSessionReuseStatus") != m.end() && !m["ActiveSessionReuseStatus"].empty()) {
+      activeSessionReuseStatus = make_shared<string>(boost::any_cast<string>(m["ActiveSessionReuseStatus"]));
+    }
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("MfaAuthenticationIntervalSeconds") != m.end() && !m["MfaAuthenticationIntervalSeconds"].empty()) {
+      mfaAuthenticationIntervalSeconds = make_shared<long>(boost::any_cast<long>(m["MfaAuthenticationIntervalSeconds"]));
+    }
+    if (m.find("MfaAuthenticationMethods") != m.end() && !m["MfaAuthenticationMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MfaAuthenticationMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MfaAuthenticationMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      mfaAuthenticationMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MfaType") != m.end() && !m["MfaType"].empty()) {
+      mfaType = make_shared<string>(boost::any_cast<string>(m["MfaType"]));
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig() = default;
+};
+class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> conditionalAccessPolicyName{};
+  shared_ptr<string> conditionalAccessPolicyType{};
+  shared_ptr<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig> conditionsConfig{};
+  shared_ptr<long> createTime{};
+  shared_ptr<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig> decisionConfig{};
+  shared_ptr<string> decisionType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> evaluateAt{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> lastUpdatedTime{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> status{};
+
+  GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy() {}
+
+  explicit GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (conditionalAccessPolicyName) {
+      res["ConditionalAccessPolicyName"] = boost::any(*conditionalAccessPolicyName);
+    }
+    if (conditionalAccessPolicyType) {
+      res["ConditionalAccessPolicyType"] = boost::any(*conditionalAccessPolicyType);
+    }
+    if (conditionsConfig) {
+      res["ConditionsConfig"] = conditionsConfig ? boost::any(conditionsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (decisionConfig) {
+      res["DecisionConfig"] = decisionConfig ? boost::any(decisionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (decisionType) {
+      res["DecisionType"] = boost::any(*decisionType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (evaluateAt) {
+      res["EvaluateAt"] = boost::any(*evaluateAt);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lastUpdatedTime) {
+      res["LastUpdatedTime"] = boost::any(*lastUpdatedTime);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("ConditionalAccessPolicyName") != m.end() && !m["ConditionalAccessPolicyName"].empty()) {
+      conditionalAccessPolicyName = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyName"]));
+    }
+    if (m.find("ConditionalAccessPolicyType") != m.end() && !m["ConditionalAccessPolicyType"].empty()) {
+      conditionalAccessPolicyType = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyType"]));
+    }
+    if (m.find("ConditionsConfig") != m.end() && !m["ConditionsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConditionsConfig"].type()) {
+        GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConditionsConfig"]));
+        conditionsConfig = make_shared<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig>(model1);
+      }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DecisionConfig") != m.end() && !m["DecisionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DecisionConfig"].type()) {
+        GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DecisionConfig"]));
+        decisionConfig = make_shared<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig>(model1);
+      }
+    }
+    if (m.find("DecisionType") != m.end() && !m["DecisionType"].empty()) {
+      decisionType = make_shared<string>(boost::any_cast<string>(m["DecisionType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EvaluateAt") != m.end() && !m["EvaluateAt"].empty()) {
+      evaluateAt = make_shared<string>(boost::any_cast<string>(m["EvaluateAt"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LastUpdatedTime") != m.end() && !m["LastUpdatedTime"].empty()) {
+      lastUpdatedTime = make_shared<long>(boost::any_cast<long>(m["LastUpdatedTime"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy() = default;
+};
+class GetConditionalAccessPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy> conditionalAccessPolicy{};
+  shared_ptr<string> requestId{};
+
+  GetConditionalAccessPolicyResponseBody() {}
+
+  explicit GetConditionalAccessPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicy) {
+      res["ConditionalAccessPolicy"] = conditionalAccessPolicy ? boost::any(conditionalAccessPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicy") != m.end() && !m["ConditionalAccessPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConditionalAccessPolicy"].type()) {
+        GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConditionalAccessPolicy"]));
+        conditionalAccessPolicy = make_shared<GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyResponseBody() = default;
+};
+class GetConditionalAccessPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetConditionalAccessPolicyResponseBody> body{};
+
+  GetConditionalAccessPolicyResponse() {}
+
+  explicit GetConditionalAccessPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetConditionalAccessPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetConditionalAccessPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetConditionalAccessPolicyResponse() = default;
 };
 class GetDomainRequest : public Darabonba::Model {
 public:
@@ -15353,8 +16812,11 @@ public:
   shared_ptr<string> applicationName{};
   shared_ptr<string> authorizationType{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> m2MClientStatus{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceServerStatus{};
+  shared_ptr<string> ssoType{};
   shared_ptr<string> status{};
 
   ListApplicationsRequest() {}
@@ -15379,11 +16841,20 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (m2MClientStatus) {
+      res["M2MClientStatus"] = boost::any(*m2MClientStatus);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (resourceServerStatus) {
+      res["ResourceServerStatus"] = boost::any(*resourceServerStatus);
+    }
+    if (ssoType) {
+      res["SsoType"] = boost::any(*ssoType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -15411,11 +16882,20 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("M2MClientStatus") != m.end() && !m["M2MClientStatus"].empty()) {
+      m2MClientStatus = make_shared<string>(boost::any_cast<string>(m["M2MClientStatus"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceServerStatus") != m.end() && !m["ResourceServerStatus"].empty()) {
+      resourceServerStatus = make_shared<string>(boost::any_cast<string>(m["ResourceServerStatus"]));
+    }
+    if (m.find("SsoType") != m.end() && !m["SsoType"].empty()) {
+      ssoType = make_shared<string>(boost::any_cast<string>(m["SsoType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -15437,7 +16917,10 @@ public:
   shared_ptr<string> features{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> logoUrl{};
+  shared_ptr<string> m2MClientStatus{};
   shared_ptr<string> managedServiceCode{};
+  shared_ptr<string> resourceServerIdentifier{};
+  shared_ptr<string> resourceServerStatus{};
   shared_ptr<bool> serviceManaged{};
   shared_ptr<string> ssoType{};
   shared_ptr<string> status{};
@@ -15483,8 +16966,17 @@ public:
     if (logoUrl) {
       res["LogoUrl"] = boost::any(*logoUrl);
     }
+    if (m2MClientStatus) {
+      res["M2MClientStatus"] = boost::any(*m2MClientStatus);
+    }
     if (managedServiceCode) {
       res["ManagedServiceCode"] = boost::any(*managedServiceCode);
+    }
+    if (resourceServerIdentifier) {
+      res["ResourceServerIdentifier"] = boost::any(*resourceServerIdentifier);
+    }
+    if (resourceServerStatus) {
+      res["ResourceServerStatus"] = boost::any(*resourceServerStatus);
     }
     if (serviceManaged) {
       res["ServiceManaged"] = boost::any(*serviceManaged);
@@ -15532,8 +17024,17 @@ public:
     if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
       logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
     }
+    if (m.find("M2MClientStatus") != m.end() && !m["M2MClientStatus"].empty()) {
+      m2MClientStatus = make_shared<string>(boost::any_cast<string>(m["M2MClientStatus"]));
+    }
     if (m.find("ManagedServiceCode") != m.end() && !m["ManagedServiceCode"].empty()) {
       managedServiceCode = make_shared<string>(boost::any_cast<string>(m["ManagedServiceCode"]));
+    }
+    if (m.find("ResourceServerIdentifier") != m.end() && !m["ResourceServerIdentifier"].empty()) {
+      resourceServerIdentifier = make_shared<string>(boost::any_cast<string>(m["ResourceServerIdentifier"]));
+    }
+    if (m.find("ResourceServerStatus") != m.end() && !m["ResourceServerStatus"].empty()) {
+      resourceServerStatus = make_shared<string>(boost::any_cast<string>(m["ResourceServerStatus"]));
     }
     if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
       serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
@@ -16085,6 +17586,1209 @@ public:
 
 
   virtual ~ListApplicationsForUserResponse() = default;
+};
+class ListConditionalAccessPoliciesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> previousToken{};
+
+  ListConditionalAccessPoliciesRequest() {}
+
+  explicit ListConditionalAccessPoliciesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (previousToken) {
+      res["PreviousToken"] = boost::any(*previousToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PreviousToken") != m.end() && !m["PreviousToken"].empty()) {
+      previousToken = make_shared<string>(boost::any_cast<string>(m["PreviousToken"]));
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesRequest() = default;
+};
+class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeApplications{};
+  shared_ptr<vector<string>> includeApplications{};
+
+  ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications() {}
+
+  explicit ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeApplications) {
+      res["ExcludeApplications"] = boost::any(*excludeApplications);
+    }
+    if (includeApplications) {
+      res["IncludeApplications"] = boost::any(*includeApplications);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeApplications") != m.end() && !m["ExcludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeApplications = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeApplications") != m.end() && !m["IncludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeApplications = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications() = default;
+};
+class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeNetworkZones{};
+  shared_ptr<vector<string>> includeNetworkZones{};
+
+  ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones() {}
+
+  explicit ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeNetworkZones) {
+      res["ExcludeNetworkZones"] = boost::any(*excludeNetworkZones);
+    }
+    if (includeNetworkZones) {
+      res["IncludeNetworkZones"] = boost::any(*includeNetworkZones);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeNetworkZones") != m.end() && !m["ExcludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeNetworkZones") != m.end() && !m["IncludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones() = default;
+};
+class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeGroups{};
+  shared_ptr<vector<string>> excludeOrganizationalUnits{};
+  shared_ptr<vector<string>> excludeUsers{};
+  shared_ptr<vector<string>> includeGroups{};
+  shared_ptr<vector<string>> includeOrganizationalUnits{};
+  shared_ptr<vector<string>> includeUsers{};
+
+  ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers() {}
+
+  explicit ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeGroups) {
+      res["ExcludeGroups"] = boost::any(*excludeGroups);
+    }
+    if (excludeOrganizationalUnits) {
+      res["ExcludeOrganizationalUnits"] = boost::any(*excludeOrganizationalUnits);
+    }
+    if (excludeUsers) {
+      res["ExcludeUsers"] = boost::any(*excludeUsers);
+    }
+    if (includeGroups) {
+      res["IncludeGroups"] = boost::any(*includeGroups);
+    }
+    if (includeOrganizationalUnits) {
+      res["IncludeOrganizationalUnits"] = boost::any(*includeOrganizationalUnits);
+    }
+    if (includeUsers) {
+      res["IncludeUsers"] = boost::any(*includeUsers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeGroups") != m.end() && !m["ExcludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeOrganizationalUnits") != m.end() && !m["ExcludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeUsers") != m.end() && !m["ExcludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeUsers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeGroups") != m.end() && !m["IncludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeOrganizationalUnits") != m.end() && !m["IncludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeUsers") != m.end() && !m["IncludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeUsers = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers() = default;
+};
+class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig : public Darabonba::Model {
+public:
+  shared_ptr<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications> applications{};
+  shared_ptr<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones> networkZones{};
+  shared_ptr<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers> users{};
+
+  ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig() {}
+
+  explicit ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applications) {
+      res["Applications"] = applications ? boost::any(applications->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkZones) {
+      res["NetworkZones"] = networkZones ? boost::any(networkZones->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (users) {
+      res["Users"] = users ? boost::any(users->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Applications"].type()) {
+        ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Applications"]));
+        applications = make_shared<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications>(model1);
+      }
+    }
+    if (m.find("NetworkZones") != m.end() && !m["NetworkZones"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkZones"].type()) {
+        ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkZones"]));
+        networkZones = make_shared<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones>(model1);
+      }
+    }
+    if (m.find("Users") != m.end() && !m["Users"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Users"].type()) {
+        ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Users"]));
+        users = make_shared<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig() = default;
+};
+class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> activeSessionReuseStatus{};
+  shared_ptr<string> effect{};
+  shared_ptr<long> mfaAuthenticationIntervalSeconds{};
+  shared_ptr<vector<string>> mfaAuthenticationMethods{};
+  shared_ptr<string> mfaType{};
+
+  ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig() {}
+
+  explicit ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activeSessionReuseStatus) {
+      res["ActiveSessionReuseStatus"] = boost::any(*activeSessionReuseStatus);
+    }
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (mfaAuthenticationIntervalSeconds) {
+      res["MfaAuthenticationIntervalSeconds"] = boost::any(*mfaAuthenticationIntervalSeconds);
+    }
+    if (mfaAuthenticationMethods) {
+      res["MfaAuthenticationMethods"] = boost::any(*mfaAuthenticationMethods);
+    }
+    if (mfaType) {
+      res["MfaType"] = boost::any(*mfaType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveSessionReuseStatus") != m.end() && !m["ActiveSessionReuseStatus"].empty()) {
+      activeSessionReuseStatus = make_shared<string>(boost::any_cast<string>(m["ActiveSessionReuseStatus"]));
+    }
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("MfaAuthenticationIntervalSeconds") != m.end() && !m["MfaAuthenticationIntervalSeconds"].empty()) {
+      mfaAuthenticationIntervalSeconds = make_shared<long>(boost::any_cast<long>(m["MfaAuthenticationIntervalSeconds"]));
+    }
+    if (m.find("MfaAuthenticationMethods") != m.end() && !m["MfaAuthenticationMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MfaAuthenticationMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MfaAuthenticationMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      mfaAuthenticationMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MfaType") != m.end() && !m["MfaType"].empty()) {
+      mfaType = make_shared<string>(boost::any_cast<string>(m["MfaType"]));
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig() = default;
+};
+class ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> conditionalAccessPolicyName{};
+  shared_ptr<string> conditionalAccessPolicyType{};
+  shared_ptr<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig> conditionsConfig{};
+  shared_ptr<long> createTime{};
+  shared_ptr<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig> decisionConfig{};
+  shared_ptr<string> decisionType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> evaluateAt{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> lastUpdatedTime{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> status{};
+
+  ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies() {}
+
+  explicit ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (conditionalAccessPolicyName) {
+      res["ConditionalAccessPolicyName"] = boost::any(*conditionalAccessPolicyName);
+    }
+    if (conditionalAccessPolicyType) {
+      res["ConditionalAccessPolicyType"] = boost::any(*conditionalAccessPolicyType);
+    }
+    if (conditionsConfig) {
+      res["ConditionsConfig"] = conditionsConfig ? boost::any(conditionsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (decisionConfig) {
+      res["DecisionConfig"] = decisionConfig ? boost::any(decisionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (decisionType) {
+      res["DecisionType"] = boost::any(*decisionType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (evaluateAt) {
+      res["EvaluateAt"] = boost::any(*evaluateAt);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lastUpdatedTime) {
+      res["LastUpdatedTime"] = boost::any(*lastUpdatedTime);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("ConditionalAccessPolicyName") != m.end() && !m["ConditionalAccessPolicyName"].empty()) {
+      conditionalAccessPolicyName = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyName"]));
+    }
+    if (m.find("ConditionalAccessPolicyType") != m.end() && !m["ConditionalAccessPolicyType"].empty()) {
+      conditionalAccessPolicyType = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyType"]));
+    }
+    if (m.find("ConditionsConfig") != m.end() && !m["ConditionsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConditionsConfig"].type()) {
+        ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConditionsConfig"]));
+        conditionsConfig = make_shared<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig>(model1);
+      }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DecisionConfig") != m.end() && !m["DecisionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DecisionConfig"].type()) {
+        ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DecisionConfig"]));
+        decisionConfig = make_shared<ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig>(model1);
+      }
+    }
+    if (m.find("DecisionType") != m.end() && !m["DecisionType"].empty()) {
+      decisionType = make_shared<string>(boost::any_cast<string>(m["DecisionType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EvaluateAt") != m.end() && !m["EvaluateAt"].empty()) {
+      evaluateAt = make_shared<string>(boost::any_cast<string>(m["EvaluateAt"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LastUpdatedTime") != m.end() && !m["LastUpdatedTime"].empty()) {
+      lastUpdatedTime = make_shared<long>(boost::any_cast<long>(m["LastUpdatedTime"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies() = default;
+};
+class ListConditionalAccessPoliciesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies>> conditionalAccessPolicies{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> previousToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListConditionalAccessPoliciesResponseBody() {}
+
+  explicit ListConditionalAccessPoliciesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicies) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditionalAccessPolicies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConditionalAccessPolicies"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (previousToken) {
+      res["PreviousToken"] = boost::any(*previousToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicies") != m.end() && !m["ConditionalAccessPolicies"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConditionalAccessPolicies"].type()) {
+        vector<ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConditionalAccessPolicies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditionalAccessPolicies = make_shared<vector<ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PreviousToken") != m.end() && !m["PreviousToken"].empty()) {
+      previousToken = make_shared<string>(boost::any_cast<string>(m["PreviousToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesResponseBody() = default;
+};
+class ListConditionalAccessPoliciesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListConditionalAccessPoliciesResponseBody> body{};
+
+  ListConditionalAccessPoliciesResponse() {}
+
+  explicit ListConditionalAccessPoliciesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListConditionalAccessPoliciesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListConditionalAccessPoliciesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesResponse() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> networkZoneId{};
+
+  ListConditionalAccessPoliciesForNetworkZoneRequest() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (networkZoneId) {
+      res["NetworkZoneId"] = boost::any(*networkZoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NetworkZoneId") != m.end() && !m["NetworkZoneId"].empty()) {
+      networkZoneId = make_shared<string>(boost::any_cast<string>(m["NetworkZoneId"]));
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneRequest() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeApplications{};
+  shared_ptr<vector<string>> includeApplications{};
+
+  ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeApplications) {
+      res["ExcludeApplications"] = boost::any(*excludeApplications);
+    }
+    if (includeApplications) {
+      res["IncludeApplications"] = boost::any(*includeApplications);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeApplications") != m.end() && !m["ExcludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeApplications = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeApplications") != m.end() && !m["IncludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeApplications = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeNetworkZones{};
+  shared_ptr<vector<string>> includeNetworkZones{};
+
+  ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeNetworkZones) {
+      res["ExcludeNetworkZones"] = boost::any(*excludeNetworkZones);
+    }
+    if (includeNetworkZones) {
+      res["IncludeNetworkZones"] = boost::any(*includeNetworkZones);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeNetworkZones") != m.end() && !m["ExcludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeNetworkZones") != m.end() && !m["IncludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeGroups{};
+  shared_ptr<vector<string>> excludeOrganizationalUnits{};
+  shared_ptr<vector<string>> excludeUsers{};
+  shared_ptr<vector<string>> includeGroups{};
+  shared_ptr<vector<string>> includeOrganizationalUnits{};
+  shared_ptr<vector<string>> includeUsers{};
+
+  ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeGroups) {
+      res["ExcludeGroups"] = boost::any(*excludeGroups);
+    }
+    if (excludeOrganizationalUnits) {
+      res["ExcludeOrganizationalUnits"] = boost::any(*excludeOrganizationalUnits);
+    }
+    if (excludeUsers) {
+      res["ExcludeUsers"] = boost::any(*excludeUsers);
+    }
+    if (includeGroups) {
+      res["IncludeGroups"] = boost::any(*includeGroups);
+    }
+    if (includeOrganizationalUnits) {
+      res["IncludeOrganizationalUnits"] = boost::any(*includeOrganizationalUnits);
+    }
+    if (includeUsers) {
+      res["IncludeUsers"] = boost::any(*includeUsers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeGroups") != m.end() && !m["ExcludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeOrganizationalUnits") != m.end() && !m["ExcludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeUsers") != m.end() && !m["ExcludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeUsers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeGroups") != m.end() && !m["IncludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeOrganizationalUnits") != m.end() && !m["IncludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeUsers") != m.end() && !m["IncludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeUsers = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig : public Darabonba::Model {
+public:
+  shared_ptr<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications> applications{};
+  shared_ptr<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones> networkZones{};
+  shared_ptr<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers> users{};
+
+  ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applications) {
+      res["Applications"] = applications ? boost::any(applications->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkZones) {
+      res["NetworkZones"] = networkZones ? boost::any(networkZones->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (users) {
+      res["Users"] = users ? boost::any(users->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Applications"].type()) {
+        ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Applications"]));
+        applications = make_shared<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications>(model1);
+      }
+    }
+    if (m.find("NetworkZones") != m.end() && !m["NetworkZones"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkZones"].type()) {
+        ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkZones"]));
+        networkZones = make_shared<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones>(model1);
+      }
+    }
+    if (m.find("Users") != m.end() && !m["Users"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Users"].type()) {
+        ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Users"]));
+        users = make_shared<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> activeSessionReuseStatus{};
+  shared_ptr<string> effect{};
+  shared_ptr<long> mfaAuthenticationIntervalSeconds{};
+  shared_ptr<vector<string>> mfaAuthenticationMethods{};
+  shared_ptr<string> mfaType{};
+
+  ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activeSessionReuseStatus) {
+      res["ActiveSessionReuseStatus"] = boost::any(*activeSessionReuseStatus);
+    }
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (mfaAuthenticationIntervalSeconds) {
+      res["MfaAuthenticationIntervalSeconds"] = boost::any(*mfaAuthenticationIntervalSeconds);
+    }
+    if (mfaAuthenticationMethods) {
+      res["MfaAuthenticationMethods"] = boost::any(*mfaAuthenticationMethods);
+    }
+    if (mfaType) {
+      res["MfaType"] = boost::any(*mfaType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveSessionReuseStatus") != m.end() && !m["ActiveSessionReuseStatus"].empty()) {
+      activeSessionReuseStatus = make_shared<string>(boost::any_cast<string>(m["ActiveSessionReuseStatus"]));
+    }
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("MfaAuthenticationIntervalSeconds") != m.end() && !m["MfaAuthenticationIntervalSeconds"].empty()) {
+      mfaAuthenticationIntervalSeconds = make_shared<long>(boost::any_cast<long>(m["MfaAuthenticationIntervalSeconds"]));
+    }
+    if (m.find("MfaAuthenticationMethods") != m.end() && !m["MfaAuthenticationMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MfaAuthenticationMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MfaAuthenticationMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      mfaAuthenticationMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MfaType") != m.end() && !m["MfaType"].empty()) {
+      mfaType = make_shared<string>(boost::any_cast<string>(m["MfaType"]));
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> conditionalAccessPolicyName{};
+  shared_ptr<string> conditionalAccessPolicyType{};
+  shared_ptr<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig> conditionsConfig{};
+  shared_ptr<long> createTime{};
+  shared_ptr<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig> decisionConfig{};
+  shared_ptr<string> decisionType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> evaluateAt{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> lastUpdatedTime{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> status{};
+
+  ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (conditionalAccessPolicyName) {
+      res["ConditionalAccessPolicyName"] = boost::any(*conditionalAccessPolicyName);
+    }
+    if (conditionalAccessPolicyType) {
+      res["ConditionalAccessPolicyType"] = boost::any(*conditionalAccessPolicyType);
+    }
+    if (conditionsConfig) {
+      res["ConditionsConfig"] = conditionsConfig ? boost::any(conditionsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (decisionConfig) {
+      res["DecisionConfig"] = decisionConfig ? boost::any(decisionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (decisionType) {
+      res["DecisionType"] = boost::any(*decisionType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (evaluateAt) {
+      res["EvaluateAt"] = boost::any(*evaluateAt);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lastUpdatedTime) {
+      res["LastUpdatedTime"] = boost::any(*lastUpdatedTime);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("ConditionalAccessPolicyName") != m.end() && !m["ConditionalAccessPolicyName"].empty()) {
+      conditionalAccessPolicyName = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyName"]));
+    }
+    if (m.find("ConditionalAccessPolicyType") != m.end() && !m["ConditionalAccessPolicyType"].empty()) {
+      conditionalAccessPolicyType = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyType"]));
+    }
+    if (m.find("ConditionsConfig") != m.end() && !m["ConditionsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConditionsConfig"].type()) {
+        ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConditionsConfig"]));
+        conditionsConfig = make_shared<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig>(model1);
+      }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DecisionConfig") != m.end() && !m["DecisionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DecisionConfig"].type()) {
+        ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DecisionConfig"]));
+        decisionConfig = make_shared<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig>(model1);
+      }
+    }
+    if (m.find("DecisionType") != m.end() && !m["DecisionType"].empty()) {
+      decisionType = make_shared<string>(boost::any_cast<string>(m["DecisionType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EvaluateAt") != m.end() && !m["EvaluateAt"].empty()) {
+      evaluateAt = make_shared<string>(boost::any_cast<string>(m["EvaluateAt"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LastUpdatedTime") != m.end() && !m["LastUpdatedTime"].empty()) {
+      lastUpdatedTime = make_shared<long>(boost::any_cast<long>(m["LastUpdatedTime"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies>> conditionalAccessPolicies{};
+  shared_ptr<string> requestId{};
+
+  ListConditionalAccessPoliciesForNetworkZoneResponseBody() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicies) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditionalAccessPolicies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConditionalAccessPolicies"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicies") != m.end() && !m["ConditionalAccessPolicies"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConditionalAccessPolicies"].type()) {
+        vector<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConditionalAccessPolicies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditionalAccessPolicies = make_shared<vector<ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneResponseBody() = default;
+};
+class ListConditionalAccessPoliciesForNetworkZoneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListConditionalAccessPoliciesForNetworkZoneResponseBody> body{};
+
+  ListConditionalAccessPoliciesForNetworkZoneResponse() {}
+
+  explicit ListConditionalAccessPoliciesForNetworkZoneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListConditionalAccessPoliciesForNetworkZoneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListConditionalAccessPoliciesForNetworkZoneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListConditionalAccessPoliciesForNetworkZoneResponse() = default;
 };
 class ListDomainProxyTokensRequest : public Darabonba::Model {
 public:
@@ -26923,6 +29627,615 @@ public:
 
   virtual ~UpdateApplicationDescriptionResponse() = default;
 };
+class UpdateConditionalAccessPolicyRequestConditionsConfigApplications : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeApplications{};
+  shared_ptr<vector<string>> includeApplications{};
+
+  UpdateConditionalAccessPolicyRequestConditionsConfigApplications() {}
+
+  explicit UpdateConditionalAccessPolicyRequestConditionsConfigApplications(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeApplications) {
+      res["ExcludeApplications"] = boost::any(*excludeApplications);
+    }
+    if (includeApplications) {
+      res["IncludeApplications"] = boost::any(*includeApplications);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeApplications") != m.end() && !m["ExcludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeApplications = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeApplications") != m.end() && !m["IncludeApplications"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeApplications"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeApplications"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeApplications = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyRequestConditionsConfigApplications() = default;
+};
+class UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeNetworkZones{};
+  shared_ptr<vector<string>> includeNetworkZones{};
+
+  UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones() {}
+
+  explicit UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeNetworkZones) {
+      res["ExcludeNetworkZones"] = boost::any(*excludeNetworkZones);
+    }
+    if (includeNetworkZones) {
+      res["IncludeNetworkZones"] = boost::any(*includeNetworkZones);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeNetworkZones") != m.end() && !m["ExcludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeNetworkZones") != m.end() && !m["IncludeNetworkZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeNetworkZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeNetworkZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeNetworkZones = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones() = default;
+};
+class UpdateConditionalAccessPolicyRequestConditionsConfigUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> excludeGroups{};
+  shared_ptr<vector<string>> excludeOrganizationalUnits{};
+  shared_ptr<vector<string>> excludeUsers{};
+  shared_ptr<vector<string>> includeGroups{};
+  shared_ptr<vector<string>> includeOrganizationalUnits{};
+  shared_ptr<vector<string>> includeUsers{};
+
+  UpdateConditionalAccessPolicyRequestConditionsConfigUsers() {}
+
+  explicit UpdateConditionalAccessPolicyRequestConditionsConfigUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeGroups) {
+      res["ExcludeGroups"] = boost::any(*excludeGroups);
+    }
+    if (excludeOrganizationalUnits) {
+      res["ExcludeOrganizationalUnits"] = boost::any(*excludeOrganizationalUnits);
+    }
+    if (excludeUsers) {
+      res["ExcludeUsers"] = boost::any(*excludeUsers);
+    }
+    if (includeGroups) {
+      res["IncludeGroups"] = boost::any(*includeGroups);
+    }
+    if (includeOrganizationalUnits) {
+      res["IncludeOrganizationalUnits"] = boost::any(*includeOrganizationalUnits);
+    }
+    if (includeUsers) {
+      res["IncludeUsers"] = boost::any(*includeUsers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeGroups") != m.end() && !m["ExcludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeOrganizationalUnits") != m.end() && !m["ExcludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeUsers") != m.end() && !m["ExcludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeUsers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeGroups") != m.end() && !m["IncludeGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeOrganizationalUnits") != m.end() && !m["IncludeOrganizationalUnits"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeOrganizationalUnits"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeOrganizationalUnits"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeOrganizationalUnits = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeUsers") != m.end() && !m["IncludeUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IncludeUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IncludeUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      includeUsers = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyRequestConditionsConfigUsers() = default;
+};
+class UpdateConditionalAccessPolicyRequestConditionsConfig : public Darabonba::Model {
+public:
+  shared_ptr<UpdateConditionalAccessPolicyRequestConditionsConfigApplications> applications{};
+  shared_ptr<UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones> networkZones{};
+  shared_ptr<UpdateConditionalAccessPolicyRequestConditionsConfigUsers> users{};
+
+  UpdateConditionalAccessPolicyRequestConditionsConfig() {}
+
+  explicit UpdateConditionalAccessPolicyRequestConditionsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applications) {
+      res["Applications"] = applications ? boost::any(applications->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkZones) {
+      res["NetworkZones"] = networkZones ? boost::any(networkZones->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (users) {
+      res["Users"] = users ? boost::any(users->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Applications"].type()) {
+        UpdateConditionalAccessPolicyRequestConditionsConfigApplications model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Applications"]));
+        applications = make_shared<UpdateConditionalAccessPolicyRequestConditionsConfigApplications>(model1);
+      }
+    }
+    if (m.find("NetworkZones") != m.end() && !m["NetworkZones"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkZones"].type()) {
+        UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkZones"]));
+        networkZones = make_shared<UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones>(model1);
+      }
+    }
+    if (m.find("Users") != m.end() && !m["Users"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Users"].type()) {
+        UpdateConditionalAccessPolicyRequestConditionsConfigUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Users"]));
+        users = make_shared<UpdateConditionalAccessPolicyRequestConditionsConfigUsers>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyRequestConditionsConfig() = default;
+};
+class UpdateConditionalAccessPolicyRequestDecisionConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> activeSessionReuseStatus{};
+  shared_ptr<string> effect{};
+  shared_ptr<long> mfaAuthenticationIntervalSeconds{};
+  shared_ptr<vector<string>> mfaAuthenticationMethods{};
+  shared_ptr<string> mfaType{};
+
+  UpdateConditionalAccessPolicyRequestDecisionConfig() {}
+
+  explicit UpdateConditionalAccessPolicyRequestDecisionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activeSessionReuseStatus) {
+      res["ActiveSessionReuseStatus"] = boost::any(*activeSessionReuseStatus);
+    }
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (mfaAuthenticationIntervalSeconds) {
+      res["MfaAuthenticationIntervalSeconds"] = boost::any(*mfaAuthenticationIntervalSeconds);
+    }
+    if (mfaAuthenticationMethods) {
+      res["MfaAuthenticationMethods"] = boost::any(*mfaAuthenticationMethods);
+    }
+    if (mfaType) {
+      res["MfaType"] = boost::any(*mfaType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveSessionReuseStatus") != m.end() && !m["ActiveSessionReuseStatus"].empty()) {
+      activeSessionReuseStatus = make_shared<string>(boost::any_cast<string>(m["ActiveSessionReuseStatus"]));
+    }
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("MfaAuthenticationIntervalSeconds") != m.end() && !m["MfaAuthenticationIntervalSeconds"].empty()) {
+      mfaAuthenticationIntervalSeconds = make_shared<long>(boost::any_cast<long>(m["MfaAuthenticationIntervalSeconds"]));
+    }
+    if (m.find("MfaAuthenticationMethods") != m.end() && !m["MfaAuthenticationMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MfaAuthenticationMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MfaAuthenticationMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      mfaAuthenticationMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MfaType") != m.end() && !m["MfaType"].empty()) {
+      mfaType = make_shared<string>(boost::any_cast<string>(m["MfaType"]));
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyRequestDecisionConfig() = default;
+};
+class UpdateConditionalAccessPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> conditionalAccessPolicyName{};
+  shared_ptr<UpdateConditionalAccessPolicyRequestConditionsConfig> conditionsConfig{};
+  shared_ptr<UpdateConditionalAccessPolicyRequestDecisionConfig> decisionConfig{};
+  shared_ptr<string> decisionType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> priority{};
+
+  UpdateConditionalAccessPolicyRequest() {}
+
+  explicit UpdateConditionalAccessPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (conditionalAccessPolicyName) {
+      res["ConditionalAccessPolicyName"] = boost::any(*conditionalAccessPolicyName);
+    }
+    if (conditionsConfig) {
+      res["ConditionsConfig"] = conditionsConfig ? boost::any(conditionsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (decisionConfig) {
+      res["DecisionConfig"] = decisionConfig ? boost::any(decisionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (decisionType) {
+      res["DecisionType"] = boost::any(*decisionType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("ConditionalAccessPolicyName") != m.end() && !m["ConditionalAccessPolicyName"].empty()) {
+      conditionalAccessPolicyName = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyName"]));
+    }
+    if (m.find("ConditionsConfig") != m.end() && !m["ConditionsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConditionsConfig"].type()) {
+        UpdateConditionalAccessPolicyRequestConditionsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConditionsConfig"]));
+        conditionsConfig = make_shared<UpdateConditionalAccessPolicyRequestConditionsConfig>(model1);
+      }
+    }
+    if (m.find("DecisionConfig") != m.end() && !m["DecisionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DecisionConfig"].type()) {
+        UpdateConditionalAccessPolicyRequestDecisionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DecisionConfig"]));
+        decisionConfig = make_shared<UpdateConditionalAccessPolicyRequestDecisionConfig>(model1);
+      }
+    }
+    if (m.find("DecisionType") != m.end() && !m["DecisionType"].empty()) {
+      decisionType = make_shared<string>(boost::any_cast<string>(m["DecisionType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyRequest() = default;
+};
+class UpdateConditionalAccessPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateConditionalAccessPolicyResponseBody() {}
+
+  explicit UpdateConditionalAccessPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyResponseBody() = default;
+};
+class UpdateConditionalAccessPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateConditionalAccessPolicyResponseBody> body{};
+
+  UpdateConditionalAccessPolicyResponse() {}
+
+  explicit UpdateConditionalAccessPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateConditionalAccessPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateConditionalAccessPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyResponse() = default;
+};
+class UpdateConditionalAccessPolicyDescriptionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionalAccessPolicyId{};
+  shared_ptr<string> description{};
+  shared_ptr<string> instanceId{};
+
+  UpdateConditionalAccessPolicyDescriptionRequest() {}
+
+  explicit UpdateConditionalAccessPolicyDescriptionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionalAccessPolicyId) {
+      res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
+      conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyDescriptionRequest() = default;
+};
+class UpdateConditionalAccessPolicyDescriptionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateConditionalAccessPolicyDescriptionResponseBody() {}
+
+  explicit UpdateConditionalAccessPolicyDescriptionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyDescriptionResponseBody() = default;
+};
+class UpdateConditionalAccessPolicyDescriptionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateConditionalAccessPolicyDescriptionResponseBody> body{};
+
+  UpdateConditionalAccessPolicyDescriptionResponse() {}
+
+  explicit UpdateConditionalAccessPolicyDescriptionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateConditionalAccessPolicyDescriptionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateConditionalAccessPolicyDescriptionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateConditionalAccessPolicyDescriptionResponse() = default;
+};
 class UpdateGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupExternalId{};
@@ -28900,6 +32213,8 @@ public:
   CreateApplicationResponse createApplication(shared_ptr<CreateApplicationRequest> request);
   CreateApplicationClientSecretResponse createApplicationClientSecretWithOptions(shared_ptr<CreateApplicationClientSecretRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateApplicationClientSecretResponse createApplicationClientSecret(shared_ptr<CreateApplicationClientSecretRequest> request);
+  CreateConditionalAccessPolicyResponse createConditionalAccessPolicyWithOptions(shared_ptr<CreateConditionalAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateConditionalAccessPolicyResponse createConditionalAccessPolicy(shared_ptr<CreateConditionalAccessPolicyRequest> request);
   CreateDomainResponse createDomainWithOptions(shared_ptr<CreateDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDomainResponse createDomain(shared_ptr<CreateDomainRequest> request);
   CreateDomainProxyTokenResponse createDomainProxyTokenWithOptions(shared_ptr<CreateDomainProxyTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28920,6 +32235,8 @@ public:
   DeleteApplicationResponse deleteApplication(shared_ptr<DeleteApplicationRequest> request);
   DeleteApplicationClientSecretResponse deleteApplicationClientSecretWithOptions(shared_ptr<DeleteApplicationClientSecretRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteApplicationClientSecretResponse deleteApplicationClientSecret(shared_ptr<DeleteApplicationClientSecretRequest> request);
+  DeleteConditionalAccessPolicyResponse deleteConditionalAccessPolicyWithOptions(shared_ptr<DeleteConditionalAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteConditionalAccessPolicyResponse deleteConditionalAccessPolicy(shared_ptr<DeleteConditionalAccessPolicyRequest> request);
   DeleteDomainResponse deleteDomainWithOptions(shared_ptr<DeleteDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDomainResponse deleteDomain(shared_ptr<DeleteDomainRequest> request);
   DeleteDomainProxyTokenResponse deleteDomainProxyTokenWithOptions(shared_ptr<DeleteDomainProxyTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28948,6 +32265,8 @@ public:
   DisableApplicationProvisioningResponse disableApplicationProvisioning(shared_ptr<DisableApplicationProvisioningRequest> request);
   DisableApplicationSsoResponse disableApplicationSsoWithOptions(shared_ptr<DisableApplicationSsoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableApplicationSsoResponse disableApplicationSso(shared_ptr<DisableApplicationSsoRequest> request);
+  DisableConditionalAccessPolicyResponse disableConditionalAccessPolicyWithOptions(shared_ptr<DisableConditionalAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableConditionalAccessPolicyResponse disableConditionalAccessPolicy(shared_ptr<DisableConditionalAccessPolicyRequest> request);
   DisableDomainProxyTokenResponse disableDomainProxyTokenWithOptions(shared_ptr<DisableDomainProxyTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableDomainProxyTokenResponse disableDomainProxyToken(shared_ptr<DisableDomainProxyTokenRequest> request);
   DisableIdentityProviderUdPullResponse disableIdentityProviderUdPullWithOptions(shared_ptr<DisableIdentityProviderUdPullRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28966,6 +32285,8 @@ public:
   EnableApplicationProvisioningResponse enableApplicationProvisioning(shared_ptr<EnableApplicationProvisioningRequest> request);
   EnableApplicationSsoResponse enableApplicationSsoWithOptions(shared_ptr<EnableApplicationSsoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableApplicationSsoResponse enableApplicationSso(shared_ptr<EnableApplicationSsoRequest> request);
+  EnableConditionalAccessPolicyResponse enableConditionalAccessPolicyWithOptions(shared_ptr<EnableConditionalAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableConditionalAccessPolicyResponse enableConditionalAccessPolicy(shared_ptr<EnableConditionalAccessPolicyRequest> request);
   EnableDomainProxyTokenResponse enableDomainProxyTokenWithOptions(shared_ptr<EnableDomainProxyTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableDomainProxyTokenResponse enableDomainProxyToken(shared_ptr<EnableDomainProxyTokenRequest> request);
   EnableIdentityProviderUdPullResponse enableIdentityProviderUdPullWithOptions(shared_ptr<EnableIdentityProviderUdPullRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28984,6 +32305,8 @@ public:
   GetApplicationProvisioningScopeResponse getApplicationProvisioningScope(shared_ptr<GetApplicationProvisioningScopeRequest> request);
   GetApplicationSsoConfigResponse getApplicationSsoConfigWithOptions(shared_ptr<GetApplicationSsoConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetApplicationSsoConfigResponse getApplicationSsoConfig(shared_ptr<GetApplicationSsoConfigRequest> request);
+  GetConditionalAccessPolicyResponse getConditionalAccessPolicyWithOptions(shared_ptr<GetConditionalAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetConditionalAccessPolicyResponse getConditionalAccessPolicy(shared_ptr<GetConditionalAccessPolicyRequest> request);
   GetDomainResponse getDomainWithOptions(shared_ptr<GetDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDomainResponse getDomain(shared_ptr<GetDomainRequest> request);
   GetDomainDnsChallengeResponse getDomainDnsChallengeWithOptions(shared_ptr<GetDomainDnsChallengeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -29026,6 +32349,10 @@ public:
   ListApplicationsForOrganizationalUnitResponse listApplicationsForOrganizationalUnit(shared_ptr<ListApplicationsForOrganizationalUnitRequest> request);
   ListApplicationsForUserResponse listApplicationsForUserWithOptions(shared_ptr<ListApplicationsForUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListApplicationsForUserResponse listApplicationsForUser(shared_ptr<ListApplicationsForUserRequest> request);
+  ListConditionalAccessPoliciesResponse listConditionalAccessPoliciesWithOptions(shared_ptr<ListConditionalAccessPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListConditionalAccessPoliciesResponse listConditionalAccessPolicies(shared_ptr<ListConditionalAccessPoliciesRequest> request);
+  ListConditionalAccessPoliciesForNetworkZoneResponse listConditionalAccessPoliciesForNetworkZoneWithOptions(shared_ptr<ListConditionalAccessPoliciesForNetworkZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListConditionalAccessPoliciesForNetworkZoneResponse listConditionalAccessPoliciesForNetworkZone(shared_ptr<ListConditionalAccessPoliciesForNetworkZoneRequest> request);
   ListDomainProxyTokensResponse listDomainProxyTokensWithOptions(shared_ptr<ListDomainProxyTokensRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDomainProxyTokensResponse listDomainProxyTokens(shared_ptr<ListDomainProxyTokensRequest> request);
   ListDomainsResponse listDomainsWithOptions(shared_ptr<ListDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -29114,6 +32441,10 @@ public:
   UpdateApplicationAuthorizationTypeResponse updateApplicationAuthorizationType(shared_ptr<UpdateApplicationAuthorizationTypeRequest> request);
   UpdateApplicationDescriptionResponse updateApplicationDescriptionWithOptions(shared_ptr<UpdateApplicationDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateApplicationDescriptionResponse updateApplicationDescription(shared_ptr<UpdateApplicationDescriptionRequest> request);
+  UpdateConditionalAccessPolicyResponse updateConditionalAccessPolicyWithOptions(shared_ptr<UpdateConditionalAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateConditionalAccessPolicyResponse updateConditionalAccessPolicy(shared_ptr<UpdateConditionalAccessPolicyRequest> request);
+  UpdateConditionalAccessPolicyDescriptionResponse updateConditionalAccessPolicyDescriptionWithOptions(shared_ptr<UpdateConditionalAccessPolicyDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateConditionalAccessPolicyDescriptionResponse updateConditionalAccessPolicyDescription(shared_ptr<UpdateConditionalAccessPolicyDescriptionRequest> request);
   UpdateGroupResponse updateGroupWithOptions(shared_ptr<UpdateGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGroupResponse updateGroup(shared_ptr<UpdateGroupRequest> request);
   UpdateGroupDescriptionResponse updateGroupDescriptionWithOptions(shared_ptr<UpdateGroupDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
