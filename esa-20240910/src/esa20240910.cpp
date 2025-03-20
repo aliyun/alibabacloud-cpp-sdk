@@ -1780,6 +1780,9 @@ CreateOriginRuleResponse Alibabacloud_ESA20240910::Client::createOriginRuleWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->range)) {
     query->insert(pair<string, string>("Range", *request->range));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rangeChunkSize)) {
+    query->insert(pair<string, string>("RangeChunkSize", *request->rangeChunkSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->rule)) {
     query->insert(pair<string, string>("Rule", *request->rule));
   }
@@ -10297,6 +10300,9 @@ UpdateOriginRuleResponse Alibabacloud_ESA20240910::Client::updateOriginRuleWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->range)) {
     query->insert(pair<string, string>("Range", *request->range));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rangeChunkSize)) {
+    query->insert(pair<string, string>("RangeChunkSize", *request->rangeChunkSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rule)) {
     query->insert(pair<string, string>("Rule", *request->rule));

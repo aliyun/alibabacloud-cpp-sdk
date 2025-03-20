@@ -10162,6 +10162,7 @@ public:
   shared_ptr<string> originSni{};
   shared_ptr<string> originVerify{};
   shared_ptr<string> range{};
+  shared_ptr<string> rangeChunkSize{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
   shared_ptr<string> ruleName{};
@@ -10204,6 +10205,9 @@ public:
     }
     if (range) {
       res["Range"] = boost::any(*range);
+    }
+    if (rangeChunkSize) {
+      res["RangeChunkSize"] = boost::any(*rangeChunkSize);
     }
     if (rule) {
       res["Rule"] = boost::any(*rule);
@@ -10250,6 +10254,9 @@ public:
     }
     if (m.find("Range") != m.end() && !m["Range"].empty()) {
       range = make_shared<string>(boost::any_cast<string>(m["Range"]));
+    }
+    if (m.find("RangeChunkSize") != m.end() && !m["RangeChunkSize"].empty()) {
+      rangeChunkSize = make_shared<string>(boost::any_cast<string>(m["RangeChunkSize"]));
     }
     if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
       rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
@@ -31010,6 +31017,7 @@ public:
   shared_ptr<string> originSni{};
   shared_ptr<string> originVerify{};
   shared_ptr<string> range{};
+  shared_ptr<string> rangeChunkSize{};
   shared_ptr<string> requestId{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
@@ -31059,6 +31067,9 @@ public:
     }
     if (range) {
       res["Range"] = boost::any(*range);
+    }
+    if (rangeChunkSize) {
+      res["RangeChunkSize"] = boost::any(*rangeChunkSize);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -31114,6 +31125,9 @@ public:
     }
     if (m.find("Range") != m.end() && !m["Range"].empty()) {
       range = make_shared<string>(boost::any_cast<string>(m["Range"]));
+    }
+    if (m.find("RangeChunkSize") != m.end() && !m["RangeChunkSize"].empty()) {
+      rangeChunkSize = make_shared<string>(boost::any_cast<string>(m["RangeChunkSize"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -45307,6 +45321,7 @@ public:
   shared_ptr<string> originSni{};
   shared_ptr<string> originVerify{};
   shared_ptr<string> range{};
+  shared_ptr<string> rangeChunkSize{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
   shared_ptr<string> ruleName{};
@@ -45355,6 +45370,9 @@ public:
     }
     if (range) {
       res["Range"] = boost::any(*range);
+    }
+    if (rangeChunkSize) {
+      res["RangeChunkSize"] = boost::any(*rangeChunkSize);
     }
     if (rule) {
       res["Rule"] = boost::any(*rule);
@@ -45407,6 +45425,9 @@ public:
     }
     if (m.find("Range") != m.end() && !m["Range"].empty()) {
       range = make_shared<string>(boost::any_cast<string>(m["Range"]));
+    }
+    if (m.find("RangeChunkSize") != m.end() && !m["RangeChunkSize"].empty()) {
+      rangeChunkSize = make_shared<string>(boost::any_cast<string>(m["RangeChunkSize"]));
     }
     if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
       rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
@@ -59687,6 +59708,7 @@ public:
   shared_ptr<string> originSni{};
   shared_ptr<string> originVerify{};
   shared_ptr<string> range{};
+  shared_ptr<string> rangeChunkSize{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
   shared_ptr<string> ruleName{};
@@ -59731,6 +59753,9 @@ public:
     }
     if (range) {
       res["Range"] = boost::any(*range);
+    }
+    if (rangeChunkSize) {
+      res["RangeChunkSize"] = boost::any(*rangeChunkSize);
     }
     if (rule) {
       res["Rule"] = boost::any(*rule);
@@ -59777,6 +59802,9 @@ public:
     }
     if (m.find("Range") != m.end() && !m["Range"].empty()) {
       range = make_shared<string>(boost::any_cast<string>(m["Range"]));
+    }
+    if (m.find("RangeChunkSize") != m.end() && !m["RangeChunkSize"].empty()) {
+      rangeChunkSize = make_shared<string>(boost::any_cast<string>(m["RangeChunkSize"]));
     }
     if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
       rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
