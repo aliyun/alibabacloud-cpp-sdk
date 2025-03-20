@@ -5722,6 +5722,9 @@ RecoverRenderingDataPackageResponse Alibabacloud_Vs20181212::Client::recoverRend
   if (!Darabonba_Util::Client::isUnset<string>(request->dataPackageId)) {
     query->insert(pair<string, string>("DataPackageId", *request->dataPackageId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loadMode)) {
+    query->insert(pair<string, string>("LoadMode", *request->loadMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->renderingInstanceId)) {
     query->insert(pair<string, string>("RenderingInstanceId", *request->renderingInstanceId));
   }

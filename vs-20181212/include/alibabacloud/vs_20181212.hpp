@@ -27341,6 +27341,7 @@ public:
 class RecoverRenderingDataPackageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dataPackageId{};
+  shared_ptr<string> loadMode{};
   shared_ptr<string> renderingInstanceId{};
 
   RecoverRenderingDataPackageRequest() {}
@@ -27356,6 +27357,9 @@ public:
     if (dataPackageId) {
       res["DataPackageId"] = boost::any(*dataPackageId);
     }
+    if (loadMode) {
+      res["LoadMode"] = boost::any(*loadMode);
+    }
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
     }
@@ -27365,6 +27369,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DataPackageId") != m.end() && !m["DataPackageId"].empty()) {
       dataPackageId = make_shared<string>(boost::any_cast<string>(m["DataPackageId"]));
+    }
+    if (m.find("LoadMode") != m.end() && !m["LoadMode"].empty()) {
+      loadMode = make_shared<string>(boost::any_cast<string>(m["LoadMode"]));
     }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
