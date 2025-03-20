@@ -10913,6 +10913,7 @@ public:
   shared_ptr<string> aiCreatingTime{};
   shared_ptr<string> aiType{};
   shared_ptr<string> architecture{};
+  shared_ptr<string> autoUpgradeMinorVersion{};
   shared_ptr<long> blktagTotal{};
   shared_ptr<long> blktagUsed{};
   shared_ptr<string> burstingEnabled{};
@@ -10994,6 +10995,9 @@ public:
     }
     if (architecture) {
       res["Architecture"] = boost::any(*architecture);
+    }
+    if (autoUpgradeMinorVersion) {
+      res["AutoUpgradeMinorVersion"] = boost::any(*autoUpgradeMinorVersion);
     }
     if (blktagTotal) {
       res["BlktagTotal"] = boost::any(*blktagTotal);
@@ -11201,6 +11205,9 @@ public:
     }
     if (m.find("Architecture") != m.end() && !m["Architecture"].empty()) {
       architecture = make_shared<string>(boost::any_cast<string>(m["Architecture"]));
+    }
+    if (m.find("AutoUpgradeMinorVersion") != m.end() && !m["AutoUpgradeMinorVersion"].empty()) {
+      autoUpgradeMinorVersion = make_shared<string>(boost::any_cast<string>(m["AutoUpgradeMinorVersion"]));
     }
     if (m.find("BlktagTotal") != m.end() && !m["BlktagTotal"].empty()) {
       blktagTotal = make_shared<long>(boost::any_cast<long>(m["BlktagTotal"]));
