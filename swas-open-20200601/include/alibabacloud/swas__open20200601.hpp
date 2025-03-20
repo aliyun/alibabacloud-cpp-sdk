@@ -12646,6 +12646,7 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> planType{};
   shared_ptr<string> publicIpAddresses{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -12676,6 +12677,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (planType) {
+      res["PlanType"] = boost::any(*planType);
     }
     if (publicIpAddresses) {
       res["PublicIpAddresses"] = boost::any(*publicIpAddresses);
@@ -12714,6 +12718,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PlanType") != m.end() && !m["PlanType"].empty()) {
+      planType = make_shared<string>(boost::any_cast<string>(m["PlanType"]));
     }
     if (m.find("PublicIpAddresses") != m.end() && !m["PublicIpAddresses"].empty()) {
       publicIpAddresses = make_shared<string>(boost::any_cast<string>(m["PublicIpAddresses"]));
@@ -13140,6 +13147,7 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesNetworkAttributes>> networkAttributes{};
   shared_ptr<string> planId{};
+  shared_ptr<string> planType{};
   shared_ptr<string> publicIpAddress{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -13213,6 +13221,9 @@ public:
     }
     if (planId) {
       res["PlanId"] = boost::any(*planId);
+    }
+    if (planType) {
+      res["PlanType"] = boost::any(*planType);
     }
     if (publicIpAddress) {
       res["PublicIpAddress"] = boost::any(*publicIpAddress);
@@ -13314,6 +13325,9 @@ public:
     }
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
       planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
+    }
+    if (m.find("PlanType") != m.end() && !m["PlanType"].empty()) {
+      planType = make_shared<string>(boost::any_cast<string>(m["PlanType"]));
     }
     if (m.find("PublicIpAddress") != m.end() && !m["PublicIpAddress"].empty()) {
       publicIpAddress = make_shared<string>(boost::any_cast<string>(m["PublicIpAddress"]));
@@ -13939,6 +13953,49 @@ public:
 
   virtual ~ListPlansRequest() = default;
 };
+class ListPlansResponseBodyPlansTags : public Darabonba::Model {
+public:
+  shared_ptr<string> cnTitle{};
+  shared_ptr<string> color{};
+  shared_ptr<string> enTitle{};
+
+  ListPlansResponseBodyPlansTags() {}
+
+  explicit ListPlansResponseBodyPlansTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cnTitle) {
+      res["CnTitle"] = boost::any(*cnTitle);
+    }
+    if (color) {
+      res["Color"] = boost::any(*color);
+    }
+    if (enTitle) {
+      res["EnTitle"] = boost::any(*enTitle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CnTitle") != m.end() && !m["CnTitle"].empty()) {
+      cnTitle = make_shared<string>(boost::any_cast<string>(m["CnTitle"]));
+    }
+    if (m.find("Color") != m.end() && !m["Color"].empty()) {
+      color = make_shared<string>(boost::any_cast<string>(m["Color"]));
+    }
+    if (m.find("EnTitle") != m.end() && !m["EnTitle"].empty()) {
+      enTitle = make_shared<string>(boost::any_cast<string>(m["EnTitle"]));
+    }
+  }
+
+
+  virtual ~ListPlansResponseBodyPlansTags() = default;
+};
 class ListPlansResponseBodyPlans : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -13952,6 +14009,7 @@ public:
   shared_ptr<string> planId{};
   shared_ptr<string> planType{};
   shared_ptr<string> supportPlatform{};
+  shared_ptr<vector<ListPlansResponseBodyPlansTags>> tags{};
 
   ListPlansResponseBodyPlans() {}
 
@@ -13996,6 +14054,13 @@ public:
     if (supportPlatform) {
       res["SupportPlatform"] = boost::any(*supportPlatform);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -14032,6 +14097,19 @@ public:
     }
     if (m.find("SupportPlatform") != m.end() && !m["SupportPlatform"].empty()) {
       supportPlatform = make_shared<string>(boost::any_cast<string>(m["SupportPlatform"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListPlansResponseBodyPlansTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPlansResponseBodyPlansTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListPlansResponseBodyPlansTags>>(expect1);
+      }
     }
   }
 

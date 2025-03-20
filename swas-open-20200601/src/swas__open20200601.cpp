@@ -2686,6 +2686,9 @@ ListInstancesResponse Alibabacloud_SWAS-OPEN20200601::Client::listInstancesWithO
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planType)) {
+    query->insert(pair<string, string>("PlanType", *request->planType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->publicIpAddresses)) {
     query->insert(pair<string, string>("PublicIpAddresses", *request->publicIpAddresses));
   }
