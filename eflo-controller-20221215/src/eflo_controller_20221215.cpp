@@ -348,6 +348,53 @@ CreateNetTestTaskResponse Alibabacloud_Eflo-controller20221215::Client::createNe
   return createNetTestTaskWithOptions(request, runtime);
 }
 
+CreateNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::createNodeGroupWithOptions(shared_ptr<CreateNodeGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateNodeGroupShrinkRequest> request = make_shared<CreateNodeGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateNodeGroupRequestNodeGroup>(tmpReq->nodeGroup)) {
+    request->nodeGroupShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nodeGroup, make_shared<string>("NodeGroup"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->nodeUnit)) {
+    request->nodeUnitShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nodeUnit, make_shared<string>("NodeUnit"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupShrink)) {
+    body->insert(pair<string, string>("NodeGroup", *request->nodeGroupShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeUnitShrink)) {
+    body->insert(pair<string, string>("NodeUnit", *request->nodeUnitShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateNodeGroup"))},
+    {"version", boost::any(string("2022-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateNodeGroupResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateNodeGroupResponse(execute(params, req, runtime));
+  }
+}
+
+CreateNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::createNodeGroup(shared_ptr<CreateNodeGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createNodeGroupWithOptions(request, runtime);
+}
+
 CreateSessionResponse Alibabacloud_Eflo-controller20221215::Client::createSessionWithOptions(shared_ptr<CreateSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -420,6 +467,42 @@ DeleteClusterResponse Alibabacloud_Eflo-controller20221215::Client::deleteCluste
   return deleteClusterWithOptions(request, runtime);
 }
 
+DeleteNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::deleteNodeGroupWithOptions(shared_ptr<DeleteNodeGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupId)) {
+    body->insert(pair<string, string>("NodeGroupId", *request->nodeGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteNodeGroup"))},
+    {"version", boost::any(string("2022-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteNodeGroupResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteNodeGroupResponse(execute(params, req, runtime));
+  }
+}
+
+DeleteNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::deleteNodeGroup(shared_ptr<DeleteNodeGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteNodeGroupWithOptions(request, runtime);
+}
+
 DescribeClusterResponse Alibabacloud_Eflo-controller20221215::Client::describeClusterWithOptions(shared_ptr<DescribeClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -451,6 +534,39 @@ DescribeClusterResponse Alibabacloud_Eflo-controller20221215::Client::describeCl
 DescribeClusterResponse Alibabacloud_Eflo-controller20221215::Client::describeCluster(shared_ptr<DescribeClusterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeClusterWithOptions(request, runtime);
+}
+
+DescribeDiagnosticResultResponse Alibabacloud_Eflo-controller20221215::Client::describeDiagnosticResultWithOptions(shared_ptr<DescribeDiagnosticResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->diagnosticId)) {
+    body->insert(pair<string, string>("DiagnosticId", *request->diagnosticId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDiagnosticResult"))},
+    {"version", boost::any(string("2022-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeDiagnosticResultResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeDiagnosticResultResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeDiagnosticResultResponse Alibabacloud_Eflo-controller20221215::Client::describeDiagnosticResult(shared_ptr<DescribeDiagnosticResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDiagnosticResultWithOptions(request, runtime);
 }
 
 DescribeInvocationsResponse Alibabacloud_Eflo-controller20221215::Client::describeInvocationsWithOptions(shared_ptr<DescribeInvocationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1644,5 +1760,41 @@ UntagResourcesResponse Alibabacloud_Eflo-controller20221215::Client::untagResour
 UntagResourcesResponse Alibabacloud_Eflo-controller20221215::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return untagResourcesWithOptions(request, runtime);
+}
+
+UpdateNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::updateNodeGroupWithOptions(shared_ptr<UpdateNodeGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->newNodeGroupName)) {
+    body->insert(pair<string, string>("NewNodeGroupName", *request->newNodeGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupId)) {
+    body->insert(pair<string, string>("NodeGroupId", *request->nodeGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateNodeGroup"))},
+    {"version", boost::any(string("2022-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateNodeGroupResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateNodeGroupResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::updateNodeGroup(shared_ptr<UpdateNodeGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateNodeGroupWithOptions(request, runtime);
 }
 
