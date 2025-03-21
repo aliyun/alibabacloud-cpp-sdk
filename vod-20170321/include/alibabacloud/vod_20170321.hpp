@@ -22389,6 +22389,208 @@ public:
 
   virtual ~GetCategoriesResponse() = default;
 };
+class GetDailyPlayRegionStatisRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> date{};
+  shared_ptr<string> mediaRegion{};
+
+  GetDailyPlayRegionStatisRequest() {}
+
+  explicit GetDailyPlayRegionStatisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (date) {
+      res["Date"] = boost::any(*date);
+    }
+    if (mediaRegion) {
+      res["MediaRegion"] = boost::any(*mediaRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Date") != m.end() && !m["Date"].empty()) {
+      date = make_shared<string>(boost::any_cast<string>(m["Date"]));
+    }
+    if (m.find("MediaRegion") != m.end() && !m["MediaRegion"].empty()) {
+      mediaRegion = make_shared<string>(boost::any_cast<string>(m["MediaRegion"]));
+    }
+  }
+
+
+  virtual ~GetDailyPlayRegionStatisRequest() = default;
+};
+class GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList : public Darabonba::Model {
+public:
+  shared_ptr<string> date{};
+  shared_ptr<string> fileUrl{};
+
+  GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList() {}
+
+  explicit GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (date) {
+      res["Date"] = boost::any(*date);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Date") != m.end() && !m["Date"].empty()) {
+      date = make_shared<string>(boost::any_cast<string>(m["Date"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList() = default;
+};
+class GetDailyPlayRegionStatisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList>> dailyPlayRegionStatisList{};
+  shared_ptr<vector<string>> emptyDates{};
+  shared_ptr<vector<string>> failDates{};
+  shared_ptr<string> requestId{};
+
+  GetDailyPlayRegionStatisResponseBody() {}
+
+  explicit GetDailyPlayRegionStatisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dailyPlayRegionStatisList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dailyPlayRegionStatisList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DailyPlayRegionStatisList"] = boost::any(temp1);
+    }
+    if (emptyDates) {
+      res["EmptyDates"] = boost::any(*emptyDates);
+    }
+    if (failDates) {
+      res["FailDates"] = boost::any(*failDates);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DailyPlayRegionStatisList") != m.end() && !m["DailyPlayRegionStatisList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DailyPlayRegionStatisList"].type()) {
+        vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DailyPlayRegionStatisList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dailyPlayRegionStatisList = make_shared<vector<GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList>>(expect1);
+      }
+    }
+    if (m.find("EmptyDates") != m.end() && !m["EmptyDates"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EmptyDates"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EmptyDates"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      emptyDates = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("FailDates") != m.end() && !m["FailDates"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailDates"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailDates"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failDates = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetDailyPlayRegionStatisResponseBody() = default;
+};
+class GetDailyPlayRegionStatisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDailyPlayRegionStatisResponseBody> body{};
+
+  GetDailyPlayRegionStatisResponse() {}
+
+  explicit GetDailyPlayRegionStatisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDailyPlayRegionStatisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDailyPlayRegionStatisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDailyPlayRegionStatisResponse() = default;
+};
 class GetDefaultAITemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> templateType{};
@@ -45147,6 +45349,8 @@ public:
   GetAuditHistoryResponse getAuditHistory(shared_ptr<GetAuditHistoryRequest> request);
   GetCategoriesResponse getCategoriesWithOptions(shared_ptr<GetCategoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCategoriesResponse getCategories(shared_ptr<GetCategoriesRequest> request);
+  GetDailyPlayRegionStatisResponse getDailyPlayRegionStatisWithOptions(shared_ptr<GetDailyPlayRegionStatisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDailyPlayRegionStatisResponse getDailyPlayRegionStatis(shared_ptr<GetDailyPlayRegionStatisRequest> request);
   GetDefaultAITemplateResponse getDefaultAITemplateWithOptions(shared_ptr<GetDefaultAITemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDefaultAITemplateResponse getDefaultAITemplate(shared_ptr<GetDefaultAITemplateRequest> request);
   GetDigitalWatermarkExtractResultResponse getDigitalWatermarkExtractResultWithOptions(shared_ptr<GetDigitalWatermarkExtractResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

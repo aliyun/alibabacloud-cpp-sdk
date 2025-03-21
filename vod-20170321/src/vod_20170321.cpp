@@ -3991,6 +3991,42 @@ GetCategoriesResponse Alibabacloud_Vod20170321::Client::getCategories(shared_ptr
   return getCategoriesWithOptions(request, runtime);
 }
 
+GetDailyPlayRegionStatisResponse Alibabacloud_Vod20170321::Client::getDailyPlayRegionStatisWithOptions(shared_ptr<GetDailyPlayRegionStatisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->date)) {
+    query->insert(pair<string, string>("Date", *request->date));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaRegion)) {
+    query->insert(pair<string, string>("MediaRegion", *request->mediaRegion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDailyPlayRegionStatis"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetDailyPlayRegionStatisResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetDailyPlayRegionStatisResponse(execute(params, req, runtime));
+  }
+}
+
+GetDailyPlayRegionStatisResponse Alibabacloud_Vod20170321::Client::getDailyPlayRegionStatis(shared_ptr<GetDailyPlayRegionStatisRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDailyPlayRegionStatisWithOptions(request, runtime);
+}
+
 GetDefaultAITemplateResponse Alibabacloud_Vod20170321::Client::getDefaultAITemplateWithOptions(shared_ptr<GetDefaultAITemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
