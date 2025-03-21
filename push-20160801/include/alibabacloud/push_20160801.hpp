@@ -1768,6 +1768,13 @@ public:
   shared_ptr<bool> iOSBadgeAutoIncrement{};
   shared_ptr<string> iOSExtParameters{};
   shared_ptr<string> iOSInterruptionLevel{};
+  shared_ptr<string> iOSLiveActivityAttributes{};
+  shared_ptr<string> iOSLiveActivityAttributesType{};
+  shared_ptr<string> iOSLiveActivityContentState{};
+  shared_ptr<long> iOSLiveActivityDismissalDate{};
+  shared_ptr<string> iOSLiveActivityEvent{};
+  shared_ptr<string> iOSLiveActivityId{};
+  shared_ptr<long> iOSLiveActivityStaleDate{};
   shared_ptr<string> iOSMusic{};
   shared_ptr<bool> iOSMutableContent{};
   shared_ptr<string> iOSNotificationCategory{};
@@ -2034,6 +2041,27 @@ public:
     }
     if (iOSInterruptionLevel) {
       res["iOSInterruptionLevel"] = boost::any(*iOSInterruptionLevel);
+    }
+    if (iOSLiveActivityAttributes) {
+      res["iOSLiveActivityAttributes"] = boost::any(*iOSLiveActivityAttributes);
+    }
+    if (iOSLiveActivityAttributesType) {
+      res["iOSLiveActivityAttributesType"] = boost::any(*iOSLiveActivityAttributesType);
+    }
+    if (iOSLiveActivityContentState) {
+      res["iOSLiveActivityContentState"] = boost::any(*iOSLiveActivityContentState);
+    }
+    if (iOSLiveActivityDismissalDate) {
+      res["iOSLiveActivityDismissalDate"] = boost::any(*iOSLiveActivityDismissalDate);
+    }
+    if (iOSLiveActivityEvent) {
+      res["iOSLiveActivityEvent"] = boost::any(*iOSLiveActivityEvent);
+    }
+    if (iOSLiveActivityId) {
+      res["iOSLiveActivityId"] = boost::any(*iOSLiveActivityId);
+    }
+    if (iOSLiveActivityStaleDate) {
+      res["iOSLiveActivityStaleDate"] = boost::any(*iOSLiveActivityStaleDate);
     }
     if (iOSMusic) {
       res["iOSMusic"] = boost::any(*iOSMusic);
@@ -2314,6 +2342,27 @@ public:
     }
     if (m.find("iOSInterruptionLevel") != m.end() && !m["iOSInterruptionLevel"].empty()) {
       iOSInterruptionLevel = make_shared<string>(boost::any_cast<string>(m["iOSInterruptionLevel"]));
+    }
+    if (m.find("iOSLiveActivityAttributes") != m.end() && !m["iOSLiveActivityAttributes"].empty()) {
+      iOSLiveActivityAttributes = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityAttributes"]));
+    }
+    if (m.find("iOSLiveActivityAttributesType") != m.end() && !m["iOSLiveActivityAttributesType"].empty()) {
+      iOSLiveActivityAttributesType = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityAttributesType"]));
+    }
+    if (m.find("iOSLiveActivityContentState") != m.end() && !m["iOSLiveActivityContentState"].empty()) {
+      iOSLiveActivityContentState = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityContentState"]));
+    }
+    if (m.find("iOSLiveActivityDismissalDate") != m.end() && !m["iOSLiveActivityDismissalDate"].empty()) {
+      iOSLiveActivityDismissalDate = make_shared<long>(boost::any_cast<long>(m["iOSLiveActivityDismissalDate"]));
+    }
+    if (m.find("iOSLiveActivityEvent") != m.end() && !m["iOSLiveActivityEvent"].empty()) {
+      iOSLiveActivityEvent = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityEvent"]));
+    }
+    if (m.find("iOSLiveActivityId") != m.end() && !m["iOSLiveActivityId"].empty()) {
+      iOSLiveActivityId = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityId"]));
+    }
+    if (m.find("iOSLiveActivityStaleDate") != m.end() && !m["iOSLiveActivityStaleDate"].empty()) {
+      iOSLiveActivityStaleDate = make_shared<long>(boost::any_cast<long>(m["iOSLiveActivityStaleDate"]));
     }
     if (m.find("iOSMusic") != m.end() && !m["iOSMusic"].empty()) {
       iOSMusic = make_shared<string>(boost::any_cast<string>(m["iOSMusic"]));
@@ -2626,6 +2675,13 @@ public:
   shared_ptr<bool> iOSBadgeAutoIncrement{};
   shared_ptr<string> iOSExtParameters{};
   shared_ptr<string> iOSInterruptionLevel{};
+  shared_ptr<string> iOSLiveActivityAttributes{};
+  shared_ptr<string> iOSLiveActivityAttributesType{};
+  shared_ptr<string> iOSLiveActivityContentState{};
+  shared_ptr<long> iOSLiveActivityDismissalDate{};
+  shared_ptr<string> iOSLiveActivityEvent{};
+  shared_ptr<string> iOSLiveActivityId{};
+  shared_ptr<long> iOSLiveActivityStaleDate{};
   shared_ptr<string> iOSMusic{};
   shared_ptr<bool> iOSMutableContent{};
   shared_ptr<string> iOSNotificationCategory{};
@@ -2913,6 +2969,27 @@ public:
     }
     if (iOSInterruptionLevel) {
       res["iOSInterruptionLevel"] = boost::any(*iOSInterruptionLevel);
+    }
+    if (iOSLiveActivityAttributes) {
+      res["iOSLiveActivityAttributes"] = boost::any(*iOSLiveActivityAttributes);
+    }
+    if (iOSLiveActivityAttributesType) {
+      res["iOSLiveActivityAttributesType"] = boost::any(*iOSLiveActivityAttributesType);
+    }
+    if (iOSLiveActivityContentState) {
+      res["iOSLiveActivityContentState"] = boost::any(*iOSLiveActivityContentState);
+    }
+    if (iOSLiveActivityDismissalDate) {
+      res["iOSLiveActivityDismissalDate"] = boost::any(*iOSLiveActivityDismissalDate);
+    }
+    if (iOSLiveActivityEvent) {
+      res["iOSLiveActivityEvent"] = boost::any(*iOSLiveActivityEvent);
+    }
+    if (iOSLiveActivityId) {
+      res["iOSLiveActivityId"] = boost::any(*iOSLiveActivityId);
+    }
+    if (iOSLiveActivityStaleDate) {
+      res["iOSLiveActivityStaleDate"] = boost::any(*iOSLiveActivityStaleDate);
     }
     if (iOSMusic) {
       res["iOSMusic"] = boost::any(*iOSMusic);
@@ -3214,6 +3291,27 @@ public:
     }
     if (m.find("iOSInterruptionLevel") != m.end() && !m["iOSInterruptionLevel"].empty()) {
       iOSInterruptionLevel = make_shared<string>(boost::any_cast<string>(m["iOSInterruptionLevel"]));
+    }
+    if (m.find("iOSLiveActivityAttributes") != m.end() && !m["iOSLiveActivityAttributes"].empty()) {
+      iOSLiveActivityAttributes = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityAttributes"]));
+    }
+    if (m.find("iOSLiveActivityAttributesType") != m.end() && !m["iOSLiveActivityAttributesType"].empty()) {
+      iOSLiveActivityAttributesType = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityAttributesType"]));
+    }
+    if (m.find("iOSLiveActivityContentState") != m.end() && !m["iOSLiveActivityContentState"].empty()) {
+      iOSLiveActivityContentState = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityContentState"]));
+    }
+    if (m.find("iOSLiveActivityDismissalDate") != m.end() && !m["iOSLiveActivityDismissalDate"].empty()) {
+      iOSLiveActivityDismissalDate = make_shared<long>(boost::any_cast<long>(m["iOSLiveActivityDismissalDate"]));
+    }
+    if (m.find("iOSLiveActivityEvent") != m.end() && !m["iOSLiveActivityEvent"].empty()) {
+      iOSLiveActivityEvent = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityEvent"]));
+    }
+    if (m.find("iOSLiveActivityId") != m.end() && !m["iOSLiveActivityId"].empty()) {
+      iOSLiveActivityId = make_shared<string>(boost::any_cast<string>(m["iOSLiveActivityId"]));
+    }
+    if (m.find("iOSLiveActivityStaleDate") != m.end() && !m["iOSLiveActivityStaleDate"].empty()) {
+      iOSLiveActivityStaleDate = make_shared<long>(boost::any_cast<long>(m["iOSLiveActivityStaleDate"]));
     }
     if (m.find("iOSMusic") != m.end() && !m["iOSMusic"].empty()) {
       iOSMusic = make_shared<string>(boost::any_cast<string>(m["iOSMusic"]));

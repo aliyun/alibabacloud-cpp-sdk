@@ -803,6 +803,27 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<string>(request->iOSInterruptionLevel)) {
     query->insert(pair<string, string>("iOSInterruptionLevel", *request->iOSInterruptionLevel));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iOSLiveActivityAttributes)) {
+    query->insert(pair<string, string>("iOSLiveActivityAttributes", *request->iOSLiveActivityAttributes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iOSLiveActivityAttributesType)) {
+    query->insert(pair<string, string>("iOSLiveActivityAttributesType", *request->iOSLiveActivityAttributesType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iOSLiveActivityContentState)) {
+    query->insert(pair<string, string>("iOSLiveActivityContentState", *request->iOSLiveActivityContentState));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->iOSLiveActivityDismissalDate)) {
+    query->insert(pair<string, long>("iOSLiveActivityDismissalDate", *request->iOSLiveActivityDismissalDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iOSLiveActivityEvent)) {
+    query->insert(pair<string, string>("iOSLiveActivityEvent", *request->iOSLiveActivityEvent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iOSLiveActivityId)) {
+    query->insert(pair<string, string>("iOSLiveActivityId", *request->iOSLiveActivityId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->iOSLiveActivityStaleDate)) {
+    query->insert(pair<string, long>("iOSLiveActivityStaleDate", *request->iOSLiveActivityStaleDate));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->iOSMusic)) {
     query->insert(pair<string, string>("iOSMusic", *request->iOSMusic));
   }
