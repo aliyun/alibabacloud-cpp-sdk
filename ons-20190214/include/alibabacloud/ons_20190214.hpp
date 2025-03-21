@@ -721,6 +721,7 @@ public:
 class OnsConsumerGetConnectionResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<OnsConsumerGetConnectionResponseBodyDataConnectionList> connectionList{};
+  shared_ptr<string> messageModel{};
 
   OnsConsumerGetConnectionResponseBodyData() {}
 
@@ -735,6 +736,9 @@ public:
     if (connectionList) {
       res["ConnectionList"] = connectionList ? boost::any(connectionList->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (messageModel) {
+      res["MessageModel"] = boost::any(*messageModel);
+    }
     return res;
   }
 
@@ -745,6 +749,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConnectionList"]));
         connectionList = make_shared<OnsConsumerGetConnectionResponseBodyDataConnectionList>(model1);
       }
+    }
+    if (m.find("MessageModel") != m.end() && !m["MessageModel"].empty()) {
+      messageModel = make_shared<string>(boost::any_cast<string>(m["MessageModel"]));
     }
   }
 
@@ -8045,6 +8052,7 @@ class OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList 
 public:
   shared_ptr<string> groupId{};
   shared_ptr<string> messageModel{};
+  shared_ptr<string> online{};
   shared_ptr<string> subString{};
 
   OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList() {}
@@ -8063,6 +8071,9 @@ public:
     if (messageModel) {
       res["MessageModel"] = boost::any(*messageModel);
     }
+    if (online) {
+      res["Online"] = boost::any(*online);
+    }
     if (subString) {
       res["SubString"] = boost::any(*subString);
     }
@@ -8075,6 +8086,9 @@ public:
     }
     if (m.find("MessageModel") != m.end() && !m["MessageModel"].empty()) {
       messageModel = make_shared<string>(boost::any_cast<string>(m["MessageModel"]));
+    }
+    if (m.find("Online") != m.end() && !m["Online"].empty()) {
+      online = make_shared<string>(boost::any_cast<string>(m["Online"]));
     }
     if (m.find("SubString") != m.end() && !m["SubString"].empty()) {
       subString = make_shared<string>(boost::any_cast<string>(m["SubString"]));
