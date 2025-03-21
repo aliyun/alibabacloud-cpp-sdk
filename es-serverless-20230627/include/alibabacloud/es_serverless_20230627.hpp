@@ -3976,7 +3976,10 @@ public:
 class ListSpecReviewTasksRequest : public Darabonba::Model {
 public:
   shared_ptr<long> page{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<long> size{};
+  shared_ptr<string> status{};
   shared_ptr<string> type{};
 
   ListSpecReviewTasksRequest() {}
@@ -3992,8 +3995,17 @@ public:
     if (page) {
       res["page"] = boost::any(*page);
     }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
     if (size) {
       res["size"] = boost::any(*size);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
     }
     if (type) {
       res["type"] = boost::any(*type);
@@ -4005,8 +4017,17 @@ public:
     if (m.find("page") != m.end() && !m["page"].empty()) {
       page = make_shared<long>(boost::any_cast<long>(m["page"]));
     }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
     if (m.find("size") != m.end() && !m["size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));

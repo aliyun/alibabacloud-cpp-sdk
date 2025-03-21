@@ -1,3 +1,9 @@
+2025-03-21 Version: 2.0.2
+- Update API ListSpecReviewTasks: add param pageNumber.
+- Update API ListSpecReviewTasks: add param pageSize.
+- Update API ListSpecReviewTasks: add param status.
+
+
 2024-07-19 Version: 2.0.1
 - Generated cpp 2023-06-27 for es-serverless.
 
