@@ -9489,6 +9489,9 @@ DescribeCustomizedStrategyTargetsResponse Alibabacloud_Sas20181203::Client::desc
 DescribeCycleTaskListResponse Alibabacloud_Sas20181203::Client::describeCycleTaskListWithOptions(shared_ptr<DescribeCycleTaskListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
