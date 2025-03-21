@@ -454,6 +454,47 @@ ListUserResourcesResponse Alibabacloud_Brain-industrial20200920::Client::listUse
   return listUserResourcesWithOptions(request, runtime);
 }
 
+OpenApiInvokeResponse Alibabacloud_Brain-industrial20200920::Client::openApiInvokeWithOptions(shared_ptr<OpenApiInvokeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
+    query->insert(pair<string, string>("NodeId", *request->nodeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->param)) {
+    body->insert(pair<string, string>("Param", *request->param));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("OpenApiInvoke"))},
+    {"version", boost::any(string("2020-09-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return OpenApiInvokeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return OpenApiInvokeResponse(execute(params, req, runtime));
+  }
+}
+
+OpenApiInvokeResponse Alibabacloud_Brain-industrial20200920::Client::openApiInvoke(shared_ptr<OpenApiInvokeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return openApiInvokeWithOptions(request, runtime);
+}
+
 UpdateLicenseDescriptionResponse Alibabacloud_Brain-industrial20200920::Client::updateLicenseDescriptionWithOptions(shared_ptr<UpdateLicenseDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
