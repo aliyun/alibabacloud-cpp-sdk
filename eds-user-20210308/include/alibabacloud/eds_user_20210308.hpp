@@ -2264,6 +2264,7 @@ public:
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<vector<string>> excludeEndUserIds{};
   shared_ptr<string> filter{};
+  shared_ptr<map<string, string>> filterWithAssignedResource{};
   shared_ptr<map<string, bool>> filterWithAssignedResources{};
   shared_ptr<string> groupId{};
   shared_ptr<bool> isQueryAllSubOrgs{};
@@ -2294,6 +2295,9 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (filterWithAssignedResource) {
+      res["FilterWithAssignedResource"] = boost::any(*filterWithAssignedResource);
     }
     if (filterWithAssignedResources) {
       res["FilterWithAssignedResources"] = boost::any(*filterWithAssignedResources);
@@ -2349,6 +2353,14 @@ public:
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
+    if (m.find("FilterWithAssignedResource") != m.end() && !m["FilterWithAssignedResource"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["FilterWithAssignedResource"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      filterWithAssignedResource = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("FilterWithAssignedResources") != m.end() && !m["FilterWithAssignedResources"].empty()) {
       map<string, bool> map1 = boost::any_cast<map<string, bool>>(m["FilterWithAssignedResources"]);
       map<string, bool> toMap1;
@@ -2394,6 +2406,7 @@ public:
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<vector<string>> excludeEndUserIds{};
   shared_ptr<string> filter{};
+  shared_ptr<string> filterWithAssignedResourceShrink{};
   shared_ptr<string> filterWithAssignedResourcesShrink{};
   shared_ptr<string> groupId{};
   shared_ptr<bool> isQueryAllSubOrgs{};
@@ -2424,6 +2437,9 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (filterWithAssignedResourceShrink) {
+      res["FilterWithAssignedResource"] = boost::any(*filterWithAssignedResourceShrink);
     }
     if (filterWithAssignedResourcesShrink) {
       res["FilterWithAssignedResources"] = boost::any(*filterWithAssignedResourcesShrink);
@@ -2478,6 +2494,9 @@ public:
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("FilterWithAssignedResource") != m.end() && !m["FilterWithAssignedResource"].empty()) {
+      filterWithAssignedResourceShrink = make_shared<string>(boost::any_cast<string>(m["FilterWithAssignedResource"]));
     }
     if (m.find("FilterWithAssignedResources") != m.end() && !m["FilterWithAssignedResources"].empty()) {
       filterWithAssignedResourcesShrink = make_shared<string>(boost::any_cast<string>(m["FilterWithAssignedResources"]));
@@ -2614,12 +2633,49 @@ public:
 
   virtual ~DescribeUsersResponseBodyUsersOrgs() = default;
 };
+class DescribeUsersResponseBodyUsersProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeUsersResponseBodyUsersProperties() {}
+
+  explicit DescribeUsersResponseBodyUsersProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeUsersResponseBodyUsersProperties() = default;
+};
 class DescribeUsersResponseBodyUsers : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
   shared_ptr<string> avatar{};
   shared_ptr<string> email{};
   shared_ptr<string> endUserId{};
+  shared_ptr<string> externalName{};
   shared_ptr<DescribeUsersResponseBodyUsersExtras> extras{};
   shared_ptr<vector<DescribeUsersResponseBodyUsersGroups>> groups{};
   shared_ptr<long> id{};
@@ -2630,6 +2686,7 @@ public:
   shared_ptr<vector<DescribeUsersResponseBodyUsersOrgs>> orgs{};
   shared_ptr<string> ownerType{};
   shared_ptr<string> phone{};
+  shared_ptr<vector<DescribeUsersResponseBodyUsersProperties>> properties{};
   shared_ptr<string> realNickName{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
@@ -2656,6 +2713,9 @@ public:
     }
     if (endUserId) {
       res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (externalName) {
+      res["ExternalName"] = boost::any(*externalName);
     }
     if (extras) {
       res["Extras"] = extras ? boost::any(extras->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2695,6 +2755,13 @@ public:
     if (phone) {
       res["Phone"] = boost::any(*phone);
     }
+    if (properties) {
+      vector<boost::any> temp1;
+      for(auto item1:*properties){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Properties"] = boost::any(temp1);
+    }
     if (realNickName) {
       res["RealNickName"] = boost::any(*realNickName);
     }
@@ -2722,6 +2789,9 @@ public:
     }
     if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
       endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("ExternalName") != m.end() && !m["ExternalName"].empty()) {
+      externalName = make_shared<string>(boost::any_cast<string>(m["ExternalName"]));
     }
     if (m.find("Extras") != m.end() && !m["Extras"].empty()) {
       if (typeid(map<string, boost::any>) == m["Extras"].type()) {
@@ -2776,6 +2846,19 @@ public:
     }
     if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
+      if (typeid(vector<boost::any>) == m["Properties"].type()) {
+        vector<DescribeUsersResponseBodyUsersProperties> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Properties"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeUsersResponseBodyUsersProperties model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        properties = make_shared<vector<DescribeUsersResponseBodyUsersProperties>>(expect1);
+      }
     }
     if (m.find("RealNickName") != m.end() && !m["RealNickName"].empty()) {
       realNickName = make_shared<string>(boost::any_cast<string>(m["RealNickName"]));
@@ -3017,6 +3100,8 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<bool> includeDesktopCount{};
   shared_ptr<bool> includeDesktopGroupCount{};
+  shared_ptr<bool> includeOrgInfo{};
+  shared_ptr<bool> includeSupportIdps{};
   shared_ptr<bool> isQueryAllSubOrgs{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -3048,6 +3133,12 @@ public:
     }
     if (includeDesktopGroupCount) {
       res["IncludeDesktopGroupCount"] = boost::any(*includeDesktopGroupCount);
+    }
+    if (includeOrgInfo) {
+      res["IncludeOrgInfo"] = boost::any(*includeOrgInfo);
+    }
+    if (includeSupportIdps) {
+      res["IncludeSupportIdps"] = boost::any(*includeSupportIdps);
     }
     if (isQueryAllSubOrgs) {
       res["IsQueryAllSubOrgs"] = boost::any(*isQueryAllSubOrgs);
@@ -3106,6 +3197,12 @@ public:
     }
     if (m.find("IncludeDesktopGroupCount") != m.end() && !m["IncludeDesktopGroupCount"].empty()) {
       includeDesktopGroupCount = make_shared<bool>(boost::any_cast<bool>(m["IncludeDesktopGroupCount"]));
+    }
+    if (m.find("IncludeOrgInfo") != m.end() && !m["IncludeOrgInfo"].empty()) {
+      includeOrgInfo = make_shared<bool>(boost::any_cast<bool>(m["IncludeOrgInfo"]));
+    }
+    if (m.find("IncludeSupportIdps") != m.end() && !m["IncludeSupportIdps"].empty()) {
+      includeSupportIdps = make_shared<bool>(boost::any_cast<bool>(m["IncludeSupportIdps"]));
     }
     if (m.find("IsQueryAllSubOrgs") != m.end() && !m["IsQueryAllSubOrgs"].empty()) {
       isQueryAllSubOrgs = make_shared<bool>(boost::any_cast<bool>(m["IsQueryAllSubOrgs"]));
@@ -3241,6 +3338,8 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<bool> includeDesktopCount{};
   shared_ptr<bool> includeDesktopGroupCount{};
+  shared_ptr<bool> includeOrgInfo{};
+  shared_ptr<bool> includeSupportIdps{};
   shared_ptr<bool> isQueryAllSubOrgs{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -3272,6 +3371,12 @@ public:
     }
     if (includeDesktopGroupCount) {
       res["IncludeDesktopGroupCount"] = boost::any(*includeDesktopGroupCount);
+    }
+    if (includeOrgInfo) {
+      res["IncludeOrgInfo"] = boost::any(*includeOrgInfo);
+    }
+    if (includeSupportIdps) {
+      res["IncludeSupportIdps"] = boost::any(*includeSupportIdps);
     }
     if (isQueryAllSubOrgs) {
       res["IsQueryAllSubOrgs"] = boost::any(*isQueryAllSubOrgs);
@@ -3330,6 +3435,12 @@ public:
     }
     if (m.find("IncludeDesktopGroupCount") != m.end() && !m["IncludeDesktopGroupCount"].empty()) {
       includeDesktopGroupCount = make_shared<bool>(boost::any_cast<bool>(m["IncludeDesktopGroupCount"]));
+    }
+    if (m.find("IncludeOrgInfo") != m.end() && !m["IncludeOrgInfo"].empty()) {
+      includeOrgInfo = make_shared<bool>(boost::any_cast<bool>(m["IncludeOrgInfo"]));
+    }
+    if (m.find("IncludeSupportIdps") != m.end() && !m["IncludeSupportIdps"].empty()) {
+      includeSupportIdps = make_shared<bool>(boost::any_cast<bool>(m["IncludeSupportIdps"]));
     }
     if (m.find("IsQueryAllSubOrgs") != m.end() && !m["IsQueryAllSubOrgs"].empty()) {
       isQueryAllSubOrgs = make_shared<bool>(boost::any_cast<bool>(m["IsQueryAllSubOrgs"]));
@@ -3418,6 +3529,78 @@ public:
 
 
   virtual ~FilterUsersResponseBodyUsersExternalInfo() = default;
+};
+class FilterUsersResponseBodyUsersOrgList : public Darabonba::Model {
+public:
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+
+  FilterUsersResponseBodyUsersOrgList() {}
+
+  explicit FilterUsersResponseBodyUsersOrgList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+  }
+
+
+  virtual ~FilterUsersResponseBodyUsersOrgList() = default;
+};
+class FilterUsersResponseBodyUsersSupportLoginIdps : public Darabonba::Model {
+public:
+  shared_ptr<string> idpId{};
+  shared_ptr<string> idpName{};
+
+  FilterUsersResponseBodyUsersSupportLoginIdps() {}
+
+  explicit FilterUsersResponseBodyUsersSupportLoginIdps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (idpId) {
+      res["IdpId"] = boost::any(*idpId);
+    }
+    if (idpName) {
+      res["IdpName"] = boost::any(*idpName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdpId") != m.end() && !m["IdpId"].empty()) {
+      idpId = make_shared<string>(boost::any_cast<string>(m["IdpId"]));
+    }
+    if (m.find("IdpName") != m.end() && !m["IdpName"].empty()) {
+      idpName = make_shared<string>(boost::any_cast<string>(m["IdpName"]));
+    }
+  }
+
+
+  virtual ~FilterUsersResponseBodyUsersSupportLoginIdps() = default;
 };
 class FilterUsersResponseBodyUsersUserSetPropertiesModelsPropertyValues : public Darabonba::Model {
 public:
@@ -3544,6 +3727,7 @@ public:
   shared_ptr<FilterUsersResponseBodyUsersExternalInfo> externalInfo{};
   shared_ptr<long> id{};
   shared_ptr<bool> isTenantManager{};
+  shared_ptr<vector<FilterUsersResponseBodyUsersOrgList>> orgList{};
   shared_ptr<string> ownerType{};
   shared_ptr<long> passwordExpireDays{};
   shared_ptr<long> passwordExpireRestDays{};
@@ -3551,6 +3735,7 @@ public:
   shared_ptr<string> realNickName{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
+  shared_ptr<vector<FilterUsersResponseBodyUsersSupportLoginIdps>> supportLoginIdps{};
   shared_ptr<vector<FilterUsersResponseBodyUsersUserSetPropertiesModels>> userSetPropertiesModels{};
 
   FilterUsersResponseBodyUsers() {}
@@ -3590,6 +3775,13 @@ public:
     if (isTenantManager) {
       res["IsTenantManager"] = boost::any(*isTenantManager);
     }
+    if (orgList) {
+      vector<boost::any> temp1;
+      for(auto item1:*orgList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OrgList"] = boost::any(temp1);
+    }
     if (ownerType) {
       res["OwnerType"] = boost::any(*ownerType);
     }
@@ -3610,6 +3802,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (supportLoginIdps) {
+      vector<boost::any> temp1;
+      for(auto item1:*supportLoginIdps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SupportLoginIdps"] = boost::any(temp1);
     }
     if (userSetPropertiesModels) {
       vector<boost::any> temp1;
@@ -3653,6 +3852,19 @@ public:
     if (m.find("IsTenantManager") != m.end() && !m["IsTenantManager"].empty()) {
       isTenantManager = make_shared<bool>(boost::any_cast<bool>(m["IsTenantManager"]));
     }
+    if (m.find("OrgList") != m.end() && !m["OrgList"].empty()) {
+      if (typeid(vector<boost::any>) == m["OrgList"].type()) {
+        vector<FilterUsersResponseBodyUsersOrgList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OrgList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FilterUsersResponseBodyUsersOrgList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        orgList = make_shared<vector<FilterUsersResponseBodyUsersOrgList>>(expect1);
+      }
+    }
     if (m.find("OwnerType") != m.end() && !m["OwnerType"].empty()) {
       ownerType = make_shared<string>(boost::any_cast<string>(m["OwnerType"]));
     }
@@ -3673,6 +3885,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("SupportLoginIdps") != m.end() && !m["SupportLoginIdps"].empty()) {
+      if (typeid(vector<boost::any>) == m["SupportLoginIdps"].type()) {
+        vector<FilterUsersResponseBodyUsersSupportLoginIdps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SupportLoginIdps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FilterUsersResponseBodyUsersSupportLoginIdps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        supportLoginIdps = make_shared<vector<FilterUsersResponseBodyUsersSupportLoginIdps>>(expect1);
+      }
     }
     if (m.find("UserSetPropertiesModels") != m.end() && !m["UserSetPropertiesModels"].empty()) {
       if (typeid(vector<boost::any>) == m["UserSetPropertiesModels"].type()) {
