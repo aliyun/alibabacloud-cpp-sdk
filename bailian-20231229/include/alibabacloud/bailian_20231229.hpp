@@ -3859,6 +3859,7 @@ public:
   shared_ptr<string> code{};
   shared_ptr<string> docId{};
   shared_ptr<string> docName{};
+  shared_ptr<long> gmtModified{};
   shared_ptr<string> message{};
   shared_ptr<string> status{};
 
@@ -3881,6 +3882,9 @@ public:
     if (docName) {
       res["DocName"] = boost::any(*docName);
     }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -3899,6 +3903,9 @@ public:
     }
     if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
       docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -5971,6 +5978,7 @@ class ListIndexDocumentsResponseBodyDataDocuments : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> documentType{};
+  shared_ptr<long> gmtModified{};
   shared_ptr<string> id{};
   shared_ptr<string> message{};
   shared_ptr<string> name{};
@@ -5993,6 +6001,9 @@ public:
     }
     if (documentType) {
       res["DocumentType"] = boost::any(*documentType);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -6021,6 +6032,9 @@ public:
     }
     if (m.find("DocumentType") != m.end() && !m["DocumentType"].empty()) {
       documentType = make_shared<string>(boost::any_cast<string>(m["DocumentType"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
