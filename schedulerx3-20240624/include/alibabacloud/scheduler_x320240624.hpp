@@ -665,6 +665,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<long> attemptInterval{};
   shared_ptr<string> calendar{};
+  shared_ptr<string> childJobId{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> description{};
   shared_ptr<long> executorBlockStrategy{};
@@ -702,6 +703,9 @@ public:
     }
     if (calendar) {
       res["Calendar"] = boost::any(*calendar);
+    }
+    if (childJobId) {
+      res["ChildJobId"] = boost::any(*childJobId);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -773,6 +777,9 @@ public:
     }
     if (m.find("Calendar") != m.end() && !m["Calendar"].empty()) {
       calendar = make_shared<string>(boost::any_cast<string>(m["Calendar"]));
+    }
+    if (m.find("ChildJobId") != m.end() && !m["ChildJobId"].empty()) {
+      childJobId = make_shared<string>(boost::any_cast<string>(m["ChildJobId"]));
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
@@ -852,6 +859,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<long> attemptInterval{};
   shared_ptr<string> calendar{};
+  shared_ptr<string> childJobId{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> description{};
   shared_ptr<long> executorBlockStrategy{};
@@ -889,6 +897,9 @@ public:
     }
     if (calendar) {
       res["Calendar"] = boost::any(*calendar);
+    }
+    if (childJobId) {
+      res["ChildJobId"] = boost::any(*childJobId);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -956,6 +967,9 @@ public:
     }
     if (m.find("Calendar") != m.end() && !m["Calendar"].empty()) {
       calendar = make_shared<string>(boost::any_cast<string>(m["Calendar"]));
+    }
+    if (m.find("ChildJobId") != m.end() && !m["ChildJobId"].empty()) {
+      childJobId = make_shared<string>(boost::any_cast<string>(m["ChildJobId"]));
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
@@ -5680,6 +5694,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<long> attemptInterval{};
   shared_ptr<string> calendar{};
+  shared_ptr<string> childJobId{};
   shared_ptr<string> cleanMode{};
   shared_ptr<string> creator{};
   shared_ptr<long> currentExecuteStatus{};
@@ -5725,6 +5740,9 @@ public:
     }
     if (calendar) {
       res["Calendar"] = boost::any(*calendar);
+    }
+    if (childJobId) {
+      res["ChildJobId"] = boost::any(*childJobId);
     }
     if (cleanMode) {
       res["CleanMode"] = boost::any(*cleanMode);
@@ -5816,6 +5834,9 @@ public:
     }
     if (m.find("Calendar") != m.end() && !m["Calendar"].empty()) {
       calendar = make_shared<string>(boost::any_cast<string>(m["Calendar"]));
+    }
+    if (m.find("ChildJobId") != m.end() && !m["ChildJobId"].empty()) {
+      childJobId = make_shared<string>(boost::any_cast<string>(m["ChildJobId"]));
     }
     if (m.find("CleanMode") != m.end() && !m["CleanMode"].empty()) {
       cleanMode = make_shared<string>(boost::any_cast<string>(m["CleanMode"]));
@@ -8992,6 +9013,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<long> attemptInterval{};
   shared_ptr<string> calendar{};
+  shared_ptr<string> childJobId{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> description{};
   shared_ptr<long> executorBlockStrategy{};
@@ -9028,6 +9050,9 @@ public:
     }
     if (calendar) {
       res["Calendar"] = boost::any(*calendar);
+    }
+    if (childJobId) {
+      res["ChildJobId"] = boost::any(*childJobId);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -9096,6 +9121,9 @@ public:
     }
     if (m.find("Calendar") != m.end() && !m["Calendar"].empty()) {
       calendar = make_shared<string>(boost::any_cast<string>(m["Calendar"]));
+    }
+    if (m.find("ChildJobId") != m.end() && !m["ChildJobId"].empty()) {
+      childJobId = make_shared<string>(boost::any_cast<string>(m["ChildJobId"]));
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
@@ -9172,6 +9200,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<long> attemptInterval{};
   shared_ptr<string> calendar{};
+  shared_ptr<string> childJobId{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> description{};
   shared_ptr<long> executorBlockStrategy{};
@@ -9208,6 +9237,9 @@ public:
     }
     if (calendar) {
       res["Calendar"] = boost::any(*calendar);
+    }
+    if (childJobId) {
+      res["ChildJobId"] = boost::any(*childJobId);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -9272,6 +9304,9 @@ public:
     }
     if (m.find("Calendar") != m.end() && !m["Calendar"].empty()) {
       calendar = make_shared<string>(boost::any_cast<string>(m["Calendar"]));
+    }
+    if (m.find("ChildJobId") != m.end() && !m["ChildJobId"].empty()) {
+      childJobId = make_shared<string>(boost::any_cast<string>(m["ChildJobId"]));
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
