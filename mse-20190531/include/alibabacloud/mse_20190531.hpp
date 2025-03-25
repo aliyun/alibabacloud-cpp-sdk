@@ -8274,6 +8274,42 @@ public:
 
   virtual ~CloneSentinelRuleFromAhasResponse() = default;
 };
+class CreateApplicationRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateApplicationRequestTags() {}
+
+  explicit CreateApplicationRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateApplicationRequestTags() = default;
+};
 class CreateApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -8284,6 +8320,7 @@ public:
   shared_ptr<string> sentinelEnable{};
   shared_ptr<string> source{};
   shared_ptr<string> switchEnable{};
+  shared_ptr<vector<CreateApplicationRequestTags>> tags{};
 
   CreateApplicationRequest() {}
 
@@ -8319,6 +8356,13 @@ public:
     if (switchEnable) {
       res["SwitchEnable"] = boost::any(*switchEnable);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -8347,10 +8391,108 @@ public:
     if (m.find("SwitchEnable") != m.end() && !m["SwitchEnable"].empty()) {
       switchEnable = make_shared<string>(boost::any_cast<string>(m["SwitchEnable"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateApplicationRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateApplicationRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateApplicationRequestTags>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateApplicationRequest() = default;
+};
+class CreateApplicationShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> language{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> region{};
+  shared_ptr<string> sentinelEnable{};
+  shared_ptr<string> source{};
+  shared_ptr<string> switchEnable{};
+  shared_ptr<string> tagsShrink{};
+
+  CreateApplicationShrinkRequest() {}
+
+  explicit CreateApplicationShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (sentinelEnable) {
+      res["SentinelEnable"] = boost::any(*sentinelEnable);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (switchEnable) {
+      res["SwitchEnable"] = boost::any(*switchEnable);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("SentinelEnable") != m.end() && !m["SentinelEnable"].empty()) {
+      sentinelEnable = make_shared<string>(boost::any_cast<string>(m["SentinelEnable"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SwitchEnable") != m.end() && !m["SwitchEnable"].empty()) {
+      switchEnable = make_shared<string>(boost::any_cast<string>(m["SwitchEnable"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~CreateApplicationShrinkRequest() = default;
 };
 class CreateApplicationResponseBodyData : public Darabonba::Model {
 public:
@@ -11709,11 +11851,48 @@ public:
 
   virtual ~CreateNacosServiceResponse() = default;
 };
+class CreateNamespaceRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateNamespaceRequestTag() {}
+
+  explicit CreateNamespaceRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateNamespaceRequestTag() = default;
+};
 class CreateNamespaceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> describe{};
   shared_ptr<string> name{};
+  shared_ptr<vector<CreateNamespaceRequestTag>> tag{};
 
   CreateNamespaceRequest() {}
 
@@ -11734,6 +11913,13 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -11747,10 +11933,73 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateNamespaceRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateNamespaceRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateNamespaceRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateNamespaceRequest() = default;
+};
+class CreateNamespaceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> describe{};
+  shared_ptr<string> name{};
+  shared_ptr<string> tagShrink{};
+
+  CreateNamespaceShrinkRequest() {}
+
+  explicit CreateNamespaceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (describe) {
+      res["Describe"] = boost::any(*describe);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Describe") != m.end() && !m["Describe"].empty()) {
+      describe = make_shared<string>(boost::any_cast<string>(m["Describe"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~CreateNamespaceShrinkRequest() = default;
 };
 class CreateNamespaceResponseBodyData : public Darabonba::Model {
 public:
@@ -21964,6 +22213,42 @@ public:
 
   virtual ~GetApplicationInstanceListResponse() = default;
 };
+class GetApplicationListRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetApplicationListRequestTags() {}
+
+  explicit GetApplicationListRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetApplicationListRequestTags() = default;
+};
 class GetApplicationListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -21977,6 +22262,7 @@ public:
   shared_ptr<bool> sentinelEnable{};
   shared_ptr<string> source{};
   shared_ptr<bool> switchEnable{};
+  shared_ptr<vector<GetApplicationListRequestTags>> tags{};
 
   GetApplicationListRequest() {}
 
@@ -22021,6 +22307,13 @@ public:
     if (switchEnable) {
       res["SwitchEnable"] = boost::any(*switchEnable);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -22058,10 +22351,129 @@ public:
     if (m.find("SwitchEnable") != m.end() && !m["SwitchEnable"].empty()) {
       switchEnable = make_shared<bool>(boost::any_cast<bool>(m["SwitchEnable"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetApplicationListRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetApplicationListRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetApplicationListRequestTags>>(expect1);
+      }
+    }
   }
 
 
   virtual ~GetApplicationListRequest() = default;
+};
+class GetApplicationListShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> language{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> region{};
+  shared_ptr<bool> sentinelEnable{};
+  shared_ptr<string> source{};
+  shared_ptr<bool> switchEnable{};
+  shared_ptr<string> tagsShrink{};
+
+  GetApplicationListShrinkRequest() {}
+
+  explicit GetApplicationListShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (sentinelEnable) {
+      res["SentinelEnable"] = boost::any(*sentinelEnable);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (switchEnable) {
+      res["SwitchEnable"] = boost::any(*switchEnable);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("SentinelEnable") != m.end() && !m["SentinelEnable"].empty()) {
+      sentinelEnable = make_shared<bool>(boost::any_cast<bool>(m["SentinelEnable"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SwitchEnable") != m.end() && !m["SwitchEnable"].empty()) {
+      switchEnable = make_shared<bool>(boost::any_cast<bool>(m["SwitchEnable"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~GetApplicationListShrinkRequest() = default;
 };
 class GetApplicationListResponseBodyDataResult : public Darabonba::Model {
 public:
@@ -22074,6 +22486,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> source{};
   shared_ptr<long> status{};
+  shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> userId{};
 
   GetApplicationListResponseBodyDataResult() {}
@@ -22113,6 +22526,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -22146,6 +22562,14 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -50801,6 +51225,42 @@ public:
 
   virtual ~ListNacosHistoryConfigsResponse() = default;
 };
+class ListNamespacesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListNamespacesRequestTag() {}
+
+  explicit ListNamespacesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListNamespacesRequestTag() = default;
+};
 class ListNamespacesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -50808,6 +51268,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> region{};
+  shared_ptr<vector<ListNamespacesRequestTag>> tag{};
 
   ListNamespacesRequest() {}
 
@@ -50834,6 +51295,13 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -50853,10 +51321,87 @@ public:
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListNamespacesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListNamespacesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListNamespacesRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListNamespacesRequest() = default;
+};
+class ListNamespacesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> name{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> region{};
+  shared_ptr<string> tagShrink{};
+
+  ListNamespacesShrinkRequest() {}
+
+  explicit ListNamespacesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ListNamespacesShrinkRequest() = default;
 };
 class ListNamespacesResponseBodyDataResult : public Darabonba::Model {
 public:
@@ -50866,6 +51411,7 @@ public:
   shared_ptr<long> instanceCount{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> region{};
+  shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<long> updateTime{};
   shared_ptr<string> userId{};
   shared_ptr<long> version{};
@@ -50898,6 +51444,9 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -50928,6 +51477,14 @@ public:
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
@@ -75677,7 +76234,7 @@ public:
   CloneNacosConfigResponse cloneNacosConfig(shared_ptr<CloneNacosConfigRequest> request);
   CloneSentinelRuleFromAhasResponse cloneSentinelRuleFromAhasWithOptions(shared_ptr<CloneSentinelRuleFromAhasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CloneSentinelRuleFromAhasResponse cloneSentinelRuleFromAhas(shared_ptr<CloneSentinelRuleFromAhasRequest> request);
-  CreateApplicationResponse createApplicationWithOptions(shared_ptr<CreateApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateApplicationResponse createApplicationWithOptions(shared_ptr<CreateApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateApplicationResponse createApplication(shared_ptr<CreateApplicationRequest> request);
   CreateCircuitBreakerRuleResponse createCircuitBreakerRuleWithOptions(shared_ptr<CreateCircuitBreakerRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCircuitBreakerRuleResponse createCircuitBreakerRule(shared_ptr<CreateCircuitBreakerRuleRequest> request);
@@ -75703,7 +76260,7 @@ public:
   CreateNacosInstanceResponse createNacosInstance(shared_ptr<CreateNacosInstanceRequest> request);
   CreateNacosServiceResponse createNacosServiceWithOptions(shared_ptr<CreateNacosServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateNacosServiceResponse createNacosService(shared_ptr<CreateNacosServiceRequest> request);
-  CreateNamespaceResponse createNamespaceWithOptions(shared_ptr<CreateNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateNamespaceResponse createNamespaceWithOptions(shared_ptr<CreateNamespaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateNamespaceResponse createNamespace(shared_ptr<CreateNamespaceRequest> request);
   CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLaneWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLane(shared_ptr<CreateOrUpdateSwimmingLaneRequest> request);
@@ -75787,7 +76344,7 @@ public:
   GetAppMessageQueueRouteResponse getAppMessageQueueRoute(shared_ptr<GetAppMessageQueueRouteRequest> request);
   GetApplicationInstanceListResponse getApplicationInstanceListWithOptions(shared_ptr<GetApplicationInstanceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetApplicationInstanceListResponse getApplicationInstanceList(shared_ptr<GetApplicationInstanceListRequest> request);
-  GetApplicationListResponse getApplicationListWithOptions(shared_ptr<GetApplicationListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetApplicationListResponse getApplicationListWithOptions(shared_ptr<GetApplicationListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetApplicationListResponse getApplicationList(shared_ptr<GetApplicationListRequest> request);
   GetBlackWhiteListResponse getBlackWhiteListWithOptions(shared_ptr<GetBlackWhiteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetBlackWhiteListResponse getBlackWhiteList(shared_ptr<GetBlackWhiteListRequest> request);
@@ -75931,7 +76488,7 @@ public:
   ListNacosConfigsResponse listNacosConfigs(shared_ptr<ListNacosConfigsRequest> request);
   ListNacosHistoryConfigsResponse listNacosHistoryConfigsWithOptions(shared_ptr<ListNacosHistoryConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListNacosHistoryConfigsResponse listNacosHistoryConfigs(shared_ptr<ListNacosHistoryConfigsRequest> request);
-  ListNamespacesResponse listNamespacesWithOptions(shared_ptr<ListNamespacesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListNamespacesResponse listNamespacesWithOptions(shared_ptr<ListNamespacesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListNamespacesResponse listNamespaces(shared_ptr<ListNamespacesRequest> request);
   ListNamingTrackResponse listNamingTrackWithOptions(shared_ptr<ListNamingTrackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListNamingTrackResponse listNamingTrack(shared_ptr<ListNamingTrackRequest> request);
