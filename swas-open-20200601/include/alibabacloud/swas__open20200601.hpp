@@ -14004,10 +14004,12 @@ public:
   shared_ptr<long> diskSize{};
   shared_ptr<string> diskType{};
   shared_ptr<long> flow{};
-  shared_ptr<long> memory{};
-  shared_ptr<double> originPrice{};
+  shared_ptr<string> ispType{};
+  shared_ptr<double> memory{};
+  shared_ptr<string> originPrice{};
   shared_ptr<string> planId{};
   shared_ptr<string> planType{};
+  shared_ptr<string> publicIpNum{};
   shared_ptr<string> supportPlatform{};
   shared_ptr<vector<ListPlansResponseBodyPlansTags>> tags{};
 
@@ -14039,6 +14041,9 @@ public:
     if (flow) {
       res["Flow"] = boost::any(*flow);
     }
+    if (ispType) {
+      res["IspType"] = boost::any(*ispType);
+    }
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
@@ -14050,6 +14055,9 @@ public:
     }
     if (planType) {
       res["PlanType"] = boost::any(*planType);
+    }
+    if (publicIpNum) {
+      res["PublicIpNum"] = boost::any(*publicIpNum);
     }
     if (supportPlatform) {
       res["SupportPlatform"] = boost::any(*supportPlatform);
@@ -14083,17 +14091,23 @@ public:
     if (m.find("Flow") != m.end() && !m["Flow"].empty()) {
       flow = make_shared<long>(boost::any_cast<long>(m["Flow"]));
     }
+    if (m.find("IspType") != m.end() && !m["IspType"].empty()) {
+      ispType = make_shared<string>(boost::any_cast<string>(m["IspType"]));
+    }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
-      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
     }
     if (m.find("OriginPrice") != m.end() && !m["OriginPrice"].empty()) {
-      originPrice = make_shared<double>(boost::any_cast<double>(m["OriginPrice"]));
+      originPrice = make_shared<string>(boost::any_cast<string>(m["OriginPrice"]));
     }
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
       planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
     }
     if (m.find("PlanType") != m.end() && !m["PlanType"].empty()) {
       planType = make_shared<string>(boost::any_cast<string>(m["PlanType"]));
+    }
+    if (m.find("PublicIpNum") != m.end() && !m["PublicIpNum"].empty()) {
+      publicIpNum = make_shared<string>(boost::any_cast<string>(m["PublicIpNum"]));
     }
     if (m.find("SupportPlatform") != m.end() && !m["SupportPlatform"].empty()) {
       supportPlatform = make_shared<string>(boost::any_cast<string>(m["SupportPlatform"]));
