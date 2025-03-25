@@ -1,3 +1,7 @@
+2025-03-25 Version: 2.0.2
+- Update API UpdateProjectBasicMeta: update param body.
+
+
 2025-03-10 Version: 2.0.1
 - Generated cpp 2022-01-04 for MaxCompute.
 

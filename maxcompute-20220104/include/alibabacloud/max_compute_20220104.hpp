@@ -28079,6 +28079,7 @@ class UpdateProjectBasicMetaRequestProperties : public Darabonba::Model {
 public:
   shared_ptr<bool> allowFullScan{};
   shared_ptr<bool> enableDecimal2{};
+  shared_ptr<bool> enableDr{};
   shared_ptr<bool> enableTunnelQuotaRoute{};
   shared_ptr<UpdateProjectBasicMetaRequestPropertiesEncryption> encryption{};
   shared_ptr<long> retentionDays{};
@@ -28103,6 +28104,9 @@ public:
     }
     if (enableDecimal2) {
       res["enableDecimal2"] = boost::any(*enableDecimal2);
+    }
+    if (enableDr) {
+      res["enableDr"] = boost::any(*enableDr);
     }
     if (enableTunnelQuotaRoute) {
       res["enableTunnelQuotaRoute"] = boost::any(*enableTunnelQuotaRoute);
@@ -28137,6 +28141,9 @@ public:
     }
     if (m.find("enableDecimal2") != m.end() && !m["enableDecimal2"].empty()) {
       enableDecimal2 = make_shared<bool>(boost::any_cast<bool>(m["enableDecimal2"]));
+    }
+    if (m.find("enableDr") != m.end() && !m["enableDr"].empty()) {
+      enableDr = make_shared<bool>(boost::any_cast<bool>(m["enableDr"]));
     }
     if (m.find("enableTunnelQuotaRoute") != m.end() && !m["enableTunnelQuotaRoute"].empty()) {
       enableTunnelQuotaRoute = make_shared<bool>(boost::any_cast<bool>(m["enableTunnelQuotaRoute"]));
