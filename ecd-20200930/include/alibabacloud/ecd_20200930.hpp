@@ -1202,6 +1202,7 @@ public:
   shared_ptr<vector<string>> desktopGroupIds{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> userOuPath{};
 
   AddUserToDesktopGroupRequest() {}
 
@@ -1227,6 +1228,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (userOuPath) {
+      res["UserOuPath"] = boost::any(*userOuPath);
     }
     return res;
   }
@@ -1260,6 +1264,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("UserOuPath") != m.end() && !m["UserOuPath"].empty()) {
+      userOuPath = make_shared<string>(boost::any_cast<string>(m["UserOuPath"]));
     }
   }
 
@@ -6878,6 +6885,7 @@ public:
   shared_ptr<long> systemDiskSize{};
   shared_ptr<vector<CreateDesktopGroupRequestTag>> tag{};
   shared_ptr<string> timerGroupId{};
+  shared_ptr<string> userOuPath{};
   shared_ptr<bool> volumeEncryptionEnabled{};
   shared_ptr<string> volumeEncryptionKey{};
   shared_ptr<string> vpcId{};
@@ -7054,6 +7062,9 @@ public:
     }
     if (timerGroupId) {
       res["TimerGroupId"] = boost::any(*timerGroupId);
+    }
+    if (userOuPath) {
+      res["UserOuPath"] = boost::any(*userOuPath);
     }
     if (volumeEncryptionEnabled) {
       res["VolumeEncryptionEnabled"] = boost::any(*volumeEncryptionEnabled);
@@ -7243,6 +7254,9 @@ public:
     }
     if (m.find("TimerGroupId") != m.end() && !m["TimerGroupId"].empty()) {
       timerGroupId = make_shared<string>(boost::any_cast<string>(m["TimerGroupId"]));
+    }
+    if (m.find("UserOuPath") != m.end() && !m["UserOuPath"].empty()) {
+      userOuPath = make_shared<string>(boost::any_cast<string>(m["UserOuPath"]));
     }
     if (m.find("VolumeEncryptionEnabled") != m.end() && !m["VolumeEncryptionEnabled"].empty()) {
       volumeEncryptionEnabled = make_shared<bool>(boost::any_cast<bool>(m["VolumeEncryptionEnabled"]));
@@ -17563,6 +17577,7 @@ public:
   shared_ptr<string> systemDiskCategory{};
   shared_ptr<long> systemDiskSize{};
   shared_ptr<vector<DescribeDesktopGroupsResponseBodyDesktopGroupsTags>> tags{};
+  shared_ptr<string> userOuPath{};
   shared_ptr<long> version{};
   shared_ptr<bool> volumeEncryptionEnabled{};
   shared_ptr<string> volumeEncryptionKey{};
@@ -17719,6 +17734,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (userOuPath) {
+      res["UserOuPath"] = boost::any(*userOuPath);
     }
     if (version) {
       res["Version"] = boost::any(*version);
@@ -17887,6 +17905,9 @@ public:
         }
         tags = make_shared<vector<DescribeDesktopGroupsResponseBodyDesktopGroupsTags>>(expect1);
       }
+    }
+    if (m.find("UserOuPath") != m.end() && !m["UserOuPath"].empty()) {
+      userOuPath = make_shared<string>(boost::any_cast<string>(m["UserOuPath"]));
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<long>(boost::any_cast<long>(m["Version"]));
@@ -33375,6 +33396,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<long> onlineUsersCount{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> userOuPath{};
   shared_ptr<long> usersCount{};
 
   DescribeUsersInGroupResponseBody() {}
@@ -33402,6 +33424,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (userOuPath) {
+      res["UserOuPath"] = boost::any(*userOuPath);
     }
     if (usersCount) {
       res["UsersCount"] = boost::any(*usersCount);
@@ -33431,6 +33456,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UserOuPath") != m.end() && !m["UserOuPath"].empty()) {
+      userOuPath = make_shared<string>(boost::any_cast<string>(m["UserOuPath"]));
     }
     if (m.find("UsersCount") != m.end() && !m["UsersCount"].empty()) {
       usersCount = make_shared<long>(boost::any_cast<long>(m["UsersCount"]));
@@ -47877,6 +47905,7 @@ public:
   shared_ptr<vector<string>> desktopGroupIds{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> userOuPath{};
 
   RemoveUserFromDesktopGroupRequest() {}
 
@@ -47899,6 +47928,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (userOuPath) {
+      res["UserOuPath"] = boost::any(*userOuPath);
     }
     return res;
   }
@@ -47929,6 +47961,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("UserOuPath") != m.end() && !m["UserOuPath"].empty()) {
+      userOuPath = make_shared<string>(boost::any_cast<string>(m["UserOuPath"]));
     }
   }
 

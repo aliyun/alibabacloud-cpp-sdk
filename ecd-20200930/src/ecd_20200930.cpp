@@ -229,6 +229,9 @@ AddUserToDesktopGroupResponse Alibabacloud_Ecd20200930::Client::addUserToDesktop
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userOuPath)) {
+    query->insert(pair<string, string>("UserOuPath", *request->userOuPath));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1911,6 +1914,9 @@ CreateDesktopGroupResponse Alibabacloud_Ecd20200930::Client::createDesktopGroupW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->timerGroupId)) {
     query->insert(pair<string, string>("TimerGroupId", *request->timerGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userOuPath)) {
+    query->insert(pair<string, string>("UserOuPath", *request->userOuPath));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->volumeEncryptionEnabled)) {
     query->insert(pair<string, bool>("VolumeEncryptionEnabled", *request->volumeEncryptionEnabled));
@@ -9753,6 +9759,9 @@ RemoveUserFromDesktopGroupResponse Alibabacloud_Ecd20200930::Client::removeUserF
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userOuPath)) {
+    query->insert(pair<string, string>("UserOuPath", *request->userOuPath));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
