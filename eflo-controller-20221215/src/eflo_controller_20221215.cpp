@@ -873,6 +873,10 @@ ExtendClusterResponse Alibabacloud_Eflo-controller20221215::Client::extendCluste
 
 ListClusterNodesResponse Alibabacloud_Eflo-controller20221215::Client::listClusterNodesWithOptions(shared_ptr<ListClusterNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ListClusterNodesRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<ListClusterNodesRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     body->insert(pair<string, string>("ClusterId", *request->clusterId));
@@ -886,7 +890,11 @@ ListClusterNodesResponse Alibabacloud_Eflo-controller20221215::Client::listClust
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupId)) {
     body->insert(pair<string, string>("NodeGroupId", *request->nodeGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -915,6 +923,10 @@ ListClusterNodesResponse Alibabacloud_Eflo-controller20221215::Client::listClust
 
 ListClustersResponse Alibabacloud_Eflo-controller20221215::Client::listClustersWithOptions(shared_ptr<ListClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ListClustersRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<ListClustersRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     body->insert(pair<string, long>("MaxResults", *request->maxResults));
@@ -926,6 +938,7 @@ ListClustersResponse Alibabacloud_Eflo-controller20221215::Client::listClustersW
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -996,6 +1009,10 @@ ListDiagnosticResultsResponse Alibabacloud_Eflo-controller20221215::Client::list
 
 ListFreeNodesResponse Alibabacloud_Eflo-controller20221215::Client::listFreeNodesWithOptions(shared_ptr<ListFreeNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ListFreeNodesRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<ListFreeNodesRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->hpnZone)) {
     body->insert(pair<string, string>("HpnZone", *request->hpnZone));
@@ -1013,6 +1030,7 @@ ListFreeNodesResponse Alibabacloud_Eflo-controller20221215::Client::listFreeNode
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1770,6 +1788,9 @@ UpdateNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::updateNode
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupId)) {
     body->insert(pair<string, string>("NodeGroupId", *request->nodeGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    body->insert(pair<string, string>("UserData", *request->userData));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
