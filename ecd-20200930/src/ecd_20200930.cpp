@@ -799,6 +799,51 @@ CancelCopyImageResponse Alibabacloud_Ecd20200930::Client::cancelCopyImage(shared
   return cancelCopyImageWithOptions(request, runtime);
 }
 
+CloneCenterPolicyResponse Alibabacloud_Ecd20200930::Client::cloneCenterPolicyWithOptions(shared_ptr<CloneCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->businessType)) {
+    query->insert(pair<string, long>("BusinessType", *request->businessType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupId)) {
+    query->insert(pair<string, string>("PolicyGroupId", *request->policyGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CloneCenterPolicy"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CloneCenterPolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CloneCenterPolicyResponse(execute(params, req, runtime));
+  }
+}
+
+CloneCenterPolicyResponse Alibabacloud_Ecd20200930::Client::cloneCenterPolicy(shared_ptr<CloneCenterPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return cloneCenterPolicyWithOptions(request, runtime);
+}
+
 ClonePolicyGroupResponse Alibabacloud_Ecd20200930::Client::clonePolicyGroupWithOptions(shared_ptr<ClonePolicyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1580,6 +1625,333 @@ CreateCdsFileShareLinkResponse Alibabacloud_Ecd20200930::Client::createCdsFileSh
 CreateCdsFileShareLinkResponse Alibabacloud_Ecd20200930::Client::createCdsFileShareLink(shared_ptr<CreateCdsFileShareLinkRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createCdsFileShareLinkWithOptions(request, runtime);
+}
+
+CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicyWithOptions(shared_ptr<CreateCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->adminAccess)) {
+    query->insert(pair<string, string>("AdminAccess", *request->adminAccess));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appContentProtection)) {
+    query->insert(pair<string, string>("AppContentProtection", *request->appContentProtection));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestAuthorizeAccessPolicyRule>>(request->authorizeAccessPolicyRule)) {
+    query->insert(pair<string, vector<CreateCenterPolicyRequestAuthorizeAccessPolicyRule>>("AuthorizeAccessPolicyRule", *request->authorizeAccessPolicyRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestAuthorizeSecurityPolicyRule>>(request->authorizeSecurityPolicyRule)) {
+    query->insert(pair<string, vector<CreateCenterPolicyRequestAuthorizeSecurityPolicyRule>>("AuthorizeSecurityPolicyRule", *request->authorizeSecurityPolicyRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->businessType)) {
+    query->insert(pair<string, long>("BusinessType", *request->businessType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cameraRedirect)) {
+    query->insert(pair<string, string>("CameraRedirect", *request->cameraRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestClientType>>(request->clientType)) {
+    query->insert(pair<string, vector<CreateCenterPolicyRequestClientType>>("ClientType", *request->clientType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clipboard)) {
+    query->insert(pair<string, string>("Clipboard", *request->clipboard));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->colorEnhancement)) {
+    query->insert(pair<string, string>("ColorEnhancement", *request->colorEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpuDownGradeDuration)) {
+    query->insert(pair<string, long>("CpuDownGradeDuration", *request->cpuDownGradeDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->cpuProcessors)) {
+    query->insert(pair<string, vector<string>>("CpuProcessors", *request->cpuProcessors));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuProtectedMode)) {
+    query->insert(pair<string, string>("CpuProtectedMode", *request->cpuProtectedMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpuRateLimit)) {
+    query->insert(pair<string, long>("CpuRateLimit", *request->cpuRateLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpuSampleDuration)) {
+    query->insert(pair<string, long>("CpuSampleDuration", *request->cpuSampleDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpuSingleRateLimit)) {
+    query->insert(pair<string, long>("CpuSingleRateLimit", *request->cpuSingleRateLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceConnectHint)) {
+    query->insert(pair<string, string>("DeviceConnectHint", *request->deviceConnectHint));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestDeviceRedirects>>(request->deviceRedirects)) {
+    query->insert(pair<string, vector<CreateCenterPolicyRequestDeviceRedirects>>("DeviceRedirects", *request->deviceRedirects));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestDeviceRules>>(request->deviceRules)) {
+    query->insert(pair<string, vector<CreateCenterPolicyRequestDeviceRules>>("DeviceRules", *request->deviceRules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->disconnectKeepSession)) {
+    query->insert(pair<string, string>("DisconnectKeepSession", *request->disconnectKeepSession));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->disconnectKeepSessionTime)) {
+    query->insert(pair<string, long>("DisconnectKeepSessionTime", *request->disconnectKeepSessionTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayMode)) {
+    query->insert(pair<string, string>("DisplayMode", *request->displayMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestDomainResolveRule>>(request->domainResolveRule)) {
+    query->insert(pair<string, vector<CreateCenterPolicyRequestDomainResolveRule>>("DomainResolveRule", *request->domainResolveRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainResolveRuleType)) {
+    query->insert(pair<string, string>("DomainResolveRuleType", *request->domainResolveRuleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableSessionRateLimiting)) {
+    query->insert(pair<string, string>("EnableSessionRateLimiting", *request->enableSessionRateLimiting));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserApplyAdminCoordinate)) {
+    query->insert(pair<string, string>("EndUserApplyAdminCoordinate", *request->endUserApplyAdminCoordinate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserGroupCoordinate)) {
+    query->insert(pair<string, string>("EndUserGroupCoordinate", *request->endUserGroupCoordinate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileMigrate)) {
+    query->insert(pair<string, string>("FileMigrate", *request->fileMigrate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuAcceleration)) {
+    query->insert(pair<string, string>("GpuAcceleration", *request->gpuAcceleration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->html5FileTransfer)) {
+    query->insert(pair<string, string>("Html5FileTransfer", *request->html5FileTransfer));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetCommunicationProtocol)) {
+    query->insert(pair<string, string>("InternetCommunicationProtocol", *request->internetCommunicationProtocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
+    query->insert(pair<string, string>("LocalDrive", *request->localDrive));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxReconnectTime)) {
+    query->insert(pair<string, long>("MaxReconnectTime", *request->maxReconnectTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memoryDownGradeDuration)) {
+    query->insert(pair<string, long>("MemoryDownGradeDuration", *request->memoryDownGradeDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->memoryProcessors)) {
+    query->insert(pair<string, vector<string>>("MemoryProcessors", *request->memoryProcessors));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->memoryProtectedMode)) {
+    query->insert(pair<string, string>("MemoryProtectedMode", *request->memoryProtectedMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memoryRateLimit)) {
+    query->insert(pair<string, long>("MemoryRateLimit", *request->memoryRateLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memorySampleDuration)) {
+    query->insert(pair<string, long>("MemorySampleDuration", *request->memorySampleDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memorySingleRateLimit)) {
+    query->insert(pair<string, long>("MemorySingleRateLimit", *request->memorySingleRateLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobileRestart)) {
+    query->insert(pair<string, string>("MobileRestart", *request->mobileRestart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobileShutdown)) {
+    query->insert(pair<string, string>("MobileShutdown", *request->mobileShutdown));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->netRedirect)) {
+    query->insert(pair<string, string>("NetRedirect", *request->netRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestNetRedirectRule>>(request->netRedirectRule)) {
+    query->insert(pair<string, vector<CreateCenterPolicyRequestNetRedirectRule>>("NetRedirectRule", *request->netRedirectRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->noOperationDisconnect)) {
+    query->insert(pair<string, string>("NoOperationDisconnect", *request->noOperationDisconnect));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->noOperationDisconnectTime)) {
+    query->insert(pair<string, long>("NoOperationDisconnectTime", *request->noOperationDisconnectTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->printerRedirect)) {
+    query->insert(pair<string, string>("PrinterRedirect", *request->printerRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualityEnhancement)) {
+    query->insert(pair<string, string>("QualityEnhancement", *request->qualityEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recordEventDuration)) {
+    query->insert(pair<string, long>("RecordEventDuration", *request->recordEventDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->recordEventFilePaths)) {
+    query->insert(pair<string, vector<string>>("RecordEventFilePaths", *request->recordEventFilePaths));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->recordEventRegisters)) {
+    query->insert(pair<string, vector<string>>("RecordEventRegisters", *request->recordEventRegisters));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->recordEvents)) {
+    query->insert(pair<string, vector<string>>("RecordEvents", *request->recordEvents));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recording)) {
+    query->insert(pair<string, string>("Recording", *request->recording));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingAudio)) {
+    query->insert(pair<string, string>("RecordingAudio", *request->recordingAudio));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recordingDuration)) {
+    query->insert(pair<string, long>("RecordingDuration", *request->recordingDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingEndTime)) {
+    query->insert(pair<string, string>("RecordingEndTime", *request->recordingEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recordingExpires)) {
+    query->insert(pair<string, long>("RecordingExpires", *request->recordingExpires));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingFps)) {
+    query->insert(pair<string, string>("RecordingFps", *request->recordingFps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingStartTime)) {
+    query->insert(pair<string, string>("RecordingStartTime", *request->recordingStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingUserNotify)) {
+    query->insert(pair<string, string>("RecordingUserNotify", *request->recordingUserNotify));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingUserNotifyMessage)) {
+    query->insert(pair<string, string>("RecordingUserNotifyMessage", *request->recordingUserNotifyMessage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remoteCoordinate)) {
+    query->insert(pair<string, string>("RemoteCoordinate", *request->remoteCoordinate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resetDesktop)) {
+    query->insert(pair<string, string>("ResetDesktop", *request->resetDesktop));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resolutionHeight)) {
+    query->insert(pair<string, long>("ResolutionHeight", *request->resolutionHeight));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resolutionModel)) {
+    query->insert(pair<string, string>("ResolutionModel", *request->resolutionModel));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resolutionWidth)) {
+    query->insert(pair<string, long>("ResolutionWidth", *request->resolutionWidth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->scopeValue)) {
+    query->insert(pair<string, vector<string>>("ScopeValue", *request->scopeValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sessionMaxRateKbps)) {
+    query->insert(pair<string, long>("SessionMaxRateKbps", *request->sessionMaxRateKbps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smoothEnhancement)) {
+    query->insert(pair<string, string>("SmoothEnhancement", *request->smoothEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statusMonitor)) {
+    query->insert(pair<string, string>("StatusMonitor", *request->statusMonitor));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->streamingMode)) {
+    query->insert(pair<string, string>("StreamingMode", *request->streamingMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->targetFps)) {
+    query->insert(pair<string, long>("TargetFps", *request->targetFps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskbar)) {
+    query->insert(pair<string, string>("Taskbar", *request->taskbar));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usbRedirect)) {
+    query->insert(pair<string, string>("UsbRedirect", *request->usbRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestUsbSupplyRedirectRule>>(request->usbSupplyRedirectRule)) {
+    query->insert(pair<string, vector<CreateCenterPolicyRequestUsbSupplyRedirectRule>>("UsbSupplyRedirectRule", *request->usbSupplyRedirectRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoEncAvgKbps)) {
+    query->insert(pair<string, long>("VideoEncAvgKbps", *request->videoEncAvgKbps));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoEncMaxQP)) {
+    query->insert(pair<string, long>("VideoEncMaxQP", *request->videoEncMaxQP));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoEncMinQP)) {
+    query->insert(pair<string, long>("VideoEncMinQP", *request->videoEncMinQP));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoEncPeakKbps)) {
+    query->insert(pair<string, long>("VideoEncPeakKbps", *request->videoEncPeakKbps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoEncPolicy)) {
+    query->insert(pair<string, string>("VideoEncPolicy", *request->videoEncPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoRedirect)) {
+    query->insert(pair<string, string>("VideoRedirect", *request->videoRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->visualQuality)) {
+    query->insert(pair<string, string>("VisualQuality", *request->visualQuality));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermark)) {
+    query->insert(pair<string, string>("Watermark", *request->watermark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkAntiCam)) {
+    query->insert(pair<string, string>("WatermarkAntiCam", *request->watermarkAntiCam));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkColor)) {
+    query->insert(pair<string, long>("WatermarkColor", *request->watermarkColor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkColumnAmount)) {
+    query->insert(pair<string, long>("WatermarkColumnAmount", *request->watermarkColumnAmount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkCustomText)) {
+    query->insert(pair<string, string>("WatermarkCustomText", *request->watermarkCustomText));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->watermarkDegree)) {
+    query->insert(pair<string, double>("WatermarkDegree", *request->watermarkDegree));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkFontSize)) {
+    query->insert(pair<string, long>("WatermarkFontSize", *request->watermarkFontSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkFontStyle)) {
+    query->insert(pair<string, string>("WatermarkFontStyle", *request->watermarkFontStyle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkPower)) {
+    query->insert(pair<string, string>("WatermarkPower", *request->watermarkPower));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkRowAmount)) {
+    query->insert(pair<string, long>("WatermarkRowAmount", *request->watermarkRowAmount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkSecurity)) {
+    query->insert(pair<string, string>("WatermarkSecurity", *request->watermarkSecurity));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkTransparencyValue)) {
+    query->insert(pair<string, long>("WatermarkTransparencyValue", *request->watermarkTransparencyValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkType)) {
+    query->insert(pair<string, string>("WatermarkType", *request->watermarkType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wuyingKeeper)) {
+    query->insert(pair<string, string>("WuyingKeeper", *request->wuyingKeeper));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wyAssistant)) {
+    query->insert(pair<string, string>("WyAssistant", *request->wyAssistant));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCenterPolicy"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateCenterPolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateCenterPolicyResponse(execute(params, req, runtime));
+  }
+}
+
+CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicy(shared_ptr<CreateCenterPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCenterPolicyWithOptions(request, runtime);
 }
 
 CreateCloudDriveServiceResponse Alibabacloud_Ecd20200930::Client::createCloudDriveServiceWithOptions(shared_ptr<CreateCloudDriveServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2850,6 +3222,48 @@ DeleteCdsFileResponse Alibabacloud_Ecd20200930::Client::deleteCdsFile(shared_ptr
   return deleteCdsFileWithOptions(request, runtime);
 }
 
+DeleteCenterPolicyResponse Alibabacloud_Ecd20200930::Client::deleteCenterPolicyWithOptions(shared_ptr<DeleteCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->businessType)) {
+    query->insert(pair<string, long>("BusinessType", *request->businessType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->policyGroupIds)) {
+    query->insert(pair<string, vector<string>>("PolicyGroupIds", *request->policyGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCenterPolicy"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteCenterPolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteCenterPolicyResponse(execute(params, req, runtime));
+  }
+}
+
+DeleteCenterPolicyResponse Alibabacloud_Ecd20200930::Client::deleteCenterPolicy(shared_ptr<DeleteCenterPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCenterPolicyWithOptions(request, runtime);
+}
+
 DeleteCloudDriveGroupsResponse Alibabacloud_Ecd20200930::Client::deleteCloudDriveGroupsWithOptions(shared_ptr<DeleteCloudDriveGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3679,6 +4093,54 @@ DescribeCensResponse Alibabacloud_Ecd20200930::Client::describeCensWithOptions(s
 DescribeCensResponse Alibabacloud_Ecd20200930::Client::describeCens(shared_ptr<DescribeCensRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeCensWithOptions(request, runtime);
+}
+
+DescribeCenterPolicyListResponse Alibabacloud_Ecd20200930::Client::describeCenterPolicyListWithOptions(shared_ptr<DescribeCenterPolicyListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->businessType)) {
+    query->insert(pair<string, long>("BusinessType", *request->businessType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->policyGroupId)) {
+    query->insert(pair<string, vector<string>>("PolicyGroupId", *request->policyGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCenterPolicyList"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeCenterPolicyListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeCenterPolicyListResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeCenterPolicyListResponse Alibabacloud_Ecd20200930::Client::describeCenterPolicyList(shared_ptr<DescribeCenterPolicyListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCenterPolicyListWithOptions(request, runtime);
 }
 
 DescribeClientEventsResponse Alibabacloud_Ecd20200930::Client::describeClientEventsWithOptions(shared_ptr<DescribeClientEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5892,6 +6354,51 @@ DescribeRenewalPriceResponse Alibabacloud_Ecd20200930::Client::describeRenewalPr
   return describeRenewalPriceWithOptions(request, runtime);
 }
 
+DescribeResourceByCenterPolicyIdResponse Alibabacloud_Ecd20200930::Client::describeResourceByCenterPolicyIdWithOptions(shared_ptr<DescribeResourceByCenterPolicyIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupId)) {
+    query->insert(pair<string, string>("PolicyGroupId", *request->policyGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
+    query->insert(pair<string, string>("ProductType", *request->productType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    query->insert(pair<string, string>("ResourceId", *request->resourceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeResourceByCenterPolicyId"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeResourceByCenterPolicyIdResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeResourceByCenterPolicyIdResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeResourceByCenterPolicyIdResponse Alibabacloud_Ecd20200930::Client::describeResourceByCenterPolicyId(shared_ptr<DescribeResourceByCenterPolicyIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeResourceByCenterPolicyIdWithOptions(request, runtime);
+}
+
 DescribeSessionStatisticResponse Alibabacloud_Ecd20200930::Client::describeSessionStatisticWithOptions(shared_ptr<DescribeSessionStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -8006,6 +8513,342 @@ ModifyCdsFileShareLinkResponse Alibabacloud_Ecd20200930::Client::modifyCdsFileSh
   return modifyCdsFileShareLinkWithOptions(request, runtime);
 }
 
+ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicyWithOptions(shared_ptr<ModifyCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->adminAccess)) {
+    query->insert(pair<string, string>("AdminAccess", *request->adminAccess));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appContentProtection)) {
+    query->insert(pair<string, string>("AppContentProtection", *request->appContentProtection));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestAuthorizeAccessPolicyRule>>(request->authorizeAccessPolicyRule)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestAuthorizeAccessPolicyRule>>("AuthorizeAccessPolicyRule", *request->authorizeAccessPolicyRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule>>(request->authorizeSecurityPolicyRule)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule>>("AuthorizeSecurityPolicyRule", *request->authorizeSecurityPolicyRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->businessType)) {
+    query->insert(pair<string, long>("BusinessType", *request->businessType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cameraRedirect)) {
+    query->insert(pair<string, string>("CameraRedirect", *request->cameraRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestClientType>>(request->clientType)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestClientType>>("ClientType", *request->clientType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clipboard)) {
+    query->insert(pair<string, string>("Clipboard", *request->clipboard));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->colorEnhancement)) {
+    query->insert(pair<string, string>("ColorEnhancement", *request->colorEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpuDownGradeDuration)) {
+    query->insert(pair<string, long>("CpuDownGradeDuration", *request->cpuDownGradeDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->cpuProcessors)) {
+    query->insert(pair<string, vector<string>>("CpuProcessors", *request->cpuProcessors));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuProtectedMode)) {
+    query->insert(pair<string, string>("CpuProtectedMode", *request->cpuProtectedMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpuRateLimit)) {
+    query->insert(pair<string, long>("CpuRateLimit", *request->cpuRateLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpuSampleDuration)) {
+    query->insert(pair<string, long>("CpuSampleDuration", *request->cpuSampleDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpuSingleRateLimit)) {
+    query->insert(pair<string, long>("CpuSingleRateLimit", *request->cpuSingleRateLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceConnectHint)) {
+    query->insert(pair<string, string>("DeviceConnectHint", *request->deviceConnectHint));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestDeviceRedirects>>(request->deviceRedirects)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestDeviceRedirects>>("DeviceRedirects", *request->deviceRedirects));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestDeviceRules>>(request->deviceRules)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestDeviceRules>>("DeviceRules", *request->deviceRules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->disconnectKeepSession)) {
+    query->insert(pair<string, string>("DisconnectKeepSession", *request->disconnectKeepSession));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->disconnectKeepSessionTime)) {
+    query->insert(pair<string, long>("DisconnectKeepSessionTime", *request->disconnectKeepSessionTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayMode)) {
+    query->insert(pair<string, string>("DisplayMode", *request->displayMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestDomainResolveRule>>(request->domainResolveRule)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestDomainResolveRule>>("DomainResolveRule", *request->domainResolveRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainResolveRuleType)) {
+    query->insert(pair<string, string>("DomainResolveRuleType", *request->domainResolveRuleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableSessionRateLimiting)) {
+    query->insert(pair<string, string>("EnableSessionRateLimiting", *request->enableSessionRateLimiting));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserApplyAdminCoordinate)) {
+    query->insert(pair<string, string>("EndUserApplyAdminCoordinate", *request->endUserApplyAdminCoordinate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserGroupCoordinate)) {
+    query->insert(pair<string, string>("EndUserGroupCoordinate", *request->endUserGroupCoordinate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileMigrate)) {
+    query->insert(pair<string, string>("FileMigrate", *request->fileMigrate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuAcceleration)) {
+    query->insert(pair<string, string>("GpuAcceleration", *request->gpuAcceleration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->html5FileTransfer)) {
+    query->insert(pair<string, string>("Html5FileTransfer", *request->html5FileTransfer));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetCommunicationProtocol)) {
+    query->insert(pair<string, string>("InternetCommunicationProtocol", *request->internetCommunicationProtocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
+    query->insert(pair<string, string>("LocalDrive", *request->localDrive));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxReconnectTime)) {
+    query->insert(pair<string, long>("MaxReconnectTime", *request->maxReconnectTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memoryDownGradeDuration)) {
+    query->insert(pair<string, long>("MemoryDownGradeDuration", *request->memoryDownGradeDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->memoryProcessors)) {
+    query->insert(pair<string, vector<string>>("MemoryProcessors", *request->memoryProcessors));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->memoryProtectedMode)) {
+    query->insert(pair<string, string>("MemoryProtectedMode", *request->memoryProtectedMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memoryRateLimit)) {
+    query->insert(pair<string, long>("MemoryRateLimit", *request->memoryRateLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memorySampleDuration)) {
+    query->insert(pair<string, long>("MemorySampleDuration", *request->memorySampleDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memorySingleRateLimit)) {
+    query->insert(pair<string, long>("MemorySingleRateLimit", *request->memorySingleRateLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobileRestart)) {
+    query->insert(pair<string, string>("MobileRestart", *request->mobileRestart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobileShutdown)) {
+    query->insert(pair<string, string>("MobileShutdown", *request->mobileShutdown));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->netRedirect)) {
+    query->insert(pair<string, string>("NetRedirect", *request->netRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestNetRedirectRule>>(request->netRedirectRule)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestNetRedirectRule>>("NetRedirectRule", *request->netRedirectRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->noOperationDisconnect)) {
+    query->insert(pair<string, string>("NoOperationDisconnect", *request->noOperationDisconnect));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->noOperationDisconnectTime)) {
+    query->insert(pair<string, long>("NoOperationDisconnectTime", *request->noOperationDisconnectTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupId)) {
+    query->insert(pair<string, string>("PolicyGroupId", *request->policyGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->printerRedirect)) {
+    query->insert(pair<string, string>("PrinterRedirect", *request->printerRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualityEnhancement)) {
+    query->insert(pair<string, string>("QualityEnhancement", *request->qualityEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recordEventDuration)) {
+    query->insert(pair<string, long>("RecordEventDuration", *request->recordEventDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->recordEventFilePaths)) {
+    query->insert(pair<string, vector<string>>("RecordEventFilePaths", *request->recordEventFilePaths));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->recordEventRegisters)) {
+    query->insert(pair<string, vector<string>>("RecordEventRegisters", *request->recordEventRegisters));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->recordEvents)) {
+    query->insert(pair<string, vector<string>>("RecordEvents", *request->recordEvents));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recording)) {
+    query->insert(pair<string, string>("Recording", *request->recording));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingAudio)) {
+    query->insert(pair<string, string>("RecordingAudio", *request->recordingAudio));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recordingDuration)) {
+    query->insert(pair<string, long>("RecordingDuration", *request->recordingDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingEndTime)) {
+    query->insert(pair<string, string>("RecordingEndTime", *request->recordingEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recordingExpires)) {
+    query->insert(pair<string, long>("RecordingExpires", *request->recordingExpires));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingFps)) {
+    query->insert(pair<string, string>("RecordingFps", *request->recordingFps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingStartTime)) {
+    query->insert(pair<string, string>("RecordingStartTime", *request->recordingStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingUserNotify)) {
+    query->insert(pair<string, string>("RecordingUserNotify", *request->recordingUserNotify));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingUserNotifyMessage)) {
+    query->insert(pair<string, string>("RecordingUserNotifyMessage", *request->recordingUserNotifyMessage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remoteCoordinate)) {
+    query->insert(pair<string, string>("RemoteCoordinate", *request->remoteCoordinate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resetDesktop)) {
+    query->insert(pair<string, string>("ResetDesktop", *request->resetDesktop));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resolutionHeight)) {
+    query->insert(pair<string, long>("ResolutionHeight", *request->resolutionHeight));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resolutionModel)) {
+    query->insert(pair<string, string>("ResolutionModel", *request->resolutionModel));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resolutionWidth)) {
+    query->insert(pair<string, long>("ResolutionWidth", *request->resolutionWidth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestRevokeAccessPolicyRule>>(request->revokeAccessPolicyRule)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestRevokeAccessPolicyRule>>("RevokeAccessPolicyRule", *request->revokeAccessPolicyRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule>>(request->revokeSecurityPolicyRule)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule>>("RevokeSecurityPolicyRule", *request->revokeSecurityPolicyRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->scopeValue)) {
+    query->insert(pair<string, vector<string>>("ScopeValue", *request->scopeValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sessionMaxRateKbps)) {
+    query->insert(pair<string, long>("SessionMaxRateKbps", *request->sessionMaxRateKbps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smoothEnhancement)) {
+    query->insert(pair<string, string>("SmoothEnhancement", *request->smoothEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statusMonitor)) {
+    query->insert(pair<string, string>("StatusMonitor", *request->statusMonitor));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->streamingMode)) {
+    query->insert(pair<string, string>("StreamingMode", *request->streamingMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->targetFps)) {
+    query->insert(pair<string, long>("TargetFps", *request->targetFps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskbar)) {
+    query->insert(pair<string, string>("Taskbar", *request->taskbar));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usbRedirect)) {
+    query->insert(pair<string, string>("UsbRedirect", *request->usbRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule>>(request->usbSupplyRedirectRule)) {
+    query->insert(pair<string, vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule>>("UsbSupplyRedirectRule", *request->usbSupplyRedirectRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoEncAvgKbps)) {
+    query->insert(pair<string, long>("VideoEncAvgKbps", *request->videoEncAvgKbps));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoEncMaxQP)) {
+    query->insert(pair<string, long>("VideoEncMaxQP", *request->videoEncMaxQP));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoEncMinQP)) {
+    query->insert(pair<string, long>("VideoEncMinQP", *request->videoEncMinQP));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->videoEncPeakKbps)) {
+    query->insert(pair<string, long>("VideoEncPeakKbps", *request->videoEncPeakKbps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoEncPolicy)) {
+    query->insert(pair<string, string>("VideoEncPolicy", *request->videoEncPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoRedirect)) {
+    query->insert(pair<string, string>("VideoRedirect", *request->videoRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->visualQuality)) {
+    query->insert(pair<string, string>("VisualQuality", *request->visualQuality));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermark)) {
+    query->insert(pair<string, string>("Watermark", *request->watermark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkAntiCam)) {
+    query->insert(pair<string, string>("WatermarkAntiCam", *request->watermarkAntiCam));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkColor)) {
+    query->insert(pair<string, long>("WatermarkColor", *request->watermarkColor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkColumnAmount)) {
+    query->insert(pair<string, long>("WatermarkColumnAmount", *request->watermarkColumnAmount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkCustomText)) {
+    query->insert(pair<string, string>("WatermarkCustomText", *request->watermarkCustomText));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->watermarkDegree)) {
+    query->insert(pair<string, double>("WatermarkDegree", *request->watermarkDegree));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkFontSize)) {
+    query->insert(pair<string, long>("WatermarkFontSize", *request->watermarkFontSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkFontStyle)) {
+    query->insert(pair<string, string>("WatermarkFontStyle", *request->watermarkFontStyle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkPower)) {
+    query->insert(pair<string, string>("WatermarkPower", *request->watermarkPower));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkRowAmount)) {
+    query->insert(pair<string, long>("WatermarkRowAmount", *request->watermarkRowAmount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkSecurity)) {
+    query->insert(pair<string, string>("WatermarkSecurity", *request->watermarkSecurity));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->watermarkTransparencyValue)) {
+    query->insert(pair<string, long>("WatermarkTransparencyValue", *request->watermarkTransparencyValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkType)) {
+    query->insert(pair<string, string>("WatermarkType", *request->watermarkType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wuyingKeeper)) {
+    query->insert(pair<string, string>("WuyingKeeper", *request->wuyingKeeper));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wyAssistant)) {
+    query->insert(pair<string, string>("WyAssistant", *request->wyAssistant));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyCenterPolicy"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyCenterPolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyCenterPolicyResponse(execute(params, req, runtime));
+  }
+}
+
+ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicy(shared_ptr<ModifyCenterPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyCenterPolicyWithOptions(request, runtime);
+}
+
 ModifyCloudDriveGroupsResponse Alibabacloud_Ecd20200930::Client::modifyCloudDriveGroupsWithOptions(shared_ptr<ModifyCloudDriveGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -9426,6 +10269,54 @@ ModifyPolicyGroupResponse Alibabacloud_Ecd20200930::Client::modifyPolicyGroupWit
 ModifyPolicyGroupResponse Alibabacloud_Ecd20200930::Client::modifyPolicyGroup(shared_ptr<ModifyPolicyGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyPolicyGroupWithOptions(request, runtime);
+}
+
+ModifyResourceCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyResourceCenterPolicyWithOptions(shared_ptr<ModifyResourceCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->policyGroupIds)) {
+    query->insert(pair<string, vector<string>>("PolicyGroupIds", *request->policyGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupType)) {
+    query->insert(pair<string, string>("PolicyGroupType", *request->policyGroupType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
+    query->insert(pair<string, string>("ProductType", *request->productType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceIds)) {
+    query->insert(pair<string, vector<string>>("ResourceIds", *request->resourceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceRegionId)) {
+    query->insert(pair<string, string>("ResourceRegionId", *request->resourceRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyResourceCenterPolicy"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyResourceCenterPolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyResourceCenterPolicyResponse(execute(params, req, runtime));
+  }
+}
+
+ModifyResourceCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyResourceCenterPolicy(shared_ptr<ModifyResourceCenterPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyResourceCenterPolicyWithOptions(request, runtime);
 }
 
 ModifyTimerGroupResponse Alibabacloud_Ecd20200930::Client::modifyTimerGroupWithOptions(shared_ptr<ModifyTimerGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

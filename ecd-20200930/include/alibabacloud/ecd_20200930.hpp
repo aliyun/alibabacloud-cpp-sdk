@@ -3340,6 +3340,151 @@ public:
 
   virtual ~CancelCopyImageResponse() = default;
 };
+class CloneCenterPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> businessType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceType{};
+
+  CloneCenterPolicyRequest() {}
+
+  explicit CloneCenterPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<long>(boost::any_cast<long>(m["BusinessType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~CloneCenterPolicyRequest() = default;
+};
+class CloneCenterPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<string> requestId{};
+
+  CloneCenterPolicyResponseBody() {}
+
+  explicit CloneCenterPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CloneCenterPolicyResponseBody() = default;
+};
+class CloneCenterPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CloneCenterPolicyResponseBody> body{};
+
+  CloneCenterPolicyResponse() {}
+
+  explicit CloneCenterPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CloneCenterPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CloneCenterPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CloneCenterPolicyResponse() = default;
+};
 class ClonePolicyGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -5951,6 +6096,1349 @@ public:
 
 
   virtual ~CreateCdsFileShareLinkResponse() = default;
+};
+class CreateCenterPolicyRequestAuthorizeAccessPolicyRule : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrIp{};
+  shared_ptr<string> description{};
+
+  CreateCenterPolicyRequestAuthorizeAccessPolicyRule() {}
+
+  explicit CreateCenterPolicyRequestAuthorizeAccessPolicyRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrIp) {
+      res["CidrIp"] = boost::any(*cidrIp);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrIp") != m.end() && !m["CidrIp"].empty()) {
+      cidrIp = make_shared<string>(boost::any_cast<string>(m["CidrIp"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequestAuthorizeAccessPolicyRule() = default;
+};
+class CreateCenterPolicyRequestAuthorizeSecurityPolicyRule : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrIp{};
+  shared_ptr<string> description{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> type{};
+
+  CreateCenterPolicyRequestAuthorizeSecurityPolicyRule() {}
+
+  explicit CreateCenterPolicyRequestAuthorizeSecurityPolicyRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrIp) {
+      res["CidrIp"] = boost::any(*cidrIp);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrIp") != m.end() && !m["CidrIp"].empty()) {
+      cidrIp = make_shared<string>(boost::any_cast<string>(m["CidrIp"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequestAuthorizeSecurityPolicyRule() = default;
+};
+class CreateCenterPolicyRequestClientType : public Darabonba::Model {
+public:
+  shared_ptr<string> clientType{};
+  shared_ptr<string> status{};
+
+  CreateCenterPolicyRequestClientType() {}
+
+  explicit CreateCenterPolicyRequestClientType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<string>(boost::any_cast<string>(m["ClientType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequestClientType() = default;
+};
+class CreateCenterPolicyRequestDeviceRedirects : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> redirectType{};
+
+  CreateCenterPolicyRequestDeviceRedirects() {}
+
+  explicit CreateCenterPolicyRequestDeviceRedirects(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequestDeviceRedirects() = default;
+};
+class CreateCenterPolicyRequestDeviceRules : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> devicePid{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> deviceVid{};
+  shared_ptr<string> optCommand{};
+  shared_ptr<string> redirectType{};
+
+  CreateCenterPolicyRequestDeviceRules() {}
+
+  explicit CreateCenterPolicyRequestDeviceRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (devicePid) {
+      res["DevicePid"] = boost::any(*devicePid);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (deviceVid) {
+      res["DeviceVid"] = boost::any(*deviceVid);
+    }
+    if (optCommand) {
+      res["OptCommand"] = boost::any(*optCommand);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("DevicePid") != m.end() && !m["DevicePid"].empty()) {
+      devicePid = make_shared<string>(boost::any_cast<string>(m["DevicePid"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("DeviceVid") != m.end() && !m["DeviceVid"].empty()) {
+      deviceVid = make_shared<string>(boost::any_cast<string>(m["DeviceVid"]));
+    }
+    if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
+      optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequestDeviceRules() = default;
+};
+class CreateCenterPolicyRequestDomainResolveRule : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> policy{};
+
+  CreateCenterPolicyRequestDomainResolveRule() {}
+
+  explicit CreateCenterPolicyRequestDomainResolveRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequestDomainResolveRule() = default;
+};
+class CreateCenterPolicyRequestNetRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> ruleType{};
+
+  CreateCenterPolicyRequestNetRedirectRule() {}
+
+  explicit CreateCenterPolicyRequestNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequestNetRedirectRule() = default;
+};
+class CreateCenterPolicyRequestUsbSupplyRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> productId{};
+  shared_ptr<string> usbRedirectType{};
+  shared_ptr<string> usbRuleType{};
+  shared_ptr<string> vendorId{};
+
+  CreateCenterPolicyRequestUsbSupplyRedirectRule() {}
+
+  explicit CreateCenterPolicyRequestUsbSupplyRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (usbRedirectType) {
+      res["UsbRedirectType"] = boost::any(*usbRedirectType);
+    }
+    if (usbRuleType) {
+      res["UsbRuleType"] = boost::any(*usbRuleType);
+    }
+    if (vendorId) {
+      res["VendorId"] = boost::any(*vendorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["ProductId"]));
+    }
+    if (m.find("UsbRedirectType") != m.end() && !m["UsbRedirectType"].empty()) {
+      usbRedirectType = make_shared<string>(boost::any_cast<string>(m["UsbRedirectType"]));
+    }
+    if (m.find("UsbRuleType") != m.end() && !m["UsbRuleType"].empty()) {
+      usbRuleType = make_shared<string>(boost::any_cast<string>(m["UsbRuleType"]));
+    }
+    if (m.find("VendorId") != m.end() && !m["VendorId"].empty()) {
+      vendorId = make_shared<string>(boost::any_cast<string>(m["VendorId"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequestUsbSupplyRedirectRule() = default;
+};
+class CreateCenterPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> adminAccess{};
+  shared_ptr<string> appContentProtection{};
+  shared_ptr<vector<CreateCenterPolicyRequestAuthorizeAccessPolicyRule>> authorizeAccessPolicyRule{};
+  shared_ptr<vector<CreateCenterPolicyRequestAuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule{};
+  shared_ptr<long> businessType{};
+  shared_ptr<string> cameraRedirect{};
+  shared_ptr<vector<CreateCenterPolicyRequestClientType>> clientType{};
+  shared_ptr<string> clipboard{};
+  shared_ptr<string> colorEnhancement{};
+  shared_ptr<long> cpuDownGradeDuration{};
+  shared_ptr<vector<string>> cpuProcessors{};
+  shared_ptr<string> cpuProtectedMode{};
+  shared_ptr<long> cpuRateLimit{};
+  shared_ptr<long> cpuSampleDuration{};
+  shared_ptr<long> cpuSingleRateLimit{};
+  shared_ptr<string> deviceConnectHint{};
+  shared_ptr<vector<CreateCenterPolicyRequestDeviceRedirects>> deviceRedirects{};
+  shared_ptr<vector<CreateCenterPolicyRequestDeviceRules>> deviceRules{};
+  shared_ptr<string> disconnectKeepSession{};
+  shared_ptr<long> disconnectKeepSessionTime{};
+  shared_ptr<string> displayMode{};
+  shared_ptr<vector<CreateCenterPolicyRequestDomainResolveRule>> domainResolveRule{};
+  shared_ptr<string> domainResolveRuleType{};
+  shared_ptr<string> enableSessionRateLimiting{};
+  shared_ptr<string> endUserApplyAdminCoordinate{};
+  shared_ptr<string> endUserGroupCoordinate{};
+  shared_ptr<string> fileMigrate{};
+  shared_ptr<string> gpuAcceleration{};
+  shared_ptr<string> html5FileTransfer{};
+  shared_ptr<string> internetCommunicationProtocol{};
+  shared_ptr<string> localDrive{};
+  shared_ptr<long> maxReconnectTime{};
+  shared_ptr<long> memoryDownGradeDuration{};
+  shared_ptr<vector<string>> memoryProcessors{};
+  shared_ptr<string> memoryProtectedMode{};
+  shared_ptr<long> memoryRateLimit{};
+  shared_ptr<long> memorySampleDuration{};
+  shared_ptr<long> memorySingleRateLimit{};
+  shared_ptr<string> mobileRestart{};
+  shared_ptr<string> mobileShutdown{};
+  shared_ptr<string> name{};
+  shared_ptr<string> netRedirect{};
+  shared_ptr<vector<CreateCenterPolicyRequestNetRedirectRule>> netRedirectRule{};
+  shared_ptr<string> noOperationDisconnect{};
+  shared_ptr<long> noOperationDisconnectTime{};
+  shared_ptr<string> printerRedirect{};
+  shared_ptr<string> qualityEnhancement{};
+  shared_ptr<long> recordEventDuration{};
+  shared_ptr<vector<string>> recordEventFilePaths{};
+  shared_ptr<vector<string>> recordEventRegisters{};
+  shared_ptr<vector<string>> recordEvents{};
+  shared_ptr<string> recording{};
+  shared_ptr<string> recordingAudio{};
+  shared_ptr<long> recordingDuration{};
+  shared_ptr<string> recordingEndTime{};
+  shared_ptr<long> recordingExpires{};
+  shared_ptr<string> recordingFps{};
+  shared_ptr<string> recordingStartTime{};
+  shared_ptr<string> recordingUserNotify{};
+  shared_ptr<string> recordingUserNotifyMessage{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> remoteCoordinate{};
+  shared_ptr<string> resetDesktop{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<string> resolutionModel{};
+  shared_ptr<long> resolutionWidth{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> scope{};
+  shared_ptr<vector<string>> scopeValue{};
+  shared_ptr<long> sessionMaxRateKbps{};
+  shared_ptr<string> smoothEnhancement{};
+  shared_ptr<string> statusMonitor{};
+  shared_ptr<string> streamingMode{};
+  shared_ptr<long> targetFps{};
+  shared_ptr<string> taskbar{};
+  shared_ptr<string> usbRedirect{};
+  shared_ptr<vector<CreateCenterPolicyRequestUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
+  shared_ptr<long> videoEncAvgKbps{};
+  shared_ptr<long> videoEncMaxQP{};
+  shared_ptr<long> videoEncMinQP{};
+  shared_ptr<long> videoEncPeakKbps{};
+  shared_ptr<string> videoEncPolicy{};
+  shared_ptr<string> videoRedirect{};
+  shared_ptr<string> visualQuality{};
+  shared_ptr<string> watermark{};
+  shared_ptr<string> watermarkAntiCam{};
+  shared_ptr<long> watermarkColor{};
+  shared_ptr<long> watermarkColumnAmount{};
+  shared_ptr<string> watermarkCustomText{};
+  shared_ptr<double> watermarkDegree{};
+  shared_ptr<long> watermarkFontSize{};
+  shared_ptr<string> watermarkFontStyle{};
+  shared_ptr<string> watermarkPower{};
+  shared_ptr<long> watermarkRowAmount{};
+  shared_ptr<string> watermarkSecurity{};
+  shared_ptr<long> watermarkTransparencyValue{};
+  shared_ptr<string> watermarkType{};
+  shared_ptr<string> wuyingKeeper{};
+  shared_ptr<string> wyAssistant{};
+
+  CreateCenterPolicyRequest() {}
+
+  explicit CreateCenterPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adminAccess) {
+      res["AdminAccess"] = boost::any(*adminAccess);
+    }
+    if (appContentProtection) {
+      res["AppContentProtection"] = boost::any(*appContentProtection);
+    }
+    if (authorizeAccessPolicyRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizeAccessPolicyRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizeAccessPolicyRule"] = boost::any(temp1);
+    }
+    if (authorizeSecurityPolicyRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizeSecurityPolicyRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizeSecurityPolicyRule"] = boost::any(temp1);
+    }
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (cameraRedirect) {
+      res["CameraRedirect"] = boost::any(*cameraRedirect);
+    }
+    if (clientType) {
+      vector<boost::any> temp1;
+      for(auto item1:*clientType){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClientType"] = boost::any(temp1);
+    }
+    if (clipboard) {
+      res["Clipboard"] = boost::any(*clipboard);
+    }
+    if (colorEnhancement) {
+      res["ColorEnhancement"] = boost::any(*colorEnhancement);
+    }
+    if (cpuDownGradeDuration) {
+      res["CpuDownGradeDuration"] = boost::any(*cpuDownGradeDuration);
+    }
+    if (cpuProcessors) {
+      res["CpuProcessors"] = boost::any(*cpuProcessors);
+    }
+    if (cpuProtectedMode) {
+      res["CpuProtectedMode"] = boost::any(*cpuProtectedMode);
+    }
+    if (cpuRateLimit) {
+      res["CpuRateLimit"] = boost::any(*cpuRateLimit);
+    }
+    if (cpuSampleDuration) {
+      res["CpuSampleDuration"] = boost::any(*cpuSampleDuration);
+    }
+    if (cpuSingleRateLimit) {
+      res["CpuSingleRateLimit"] = boost::any(*cpuSingleRateLimit);
+    }
+    if (deviceConnectHint) {
+      res["DeviceConnectHint"] = boost::any(*deviceConnectHint);
+    }
+    if (deviceRedirects) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRedirects){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRedirects"] = boost::any(temp1);
+    }
+    if (deviceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRules"] = boost::any(temp1);
+    }
+    if (disconnectKeepSession) {
+      res["DisconnectKeepSession"] = boost::any(*disconnectKeepSession);
+    }
+    if (disconnectKeepSessionTime) {
+      res["DisconnectKeepSessionTime"] = boost::any(*disconnectKeepSessionTime);
+    }
+    if (displayMode) {
+      res["DisplayMode"] = boost::any(*displayMode);
+    }
+    if (domainResolveRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainResolveRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainResolveRule"] = boost::any(temp1);
+    }
+    if (domainResolveRuleType) {
+      res["DomainResolveRuleType"] = boost::any(*domainResolveRuleType);
+    }
+    if (enableSessionRateLimiting) {
+      res["EnableSessionRateLimiting"] = boost::any(*enableSessionRateLimiting);
+    }
+    if (endUserApplyAdminCoordinate) {
+      res["EndUserApplyAdminCoordinate"] = boost::any(*endUserApplyAdminCoordinate);
+    }
+    if (endUserGroupCoordinate) {
+      res["EndUserGroupCoordinate"] = boost::any(*endUserGroupCoordinate);
+    }
+    if (fileMigrate) {
+      res["FileMigrate"] = boost::any(*fileMigrate);
+    }
+    if (gpuAcceleration) {
+      res["GpuAcceleration"] = boost::any(*gpuAcceleration);
+    }
+    if (html5FileTransfer) {
+      res["Html5FileTransfer"] = boost::any(*html5FileTransfer);
+    }
+    if (internetCommunicationProtocol) {
+      res["InternetCommunicationProtocol"] = boost::any(*internetCommunicationProtocol);
+    }
+    if (localDrive) {
+      res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (maxReconnectTime) {
+      res["MaxReconnectTime"] = boost::any(*maxReconnectTime);
+    }
+    if (memoryDownGradeDuration) {
+      res["MemoryDownGradeDuration"] = boost::any(*memoryDownGradeDuration);
+    }
+    if (memoryProcessors) {
+      res["MemoryProcessors"] = boost::any(*memoryProcessors);
+    }
+    if (memoryProtectedMode) {
+      res["MemoryProtectedMode"] = boost::any(*memoryProtectedMode);
+    }
+    if (memoryRateLimit) {
+      res["MemoryRateLimit"] = boost::any(*memoryRateLimit);
+    }
+    if (memorySampleDuration) {
+      res["MemorySampleDuration"] = boost::any(*memorySampleDuration);
+    }
+    if (memorySingleRateLimit) {
+      res["MemorySingleRateLimit"] = boost::any(*memorySingleRateLimit);
+    }
+    if (mobileRestart) {
+      res["MobileRestart"] = boost::any(*mobileRestart);
+    }
+    if (mobileShutdown) {
+      res["MobileShutdown"] = boost::any(*mobileShutdown);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (netRedirect) {
+      res["NetRedirect"] = boost::any(*netRedirect);
+    }
+    if (netRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*netRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetRedirectRule"] = boost::any(temp1);
+    }
+    if (noOperationDisconnect) {
+      res["NoOperationDisconnect"] = boost::any(*noOperationDisconnect);
+    }
+    if (noOperationDisconnectTime) {
+      res["NoOperationDisconnectTime"] = boost::any(*noOperationDisconnectTime);
+    }
+    if (printerRedirect) {
+      res["PrinterRedirect"] = boost::any(*printerRedirect);
+    }
+    if (qualityEnhancement) {
+      res["QualityEnhancement"] = boost::any(*qualityEnhancement);
+    }
+    if (recordEventDuration) {
+      res["RecordEventDuration"] = boost::any(*recordEventDuration);
+    }
+    if (recordEventFilePaths) {
+      res["RecordEventFilePaths"] = boost::any(*recordEventFilePaths);
+    }
+    if (recordEventRegisters) {
+      res["RecordEventRegisters"] = boost::any(*recordEventRegisters);
+    }
+    if (recordEvents) {
+      res["RecordEvents"] = boost::any(*recordEvents);
+    }
+    if (recording) {
+      res["Recording"] = boost::any(*recording);
+    }
+    if (recordingAudio) {
+      res["RecordingAudio"] = boost::any(*recordingAudio);
+    }
+    if (recordingDuration) {
+      res["RecordingDuration"] = boost::any(*recordingDuration);
+    }
+    if (recordingEndTime) {
+      res["RecordingEndTime"] = boost::any(*recordingEndTime);
+    }
+    if (recordingExpires) {
+      res["RecordingExpires"] = boost::any(*recordingExpires);
+    }
+    if (recordingFps) {
+      res["RecordingFps"] = boost::any(*recordingFps);
+    }
+    if (recordingStartTime) {
+      res["RecordingStartTime"] = boost::any(*recordingStartTime);
+    }
+    if (recordingUserNotify) {
+      res["RecordingUserNotify"] = boost::any(*recordingUserNotify);
+    }
+    if (recordingUserNotifyMessage) {
+      res["RecordingUserNotifyMessage"] = boost::any(*recordingUserNotifyMessage);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (remoteCoordinate) {
+      res["RemoteCoordinate"] = boost::any(*remoteCoordinate);
+    }
+    if (resetDesktop) {
+      res["ResetDesktop"] = boost::any(*resetDesktop);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionModel) {
+      res["ResolutionModel"] = boost::any(*resolutionModel);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (scopeValue) {
+      res["ScopeValue"] = boost::any(*scopeValue);
+    }
+    if (sessionMaxRateKbps) {
+      res["SessionMaxRateKbps"] = boost::any(*sessionMaxRateKbps);
+    }
+    if (smoothEnhancement) {
+      res["SmoothEnhancement"] = boost::any(*smoothEnhancement);
+    }
+    if (statusMonitor) {
+      res["StatusMonitor"] = boost::any(*statusMonitor);
+    }
+    if (streamingMode) {
+      res["StreamingMode"] = boost::any(*streamingMode);
+    }
+    if (targetFps) {
+      res["TargetFps"] = boost::any(*targetFps);
+    }
+    if (taskbar) {
+      res["Taskbar"] = boost::any(*taskbar);
+    }
+    if (usbRedirect) {
+      res["UsbRedirect"] = boost::any(*usbRedirect);
+    }
+    if (usbSupplyRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*usbSupplyRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UsbSupplyRedirectRule"] = boost::any(temp1);
+    }
+    if (videoEncAvgKbps) {
+      res["VideoEncAvgKbps"] = boost::any(*videoEncAvgKbps);
+    }
+    if (videoEncMaxQP) {
+      res["VideoEncMaxQP"] = boost::any(*videoEncMaxQP);
+    }
+    if (videoEncMinQP) {
+      res["VideoEncMinQP"] = boost::any(*videoEncMinQP);
+    }
+    if (videoEncPeakKbps) {
+      res["VideoEncPeakKbps"] = boost::any(*videoEncPeakKbps);
+    }
+    if (videoEncPolicy) {
+      res["VideoEncPolicy"] = boost::any(*videoEncPolicy);
+    }
+    if (videoRedirect) {
+      res["VideoRedirect"] = boost::any(*videoRedirect);
+    }
+    if (visualQuality) {
+      res["VisualQuality"] = boost::any(*visualQuality);
+    }
+    if (watermark) {
+      res["Watermark"] = boost::any(*watermark);
+    }
+    if (watermarkAntiCam) {
+      res["WatermarkAntiCam"] = boost::any(*watermarkAntiCam);
+    }
+    if (watermarkColor) {
+      res["WatermarkColor"] = boost::any(*watermarkColor);
+    }
+    if (watermarkColumnAmount) {
+      res["WatermarkColumnAmount"] = boost::any(*watermarkColumnAmount);
+    }
+    if (watermarkCustomText) {
+      res["WatermarkCustomText"] = boost::any(*watermarkCustomText);
+    }
+    if (watermarkDegree) {
+      res["WatermarkDegree"] = boost::any(*watermarkDegree);
+    }
+    if (watermarkFontSize) {
+      res["WatermarkFontSize"] = boost::any(*watermarkFontSize);
+    }
+    if (watermarkFontStyle) {
+      res["WatermarkFontStyle"] = boost::any(*watermarkFontStyle);
+    }
+    if (watermarkPower) {
+      res["WatermarkPower"] = boost::any(*watermarkPower);
+    }
+    if (watermarkRowAmount) {
+      res["WatermarkRowAmount"] = boost::any(*watermarkRowAmount);
+    }
+    if (watermarkSecurity) {
+      res["WatermarkSecurity"] = boost::any(*watermarkSecurity);
+    }
+    if (watermarkTransparencyValue) {
+      res["WatermarkTransparencyValue"] = boost::any(*watermarkTransparencyValue);
+    }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
+    if (wuyingKeeper) {
+      res["WuyingKeeper"] = boost::any(*wuyingKeeper);
+    }
+    if (wyAssistant) {
+      res["WyAssistant"] = boost::any(*wyAssistant);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdminAccess") != m.end() && !m["AdminAccess"].empty()) {
+      adminAccess = make_shared<string>(boost::any_cast<string>(m["AdminAccess"]));
+    }
+    if (m.find("AppContentProtection") != m.end() && !m["AppContentProtection"].empty()) {
+      appContentProtection = make_shared<string>(boost::any_cast<string>(m["AppContentProtection"]));
+    }
+    if (m.find("AuthorizeAccessPolicyRule") != m.end() && !m["AuthorizeAccessPolicyRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizeAccessPolicyRule"].type()) {
+        vector<CreateCenterPolicyRequestAuthorizeAccessPolicyRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizeAccessPolicyRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCenterPolicyRequestAuthorizeAccessPolicyRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizeAccessPolicyRule = make_shared<vector<CreateCenterPolicyRequestAuthorizeAccessPolicyRule>>(expect1);
+      }
+    }
+    if (m.find("AuthorizeSecurityPolicyRule") != m.end() && !m["AuthorizeSecurityPolicyRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizeSecurityPolicyRule"].type()) {
+        vector<CreateCenterPolicyRequestAuthorizeSecurityPolicyRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizeSecurityPolicyRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCenterPolicyRequestAuthorizeSecurityPolicyRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizeSecurityPolicyRule = make_shared<vector<CreateCenterPolicyRequestAuthorizeSecurityPolicyRule>>(expect1);
+      }
+    }
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<long>(boost::any_cast<long>(m["BusinessType"]));
+    }
+    if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
+      cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
+    }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClientType"].type()) {
+        vector<CreateCenterPolicyRequestClientType> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClientType"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCenterPolicyRequestClientType model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clientType = make_shared<vector<CreateCenterPolicyRequestClientType>>(expect1);
+      }
+    }
+    if (m.find("Clipboard") != m.end() && !m["Clipboard"].empty()) {
+      clipboard = make_shared<string>(boost::any_cast<string>(m["Clipboard"]));
+    }
+    if (m.find("ColorEnhancement") != m.end() && !m["ColorEnhancement"].empty()) {
+      colorEnhancement = make_shared<string>(boost::any_cast<string>(m["ColorEnhancement"]));
+    }
+    if (m.find("CpuDownGradeDuration") != m.end() && !m["CpuDownGradeDuration"].empty()) {
+      cpuDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["CpuDownGradeDuration"]));
+    }
+    if (m.find("CpuProcessors") != m.end() && !m["CpuProcessors"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuProcessors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuProcessors"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuProcessors = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CpuProtectedMode") != m.end() && !m["CpuProtectedMode"].empty()) {
+      cpuProtectedMode = make_shared<string>(boost::any_cast<string>(m["CpuProtectedMode"]));
+    }
+    if (m.find("CpuRateLimit") != m.end() && !m["CpuRateLimit"].empty()) {
+      cpuRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuRateLimit"]));
+    }
+    if (m.find("CpuSampleDuration") != m.end() && !m["CpuSampleDuration"].empty()) {
+      cpuSampleDuration = make_shared<long>(boost::any_cast<long>(m["CpuSampleDuration"]));
+    }
+    if (m.find("CpuSingleRateLimit") != m.end() && !m["CpuSingleRateLimit"].empty()) {
+      cpuSingleRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuSingleRateLimit"]));
+    }
+    if (m.find("DeviceConnectHint") != m.end() && !m["DeviceConnectHint"].empty()) {
+      deviceConnectHint = make_shared<string>(boost::any_cast<string>(m["DeviceConnectHint"]));
+    }
+    if (m.find("DeviceRedirects") != m.end() && !m["DeviceRedirects"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRedirects"].type()) {
+        vector<CreateCenterPolicyRequestDeviceRedirects> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRedirects"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCenterPolicyRequestDeviceRedirects model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRedirects = make_shared<vector<CreateCenterPolicyRequestDeviceRedirects>>(expect1);
+      }
+    }
+    if (m.find("DeviceRules") != m.end() && !m["DeviceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRules"].type()) {
+        vector<CreateCenterPolicyRequestDeviceRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCenterPolicyRequestDeviceRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRules = make_shared<vector<CreateCenterPolicyRequestDeviceRules>>(expect1);
+      }
+    }
+    if (m.find("DisconnectKeepSession") != m.end() && !m["DisconnectKeepSession"].empty()) {
+      disconnectKeepSession = make_shared<string>(boost::any_cast<string>(m["DisconnectKeepSession"]));
+    }
+    if (m.find("DisconnectKeepSessionTime") != m.end() && !m["DisconnectKeepSessionTime"].empty()) {
+      disconnectKeepSessionTime = make_shared<long>(boost::any_cast<long>(m["DisconnectKeepSessionTime"]));
+    }
+    if (m.find("DisplayMode") != m.end() && !m["DisplayMode"].empty()) {
+      displayMode = make_shared<string>(boost::any_cast<string>(m["DisplayMode"]));
+    }
+    if (m.find("DomainResolveRule") != m.end() && !m["DomainResolveRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainResolveRule"].type()) {
+        vector<CreateCenterPolicyRequestDomainResolveRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainResolveRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCenterPolicyRequestDomainResolveRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainResolveRule = make_shared<vector<CreateCenterPolicyRequestDomainResolveRule>>(expect1);
+      }
+    }
+    if (m.find("DomainResolveRuleType") != m.end() && !m["DomainResolveRuleType"].empty()) {
+      domainResolveRuleType = make_shared<string>(boost::any_cast<string>(m["DomainResolveRuleType"]));
+    }
+    if (m.find("EnableSessionRateLimiting") != m.end() && !m["EnableSessionRateLimiting"].empty()) {
+      enableSessionRateLimiting = make_shared<string>(boost::any_cast<string>(m["EnableSessionRateLimiting"]));
+    }
+    if (m.find("EndUserApplyAdminCoordinate") != m.end() && !m["EndUserApplyAdminCoordinate"].empty()) {
+      endUserApplyAdminCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserApplyAdminCoordinate"]));
+    }
+    if (m.find("EndUserGroupCoordinate") != m.end() && !m["EndUserGroupCoordinate"].empty()) {
+      endUserGroupCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserGroupCoordinate"]));
+    }
+    if (m.find("FileMigrate") != m.end() && !m["FileMigrate"].empty()) {
+      fileMigrate = make_shared<string>(boost::any_cast<string>(m["FileMigrate"]));
+    }
+    if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
+      gpuAcceleration = make_shared<string>(boost::any_cast<string>(m["GpuAcceleration"]));
+    }
+    if (m.find("Html5FileTransfer") != m.end() && !m["Html5FileTransfer"].empty()) {
+      html5FileTransfer = make_shared<string>(boost::any_cast<string>(m["Html5FileTransfer"]));
+    }
+    if (m.find("InternetCommunicationProtocol") != m.end() && !m["InternetCommunicationProtocol"].empty()) {
+      internetCommunicationProtocol = make_shared<string>(boost::any_cast<string>(m["InternetCommunicationProtocol"]));
+    }
+    if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
+      localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("MaxReconnectTime") != m.end() && !m["MaxReconnectTime"].empty()) {
+      maxReconnectTime = make_shared<long>(boost::any_cast<long>(m["MaxReconnectTime"]));
+    }
+    if (m.find("MemoryDownGradeDuration") != m.end() && !m["MemoryDownGradeDuration"].empty()) {
+      memoryDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["MemoryDownGradeDuration"]));
+    }
+    if (m.find("MemoryProcessors") != m.end() && !m["MemoryProcessors"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MemoryProcessors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MemoryProcessors"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      memoryProcessors = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MemoryProtectedMode") != m.end() && !m["MemoryProtectedMode"].empty()) {
+      memoryProtectedMode = make_shared<string>(boost::any_cast<string>(m["MemoryProtectedMode"]));
+    }
+    if (m.find("MemoryRateLimit") != m.end() && !m["MemoryRateLimit"].empty()) {
+      memoryRateLimit = make_shared<long>(boost::any_cast<long>(m["MemoryRateLimit"]));
+    }
+    if (m.find("MemorySampleDuration") != m.end() && !m["MemorySampleDuration"].empty()) {
+      memorySampleDuration = make_shared<long>(boost::any_cast<long>(m["MemorySampleDuration"]));
+    }
+    if (m.find("MemorySingleRateLimit") != m.end() && !m["MemorySingleRateLimit"].empty()) {
+      memorySingleRateLimit = make_shared<long>(boost::any_cast<long>(m["MemorySingleRateLimit"]));
+    }
+    if (m.find("MobileRestart") != m.end() && !m["MobileRestart"].empty()) {
+      mobileRestart = make_shared<string>(boost::any_cast<string>(m["MobileRestart"]));
+    }
+    if (m.find("MobileShutdown") != m.end() && !m["MobileShutdown"].empty()) {
+      mobileShutdown = make_shared<string>(boost::any_cast<string>(m["MobileShutdown"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
+      netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
+    }
+    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
+        vector<CreateCenterPolicyRequestNetRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCenterPolicyRequestNetRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netRedirectRule = make_shared<vector<CreateCenterPolicyRequestNetRedirectRule>>(expect1);
+      }
+    }
+    if (m.find("NoOperationDisconnect") != m.end() && !m["NoOperationDisconnect"].empty()) {
+      noOperationDisconnect = make_shared<string>(boost::any_cast<string>(m["NoOperationDisconnect"]));
+    }
+    if (m.find("NoOperationDisconnectTime") != m.end() && !m["NoOperationDisconnectTime"].empty()) {
+      noOperationDisconnectTime = make_shared<long>(boost::any_cast<long>(m["NoOperationDisconnectTime"]));
+    }
+    if (m.find("PrinterRedirect") != m.end() && !m["PrinterRedirect"].empty()) {
+      printerRedirect = make_shared<string>(boost::any_cast<string>(m["PrinterRedirect"]));
+    }
+    if (m.find("QualityEnhancement") != m.end() && !m["QualityEnhancement"].empty()) {
+      qualityEnhancement = make_shared<string>(boost::any_cast<string>(m["QualityEnhancement"]));
+    }
+    if (m.find("RecordEventDuration") != m.end() && !m["RecordEventDuration"].empty()) {
+      recordEventDuration = make_shared<long>(boost::any_cast<long>(m["RecordEventDuration"]));
+    }
+    if (m.find("RecordEventFilePaths") != m.end() && !m["RecordEventFilePaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEventFilePaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEventFilePaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEventFilePaths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RecordEventRegisters") != m.end() && !m["RecordEventRegisters"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEventRegisters"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEventRegisters"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEventRegisters = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RecordEvents") != m.end() && !m["RecordEvents"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEvents"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEvents"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEvents = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Recording") != m.end() && !m["Recording"].empty()) {
+      recording = make_shared<string>(boost::any_cast<string>(m["Recording"]));
+    }
+    if (m.find("RecordingAudio") != m.end() && !m["RecordingAudio"].empty()) {
+      recordingAudio = make_shared<string>(boost::any_cast<string>(m["RecordingAudio"]));
+    }
+    if (m.find("RecordingDuration") != m.end() && !m["RecordingDuration"].empty()) {
+      recordingDuration = make_shared<long>(boost::any_cast<long>(m["RecordingDuration"]));
+    }
+    if (m.find("RecordingEndTime") != m.end() && !m["RecordingEndTime"].empty()) {
+      recordingEndTime = make_shared<string>(boost::any_cast<string>(m["RecordingEndTime"]));
+    }
+    if (m.find("RecordingExpires") != m.end() && !m["RecordingExpires"].empty()) {
+      recordingExpires = make_shared<long>(boost::any_cast<long>(m["RecordingExpires"]));
+    }
+    if (m.find("RecordingFps") != m.end() && !m["RecordingFps"].empty()) {
+      recordingFps = make_shared<string>(boost::any_cast<string>(m["RecordingFps"]));
+    }
+    if (m.find("RecordingStartTime") != m.end() && !m["RecordingStartTime"].empty()) {
+      recordingStartTime = make_shared<string>(boost::any_cast<string>(m["RecordingStartTime"]));
+    }
+    if (m.find("RecordingUserNotify") != m.end() && !m["RecordingUserNotify"].empty()) {
+      recordingUserNotify = make_shared<string>(boost::any_cast<string>(m["RecordingUserNotify"]));
+    }
+    if (m.find("RecordingUserNotifyMessage") != m.end() && !m["RecordingUserNotifyMessage"].empty()) {
+      recordingUserNotifyMessage = make_shared<string>(boost::any_cast<string>(m["RecordingUserNotifyMessage"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoteCoordinate") != m.end() && !m["RemoteCoordinate"].empty()) {
+      remoteCoordinate = make_shared<string>(boost::any_cast<string>(m["RemoteCoordinate"]));
+    }
+    if (m.find("ResetDesktop") != m.end() && !m["ResetDesktop"].empty()) {
+      resetDesktop = make_shared<string>(boost::any_cast<string>(m["ResetDesktop"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionModel") != m.end() && !m["ResolutionModel"].empty()) {
+      resolutionModel = make_shared<string>(boost::any_cast<string>(m["ResolutionModel"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("ScopeValue") != m.end() && !m["ScopeValue"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScopeValue"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScopeValue"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scopeValue = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SessionMaxRateKbps") != m.end() && !m["SessionMaxRateKbps"].empty()) {
+      sessionMaxRateKbps = make_shared<long>(boost::any_cast<long>(m["SessionMaxRateKbps"]));
+    }
+    if (m.find("SmoothEnhancement") != m.end() && !m["SmoothEnhancement"].empty()) {
+      smoothEnhancement = make_shared<string>(boost::any_cast<string>(m["SmoothEnhancement"]));
+    }
+    if (m.find("StatusMonitor") != m.end() && !m["StatusMonitor"].empty()) {
+      statusMonitor = make_shared<string>(boost::any_cast<string>(m["StatusMonitor"]));
+    }
+    if (m.find("StreamingMode") != m.end() && !m["StreamingMode"].empty()) {
+      streamingMode = make_shared<string>(boost::any_cast<string>(m["StreamingMode"]));
+    }
+    if (m.find("TargetFps") != m.end() && !m["TargetFps"].empty()) {
+      targetFps = make_shared<long>(boost::any_cast<long>(m["TargetFps"]));
+    }
+    if (m.find("Taskbar") != m.end() && !m["Taskbar"].empty()) {
+      taskbar = make_shared<string>(boost::any_cast<string>(m["Taskbar"]));
+    }
+    if (m.find("UsbRedirect") != m.end() && !m["UsbRedirect"].empty()) {
+      usbRedirect = make_shared<string>(boost::any_cast<string>(m["UsbRedirect"]));
+    }
+    if (m.find("UsbSupplyRedirectRule") != m.end() && !m["UsbSupplyRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["UsbSupplyRedirectRule"].type()) {
+        vector<CreateCenterPolicyRequestUsbSupplyRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UsbSupplyRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCenterPolicyRequestUsbSupplyRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usbSupplyRedirectRule = make_shared<vector<CreateCenterPolicyRequestUsbSupplyRedirectRule>>(expect1);
+      }
+    }
+    if (m.find("VideoEncAvgKbps") != m.end() && !m["VideoEncAvgKbps"].empty()) {
+      videoEncAvgKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncAvgKbps"]));
+    }
+    if (m.find("VideoEncMaxQP") != m.end() && !m["VideoEncMaxQP"].empty()) {
+      videoEncMaxQP = make_shared<long>(boost::any_cast<long>(m["VideoEncMaxQP"]));
+    }
+    if (m.find("VideoEncMinQP") != m.end() && !m["VideoEncMinQP"].empty()) {
+      videoEncMinQP = make_shared<long>(boost::any_cast<long>(m["VideoEncMinQP"]));
+    }
+    if (m.find("VideoEncPeakKbps") != m.end() && !m["VideoEncPeakKbps"].empty()) {
+      videoEncPeakKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncPeakKbps"]));
+    }
+    if (m.find("VideoEncPolicy") != m.end() && !m["VideoEncPolicy"].empty()) {
+      videoEncPolicy = make_shared<string>(boost::any_cast<string>(m["VideoEncPolicy"]));
+    }
+    if (m.find("VideoRedirect") != m.end() && !m["VideoRedirect"].empty()) {
+      videoRedirect = make_shared<string>(boost::any_cast<string>(m["VideoRedirect"]));
+    }
+    if (m.find("VisualQuality") != m.end() && !m["VisualQuality"].empty()) {
+      visualQuality = make_shared<string>(boost::any_cast<string>(m["VisualQuality"]));
+    }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      watermark = make_shared<string>(boost::any_cast<string>(m["Watermark"]));
+    }
+    if (m.find("WatermarkAntiCam") != m.end() && !m["WatermarkAntiCam"].empty()) {
+      watermarkAntiCam = make_shared<string>(boost::any_cast<string>(m["WatermarkAntiCam"]));
+    }
+    if (m.find("WatermarkColor") != m.end() && !m["WatermarkColor"].empty()) {
+      watermarkColor = make_shared<long>(boost::any_cast<long>(m["WatermarkColor"]));
+    }
+    if (m.find("WatermarkColumnAmount") != m.end() && !m["WatermarkColumnAmount"].empty()) {
+      watermarkColumnAmount = make_shared<long>(boost::any_cast<long>(m["WatermarkColumnAmount"]));
+    }
+    if (m.find("WatermarkCustomText") != m.end() && !m["WatermarkCustomText"].empty()) {
+      watermarkCustomText = make_shared<string>(boost::any_cast<string>(m["WatermarkCustomText"]));
+    }
+    if (m.find("WatermarkDegree") != m.end() && !m["WatermarkDegree"].empty()) {
+      watermarkDegree = make_shared<double>(boost::any_cast<double>(m["WatermarkDegree"]));
+    }
+    if (m.find("WatermarkFontSize") != m.end() && !m["WatermarkFontSize"].empty()) {
+      watermarkFontSize = make_shared<long>(boost::any_cast<long>(m["WatermarkFontSize"]));
+    }
+    if (m.find("WatermarkFontStyle") != m.end() && !m["WatermarkFontStyle"].empty()) {
+      watermarkFontStyle = make_shared<string>(boost::any_cast<string>(m["WatermarkFontStyle"]));
+    }
+    if (m.find("WatermarkPower") != m.end() && !m["WatermarkPower"].empty()) {
+      watermarkPower = make_shared<string>(boost::any_cast<string>(m["WatermarkPower"]));
+    }
+    if (m.find("WatermarkRowAmount") != m.end() && !m["WatermarkRowAmount"].empty()) {
+      watermarkRowAmount = make_shared<long>(boost::any_cast<long>(m["WatermarkRowAmount"]));
+    }
+    if (m.find("WatermarkSecurity") != m.end() && !m["WatermarkSecurity"].empty()) {
+      watermarkSecurity = make_shared<string>(boost::any_cast<string>(m["WatermarkSecurity"]));
+    }
+    if (m.find("WatermarkTransparencyValue") != m.end() && !m["WatermarkTransparencyValue"].empty()) {
+      watermarkTransparencyValue = make_shared<long>(boost::any_cast<long>(m["WatermarkTransparencyValue"]));
+    }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
+    }
+    if (m.find("WuyingKeeper") != m.end() && !m["WuyingKeeper"].empty()) {
+      wuyingKeeper = make_shared<string>(boost::any_cast<string>(m["WuyingKeeper"]));
+    }
+    if (m.find("WyAssistant") != m.end() && !m["WyAssistant"].empty()) {
+      wyAssistant = make_shared<string>(boost::any_cast<string>(m["WyAssistant"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyRequest() = default;
+};
+class CreateCenterPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<string> requestId{};
+
+  CreateCenterPolicyResponseBody() {}
+
+  explicit CreateCenterPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyResponseBody() = default;
+};
+class CreateCenterPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCenterPolicyResponseBody> body{};
+
+  CreateCenterPolicyResponse() {}
+
+  explicit CreateCenterPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCenterPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCenterPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCenterPolicyResponse() = default;
 };
 class CreateCloudDriveServiceRequest : public Darabonba::Model {
 public:
@@ -11612,6 +13100,144 @@ public:
 
   virtual ~DeleteCdsFileResponse() = default;
 };
+class DeleteCenterPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> businessType{};
+  shared_ptr<vector<string>> policyGroupIds{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceType{};
+
+  DeleteCenterPolicyRequest() {}
+
+  explicit DeleteCenterPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (policyGroupIds) {
+      res["PolicyGroupIds"] = boost::any(*policyGroupIds);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<long>(boost::any_cast<long>(m["BusinessType"]));
+    }
+    if (m.find("PolicyGroupIds") != m.end() && !m["PolicyGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DeleteCenterPolicyRequest() = default;
+};
+class DeleteCenterPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteCenterPolicyResponseBody() {}
+
+  explicit DeleteCenterPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteCenterPolicyResponseBody() = default;
+};
+class DeleteCenterPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCenterPolicyResponseBody> body{};
+
+  DeleteCenterPolicyResponse() {}
+
+  explicit DeleteCenterPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCenterPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCenterPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCenterPolicyResponse() = default;
+};
 class DeleteCloudDriveGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cdsId{};
@@ -15111,6 +16737,1427 @@ public:
 
 
   virtual ~DescribeCensResponse() = default;
+};
+class DescribeCenterPolicyListRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> businessType{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<string>> policyGroupId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> scope{};
+
+  DescribeCenterPolicyListRequest() {}
+
+  explicit DescribeCenterPolicyListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<long>(boost::any_cast<long>(m["BusinessType"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyGroupId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyGroupId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyGroupId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListRequest() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrIp{};
+  shared_ptr<string> description{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrIp) {
+      res["CidrIp"] = boost::any(*cidrIp);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrIp") != m.end() && !m["CidrIp"].empty()) {
+      cidrIp = make_shared<string>(boost::any_cast<string>(m["CidrIp"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrIp{};
+  shared_ptr<string> description{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> type{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrIp) {
+      res["CidrIp"] = boost::any(*cidrIp);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrIp") != m.end() && !m["CidrIp"].empty()) {
+      cidrIp = make_shared<string>(boost::any_cast<string>(m["CidrIp"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes : public Darabonba::Model {
+public:
+  shared_ptr<string> clientType{};
+  shared_ptr<string> status{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<string>(boost::any_cast<string>(m["ClientType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> redirectType{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> devicePid{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> deviceVid{};
+  shared_ptr<string> optCommand{};
+  shared_ptr<string> redirectType{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (devicePid) {
+      res["DevicePid"] = boost::any(*devicePid);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (deviceVid) {
+      res["DeviceVid"] = boost::any(*deviceVid);
+    }
+    if (optCommand) {
+      res["OptCommand"] = boost::any(*optCommand);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("DevicePid") != m.end() && !m["DevicePid"].empty()) {
+      devicePid = make_shared<string>(boost::any_cast<string>(m["DevicePid"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("DeviceVid") != m.end() && !m["DeviceVid"].empty()) {
+      deviceVid = make_shared<string>(boost::any_cast<string>(m["DeviceVid"]));
+    }
+    if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
+      optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> policy{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> ruleType{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> productId{};
+  shared_ptr<long> usbRedirectType{};
+  shared_ptr<long> usbRuleType{};
+  shared_ptr<string> vendorId{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (usbRedirectType) {
+      res["UsbRedirectType"] = boost::any(*usbRedirectType);
+    }
+    if (usbRuleType) {
+      res["UsbRuleType"] = boost::any(*usbRuleType);
+    }
+    if (vendorId) {
+      res["VendorId"] = boost::any(*vendorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["ProductId"]));
+    }
+    if (m.find("UsbRedirectType") != m.end() && !m["UsbRedirectType"].empty()) {
+      usbRedirectType = make_shared<long>(boost::any_cast<long>(m["UsbRedirectType"]));
+    }
+    if (m.find("UsbRuleType") != m.end() && !m["UsbRuleType"].empty()) {
+      usbRuleType = make_shared<long>(boost::any_cast<long>(m["UsbRuleType"]));
+    }
+    if (m.find("VendorId") != m.end() && !m["VendorId"].empty()) {
+      vendorId = make_shared<string>(boost::any_cast<string>(m["VendorId"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule() = default;
+};
+class DescribeCenterPolicyListResponseBodyDescribePolicyGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> adminAccess{};
+  shared_ptr<string> appContentProtection{};
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules>> authorizeAccessPolicyRules{};
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules{};
+  shared_ptr<string> cameraRedirect{};
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes>> clientTypes{};
+  shared_ptr<string> clipboard{};
+  shared_ptr<string> colorEnhancement{};
+  shared_ptr<long> cpuDownGradeDuration{};
+  shared_ptr<vector<string>> cpuProcessors{};
+  shared_ptr<string> cpuProtectedMode{};
+  shared_ptr<long> cpuRateLimit{};
+  shared_ptr<long> cpuSampleDuration{};
+  shared_ptr<long> cpuSingleRateLimit{};
+  shared_ptr<long> desktopCount{};
+  shared_ptr<long> desktopGroupCount{};
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects>> deviceRedirects{};
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules>> deviceRules{};
+  shared_ptr<string> disconnectKeepSession{};
+  shared_ptr<long> disconnectKeepSessionTime{};
+  shared_ptr<string> displayMode{};
+  shared_ptr<string> domainRegisterValue{};
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule>> domainResolveRule{};
+  shared_ptr<string> domainResolveRuleType{};
+  shared_ptr<string> endUserApplyAdminCoordinate{};
+  shared_ptr<string> endUserGroupCoordinate{};
+  shared_ptr<string> gpuAcceleration{};
+  shared_ptr<string> html5Access{};
+  shared_ptr<string> html5FileTransfer{};
+  shared_ptr<string> internetCommunicationProtocol{};
+  shared_ptr<string> localDrive{};
+  shared_ptr<long> maxReconnectTime{};
+  shared_ptr<long> memoryDownGradeDuration{};
+  shared_ptr<vector<string>> memoryProcessors{};
+  shared_ptr<string> memoryProtectedMode{};
+  shared_ptr<long> memoryRateLimit{};
+  shared_ptr<long> memorySampleDuration{};
+  shared_ptr<long> memorySingleRateLimit{};
+  shared_ptr<string> mobileRestart{};
+  shared_ptr<string> mobileShutdown{};
+  shared_ptr<string> name{};
+  shared_ptr<string> netRedirect{};
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule>> netRedirectRule{};
+  shared_ptr<string> noOperationDisconnect{};
+  shared_ptr<long> noOperationDisconnectTime{};
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<string> policyGroupType{};
+  shared_ptr<string> policyStatus{};
+  shared_ptr<string> printerRedirection{};
+  shared_ptr<string> qualityEnhancement{};
+  shared_ptr<string> recordContent{};
+  shared_ptr<long> recordContentExpires{};
+  shared_ptr<long> recordEventDuration{};
+  shared_ptr<vector<string>> recordEventFilePaths{};
+  shared_ptr<vector<string>> recordEventRegisters{};
+  shared_ptr<string> recording{};
+  shared_ptr<string> recordingAudio{};
+  shared_ptr<long> recordingDuration{};
+  shared_ptr<string> recordingEndTime{};
+  shared_ptr<long> recordingExpires{};
+  shared_ptr<long> recordingFps{};
+  shared_ptr<string> recordingStartTime{};
+  shared_ptr<string> recordingUserNotify{};
+  shared_ptr<string> recordingUserNotifyMessage{};
+  shared_ptr<string> remoteCoordinate{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<string> resolutionModel{};
+  shared_ptr<long> resolutionWidth{};
+  shared_ptr<long> resourceGroupCount{};
+  shared_ptr<string> scope{};
+  shared_ptr<vector<string>> scopeValue{};
+  shared_ptr<string> smoothEnhancement{};
+  shared_ptr<string> statusMonitor{};
+  shared_ptr<string> streamingMode{};
+  shared_ptr<long> targetFps{};
+  shared_ptr<string> taskbar{};
+  shared_ptr<string> usbRedirect{};
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
+  shared_ptr<long> videoEncAvgKbps{};
+  shared_ptr<long> videoEncMaxQP{};
+  shared_ptr<long> videoEncMinQP{};
+  shared_ptr<long> videoEncPeakKbps{};
+  shared_ptr<string> videoEncPolicy{};
+  shared_ptr<string> videoRedirect{};
+  shared_ptr<string> visualQuality{};
+  shared_ptr<string> watermark{};
+  shared_ptr<string> watermarkAntiCam{};
+  shared_ptr<long> watermarkColor{};
+  shared_ptr<string> watermarkCustomText{};
+  shared_ptr<double> watermarkDegree{};
+  shared_ptr<long> watermarkFontSize{};
+  shared_ptr<string> watermarkFontStyle{};
+  shared_ptr<string> watermarkPower{};
+  shared_ptr<long> watermarkRowAmount{};
+  shared_ptr<string> watermarkSecurity{};
+  shared_ptr<long> watermarkTransparencyValue{};
+  shared_ptr<string> watermarkType{};
+  shared_ptr<string> wyAssistant{};
+
+  DescribeCenterPolicyListResponseBodyDescribePolicyGroups() {}
+
+  explicit DescribeCenterPolicyListResponseBodyDescribePolicyGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adminAccess) {
+      res["AdminAccess"] = boost::any(*adminAccess);
+    }
+    if (appContentProtection) {
+      res["AppContentProtection"] = boost::any(*appContentProtection);
+    }
+    if (authorizeAccessPolicyRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizeAccessPolicyRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizeAccessPolicyRules"] = boost::any(temp1);
+    }
+    if (authorizeSecurityPolicyRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizeSecurityPolicyRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizeSecurityPolicyRules"] = boost::any(temp1);
+    }
+    if (cameraRedirect) {
+      res["CameraRedirect"] = boost::any(*cameraRedirect);
+    }
+    if (clientTypes) {
+      vector<boost::any> temp1;
+      for(auto item1:*clientTypes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClientTypes"] = boost::any(temp1);
+    }
+    if (clipboard) {
+      res["Clipboard"] = boost::any(*clipboard);
+    }
+    if (colorEnhancement) {
+      res["ColorEnhancement"] = boost::any(*colorEnhancement);
+    }
+    if (cpuDownGradeDuration) {
+      res["CpuDownGradeDuration"] = boost::any(*cpuDownGradeDuration);
+    }
+    if (cpuProcessors) {
+      res["CpuProcessors"] = boost::any(*cpuProcessors);
+    }
+    if (cpuProtectedMode) {
+      res["CpuProtectedMode"] = boost::any(*cpuProtectedMode);
+    }
+    if (cpuRateLimit) {
+      res["CpuRateLimit"] = boost::any(*cpuRateLimit);
+    }
+    if (cpuSampleDuration) {
+      res["CpuSampleDuration"] = boost::any(*cpuSampleDuration);
+    }
+    if (cpuSingleRateLimit) {
+      res["CpuSingleRateLimit"] = boost::any(*cpuSingleRateLimit);
+    }
+    if (desktopCount) {
+      res["DesktopCount"] = boost::any(*desktopCount);
+    }
+    if (desktopGroupCount) {
+      res["DesktopGroupCount"] = boost::any(*desktopGroupCount);
+    }
+    if (deviceRedirects) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRedirects){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRedirects"] = boost::any(temp1);
+    }
+    if (deviceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRules"] = boost::any(temp1);
+    }
+    if (disconnectKeepSession) {
+      res["DisconnectKeepSession"] = boost::any(*disconnectKeepSession);
+    }
+    if (disconnectKeepSessionTime) {
+      res["DisconnectKeepSessionTime"] = boost::any(*disconnectKeepSessionTime);
+    }
+    if (displayMode) {
+      res["DisplayMode"] = boost::any(*displayMode);
+    }
+    if (domainRegisterValue) {
+      res["DomainRegisterValue"] = boost::any(*domainRegisterValue);
+    }
+    if (domainResolveRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainResolveRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainResolveRule"] = boost::any(temp1);
+    }
+    if (domainResolveRuleType) {
+      res["DomainResolveRuleType"] = boost::any(*domainResolveRuleType);
+    }
+    if (endUserApplyAdminCoordinate) {
+      res["EndUserApplyAdminCoordinate"] = boost::any(*endUserApplyAdminCoordinate);
+    }
+    if (endUserGroupCoordinate) {
+      res["EndUserGroupCoordinate"] = boost::any(*endUserGroupCoordinate);
+    }
+    if (gpuAcceleration) {
+      res["GpuAcceleration"] = boost::any(*gpuAcceleration);
+    }
+    if (html5Access) {
+      res["Html5Access"] = boost::any(*html5Access);
+    }
+    if (html5FileTransfer) {
+      res["Html5FileTransfer"] = boost::any(*html5FileTransfer);
+    }
+    if (internetCommunicationProtocol) {
+      res["InternetCommunicationProtocol"] = boost::any(*internetCommunicationProtocol);
+    }
+    if (localDrive) {
+      res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (maxReconnectTime) {
+      res["MaxReconnectTime"] = boost::any(*maxReconnectTime);
+    }
+    if (memoryDownGradeDuration) {
+      res["MemoryDownGradeDuration"] = boost::any(*memoryDownGradeDuration);
+    }
+    if (memoryProcessors) {
+      res["MemoryProcessors"] = boost::any(*memoryProcessors);
+    }
+    if (memoryProtectedMode) {
+      res["MemoryProtectedMode"] = boost::any(*memoryProtectedMode);
+    }
+    if (memoryRateLimit) {
+      res["MemoryRateLimit"] = boost::any(*memoryRateLimit);
+    }
+    if (memorySampleDuration) {
+      res["MemorySampleDuration"] = boost::any(*memorySampleDuration);
+    }
+    if (memorySingleRateLimit) {
+      res["MemorySingleRateLimit"] = boost::any(*memorySingleRateLimit);
+    }
+    if (mobileRestart) {
+      res["MobileRestart"] = boost::any(*mobileRestart);
+    }
+    if (mobileShutdown) {
+      res["MobileShutdown"] = boost::any(*mobileShutdown);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (netRedirect) {
+      res["NetRedirect"] = boost::any(*netRedirect);
+    }
+    if (netRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*netRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetRedirectRule"] = boost::any(temp1);
+    }
+    if (noOperationDisconnect) {
+      res["NoOperationDisconnect"] = boost::any(*noOperationDisconnect);
+    }
+    if (noOperationDisconnectTime) {
+      res["NoOperationDisconnectTime"] = boost::any(*noOperationDisconnectTime);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (policyGroupType) {
+      res["PolicyGroupType"] = boost::any(*policyGroupType);
+    }
+    if (policyStatus) {
+      res["PolicyStatus"] = boost::any(*policyStatus);
+    }
+    if (printerRedirection) {
+      res["PrinterRedirection"] = boost::any(*printerRedirection);
+    }
+    if (qualityEnhancement) {
+      res["QualityEnhancement"] = boost::any(*qualityEnhancement);
+    }
+    if (recordContent) {
+      res["RecordContent"] = boost::any(*recordContent);
+    }
+    if (recordContentExpires) {
+      res["RecordContentExpires"] = boost::any(*recordContentExpires);
+    }
+    if (recordEventDuration) {
+      res["RecordEventDuration"] = boost::any(*recordEventDuration);
+    }
+    if (recordEventFilePaths) {
+      res["RecordEventFilePaths"] = boost::any(*recordEventFilePaths);
+    }
+    if (recordEventRegisters) {
+      res["RecordEventRegisters"] = boost::any(*recordEventRegisters);
+    }
+    if (recording) {
+      res["Recording"] = boost::any(*recording);
+    }
+    if (recordingAudio) {
+      res["RecordingAudio"] = boost::any(*recordingAudio);
+    }
+    if (recordingDuration) {
+      res["RecordingDuration"] = boost::any(*recordingDuration);
+    }
+    if (recordingEndTime) {
+      res["RecordingEndTime"] = boost::any(*recordingEndTime);
+    }
+    if (recordingExpires) {
+      res["RecordingExpires"] = boost::any(*recordingExpires);
+    }
+    if (recordingFps) {
+      res["RecordingFps"] = boost::any(*recordingFps);
+    }
+    if (recordingStartTime) {
+      res["RecordingStartTime"] = boost::any(*recordingStartTime);
+    }
+    if (recordingUserNotify) {
+      res["RecordingUserNotify"] = boost::any(*recordingUserNotify);
+    }
+    if (recordingUserNotifyMessage) {
+      res["RecordingUserNotifyMessage"] = boost::any(*recordingUserNotifyMessage);
+    }
+    if (remoteCoordinate) {
+      res["RemoteCoordinate"] = boost::any(*remoteCoordinate);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionModel) {
+      res["ResolutionModel"] = boost::any(*resolutionModel);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    if (resourceGroupCount) {
+      res["ResourceGroupCount"] = boost::any(*resourceGroupCount);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (scopeValue) {
+      res["ScopeValue"] = boost::any(*scopeValue);
+    }
+    if (smoothEnhancement) {
+      res["SmoothEnhancement"] = boost::any(*smoothEnhancement);
+    }
+    if (statusMonitor) {
+      res["StatusMonitor"] = boost::any(*statusMonitor);
+    }
+    if (streamingMode) {
+      res["StreamingMode"] = boost::any(*streamingMode);
+    }
+    if (targetFps) {
+      res["TargetFps"] = boost::any(*targetFps);
+    }
+    if (taskbar) {
+      res["Taskbar"] = boost::any(*taskbar);
+    }
+    if (usbRedirect) {
+      res["UsbRedirect"] = boost::any(*usbRedirect);
+    }
+    if (usbSupplyRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*usbSupplyRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UsbSupplyRedirectRule"] = boost::any(temp1);
+    }
+    if (videoEncAvgKbps) {
+      res["VideoEncAvgKbps"] = boost::any(*videoEncAvgKbps);
+    }
+    if (videoEncMaxQP) {
+      res["VideoEncMaxQP"] = boost::any(*videoEncMaxQP);
+    }
+    if (videoEncMinQP) {
+      res["VideoEncMinQP"] = boost::any(*videoEncMinQP);
+    }
+    if (videoEncPeakKbps) {
+      res["VideoEncPeakKbps"] = boost::any(*videoEncPeakKbps);
+    }
+    if (videoEncPolicy) {
+      res["VideoEncPolicy"] = boost::any(*videoEncPolicy);
+    }
+    if (videoRedirect) {
+      res["VideoRedirect"] = boost::any(*videoRedirect);
+    }
+    if (visualQuality) {
+      res["VisualQuality"] = boost::any(*visualQuality);
+    }
+    if (watermark) {
+      res["Watermark"] = boost::any(*watermark);
+    }
+    if (watermarkAntiCam) {
+      res["WatermarkAntiCam"] = boost::any(*watermarkAntiCam);
+    }
+    if (watermarkColor) {
+      res["WatermarkColor"] = boost::any(*watermarkColor);
+    }
+    if (watermarkCustomText) {
+      res["WatermarkCustomText"] = boost::any(*watermarkCustomText);
+    }
+    if (watermarkDegree) {
+      res["WatermarkDegree"] = boost::any(*watermarkDegree);
+    }
+    if (watermarkFontSize) {
+      res["WatermarkFontSize"] = boost::any(*watermarkFontSize);
+    }
+    if (watermarkFontStyle) {
+      res["WatermarkFontStyle"] = boost::any(*watermarkFontStyle);
+    }
+    if (watermarkPower) {
+      res["WatermarkPower"] = boost::any(*watermarkPower);
+    }
+    if (watermarkRowAmount) {
+      res["WatermarkRowAmount"] = boost::any(*watermarkRowAmount);
+    }
+    if (watermarkSecurity) {
+      res["WatermarkSecurity"] = boost::any(*watermarkSecurity);
+    }
+    if (watermarkTransparencyValue) {
+      res["WatermarkTransparencyValue"] = boost::any(*watermarkTransparencyValue);
+    }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
+    if (wyAssistant) {
+      res["WyAssistant"] = boost::any(*wyAssistant);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdminAccess") != m.end() && !m["AdminAccess"].empty()) {
+      adminAccess = make_shared<string>(boost::any_cast<string>(m["AdminAccess"]));
+    }
+    if (m.find("AppContentProtection") != m.end() && !m["AppContentProtection"].empty()) {
+      appContentProtection = make_shared<string>(boost::any_cast<string>(m["AppContentProtection"]));
+    }
+    if (m.find("AuthorizeAccessPolicyRules") != m.end() && !m["AuthorizeAccessPolicyRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizeAccessPolicyRules"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizeAccessPolicyRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizeAccessPolicyRules = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules>>(expect1);
+      }
+    }
+    if (m.find("AuthorizeSecurityPolicyRules") != m.end() && !m["AuthorizeSecurityPolicyRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizeSecurityPolicyRules"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizeSecurityPolicyRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizeSecurityPolicyRules = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules>>(expect1);
+      }
+    }
+    if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
+      cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
+    }
+    if (m.find("ClientTypes") != m.end() && !m["ClientTypes"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClientTypes"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClientTypes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clientTypes = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes>>(expect1);
+      }
+    }
+    if (m.find("Clipboard") != m.end() && !m["Clipboard"].empty()) {
+      clipboard = make_shared<string>(boost::any_cast<string>(m["Clipboard"]));
+    }
+    if (m.find("ColorEnhancement") != m.end() && !m["ColorEnhancement"].empty()) {
+      colorEnhancement = make_shared<string>(boost::any_cast<string>(m["ColorEnhancement"]));
+    }
+    if (m.find("CpuDownGradeDuration") != m.end() && !m["CpuDownGradeDuration"].empty()) {
+      cpuDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["CpuDownGradeDuration"]));
+    }
+    if (m.find("CpuProcessors") != m.end() && !m["CpuProcessors"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuProcessors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuProcessors"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuProcessors = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CpuProtectedMode") != m.end() && !m["CpuProtectedMode"].empty()) {
+      cpuProtectedMode = make_shared<string>(boost::any_cast<string>(m["CpuProtectedMode"]));
+    }
+    if (m.find("CpuRateLimit") != m.end() && !m["CpuRateLimit"].empty()) {
+      cpuRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuRateLimit"]));
+    }
+    if (m.find("CpuSampleDuration") != m.end() && !m["CpuSampleDuration"].empty()) {
+      cpuSampleDuration = make_shared<long>(boost::any_cast<long>(m["CpuSampleDuration"]));
+    }
+    if (m.find("CpuSingleRateLimit") != m.end() && !m["CpuSingleRateLimit"].empty()) {
+      cpuSingleRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuSingleRateLimit"]));
+    }
+    if (m.find("DesktopCount") != m.end() && !m["DesktopCount"].empty()) {
+      desktopCount = make_shared<long>(boost::any_cast<long>(m["DesktopCount"]));
+    }
+    if (m.find("DesktopGroupCount") != m.end() && !m["DesktopGroupCount"].empty()) {
+      desktopGroupCount = make_shared<long>(boost::any_cast<long>(m["DesktopGroupCount"]));
+    }
+    if (m.find("DeviceRedirects") != m.end() && !m["DeviceRedirects"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRedirects"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRedirects"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRedirects = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects>>(expect1);
+      }
+    }
+    if (m.find("DeviceRules") != m.end() && !m["DeviceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRules"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRules = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules>>(expect1);
+      }
+    }
+    if (m.find("DisconnectKeepSession") != m.end() && !m["DisconnectKeepSession"].empty()) {
+      disconnectKeepSession = make_shared<string>(boost::any_cast<string>(m["DisconnectKeepSession"]));
+    }
+    if (m.find("DisconnectKeepSessionTime") != m.end() && !m["DisconnectKeepSessionTime"].empty()) {
+      disconnectKeepSessionTime = make_shared<long>(boost::any_cast<long>(m["DisconnectKeepSessionTime"]));
+    }
+    if (m.find("DisplayMode") != m.end() && !m["DisplayMode"].empty()) {
+      displayMode = make_shared<string>(boost::any_cast<string>(m["DisplayMode"]));
+    }
+    if (m.find("DomainRegisterValue") != m.end() && !m["DomainRegisterValue"].empty()) {
+      domainRegisterValue = make_shared<string>(boost::any_cast<string>(m["DomainRegisterValue"]));
+    }
+    if (m.find("DomainResolveRule") != m.end() && !m["DomainResolveRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainResolveRule"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainResolveRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainResolveRule = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule>>(expect1);
+      }
+    }
+    if (m.find("DomainResolveRuleType") != m.end() && !m["DomainResolveRuleType"].empty()) {
+      domainResolveRuleType = make_shared<string>(boost::any_cast<string>(m["DomainResolveRuleType"]));
+    }
+    if (m.find("EndUserApplyAdminCoordinate") != m.end() && !m["EndUserApplyAdminCoordinate"].empty()) {
+      endUserApplyAdminCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserApplyAdminCoordinate"]));
+    }
+    if (m.find("EndUserGroupCoordinate") != m.end() && !m["EndUserGroupCoordinate"].empty()) {
+      endUserGroupCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserGroupCoordinate"]));
+    }
+    if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
+      gpuAcceleration = make_shared<string>(boost::any_cast<string>(m["GpuAcceleration"]));
+    }
+    if (m.find("Html5Access") != m.end() && !m["Html5Access"].empty()) {
+      html5Access = make_shared<string>(boost::any_cast<string>(m["Html5Access"]));
+    }
+    if (m.find("Html5FileTransfer") != m.end() && !m["Html5FileTransfer"].empty()) {
+      html5FileTransfer = make_shared<string>(boost::any_cast<string>(m["Html5FileTransfer"]));
+    }
+    if (m.find("InternetCommunicationProtocol") != m.end() && !m["InternetCommunicationProtocol"].empty()) {
+      internetCommunicationProtocol = make_shared<string>(boost::any_cast<string>(m["InternetCommunicationProtocol"]));
+    }
+    if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
+      localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("MaxReconnectTime") != m.end() && !m["MaxReconnectTime"].empty()) {
+      maxReconnectTime = make_shared<long>(boost::any_cast<long>(m["MaxReconnectTime"]));
+    }
+    if (m.find("MemoryDownGradeDuration") != m.end() && !m["MemoryDownGradeDuration"].empty()) {
+      memoryDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["MemoryDownGradeDuration"]));
+    }
+    if (m.find("MemoryProcessors") != m.end() && !m["MemoryProcessors"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MemoryProcessors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MemoryProcessors"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      memoryProcessors = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MemoryProtectedMode") != m.end() && !m["MemoryProtectedMode"].empty()) {
+      memoryProtectedMode = make_shared<string>(boost::any_cast<string>(m["MemoryProtectedMode"]));
+    }
+    if (m.find("MemoryRateLimit") != m.end() && !m["MemoryRateLimit"].empty()) {
+      memoryRateLimit = make_shared<long>(boost::any_cast<long>(m["MemoryRateLimit"]));
+    }
+    if (m.find("MemorySampleDuration") != m.end() && !m["MemorySampleDuration"].empty()) {
+      memorySampleDuration = make_shared<long>(boost::any_cast<long>(m["MemorySampleDuration"]));
+    }
+    if (m.find("MemorySingleRateLimit") != m.end() && !m["MemorySingleRateLimit"].empty()) {
+      memorySingleRateLimit = make_shared<long>(boost::any_cast<long>(m["MemorySingleRateLimit"]));
+    }
+    if (m.find("MobileRestart") != m.end() && !m["MobileRestart"].empty()) {
+      mobileRestart = make_shared<string>(boost::any_cast<string>(m["MobileRestart"]));
+    }
+    if (m.find("MobileShutdown") != m.end() && !m["MobileShutdown"].empty()) {
+      mobileShutdown = make_shared<string>(boost::any_cast<string>(m["MobileShutdown"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
+      netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
+    }
+    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netRedirectRule = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule>>(expect1);
+      }
+    }
+    if (m.find("NoOperationDisconnect") != m.end() && !m["NoOperationDisconnect"].empty()) {
+      noOperationDisconnect = make_shared<string>(boost::any_cast<string>(m["NoOperationDisconnect"]));
+    }
+    if (m.find("NoOperationDisconnectTime") != m.end() && !m["NoOperationDisconnectTime"].empty()) {
+      noOperationDisconnectTime = make_shared<long>(boost::any_cast<long>(m["NoOperationDisconnectTime"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("PolicyGroupType") != m.end() && !m["PolicyGroupType"].empty()) {
+      policyGroupType = make_shared<string>(boost::any_cast<string>(m["PolicyGroupType"]));
+    }
+    if (m.find("PolicyStatus") != m.end() && !m["PolicyStatus"].empty()) {
+      policyStatus = make_shared<string>(boost::any_cast<string>(m["PolicyStatus"]));
+    }
+    if (m.find("PrinterRedirection") != m.end() && !m["PrinterRedirection"].empty()) {
+      printerRedirection = make_shared<string>(boost::any_cast<string>(m["PrinterRedirection"]));
+    }
+    if (m.find("QualityEnhancement") != m.end() && !m["QualityEnhancement"].empty()) {
+      qualityEnhancement = make_shared<string>(boost::any_cast<string>(m["QualityEnhancement"]));
+    }
+    if (m.find("RecordContent") != m.end() && !m["RecordContent"].empty()) {
+      recordContent = make_shared<string>(boost::any_cast<string>(m["RecordContent"]));
+    }
+    if (m.find("RecordContentExpires") != m.end() && !m["RecordContentExpires"].empty()) {
+      recordContentExpires = make_shared<long>(boost::any_cast<long>(m["RecordContentExpires"]));
+    }
+    if (m.find("RecordEventDuration") != m.end() && !m["RecordEventDuration"].empty()) {
+      recordEventDuration = make_shared<long>(boost::any_cast<long>(m["RecordEventDuration"]));
+    }
+    if (m.find("RecordEventFilePaths") != m.end() && !m["RecordEventFilePaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEventFilePaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEventFilePaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEventFilePaths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RecordEventRegisters") != m.end() && !m["RecordEventRegisters"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEventRegisters"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEventRegisters"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEventRegisters = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Recording") != m.end() && !m["Recording"].empty()) {
+      recording = make_shared<string>(boost::any_cast<string>(m["Recording"]));
+    }
+    if (m.find("RecordingAudio") != m.end() && !m["RecordingAudio"].empty()) {
+      recordingAudio = make_shared<string>(boost::any_cast<string>(m["RecordingAudio"]));
+    }
+    if (m.find("RecordingDuration") != m.end() && !m["RecordingDuration"].empty()) {
+      recordingDuration = make_shared<long>(boost::any_cast<long>(m["RecordingDuration"]));
+    }
+    if (m.find("RecordingEndTime") != m.end() && !m["RecordingEndTime"].empty()) {
+      recordingEndTime = make_shared<string>(boost::any_cast<string>(m["RecordingEndTime"]));
+    }
+    if (m.find("RecordingExpires") != m.end() && !m["RecordingExpires"].empty()) {
+      recordingExpires = make_shared<long>(boost::any_cast<long>(m["RecordingExpires"]));
+    }
+    if (m.find("RecordingFps") != m.end() && !m["RecordingFps"].empty()) {
+      recordingFps = make_shared<long>(boost::any_cast<long>(m["RecordingFps"]));
+    }
+    if (m.find("RecordingStartTime") != m.end() && !m["RecordingStartTime"].empty()) {
+      recordingStartTime = make_shared<string>(boost::any_cast<string>(m["RecordingStartTime"]));
+    }
+    if (m.find("RecordingUserNotify") != m.end() && !m["RecordingUserNotify"].empty()) {
+      recordingUserNotify = make_shared<string>(boost::any_cast<string>(m["RecordingUserNotify"]));
+    }
+    if (m.find("RecordingUserNotifyMessage") != m.end() && !m["RecordingUserNotifyMessage"].empty()) {
+      recordingUserNotifyMessage = make_shared<string>(boost::any_cast<string>(m["RecordingUserNotifyMessage"]));
+    }
+    if (m.find("RemoteCoordinate") != m.end() && !m["RemoteCoordinate"].empty()) {
+      remoteCoordinate = make_shared<string>(boost::any_cast<string>(m["RemoteCoordinate"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionModel") != m.end() && !m["ResolutionModel"].empty()) {
+      resolutionModel = make_shared<string>(boost::any_cast<string>(m["ResolutionModel"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+    if (m.find("ResourceGroupCount") != m.end() && !m["ResourceGroupCount"].empty()) {
+      resourceGroupCount = make_shared<long>(boost::any_cast<long>(m["ResourceGroupCount"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("ScopeValue") != m.end() && !m["ScopeValue"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScopeValue"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScopeValue"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scopeValue = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SmoothEnhancement") != m.end() && !m["SmoothEnhancement"].empty()) {
+      smoothEnhancement = make_shared<string>(boost::any_cast<string>(m["SmoothEnhancement"]));
+    }
+    if (m.find("StatusMonitor") != m.end() && !m["StatusMonitor"].empty()) {
+      statusMonitor = make_shared<string>(boost::any_cast<string>(m["StatusMonitor"]));
+    }
+    if (m.find("StreamingMode") != m.end() && !m["StreamingMode"].empty()) {
+      streamingMode = make_shared<string>(boost::any_cast<string>(m["StreamingMode"]));
+    }
+    if (m.find("TargetFps") != m.end() && !m["TargetFps"].empty()) {
+      targetFps = make_shared<long>(boost::any_cast<long>(m["TargetFps"]));
+    }
+    if (m.find("Taskbar") != m.end() && !m["Taskbar"].empty()) {
+      taskbar = make_shared<string>(boost::any_cast<string>(m["Taskbar"]));
+    }
+    if (m.find("UsbRedirect") != m.end() && !m["UsbRedirect"].empty()) {
+      usbRedirect = make_shared<string>(boost::any_cast<string>(m["UsbRedirect"]));
+    }
+    if (m.find("UsbSupplyRedirectRule") != m.end() && !m["UsbSupplyRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["UsbSupplyRedirectRule"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UsbSupplyRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usbSupplyRedirectRule = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>>(expect1);
+      }
+    }
+    if (m.find("VideoEncAvgKbps") != m.end() && !m["VideoEncAvgKbps"].empty()) {
+      videoEncAvgKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncAvgKbps"]));
+    }
+    if (m.find("VideoEncMaxQP") != m.end() && !m["VideoEncMaxQP"].empty()) {
+      videoEncMaxQP = make_shared<long>(boost::any_cast<long>(m["VideoEncMaxQP"]));
+    }
+    if (m.find("VideoEncMinQP") != m.end() && !m["VideoEncMinQP"].empty()) {
+      videoEncMinQP = make_shared<long>(boost::any_cast<long>(m["VideoEncMinQP"]));
+    }
+    if (m.find("VideoEncPeakKbps") != m.end() && !m["VideoEncPeakKbps"].empty()) {
+      videoEncPeakKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncPeakKbps"]));
+    }
+    if (m.find("VideoEncPolicy") != m.end() && !m["VideoEncPolicy"].empty()) {
+      videoEncPolicy = make_shared<string>(boost::any_cast<string>(m["VideoEncPolicy"]));
+    }
+    if (m.find("VideoRedirect") != m.end() && !m["VideoRedirect"].empty()) {
+      videoRedirect = make_shared<string>(boost::any_cast<string>(m["VideoRedirect"]));
+    }
+    if (m.find("VisualQuality") != m.end() && !m["VisualQuality"].empty()) {
+      visualQuality = make_shared<string>(boost::any_cast<string>(m["VisualQuality"]));
+    }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      watermark = make_shared<string>(boost::any_cast<string>(m["Watermark"]));
+    }
+    if (m.find("WatermarkAntiCam") != m.end() && !m["WatermarkAntiCam"].empty()) {
+      watermarkAntiCam = make_shared<string>(boost::any_cast<string>(m["WatermarkAntiCam"]));
+    }
+    if (m.find("WatermarkColor") != m.end() && !m["WatermarkColor"].empty()) {
+      watermarkColor = make_shared<long>(boost::any_cast<long>(m["WatermarkColor"]));
+    }
+    if (m.find("WatermarkCustomText") != m.end() && !m["WatermarkCustomText"].empty()) {
+      watermarkCustomText = make_shared<string>(boost::any_cast<string>(m["WatermarkCustomText"]));
+    }
+    if (m.find("WatermarkDegree") != m.end() && !m["WatermarkDegree"].empty()) {
+      watermarkDegree = make_shared<double>(boost::any_cast<double>(m["WatermarkDegree"]));
+    }
+    if (m.find("WatermarkFontSize") != m.end() && !m["WatermarkFontSize"].empty()) {
+      watermarkFontSize = make_shared<long>(boost::any_cast<long>(m["WatermarkFontSize"]));
+    }
+    if (m.find("WatermarkFontStyle") != m.end() && !m["WatermarkFontStyle"].empty()) {
+      watermarkFontStyle = make_shared<string>(boost::any_cast<string>(m["WatermarkFontStyle"]));
+    }
+    if (m.find("WatermarkPower") != m.end() && !m["WatermarkPower"].empty()) {
+      watermarkPower = make_shared<string>(boost::any_cast<string>(m["WatermarkPower"]));
+    }
+    if (m.find("WatermarkRowAmount") != m.end() && !m["WatermarkRowAmount"].empty()) {
+      watermarkRowAmount = make_shared<long>(boost::any_cast<long>(m["WatermarkRowAmount"]));
+    }
+    if (m.find("WatermarkSecurity") != m.end() && !m["WatermarkSecurity"].empty()) {
+      watermarkSecurity = make_shared<string>(boost::any_cast<string>(m["WatermarkSecurity"]));
+    }
+    if (m.find("WatermarkTransparencyValue") != m.end() && !m["WatermarkTransparencyValue"].empty()) {
+      watermarkTransparencyValue = make_shared<long>(boost::any_cast<long>(m["WatermarkTransparencyValue"]));
+    }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
+    }
+    if (m.find("WyAssistant") != m.end() && !m["WyAssistant"].empty()) {
+      wyAssistant = make_shared<string>(boost::any_cast<string>(m["WyAssistant"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBodyDescribePolicyGroups() = default;
+};
+class DescribeCenterPolicyListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroups>> describePolicyGroups{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeCenterPolicyListResponseBody() {}
+
+  explicit DescribeCenterPolicyListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (describePolicyGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*describePolicyGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DescribePolicyGroups"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DescribePolicyGroups") != m.end() && !m["DescribePolicyGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["DescribePolicyGroups"].type()) {
+        vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DescribePolicyGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenterPolicyListResponseBodyDescribePolicyGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        describePolicyGroups = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroups>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponseBody() = default;
+};
+class DescribeCenterPolicyListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCenterPolicyListResponseBody> body{};
+
+  DescribeCenterPolicyListResponse() {}
+
+  explicit DescribeCenterPolicyListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCenterPolicyListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCenterPolicyListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCenterPolicyListResponse() = default;
 };
 class DescribeClientEventsRequest : public Darabonba::Model {
 public:
@@ -31238,6 +34285,377 @@ public:
 
   virtual ~DescribeRenewalPriceResponse() = default;
 };
+class DescribeResourceByCenterPolicyIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<string> productType{};
+  shared_ptr<string> resourceId{};
+
+  DescribeResourceByCenterPolicyIdRequest() {}
+
+  explicit DescribeResourceByCenterPolicyIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceByCenterPolicyIdRequest() = default;
+};
+class DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+
+  DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList() {}
+
+  explicit DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList() = default;
+};
+class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList>> appModelList{};
+  shared_ptr<long> cpu{};
+  shared_ptr<string> desktopType{};
+  shared_ptr<double> gpuCount{};
+  shared_ptr<string> gpuSpec{};
+  shared_ptr<long> memory{};
+  shared_ptr<string> osType{};
+  shared_ptr<string> payType{};
+  shared_ptr<string> productType{};
+  shared_ptr<string> protocolType{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceGroupName{};
+  shared_ptr<long> resourceGroupRelCount{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceRegionId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> status{};
+
+  DescribeResourceByCenterPolicyIdResponseBodyResourceModelList() {}
+
+  explicit DescribeResourceByCenterPolicyIdResponseBodyResourceModelList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appModelList) {
+      vector<boost::any> temp1;
+      for(auto item1:*appModelList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AppModelList"] = boost::any(temp1);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (desktopType) {
+      res["DesktopType"] = boost::any(*desktopType);
+    }
+    if (gpuCount) {
+      res["GpuCount"] = boost::any(*gpuCount);
+    }
+    if (gpuSpec) {
+      res["GpuSpec"] = boost::any(*gpuSpec);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
+    }
+    if (payType) {
+      res["PayType"] = boost::any(*payType);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    if (protocolType) {
+      res["ProtocolType"] = boost::any(*protocolType);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceGroupName) {
+      res["ResourceGroupName"] = boost::any(*resourceGroupName);
+    }
+    if (resourceGroupRelCount) {
+      res["ResourceGroupRelCount"] = boost::any(*resourceGroupRelCount);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (resourceRegionId) {
+      res["ResourceRegionId"] = boost::any(*resourceRegionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppModelList") != m.end() && !m["AppModelList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AppModelList"].type()) {
+        vector<DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AppModelList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        appModelList = make_shared<vector<DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList>>(expect1);
+      }
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("DesktopType") != m.end() && !m["DesktopType"].empty()) {
+      desktopType = make_shared<string>(boost::any_cast<string>(m["DesktopType"]));
+    }
+    if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
+      gpuCount = make_shared<double>(boost::any_cast<double>(m["GpuCount"]));
+    }
+    if (m.find("GpuSpec") != m.end() && !m["GpuSpec"].empty()) {
+      gpuSpec = make_shared<string>(boost::any_cast<string>(m["GpuSpec"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
+      payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
+      protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceGroupName") != m.end() && !m["ResourceGroupName"].empty()) {
+      resourceGroupName = make_shared<string>(boost::any_cast<string>(m["ResourceGroupName"]));
+    }
+    if (m.find("ResourceGroupRelCount") != m.end() && !m["ResourceGroupRelCount"].empty()) {
+      resourceGroupRelCount = make_shared<long>(boost::any_cast<long>(m["ResourceGroupRelCount"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("ResourceRegionId") != m.end() && !m["ResourceRegionId"].empty()) {
+      resourceRegionId = make_shared<string>(boost::any_cast<string>(m["ResourceRegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceByCenterPolicyIdResponseBodyResourceModelList() = default;
+};
+class DescribeResourceByCenterPolicyIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> count{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeResourceByCenterPolicyIdResponseBodyResourceModelList>> resourceModelList{};
+
+  DescribeResourceByCenterPolicyIdResponseBody() {}
+
+  explicit DescribeResourceByCenterPolicyIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceModelList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceModelList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceModelList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["Count"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceModelList") != m.end() && !m["ResourceModelList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceModelList"].type()) {
+        vector<DescribeResourceByCenterPolicyIdResponseBodyResourceModelList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceModelList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResourceByCenterPolicyIdResponseBodyResourceModelList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceModelList = make_shared<vector<DescribeResourceByCenterPolicyIdResponseBodyResourceModelList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceByCenterPolicyIdResponseBody() = default;
+};
+class DescribeResourceByCenterPolicyIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeResourceByCenterPolicyIdResponseBody> body{};
+
+  DescribeResourceByCenterPolicyIdResponse() {}
+
+  explicit DescribeResourceByCenterPolicyIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeResourceByCenterPolicyIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeResourceByCenterPolicyIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceByCenterPolicyIdResponse() = default;
+};
 class DescribeSessionStatisticRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -41086,6 +44504,1498 @@ public:
 
   virtual ~ModifyCdsFileShareLinkResponse() = default;
 };
+class ModifyCenterPolicyRequestAuthorizeAccessPolicyRule : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrIp{};
+  shared_ptr<string> description{};
+
+  ModifyCenterPolicyRequestAuthorizeAccessPolicyRule() {}
+
+  explicit ModifyCenterPolicyRequestAuthorizeAccessPolicyRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrIp) {
+      res["CidrIp"] = boost::any(*cidrIp);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrIp") != m.end() && !m["CidrIp"].empty()) {
+      cidrIp = make_shared<string>(boost::any_cast<string>(m["CidrIp"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestAuthorizeAccessPolicyRule() = default;
+};
+class ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrIp{};
+  shared_ptr<string> description{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> type{};
+
+  ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule() {}
+
+  explicit ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrIp) {
+      res["CidrIp"] = boost::any(*cidrIp);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrIp") != m.end() && !m["CidrIp"].empty()) {
+      cidrIp = make_shared<string>(boost::any_cast<string>(m["CidrIp"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule() = default;
+};
+class ModifyCenterPolicyRequestClientType : public Darabonba::Model {
+public:
+  shared_ptr<string> clientType{};
+  shared_ptr<string> status{};
+
+  ModifyCenterPolicyRequestClientType() {}
+
+  explicit ModifyCenterPolicyRequestClientType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<string>(boost::any_cast<string>(m["ClientType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestClientType() = default;
+};
+class ModifyCenterPolicyRequestDeviceRedirects : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> redirectType{};
+
+  ModifyCenterPolicyRequestDeviceRedirects() {}
+
+  explicit ModifyCenterPolicyRequestDeviceRedirects(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestDeviceRedirects() = default;
+};
+class ModifyCenterPolicyRequestDeviceRules : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> devicePid{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> deviceVid{};
+  shared_ptr<string> optCommand{};
+  shared_ptr<string> redirectType{};
+
+  ModifyCenterPolicyRequestDeviceRules() {}
+
+  explicit ModifyCenterPolicyRequestDeviceRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (devicePid) {
+      res["DevicePid"] = boost::any(*devicePid);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (deviceVid) {
+      res["DeviceVid"] = boost::any(*deviceVid);
+    }
+    if (optCommand) {
+      res["OptCommand"] = boost::any(*optCommand);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("DevicePid") != m.end() && !m["DevicePid"].empty()) {
+      devicePid = make_shared<string>(boost::any_cast<string>(m["DevicePid"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("DeviceVid") != m.end() && !m["DeviceVid"].empty()) {
+      deviceVid = make_shared<string>(boost::any_cast<string>(m["DeviceVid"]));
+    }
+    if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
+      optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestDeviceRules() = default;
+};
+class ModifyCenterPolicyRequestDomainResolveRule : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> policy{};
+
+  ModifyCenterPolicyRequestDomainResolveRule() {}
+
+  explicit ModifyCenterPolicyRequestDomainResolveRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestDomainResolveRule() = default;
+};
+class ModifyCenterPolicyRequestNetRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> ruleType{};
+
+  ModifyCenterPolicyRequestNetRedirectRule() {}
+
+  explicit ModifyCenterPolicyRequestNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestNetRedirectRule() = default;
+};
+class ModifyCenterPolicyRequestRevokeAccessPolicyRule : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrIp{};
+  shared_ptr<string> description{};
+
+  ModifyCenterPolicyRequestRevokeAccessPolicyRule() {}
+
+  explicit ModifyCenterPolicyRequestRevokeAccessPolicyRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrIp) {
+      res["CidrIp"] = boost::any(*cidrIp);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrIp") != m.end() && !m["CidrIp"].empty()) {
+      cidrIp = make_shared<string>(boost::any_cast<string>(m["CidrIp"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestRevokeAccessPolicyRule() = default;
+};
+class ModifyCenterPolicyRequestRevokeSecurityPolicyRule : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrIp{};
+  shared_ptr<string> description{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> type{};
+
+  ModifyCenterPolicyRequestRevokeSecurityPolicyRule() {}
+
+  explicit ModifyCenterPolicyRequestRevokeSecurityPolicyRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrIp) {
+      res["CidrIp"] = boost::any(*cidrIp);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrIp") != m.end() && !m["CidrIp"].empty()) {
+      cidrIp = make_shared<string>(boost::any_cast<string>(m["CidrIp"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestRevokeSecurityPolicyRule() = default;
+};
+class ModifyCenterPolicyRequestUsbSupplyRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> productId{};
+  shared_ptr<string> usbRedirectType{};
+  shared_ptr<string> usbRuleType{};
+  shared_ptr<string> vendorId{};
+
+  ModifyCenterPolicyRequestUsbSupplyRedirectRule() {}
+
+  explicit ModifyCenterPolicyRequestUsbSupplyRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (usbRedirectType) {
+      res["UsbRedirectType"] = boost::any(*usbRedirectType);
+    }
+    if (usbRuleType) {
+      res["UsbRuleType"] = boost::any(*usbRuleType);
+    }
+    if (vendorId) {
+      res["VendorId"] = boost::any(*vendorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["ProductId"]));
+    }
+    if (m.find("UsbRedirectType") != m.end() && !m["UsbRedirectType"].empty()) {
+      usbRedirectType = make_shared<string>(boost::any_cast<string>(m["UsbRedirectType"]));
+    }
+    if (m.find("UsbRuleType") != m.end() && !m["UsbRuleType"].empty()) {
+      usbRuleType = make_shared<string>(boost::any_cast<string>(m["UsbRuleType"]));
+    }
+    if (m.find("VendorId") != m.end() && !m["VendorId"].empty()) {
+      vendorId = make_shared<string>(boost::any_cast<string>(m["VendorId"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequestUsbSupplyRedirectRule() = default;
+};
+class ModifyCenterPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> adminAccess{};
+  shared_ptr<string> appContentProtection{};
+  shared_ptr<vector<ModifyCenterPolicyRequestAuthorizeAccessPolicyRule>> authorizeAccessPolicyRule{};
+  shared_ptr<vector<ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule{};
+  shared_ptr<long> businessType{};
+  shared_ptr<string> cameraRedirect{};
+  shared_ptr<vector<ModifyCenterPolicyRequestClientType>> clientType{};
+  shared_ptr<string> clipboard{};
+  shared_ptr<string> colorEnhancement{};
+  shared_ptr<long> cpuDownGradeDuration{};
+  shared_ptr<vector<string>> cpuProcessors{};
+  shared_ptr<string> cpuProtectedMode{};
+  shared_ptr<long> cpuRateLimit{};
+  shared_ptr<long> cpuSampleDuration{};
+  shared_ptr<long> cpuSingleRateLimit{};
+  shared_ptr<string> deviceConnectHint{};
+  shared_ptr<vector<ModifyCenterPolicyRequestDeviceRedirects>> deviceRedirects{};
+  shared_ptr<vector<ModifyCenterPolicyRequestDeviceRules>> deviceRules{};
+  shared_ptr<string> disconnectKeepSession{};
+  shared_ptr<long> disconnectKeepSessionTime{};
+  shared_ptr<string> displayMode{};
+  shared_ptr<vector<ModifyCenterPolicyRequestDomainResolveRule>> domainResolveRule{};
+  shared_ptr<string> domainResolveRuleType{};
+  shared_ptr<string> enableSessionRateLimiting{};
+  shared_ptr<string> endUserApplyAdminCoordinate{};
+  shared_ptr<string> endUserGroupCoordinate{};
+  shared_ptr<string> fileMigrate{};
+  shared_ptr<string> gpuAcceleration{};
+  shared_ptr<string> html5FileTransfer{};
+  shared_ptr<string> internetCommunicationProtocol{};
+  shared_ptr<string> localDrive{};
+  shared_ptr<long> maxReconnectTime{};
+  shared_ptr<long> memoryDownGradeDuration{};
+  shared_ptr<vector<string>> memoryProcessors{};
+  shared_ptr<string> memoryProtectedMode{};
+  shared_ptr<long> memoryRateLimit{};
+  shared_ptr<long> memorySampleDuration{};
+  shared_ptr<long> memorySingleRateLimit{};
+  shared_ptr<string> mobileRestart{};
+  shared_ptr<string> mobileShutdown{};
+  shared_ptr<string> name{};
+  shared_ptr<string> netRedirect{};
+  shared_ptr<vector<ModifyCenterPolicyRequestNetRedirectRule>> netRedirectRule{};
+  shared_ptr<string> noOperationDisconnect{};
+  shared_ptr<long> noOperationDisconnectTime{};
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<string> printerRedirect{};
+  shared_ptr<string> qualityEnhancement{};
+  shared_ptr<long> recordEventDuration{};
+  shared_ptr<vector<string>> recordEventFilePaths{};
+  shared_ptr<vector<string>> recordEventRegisters{};
+  shared_ptr<vector<string>> recordEvents{};
+  shared_ptr<string> recording{};
+  shared_ptr<string> recordingAudio{};
+  shared_ptr<long> recordingDuration{};
+  shared_ptr<string> recordingEndTime{};
+  shared_ptr<long> recordingExpires{};
+  shared_ptr<string> recordingFps{};
+  shared_ptr<string> recordingStartTime{};
+  shared_ptr<string> recordingUserNotify{};
+  shared_ptr<string> recordingUserNotifyMessage{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> remoteCoordinate{};
+  shared_ptr<string> resetDesktop{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<string> resolutionModel{};
+  shared_ptr<long> resolutionWidth{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<vector<ModifyCenterPolicyRequestRevokeAccessPolicyRule>> revokeAccessPolicyRule{};
+  shared_ptr<vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule>> revokeSecurityPolicyRule{};
+  shared_ptr<string> scope{};
+  shared_ptr<vector<string>> scopeValue{};
+  shared_ptr<long> sessionMaxRateKbps{};
+  shared_ptr<string> smoothEnhancement{};
+  shared_ptr<string> statusMonitor{};
+  shared_ptr<string> streamingMode{};
+  shared_ptr<long> targetFps{};
+  shared_ptr<string> taskbar{};
+  shared_ptr<string> usbRedirect{};
+  shared_ptr<vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
+  shared_ptr<long> videoEncAvgKbps{};
+  shared_ptr<long> videoEncMaxQP{};
+  shared_ptr<long> videoEncMinQP{};
+  shared_ptr<long> videoEncPeakKbps{};
+  shared_ptr<string> videoEncPolicy{};
+  shared_ptr<string> videoRedirect{};
+  shared_ptr<string> visualQuality{};
+  shared_ptr<string> watermark{};
+  shared_ptr<string> watermarkAntiCam{};
+  shared_ptr<long> watermarkColor{};
+  shared_ptr<long> watermarkColumnAmount{};
+  shared_ptr<string> watermarkCustomText{};
+  shared_ptr<double> watermarkDegree{};
+  shared_ptr<long> watermarkFontSize{};
+  shared_ptr<string> watermarkFontStyle{};
+  shared_ptr<string> watermarkPower{};
+  shared_ptr<long> watermarkRowAmount{};
+  shared_ptr<string> watermarkSecurity{};
+  shared_ptr<long> watermarkTransparencyValue{};
+  shared_ptr<string> watermarkType{};
+  shared_ptr<string> wuyingKeeper{};
+  shared_ptr<string> wyAssistant{};
+
+  ModifyCenterPolicyRequest() {}
+
+  explicit ModifyCenterPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adminAccess) {
+      res["AdminAccess"] = boost::any(*adminAccess);
+    }
+    if (appContentProtection) {
+      res["AppContentProtection"] = boost::any(*appContentProtection);
+    }
+    if (authorizeAccessPolicyRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizeAccessPolicyRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizeAccessPolicyRule"] = boost::any(temp1);
+    }
+    if (authorizeSecurityPolicyRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizeSecurityPolicyRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizeSecurityPolicyRule"] = boost::any(temp1);
+    }
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (cameraRedirect) {
+      res["CameraRedirect"] = boost::any(*cameraRedirect);
+    }
+    if (clientType) {
+      vector<boost::any> temp1;
+      for(auto item1:*clientType){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClientType"] = boost::any(temp1);
+    }
+    if (clipboard) {
+      res["Clipboard"] = boost::any(*clipboard);
+    }
+    if (colorEnhancement) {
+      res["ColorEnhancement"] = boost::any(*colorEnhancement);
+    }
+    if (cpuDownGradeDuration) {
+      res["CpuDownGradeDuration"] = boost::any(*cpuDownGradeDuration);
+    }
+    if (cpuProcessors) {
+      res["CpuProcessors"] = boost::any(*cpuProcessors);
+    }
+    if (cpuProtectedMode) {
+      res["CpuProtectedMode"] = boost::any(*cpuProtectedMode);
+    }
+    if (cpuRateLimit) {
+      res["CpuRateLimit"] = boost::any(*cpuRateLimit);
+    }
+    if (cpuSampleDuration) {
+      res["CpuSampleDuration"] = boost::any(*cpuSampleDuration);
+    }
+    if (cpuSingleRateLimit) {
+      res["CpuSingleRateLimit"] = boost::any(*cpuSingleRateLimit);
+    }
+    if (deviceConnectHint) {
+      res["DeviceConnectHint"] = boost::any(*deviceConnectHint);
+    }
+    if (deviceRedirects) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRedirects){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRedirects"] = boost::any(temp1);
+    }
+    if (deviceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRules"] = boost::any(temp1);
+    }
+    if (disconnectKeepSession) {
+      res["DisconnectKeepSession"] = boost::any(*disconnectKeepSession);
+    }
+    if (disconnectKeepSessionTime) {
+      res["DisconnectKeepSessionTime"] = boost::any(*disconnectKeepSessionTime);
+    }
+    if (displayMode) {
+      res["DisplayMode"] = boost::any(*displayMode);
+    }
+    if (domainResolveRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainResolveRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainResolveRule"] = boost::any(temp1);
+    }
+    if (domainResolveRuleType) {
+      res["DomainResolveRuleType"] = boost::any(*domainResolveRuleType);
+    }
+    if (enableSessionRateLimiting) {
+      res["EnableSessionRateLimiting"] = boost::any(*enableSessionRateLimiting);
+    }
+    if (endUserApplyAdminCoordinate) {
+      res["EndUserApplyAdminCoordinate"] = boost::any(*endUserApplyAdminCoordinate);
+    }
+    if (endUserGroupCoordinate) {
+      res["EndUserGroupCoordinate"] = boost::any(*endUserGroupCoordinate);
+    }
+    if (fileMigrate) {
+      res["FileMigrate"] = boost::any(*fileMigrate);
+    }
+    if (gpuAcceleration) {
+      res["GpuAcceleration"] = boost::any(*gpuAcceleration);
+    }
+    if (html5FileTransfer) {
+      res["Html5FileTransfer"] = boost::any(*html5FileTransfer);
+    }
+    if (internetCommunicationProtocol) {
+      res["InternetCommunicationProtocol"] = boost::any(*internetCommunicationProtocol);
+    }
+    if (localDrive) {
+      res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (maxReconnectTime) {
+      res["MaxReconnectTime"] = boost::any(*maxReconnectTime);
+    }
+    if (memoryDownGradeDuration) {
+      res["MemoryDownGradeDuration"] = boost::any(*memoryDownGradeDuration);
+    }
+    if (memoryProcessors) {
+      res["MemoryProcessors"] = boost::any(*memoryProcessors);
+    }
+    if (memoryProtectedMode) {
+      res["MemoryProtectedMode"] = boost::any(*memoryProtectedMode);
+    }
+    if (memoryRateLimit) {
+      res["MemoryRateLimit"] = boost::any(*memoryRateLimit);
+    }
+    if (memorySampleDuration) {
+      res["MemorySampleDuration"] = boost::any(*memorySampleDuration);
+    }
+    if (memorySingleRateLimit) {
+      res["MemorySingleRateLimit"] = boost::any(*memorySingleRateLimit);
+    }
+    if (mobileRestart) {
+      res["MobileRestart"] = boost::any(*mobileRestart);
+    }
+    if (mobileShutdown) {
+      res["MobileShutdown"] = boost::any(*mobileShutdown);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (netRedirect) {
+      res["NetRedirect"] = boost::any(*netRedirect);
+    }
+    if (netRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*netRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetRedirectRule"] = boost::any(temp1);
+    }
+    if (noOperationDisconnect) {
+      res["NoOperationDisconnect"] = boost::any(*noOperationDisconnect);
+    }
+    if (noOperationDisconnectTime) {
+      res["NoOperationDisconnectTime"] = boost::any(*noOperationDisconnectTime);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (printerRedirect) {
+      res["PrinterRedirect"] = boost::any(*printerRedirect);
+    }
+    if (qualityEnhancement) {
+      res["QualityEnhancement"] = boost::any(*qualityEnhancement);
+    }
+    if (recordEventDuration) {
+      res["RecordEventDuration"] = boost::any(*recordEventDuration);
+    }
+    if (recordEventFilePaths) {
+      res["RecordEventFilePaths"] = boost::any(*recordEventFilePaths);
+    }
+    if (recordEventRegisters) {
+      res["RecordEventRegisters"] = boost::any(*recordEventRegisters);
+    }
+    if (recordEvents) {
+      res["RecordEvents"] = boost::any(*recordEvents);
+    }
+    if (recording) {
+      res["Recording"] = boost::any(*recording);
+    }
+    if (recordingAudio) {
+      res["RecordingAudio"] = boost::any(*recordingAudio);
+    }
+    if (recordingDuration) {
+      res["RecordingDuration"] = boost::any(*recordingDuration);
+    }
+    if (recordingEndTime) {
+      res["RecordingEndTime"] = boost::any(*recordingEndTime);
+    }
+    if (recordingExpires) {
+      res["RecordingExpires"] = boost::any(*recordingExpires);
+    }
+    if (recordingFps) {
+      res["RecordingFps"] = boost::any(*recordingFps);
+    }
+    if (recordingStartTime) {
+      res["RecordingStartTime"] = boost::any(*recordingStartTime);
+    }
+    if (recordingUserNotify) {
+      res["RecordingUserNotify"] = boost::any(*recordingUserNotify);
+    }
+    if (recordingUserNotifyMessage) {
+      res["RecordingUserNotifyMessage"] = boost::any(*recordingUserNotifyMessage);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (remoteCoordinate) {
+      res["RemoteCoordinate"] = boost::any(*remoteCoordinate);
+    }
+    if (resetDesktop) {
+      res["ResetDesktop"] = boost::any(*resetDesktop);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionModel) {
+      res["ResolutionModel"] = boost::any(*resolutionModel);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (revokeAccessPolicyRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*revokeAccessPolicyRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RevokeAccessPolicyRule"] = boost::any(temp1);
+    }
+    if (revokeSecurityPolicyRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*revokeSecurityPolicyRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RevokeSecurityPolicyRule"] = boost::any(temp1);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (scopeValue) {
+      res["ScopeValue"] = boost::any(*scopeValue);
+    }
+    if (sessionMaxRateKbps) {
+      res["SessionMaxRateKbps"] = boost::any(*sessionMaxRateKbps);
+    }
+    if (smoothEnhancement) {
+      res["SmoothEnhancement"] = boost::any(*smoothEnhancement);
+    }
+    if (statusMonitor) {
+      res["StatusMonitor"] = boost::any(*statusMonitor);
+    }
+    if (streamingMode) {
+      res["StreamingMode"] = boost::any(*streamingMode);
+    }
+    if (targetFps) {
+      res["TargetFps"] = boost::any(*targetFps);
+    }
+    if (taskbar) {
+      res["Taskbar"] = boost::any(*taskbar);
+    }
+    if (usbRedirect) {
+      res["UsbRedirect"] = boost::any(*usbRedirect);
+    }
+    if (usbSupplyRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*usbSupplyRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UsbSupplyRedirectRule"] = boost::any(temp1);
+    }
+    if (videoEncAvgKbps) {
+      res["VideoEncAvgKbps"] = boost::any(*videoEncAvgKbps);
+    }
+    if (videoEncMaxQP) {
+      res["VideoEncMaxQP"] = boost::any(*videoEncMaxQP);
+    }
+    if (videoEncMinQP) {
+      res["VideoEncMinQP"] = boost::any(*videoEncMinQP);
+    }
+    if (videoEncPeakKbps) {
+      res["VideoEncPeakKbps"] = boost::any(*videoEncPeakKbps);
+    }
+    if (videoEncPolicy) {
+      res["VideoEncPolicy"] = boost::any(*videoEncPolicy);
+    }
+    if (videoRedirect) {
+      res["VideoRedirect"] = boost::any(*videoRedirect);
+    }
+    if (visualQuality) {
+      res["VisualQuality"] = boost::any(*visualQuality);
+    }
+    if (watermark) {
+      res["Watermark"] = boost::any(*watermark);
+    }
+    if (watermarkAntiCam) {
+      res["WatermarkAntiCam"] = boost::any(*watermarkAntiCam);
+    }
+    if (watermarkColor) {
+      res["WatermarkColor"] = boost::any(*watermarkColor);
+    }
+    if (watermarkColumnAmount) {
+      res["WatermarkColumnAmount"] = boost::any(*watermarkColumnAmount);
+    }
+    if (watermarkCustomText) {
+      res["WatermarkCustomText"] = boost::any(*watermarkCustomText);
+    }
+    if (watermarkDegree) {
+      res["WatermarkDegree"] = boost::any(*watermarkDegree);
+    }
+    if (watermarkFontSize) {
+      res["WatermarkFontSize"] = boost::any(*watermarkFontSize);
+    }
+    if (watermarkFontStyle) {
+      res["WatermarkFontStyle"] = boost::any(*watermarkFontStyle);
+    }
+    if (watermarkPower) {
+      res["WatermarkPower"] = boost::any(*watermarkPower);
+    }
+    if (watermarkRowAmount) {
+      res["WatermarkRowAmount"] = boost::any(*watermarkRowAmount);
+    }
+    if (watermarkSecurity) {
+      res["WatermarkSecurity"] = boost::any(*watermarkSecurity);
+    }
+    if (watermarkTransparencyValue) {
+      res["WatermarkTransparencyValue"] = boost::any(*watermarkTransparencyValue);
+    }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
+    if (wuyingKeeper) {
+      res["WuyingKeeper"] = boost::any(*wuyingKeeper);
+    }
+    if (wyAssistant) {
+      res["WyAssistant"] = boost::any(*wyAssistant);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdminAccess") != m.end() && !m["AdminAccess"].empty()) {
+      adminAccess = make_shared<string>(boost::any_cast<string>(m["AdminAccess"]));
+    }
+    if (m.find("AppContentProtection") != m.end() && !m["AppContentProtection"].empty()) {
+      appContentProtection = make_shared<string>(boost::any_cast<string>(m["AppContentProtection"]));
+    }
+    if (m.find("AuthorizeAccessPolicyRule") != m.end() && !m["AuthorizeAccessPolicyRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizeAccessPolicyRule"].type()) {
+        vector<ModifyCenterPolicyRequestAuthorizeAccessPolicyRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizeAccessPolicyRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestAuthorizeAccessPolicyRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizeAccessPolicyRule = make_shared<vector<ModifyCenterPolicyRequestAuthorizeAccessPolicyRule>>(expect1);
+      }
+    }
+    if (m.find("AuthorizeSecurityPolicyRule") != m.end() && !m["AuthorizeSecurityPolicyRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizeSecurityPolicyRule"].type()) {
+        vector<ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizeSecurityPolicyRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizeSecurityPolicyRule = make_shared<vector<ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule>>(expect1);
+      }
+    }
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<long>(boost::any_cast<long>(m["BusinessType"]));
+    }
+    if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
+      cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
+    }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClientType"].type()) {
+        vector<ModifyCenterPolicyRequestClientType> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClientType"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestClientType model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clientType = make_shared<vector<ModifyCenterPolicyRequestClientType>>(expect1);
+      }
+    }
+    if (m.find("Clipboard") != m.end() && !m["Clipboard"].empty()) {
+      clipboard = make_shared<string>(boost::any_cast<string>(m["Clipboard"]));
+    }
+    if (m.find("ColorEnhancement") != m.end() && !m["ColorEnhancement"].empty()) {
+      colorEnhancement = make_shared<string>(boost::any_cast<string>(m["ColorEnhancement"]));
+    }
+    if (m.find("CpuDownGradeDuration") != m.end() && !m["CpuDownGradeDuration"].empty()) {
+      cpuDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["CpuDownGradeDuration"]));
+    }
+    if (m.find("CpuProcessors") != m.end() && !m["CpuProcessors"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuProcessors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuProcessors"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuProcessors = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CpuProtectedMode") != m.end() && !m["CpuProtectedMode"].empty()) {
+      cpuProtectedMode = make_shared<string>(boost::any_cast<string>(m["CpuProtectedMode"]));
+    }
+    if (m.find("CpuRateLimit") != m.end() && !m["CpuRateLimit"].empty()) {
+      cpuRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuRateLimit"]));
+    }
+    if (m.find("CpuSampleDuration") != m.end() && !m["CpuSampleDuration"].empty()) {
+      cpuSampleDuration = make_shared<long>(boost::any_cast<long>(m["CpuSampleDuration"]));
+    }
+    if (m.find("CpuSingleRateLimit") != m.end() && !m["CpuSingleRateLimit"].empty()) {
+      cpuSingleRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuSingleRateLimit"]));
+    }
+    if (m.find("DeviceConnectHint") != m.end() && !m["DeviceConnectHint"].empty()) {
+      deviceConnectHint = make_shared<string>(boost::any_cast<string>(m["DeviceConnectHint"]));
+    }
+    if (m.find("DeviceRedirects") != m.end() && !m["DeviceRedirects"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRedirects"].type()) {
+        vector<ModifyCenterPolicyRequestDeviceRedirects> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRedirects"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestDeviceRedirects model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRedirects = make_shared<vector<ModifyCenterPolicyRequestDeviceRedirects>>(expect1);
+      }
+    }
+    if (m.find("DeviceRules") != m.end() && !m["DeviceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRules"].type()) {
+        vector<ModifyCenterPolicyRequestDeviceRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestDeviceRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRules = make_shared<vector<ModifyCenterPolicyRequestDeviceRules>>(expect1);
+      }
+    }
+    if (m.find("DisconnectKeepSession") != m.end() && !m["DisconnectKeepSession"].empty()) {
+      disconnectKeepSession = make_shared<string>(boost::any_cast<string>(m["DisconnectKeepSession"]));
+    }
+    if (m.find("DisconnectKeepSessionTime") != m.end() && !m["DisconnectKeepSessionTime"].empty()) {
+      disconnectKeepSessionTime = make_shared<long>(boost::any_cast<long>(m["DisconnectKeepSessionTime"]));
+    }
+    if (m.find("DisplayMode") != m.end() && !m["DisplayMode"].empty()) {
+      displayMode = make_shared<string>(boost::any_cast<string>(m["DisplayMode"]));
+    }
+    if (m.find("DomainResolveRule") != m.end() && !m["DomainResolveRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainResolveRule"].type()) {
+        vector<ModifyCenterPolicyRequestDomainResolveRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainResolveRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestDomainResolveRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainResolveRule = make_shared<vector<ModifyCenterPolicyRequestDomainResolveRule>>(expect1);
+      }
+    }
+    if (m.find("DomainResolveRuleType") != m.end() && !m["DomainResolveRuleType"].empty()) {
+      domainResolveRuleType = make_shared<string>(boost::any_cast<string>(m["DomainResolveRuleType"]));
+    }
+    if (m.find("EnableSessionRateLimiting") != m.end() && !m["EnableSessionRateLimiting"].empty()) {
+      enableSessionRateLimiting = make_shared<string>(boost::any_cast<string>(m["EnableSessionRateLimiting"]));
+    }
+    if (m.find("EndUserApplyAdminCoordinate") != m.end() && !m["EndUserApplyAdminCoordinate"].empty()) {
+      endUserApplyAdminCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserApplyAdminCoordinate"]));
+    }
+    if (m.find("EndUserGroupCoordinate") != m.end() && !m["EndUserGroupCoordinate"].empty()) {
+      endUserGroupCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserGroupCoordinate"]));
+    }
+    if (m.find("FileMigrate") != m.end() && !m["FileMigrate"].empty()) {
+      fileMigrate = make_shared<string>(boost::any_cast<string>(m["FileMigrate"]));
+    }
+    if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
+      gpuAcceleration = make_shared<string>(boost::any_cast<string>(m["GpuAcceleration"]));
+    }
+    if (m.find("Html5FileTransfer") != m.end() && !m["Html5FileTransfer"].empty()) {
+      html5FileTransfer = make_shared<string>(boost::any_cast<string>(m["Html5FileTransfer"]));
+    }
+    if (m.find("InternetCommunicationProtocol") != m.end() && !m["InternetCommunicationProtocol"].empty()) {
+      internetCommunicationProtocol = make_shared<string>(boost::any_cast<string>(m["InternetCommunicationProtocol"]));
+    }
+    if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
+      localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("MaxReconnectTime") != m.end() && !m["MaxReconnectTime"].empty()) {
+      maxReconnectTime = make_shared<long>(boost::any_cast<long>(m["MaxReconnectTime"]));
+    }
+    if (m.find("MemoryDownGradeDuration") != m.end() && !m["MemoryDownGradeDuration"].empty()) {
+      memoryDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["MemoryDownGradeDuration"]));
+    }
+    if (m.find("MemoryProcessors") != m.end() && !m["MemoryProcessors"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MemoryProcessors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MemoryProcessors"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      memoryProcessors = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MemoryProtectedMode") != m.end() && !m["MemoryProtectedMode"].empty()) {
+      memoryProtectedMode = make_shared<string>(boost::any_cast<string>(m["MemoryProtectedMode"]));
+    }
+    if (m.find("MemoryRateLimit") != m.end() && !m["MemoryRateLimit"].empty()) {
+      memoryRateLimit = make_shared<long>(boost::any_cast<long>(m["MemoryRateLimit"]));
+    }
+    if (m.find("MemorySampleDuration") != m.end() && !m["MemorySampleDuration"].empty()) {
+      memorySampleDuration = make_shared<long>(boost::any_cast<long>(m["MemorySampleDuration"]));
+    }
+    if (m.find("MemorySingleRateLimit") != m.end() && !m["MemorySingleRateLimit"].empty()) {
+      memorySingleRateLimit = make_shared<long>(boost::any_cast<long>(m["MemorySingleRateLimit"]));
+    }
+    if (m.find("MobileRestart") != m.end() && !m["MobileRestart"].empty()) {
+      mobileRestart = make_shared<string>(boost::any_cast<string>(m["MobileRestart"]));
+    }
+    if (m.find("MobileShutdown") != m.end() && !m["MobileShutdown"].empty()) {
+      mobileShutdown = make_shared<string>(boost::any_cast<string>(m["MobileShutdown"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
+      netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
+    }
+    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
+        vector<ModifyCenterPolicyRequestNetRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestNetRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netRedirectRule = make_shared<vector<ModifyCenterPolicyRequestNetRedirectRule>>(expect1);
+      }
+    }
+    if (m.find("NoOperationDisconnect") != m.end() && !m["NoOperationDisconnect"].empty()) {
+      noOperationDisconnect = make_shared<string>(boost::any_cast<string>(m["NoOperationDisconnect"]));
+    }
+    if (m.find("NoOperationDisconnectTime") != m.end() && !m["NoOperationDisconnectTime"].empty()) {
+      noOperationDisconnectTime = make_shared<long>(boost::any_cast<long>(m["NoOperationDisconnectTime"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("PrinterRedirect") != m.end() && !m["PrinterRedirect"].empty()) {
+      printerRedirect = make_shared<string>(boost::any_cast<string>(m["PrinterRedirect"]));
+    }
+    if (m.find("QualityEnhancement") != m.end() && !m["QualityEnhancement"].empty()) {
+      qualityEnhancement = make_shared<string>(boost::any_cast<string>(m["QualityEnhancement"]));
+    }
+    if (m.find("RecordEventDuration") != m.end() && !m["RecordEventDuration"].empty()) {
+      recordEventDuration = make_shared<long>(boost::any_cast<long>(m["RecordEventDuration"]));
+    }
+    if (m.find("RecordEventFilePaths") != m.end() && !m["RecordEventFilePaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEventFilePaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEventFilePaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEventFilePaths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RecordEventRegisters") != m.end() && !m["RecordEventRegisters"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEventRegisters"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEventRegisters"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEventRegisters = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RecordEvents") != m.end() && !m["RecordEvents"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEvents"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEvents"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEvents = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Recording") != m.end() && !m["Recording"].empty()) {
+      recording = make_shared<string>(boost::any_cast<string>(m["Recording"]));
+    }
+    if (m.find("RecordingAudio") != m.end() && !m["RecordingAudio"].empty()) {
+      recordingAudio = make_shared<string>(boost::any_cast<string>(m["RecordingAudio"]));
+    }
+    if (m.find("RecordingDuration") != m.end() && !m["RecordingDuration"].empty()) {
+      recordingDuration = make_shared<long>(boost::any_cast<long>(m["RecordingDuration"]));
+    }
+    if (m.find("RecordingEndTime") != m.end() && !m["RecordingEndTime"].empty()) {
+      recordingEndTime = make_shared<string>(boost::any_cast<string>(m["RecordingEndTime"]));
+    }
+    if (m.find("RecordingExpires") != m.end() && !m["RecordingExpires"].empty()) {
+      recordingExpires = make_shared<long>(boost::any_cast<long>(m["RecordingExpires"]));
+    }
+    if (m.find("RecordingFps") != m.end() && !m["RecordingFps"].empty()) {
+      recordingFps = make_shared<string>(boost::any_cast<string>(m["RecordingFps"]));
+    }
+    if (m.find("RecordingStartTime") != m.end() && !m["RecordingStartTime"].empty()) {
+      recordingStartTime = make_shared<string>(boost::any_cast<string>(m["RecordingStartTime"]));
+    }
+    if (m.find("RecordingUserNotify") != m.end() && !m["RecordingUserNotify"].empty()) {
+      recordingUserNotify = make_shared<string>(boost::any_cast<string>(m["RecordingUserNotify"]));
+    }
+    if (m.find("RecordingUserNotifyMessage") != m.end() && !m["RecordingUserNotifyMessage"].empty()) {
+      recordingUserNotifyMessage = make_shared<string>(boost::any_cast<string>(m["RecordingUserNotifyMessage"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoteCoordinate") != m.end() && !m["RemoteCoordinate"].empty()) {
+      remoteCoordinate = make_shared<string>(boost::any_cast<string>(m["RemoteCoordinate"]));
+    }
+    if (m.find("ResetDesktop") != m.end() && !m["ResetDesktop"].empty()) {
+      resetDesktop = make_shared<string>(boost::any_cast<string>(m["ResetDesktop"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionModel") != m.end() && !m["ResolutionModel"].empty()) {
+      resolutionModel = make_shared<string>(boost::any_cast<string>(m["ResolutionModel"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("RevokeAccessPolicyRule") != m.end() && !m["RevokeAccessPolicyRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["RevokeAccessPolicyRule"].type()) {
+        vector<ModifyCenterPolicyRequestRevokeAccessPolicyRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RevokeAccessPolicyRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestRevokeAccessPolicyRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        revokeAccessPolicyRule = make_shared<vector<ModifyCenterPolicyRequestRevokeAccessPolicyRule>>(expect1);
+      }
+    }
+    if (m.find("RevokeSecurityPolicyRule") != m.end() && !m["RevokeSecurityPolicyRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["RevokeSecurityPolicyRule"].type()) {
+        vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RevokeSecurityPolicyRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestRevokeSecurityPolicyRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        revokeSecurityPolicyRule = make_shared<vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule>>(expect1);
+      }
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("ScopeValue") != m.end() && !m["ScopeValue"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScopeValue"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScopeValue"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scopeValue = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SessionMaxRateKbps") != m.end() && !m["SessionMaxRateKbps"].empty()) {
+      sessionMaxRateKbps = make_shared<long>(boost::any_cast<long>(m["SessionMaxRateKbps"]));
+    }
+    if (m.find("SmoothEnhancement") != m.end() && !m["SmoothEnhancement"].empty()) {
+      smoothEnhancement = make_shared<string>(boost::any_cast<string>(m["SmoothEnhancement"]));
+    }
+    if (m.find("StatusMonitor") != m.end() && !m["StatusMonitor"].empty()) {
+      statusMonitor = make_shared<string>(boost::any_cast<string>(m["StatusMonitor"]));
+    }
+    if (m.find("StreamingMode") != m.end() && !m["StreamingMode"].empty()) {
+      streamingMode = make_shared<string>(boost::any_cast<string>(m["StreamingMode"]));
+    }
+    if (m.find("TargetFps") != m.end() && !m["TargetFps"].empty()) {
+      targetFps = make_shared<long>(boost::any_cast<long>(m["TargetFps"]));
+    }
+    if (m.find("Taskbar") != m.end() && !m["Taskbar"].empty()) {
+      taskbar = make_shared<string>(boost::any_cast<string>(m["Taskbar"]));
+    }
+    if (m.find("UsbRedirect") != m.end() && !m["UsbRedirect"].empty()) {
+      usbRedirect = make_shared<string>(boost::any_cast<string>(m["UsbRedirect"]));
+    }
+    if (m.find("UsbSupplyRedirectRule") != m.end() && !m["UsbSupplyRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["UsbSupplyRedirectRule"].type()) {
+        vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UsbSupplyRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCenterPolicyRequestUsbSupplyRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usbSupplyRedirectRule = make_shared<vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule>>(expect1);
+      }
+    }
+    if (m.find("VideoEncAvgKbps") != m.end() && !m["VideoEncAvgKbps"].empty()) {
+      videoEncAvgKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncAvgKbps"]));
+    }
+    if (m.find("VideoEncMaxQP") != m.end() && !m["VideoEncMaxQP"].empty()) {
+      videoEncMaxQP = make_shared<long>(boost::any_cast<long>(m["VideoEncMaxQP"]));
+    }
+    if (m.find("VideoEncMinQP") != m.end() && !m["VideoEncMinQP"].empty()) {
+      videoEncMinQP = make_shared<long>(boost::any_cast<long>(m["VideoEncMinQP"]));
+    }
+    if (m.find("VideoEncPeakKbps") != m.end() && !m["VideoEncPeakKbps"].empty()) {
+      videoEncPeakKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncPeakKbps"]));
+    }
+    if (m.find("VideoEncPolicy") != m.end() && !m["VideoEncPolicy"].empty()) {
+      videoEncPolicy = make_shared<string>(boost::any_cast<string>(m["VideoEncPolicy"]));
+    }
+    if (m.find("VideoRedirect") != m.end() && !m["VideoRedirect"].empty()) {
+      videoRedirect = make_shared<string>(boost::any_cast<string>(m["VideoRedirect"]));
+    }
+    if (m.find("VisualQuality") != m.end() && !m["VisualQuality"].empty()) {
+      visualQuality = make_shared<string>(boost::any_cast<string>(m["VisualQuality"]));
+    }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      watermark = make_shared<string>(boost::any_cast<string>(m["Watermark"]));
+    }
+    if (m.find("WatermarkAntiCam") != m.end() && !m["WatermarkAntiCam"].empty()) {
+      watermarkAntiCam = make_shared<string>(boost::any_cast<string>(m["WatermarkAntiCam"]));
+    }
+    if (m.find("WatermarkColor") != m.end() && !m["WatermarkColor"].empty()) {
+      watermarkColor = make_shared<long>(boost::any_cast<long>(m["WatermarkColor"]));
+    }
+    if (m.find("WatermarkColumnAmount") != m.end() && !m["WatermarkColumnAmount"].empty()) {
+      watermarkColumnAmount = make_shared<long>(boost::any_cast<long>(m["WatermarkColumnAmount"]));
+    }
+    if (m.find("WatermarkCustomText") != m.end() && !m["WatermarkCustomText"].empty()) {
+      watermarkCustomText = make_shared<string>(boost::any_cast<string>(m["WatermarkCustomText"]));
+    }
+    if (m.find("WatermarkDegree") != m.end() && !m["WatermarkDegree"].empty()) {
+      watermarkDegree = make_shared<double>(boost::any_cast<double>(m["WatermarkDegree"]));
+    }
+    if (m.find("WatermarkFontSize") != m.end() && !m["WatermarkFontSize"].empty()) {
+      watermarkFontSize = make_shared<long>(boost::any_cast<long>(m["WatermarkFontSize"]));
+    }
+    if (m.find("WatermarkFontStyle") != m.end() && !m["WatermarkFontStyle"].empty()) {
+      watermarkFontStyle = make_shared<string>(boost::any_cast<string>(m["WatermarkFontStyle"]));
+    }
+    if (m.find("WatermarkPower") != m.end() && !m["WatermarkPower"].empty()) {
+      watermarkPower = make_shared<string>(boost::any_cast<string>(m["WatermarkPower"]));
+    }
+    if (m.find("WatermarkRowAmount") != m.end() && !m["WatermarkRowAmount"].empty()) {
+      watermarkRowAmount = make_shared<long>(boost::any_cast<long>(m["WatermarkRowAmount"]));
+    }
+    if (m.find("WatermarkSecurity") != m.end() && !m["WatermarkSecurity"].empty()) {
+      watermarkSecurity = make_shared<string>(boost::any_cast<string>(m["WatermarkSecurity"]));
+    }
+    if (m.find("WatermarkTransparencyValue") != m.end() && !m["WatermarkTransparencyValue"].empty()) {
+      watermarkTransparencyValue = make_shared<long>(boost::any_cast<long>(m["WatermarkTransparencyValue"]));
+    }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
+    }
+    if (m.find("WuyingKeeper") != m.end() && !m["WuyingKeeper"].empty()) {
+      wuyingKeeper = make_shared<string>(boost::any_cast<string>(m["WuyingKeeper"]));
+    }
+    if (m.find("WyAssistant") != m.end() && !m["WyAssistant"].empty()) {
+      wyAssistant = make_shared<string>(boost::any_cast<string>(m["WyAssistant"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyRequest() = default;
+};
+class ModifyCenterPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyCenterPolicyResponseBody() {}
+
+  explicit ModifyCenterPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyResponseBody() = default;
+};
+class ModifyCenterPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyCenterPolicyResponseBody> body{};
+
+  ModifyCenterPolicyResponse() {}
+
+  explicit ModifyCenterPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyCenterPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyCenterPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyCenterPolicyResponse() = default;
+};
 class ModifyCloudDriveGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cdsId{};
@@ -46484,6 +51394,222 @@ public:
 
 
   virtual ~ModifyPolicyGroupResponse() = default;
+};
+class ModifyResourceCenterPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyGroupIds{};
+  shared_ptr<string> policyGroupType{};
+  shared_ptr<string> productType{};
+  shared_ptr<vector<string>> resourceIds{};
+  shared_ptr<string> resourceRegionId{};
+  shared_ptr<string> resourceType{};
+
+  ModifyResourceCenterPolicyRequest() {}
+
+  explicit ModifyResourceCenterPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyGroupIds) {
+      res["PolicyGroupIds"] = boost::any(*policyGroupIds);
+    }
+    if (policyGroupType) {
+      res["PolicyGroupType"] = boost::any(*policyGroupType);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    if (resourceIds) {
+      res["ResourceIds"] = boost::any(*resourceIds);
+    }
+    if (resourceRegionId) {
+      res["ResourceRegionId"] = boost::any(*resourceRegionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyGroupIds") != m.end() && !m["PolicyGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PolicyGroupType") != m.end() && !m["PolicyGroupType"].empty()) {
+      policyGroupType = make_shared<string>(boost::any_cast<string>(m["PolicyGroupType"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceRegionId") != m.end() && !m["ResourceRegionId"].empty()) {
+      resourceRegionId = make_shared<string>(boost::any_cast<string>(m["ResourceRegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~ModifyResourceCenterPolicyRequest() = default;
+};
+class ModifyResourceCenterPolicyResponseBodyModifyResults : public Darabonba::Model {
+public:
+  shared_ptr<bool> checkResult{};
+  shared_ptr<string> resourceId{};
+
+  ModifyResourceCenterPolicyResponseBodyModifyResults() {}
+
+  explicit ModifyResourceCenterPolicyResponseBodyModifyResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkResult) {
+      res["CheckResult"] = boost::any(*checkResult);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckResult") != m.end() && !m["CheckResult"].empty()) {
+      checkResult = make_shared<bool>(boost::any_cast<bool>(m["CheckResult"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+  }
+
+
+  virtual ~ModifyResourceCenterPolicyResponseBodyModifyResults() = default;
+};
+class ModifyResourceCenterPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyResourceCenterPolicyResponseBodyModifyResults>> modifyResults{};
+  shared_ptr<string> requestId{};
+
+  ModifyResourceCenterPolicyResponseBody() {}
+
+  explicit ModifyResourceCenterPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (modifyResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*modifyResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ModifyResults"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModifyResults") != m.end() && !m["ModifyResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["ModifyResults"].type()) {
+        vector<ModifyResourceCenterPolicyResponseBodyModifyResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ModifyResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyResourceCenterPolicyResponseBodyModifyResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        modifyResults = make_shared<vector<ModifyResourceCenterPolicyResponseBodyModifyResults>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyResourceCenterPolicyResponseBody() = default;
+};
+class ModifyResourceCenterPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyResourceCenterPolicyResponseBody> body{};
+
+  ModifyResourceCenterPolicyResponse() {}
+
+  explicit ModifyResourceCenterPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyResourceCenterPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyResourceCenterPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyResourceCenterPolicyResponse() = default;
 };
 class ModifyTimerGroupRequestConfigTimers : public Darabonba::Model {
 public:
@@ -52952,6 +58078,8 @@ public:
   CancelCoordinationForMonitoringResponse cancelCoordinationForMonitoring(shared_ptr<CancelCoordinationForMonitoringRequest> request);
   CancelCopyImageResponse cancelCopyImageWithOptions(shared_ptr<CancelCopyImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelCopyImageResponse cancelCopyImage(shared_ptr<CancelCopyImageRequest> request);
+  CloneCenterPolicyResponse cloneCenterPolicyWithOptions(shared_ptr<CloneCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CloneCenterPolicyResponse cloneCenterPolicy(shared_ptr<CloneCenterPolicyRequest> request);
   ClonePolicyGroupResponse clonePolicyGroupWithOptions(shared_ptr<ClonePolicyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ClonePolicyGroupResponse clonePolicyGroup(shared_ptr<ClonePolicyGroupRequest> request);
   CompleteCdsFileResponse completeCdsFileWithOptions(shared_ptr<CompleteCdsFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -52980,6 +58108,8 @@ public:
   CreateCdsFileResponse createCdsFile(shared_ptr<CreateCdsFileRequest> request);
   CreateCdsFileShareLinkResponse createCdsFileShareLinkWithOptions(shared_ptr<CreateCdsFileShareLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCdsFileShareLinkResponse createCdsFileShareLink(shared_ptr<CreateCdsFileShareLinkRequest> request);
+  CreateCenterPolicyResponse createCenterPolicyWithOptions(shared_ptr<CreateCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCenterPolicyResponse createCenterPolicy(shared_ptr<CreateCenterPolicyRequest> request);
   CreateCloudDriveServiceResponse createCloudDriveServiceWithOptions(shared_ptr<CreateCloudDriveServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCloudDriveServiceResponse createCloudDriveService(shared_ptr<CreateCloudDriveServiceRequest> request);
   CreateCloudDriveUsersResponse createCloudDriveUsersWithOptions(shared_ptr<CreateCloudDriveUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -53014,6 +58144,8 @@ public:
   DeleteBundlesResponse deleteBundles(shared_ptr<DeleteBundlesRequest> request);
   DeleteCdsFileResponse deleteCdsFileWithOptions(shared_ptr<DeleteCdsFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteCdsFileResponse deleteCdsFile(shared_ptr<DeleteCdsFileRequest> request);
+  DeleteCenterPolicyResponse deleteCenterPolicyWithOptions(shared_ptr<DeleteCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCenterPolicyResponse deleteCenterPolicy(shared_ptr<DeleteCenterPolicyRequest> request);
   DeleteCloudDriveGroupsResponse deleteCloudDriveGroupsWithOptions(shared_ptr<DeleteCloudDriveGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteCloudDriveGroupsResponse deleteCloudDriveGroups(shared_ptr<DeleteCloudDriveGroupsRequest> request);
   DeleteCloudDriveUsersResponse deleteCloudDriveUsersWithOptions(shared_ptr<DeleteCloudDriveUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -53054,6 +58186,8 @@ public:
   DescribeCdsFileShareLinksResponse describeCdsFileShareLinks(shared_ptr<DescribeCdsFileShareLinksRequest> request);
   DescribeCensResponse describeCensWithOptions(shared_ptr<DescribeCensRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCensResponse describeCens(shared_ptr<DescribeCensRequest> request);
+  DescribeCenterPolicyListResponse describeCenterPolicyListWithOptions(shared_ptr<DescribeCenterPolicyListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCenterPolicyListResponse describeCenterPolicyList(shared_ptr<DescribeCenterPolicyListRequest> request);
   DescribeClientEventsResponse describeClientEventsWithOptions(shared_ptr<DescribeClientEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeClientEventsResponse describeClientEvents(shared_ptr<DescribeClientEventsRequest> request);
   DescribeCloudDriveGroupsResponse describeCloudDriveGroupsWithOptions(shared_ptr<DescribeCloudDriveGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -53136,6 +58270,8 @@ public:
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeRenewalPriceResponse describeRenewalPriceWithOptions(shared_ptr<DescribeRenewalPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRenewalPriceResponse describeRenewalPrice(shared_ptr<DescribeRenewalPriceRequest> request);
+  DescribeResourceByCenterPolicyIdResponse describeResourceByCenterPolicyIdWithOptions(shared_ptr<DescribeResourceByCenterPolicyIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeResourceByCenterPolicyIdResponse describeResourceByCenterPolicyId(shared_ptr<DescribeResourceByCenterPolicyIdRequest> request);
   DescribeSessionStatisticResponse describeSessionStatisticWithOptions(shared_ptr<DescribeSessionStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSessionStatisticResponse describeSessionStatistic(shared_ptr<DescribeSessionStatisticRequest> request);
   DescribeSnapshotsResponse describeSnapshotsWithOptions(shared_ptr<DescribeSnapshotsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -53222,6 +58358,8 @@ public:
   ModifyCdsFileResponse modifyCdsFile(shared_ptr<ModifyCdsFileRequest> request);
   ModifyCdsFileShareLinkResponse modifyCdsFileShareLinkWithOptions(shared_ptr<ModifyCdsFileShareLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyCdsFileShareLinkResponse modifyCdsFileShareLink(shared_ptr<ModifyCdsFileShareLinkRequest> request);
+  ModifyCenterPolicyResponse modifyCenterPolicyWithOptions(shared_ptr<ModifyCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyCenterPolicyResponse modifyCenterPolicy(shared_ptr<ModifyCenterPolicyRequest> request);
   ModifyCloudDriveGroupsResponse modifyCloudDriveGroupsWithOptions(shared_ptr<ModifyCloudDriveGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyCloudDriveGroupsResponse modifyCloudDriveGroups(shared_ptr<ModifyCloudDriveGroupsRequest> request);
   ModifyCloudDrivePermissionResponse modifyCloudDrivePermissionWithOptions(shared_ptr<ModifyCloudDrivePermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -53276,6 +58414,8 @@ public:
   ModifyOfficeSiteMfaEnabledResponse modifyOfficeSiteMfaEnabled(shared_ptr<ModifyOfficeSiteMfaEnabledRequest> request);
   ModifyPolicyGroupResponse modifyPolicyGroupWithOptions(shared_ptr<ModifyPolicyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPolicyGroupResponse modifyPolicyGroup(shared_ptr<ModifyPolicyGroupRequest> request);
+  ModifyResourceCenterPolicyResponse modifyResourceCenterPolicyWithOptions(shared_ptr<ModifyResourceCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyResourceCenterPolicyResponse modifyResourceCenterPolicy(shared_ptr<ModifyResourceCenterPolicyRequest> request);
   ModifyTimerGroupResponse modifyTimerGroupWithOptions(shared_ptr<ModifyTimerGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyTimerGroupResponse modifyTimerGroup(shared_ptr<ModifyTimerGroupRequest> request);
   ModifyUserEntitlementResponse modifyUserEntitlementWithOptions(shared_ptr<ModifyUserEntitlementRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
