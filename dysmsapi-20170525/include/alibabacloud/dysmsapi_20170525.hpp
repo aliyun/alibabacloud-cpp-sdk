@@ -4631,6 +4631,7 @@ public:
   shared_ptr<long> templateTag{};
   shared_ptr<string> templateType{};
   shared_ptr<string> variableAttribute{};
+  shared_ptr<map<string, boost::any>> vendorAuditStatus{};
 
   GetSmsTemplateResponseBody() {}
 
@@ -4698,6 +4699,9 @@ public:
     }
     if (variableAttribute) {
       res["VariableAttribute"] = boost::any(*variableAttribute);
+    }
+    if (vendorAuditStatus) {
+      res["VendorAuditStatus"] = boost::any(*vendorAuditStatus);
     }
     return res;
   }
@@ -4771,6 +4775,14 @@ public:
     }
     if (m.find("VariableAttribute") != m.end() && !m["VariableAttribute"].empty()) {
       variableAttribute = make_shared<string>(boost::any_cast<string>(m["VariableAttribute"]));
+    }
+    if (m.find("VendorAuditStatus") != m.end() && !m["VendorAuditStatus"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["VendorAuditStatus"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      vendorAuditStatus = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
