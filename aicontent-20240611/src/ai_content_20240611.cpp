@@ -79,7 +79,12 @@ AITeacherExpansionPracticeTaskGenerateResponse Alibabacloud_AiContent20240611::C
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AITeacherExpansionPracticeTaskGenerateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AITeacherExpansionPracticeTaskGenerateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AITeacherExpansionPracticeTaskGenerateResponse(execute(params, req, runtime));
+  }
 }
 
 AITeacherExpansionPracticeTaskGenerateResponse Alibabacloud_AiContent20240611::Client::aITeacherExpansionPracticeTaskGenerate(shared_ptr<AITeacherExpansionPracticeTaskGenerateRequest> request) {
@@ -130,7 +135,12 @@ AITeacherSyncPracticeTaskGenerateResponse Alibabacloud_AiContent20240611::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AITeacherSyncPracticeTaskGenerateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AITeacherSyncPracticeTaskGenerateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AITeacherSyncPracticeTaskGenerateResponse(execute(params, req, runtime));
+  }
 }
 
 AITeacherSyncPracticeTaskGenerateResponse Alibabacloud_AiContent20240611::Client::aITeacherSyncPracticeTaskGenerate(shared_ptr<AITeacherSyncPracticeTaskGenerateRequest> request) {
@@ -154,7 +164,12 @@ AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse Alibabacloud_AiContent
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse(execute(params, req, runtime));
+  }
 }
 
 AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse Alibabacloud_AiContent20240611::Client::aliyunConsoleOpenApiQueryAliyunConsoleServcieList() {
@@ -171,20 +186,297 @@ AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse Alibabacloud_AiContent
     {"action", boost::any(string("AliyunConsoleOpenApiQueryAliyunConsoleServiceList"))},
     {"version", boost::any(string("20240611"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/aliyunconsole/queryAliyunConsoleServiceList"))},
+    {"pathname", boost::any(string("/api/v1/aliyunConsole/queryAliyunConsoleServiceList"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse(execute(params, req, runtime));
+  }
 }
 
 AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse Alibabacloud_AiContent20240611::Client::aliyunConsoleOpenApiQueryAliyunConsoleServiceList() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions(headers, runtime);
+}
+
+CreateAccessWarrantResponse Alibabacloud_AiContent20240611::Client::createAccessWarrantWithOptions(shared_ptr<CreateAccessWarrantRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    body->insert(pair<string, string>("appId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestSign)) {
+    body->insert(pair<string, string>("requestSign", *request->requestSign));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timestamp)) {
+    body->insert(pair<string, string>("timestamp", *request->timestamp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userClientIp)) {
+    body->insert(pair<string, string>("userClientIp", *request->userClientIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("userId", *request->userId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->warrantAvailable)) {
+    body->insert(pair<string, long>("warrantAvailable", *request->warrantAvailable));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAccessWarrant"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aliyunConsole/createAccessWarrant"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateAccessWarrantResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateAccessWarrantResponse(execute(params, req, runtime));
+  }
+}
+
+CreateAccessWarrantResponse Alibabacloud_AiContent20240611::Client::createAccessWarrant(shared_ptr<CreateAccessWarrantRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAccessWarrantWithOptions(request, headers, runtime);
+}
+
+CreateProjectResponse Alibabacloud_AiContent20240611::Client::createProjectWithOptions(shared_ptr<CreateProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    body->insert(pair<string, string>("projectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectType)) {
+    body->insert(pair<string, string>("projectType", *request->projectType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateProject"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aliyunConsole/createProject"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateProjectResponse(execute(params, req, runtime));
+  }
+}
+
+CreateProjectResponse Alibabacloud_AiContent20240611::Client::createProject(shared_ptr<CreateProjectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createProjectWithOptions(request, headers, runtime);
+}
+
+ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse Alibabacloud_AiContent20240611::Client::executeAITeacherChineseCompositionTutoringWorkflowRunWithOptions(shared_ptr<ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest> request, shared_ptr<ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->essayOutline)) {
+    body->insert(pair<string, string>("essayOutline", *request->essayOutline));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->essayRequirements)) {
+    body->insert(pair<string, string>("essayRequirements", *request->essayRequirements));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->essayTopic)) {
+    body->insert(pair<string, string>("essayTopic", *request->essayTopic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->essayType)) {
+    body->insert(pair<string, string>("essayType", *request->essayType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->essayWordCount)) {
+    body->insert(pair<string, long>("essayWordCount", *request->essayWordCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->grade)) {
+    body->insert(pair<string, long>("grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseMode)) {
+    body->insert(pair<string, string>("responseMode", *request->responseMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("userId", *request->userId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(headers->callerParentId)) {
+    realHeaders->insert(pair<string, string>("callerParentId", Darabonba_Util::Client::toJSONString(headers->callerParentId)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->callerType)) {
+    realHeaders->insert(pair<string, string>("callerType", Darabonba_Util::Client::toJSONString(headers->callerType)));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(headers->callerUid)) {
+    realHeaders->insert(pair<string, string>("callerUid", Darabonba_Util::Client::toJSONString(headers->callerUid)));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(headers->stsTokenCallerUid)) {
+    realHeaders->insert(pair<string, string>("stsTokenCallerUid", Darabonba_Util::Client::toJSONString(headers->stsTokenCallerUid)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteAITeacherChineseCompositionTutoringWorkflowRun"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/pop/api/v1/intelligentAgent/chineseCompositionTutoring/workflowRun"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse Alibabacloud_AiContent20240611::Client::executeAITeacherChineseCompositionTutoringWorkflowRun(shared_ptr<ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders> headers = make_shared<ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders>();
+  return executeAITeacherChineseCompositionTutoringWorkflowRunWithOptions(request, headers, runtime);
+}
+
+ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse Alibabacloud_AiContent20240611::Client::executeAITeacherEnglishCompositionTutoringWorkflowRunWithOptions(shared_ptr<ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->essayOutline)) {
+    body->insert(pair<string, string>("essayOutline", *request->essayOutline));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->essayRequirements)) {
+    body->insert(pair<string, string>("essayRequirements", *request->essayRequirements));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->essayTopic)) {
+    body->insert(pair<string, string>("essayTopic", *request->essayTopic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->essayType)) {
+    body->insert(pair<string, string>("essayType", *request->essayType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->essayWordCount)) {
+    body->insert(pair<string, long>("essayWordCount", *request->essayWordCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->grade)) {
+    body->insert(pair<string, long>("grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseMode)) {
+    body->insert(pair<string, string>("responseMode", *request->responseMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("userId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteAITeacherEnglishCompositionTutoringWorkflowRun"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/pop/api/v1/intelligentAgent/englishCompositionTutoring/workflowRun"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse Alibabacloud_AiContent20240611::Client::executeAITeacherEnglishCompositionTutoringWorkflowRun(shared_ptr<ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeAITeacherEnglishCompositionTutoringWorkflowRunWithOptions(request, headers, runtime);
+}
+
+ExecuteAITeacherEnglishParaphraseChatMessageResponse Alibabacloud_AiContent20240611::Client::executeAITeacherEnglishParaphraseChatMessageWithOptions(shared_ptr<ExecuteAITeacherEnglishParaphraseChatMessageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatId)) {
+    body->insert(pair<string, string>("chatId", *request->chatId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->grade)) {
+    body->insert(pair<string, long>("grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->questionId)) {
+    body->insert(pair<string, string>("questionId", *request->questionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->questionInfo)) {
+    body->insert(pair<string, string>("questionInfo", *request->questionInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseMode)) {
+    body->insert(pair<string, string>("responseMode", *request->responseMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userAnswer)) {
+    body->insert(pair<string, string>("userAnswer", *request->userAnswer));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("userId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteAITeacherEnglishParaphraseChatMessage"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/pop/api/v1/intelligentAgent/englishParaphrase/chatMessage"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherEnglishParaphraseChatMessageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherEnglishParaphraseChatMessageResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteAITeacherEnglishParaphraseChatMessageResponse Alibabacloud_AiContent20240611::Client::executeAITeacherEnglishParaphraseChatMessage(shared_ptr<ExecuteAITeacherEnglishParaphraseChatMessageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeAITeacherEnglishParaphraseChatMessageWithOptions(request, headers, runtime);
 }
 
 ExecuteAITeacherExpansionDialogueResponse Alibabacloud_AiContent20240611::Client::executeAITeacherExpansionDialogueWithOptions(shared_ptr<ExecuteAITeacherExpansionDialogueRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -229,7 +521,12 @@ ExecuteAITeacherExpansionDialogueResponse Alibabacloud_AiContent20240611::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ExecuteAITeacherExpansionDialogueResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherExpansionDialogueResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherExpansionDialogueResponse(execute(params, req, runtime));
+  }
 }
 
 ExecuteAITeacherExpansionDialogueResponse Alibabacloud_AiContent20240611::Client::executeAITeacherExpansionDialogue(shared_ptr<ExecuteAITeacherExpansionDialogueRequest> request) {
@@ -280,7 +577,12 @@ ExecuteAITeacherExpansionDialogueRefineResponse Alibabacloud_AiContent20240611::
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ExecuteAITeacherExpansionDialogueRefineResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherExpansionDialogueRefineResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherExpansionDialogueRefineResponse(execute(params, req, runtime));
+  }
 }
 
 ExecuteAITeacherExpansionDialogueRefineResponse Alibabacloud_AiContent20240611::Client::executeAITeacherExpansionDialogueRefine(shared_ptr<ExecuteAITeacherExpansionDialogueRefineRequest> request) {
@@ -328,7 +630,12 @@ ExecuteAITeacherExpansionDialogueTranslateResponse Alibabacloud_AiContent2024061
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ExecuteAITeacherExpansionDialogueTranslateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherExpansionDialogueTranslateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherExpansionDialogueTranslateResponse(execute(params, req, runtime));
+  }
 }
 
 ExecuteAITeacherExpansionDialogueTranslateResponse Alibabacloud_AiContent20240611::Client::executeAITeacherExpansionDialogueTranslate(shared_ptr<ExecuteAITeacherExpansionDialogueTranslateRequest> request) {
@@ -361,7 +668,12 @@ ExecuteAITeacherGrammarCheckResponse Alibabacloud_AiContent20240611::Client::exe
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ExecuteAITeacherGrammarCheckResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherGrammarCheckResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherGrammarCheckResponse(execute(params, req, runtime));
+  }
 }
 
 ExecuteAITeacherGrammarCheckResponse Alibabacloud_AiContent20240611::Client::executeAITeacherGrammarCheck(shared_ptr<ExecuteAITeacherGrammarCheckRequest> request) {
@@ -400,7 +712,12 @@ ExecuteAITeacherSyncDialogueResponse Alibabacloud_AiContent20240611::Client::exe
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ExecuteAITeacherSyncDialogueResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherSyncDialogueResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherSyncDialogueResponse(execute(params, req, runtime));
+  }
 }
 
 ExecuteAITeacherSyncDialogueResponse Alibabacloud_AiContent20240611::Client::executeAITeacherSyncDialogue(shared_ptr<ExecuteAITeacherSyncDialogueRequest> request) {
@@ -436,13 +753,370 @@ ExecuteAITeacherSyncDialogueTranslateResponse Alibabacloud_AiContent20240611::Cl
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ExecuteAITeacherSyncDialogueTranslateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteAITeacherSyncDialogueTranslateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteAITeacherSyncDialogueTranslateResponse(execute(params, req, runtime));
+  }
 }
 
 ExecuteAITeacherSyncDialogueTranslateResponse Alibabacloud_AiContent20240611::Client::executeAITeacherSyncDialogueTranslate(shared_ptr<ExecuteAITeacherSyncDialogueTranslateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return executeAITeacherSyncDialogueTranslateWithOptions(request, headers, runtime);
+}
+
+ExecuteTextbookAssistantDialogueResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantDialogueWithOptions(shared_ptr<ExecuteTextbookAssistantDialogueRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatId)) {
+    body->insert(pair<string, string>("chatId", *request->chatId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userMessage)) {
+    body->insert(pair<string, string>("userMessage", *request->userMessage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteTextbookAssistantDialogue"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/dialogue/ExecuteDialogue"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteTextbookAssistantDialogueResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteTextbookAssistantDialogueResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteTextbookAssistantDialogueResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantDialogue(shared_ptr<ExecuteTextbookAssistantDialogueRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeTextbookAssistantDialogueWithOptions(request, headers, runtime);
+}
+
+ExecuteTextbookAssistantDifficultyResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantDifficultyWithOptions(shared_ptr<ExecuteTextbookAssistantDifficultyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
+    body->insert(pair<string, string>("action", *request->action));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->assistant)) {
+    body->insert(pair<string, string>("assistant", *request->assistant));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatId)) {
+    body->insert(pair<string, string>("chatId", *request->chatId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteTextbookAssistantDifficulty"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/dialogue/ExecuteDifficulty"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteTextbookAssistantDifficultyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteTextbookAssistantDifficultyResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteTextbookAssistantDifficultyResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantDifficulty(shared_ptr<ExecuteTextbookAssistantDifficultyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeTextbookAssistantDifficultyWithOptions(request, headers, runtime);
+}
+
+ExecuteTextbookAssistantGrammarCheckResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantGrammarCheckWithOptions(shared_ptr<ExecuteTextbookAssistantGrammarCheckRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatId)) {
+    body->insert(pair<string, string>("chatId", *request->chatId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->user)) {
+    body->insert(pair<string, string>("user", *request->user));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteTextbookAssistantGrammarCheck"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/dialogue/ExecuteGrammarCheck"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteTextbookAssistantGrammarCheckResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteTextbookAssistantGrammarCheckResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteTextbookAssistantGrammarCheckResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantGrammarCheck(shared_ptr<ExecuteTextbookAssistantGrammarCheckRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeTextbookAssistantGrammarCheckWithOptions(request, headers, runtime);
+}
+
+ExecuteTextbookAssistantRefineByContextResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantRefineByContextWithOptions(shared_ptr<ExecuteTextbookAssistantRefineByContextRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatId)) {
+    body->insert(pair<string, string>("chatId", *request->chatId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->user)) {
+    body->insert(pair<string, string>("user", *request->user));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteTextbookAssistantRefineByContext"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/dialogue/RefineByContext"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteTextbookAssistantRefineByContextResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteTextbookAssistantRefineByContextResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteTextbookAssistantRefineByContextResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantRefineByContext(shared_ptr<ExecuteTextbookAssistantRefineByContextRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeTextbookAssistantRefineByContextWithOptions(request, headers, runtime);
+}
+
+ExecuteTextbookAssistantRetryConversationResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantRetryConversationWithOptions(shared_ptr<ExecuteTextbookAssistantRetryConversationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assistant)) {
+    body->insert(pair<string, string>("assistant", *request->assistant));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatId)) {
+    body->insert(pair<string, string>("chatId", *request->chatId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteTextbookAssistantRetryConversation"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/dialogue/RetryConversation"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteTextbookAssistantRetryConversationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteTextbookAssistantRetryConversationResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteTextbookAssistantRetryConversationResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantRetryConversation(shared_ptr<ExecuteTextbookAssistantRetryConversationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeTextbookAssistantRetryConversationWithOptions(request, headers, runtime);
+}
+
+ExecuteTextbookAssistantStartConversationResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantStartConversationWithOptions(shared_ptr<ExecuteTextbookAssistantStartConversationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->articleId)) {
+    body->insert(pair<string, string>("articleId", *request->articleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteTextbookAssistantStartConversation"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/dialogue/StartConversation"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteTextbookAssistantStartConversationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteTextbookAssistantStartConversationResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteTextbookAssistantStartConversationResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantStartConversation(shared_ptr<ExecuteTextbookAssistantStartConversationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeTextbookAssistantStartConversationWithOptions(request, headers, runtime);
+}
+
+ExecuteTextbookAssistantSuggestionResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantSuggestionWithOptions(shared_ptr<ExecuteTextbookAssistantSuggestionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assistant)) {
+    body->insert(pair<string, string>("assistant", *request->assistant));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatId)) {
+    body->insert(pair<string, string>("chatId", *request->chatId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteTextbookAssistantSuggestion"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/dialogue/Suggestion"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteTextbookAssistantSuggestionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteTextbookAssistantSuggestionResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteTextbookAssistantSuggestionResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantSuggestion(shared_ptr<ExecuteTextbookAssistantSuggestionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeTextbookAssistantSuggestionWithOptions(request, headers, runtime);
+}
+
+ExecuteTextbookAssistantTranslateResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantTranslateWithOptions(shared_ptr<ExecuteTextbookAssistantTranslateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assistant)) {
+    body->insert(pair<string, string>("assistant", *request->assistant));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatId)) {
+    body->insert(pair<string, string>("chatId", *request->chatId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteTextbookAssistantTranslate"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/dialogue/ExecuteTranslate"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteTextbookAssistantTranslateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteTextbookAssistantTranslateResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteTextbookAssistantTranslateResponse Alibabacloud_AiContent20240611::Client::executeTextbookAssistantTranslate(shared_ptr<ExecuteTextbookAssistantTranslateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeTextbookAssistantTranslateWithOptions(request, headers, runtime);
 }
 
 GetAITeacherExpansionDialogueSuggestionResponse Alibabacloud_AiContent20240611::Client::getAITeacherExpansionDialogueSuggestionWithOptions(shared_ptr<GetAITeacherExpansionDialogueSuggestionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -487,7 +1161,12 @@ GetAITeacherExpansionDialogueSuggestionResponse Alibabacloud_AiContent20240611::
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetAITeacherExpansionDialogueSuggestionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetAITeacherExpansionDialogueSuggestionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetAITeacherExpansionDialogueSuggestionResponse(execute(params, req, runtime));
+  }
 }
 
 GetAITeacherExpansionDialogueSuggestionResponse Alibabacloud_AiContent20240611::Client::getAITeacherExpansionDialogueSuggestion(shared_ptr<GetAITeacherExpansionDialogueSuggestionRequest> request) {
@@ -526,13 +1205,226 @@ GetAITeacherSyncDialogueSuggestionResponse Alibabacloud_AiContent20240611::Clien
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetAITeacherSyncDialogueSuggestionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetAITeacherSyncDialogueSuggestionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetAITeacherSyncDialogueSuggestionResponse(execute(params, req, runtime));
+  }
 }
 
 GetAITeacherSyncDialogueSuggestionResponse Alibabacloud_AiContent20240611::Client::getAITeacherSyncDialogueSuggestion(shared_ptr<GetAITeacherSyncDialogueSuggestionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getAITeacherSyncDialogueSuggestionWithOptions(request, headers, runtime);
+}
+
+GetTextbookAssistantTokenResponse Alibabacloud_AiContent20240611::Client::getTextbookAssistantTokenWithOptions(shared_ptr<GetTextbookAssistantTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceId)) {
+    body->insert(pair<string, string>("deviceId", *request->deviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->model)) {
+    body->insert(pair<string, string>("model", *request->model));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTextbookAssistantToken"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/teachingResource/GetToken"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTextbookAssistantTokenResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTextbookAssistantTokenResponse(execute(params, req, runtime));
+  }
+}
+
+GetTextbookAssistantTokenResponse Alibabacloud_AiContent20240611::Client::getTextbookAssistantToken(shared_ptr<GetTextbookAssistantTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getTextbookAssistantTokenWithOptions(request, headers, runtime);
+}
+
+ListTextbookAssistantArticlesResponse Alibabacloud_AiContent20240611::Client::listTextbookAssistantArticlesWithOptions(shared_ptr<ListTextbookAssistantArticlesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
+    body->insert(pair<string, string>("directoryId", *request->directoryId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTextbookAssistantArticles"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/teachingResource/ListArticles"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTextbookAssistantArticlesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTextbookAssistantArticlesResponse(execute(params, req, runtime));
+  }
+}
+
+ListTextbookAssistantArticlesResponse Alibabacloud_AiContent20240611::Client::listTextbookAssistantArticles(shared_ptr<ListTextbookAssistantArticlesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listTextbookAssistantArticlesWithOptions(request, headers, runtime);
+}
+
+ListTextbookAssistantBookDirectoriesResponse Alibabacloud_AiContent20240611::Client::listTextbookAssistantBookDirectoriesWithOptions(shared_ptr<ListTextbookAssistantBookDirectoriesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bookId)) {
+    body->insert(pair<string, string>("bookId", *request->bookId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTextbookAssistantBookDirectories"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/teachingResource/ListBookDirectories"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTextbookAssistantBookDirectoriesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTextbookAssistantBookDirectoriesResponse(execute(params, req, runtime));
+  }
+}
+
+ListTextbookAssistantBookDirectoriesResponse Alibabacloud_AiContent20240611::Client::listTextbookAssistantBookDirectories(shared_ptr<ListTextbookAssistantBookDirectoriesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listTextbookAssistantBookDirectoriesWithOptions(request, headers, runtime);
+}
+
+ListTextbookAssistantBooksResponse Alibabacloud_AiContent20240611::Client::listTextbookAssistantBooksWithOptions(shared_ptr<ListTextbookAssistantBooksRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bookId)) {
+    body->insert(pair<string, string>("bookId", *request->bookId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grade)) {
+    body->insert(pair<string, string>("grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxResults)) {
+    body->insert(pair<string, string>("maxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->page)) {
+    body->insert(pair<string, string>("page", *request->page));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
+    body->insert(pair<string, string>("version", *request->version));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->volume)) {
+    body->insert(pair<string, string>("volume", *request->volume));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTextbookAssistantBooks"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/teachingResource/ListBooks"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTextbookAssistantBooksResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTextbookAssistantBooksResponse(execute(params, req, runtime));
+  }
+}
+
+ListTextbookAssistantBooksResponse Alibabacloud_AiContent20240611::Client::listTextbookAssistantBooks(shared_ptr<ListTextbookAssistantBooksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listTextbookAssistantBooksWithOptions(request, headers, runtime);
+}
+
+ListTextbookAssistantGradeVolumesResponse Alibabacloud_AiContent20240611::Client::listTextbookAssistantGradeVolumesWithOptions(shared_ptr<ListTextbookAssistantGradeVolumesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authToken)) {
+    body->insert(pair<string, string>("authToken", *request->authToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTextbookAssistantGradeVolumes"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/textbookAssistant/teachingResource/ListGradeVolumes"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTextbookAssistantGradeVolumesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTextbookAssistantGradeVolumesResponse(execute(params, req, runtime));
+  }
+}
+
+ListTextbookAssistantGradeVolumesResponse Alibabacloud_AiContent20240611::Client::listTextbookAssistantGradeVolumes(shared_ptr<ListTextbookAssistantGradeVolumesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listTextbookAssistantGradeVolumesWithOptions(request, headers, runtime);
 }
 
 PersonalizedTextToImageAddInferenceJobResponse Alibabacloud_AiContent20240611::Client::personalizedTextToImageAddInferenceJobWithOptions(shared_ptr<PersonalizedTextToImageAddInferenceJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -571,7 +1463,12 @@ PersonalizedTextToImageAddInferenceJobResponse Alibabacloud_AiContent20240611::C
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PersonalizedTextToImageAddInferenceJobResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PersonalizedTextToImageAddInferenceJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PersonalizedTextToImageAddInferenceJobResponse(execute(params, req, runtime));
+  }
 }
 
 PersonalizedTextToImageAddInferenceJobResponse Alibabacloud_AiContent20240611::Client::personalizedTextToImageAddInferenceJob(shared_ptr<PersonalizedTextToImageAddInferenceJobRequest> request) {
@@ -604,7 +1501,12 @@ PersonalizedTextToImageQueryImageAssetResponse Alibabacloud_AiContent20240611::C
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("any"))}
   }));
-  return PersonalizedTextToImageQueryImageAssetResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PersonalizedTextToImageQueryImageAssetResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PersonalizedTextToImageQueryImageAssetResponse(execute(params, req, runtime));
+  }
 }
 
 PersonalizedTextToImageQueryImageAssetResponse Alibabacloud_AiContent20240611::Client::personalizedTextToImageQueryImageAsset(shared_ptr<PersonalizedTextToImageQueryImageAssetRequest> request) {
@@ -634,7 +1536,12 @@ PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse Alibabacloud_AiCont
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse(execute(params, req, runtime));
+  }
 }
 
 PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse Alibabacloud_AiContent20240611::Client::personalizedTextToImageQueryPreModelInferenceJobInfo(shared_ptr<PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest> request) {
@@ -673,7 +1580,12 @@ Personalizedtxt2imgAddInferenceJobResponse Alibabacloud_AiContent20240611::Clien
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return Personalizedtxt2imgAddInferenceJobResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return Personalizedtxt2imgAddInferenceJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return Personalizedtxt2imgAddInferenceJobResponse(execute(params, req, runtime));
+  }
 }
 
 Personalizedtxt2imgAddInferenceJobResponse Alibabacloud_AiContent20240611::Client::personalizedtxt2imgAddInferenceJob(shared_ptr<Personalizedtxt2imgAddInferenceJobRequest> request) {
@@ -712,7 +1624,12 @@ Personalizedtxt2imgAddModelTrainJobResponse Alibabacloud_AiContent20240611::Clie
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return Personalizedtxt2imgAddModelTrainJobResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return Personalizedtxt2imgAddModelTrainJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return Personalizedtxt2imgAddModelTrainJobResponse(execute(params, req, runtime));
+  }
 }
 
 Personalizedtxt2imgAddModelTrainJobResponse Alibabacloud_AiContent20240611::Client::personalizedtxt2imgAddModelTrainJob(shared_ptr<Personalizedtxt2imgAddModelTrainJobRequest> request) {
@@ -751,7 +1668,12 @@ Personalizedtxt2imgQueryImageAssetResponse Alibabacloud_AiContent20240611::Clien
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("any"))}
   }));
-  return Personalizedtxt2imgQueryImageAssetResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return Personalizedtxt2imgQueryImageAssetResponse(callApi(params, req, runtime));
+  }
+  else {
+    return Personalizedtxt2imgQueryImageAssetResponse(execute(params, req, runtime));
+  }
 }
 
 Personalizedtxt2imgQueryImageAssetResponse Alibabacloud_AiContent20240611::Client::personalizedtxt2imgQueryImageAsset(shared_ptr<Personalizedtxt2imgQueryImageAssetRequest> request) {
@@ -781,7 +1703,12 @@ Personalizedtxt2imgQueryInferenceJobInfoResponse Alibabacloud_AiContent20240611:
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return Personalizedtxt2imgQueryInferenceJobInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return Personalizedtxt2imgQueryInferenceJobInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return Personalizedtxt2imgQueryInferenceJobInfoResponse(execute(params, req, runtime));
+  }
 }
 
 Personalizedtxt2imgQueryInferenceJobInfoResponse Alibabacloud_AiContent20240611::Client::personalizedtxt2imgQueryInferenceJobInfo(shared_ptr<Personalizedtxt2imgQueryInferenceJobInfoRequest> request) {
@@ -805,7 +1732,12 @@ Personalizedtxt2imgQueryModelTrainJobListResponse Alibabacloud_AiContent20240611
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return Personalizedtxt2imgQueryModelTrainJobListResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return Personalizedtxt2imgQueryModelTrainJobListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return Personalizedtxt2imgQueryModelTrainJobListResponse(execute(params, req, runtime));
+  }
 }
 
 Personalizedtxt2imgQueryModelTrainJobListResponse Alibabacloud_AiContent20240611::Client::personalizedtxt2imgQueryModelTrainJobList() {
@@ -835,12 +1767,183 @@ Personalizedtxt2imgQueryModelTrainStatusResponse Alibabacloud_AiContent20240611:
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return Personalizedtxt2imgQueryModelTrainStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return Personalizedtxt2imgQueryModelTrainStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return Personalizedtxt2imgQueryModelTrainStatusResponse(execute(params, req, runtime));
+  }
 }
 
 Personalizedtxt2imgQueryModelTrainStatusResponse Alibabacloud_AiContent20240611::Client::personalizedtxt2imgQueryModelTrainStatus(shared_ptr<Personalizedtxt2imgQueryModelTrainStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return personalizedtxt2imgQueryModelTrainStatusWithOptions(request, headers, runtime);
+}
+
+QueryApplicationAccessIdResponse Alibabacloud_AiContent20240611::Client::queryApplicationAccessIdWithOptions(shared_ptr<QueryApplicationAccessIdRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicationAccessId)) {
+    query->insert(pair<string, string>("applicationAccessId", *request->applicationAccessId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryApplicationAccessId"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aliyunConsole/queryApplicationAccessId"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryApplicationAccessIdResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryApplicationAccessIdResponse(execute(params, req, runtime));
+  }
+}
+
+QueryApplicationAccessIdResponse Alibabacloud_AiContent20240611::Client::queryApplicationAccessId(shared_ptr<QueryApplicationAccessIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryApplicationAccessIdWithOptions(request, headers, runtime);
+}
+
+QueryProjectResponse Alibabacloud_AiContent20240611::Client::queryProjectWithOptions(shared_ptr<QueryProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    query->insert(pair<string, string>("projectId", *request->projectId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryProject"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aliyunConsole/queryProject"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryProjectResponse(execute(params, req, runtime));
+  }
+}
+
+QueryProjectResponse Alibabacloud_AiContent20240611::Client::queryProject(shared_ptr<QueryProjectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryProjectWithOptions(request, headers, runtime);
+}
+
+QueryProjectListResponse Alibabacloud_AiContent20240611::Client::queryProjectListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryProjectList"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aliyunConsole/queryProjectList"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryProjectListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryProjectListResponse(execute(params, req, runtime));
+  }
+}
+
+QueryProjectListResponse Alibabacloud_AiContent20240611::Client::queryProjectList() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryProjectListWithOptions(headers, runtime);
+}
+
+QueryPurchasedServiceResponse Alibabacloud_AiContent20240611::Client::queryPurchasedServiceWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryPurchasedService"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aliyunConsole/queryPurchasedService"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryPurchasedServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryPurchasedServiceResponse(execute(params, req, runtime));
+  }
+}
+
+QueryPurchasedServiceResponse Alibabacloud_AiContent20240611::Client::queryPurchasedService() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryPurchasedServiceWithOptions(headers, runtime);
+}
+
+UpdateProjectResponse Alibabacloud_AiContent20240611::Client::updateProjectWithOptions(shared_ptr<UpdateProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    body->insert(pair<string, string>("projectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    body->insert(pair<string, string>("projectName", *request->projectName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateProject"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aliyunConsole/updateProject"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateProjectResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateProjectResponse Alibabacloud_AiContent20240611::Client::updateProject(shared_ptr<UpdateProjectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateProjectWithOptions(request, headers, runtime);
 }
 
