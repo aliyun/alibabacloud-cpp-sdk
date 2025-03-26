@@ -2849,6 +2849,35 @@ public:
 
   virtual ~RunDataAnalysisRequest() = default;
 };
+class RunDataAnalysisResponseBodyDataChat : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  RunDataAnalysisResponseBodyDataChat() {}
+
+  explicit RunDataAnalysisResponseBodyDataChat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunDataAnalysisResponseBodyDataChat() = default;
+};
 class RunDataAnalysisResponseBodyDataSqlData : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> column{};
@@ -3018,6 +3047,7 @@ public:
 class RunDataAnalysisResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<boost::any>> attempts{};
+  shared_ptr<RunDataAnalysisResponseBodyDataChat> chat{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> event{};
   shared_ptr<string> evidence{};
@@ -3043,6 +3073,9 @@ public:
     map<string, boost::any> res;
     if (attempts) {
       res["attempts"] = boost::any(*attempts);
+    }
+    if (chat) {
+      res["chat"] = chat ? boost::any(chat->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
@@ -3093,6 +3126,13 @@ public:
         }
       }
       attempts = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("chat") != m.end() && !m["chat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["chat"].type()) {
+        RunDataAnalysisResponseBodyDataChat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["chat"]));
+        chat = make_shared<RunDataAnalysisResponseBodyDataChat>(model1);
+      }
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
@@ -3665,8 +3705,38 @@ public:
 
   virtual ~RunSqlGenerationRequest() = default;
 };
+class RunSqlGenerationResponseBodyDataChat : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  RunSqlGenerationResponseBodyDataChat() {}
+
+  explicit RunSqlGenerationResponseBodyDataChat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunSqlGenerationResponseBodyDataChat() = default;
+};
 class RunSqlGenerationResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<RunSqlGenerationResponseBodyDataChat> chat{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> event{};
   shared_ptr<string> evidence{};
@@ -3687,6 +3757,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (chat) {
+      res["chat"] = chat ? boost::any(chat->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
     }
@@ -3718,6 +3791,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("chat") != m.end() && !m["chat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["chat"].type()) {
+        RunSqlGenerationResponseBodyDataChat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["chat"]));
+        chat = make_shared<RunSqlGenerationResponseBodyDataChat>(model1);
+      }
+    }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
     }
