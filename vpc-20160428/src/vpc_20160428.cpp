@@ -631,6 +631,9 @@ AllocateEipAddressResponse Alibabacloud_Vpc20160428::Client::allocateEipAddressW
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityProtectionTypes)) {
     query->insert(pair<string, vector<string>>("SecurityProtectionTypes", *request->securityProtectionTypes));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<AllocateEipAddressRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<AllocateEipAddressRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->zone)) {
     query->insert(pair<string, string>("Zone", *request->zone));
   }
@@ -720,6 +723,9 @@ AllocateEipAddressProResponse Alibabacloud_Vpc20160428::Client::allocateEipAddre
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityProtectionTypes)) {
     query->insert(pair<string, vector<string>>("SecurityProtectionTypes", *request->securityProtectionTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AllocateEipAddressProRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<AllocateEipAddressProRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2520,6 +2526,9 @@ CreateCommonBandwidthPackageResponse Alibabacloud_Vpc20160428::Client::createCom
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityProtectionTypes)) {
     query->insert(pair<string, vector<string>>("SecurityProtectionTypes", *request->securityProtectionTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCommonBandwidthPackageRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateCommonBandwidthPackageRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->zone)) {
     query->insert(pair<string, string>("Zone", *request->zone));

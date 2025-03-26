@@ -1479,6 +1479,42 @@ public:
 
   virtual ~AddSourcesToTrafficMirrorSessionResponse() = default;
 };
+class AllocateEipAddressRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  AllocateEipAddressRequestTag() {}
+
+  explicit AllocateEipAddressRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~AllocateEipAddressRequestTag() = default;
+};
 class AllocateEipAddressRequest : public Darabonba::Model {
 public:
   shared_ptr<long> activityId{};
@@ -1503,6 +1539,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<string>> securityProtectionTypes{};
+  shared_ptr<vector<AllocateEipAddressRequestTag>> tag{};
   shared_ptr<string> zone{};
 
   AllocateEipAddressRequest() {}
@@ -1580,6 +1617,13 @@ public:
     }
     if (securityProtectionTypes) {
       res["SecurityProtectionTypes"] = boost::any(*securityProtectionTypes);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (zone) {
       res["Zone"] = boost::any(*zone);
@@ -1660,6 +1704,19 @@ public:
         }
       }
       securityProtectionTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<AllocateEipAddressRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AllocateEipAddressRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<AllocateEipAddressRequestTag>>(expect1);
+      }
     }
     if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
       zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
@@ -1778,6 +1835,42 @@ public:
 
   virtual ~AllocateEipAddressResponse() = default;
 };
+class AllocateEipAddressProRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  AllocateEipAddressProRequestTag() {}
+
+  explicit AllocateEipAddressProRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~AllocateEipAddressProRequestTag() = default;
+};
 class AllocateEipAddressProRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -1799,6 +1892,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<string>> securityProtectionTypes{};
+  shared_ptr<vector<AllocateEipAddressProRequestTag>> tag{};
 
   AllocateEipAddressProRequest() {}
 
@@ -1867,6 +1961,13 @@ public:
     if (securityProtectionTypes) {
       res["SecurityProtectionTypes"] = boost::any(*securityProtectionTypes);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1934,6 +2035,19 @@ public:
         }
       }
       securityProtectionTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<AllocateEipAddressProRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AllocateEipAddressProRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<AllocateEipAddressProRequestTag>>(expect1);
+      }
     }
   }
 
@@ -7237,6 +7351,42 @@ public:
 
   virtual ~CreateBgpPeerResponse() = default;
 };
+class CreateCommonBandwidthPackageRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCommonBandwidthPackageRequestTag() {}
+
+  explicit CreateCommonBandwidthPackageRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCommonBandwidthPackageRequestTag() = default;
+};
 class CreateCommonBandwidthPackageRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -7253,6 +7403,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<string>> securityProtectionTypes{};
+  shared_ptr<vector<CreateCommonBandwidthPackageRequestTag>> tag{};
   shared_ptr<string> zone{};
 
   CreateCommonBandwidthPackageRequest() {}
@@ -7306,6 +7457,13 @@ public:
     }
     if (securityProtectionTypes) {
       res["SecurityProtectionTypes"] = boost::any(*securityProtectionTypes);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (zone) {
       res["Zone"] = boost::any(*zone);
@@ -7362,6 +7520,19 @@ public:
         }
       }
       securityProtectionTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateCommonBandwidthPackageRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCommonBandwidthPackageRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateCommonBandwidthPackageRequestTag>>(expect1);
+      }
     }
     if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
       zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
