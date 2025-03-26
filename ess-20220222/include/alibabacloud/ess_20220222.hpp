@@ -6083,6 +6083,49 @@ public:
 
   virtual ~CreateScalingConfigurationRequestNetworkInterfaces() = default;
 };
+class CreateScalingConfigurationRequestResourcePoolOptions : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> privatePoolIds{};
+  shared_ptr<string> strategy{};
+
+  CreateScalingConfigurationRequestResourcePoolOptions() {}
+
+  explicit CreateScalingConfigurationRequestResourcePoolOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (privatePoolIds) {
+      res["PrivatePoolIds"] = boost::any(*privatePoolIds);
+    }
+    if (strategy) {
+      res["Strategy"] = boost::any(*strategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrivatePoolIds") != m.end() && !m["PrivatePoolIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivatePoolIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivatePoolIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privatePoolIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Strategy") != m.end() && !m["Strategy"].empty()) {
+      strategy = make_shared<string>(boost::any_cast<string>(m["Strategy"]));
+    }
+  }
+
+
+  virtual ~CreateScalingConfigurationRequestResourcePoolOptions() = default;
+};
 class CreateScalingConfigurationRequestSecurityOptions : public Darabonba::Model {
 public:
   shared_ptr<string> confidentialComputingMode{};
@@ -6192,6 +6235,7 @@ public:
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<CreateScalingConfigurationRequestResourcePoolOptions> resourcePoolOptions{};
   shared_ptr<string> scalingConfigurationName{};
   shared_ptr<string> scalingGroupId{};
   shared_ptr<map<string, boost::any>> schedulerOptions{};
@@ -6366,6 +6410,9 @@ public:
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourcePoolOptions) {
+      res["ResourcePoolOptions"] = resourcePoolOptions ? boost::any(resourcePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (scalingConfigurationName) {
       res["ScalingConfigurationName"] = boost::any(*scalingConfigurationName);
@@ -6623,6 +6670,13 @@ public:
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourcePoolOptions") != m.end() && !m["ResourcePoolOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourcePoolOptions"].type()) {
+        CreateScalingConfigurationRequestResourcePoolOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourcePoolOptions"]));
+        resourcePoolOptions = make_shared<CreateScalingConfigurationRequestResourcePoolOptions>(model1);
+      }
     }
     if (m.find("ScalingConfigurationName") != m.end() && !m["ScalingConfigurationName"].empty()) {
       scalingConfigurationName = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationName"]));
@@ -7368,6 +7422,49 @@ public:
 
   virtual ~CreateScalingConfigurationShrinkRequestNetworkInterfaces() = default;
 };
+class CreateScalingConfigurationShrinkRequestResourcePoolOptions : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> privatePoolIds{};
+  shared_ptr<string> strategy{};
+
+  CreateScalingConfigurationShrinkRequestResourcePoolOptions() {}
+
+  explicit CreateScalingConfigurationShrinkRequestResourcePoolOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (privatePoolIds) {
+      res["PrivatePoolIds"] = boost::any(*privatePoolIds);
+    }
+    if (strategy) {
+      res["Strategy"] = boost::any(*strategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrivatePoolIds") != m.end() && !m["PrivatePoolIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivatePoolIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivatePoolIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privatePoolIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Strategy") != m.end() && !m["Strategy"].empty()) {
+      strategy = make_shared<string>(boost::any_cast<string>(m["Strategy"]));
+    }
+  }
+
+
+  virtual ~CreateScalingConfigurationShrinkRequestResourcePoolOptions() = default;
+};
 class CreateScalingConfigurationShrinkRequestSecurityOptions : public Darabonba::Model {
 public:
   shared_ptr<string> confidentialComputingMode{};
@@ -7477,6 +7574,7 @@ public:
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<CreateScalingConfigurationShrinkRequestResourcePoolOptions> resourcePoolOptions{};
   shared_ptr<string> scalingConfigurationName{};
   shared_ptr<string> scalingGroupId{};
   shared_ptr<string> schedulerOptionsShrink{};
@@ -7651,6 +7749,9 @@ public:
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourcePoolOptions) {
+      res["ResourcePoolOptions"] = resourcePoolOptions ? boost::any(resourcePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (scalingConfigurationName) {
       res["ScalingConfigurationName"] = boost::any(*scalingConfigurationName);
@@ -7908,6 +8009,13 @@ public:
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourcePoolOptions") != m.end() && !m["ResourcePoolOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourcePoolOptions"].type()) {
+        CreateScalingConfigurationShrinkRequestResourcePoolOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourcePoolOptions"]));
+        resourcePoolOptions = make_shared<CreateScalingConfigurationShrinkRequestResourcePoolOptions>(model1);
+      }
     }
     if (m.find("ScalingConfigurationName") != m.end() && !m["ScalingConfigurationName"].empty()) {
       scalingConfigurationName = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationName"]));
@@ -20615,6 +20723,49 @@ public:
 
   virtual ~DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces() = default;
 };
+class DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> privatePoolIds{};
+  shared_ptr<string> strategy{};
+
+  DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions() {}
+
+  explicit DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (privatePoolIds) {
+      res["PrivatePoolIds"] = boost::any(*privatePoolIds);
+    }
+    if (strategy) {
+      res["Strategy"] = boost::any(*strategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrivatePoolIds") != m.end() && !m["PrivatePoolIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivatePoolIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivatePoolIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privatePoolIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Strategy") != m.end() && !m["Strategy"].empty()) {
+      strategy = make_shared<string>(boost::any_cast<string>(m["Strategy"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions() = default;
+};
 class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions : public Darabonba::Model {
 public:
   shared_ptr<string> managedPrivateSpaceId{};
@@ -20788,6 +20939,7 @@ public:
   shared_ptr<string> privatePoolOptions_matchCriteria{};
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions> resourcePoolOptions{};
   shared_ptr<string> scalingConfigurationId{};
   shared_ptr<string> scalingConfigurationName{};
   shared_ptr<string> scalingGroupId{};
@@ -20968,6 +21120,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourcePoolOptions) {
+      res["ResourcePoolOptions"] = resourcePoolOptions ? boost::any(resourcePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (scalingConfigurationId) {
       res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
@@ -21243,6 +21398,13 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourcePoolOptions") != m.end() && !m["ResourcePoolOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourcePoolOptions"].type()) {
+        DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourcePoolOptions"]));
+        resourcePoolOptions = make_shared<DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions>(model1);
+      }
     }
     if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
       scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));
@@ -33026,6 +33188,49 @@ public:
 
   virtual ~ModifyScalingConfigurationRequestNetworkInterfaces() = default;
 };
+class ModifyScalingConfigurationRequestResourcePoolOptions : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> privatePoolIds{};
+  shared_ptr<string> strategy{};
+
+  ModifyScalingConfigurationRequestResourcePoolOptions() {}
+
+  explicit ModifyScalingConfigurationRequestResourcePoolOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (privatePoolIds) {
+      res["PrivatePoolIds"] = boost::any(*privatePoolIds);
+    }
+    if (strategy) {
+      res["Strategy"] = boost::any(*strategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrivatePoolIds") != m.end() && !m["PrivatePoolIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivatePoolIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivatePoolIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privatePoolIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Strategy") != m.end() && !m["Strategy"].empty()) {
+      strategy = make_shared<string>(boost::any_cast<string>(m["Strategy"]));
+    }
+  }
+
+
+  virtual ~ModifyScalingConfigurationRequestResourcePoolOptions() = default;
+};
 class ModifyScalingConfigurationRequestSecurityOptions : public Darabonba::Model {
 public:
   shared_ptr<string> confidentialComputingMode{};
@@ -33134,6 +33339,7 @@ public:
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<ModifyScalingConfigurationRequestResourcePoolOptions> resourcePoolOptions{};
   shared_ptr<string> scalingConfigurationId{};
   shared_ptr<string> scalingConfigurationName{};
   shared_ptr<map<string, boost::any>> schedulerOptions{};
@@ -33304,6 +33510,9 @@ public:
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourcePoolOptions) {
+      res["ResourcePoolOptions"] = resourcePoolOptions ? boost::any(resourcePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (scalingConfigurationId) {
       res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
@@ -33555,6 +33764,13 @@ public:
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourcePoolOptions") != m.end() && !m["ResourcePoolOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourcePoolOptions"].type()) {
+        ModifyScalingConfigurationRequestResourcePoolOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourcePoolOptions"]));
+        resourcePoolOptions = make_shared<ModifyScalingConfigurationRequestResourcePoolOptions>(model1);
+      }
     }
     if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
       scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));
@@ -34297,6 +34513,49 @@ public:
 
   virtual ~ModifyScalingConfigurationShrinkRequestNetworkInterfaces() = default;
 };
+class ModifyScalingConfigurationShrinkRequestResourcePoolOptions : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> privatePoolIds{};
+  shared_ptr<string> strategy{};
+
+  ModifyScalingConfigurationShrinkRequestResourcePoolOptions() {}
+
+  explicit ModifyScalingConfigurationShrinkRequestResourcePoolOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (privatePoolIds) {
+      res["PrivatePoolIds"] = boost::any(*privatePoolIds);
+    }
+    if (strategy) {
+      res["Strategy"] = boost::any(*strategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrivatePoolIds") != m.end() && !m["PrivatePoolIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivatePoolIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivatePoolIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privatePoolIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Strategy") != m.end() && !m["Strategy"].empty()) {
+      strategy = make_shared<string>(boost::any_cast<string>(m["Strategy"]));
+    }
+  }
+
+
+  virtual ~ModifyScalingConfigurationShrinkRequestResourcePoolOptions() = default;
+};
 class ModifyScalingConfigurationShrinkRequestSecurityOptions : public Darabonba::Model {
 public:
   shared_ptr<string> confidentialComputingMode{};
@@ -34405,6 +34664,7 @@ public:
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<ModifyScalingConfigurationShrinkRequestResourcePoolOptions> resourcePoolOptions{};
   shared_ptr<string> scalingConfigurationId{};
   shared_ptr<string> scalingConfigurationName{};
   shared_ptr<string> schedulerOptionsShrink{};
@@ -34575,6 +34835,9 @@ public:
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourcePoolOptions) {
+      res["ResourcePoolOptions"] = resourcePoolOptions ? boost::any(resourcePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (scalingConfigurationId) {
       res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
@@ -34826,6 +35089,13 @@ public:
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourcePoolOptions") != m.end() && !m["ResourcePoolOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourcePoolOptions"].type()) {
+        ModifyScalingConfigurationShrinkRequestResourcePoolOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourcePoolOptions"]));
+        resourcePoolOptions = make_shared<ModifyScalingConfigurationShrinkRequestResourcePoolOptions>(model1);
+      }
     }
     if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
       scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));

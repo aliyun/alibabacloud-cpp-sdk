@@ -1178,6 +1178,9 @@ CreateScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createScali
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateScalingConfigurationShrinkRequestResourcePoolOptions>(request->resourcePoolOptions)) {
+    query->insert(pair<string, CreateScalingConfigurationShrinkRequestResourcePoolOptions>("ResourcePoolOptions", *request->resourcePoolOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingConfigurationName)) {
     query->insert(pair<string, string>("ScalingConfigurationName", *request->scalingConfigurationName));
   }
@@ -4611,6 +4614,9 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<ModifyScalingConfigurationShrinkRequestResourcePoolOptions>(request->resourcePoolOptions)) {
+    query->insert(pair<string, ModifyScalingConfigurationShrinkRequestResourcePoolOptions>("ResourcePoolOptions", *request->resourcePoolOptions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingConfigurationId)) {
     query->insert(pair<string, string>("ScalingConfigurationId", *request->scalingConfigurationId));
