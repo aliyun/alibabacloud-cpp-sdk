@@ -10606,6 +10606,9 @@ SubmitBatchMediaProducingJobResponse Alibabacloud_ICE20201109::Client::submitBat
   if (!Darabonba_Util::Client::isUnset<string>(request->outputConfig)) {
     query->insert(pair<string, string>("OutputConfig", *request->outputConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateConfig)) {
+    query->insert(pair<string, string>("TemplateConfig", *request->templateConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
     query->insert(pair<string, string>("UserData", *request->userData));
   }

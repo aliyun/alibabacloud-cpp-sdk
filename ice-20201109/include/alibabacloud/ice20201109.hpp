@@ -2219,6 +2219,223 @@ public:
 
   virtual ~LicenseInstanceAppDTO() = default;
 };
+class LiveManifestConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> adMarkers{};
+  shared_ptr<long> dateTimeInterval{};
+  shared_ptr<string> manifestName{};
+  shared_ptr<long> maxVideoBitrate{};
+  shared_ptr<long> minBufferTime{};
+  shared_ptr<long> minVideoBitrate{};
+  shared_ptr<string> protocol{};
+  shared_ptr<long> segmentNum{};
+  shared_ptr<string> streamOrder{};
+  shared_ptr<bool> useAudioRenditionGroups{};
+
+  LiveManifestConfig() {}
+
+  explicit LiveManifestConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adMarkers) {
+      res["AdMarkers"] = boost::any(*adMarkers);
+    }
+    if (dateTimeInterval) {
+      res["DateTimeInterval"] = boost::any(*dateTimeInterval);
+    }
+    if (manifestName) {
+      res["ManifestName"] = boost::any(*manifestName);
+    }
+    if (maxVideoBitrate) {
+      res["MaxVideoBitrate"] = boost::any(*maxVideoBitrate);
+    }
+    if (minBufferTime) {
+      res["MinBufferTime"] = boost::any(*minBufferTime);
+    }
+    if (minVideoBitrate) {
+      res["MinVideoBitrate"] = boost::any(*minVideoBitrate);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (segmentNum) {
+      res["SegmentNum"] = boost::any(*segmentNum);
+    }
+    if (streamOrder) {
+      res["StreamOrder"] = boost::any(*streamOrder);
+    }
+    if (useAudioRenditionGroups) {
+      res["UseAudioRenditionGroups"] = boost::any(*useAudioRenditionGroups);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdMarkers") != m.end() && !m["AdMarkers"].empty()) {
+      adMarkers = make_shared<string>(boost::any_cast<string>(m["AdMarkers"]));
+    }
+    if (m.find("DateTimeInterval") != m.end() && !m["DateTimeInterval"].empty()) {
+      dateTimeInterval = make_shared<long>(boost::any_cast<long>(m["DateTimeInterval"]));
+    }
+    if (m.find("ManifestName") != m.end() && !m["ManifestName"].empty()) {
+      manifestName = make_shared<string>(boost::any_cast<string>(m["ManifestName"]));
+    }
+    if (m.find("MaxVideoBitrate") != m.end() && !m["MaxVideoBitrate"].empty()) {
+      maxVideoBitrate = make_shared<long>(boost::any_cast<long>(m["MaxVideoBitrate"]));
+    }
+    if (m.find("MinBufferTime") != m.end() && !m["MinBufferTime"].empty()) {
+      minBufferTime = make_shared<long>(boost::any_cast<long>(m["MinBufferTime"]));
+    }
+    if (m.find("MinVideoBitrate") != m.end() && !m["MinVideoBitrate"].empty()) {
+      minVideoBitrate = make_shared<long>(boost::any_cast<long>(m["MinVideoBitrate"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SegmentNum") != m.end() && !m["SegmentNum"].empty()) {
+      segmentNum = make_shared<long>(boost::any_cast<long>(m["SegmentNum"]));
+    }
+    if (m.find("StreamOrder") != m.end() && !m["StreamOrder"].empty()) {
+      streamOrder = make_shared<string>(boost::any_cast<string>(m["StreamOrder"]));
+    }
+    if (m.find("UseAudioRenditionGroups") != m.end() && !m["UseAudioRenditionGroups"].empty()) {
+      useAudioRenditionGroups = make_shared<bool>(boost::any_cast<bool>(m["UseAudioRenditionGroups"]));
+    }
+  }
+
+
+  virtual ~LiveManifestConfig() = default;
+};
+class LivePackagingConfigDrmConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> encryptionMethod{};
+  shared_ptr<string> IV{};
+  shared_ptr<vector<string>> systemIds{};
+  shared_ptr<string> url{};
+
+  LivePackagingConfigDrmConfig() {}
+
+  explicit LivePackagingConfigDrmConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encryptionMethod) {
+      res["EncryptionMethod"] = boost::any(*encryptionMethod);
+    }
+    if (IV) {
+      res["IV"] = boost::any(*IV);
+    }
+    if (systemIds) {
+      res["SystemIds"] = boost::any(*systemIds);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptionMethod") != m.end() && !m["EncryptionMethod"].empty()) {
+      encryptionMethod = make_shared<string>(boost::any_cast<string>(m["EncryptionMethod"]));
+    }
+    if (m.find("IV") != m.end() && !m["IV"].empty()) {
+      IV = make_shared<string>(boost::any_cast<string>(m["IV"]));
+    }
+    if (m.find("SystemIds") != m.end() && !m["SystemIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SystemIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SystemIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      systemIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~LivePackagingConfigDrmConfig() = default;
+};
+class LivePackagingConfig : public Darabonba::Model {
+public:
+  shared_ptr<LivePackagingConfigDrmConfig> drmConfig{};
+  shared_ptr<vector<LiveManifestConfig>> liveManifestConfigs{};
+  shared_ptr<long> segmentDuration{};
+  shared_ptr<bool> useAudioRenditionGroups{};
+
+  LivePackagingConfig() {}
+
+  explicit LivePackagingConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drmConfig) {
+      res["DrmConfig"] = drmConfig ? boost::any(drmConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (liveManifestConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*liveManifestConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LiveManifestConfigs"] = boost::any(temp1);
+    }
+    if (segmentDuration) {
+      res["SegmentDuration"] = boost::any(*segmentDuration);
+    }
+    if (useAudioRenditionGroups) {
+      res["UseAudioRenditionGroups"] = boost::any(*useAudioRenditionGroups);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrmConfig") != m.end() && !m["DrmConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DrmConfig"].type()) {
+        LivePackagingConfigDrmConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DrmConfig"]));
+        drmConfig = make_shared<LivePackagingConfigDrmConfig>(model1);
+      }
+    }
+    if (m.find("LiveManifestConfigs") != m.end() && !m["LiveManifestConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["LiveManifestConfigs"].type()) {
+        vector<LiveManifestConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LiveManifestConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LiveManifestConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        liveManifestConfigs = make_shared<vector<LiveManifestConfig>>(expect1);
+      }
+    }
+    if (m.find("SegmentDuration") != m.end() && !m["SegmentDuration"].empty()) {
+      segmentDuration = make_shared<long>(boost::any_cast<long>(m["SegmentDuration"]));
+    }
+    if (m.find("UseAudioRenditionGroups") != m.end() && !m["UseAudioRenditionGroups"].empty()) {
+      useAudioRenditionGroups = make_shared<bool>(boost::any_cast<bool>(m["UseAudioRenditionGroups"]));
+    }
+  }
+
+
+  virtual ~LivePackagingConfig() = default;
+};
 class MediaConvertAudio : public Darabonba::Model {
 public:
   shared_ptr<long> bitrate{};
@@ -75523,6 +75740,7 @@ public:
   shared_ptr<string> editingConfig{};
   shared_ptr<string> inputConfig{};
   shared_ptr<string> outputConfig{};
+  shared_ptr<string> templateConfig{};
   shared_ptr<string> userData{};
 
   SubmitBatchMediaProducingJobRequest() {}
@@ -75547,6 +75765,9 @@ public:
     if (outputConfig) {
       res["OutputConfig"] = boost::any(*outputConfig);
     }
+    if (templateConfig) {
+      res["TemplateConfig"] = boost::any(*templateConfig);
+    }
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
@@ -75565,6 +75786,9 @@ public:
     }
     if (m.find("OutputConfig") != m.end() && !m["OutputConfig"].empty()) {
       outputConfig = make_shared<string>(boost::any_cast<string>(m["OutputConfig"]));
+    }
+    if (m.find("TemplateConfig") != m.end() && !m["TemplateConfig"].empty()) {
+      templateConfig = make_shared<string>(boost::any_cast<string>(m["TemplateConfig"]));
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
