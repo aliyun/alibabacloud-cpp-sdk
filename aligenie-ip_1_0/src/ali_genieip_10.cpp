@@ -74,7 +74,12 @@ AddCartoonResponse Alibabacloud_AliGenieip10::Client::addCartoonWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddCartoonResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddCartoonResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddCartoonResponse(execute(params, req, runtime));
+  }
 }
 
 AddCartoonResponse Alibabacloud_AliGenieip10::Client::addCartoon(shared_ptr<AddCartoonRequest> request) {
@@ -137,7 +142,12 @@ AddCustomQAResponse Alibabacloud_AliGenieip10::Client::addCustomQAWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddCustomQAResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddCustomQAResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddCustomQAResponse(execute(params, req, runtime));
+  }
 }
 
 AddCustomQAResponse Alibabacloud_AliGenieip10::Client::addCustomQA(shared_ptr<AddCustomQARequest> request) {
@@ -200,7 +210,12 @@ AddCustomQAV2Response Alibabacloud_AliGenieip10::Client::addCustomQAV2WithOption
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddCustomQAV2Response(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddCustomQAV2Response(callApi(params, req, runtime));
+  }
+  else {
+    return AddCustomQAV2Response(execute(params, req, runtime));
+  }
 }
 
 AddCustomQAV2Response Alibabacloud_AliGenieip10::Client::addCustomQAV2(shared_ptr<AddCustomQAV2Request> request) {
@@ -243,7 +258,12 @@ AddMessageTemplateResponse Alibabacloud_AliGenieip10::Client::addMessageTemplate
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddMessageTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddMessageTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddMessageTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 AddMessageTemplateResponse Alibabacloud_AliGenieip10::Client::addMessageTemplate(shared_ptr<AddMessageTemplateRequest> request) {
@@ -291,7 +311,12 @@ AddOrUpdateDisPlayModesResponse Alibabacloud_AliGenieip10::Client::addOrUpdateDi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddOrUpdateDisPlayModesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddOrUpdateDisPlayModesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddOrUpdateDisPlayModesResponse(execute(params, req, runtime));
+  }
 }
 
 AddOrUpdateDisPlayModesResponse Alibabacloud_AliGenieip10::Client::addOrUpdateDisPlayModes(shared_ptr<AddOrUpdateDisPlayModesRequest> request) {
@@ -357,7 +382,12 @@ AddOrUpdateHotelSettingResponse Alibabacloud_AliGenieip10::Client::addOrUpdateHo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddOrUpdateHotelSettingResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddOrUpdateHotelSettingResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddOrUpdateHotelSettingResponse(execute(params, req, runtime));
+  }
 }
 
 AddOrUpdateHotelSettingResponse Alibabacloud_AliGenieip10::Client::addOrUpdateHotelSetting(shared_ptr<AddOrUpdateHotelSettingRequest> request) {
@@ -405,7 +435,12 @@ AddOrUpdateScreenSaverResponse Alibabacloud_AliGenieip10::Client::addOrUpdateScr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddOrUpdateScreenSaverResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddOrUpdateScreenSaverResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddOrUpdateScreenSaverResponse(execute(params, req, runtime));
+  }
 }
 
 AddOrUpdateScreenSaverResponse Alibabacloud_AliGenieip10::Client::addOrUpdateScreenSaver(shared_ptr<AddOrUpdateScreenSaverRequest> request) {
@@ -451,7 +486,12 @@ AddOrUpdateWelcomeTextResponse Alibabacloud_AliGenieip10::Client::addOrUpdateWel
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddOrUpdateWelcomeTextResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddOrUpdateWelcomeTextResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddOrUpdateWelcomeTextResponse(execute(params, req, runtime));
+  }
 }
 
 AddOrUpdateWelcomeTextResponse Alibabacloud_AliGenieip10::Client::addOrUpdateWelcomeText(shared_ptr<AddOrUpdateWelcomeTextRequest> request) {
@@ -496,7 +536,12 @@ AuditHotelResponse Alibabacloud_AliGenieip10::Client::auditHotelWithOptions(shar
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AuditHotelResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AuditHotelResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AuditHotelResponse(execute(params, req, runtime));
+  }
 }
 
 AuditHotelResponse Alibabacloud_AliGenieip10::Client::auditHotel(shared_ptr<AuditHotelRequest> request) {
@@ -544,7 +589,12 @@ BatchAddHotelRoomResponse Alibabacloud_AliGenieip10::Client::batchAddHotelRoomWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BatchAddHotelRoomResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BatchAddHotelRoomResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BatchAddHotelRoomResponse(execute(params, req, runtime));
+  }
 }
 
 BatchAddHotelRoomResponse Alibabacloud_AliGenieip10::Client::batchAddHotelRoom(shared_ptr<BatchAddHotelRoomRequest> request) {
@@ -592,7 +642,12 @@ BatchDeleteHotelRoomResponse Alibabacloud_AliGenieip10::Client::batchDeleteHotel
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BatchDeleteHotelRoomResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BatchDeleteHotelRoomResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BatchDeleteHotelRoomResponse(execute(params, req, runtime));
+  }
 }
 
 BatchDeleteHotelRoomResponse Alibabacloud_AliGenieip10::Client::batchDeleteHotelRoom(shared_ptr<BatchDeleteHotelRoomRequest> request) {
@@ -635,7 +690,12 @@ CheckoutWithAKResponse Alibabacloud_AliGenieip10::Client::checkoutWithAKWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CheckoutWithAKResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CheckoutWithAKResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CheckoutWithAKResponse(execute(params, req, runtime));
+  }
 }
 
 CheckoutWithAKResponse Alibabacloud_AliGenieip10::Client::checkoutWithAK(shared_ptr<CheckoutWithAKRequest> request) {
@@ -684,7 +744,12 @@ ChildAccountAuthResponse Alibabacloud_AliGenieip10::Client::childAccountAuthWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChildAccountAuthResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChildAccountAuthResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChildAccountAuthResponse(execute(params, req, runtime));
+  }
 }
 
 ChildAccountAuthResponse Alibabacloud_AliGenieip10::Client::childAccountAuth(shared_ptr<ChildAccountAuthRequest> request) {
@@ -744,7 +809,12 @@ ControlRoomDeviceResponse Alibabacloud_AliGenieip10::Client::controlRoomDeviceWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ControlRoomDeviceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ControlRoomDeviceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ControlRoomDeviceResponse(execute(params, req, runtime));
+  }
 }
 
 ControlRoomDeviceResponse Alibabacloud_AliGenieip10::Client::controlRoomDevice(shared_ptr<ControlRoomDeviceRequest> request) {
@@ -819,7 +889,12 @@ CreateHotelResponse Alibabacloud_AliGenieip10::Client::createHotelWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateHotelResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateHotelResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateHotelResponse(execute(params, req, runtime));
+  }
 }
 
 CreateHotelResponse Alibabacloud_AliGenieip10::Client::createHotel(shared_ptr<CreateHotelRequest> request) {
@@ -876,7 +951,12 @@ CreateHotelAlarmResponse Alibabacloud_AliGenieip10::Client::createHotelAlarmWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateHotelAlarmResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateHotelAlarmResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateHotelAlarmResponse(execute(params, req, runtime));
+  }
 }
 
 CreateHotelAlarmResponse Alibabacloud_AliGenieip10::Client::createHotelAlarm(shared_ptr<CreateHotelAlarmRequest> request) {
@@ -927,7 +1007,12 @@ CreateRcuSceneResponse Alibabacloud_AliGenieip10::Client::createRcuSceneWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateRcuSceneResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateRcuSceneResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateRcuSceneResponse(execute(params, req, runtime));
+  }
 }
 
 CreateRcuSceneResponse Alibabacloud_AliGenieip10::Client::createRcuScene(shared_ptr<CreateRcuSceneRequest> request) {
@@ -967,7 +1052,12 @@ DeleteCartoonResponse Alibabacloud_AliGenieip10::Client::deleteCartoonWithOption
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteCartoonResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteCartoonResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteCartoonResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteCartoonResponse Alibabacloud_AliGenieip10::Client::deleteCartoon(shared_ptr<DeleteCartoonRequest> request) {
@@ -1015,7 +1105,12 @@ DeleteCustomQAResponse Alibabacloud_AliGenieip10::Client::deleteCustomQAWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteCustomQAResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteCustomQAResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteCustomQAResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteCustomQAResponse Alibabacloud_AliGenieip10::Client::deleteCustomQA(shared_ptr<DeleteCustomQARequest> request) {
@@ -1063,7 +1158,12 @@ DeleteHotelAlarmResponse Alibabacloud_AliGenieip10::Client::deleteHotelAlarmWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteHotelAlarmResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteHotelAlarmResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteHotelAlarmResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteHotelAlarmResponse Alibabacloud_AliGenieip10::Client::deleteHotelAlarm(shared_ptr<DeleteHotelAlarmRequest> request) {
@@ -1109,7 +1209,12 @@ DeleteHotelSceneBookItemResponse Alibabacloud_AliGenieip10::Client::deleteHotelS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteHotelSceneBookItemResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteHotelSceneBookItemResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteHotelSceneBookItemResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteHotelSceneBookItemResponse Alibabacloud_AliGenieip10::Client::deleteHotelSceneBookItem(shared_ptr<DeleteHotelSceneBookItemRequest> request) {
@@ -1152,7 +1257,12 @@ DeleteHotelSettingResponse Alibabacloud_AliGenieip10::Client::deleteHotelSetting
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteHotelSettingResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteHotelSettingResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteHotelSettingResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteHotelSettingResponse Alibabacloud_AliGenieip10::Client::deleteHotelSetting(shared_ptr<DeleteHotelSettingRequest> request) {
@@ -1192,7 +1302,12 @@ DeleteMessageTemplateResponse Alibabacloud_AliGenieip10::Client::deleteMessageTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteMessageTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteMessageTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteMessageTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteMessageTemplateResponse Alibabacloud_AliGenieip10::Client::deleteMessageTemplate(shared_ptr<DeleteMessageTemplateRequest> request) {
@@ -1235,7 +1350,12 @@ DeleteRcuSceneResponse Alibabacloud_AliGenieip10::Client::deleteRcuSceneWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteRcuSceneResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteRcuSceneResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteRcuSceneResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteRcuSceneResponse Alibabacloud_AliGenieip10::Client::deleteRcuScene(shared_ptr<DeleteRcuSceneRequest> request) {
@@ -1286,13 +1406,69 @@ DeviceControlResponse Alibabacloud_AliGenieip10::Client::deviceControlWithOption
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeviceControlResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeviceControlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeviceControlResponse(execute(params, req, runtime));
+  }
 }
 
 DeviceControlResponse Alibabacloud_AliGenieip10::Client::deviceControl(shared_ptr<DeviceControlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<DeviceControlHeaders> headers = make_shared<DeviceControlHeaders>();
   return deviceControlWithOptions(request, headers, runtime);
+}
+
+ExecuteSceneResponse Alibabacloud_AliGenieip10::Client::executeSceneWithOptions(shared_ptr<ExecuteSceneRequest> request, shared_ptr<ExecuteSceneHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->hotelId)) {
+    body->insert(pair<string, string>("HotelId", *request->hotelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roomNo)) {
+    body->insert(pair<string, string>("RoomNo", *request->roomNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneName)) {
+    body->insert(pair<string, string>("SceneName", *request->sceneName));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteScene"))},
+    {"version", boost::any(string("ip_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ip/executeScene"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ExecuteSceneResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ExecuteSceneResponse(execute(params, req, runtime));
+  }
+}
+
+ExecuteSceneResponse Alibabacloud_AliGenieip10::Client::executeScene(shared_ptr<ExecuteSceneRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ExecuteSceneHeaders> headers = make_shared<ExecuteSceneHeaders>();
+  return executeSceneWithOptions(request, headers, runtime);
 }
 
 GetBasicInfoQAResponse Alibabacloud_AliGenieip10::Client::getBasicInfoQAWithOptions(shared_ptr<GetBasicInfoQARequest> request, shared_ptr<GetBasicInfoQAHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1326,7 +1502,12 @@ GetBasicInfoQAResponse Alibabacloud_AliGenieip10::Client::getBasicInfoQAWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetBasicInfoQAResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetBasicInfoQAResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetBasicInfoQAResponse(execute(params, req, runtime));
+  }
 }
 
 GetBasicInfoQAResponse Alibabacloud_AliGenieip10::Client::getBasicInfoQA(shared_ptr<GetBasicInfoQARequest> request) {
@@ -1366,7 +1547,12 @@ GetCartoonResponse Alibabacloud_AliGenieip10::Client::getCartoonWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetCartoonResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetCartoonResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetCartoonResponse(execute(params, req, runtime));
+  }
 }
 
 GetCartoonResponse Alibabacloud_AliGenieip10::Client::getCartoon(shared_ptr<GetCartoonRequest> request) {
@@ -1417,7 +1603,12 @@ GetHotelContactByGenieDeviceResponse Alibabacloud_AliGenieip10::Client::getHotel
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelContactByGenieDeviceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelContactByGenieDeviceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelContactByGenieDeviceResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelContactByGenieDeviceResponse Alibabacloud_AliGenieip10::Client::getHotelContactByGenieDevice(shared_ptr<GetHotelContactByGenieDeviceRequest> request) {
@@ -1467,7 +1658,12 @@ GetHotelContactByNumberResponse Alibabacloud_AliGenieip10::Client::getHotelConta
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelContactByNumberResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelContactByNumberResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelContactByNumberResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelContactByNumberResponse Alibabacloud_AliGenieip10::Client::getHotelContactByNumber(shared_ptr<GetHotelContactByNumberRequest> request) {
@@ -1512,7 +1708,12 @@ GetHotelContactsResponse Alibabacloud_AliGenieip10::Client::getHotelContactsWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelContactsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelContactsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelContactsResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelContactsResponse Alibabacloud_AliGenieip10::Client::getHotelContacts(shared_ptr<GetHotelContactsRequest> request) {
@@ -1557,7 +1758,12 @@ GetHotelHomeBackImageAndModesResponse Alibabacloud_AliGenieip10::Client::getHote
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelHomeBackImageAndModesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelHomeBackImageAndModesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelHomeBackImageAndModesResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelHomeBackImageAndModesResponse Alibabacloud_AliGenieip10::Client::getHotelHomeBackImageAndModes(shared_ptr<GetHotelHomeBackImageAndModesRequest> request) {
@@ -1602,7 +1808,12 @@ GetHotelNoticeResponse Alibabacloud_AliGenieip10::Client::getHotelNoticeWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelNoticeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelNoticeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelNoticeResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelNoticeResponse Alibabacloud_AliGenieip10::Client::getHotelNotice(shared_ptr<GetHotelNoticeRequest> request) {
@@ -1647,7 +1858,12 @@ GetHotelNoticeV2Response Alibabacloud_AliGenieip10::Client::getHotelNoticeV2With
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelNoticeV2Response(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelNoticeV2Response(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelNoticeV2Response(execute(params, req, runtime));
+  }
 }
 
 GetHotelNoticeV2Response Alibabacloud_AliGenieip10::Client::getHotelNoticeV2(shared_ptr<GetHotelNoticeV2Request> request) {
@@ -1692,7 +1908,12 @@ GetHotelOrderDetailResponse Alibabacloud_AliGenieip10::Client::getHotelOrderDeta
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelOrderDetailResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelOrderDetailResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelOrderDetailResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelOrderDetailResponse Alibabacloud_AliGenieip10::Client::getHotelOrderDetail(shared_ptr<GetHotelOrderDetailRequest> request) {
@@ -1735,7 +1956,12 @@ GetHotelRoomDeviceResponse Alibabacloud_AliGenieip10::Client::getHotelRoomDevice
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelRoomDeviceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelRoomDeviceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelRoomDeviceResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelRoomDeviceResponse Alibabacloud_AliGenieip10::Client::getHotelRoomDevice(shared_ptr<GetHotelRoomDeviceRequest> request) {
@@ -1780,7 +2006,12 @@ GetHotelSampleUtterancesResponse Alibabacloud_AliGenieip10::Client::getHotelSamp
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelSampleUtterancesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelSampleUtterancesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelSampleUtterancesResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelSampleUtterancesResponse Alibabacloud_AliGenieip10::Client::getHotelSampleUtterances(shared_ptr<GetHotelSampleUtterancesRequest> request) {
@@ -1826,7 +2057,12 @@ GetHotelSceneItemDetailResponse Alibabacloud_AliGenieip10::Client::getHotelScene
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelSceneItemDetailResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelSceneItemDetailResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelSceneItemDetailResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelSceneItemDetailResponse Alibabacloud_AliGenieip10::Client::getHotelSceneItemDetail(shared_ptr<GetHotelSceneItemDetailRequest> request) {
@@ -1871,7 +2107,12 @@ GetHotelScreenSaverResponse Alibabacloud_AliGenieip10::Client::getHotelScreenSav
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelScreenSaverResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelScreenSaverResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelScreenSaverResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelScreenSaverResponse Alibabacloud_AliGenieip10::Client::getHotelScreenSaver(shared_ptr<GetHotelScreenSaverRequest> request) {
@@ -1911,7 +2152,12 @@ GetHotelScreenSaverStyleResponse Alibabacloud_AliGenieip10::Client::getHotelScre
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelScreenSaverStyleResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelScreenSaverStyleResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelScreenSaverStyleResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelScreenSaverStyleResponse Alibabacloud_AliGenieip10::Client::getHotelScreenSaverStyle(shared_ptr<GetHotelScreenSaverStyleRequest> request) {
@@ -1954,7 +2200,12 @@ GetHotelSettingResponse Alibabacloud_AliGenieip10::Client::getHotelSettingWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetHotelSettingResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetHotelSettingResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetHotelSettingResponse(execute(params, req, runtime));
+  }
 }
 
 GetHotelSettingResponse Alibabacloud_AliGenieip10::Client::getHotelSetting(shared_ptr<GetHotelSettingRequest> request) {
@@ -1988,7 +2239,12 @@ GetRelationProductListResponse Alibabacloud_AliGenieip10::Client::getRelationPro
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetRelationProductListResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetRelationProductListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetRelationProductListResponse(execute(params, req, runtime));
+  }
 }
 
 GetRelationProductListResponse Alibabacloud_AliGenieip10::Client::getRelationProductList() {
@@ -2037,7 +2293,12 @@ GetUnionIdResponse Alibabacloud_AliGenieip10::Client::getUnionIdWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetUnionIdResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetUnionIdResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetUnionIdResponse(execute(params, req, runtime));
+  }
 }
 
 GetUnionIdResponse Alibabacloud_AliGenieip10::Client::getUnionId(shared_ptr<GetUnionIdRequest> request) {
@@ -2077,7 +2338,12 @@ GetWelcomeTextAndMusicResponse Alibabacloud_AliGenieip10::Client::getWelcomeText
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetWelcomeTextAndMusicResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetWelcomeTextAndMusicResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetWelcomeTextAndMusicResponse(execute(params, req, runtime));
+  }
 }
 
 GetWelcomeTextAndMusicResponse Alibabacloud_AliGenieip10::Client::getWelcomeTextAndMusic(shared_ptr<GetWelcomeTextAndMusicRequest> request) {
@@ -2129,7 +2395,12 @@ HotelQrBindResponse Alibabacloud_AliGenieip10::Client::hotelQrBindWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return HotelQrBindResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return HotelQrBindResponse(callApi(params, req, runtime));
+  }
+  else {
+    return HotelQrBindResponse(execute(params, req, runtime));
+  }
 }
 
 HotelQrBindResponse Alibabacloud_AliGenieip10::Client::hotelQrBind(shared_ptr<HotelQrBindRequest> request) {
@@ -2177,7 +2448,12 @@ ImportHotelConfigResponse Alibabacloud_AliGenieip10::Client::importHotelConfigWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ImportHotelConfigResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ImportHotelConfigResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ImportHotelConfigResponse(execute(params, req, runtime));
+  }
 }
 
 ImportHotelConfigResponse Alibabacloud_AliGenieip10::Client::importHotelConfig(shared_ptr<ImportHotelConfigRequest> request) {
@@ -2231,7 +2507,12 @@ ImportRoomControlDevicesResponse Alibabacloud_AliGenieip10::Client::importRoomCo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ImportRoomControlDevicesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ImportRoomControlDevicesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ImportRoomControlDevicesResponse(execute(params, req, runtime));
+  }
 }
 
 ImportRoomControlDevicesResponse Alibabacloud_AliGenieip10::Client::importRoomControlDevices(shared_ptr<ImportRoomControlDevicesRequest> request) {
@@ -2282,7 +2563,12 @@ ImportRoomGenieScenesResponse Alibabacloud_AliGenieip10::Client::importRoomGenie
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ImportRoomGenieScenesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ImportRoomGenieScenesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ImportRoomGenieScenesResponse(execute(params, req, runtime));
+  }
 }
 
 ImportRoomGenieScenesResponse Alibabacloud_AliGenieip10::Client::importRoomGenieScenes(shared_ptr<ImportRoomGenieScenesRequest> request) {
@@ -2332,7 +2618,12 @@ InsertHotelSceneBookItemResponse Alibabacloud_AliGenieip10::Client::insertHotelS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return InsertHotelSceneBookItemResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return InsertHotelSceneBookItemResponse(callApi(params, req, runtime));
+  }
+  else {
+    return InsertHotelSceneBookItemResponse(execute(params, req, runtime));
+  }
 }
 
 InsertHotelSceneBookItemResponse Alibabacloud_AliGenieip10::Client::insertHotelSceneBookItem(shared_ptr<InsertHotelSceneBookItemRequest> request) {
@@ -2349,6 +2640,9 @@ InvokeRobotPushResponse Alibabacloud_AliGenieip10::Client::invokeRobotPushWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pushType)) {
     body->insert(pair<string, string>("PushType", *request->pushType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roomName)) {
+    body->insert(pair<string, string>("RoomName", *request->roomName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->roomNo)) {
     body->insert(pair<string, string>("RoomNo", *request->roomNo));
@@ -2378,7 +2672,12 @@ InvokeRobotPushResponse Alibabacloud_AliGenieip10::Client::invokeRobotPushWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return InvokeRobotPushResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return InvokeRobotPushResponse(callApi(params, req, runtime));
+  }
+  else {
+    return InvokeRobotPushResponse(execute(params, req, runtime));
+  }
 }
 
 InvokeRobotPushResponse Alibabacloud_AliGenieip10::Client::invokeRobotPush(shared_ptr<InvokeRobotPushRequest> request) {
@@ -2412,7 +2711,12 @@ ListAllProvincesResponse Alibabacloud_AliGenieip10::Client::listAllProvincesWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAllProvincesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAllProvincesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAllProvincesResponse(execute(params, req, runtime));
+  }
 }
 
 ListAllProvincesResponse Alibabacloud_AliGenieip10::Client::listAllProvinces() {
@@ -2452,7 +2756,12 @@ ListCitiesByProvinceResponse Alibabacloud_AliGenieip10::Client::listCitiesByProv
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListCitiesByProvinceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListCitiesByProvinceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListCitiesByProvinceResponse(execute(params, req, runtime));
+  }
 }
 
 ListCitiesByProvinceResponse Alibabacloud_AliGenieip10::Client::listCitiesByProvince(shared_ptr<ListCitiesByProvinceRequest> request) {
@@ -2503,7 +2812,12 @@ ListCustomQAResponse Alibabacloud_AliGenieip10::Client::listCustomQAWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListCustomQAResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListCustomQAResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListCustomQAResponse(execute(params, req, runtime));
+  }
 }
 
 ListCustomQAResponse Alibabacloud_AliGenieip10::Client::listCustomQA(shared_ptr<ListCustomQARequest> request) {
@@ -2543,7 +2857,12 @@ ListDialogueTemplateResponse Alibabacloud_AliGenieip10::Client::listDialogueTemp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListDialogueTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListDialogueTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListDialogueTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 ListDialogueTemplateResponse Alibabacloud_AliGenieip10::Client::listDialogueTemplate(shared_ptr<ListDialogueTemplateRequest> request) {
@@ -2591,7 +2910,12 @@ ListHotelAlarmResponse Alibabacloud_AliGenieip10::Client::listHotelAlarmWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelAlarmResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelAlarmResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelAlarmResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelAlarmResponse Alibabacloud_AliGenieip10::Client::listHotelAlarm(shared_ptr<ListHotelAlarmRequest> request) {
@@ -2636,7 +2960,12 @@ ListHotelControlDeviceResponse Alibabacloud_AliGenieip10::Client::listHotelContr
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelControlDeviceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelControlDeviceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelControlDeviceResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelControlDeviceResponse Alibabacloud_AliGenieip10::Client::listHotelControlDevice(shared_ptr<ListHotelControlDeviceRequest> request) {
@@ -2670,7 +2999,12 @@ ListHotelInfoResponse Alibabacloud_AliGenieip10::Client::listHotelInfoWithOption
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelInfoResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelInfoResponse Alibabacloud_AliGenieip10::Client::listHotelInfo() {
@@ -2704,7 +3038,12 @@ ListHotelMessageTemplateResponse Alibabacloud_AliGenieip10::Client::listHotelMes
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelMessageTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelMessageTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelMessageTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelMessageTemplateResponse Alibabacloud_AliGenieip10::Client::listHotelMessageTemplate() {
@@ -2755,7 +3094,12 @@ ListHotelOrderResponse Alibabacloud_AliGenieip10::Client::listHotelOrderWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelOrderResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelOrderResponse Alibabacloud_AliGenieip10::Client::listHotelOrder(shared_ptr<ListHotelOrderRequest> request) {
@@ -2803,7 +3147,12 @@ ListHotelRoomsResponse Alibabacloud_AliGenieip10::Client::listHotelRoomsWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelRoomsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelRoomsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelRoomsResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelRoomsResponse Alibabacloud_AliGenieip10::Client::listHotelRooms(shared_ptr<ListHotelRoomsRequest> request) {
@@ -2856,7 +3205,12 @@ ListHotelSceneBookItemsResponse Alibabacloud_AliGenieip10::Client::listHotelScen
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelSceneBookItemsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelSceneBookItemsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelSceneBookItemsResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelSceneBookItemsResponse Alibabacloud_AliGenieip10::Client::listHotelSceneBookItems(shared_ptr<ListHotelSceneBookItemsRequest> request) {
@@ -2907,7 +3261,12 @@ ListHotelSceneItemResponse Alibabacloud_AliGenieip10::Client::listHotelSceneItem
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelSceneItemResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelSceneItemResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelSceneItemResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelSceneItemResponse Alibabacloud_AliGenieip10::Client::listHotelSceneItem(shared_ptr<ListHotelSceneItemRequest> request) {
@@ -2957,7 +3316,12 @@ ListHotelSceneItemsResponse Alibabacloud_AliGenieip10::Client::listHotelSceneIte
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelSceneItemsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelSceneItemsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelSceneItemsResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelSceneItemsResponse Alibabacloud_AliGenieip10::Client::listHotelSceneItems(shared_ptr<ListHotelSceneItemsRequest> request) {
@@ -3002,7 +3366,12 @@ ListHotelServiceCategoryResponse Alibabacloud_AliGenieip10::Client::listHotelSer
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelServiceCategoryResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelServiceCategoryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelServiceCategoryResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelServiceCategoryResponse Alibabacloud_AliGenieip10::Client::listHotelServiceCategory(shared_ptr<ListHotelServiceCategoryRequest> request) {
@@ -3058,7 +3427,12 @@ ListHotelsResponse Alibabacloud_AliGenieip10::Client::listHotelsWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListHotelsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListHotelsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListHotelsResponse(execute(params, req, runtime));
+  }
 }
 
 ListHotelsResponse Alibabacloud_AliGenieip10::Client::listHotels(shared_ptr<ListHotelsRequest> request) {
@@ -3101,7 +3475,12 @@ ListInfraredDeviceBrandsResponse Alibabacloud_AliGenieip10::Client::listInfrared
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListInfraredDeviceBrandsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListInfraredDeviceBrandsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListInfraredDeviceBrandsResponse(execute(params, req, runtime));
+  }
 }
 
 ListInfraredDeviceBrandsResponse Alibabacloud_AliGenieip10::Client::listInfraredDeviceBrands(shared_ptr<ListInfraredDeviceBrandsRequest> request) {
@@ -3156,7 +3535,12 @@ ListInfraredRemoteControllersResponse Alibabacloud_AliGenieip10::Client::listInf
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListInfraredRemoteControllersResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListInfraredRemoteControllersResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListInfraredRemoteControllersResponse(execute(params, req, runtime));
+  }
 }
 
 ListInfraredRemoteControllersResponse Alibabacloud_AliGenieip10::Client::listInfraredRemoteControllers(shared_ptr<ListInfraredRemoteControllersRequest> request) {
@@ -3199,7 +3583,12 @@ ListSTBServiceProvidersResponse Alibabacloud_AliGenieip10::Client::listSTBServic
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListSTBServiceProvidersResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListSTBServiceProvidersResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListSTBServiceProvidersResponse(execute(params, req, runtime));
+  }
 }
 
 ListSTBServiceProvidersResponse Alibabacloud_AliGenieip10::Client::listSTBServiceProviders(shared_ptr<ListSTBServiceProvidersRequest> request) {
@@ -3242,7 +3631,12 @@ ListSceneCategoryResponse Alibabacloud_AliGenieip10::Client::listSceneCategoryWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListSceneCategoryResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListSceneCategoryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListSceneCategoryResponse(execute(params, req, runtime));
+  }
 }
 
 ListSceneCategoryResponse Alibabacloud_AliGenieip10::Client::listSceneCategory(shared_ptr<ListSceneCategoryRequest> request) {
@@ -3296,7 +3690,12 @@ ListServiceQAResponse Alibabacloud_AliGenieip10::Client::listServiceQAWithOption
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListServiceQAResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListServiceQAResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListServiceQAResponse(execute(params, req, runtime));
+  }
 }
 
 ListServiceQAResponse Alibabacloud_AliGenieip10::Client::listServiceQA(shared_ptr<ListServiceQARequest> request) {
@@ -3371,7 +3770,12 @@ ListTicketsResponse Alibabacloud_AliGenieip10::Client::listTicketsWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTicketsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTicketsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTicketsResponse(execute(params, req, runtime));
+  }
 }
 
 ListTicketsResponse Alibabacloud_AliGenieip10::Client::listTickets(shared_ptr<ListTicketsRequest> request) {
@@ -3417,7 +3821,12 @@ PageGetHotelRoomDevicesResponse Alibabacloud_AliGenieip10::Client::pageGetHotelR
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PageGetHotelRoomDevicesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PageGetHotelRoomDevicesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PageGetHotelRoomDevicesResponse(execute(params, req, runtime));
+  }
 }
 
 PageGetHotelRoomDevicesResponse Alibabacloud_AliGenieip10::Client::pageGetHotelRoomDevices(shared_ptr<PageGetHotelRoomDevicesRequest> request) {
@@ -3457,7 +3866,12 @@ PmsEventReportResponse Alibabacloud_AliGenieip10::Client::pmsEventReportWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PmsEventReportResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PmsEventReportResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PmsEventReportResponse(execute(params, req, runtime));
+  }
 }
 
 PmsEventReportResponse Alibabacloud_AliGenieip10::Client::pmsEventReport(shared_ptr<PmsEventReportRequest> request) {
@@ -3502,7 +3916,12 @@ PushHotelMessageResponse Alibabacloud_AliGenieip10::Client::pushHotelMessageWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PushHotelMessageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PushHotelMessageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PushHotelMessageResponse(execute(params, req, runtime));
+  }
 }
 
 PushHotelMessageResponse Alibabacloud_AliGenieip10::Client::pushHotelMessage(shared_ptr<PushHotelMessageRequest> request) {
@@ -3553,7 +3972,12 @@ PushVoiceBoxCommandsResponse Alibabacloud_AliGenieip10::Client::pushVoiceBoxComm
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PushVoiceBoxCommandsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PushVoiceBoxCommandsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PushVoiceBoxCommandsResponse(execute(params, req, runtime));
+  }
 }
 
 PushVoiceBoxCommandsResponse Alibabacloud_AliGenieip10::Client::pushVoiceBoxCommands(shared_ptr<PushVoiceBoxCommandsRequest> request) {
@@ -3567,6 +3991,9 @@ PushWelcomeResponse Alibabacloud_AliGenieip10::Client::pushWelcomeWithOptions(sh
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->hotelId)) {
     body->insert(pair<string, string>("HotelId", *request->hotelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roomName)) {
+    body->insert(pair<string, string>("RoomName", *request->roomName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->roomNo)) {
     body->insert(pair<string, string>("RoomNo", *request->roomNo));
@@ -3602,7 +4029,12 @@ PushWelcomeResponse Alibabacloud_AliGenieip10::Client::pushWelcomeWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PushWelcomeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PushWelcomeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PushWelcomeResponse(execute(params, req, runtime));
+  }
 }
 
 PushWelcomeResponse Alibabacloud_AliGenieip10::Client::pushWelcome(shared_ptr<PushWelcomeRequest> request) {
@@ -3621,6 +4053,9 @@ PushWelcomeTextAndMusicResponse Alibabacloud_AliGenieip10::Client::pushWelcomeTe
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->hotelId)) {
     body->insert(pair<string, string>("HotelId", *request->hotelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roomName)) {
+    body->insert(pair<string, string>("RoomName", *request->roomName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->roomNo)) {
     body->insert(pair<string, string>("RoomNo", *request->roomNo));
@@ -3653,7 +4088,12 @@ PushWelcomeTextAndMusicResponse Alibabacloud_AliGenieip10::Client::pushWelcomeTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PushWelcomeTextAndMusicResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PushWelcomeTextAndMusicResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PushWelcomeTextAndMusicResponse(execute(params, req, runtime));
+  }
 }
 
 PushWelcomeTextAndMusicResponse Alibabacloud_AliGenieip10::Client::pushWelcomeTextAndMusic(shared_ptr<PushWelcomeTextAndMusicRequest> request) {
@@ -3704,7 +4144,12 @@ QueryDeviceStatusResponse Alibabacloud_AliGenieip10::Client::queryDeviceStatusWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryDeviceStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryDeviceStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryDeviceStatusResponse(execute(params, req, runtime));
+  }
 }
 
 QueryDeviceStatusResponse Alibabacloud_AliGenieip10::Client::queryDeviceStatus(shared_ptr<QueryDeviceStatusRequest> request) {
@@ -3756,7 +4201,12 @@ QueryHotelRoomDetailResponse Alibabacloud_AliGenieip10::Client::queryHotelRoomDe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryHotelRoomDetailResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryHotelRoomDetailResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryHotelRoomDetailResponse(execute(params, req, runtime));
+  }
 }
 
 QueryHotelRoomDetailResponse Alibabacloud_AliGenieip10::Client::queryHotelRoomDetail(shared_ptr<QueryHotelRoomDetailRequest> request) {
@@ -3799,13 +4249,114 @@ QueryRoomControlDevicesResponse Alibabacloud_AliGenieip10::Client::queryRoomCont
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryRoomControlDevicesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryRoomControlDevicesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryRoomControlDevicesResponse(execute(params, req, runtime));
+  }
 }
 
 QueryRoomControlDevicesResponse Alibabacloud_AliGenieip10::Client::queryRoomControlDevices(shared_ptr<QueryRoomControlDevicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<QueryRoomControlDevicesHeaders> headers = make_shared<QueryRoomControlDevicesHeaders>();
   return queryRoomControlDevicesWithOptions(request, headers, runtime);
+}
+
+QueryRoomControlDevicesAndStatusResponse Alibabacloud_AliGenieip10::Client::queryRoomControlDevicesAndStatusWithOptions(shared_ptr<QueryRoomControlDevicesAndStatusRequest> request, shared_ptr<QueryRoomControlDevicesAndStatusHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->hotelId)) {
+    body->insert(pair<string, string>("HotelId", *request->hotelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roomNo)) {
+    body->insert(pair<string, string>("RoomNo", *request->roomNo));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRoomControlDevicesAndStatus"))},
+    {"version", boost::any(string("ip_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ip/queryRoomControlDevicesAndStatus"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryRoomControlDevicesAndStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryRoomControlDevicesAndStatusResponse(execute(params, req, runtime));
+  }
+}
+
+QueryRoomControlDevicesAndStatusResponse Alibabacloud_AliGenieip10::Client::queryRoomControlDevicesAndStatus(shared_ptr<QueryRoomControlDevicesAndStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<QueryRoomControlDevicesAndStatusHeaders> headers = make_shared<QueryRoomControlDevicesAndStatusHeaders>();
+  return queryRoomControlDevicesAndStatusWithOptions(request, headers, runtime);
+}
+
+QueryRoomStatusResponse Alibabacloud_AliGenieip10::Client::queryRoomStatusWithOptions(shared_ptr<QueryRoomStatusRequest> request, shared_ptr<QueryRoomStatusHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->hotelId)) {
+    body->insert(pair<string, string>("HotelId", *request->hotelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roomNo)) {
+    body->insert(pair<string, string>("RoomNo", *request->roomNo));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRoomStatus"))},
+    {"version", boost::any(string("ip_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ip/queryRoomStatus"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryRoomStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryRoomStatusResponse(execute(params, req, runtime));
+  }
+}
+
+QueryRoomStatusResponse Alibabacloud_AliGenieip10::Client::queryRoomStatus(shared_ptr<QueryRoomStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<QueryRoomStatusHeaders> headers = make_shared<QueryRoomStatusHeaders>();
+  return queryRoomStatusWithOptions(request, headers, runtime);
 }
 
 QuerySceneListResponse Alibabacloud_AliGenieip10::Client::querySceneListWithOptions(shared_ptr<QuerySceneListRequest> tmpReq, shared_ptr<QuerySceneListHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3859,7 +4410,12 @@ QuerySceneListResponse Alibabacloud_AliGenieip10::Client::querySceneListWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QuerySceneListResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QuerySceneListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QuerySceneListResponse(execute(params, req, runtime));
+  }
 }
 
 QuerySceneListResponse Alibabacloud_AliGenieip10::Client::querySceneList(shared_ptr<QuerySceneListRequest> request) {
@@ -3908,7 +4464,12 @@ RemoveChildAccountAuthResponse Alibabacloud_AliGenieip10::Client::removeChildAcc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RemoveChildAccountAuthResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RemoveChildAccountAuthResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RemoveChildAccountAuthResponse(execute(params, req, runtime));
+  }
 }
 
 RemoveChildAccountAuthResponse Alibabacloud_AliGenieip10::Client::removeChildAccountAuth(shared_ptr<RemoveChildAccountAuthRequest> request) {
@@ -3954,7 +4515,12 @@ RemoveHotelResponse Alibabacloud_AliGenieip10::Client::removeHotelWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RemoveHotelResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RemoveHotelResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RemoveHotelResponse(execute(params, req, runtime));
+  }
 }
 
 RemoveHotelResponse Alibabacloud_AliGenieip10::Client::removeHotel(shared_ptr<RemoveHotelRequest> request) {
@@ -3994,7 +4560,12 @@ ResetWelcomeTextAndMusicResponse Alibabacloud_AliGenieip10::Client::resetWelcome
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ResetWelcomeTextAndMusicResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ResetWelcomeTextAndMusicResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ResetWelcomeTextAndMusicResponse(execute(params, req, runtime));
+  }
 }
 
 ResetWelcomeTextAndMusicResponse Alibabacloud_AliGenieip10::Client::resetWelcomeTextAndMusic(shared_ptr<ResetWelcomeTextAndMusicRequest> request) {
@@ -4045,7 +4616,12 @@ RoomCheckOutResponse Alibabacloud_AliGenieip10::Client::roomCheckOutWithOptions(
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RoomCheckOutResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RoomCheckOutResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RoomCheckOutResponse(execute(params, req, runtime));
+  }
 }
 
 RoomCheckOutResponse Alibabacloud_AliGenieip10::Client::roomCheckOut(shared_ptr<RoomCheckOutRequest> request) {
@@ -4096,7 +4672,12 @@ SubmitHotelOrderResponse Alibabacloud_AliGenieip10::Client::submitHotelOrderWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SubmitHotelOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SubmitHotelOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SubmitHotelOrderResponse(execute(params, req, runtime));
+  }
 }
 
 SubmitHotelOrderResponse Alibabacloud_AliGenieip10::Client::submitHotelOrder(shared_ptr<SubmitHotelOrderRequest> request) {
@@ -4175,7 +4756,12 @@ SyncDeviceStatusWithAkResponse Alibabacloud_AliGenieip10::Client::syncDeviceStat
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SyncDeviceStatusWithAkResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SyncDeviceStatusWithAkResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SyncDeviceStatusWithAkResponse(execute(params, req, runtime));
+  }
 }
 
 SyncDeviceStatusWithAkResponse Alibabacloud_AliGenieip10::Client::syncDeviceStatusWithAk(shared_ptr<SyncDeviceStatusWithAkRequest> request) {
@@ -4248,7 +4834,12 @@ UpdateBasicInfoQAResponse Alibabacloud_AliGenieip10::Client::updateBasicInfoQAWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateBasicInfoQAResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateBasicInfoQAResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateBasicInfoQAResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateBasicInfoQAResponse Alibabacloud_AliGenieip10::Client::updateBasicInfoQA(shared_ptr<UpdateBasicInfoQARequest> request) {
@@ -4314,7 +4905,12 @@ UpdateCustomQAResponse Alibabacloud_AliGenieip10::Client::updateCustomQAWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateCustomQAResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateCustomQAResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateCustomQAResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateCustomQAResponse Alibabacloud_AliGenieip10::Client::updateCustomQA(shared_ptr<UpdateCustomQARequest> request) {
@@ -4389,7 +4985,12 @@ UpdateHotelResponse Alibabacloud_AliGenieip10::Client::updateHotelWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateHotelResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateHotelResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateHotelResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateHotelResponse Alibabacloud_AliGenieip10::Client::updateHotel(shared_ptr<UpdateHotelRequest> request) {
@@ -4443,7 +5044,12 @@ UpdateHotelAlarmResponse Alibabacloud_AliGenieip10::Client::updateHotelAlarmWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateHotelAlarmResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateHotelAlarmResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateHotelAlarmResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateHotelAlarmResponse Alibabacloud_AliGenieip10::Client::updateHotelAlarm(shared_ptr<UpdateHotelAlarmRequest> request) {
@@ -4493,7 +5099,12 @@ UpdateHotelSceneBookItemResponse Alibabacloud_AliGenieip10::Client::updateHotelS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateHotelSceneBookItemResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateHotelSceneBookItemResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateHotelSceneBookItemResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateHotelSceneBookItemResponse Alibabacloud_AliGenieip10::Client::updateHotelSceneBookItem(shared_ptr<UpdateHotelSceneBookItemRequest> request) {
@@ -4549,7 +5160,12 @@ UpdateHotelSceneItemResponse Alibabacloud_AliGenieip10::Client::updateHotelScene
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateHotelSceneItemResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateHotelSceneItemResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateHotelSceneItemResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateHotelSceneItemResponse Alibabacloud_AliGenieip10::Client::updateHotelSceneItem(shared_ptr<UpdateHotelSceneItemRequest> request) {
@@ -4595,7 +5211,12 @@ UpdateMessageTemplateResponse Alibabacloud_AliGenieip10::Client::updateMessageTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateMessageTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateMessageTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateMessageTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateMessageTemplateResponse Alibabacloud_AliGenieip10::Client::updateMessageTemplate(shared_ptr<UpdateMessageTemplateRequest> request) {
@@ -4646,7 +5267,12 @@ UpdateRcuSceneResponse Alibabacloud_AliGenieip10::Client::updateRcuSceneWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateRcuSceneResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateRcuSceneResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateRcuSceneResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateRcuSceneResponse Alibabacloud_AliGenieip10::Client::updateRcuScene(shared_ptr<UpdateRcuSceneRequest> request) {
@@ -4695,7 +5321,12 @@ UpdateServiceQAResponse Alibabacloud_AliGenieip10::Client::updateServiceQAWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateServiceQAResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateServiceQAResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateServiceQAResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateServiceQAResponse Alibabacloud_AliGenieip10::Client::updateServiceQA(shared_ptr<UpdateServiceQARequest> request) {
@@ -4741,7 +5372,12 @@ UpdateTicketResponse Alibabacloud_AliGenieip10::Client::updateTicketWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateTicketResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateTicketResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateTicketResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateTicketResponse Alibabacloud_AliGenieip10::Client::updateTicket(shared_ptr<UpdateTicketRequest> request) {

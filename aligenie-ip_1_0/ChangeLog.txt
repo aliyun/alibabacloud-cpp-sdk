@@ -1,3 +1,19 @@
+2025-03-27 Version: 1.0.12
+- Update API ListHotelOrder: add response parameters Body.Result.$.Amt.
+- Update API ListHotelOrder: add response parameters Body.Result.$.DeliveryMethod.
+- Update API ListHotelOrder: add response parameters Body.Result.$.DeliveryRoomName.
+- Update API ListHotelOrder: add response parameters Body.Result.$.DeliveryTime.
+- Update API ListHotelOrder: add response parameters Body.Result.$.Icon.
+- Update API ListHotelOrder: add response parameters Body.Result.$.ItemId.
+- Update API ListHotelOrder: add response parameters Body.Result.$.ItemType.
+- Update API ListHotelOrder: add response parameters Body.Result.$.Name.
+- Update API ListHotelOrder: add response parameters Body.Result.$.OrderStatus.
+- Update API ListHotelOrder: add response parameters Body.Result.$.PaymentMethod.
+- Update API ListHotelOrder: add response parameters Body.Result.$.StartTime.
+- Update API ListHotelOrder: add response parameters Body.Result.$.SumAmt.
+- Update API SubmitHotelOrder: add request parameters Payload.ItemList.$.Remark.
+
+
 2024-02-29 Version: 1.0.11
 - Generated cpp ip_1.0 for AliGenie.
 

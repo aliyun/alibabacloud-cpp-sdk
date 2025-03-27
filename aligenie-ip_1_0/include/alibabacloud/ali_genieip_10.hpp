@@ -6587,6 +6587,206 @@ public:
 
   virtual ~DeviceControlResponse() = default;
 };
+class ExecuteSceneHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  ExecuteSceneHeaders() {}
+
+  explicit ExecuteSceneHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~ExecuteSceneHeaders() = default;
+};
+class ExecuteSceneRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> hotelId{};
+  shared_ptr<string> roomNo{};
+  shared_ptr<string> sceneName{};
+
+  ExecuteSceneRequest() {}
+
+  explicit ExecuteSceneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelId) {
+      res["HotelId"] = boost::any(*hotelId);
+    }
+    if (roomNo) {
+      res["RoomNo"] = boost::any(*roomNo);
+    }
+    if (sceneName) {
+      res["SceneName"] = boost::any(*sceneName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HotelId") != m.end() && !m["HotelId"].empty()) {
+      hotelId = make_shared<string>(boost::any_cast<string>(m["HotelId"]));
+    }
+    if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
+      roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
+    }
+    if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
+      sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+  }
+
+
+  virtual ~ExecuteSceneRequest() = default;
+};
+class ExecuteSceneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+  shared_ptr<long> statusCode{};
+
+  ExecuteSceneResponseBody() {}
+
+  explicit ExecuteSceneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
+    }
+  }
+
+
+  virtual ~ExecuteSceneResponseBody() = default;
+};
+class ExecuteSceneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteSceneResponseBody> body{};
+
+  ExecuteSceneResponse() {}
+
+  explicit ExecuteSceneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteSceneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteSceneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteSceneResponse() = default;
+};
 class GetBasicInfoQAHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -14359,6 +14559,7 @@ class InvokeRobotPushRequest : public Darabonba::Model {
 public:
   shared_ptr<string> hotelId{};
   shared_ptr<string> pushType{};
+  shared_ptr<string> roomName{};
   shared_ptr<string> roomNo{};
 
   InvokeRobotPushRequest() {}
@@ -14377,6 +14578,9 @@ public:
     if (pushType) {
       res["PushType"] = boost::any(*pushType);
     }
+    if (roomName) {
+      res["RoomName"] = boost::any(*roomName);
+    }
     if (roomNo) {
       res["RoomNo"] = boost::any(*roomNo);
     }
@@ -14389,6 +14593,9 @@ public:
     }
     if (m.find("PushType") != m.end() && !m["PushType"].empty()) {
       pushType = make_shared<string>(boost::any_cast<string>(m["PushType"]));
+    }
+    if (m.find("RoomName") != m.end() && !m["RoomName"].empty()) {
+      roomName = make_shared<string>(boost::any_cast<string>(m["RoomName"]));
     }
     if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
       roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
@@ -17193,12 +17400,24 @@ public:
 };
 class ListHotelOrderResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<long> amt{};
   shared_ptr<long> applyAmt{};
+  shared_ptr<string> deliveryMethod{};
+  shared_ptr<string> deliveryRoomName{};
+  shared_ptr<long> deliveryTime{};
   shared_ptr<long> gmtCreate{};
+  shared_ptr<string> icon{};
+  shared_ptr<long> itemId{};
+  shared_ptr<string> itemType{};
+  shared_ptr<string> name{};
   shared_ptr<string> orderNo{};
+  shared_ptr<string> orderStatus{};
+  shared_ptr<string> paymentMethod{};
   shared_ptr<long> quantity{};
   shared_ptr<string> roomNo{};
+  shared_ptr<long> startTime{};
   shared_ptr<string> status{};
+  shared_ptr<long> sumAmt{};
   shared_ptr<string> type{};
   shared_ptr<string> typeIconUrl{};
   shared_ptr<string> typeName_{};
@@ -17213,14 +17432,44 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (amt) {
+      res["Amt"] = boost::any(*amt);
+    }
     if (applyAmt) {
       res["ApplyAmt"] = boost::any(*applyAmt);
+    }
+    if (deliveryMethod) {
+      res["DeliveryMethod"] = boost::any(*deliveryMethod);
+    }
+    if (deliveryRoomName) {
+      res["DeliveryRoomName"] = boost::any(*deliveryRoomName);
+    }
+    if (deliveryTime) {
+      res["DeliveryTime"] = boost::any(*deliveryTime);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
+    if (icon) {
+      res["Icon"] = boost::any(*icon);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (itemType) {
+      res["ItemType"] = boost::any(*itemType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (orderNo) {
       res["OrderNo"] = boost::any(*orderNo);
+    }
+    if (orderStatus) {
+      res["OrderStatus"] = boost::any(*orderStatus);
+    }
+    if (paymentMethod) {
+      res["PaymentMethod"] = boost::any(*paymentMethod);
     }
     if (quantity) {
       res["Quantity"] = boost::any(*quantity);
@@ -17228,8 +17477,14 @@ public:
     if (roomNo) {
       res["RoomNo"] = boost::any(*roomNo);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (sumAmt) {
+      res["SumAmt"] = boost::any(*sumAmt);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -17244,14 +17499,44 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amt") != m.end() && !m["Amt"].empty()) {
+      amt = make_shared<long>(boost::any_cast<long>(m["Amt"]));
+    }
     if (m.find("ApplyAmt") != m.end() && !m["ApplyAmt"].empty()) {
       applyAmt = make_shared<long>(boost::any_cast<long>(m["ApplyAmt"]));
+    }
+    if (m.find("DeliveryMethod") != m.end() && !m["DeliveryMethod"].empty()) {
+      deliveryMethod = make_shared<string>(boost::any_cast<string>(m["DeliveryMethod"]));
+    }
+    if (m.find("DeliveryRoomName") != m.end() && !m["DeliveryRoomName"].empty()) {
+      deliveryRoomName = make_shared<string>(boost::any_cast<string>(m["DeliveryRoomName"]));
+    }
+    if (m.find("DeliveryTime") != m.end() && !m["DeliveryTime"].empty()) {
+      deliveryTime = make_shared<long>(boost::any_cast<long>(m["DeliveryTime"]));
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
     }
+    if (m.find("Icon") != m.end() && !m["Icon"].empty()) {
+      icon = make_shared<string>(boost::any_cast<string>(m["Icon"]));
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<long>(boost::any_cast<long>(m["ItemId"]));
+    }
+    if (m.find("ItemType") != m.end() && !m["ItemType"].empty()) {
+      itemType = make_shared<string>(boost::any_cast<string>(m["ItemType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("OrderNo") != m.end() && !m["OrderNo"].empty()) {
       orderNo = make_shared<string>(boost::any_cast<string>(m["OrderNo"]));
+    }
+    if (m.find("OrderStatus") != m.end() && !m["OrderStatus"].empty()) {
+      orderStatus = make_shared<string>(boost::any_cast<string>(m["OrderStatus"]));
+    }
+    if (m.find("PaymentMethod") != m.end() && !m["PaymentMethod"].empty()) {
+      paymentMethod = make_shared<string>(boost::any_cast<string>(m["PaymentMethod"]));
     }
     if (m.find("Quantity") != m.end() && !m["Quantity"].empty()) {
       quantity = make_shared<long>(boost::any_cast<long>(m["Quantity"]));
@@ -17259,8 +17544,14 @@ public:
     if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
       roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
     }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SumAmt") != m.end() && !m["SumAmt"].empty()) {
+      sumAmt = make_shared<long>(boost::any_cast<long>(m["SumAmt"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -23246,6 +23537,7 @@ public:
 class PushWelcomeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> hotelId{};
+  shared_ptr<string> roomName{};
   shared_ptr<string> roomNo{};
   shared_ptr<string> welcomeMusicUrl{};
   shared_ptr<string> welcomeText{};
@@ -23263,6 +23555,9 @@ public:
     if (hotelId) {
       res["HotelId"] = boost::any(*hotelId);
     }
+    if (roomName) {
+      res["RoomName"] = boost::any(*roomName);
+    }
     if (roomNo) {
       res["RoomNo"] = boost::any(*roomNo);
     }
@@ -23278,6 +23573,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("HotelId") != m.end() && !m["HotelId"].empty()) {
       hotelId = make_shared<string>(boost::any_cast<string>(m["HotelId"]));
+    }
+    if (m.find("RoomName") != m.end() && !m["RoomName"].empty()) {
+      roomName = make_shared<string>(boost::any_cast<string>(m["RoomName"]));
     }
     if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
       roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
@@ -23446,6 +23744,7 @@ public:
 class PushWelcomeTextAndMusicRequest : public Darabonba::Model {
 public:
   shared_ptr<string> hotelId{};
+  shared_ptr<string> roomName{};
   shared_ptr<string> roomNo{};
   shared_ptr<map<string, string>> templateVariable{};
 
@@ -23462,6 +23761,9 @@ public:
     if (hotelId) {
       res["HotelId"] = boost::any(*hotelId);
     }
+    if (roomName) {
+      res["RoomName"] = boost::any(*roomName);
+    }
     if (roomNo) {
       res["RoomNo"] = boost::any(*roomNo);
     }
@@ -23474,6 +23776,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("HotelId") != m.end() && !m["HotelId"].empty()) {
       hotelId = make_shared<string>(boost::any_cast<string>(m["HotelId"]));
+    }
+    if (m.find("RoomName") != m.end() && !m["RoomName"].empty()) {
+      roomName = make_shared<string>(boost::any_cast<string>(m["RoomName"]));
     }
     if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
       roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
@@ -23494,6 +23799,7 @@ public:
 class PushWelcomeTextAndMusicShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> hotelId{};
+  shared_ptr<string> roomName{};
   shared_ptr<string> roomNo{};
   shared_ptr<string> templateVariableShrink{};
 
@@ -23510,6 +23816,9 @@ public:
     if (hotelId) {
       res["HotelId"] = boost::any(*hotelId);
     }
+    if (roomName) {
+      res["RoomName"] = boost::any(*roomName);
+    }
     if (roomNo) {
       res["RoomNo"] = boost::any(*roomNo);
     }
@@ -23522,6 +23831,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("HotelId") != m.end() && !m["HotelId"].empty()) {
       hotelId = make_shared<string>(boost::any_cast<string>(m["HotelId"]));
+    }
+    if (m.find("RoomName") != m.end() && !m["RoomName"].empty()) {
+      roomName = make_shared<string>(boost::any_cast<string>(m["RoomName"]));
     }
     if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
       roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
@@ -25232,6 +25544,928 @@ public:
 
   virtual ~QueryRoomControlDevicesResponse() = default;
 };
+class QueryRoomControlDevicesAndStatusHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  QueryRoomControlDevicesAndStatusHeaders() {}
+
+  explicit QueryRoomControlDevicesAndStatusHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~QueryRoomControlDevicesAndStatusHeaders() = default;
+};
+class QueryRoomControlDevicesAndStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> hotelId{};
+  shared_ptr<string> roomNo{};
+
+  QueryRoomControlDevicesAndStatusRequest() {}
+
+  explicit QueryRoomControlDevicesAndStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelId) {
+      res["HotelId"] = boost::any(*hotelId);
+    }
+    if (roomNo) {
+      res["RoomNo"] = boost::any(*roomNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HotelId") != m.end() && !m["HotelId"].empty()) {
+      hotelId = make_shared<string>(boost::any_cast<string>(m["HotelId"]));
+    }
+    if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
+      roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
+    }
+  }
+
+
+  virtual ~QueryRoomControlDevicesAndStatusRequest() = default;
+};
+class QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExtSwitchList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> aliasList{};
+  shared_ptr<string> category{};
+  shared_ptr<long> deviceIndex{};
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> deviceStatus{};
+  shared_ptr<string> elementCode{};
+  shared_ptr<string> location{};
+  shared_ptr<map<string, string>> status{};
+  shared_ptr<vector<string>> tags{};
+
+  QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExtSwitchList() {}
+
+  explicit QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExtSwitchList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasList) {
+      res["AliasList"] = boost::any(*aliasList);
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (deviceIndex) {
+      res["DeviceIndex"] = boost::any(*deviceIndex);
+    }
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (deviceStatus) {
+      res["DeviceStatus"] = boost::any(*deviceStatus);
+    }
+    if (elementCode) {
+      res["ElementCode"] = boost::any(*elementCode);
+    }
+    if (location) {
+      res["Location"] = boost::any(*location);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliasList") != m.end() && !m["AliasList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AliasList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AliasList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aliasList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("DeviceIndex") != m.end() && !m["DeviceIndex"].empty()) {
+      deviceIndex = make_shared<long>(boost::any_cast<long>(m["DeviceIndex"]));
+    }
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("DeviceStatus") != m.end() && !m["DeviceStatus"].empty()) {
+      deviceStatus = make_shared<string>(boost::any_cast<string>(m["DeviceStatus"]));
+    }
+    if (m.find("ElementCode") != m.end() && !m["ElementCode"].empty()) {
+      elementCode = make_shared<string>(boost::any_cast<string>(m["ElementCode"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["Location"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Status"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      status = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tags = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExtSwitchList() = default;
+};
+class QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExt : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExtSwitchList>> switchList{};
+
+  QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExt() {}
+
+  explicit QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExt(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (switchList) {
+      vector<boost::any> temp1;
+      for(auto item1:*switchList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SwitchList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SwitchList") != m.end() && !m["SwitchList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SwitchList"].type()) {
+        vector<QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExtSwitchList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SwitchList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExtSwitchList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        switchList = make_shared<vector<QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExtSwitchList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExt() = default;
+};
+class QueryRoomControlDevicesAndStatusResponseBodyResultDevices : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> aliasList{};
+  shared_ptr<string> brand{};
+  shared_ptr<string> city{};
+  shared_ptr<string> connectType{};
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> deviceStatus{};
+  shared_ptr<string> dn{};
+  shared_ptr<string> infraredId{};
+  shared_ptr<string> infraredIndex{};
+  shared_ptr<string> infraredVersion{};
+  shared_ptr<QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExt> multiKeySwitchExt{};
+  shared_ptr<string> name{};
+  shared_ptr<string> number{};
+  shared_ptr<string> pk{};
+  shared_ptr<string> province{};
+  shared_ptr<string> serviceProvider{};
+  shared_ptr<map<string, string>> status{};
+
+  QueryRoomControlDevicesAndStatusResponseBodyResultDevices() {}
+
+  explicit QueryRoomControlDevicesAndStatusResponseBodyResultDevices(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasList) {
+      res["AliasList"] = boost::any(*aliasList);
+    }
+    if (brand) {
+      res["Brand"] = boost::any(*brand);
+    }
+    if (city) {
+      res["City"] = boost::any(*city);
+    }
+    if (connectType) {
+      res["ConnectType"] = boost::any(*connectType);
+    }
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (deviceStatus) {
+      res["DeviceStatus"] = boost::any(*deviceStatus);
+    }
+    if (dn) {
+      res["Dn"] = boost::any(*dn);
+    }
+    if (infraredId) {
+      res["InfraredId"] = boost::any(*infraredId);
+    }
+    if (infraredIndex) {
+      res["InfraredIndex"] = boost::any(*infraredIndex);
+    }
+    if (infraredVersion) {
+      res["InfraredVersion"] = boost::any(*infraredVersion);
+    }
+    if (multiKeySwitchExt) {
+      res["MultiKeySwitchExt"] = multiKeySwitchExt ? boost::any(multiKeySwitchExt->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (number) {
+      res["Number"] = boost::any(*number);
+    }
+    if (pk) {
+      res["Pk"] = boost::any(*pk);
+    }
+    if (province) {
+      res["Province"] = boost::any(*province);
+    }
+    if (serviceProvider) {
+      res["ServiceProvider"] = boost::any(*serviceProvider);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliasList") != m.end() && !m["AliasList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AliasList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AliasList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aliasList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Brand") != m.end() && !m["Brand"].empty()) {
+      brand = make_shared<string>(boost::any_cast<string>(m["Brand"]));
+    }
+    if (m.find("City") != m.end() && !m["City"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["City"]));
+    }
+    if (m.find("ConnectType") != m.end() && !m["ConnectType"].empty()) {
+      connectType = make_shared<string>(boost::any_cast<string>(m["ConnectType"]));
+    }
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("DeviceStatus") != m.end() && !m["DeviceStatus"].empty()) {
+      deviceStatus = make_shared<string>(boost::any_cast<string>(m["DeviceStatus"]));
+    }
+    if (m.find("Dn") != m.end() && !m["Dn"].empty()) {
+      dn = make_shared<string>(boost::any_cast<string>(m["Dn"]));
+    }
+    if (m.find("InfraredId") != m.end() && !m["InfraredId"].empty()) {
+      infraredId = make_shared<string>(boost::any_cast<string>(m["InfraredId"]));
+    }
+    if (m.find("InfraredIndex") != m.end() && !m["InfraredIndex"].empty()) {
+      infraredIndex = make_shared<string>(boost::any_cast<string>(m["InfraredIndex"]));
+    }
+    if (m.find("InfraredVersion") != m.end() && !m["InfraredVersion"].empty()) {
+      infraredVersion = make_shared<string>(boost::any_cast<string>(m["InfraredVersion"]));
+    }
+    if (m.find("MultiKeySwitchExt") != m.end() && !m["MultiKeySwitchExt"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MultiKeySwitchExt"].type()) {
+        QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExt model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MultiKeySwitchExt"]));
+        multiKeySwitchExt = make_shared<QueryRoomControlDevicesAndStatusResponseBodyResultDevicesMultiKeySwitchExt>(model1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<string>(boost::any_cast<string>(m["Number"]));
+    }
+    if (m.find("Pk") != m.end() && !m["Pk"].empty()) {
+      pk = make_shared<string>(boost::any_cast<string>(m["Pk"]));
+    }
+    if (m.find("Province") != m.end() && !m["Province"].empty()) {
+      province = make_shared<string>(boost::any_cast<string>(m["Province"]));
+    }
+    if (m.find("ServiceProvider") != m.end() && !m["ServiceProvider"].empty()) {
+      serviceProvider = make_shared<string>(boost::any_cast<string>(m["ServiceProvider"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Status"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      status = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~QueryRoomControlDevicesAndStatusResponseBodyResultDevices() = default;
+};
+class QueryRoomControlDevicesAndStatusResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryRoomControlDevicesAndStatusResponseBodyResultDevices>> devices{};
+  shared_ptr<string> location{};
+  shared_ptr<string> locationName{};
+  shared_ptr<string> roomNo{};
+
+  QueryRoomControlDevicesAndStatusResponseBodyResult() {}
+
+  explicit QueryRoomControlDevicesAndStatusResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (devices) {
+      vector<boost::any> temp1;
+      for(auto item1:*devices){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Devices"] = boost::any(temp1);
+    }
+    if (location) {
+      res["Location"] = boost::any(*location);
+    }
+    if (locationName) {
+      res["LocationName"] = boost::any(*locationName);
+    }
+    if (roomNo) {
+      res["RoomNo"] = boost::any(*roomNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Devices") != m.end() && !m["Devices"].empty()) {
+      if (typeid(vector<boost::any>) == m["Devices"].type()) {
+        vector<QueryRoomControlDevicesAndStatusResponseBodyResultDevices> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Devices"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryRoomControlDevicesAndStatusResponseBodyResultDevices model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        devices = make_shared<vector<QueryRoomControlDevicesAndStatusResponseBodyResultDevices>>(expect1);
+      }
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["Location"]));
+    }
+    if (m.find("LocationName") != m.end() && !m["LocationName"].empty()) {
+      locationName = make_shared<string>(boost::any_cast<string>(m["LocationName"]));
+    }
+    if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
+      roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
+    }
+  }
+
+
+  virtual ~QueryRoomControlDevicesAndStatusResponseBodyResult() = default;
+};
+class QueryRoomControlDevicesAndStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<QueryRoomControlDevicesAndStatusResponseBodyResult>> result{};
+  shared_ptr<long> statusCode{};
+
+  QueryRoomControlDevicesAndStatusResponseBody() {}
+
+  explicit QueryRoomControlDevicesAndStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<QueryRoomControlDevicesAndStatusResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryRoomControlDevicesAndStatusResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<QueryRoomControlDevicesAndStatusResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
+    }
+  }
+
+
+  virtual ~QueryRoomControlDevicesAndStatusResponseBody() = default;
+};
+class QueryRoomControlDevicesAndStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryRoomControlDevicesAndStatusResponseBody> body{};
+
+  QueryRoomControlDevicesAndStatusResponse() {}
+
+  explicit QueryRoomControlDevicesAndStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryRoomControlDevicesAndStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryRoomControlDevicesAndStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRoomControlDevicesAndStatusResponse() = default;
+};
+class QueryRoomStatusHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  QueryRoomStatusHeaders() {}
+
+  explicit QueryRoomStatusHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~QueryRoomStatusHeaders() = default;
+};
+class QueryRoomStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> hotelId{};
+  shared_ptr<string> roomNo{};
+
+  QueryRoomStatusRequest() {}
+
+  explicit QueryRoomStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelId) {
+      res["HotelId"] = boost::any(*hotelId);
+    }
+    if (roomNo) {
+      res["RoomNo"] = boost::any(*roomNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HotelId") != m.end() && !m["HotelId"].empty()) {
+      hotelId = make_shared<string>(boost::any_cast<string>(m["HotelId"]));
+    }
+    if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
+      roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
+    }
+  }
+
+
+  virtual ~QueryRoomStatusRequest() = default;
+};
+class QueryRoomStatusResponseBodyResultSceneList : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneName{};
+
+  QueryRoomStatusResponseBodyResultSceneList() {}
+
+  explicit QueryRoomStatusResponseBodyResultSceneList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneName) {
+      res["SceneName"] = boost::any(*sceneName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
+      sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+  }
+
+
+  virtual ~QueryRoomStatusResponseBodyResultSceneList() = default;
+};
+class QueryRoomStatusResponseBodyResultStatusList : public Darabonba::Model {
+public:
+  shared_ptr<string> statusName{};
+  shared_ptr<string> statusValue{};
+  shared_ptr<string> updateTime{};
+
+  QueryRoomStatusResponseBodyResultStatusList() {}
+
+  explicit QueryRoomStatusResponseBodyResultStatusList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (statusName) {
+      res["StatusName"] = boost::any(*statusName);
+    }
+    if (statusValue) {
+      res["StatusValue"] = boost::any(*statusValue);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StatusName") != m.end() && !m["StatusName"].empty()) {
+      statusName = make_shared<string>(boost::any_cast<string>(m["StatusName"]));
+    }
+    if (m.find("StatusValue") != m.end() && !m["StatusValue"].empty()) {
+      statusValue = make_shared<string>(boost::any_cast<string>(m["StatusValue"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~QueryRoomStatusResponseBodyResultStatusList() = default;
+};
+class QueryRoomStatusResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> hotelId{};
+  shared_ptr<string> roomNo{};
+  shared_ptr<vector<QueryRoomStatusResponseBodyResultSceneList>> sceneList{};
+  shared_ptr<vector<QueryRoomStatusResponseBodyResultStatusList>> statusList{};
+
+  QueryRoomStatusResponseBodyResult() {}
+
+  explicit QueryRoomStatusResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelId) {
+      res["HotelId"] = boost::any(*hotelId);
+    }
+    if (roomNo) {
+      res["RoomNo"] = boost::any(*roomNo);
+    }
+    if (sceneList) {
+      vector<boost::any> temp1;
+      for(auto item1:*sceneList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SceneList"] = boost::any(temp1);
+    }
+    if (statusList) {
+      vector<boost::any> temp1;
+      for(auto item1:*statusList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StatusList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HotelId") != m.end() && !m["HotelId"].empty()) {
+      hotelId = make_shared<string>(boost::any_cast<string>(m["HotelId"]));
+    }
+    if (m.find("RoomNo") != m.end() && !m["RoomNo"].empty()) {
+      roomNo = make_shared<string>(boost::any_cast<string>(m["RoomNo"]));
+    }
+    if (m.find("SceneList") != m.end() && !m["SceneList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SceneList"].type()) {
+        vector<QueryRoomStatusResponseBodyResultSceneList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SceneList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryRoomStatusResponseBodyResultSceneList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sceneList = make_shared<vector<QueryRoomStatusResponseBodyResultSceneList>>(expect1);
+      }
+    }
+    if (m.find("StatusList") != m.end() && !m["StatusList"].empty()) {
+      if (typeid(vector<boost::any>) == m["StatusList"].type()) {
+        vector<QueryRoomStatusResponseBodyResultStatusList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StatusList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryRoomStatusResponseBodyResultStatusList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        statusList = make_shared<vector<QueryRoomStatusResponseBodyResultStatusList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRoomStatusResponseBodyResult() = default;
+};
+class QueryRoomStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<QueryRoomStatusResponseBodyResult> result{};
+  shared_ptr<long> statusCode{};
+
+  QueryRoomStatusResponseBody() {}
+
+  explicit QueryRoomStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        QueryRoomStatusResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<QueryRoomStatusResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
+    }
+  }
+
+
+  virtual ~QueryRoomStatusResponseBody() = default;
+};
+class QueryRoomStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryRoomStatusResponseBody> body{};
+
+  QueryRoomStatusResponse() {}
+
+  explicit QueryRoomStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryRoomStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryRoomStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRoomStatusResponse() = default;
+};
 class QuerySceneListHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -26644,6 +27878,7 @@ class SubmitHotelOrderRequestPayloadItemList : public Darabonba::Model {
 public:
   shared_ptr<long> itemId{};
   shared_ptr<long> quantity{};
+  shared_ptr<string> remark{};
 
   SubmitHotelOrderRequestPayloadItemList() {}
 
@@ -26661,6 +27896,9 @@ public:
     if (quantity) {
       res["Quantity"] = boost::any(*quantity);
     }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
     return res;
   }
 
@@ -26670,6 +27908,9 @@ public:
     }
     if (m.find("Quantity") != m.end() && !m["Quantity"].empty()) {
       quantity = make_shared<long>(boost::any_cast<long>(m["Quantity"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
     }
   }
 
@@ -30335,6 +31576,8 @@ public:
   DeleteRcuSceneResponse deleteRcuScene(shared_ptr<DeleteRcuSceneRequest> request);
   DeviceControlResponse deviceControlWithOptions(shared_ptr<DeviceControlRequest> tmpReq, shared_ptr<DeviceControlHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeviceControlResponse deviceControl(shared_ptr<DeviceControlRequest> request);
+  ExecuteSceneResponse executeSceneWithOptions(shared_ptr<ExecuteSceneRequest> request, shared_ptr<ExecuteSceneHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteSceneResponse executeScene(shared_ptr<ExecuteSceneRequest> request);
   GetBasicInfoQAResponse getBasicInfoQAWithOptions(shared_ptr<GetBasicInfoQARequest> request, shared_ptr<GetBasicInfoQAHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetBasicInfoQAResponse getBasicInfoQA(shared_ptr<GetBasicInfoQARequest> request);
   GetCartoonResponse getCartoonWithOptions(shared_ptr<GetCartoonRequest> request, shared_ptr<GetCartoonHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -30443,6 +31686,10 @@ public:
   QueryHotelRoomDetailResponse queryHotelRoomDetail(shared_ptr<QueryHotelRoomDetailRequest> request);
   QueryRoomControlDevicesResponse queryRoomControlDevicesWithOptions(shared_ptr<QueryRoomControlDevicesRequest> request, shared_ptr<QueryRoomControlDevicesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryRoomControlDevicesResponse queryRoomControlDevices(shared_ptr<QueryRoomControlDevicesRequest> request);
+  QueryRoomControlDevicesAndStatusResponse queryRoomControlDevicesAndStatusWithOptions(shared_ptr<QueryRoomControlDevicesAndStatusRequest> request, shared_ptr<QueryRoomControlDevicesAndStatusHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryRoomControlDevicesAndStatusResponse queryRoomControlDevicesAndStatus(shared_ptr<QueryRoomControlDevicesAndStatusRequest> request);
+  QueryRoomStatusResponse queryRoomStatusWithOptions(shared_ptr<QueryRoomStatusRequest> request, shared_ptr<QueryRoomStatusHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryRoomStatusResponse queryRoomStatus(shared_ptr<QueryRoomStatusRequest> request);
   QuerySceneListResponse querySceneListWithOptions(shared_ptr<QuerySceneListRequest> tmpReq, shared_ptr<QuerySceneListHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySceneListResponse querySceneList(shared_ptr<QuerySceneListRequest> request);
   RemoveChildAccountAuthResponse removeChildAccountAuthWithOptions(shared_ptr<RemoveChildAccountAuthRequest> request, shared_ptr<RemoveChildAccountAuthHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
