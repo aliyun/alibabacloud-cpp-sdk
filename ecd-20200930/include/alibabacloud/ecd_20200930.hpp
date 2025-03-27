@@ -8023,6 +8023,7 @@ public:
   shared_ptr<string> cronExpression{};
   shared_ptr<bool> enforce{};
   shared_ptr<long> interval{};
+  shared_ptr<long> notificationTime{};
   shared_ptr<string> operationType{};
   shared_ptr<vector<string>> processWhitelist{};
   shared_ptr<string> resetType{};
@@ -8050,6 +8051,9 @@ public:
     }
     if (interval) {
       res["Interval"] = boost::any(*interval);
+    }
+    if (notificationTime) {
+      res["NotificationTime"] = boost::any(*notificationTime);
     }
     if (operationType) {
       res["OperationType"] = boost::any(*operationType);
@@ -8081,6 +8085,9 @@ public:
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("NotificationTime") != m.end() && !m["NotificationTime"].empty()) {
+      notificationTime = make_shared<long>(boost::any_cast<long>(m["NotificationTime"]));
     }
     if (m.find("OperationType") != m.end() && !m["OperationType"].empty()) {
       operationType = make_shared<string>(boost::any_cast<string>(m["OperationType"]));
@@ -35284,6 +35291,7 @@ public:
   shared_ptr<string> cronExpression{};
   shared_ptr<bool> enforce{};
   shared_ptr<long> interval{};
+  shared_ptr<long> notificationTime{};
   shared_ptr<string> operationType{};
   shared_ptr<vector<string>> processWhitelist{};
   shared_ptr<string> resetType{};
@@ -35311,6 +35319,9 @@ public:
     }
     if (interval) {
       res["Interval"] = boost::any(*interval);
+    }
+    if (notificationTime) {
+      res["NotificationTime"] = boost::any(*notificationTime);
     }
     if (operationType) {
       res["OperationType"] = boost::any(*operationType);
@@ -35342,6 +35353,9 @@ public:
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("NotificationTime") != m.end() && !m["NotificationTime"].empty()) {
+      notificationTime = make_shared<long>(boost::any_cast<long>(m["NotificationTime"]));
     }
     if (m.find("OperationType") != m.end() && !m["OperationType"].empty()) {
       operationType = make_shared<string>(boost::any_cast<string>(m["OperationType"]));
@@ -51617,6 +51631,7 @@ public:
   shared_ptr<string> cronExpression{};
   shared_ptr<bool> enforce{};
   shared_ptr<long> interval{};
+  shared_ptr<long> notificationTime{};
   shared_ptr<string> operationType{};
   shared_ptr<vector<string>> processWhitelist{};
   shared_ptr<string> resetType{};
@@ -51644,6 +51659,9 @@ public:
     }
     if (interval) {
       res["Interval"] = boost::any(*interval);
+    }
+    if (notificationTime) {
+      res["NotificationTime"] = boost::any(*notificationTime);
     }
     if (operationType) {
       res["OperationType"] = boost::any(*operationType);
@@ -51675,6 +51693,9 @@ public:
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("NotificationTime") != m.end() && !m["NotificationTime"].empty()) {
+      notificationTime = make_shared<long>(boost::any_cast<long>(m["NotificationTime"]));
     }
     if (m.find("OperationType") != m.end() && !m["OperationType"].empty()) {
       operationType = make_shared<string>(boost::any_cast<string>(m["OperationType"]));
