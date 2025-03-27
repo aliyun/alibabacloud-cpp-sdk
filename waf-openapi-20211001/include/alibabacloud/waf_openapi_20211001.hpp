@@ -13531,12 +13531,18 @@ public:
 };
 class DescribeDefenseRulesResponseBodyRules : public Darabonba::Model {
 public:
+  shared_ptr<string> actionExternal{};
   shared_ptr<string> config{};
   shared_ptr<string> defenseOrigin{};
   shared_ptr<string> defenseScene{};
+  shared_ptr<string> description{};
+  shared_ptr<string> detailRuleIds{};
+  shared_ptr<string> externalInfo{};
+  shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
   shared_ptr<long> ruleId{};
   shared_ptr<string> ruleName{};
+  shared_ptr<string> ruleType{};
   shared_ptr<long> status{};
   shared_ptr<long> templateId{};
 
@@ -13550,6 +13556,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (actionExternal) {
+      res["ActionExternal"] = boost::any(*actionExternal);
+    }
     if (config) {
       res["Config"] = boost::any(*config);
     }
@@ -13559,6 +13568,18 @@ public:
     if (defenseScene) {
       res["DefenseScene"] = boost::any(*defenseScene);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (detailRuleIds) {
+      res["DetailRuleIds"] = boost::any(*detailRuleIds);
+    }
+    if (externalInfo) {
+      res["ExternalInfo"] = boost::any(*externalInfo);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
@@ -13567,6 +13588,9 @@ public:
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -13578,6 +13602,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActionExternal") != m.end() && !m["ActionExternal"].empty()) {
+      actionExternal = make_shared<string>(boost::any_cast<string>(m["ActionExternal"]));
+    }
     if (m.find("Config") != m.end() && !m["Config"].empty()) {
       config = make_shared<string>(boost::any_cast<string>(m["Config"]));
     }
@@ -13587,6 +13614,18 @@ public:
     if (m.find("DefenseScene") != m.end() && !m["DefenseScene"].empty()) {
       defenseScene = make_shared<string>(boost::any_cast<string>(m["DefenseScene"]));
     }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DetailRuleIds") != m.end() && !m["DetailRuleIds"].empty()) {
+      detailRuleIds = make_shared<string>(boost::any_cast<string>(m["DetailRuleIds"]));
+    }
+    if (m.find("ExternalInfo") != m.end() && !m["ExternalInfo"].empty()) {
+      externalInfo = make_shared<string>(boost::any_cast<string>(m["ExternalInfo"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
     }
@@ -13595,6 +13634,9 @@ public:
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
