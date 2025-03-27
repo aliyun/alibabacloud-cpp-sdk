@@ -5403,6 +5403,7 @@ public:
   shared_ptr<string> destinationDataSourceType{};
   shared_ptr<string> jobName{};
   shared_ptr<CreateDIJobRequestJobSettings> jobSettings{};
+  shared_ptr<string> jobType{};
   shared_ptr<string> migrationType{};
   shared_ptr<string> name{};
   shared_ptr<long> projectId{};
@@ -5440,6 +5441,9 @@ public:
     }
     if (jobSettings) {
       res["JobSettings"] = jobSettings ? boost::any(jobSettings->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
     }
     if (migrationType) {
       res["MigrationType"] = boost::any(*migrationType);
@@ -5509,6 +5513,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["JobSettings"]));
         jobSettings = make_shared<CreateDIJobRequestJobSettings>(model1);
       }
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
     }
     if (m.find("MigrationType") != m.end() && !m["MigrationType"].empty()) {
       migrationType = make_shared<string>(boost::any_cast<string>(m["MigrationType"]));
@@ -5580,6 +5587,7 @@ public:
   shared_ptr<string> destinationDataSourceType{};
   shared_ptr<string> jobName{};
   shared_ptr<string> jobSettingsShrink{};
+  shared_ptr<string> jobType{};
   shared_ptr<string> migrationType{};
   shared_ptr<string> name{};
   shared_ptr<long> projectId{};
@@ -5613,6 +5621,9 @@ public:
     }
     if (jobSettingsShrink) {
       res["JobSettings"] = boost::any(*jobSettingsShrink);
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
     }
     if (migrationType) {
       res["MigrationType"] = boost::any(*migrationType);
@@ -5656,6 +5667,9 @@ public:
     }
     if (m.find("JobSettings") != m.end() && !m["JobSettings"].empty()) {
       jobSettingsShrink = make_shared<string>(boost::any_cast<string>(m["JobSettings"]));
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
     }
     if (m.find("MigrationType") != m.end() && !m["MigrationType"].empty()) {
       migrationType = make_shared<string>(boost::any_cast<string>(m["MigrationType"]));
@@ -16787,6 +16801,7 @@ public:
   shared_ptr<string> jobName{};
   shared_ptr<GetDIJobResponseBodyPagingInfoJobSettings> jobSettings{};
   shared_ptr<string> jobStatus{};
+  shared_ptr<string> jobType{};
   shared_ptr<string> migrationType{};
   shared_ptr<long> projectId{};
   shared_ptr<GetDIJobResponseBodyPagingInfoResourceSettings> resourceSettings{};
@@ -16832,6 +16847,9 @@ public:
     }
     if (jobStatus) {
       res["JobStatus"] = boost::any(*jobStatus);
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
     }
     if (migrationType) {
       res["MigrationType"] = boost::any(*migrationType);
@@ -16907,6 +16925,9 @@ public:
     }
     if (m.find("JobStatus") != m.end() && !m["JobStatus"].empty()) {
       jobStatus = make_shared<string>(boost::any_cast<string>(m["JobStatus"]));
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
     }
     if (m.find("MigrationType") != m.end() && !m["MigrationType"].empty()) {
       migrationType = make_shared<string>(boost::any_cast<string>(m["MigrationType"]));
