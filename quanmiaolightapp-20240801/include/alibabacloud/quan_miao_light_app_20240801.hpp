@@ -8281,6 +8281,7 @@ public:
 };
 class RunVideoAnalysisRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> excludeGenerateOptions{};
   shared_ptr<double> faceIdentitySimilarityMinScore{};
   shared_ptr<RunVideoAnalysisRequestFrameSampleMethod> frameSampleMethod{};
   shared_ptr<vector<string>> generateOptions{};
@@ -8310,6 +8311,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (excludeGenerateOptions) {
+      res["excludeGenerateOptions"] = boost::any(*excludeGenerateOptions);
+    }
     if (faceIdentitySimilarityMinScore) {
       res["faceIdentitySimilarityMinScore"] = boost::any(*faceIdentitySimilarityMinScore);
     }
@@ -8376,6 +8380,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("excludeGenerateOptions") != m.end() && !m["excludeGenerateOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["excludeGenerateOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["excludeGenerateOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeGenerateOptions = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("faceIdentitySimilarityMinScore") != m.end() && !m["faceIdentitySimilarityMinScore"].empty()) {
       faceIdentitySimilarityMinScore = make_shared<double>(boost::any_cast<double>(m["faceIdentitySimilarityMinScore"]));
     }
@@ -8468,6 +8482,7 @@ public:
 };
 class RunVideoAnalysisShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> excludeGenerateOptionsShrink{};
   shared_ptr<double> faceIdentitySimilarityMinScore{};
   shared_ptr<string> frameSampleMethodShrink{};
   shared_ptr<string> generateOptionsShrink{};
@@ -8497,6 +8512,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (excludeGenerateOptionsShrink) {
+      res["excludeGenerateOptions"] = boost::any(*excludeGenerateOptionsShrink);
+    }
     if (faceIdentitySimilarityMinScore) {
       res["faceIdentitySimilarityMinScore"] = boost::any(*faceIdentitySimilarityMinScore);
     }
@@ -8555,6 +8573,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("excludeGenerateOptions") != m.end() && !m["excludeGenerateOptions"].empty()) {
+      excludeGenerateOptionsShrink = make_shared<string>(boost::any_cast<string>(m["excludeGenerateOptions"]));
+    }
     if (m.find("faceIdentitySimilarityMinScore") != m.end() && !m["faceIdentitySimilarityMinScore"].empty()) {
       faceIdentitySimilarityMinScore = make_shared<double>(boost::any_cast<double>(m["faceIdentitySimilarityMinScore"]));
     }
@@ -10489,6 +10510,8 @@ public:
 };
 class SubmitVideoAnalysisTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> deduplicationId{};
+  shared_ptr<vector<string>> excludeGenerateOptions{};
   shared_ptr<double> faceIdentitySimilarityMinScore{};
   shared_ptr<SubmitVideoAnalysisTaskRequestFrameSampleMethod> frameSampleMethod{};
   shared_ptr<vector<string>> generateOptions{};
@@ -10516,6 +10539,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (deduplicationId) {
+      res["deduplicationId"] = boost::any(*deduplicationId);
+    }
+    if (excludeGenerateOptions) {
+      res["excludeGenerateOptions"] = boost::any(*excludeGenerateOptions);
+    }
     if (faceIdentitySimilarityMinScore) {
       res["faceIdentitySimilarityMinScore"] = boost::any(*faceIdentitySimilarityMinScore);
     }
@@ -10576,6 +10605,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("deduplicationId") != m.end() && !m["deduplicationId"].empty()) {
+      deduplicationId = make_shared<string>(boost::any_cast<string>(m["deduplicationId"]));
+    }
+    if (m.find("excludeGenerateOptions") != m.end() && !m["excludeGenerateOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["excludeGenerateOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["excludeGenerateOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeGenerateOptions = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("faceIdentitySimilarityMinScore") != m.end() && !m["faceIdentitySimilarityMinScore"].empty()) {
       faceIdentitySimilarityMinScore = make_shared<double>(boost::any_cast<double>(m["faceIdentitySimilarityMinScore"]));
     }
@@ -10662,6 +10704,8 @@ public:
 };
 class SubmitVideoAnalysisTaskShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> deduplicationId{};
+  shared_ptr<string> excludeGenerateOptionsShrink{};
   shared_ptr<double> faceIdentitySimilarityMinScore{};
   shared_ptr<string> frameSampleMethodShrink{};
   shared_ptr<string> generateOptionsShrink{};
@@ -10689,6 +10733,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (deduplicationId) {
+      res["deduplicationId"] = boost::any(*deduplicationId);
+    }
+    if (excludeGenerateOptionsShrink) {
+      res["excludeGenerateOptions"] = boost::any(*excludeGenerateOptionsShrink);
+    }
     if (faceIdentitySimilarityMinScore) {
       res["faceIdentitySimilarityMinScore"] = boost::any(*faceIdentitySimilarityMinScore);
     }
@@ -10741,6 +10791,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("deduplicationId") != m.end() && !m["deduplicationId"].empty()) {
+      deduplicationId = make_shared<string>(boost::any_cast<string>(m["deduplicationId"]));
+    }
+    if (m.find("excludeGenerateOptions") != m.end() && !m["excludeGenerateOptions"].empty()) {
+      excludeGenerateOptionsShrink = make_shared<string>(boost::any_cast<string>(m["excludeGenerateOptions"]));
+    }
     if (m.find("faceIdentitySimilarityMinScore") != m.end() && !m["faceIdentitySimilarityMinScore"].empty()) {
       faceIdentitySimilarityMinScore = make_shared<double>(boost::any_cast<double>(m["faceIdentitySimilarityMinScore"]));
     }

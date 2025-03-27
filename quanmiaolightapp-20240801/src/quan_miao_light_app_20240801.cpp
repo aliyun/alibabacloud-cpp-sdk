@@ -899,6 +899,9 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<RunVideoAnalysisShrinkRequest> request = make_shared<RunVideoAnalysisShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->excludeGenerateOptions)) {
+    request->excludeGenerateOptionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->excludeGenerateOptions, make_shared<string>("excludeGenerateOptions"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<RunVideoAnalysisRequestFrameSampleMethod>(tmpReq->frameSampleMethod)) {
     request->frameSampleMethodShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->frameSampleMethod, make_shared<string>("frameSampleMethod"), make_shared<string>("json")));
   }
@@ -912,6 +915,9 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
     request->videoRolesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoRoles, make_shared<string>("videoRoles"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeGenerateOptionsShrink)) {
+    body->insert(pair<string, string>("excludeGenerateOptions", *request->excludeGenerateOptionsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<double>(request->faceIdentitySimilarityMinScore)) {
     body->insert(pair<string, double>("faceIdentitySimilarityMinScore", *request->faceIdentitySimilarityMinScore));
   }
@@ -1069,6 +1075,9 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SubmitVideoAnalysisTaskShrinkRequest> request = make_shared<SubmitVideoAnalysisTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->excludeGenerateOptions)) {
+    request->excludeGenerateOptionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->excludeGenerateOptions, make_shared<string>("excludeGenerateOptions"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<SubmitVideoAnalysisTaskRequestFrameSampleMethod>(tmpReq->frameSampleMethod)) {
     request->frameSampleMethodShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->frameSampleMethod, make_shared<string>("frameSampleMethod"), make_shared<string>("json")));
   }
@@ -1082,6 +1091,12 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
     request->videoRolesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoRoles, make_shared<string>("videoRoles"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deduplicationId)) {
+    body->insert(pair<string, string>("deduplicationId", *request->deduplicationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeGenerateOptionsShrink)) {
+    body->insert(pair<string, string>("excludeGenerateOptions", *request->excludeGenerateOptionsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<double>(request->faceIdentitySimilarityMinScore)) {
     body->insert(pair<string, double>("faceIdentitySimilarityMinScore", *request->faceIdentitySimilarityMinScore));
   }
