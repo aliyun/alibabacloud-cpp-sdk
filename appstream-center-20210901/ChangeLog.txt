@@ -1,3 +1,9 @@
+2025-03-27 Version: 3.0.3
+- Update API AuthorizeInstanceGroup: add request parameters AppInstancePersistentId.
+- Update API CreateAppInstanceGroup: add request parameters AuthMode.
+- Update API CreateAppInstanceGroup: add request parameters RuntimePolicy.PersistentAppInstanceScheduleMode.
+
+
 2025-03-13 Version: 3.0.2
 - Generated cpp 2021-09-01 for appstream-center.
 

@@ -626,6 +626,7 @@ public:
 class AuthorizeInstanceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<string> appInstancePersistentId{};
   shared_ptr<vector<string>> authorizeUserIds{};
   shared_ptr<string> productType{};
   shared_ptr<vector<string>> unAuthorizeUserIds{};
@@ -643,6 +644,9 @@ public:
     map<string, boost::any> res;
     if (appInstanceGroupId) {
       res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
+    }
+    if (appInstancePersistentId) {
+      res["AppInstancePersistentId"] = boost::any(*appInstancePersistentId);
     }
     if (authorizeUserIds) {
       res["AuthorizeUserIds"] = boost::any(*authorizeUserIds);
@@ -662,6 +666,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
       appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
+    }
+    if (m.find("AppInstancePersistentId") != m.end() && !m["AppInstancePersistentId"].empty()) {
+      appInstancePersistentId = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentId"]));
     }
     if (m.find("AuthorizeUserIds") != m.end() && !m["AuthorizeUserIds"].empty()) {
       vector<string> toVec1;
@@ -701,6 +708,7 @@ public:
 class AuthorizeInstanceGroupShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<string> appInstancePersistentId{};
   shared_ptr<vector<string>> authorizeUserIds{};
   shared_ptr<string> productType{};
   shared_ptr<vector<string>> unAuthorizeUserIds{};
@@ -718,6 +726,9 @@ public:
     map<string, boost::any> res;
     if (appInstanceGroupId) {
       res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
+    }
+    if (appInstancePersistentId) {
+      res["AppInstancePersistentId"] = boost::any(*appInstancePersistentId);
     }
     if (authorizeUserIds) {
       res["AuthorizeUserIds"] = boost::any(*authorizeUserIds);
@@ -737,6 +748,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
       appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
+    }
+    if (m.find("AppInstancePersistentId") != m.end() && !m["AppInstancePersistentId"].empty()) {
+      appInstancePersistentId = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentId"]));
     }
     if (m.find("AuthorizeUserIds") != m.end() && !m["AuthorizeUserIds"].empty()) {
       vector<string> toVec1;
@@ -1640,6 +1654,7 @@ class CreateAppInstanceGroupRequestRuntimePolicy : public Darabonba::Model {
 public:
   shared_ptr<string> debugMode{};
   shared_ptr<bool> perSessionPerApp{};
+  shared_ptr<string> persistentAppInstanceScheduleMode{};
   shared_ptr<string> sessionPreOpen{};
   shared_ptr<string> sessionType{};
   shared_ptr<string> sessionUserGenerationMode{};
@@ -1660,6 +1675,9 @@ public:
     if (perSessionPerApp) {
       res["PerSessionPerApp"] = boost::any(*perSessionPerApp);
     }
+    if (persistentAppInstanceScheduleMode) {
+      res["PersistentAppInstanceScheduleMode"] = boost::any(*persistentAppInstanceScheduleMode);
+    }
     if (sessionPreOpen) {
       res["SessionPreOpen"] = boost::any(*sessionPreOpen);
     }
@@ -1678,6 +1696,9 @@ public:
     }
     if (m.find("PerSessionPerApp") != m.end() && !m["PerSessionPerApp"].empty()) {
       perSessionPerApp = make_shared<bool>(boost::any_cast<bool>(m["PerSessionPerApp"]));
+    }
+    if (m.find("PersistentAppInstanceScheduleMode") != m.end() && !m["PersistentAppInstanceScheduleMode"].empty()) {
+      persistentAppInstanceScheduleMode = make_shared<string>(boost::any_cast<string>(m["PersistentAppInstanceScheduleMode"]));
     }
     if (m.find("SessionPreOpen") != m.end() && !m["SessionPreOpen"].empty()) {
       sessionPreOpen = make_shared<string>(boost::any_cast<string>(m["SessionPreOpen"]));
@@ -1947,6 +1968,7 @@ public:
   shared_ptr<string> appInstanceGroupName{};
   shared_ptr<string> appPackageType{};
   shared_ptr<string> appPolicyId{};
+  shared_ptr<string> authMode{};
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> bizRegionId{};
@@ -1991,6 +2013,9 @@ public:
     }
     if (appPolicyId) {
       res["AppPolicyId"] = boost::any(*appPolicyId);
+    }
+    if (authMode) {
+      res["AuthMode"] = boost::any(*authMode);
     }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
@@ -2073,6 +2098,9 @@ public:
     }
     if (m.find("AppPolicyId") != m.end() && !m["AppPolicyId"].empty()) {
       appPolicyId = make_shared<string>(boost::any_cast<string>(m["AppPolicyId"]));
+    }
+    if (m.find("AuthMode") != m.end() && !m["AuthMode"].empty()) {
+      authMode = make_shared<string>(boost::any_cast<string>(m["AuthMode"]));
     }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
@@ -2190,6 +2218,7 @@ public:
   shared_ptr<string> appInstanceGroupName{};
   shared_ptr<string> appPackageType{};
   shared_ptr<string> appPolicyId{};
+  shared_ptr<string> authMode{};
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> bizRegionId{};
@@ -2234,6 +2263,9 @@ public:
     }
     if (appPolicyId) {
       res["AppPolicyId"] = boost::any(*appPolicyId);
+    }
+    if (authMode) {
+      res["AuthMode"] = boost::any(*authMode);
     }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
@@ -2316,6 +2348,9 @@ public:
     }
     if (m.find("AppPolicyId") != m.end() && !m["AppPolicyId"].empty()) {
       appPolicyId = make_shared<string>(boost::any_cast<string>(m["AppPolicyId"]));
+    }
+    if (m.find("AuthMode") != m.end() && !m["AuthMode"].empty()) {
+      authMode = make_shared<string>(boost::any_cast<string>(m["AuthMode"]));
     }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));

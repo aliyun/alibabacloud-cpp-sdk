@@ -193,6 +193,9 @@ AuthorizeInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::au
   if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceGroupId)) {
     body->insert(pair<string, string>("AppInstanceGroupId", *request->appInstanceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appInstancePersistentId)) {
+    body->insert(pair<string, string>("AppInstancePersistentId", *request->appInstancePersistentId));
+  }
   shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->authorizeUserIds)) {
     bodyFlat->insert(pair<string, vector<string>>("AuthorizeUserIds", *request->authorizeUserIds));
@@ -389,6 +392,9 @@ CreateAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::cr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->appPolicyId)) {
     body->insert(pair<string, string>("AppPolicyId", *request->appPolicyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authMode)) {
+    body->insert(pair<string, string>("AuthMode", *request->authMode));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     body->insert(pair<string, bool>("AutoPay", *request->autoPay));
