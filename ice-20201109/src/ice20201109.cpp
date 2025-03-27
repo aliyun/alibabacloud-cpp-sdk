@@ -8016,8 +8016,12 @@ ListSmartSysAvatarModelsResponse Alibabacloud_ICE20201109::Client::listSmartSysA
   return listSmartSysAvatarModelsWithOptions(request, runtime);
 }
 
-ListSmartVoiceGroupsResponse Alibabacloud_ICE20201109::Client::listSmartVoiceGroupsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+ListSmartVoiceGroupsResponse Alibabacloud_ICE20201109::Client::listSmartVoiceGroupsWithOptions(shared_ptr<ListSmartVoiceGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListSmartVoiceGroups"))},
     {"version", boost::any(string("2020-11-09"))},
@@ -8037,9 +8041,9 @@ ListSmartVoiceGroupsResponse Alibabacloud_ICE20201109::Client::listSmartVoiceGro
   }
 }
 
-ListSmartVoiceGroupsResponse Alibabacloud_ICE20201109::Client::listSmartVoiceGroups() {
+ListSmartVoiceGroupsResponse Alibabacloud_ICE20201109::Client::listSmartVoiceGroups(shared_ptr<ListSmartVoiceGroupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listSmartVoiceGroupsWithOptions(runtime);
+  return listSmartVoiceGroupsWithOptions(request, runtime);
 }
 
 ListSnapshotJobsResponse Alibabacloud_ICE20201109::Client::listSnapshotJobsWithOptions(shared_ptr<ListSnapshotJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -58421,6 +58421,35 @@ public:
 
   virtual ~ListSmartSysAvatarModelsResponse() = default;
 };
+class ListSmartVoiceGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> voiceType{};
+
+  ListSmartVoiceGroupsRequest() {}
+
+  explicit ListSmartVoiceGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (voiceType) {
+      res["VoiceType"] = boost::any(*voiceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VoiceType") != m.end() && !m["VoiceType"].empty()) {
+      voiceType = make_shared<string>(boost::any_cast<string>(m["VoiceType"]));
+    }
+  }
+
+
+  virtual ~ListSmartVoiceGroupsRequest() = default;
+};
 class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList : public Darabonba::Model {
 public:
   shared_ptr<string> desc{};
@@ -98429,8 +98458,8 @@ public:
   ListSmartJobsResponse listSmartJobs(shared_ptr<ListSmartJobsRequest> request);
   ListSmartSysAvatarModelsResponse listSmartSysAvatarModelsWithOptions(shared_ptr<ListSmartSysAvatarModelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSmartSysAvatarModelsResponse listSmartSysAvatarModels(shared_ptr<ListSmartSysAvatarModelsRequest> request);
-  ListSmartVoiceGroupsResponse listSmartVoiceGroupsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListSmartVoiceGroupsResponse listSmartVoiceGroups();
+  ListSmartVoiceGroupsResponse listSmartVoiceGroupsWithOptions(shared_ptr<ListSmartVoiceGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSmartVoiceGroupsResponse listSmartVoiceGroups(shared_ptr<ListSmartVoiceGroupsRequest> request);
   ListSnapshotJobsResponse listSnapshotJobsWithOptions(shared_ptr<ListSnapshotJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSnapshotJobsResponse listSnapshotJobs(shared_ptr<ListSnapshotJobsRequest> request);
   ListSourceLocationsResponse listSourceLocationsWithOptions(shared_ptr<ListSourceLocationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
