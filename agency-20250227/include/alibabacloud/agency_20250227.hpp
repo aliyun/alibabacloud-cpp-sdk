@@ -1486,7 +1486,7 @@ public:
 
   virtual ~GetSubPartnerListRequest() = default;
 };
-class GetSubPartnerListResponseBodyData : public Darabonba::Model {
+class GetSubPartnerListResponseBodySubPartnerList : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
   shared_ptr<string> agreementStatus{};
@@ -1501,9 +1501,9 @@ public:
   shared_ptr<string> pid{};
   shared_ptr<string> province{};
 
-  GetSubPartnerListResponseBodyData() {}
+  GetSubPartnerListResponseBodySubPartnerList() {}
 
-  explicit GetSubPartnerListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit GetSubPartnerListResponseBodySubPartnerList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -1590,15 +1590,15 @@ public:
   }
 
 
-  virtual ~GetSubPartnerListResponseBodyData() = default;
+  virtual ~GetSubPartnerListResponseBodySubPartnerList() = default;
 };
 class GetSubPartnerListResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetSubPartnerListResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> pageNo{};
   shared_ptr<string> pageSize{};
   shared_ptr<string> requestId{};
+  shared_ptr<vector<GetSubPartnerListResponseBodySubPartnerList>> subPartnerList{};
   shared_ptr<bool> success{};
   shared_ptr<long> total{};
 
@@ -1612,9 +1612,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -1627,6 +1624,13 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (subPartnerList) {
+      vector<boost::any> temp1;
+      for(auto item1:*subPartnerList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubPartnerList"] = boost::any(temp1);
+    }
     if (success) {
       res["Success"] = boost::any(*success);
     }
@@ -1637,13 +1641,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        GetSubPartnerListResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<GetSubPartnerListResponseBodyData>(model1);
-      }
-    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
@@ -1655,6 +1652,19 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SubPartnerList") != m.end() && !m["SubPartnerList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubPartnerList"].type()) {
+        vector<GetSubPartnerListResponseBodySubPartnerList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubPartnerList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSubPartnerListResponseBodySubPartnerList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subPartnerList = make_shared<vector<GetSubPartnerListResponseBodySubPartnerList>>(expect1);
+      }
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
