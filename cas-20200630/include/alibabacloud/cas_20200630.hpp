@@ -413,6 +413,8 @@ public:
 };
 class CreateClientCertificateWithCsrResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> certKmcRep1{};
+  shared_ptr<string> certSignBufKmc{};
   shared_ptr<string> certificateChain{};
   shared_ptr<string> identifier{};
   shared_ptr<string> requestId{};
@@ -429,6 +431,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certKmcRep1) {
+      res["CertKmcRep1"] = boost::any(*certKmcRep1);
+    }
+    if (certSignBufKmc) {
+      res["CertSignBufKmc"] = boost::any(*certSignBufKmc);
+    }
     if (certificateChain) {
       res["CertificateChain"] = boost::any(*certificateChain);
     }
@@ -448,6 +456,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertKmcRep1") != m.end() && !m["CertKmcRep1"].empty()) {
+      certKmcRep1 = make_shared<string>(boost::any_cast<string>(m["CertKmcRep1"]));
+    }
+    if (m.find("CertSignBufKmc") != m.end() && !m["CertSignBufKmc"].empty()) {
+      certSignBufKmc = make_shared<string>(boost::any_cast<string>(m["CertSignBufKmc"]));
+    }
     if (m.find("CertificateChain") != m.end() && !m["CertificateChain"].empty()) {
       certificateChain = make_shared<string>(boost::any_cast<string>(m["CertificateChain"]));
     }
