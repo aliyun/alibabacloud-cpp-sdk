@@ -20348,6 +20348,1007 @@ public:
 
   virtual ~DescribeMemberAccountsResponse() = default;
 };
+class DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> opValue{};
+  shared_ptr<boost::any> values{};
+
+  DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (opValue) {
+      res["OpValue"] = boost::any(*opValue);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("OpValue") != m.end() && !m["OpValue"].empty()) {
+      opValue = make_shared<string>(boost::any_cast<string>(m["OpValue"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      values = make_shared<boost::any>(boost::any_cast<boost::any>(m["Values"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions>> conditions{};
+  shared_ptr<DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange> dateRange{};
+
+  DescribeNetworkFlowTimeSeriesMetricRequestFilter() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions>>(expect1);
+      }
+    }
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricRequestFilter() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricRequest : public Darabonba::Model {
+public:
+  shared_ptr<DescribeNetworkFlowTimeSeriesMetricRequestFilter> filter{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeNetworkFlowTimeSeriesMetricRequest() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Filter"].type()) {
+        DescribeNetworkFlowTimeSeriesMetricRequestFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Filter"]));
+        filter = make_shared<DescribeNetworkFlowTimeSeriesMetricRequestFilter>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricRequest() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterShrink{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeNetworkFlowTimeSeriesMetricShrinkRequest() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricShrinkRequest() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries : public Darabonba::Model {
+public:
+  shared_ptr<string> metric{};
+  shared_ptr<vector<string>> timestamps{};
+  shared_ptr<vector<long>> values{};
+
+  DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (timestamps) {
+      res["Timestamps"] = boost::any(*timestamps);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("Timestamps") != m.end() && !m["Timestamps"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Timestamps"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Timestamps"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      timestamps = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      values = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregateInterval{};
+  shared_ptr<DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange> dateRange{};
+  shared_ptr<string> units{};
+
+  DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregateInterval) {
+      res["AggregateInterval"] = boost::any(*aggregateInterval);
+    }
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (units) {
+      res["Units"] = boost::any(*units);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregateInterval") != m.end() && !m["AggregateInterval"].empty()) {
+      aggregateInterval = make_shared<string>(boost::any_cast<string>(m["AggregateInterval"]));
+    }
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange>(model1);
+      }
+    }
+    if (m.find("Units") != m.end() && !m["Units"].empty()) {
+      units = make_shared<string>(boost::any_cast<string>(m["Units"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries>> networkFlowTimeSeries{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData> timeSeriesMetaData{};
+
+  DescribeNetworkFlowTimeSeriesMetricResponseBody() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkFlowTimeSeries) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkFlowTimeSeries){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkFlowTimeSeries"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (timeSeriesMetaData) {
+      res["TimeSeriesMetaData"] = timeSeriesMetaData ? boost::any(timeSeriesMetaData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkFlowTimeSeries") != m.end() && !m["NetworkFlowTimeSeries"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkFlowTimeSeries"].type()) {
+        vector<DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkFlowTimeSeries"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkFlowTimeSeries = make_shared<vector<DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TimeSeriesMetaData") != m.end() && !m["TimeSeriesMetaData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TimeSeriesMetaData"].type()) {
+        DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TimeSeriesMetaData"]));
+        timeSeriesMetaData = make_shared<DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricResponseBody() = default;
+};
+class DescribeNetworkFlowTimeSeriesMetricResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNetworkFlowTimeSeriesMetricResponseBody> body{};
+
+  DescribeNetworkFlowTimeSeriesMetricResponse() {}
+
+  explicit DescribeNetworkFlowTimeSeriesMetricResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNetworkFlowTimeSeriesMetricResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNetworkFlowTimeSeriesMetricResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTimeSeriesMetricResponse() = default;
+};
+class DescribeNetworkFlowTopNMetricRequestFilterConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> opValue{};
+  shared_ptr<boost::any> values{};
+
+  DescribeNetworkFlowTopNMetricRequestFilterConditions() {}
+
+  explicit DescribeNetworkFlowTopNMetricRequestFilterConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (opValue) {
+      res["OpValue"] = boost::any(*opValue);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("OpValue") != m.end() && !m["OpValue"].empty()) {
+      opValue = make_shared<string>(boost::any_cast<string>(m["OpValue"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      values = make_shared<boost::any>(boost::any_cast<boost::any>(m["Values"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricRequestFilterConditions() = default;
+};
+class DescribeNetworkFlowTopNMetricRequestFilterDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeNetworkFlowTopNMetricRequestFilterDateRange() {}
+
+  explicit DescribeNetworkFlowTopNMetricRequestFilterDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricRequestFilterDateRange() = default;
+};
+class DescribeNetworkFlowTopNMetricRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNetworkFlowTopNMetricRequestFilterConditions>> conditions{};
+  shared_ptr<DescribeNetworkFlowTopNMetricRequestFilterDateRange> dateRange{};
+
+  DescribeNetworkFlowTopNMetricRequestFilter() {}
+
+  explicit DescribeNetworkFlowTopNMetricRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeNetworkFlowTopNMetricRequestFilterConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNetworkFlowTopNMetricRequestFilterConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeNetworkFlowTopNMetricRequestFilterConditions>>(expect1);
+      }
+    }
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeNetworkFlowTopNMetricRequestFilterDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeNetworkFlowTopNMetricRequestFilterDateRange>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricRequestFilter() = default;
+};
+class DescribeNetworkFlowTopNMetricRequest : public Darabonba::Model {
+public:
+  shared_ptr<DescribeNetworkFlowTopNMetricRequestFilter> filter{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeNetworkFlowTopNMetricRequest() {}
+
+  explicit DescribeNetworkFlowTopNMetricRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Filter"].type()) {
+        DescribeNetworkFlowTopNMetricRequestFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Filter"]));
+        filter = make_shared<DescribeNetworkFlowTopNMetricRequestFilter>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricRequest() = default;
+};
+class DescribeNetworkFlowTopNMetricShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterShrink{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeNetworkFlowTopNMetricShrinkRequest() {}
+
+  explicit DescribeNetworkFlowTopNMetricShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricShrinkRequest() = default;
+};
+class DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues : public Darabonba::Model {
+public:
+  shared_ptr<string> attribute{};
+  shared_ptr<string> name{};
+  shared_ptr<long> value{};
+
+  DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues() {}
+
+  explicit DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attribute) {
+      res["Attribute"] = boost::any(*attribute);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attribute") != m.end() && !m["Attribute"].empty()) {
+      attribute = make_shared<string>(boost::any_cast<string>(m["Attribute"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues() = default;
+};
+class DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange() {}
+
+  explicit DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange() = default;
+};
+class DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange> dateRange{};
+  shared_ptr<string> units{};
+
+  DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData() {}
+
+  explicit DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (units) {
+      res["Units"] = boost::any(*units);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange>(model1);
+      }
+    }
+    if (m.find("Units") != m.end() && !m["Units"].empty()) {
+      units = make_shared<string>(boost::any_cast<string>(m["Units"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData() = default;
+};
+class DescribeNetworkFlowTopNMetricResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues>> networkFlowTopNValues{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData> topNMetaData{};
+
+  DescribeNetworkFlowTopNMetricResponseBody() {}
+
+  explicit DescribeNetworkFlowTopNMetricResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkFlowTopNValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkFlowTopNValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkFlowTopNValues"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (topNMetaData) {
+      res["TopNMetaData"] = topNMetaData ? boost::any(topNMetaData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkFlowTopNValues") != m.end() && !m["NetworkFlowTopNValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkFlowTopNValues"].type()) {
+        vector<DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkFlowTopNValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkFlowTopNValues = make_shared<vector<DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TopNMetaData") != m.end() && !m["TopNMetaData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TopNMetaData"].type()) {
+        DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TopNMetaData"]));
+        topNMetaData = make_shared<DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricResponseBody() = default;
+};
+class DescribeNetworkFlowTopNMetricResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNetworkFlowTopNMetricResponseBody> body{};
+
+  DescribeNetworkFlowTopNMetricResponse() {}
+
+  explicit DescribeNetworkFlowTopNMetricResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNetworkFlowTopNMetricResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNetworkFlowTopNMetricResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNetworkFlowTopNMetricResponse() = default;
+};
 class DescribePauseProtectionStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -23883,6 +24884,1461 @@ public:
 
 
   virtual ~DescribeRuleHitsTopUrlResponse() = default;
+};
+class DescribeSecurityEventLogsRequestFilterConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> opValue{};
+  shared_ptr<boost::any> values{};
+
+  DescribeSecurityEventLogsRequestFilterConditions() {}
+
+  explicit DescribeSecurityEventLogsRequestFilterConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (opValue) {
+      res["OpValue"] = boost::any(*opValue);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("OpValue") != m.end() && !m["OpValue"].empty()) {
+      opValue = make_shared<string>(boost::any_cast<string>(m["OpValue"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      values = make_shared<boost::any>(boost::any_cast<boost::any>(m["Values"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsRequestFilterConditions() = default;
+};
+class DescribeSecurityEventLogsRequestFilterDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeSecurityEventLogsRequestFilterDateRange() {}
+
+  explicit DescribeSecurityEventLogsRequestFilterDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsRequestFilterDateRange() = default;
+};
+class DescribeSecurityEventLogsRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeSecurityEventLogsRequestFilterConditions>> conditions{};
+  shared_ptr<DescribeSecurityEventLogsRequestFilterDateRange> dateRange{};
+
+  DescribeSecurityEventLogsRequestFilter() {}
+
+  explicit DescribeSecurityEventLogsRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeSecurityEventLogsRequestFilterConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSecurityEventLogsRequestFilterConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeSecurityEventLogsRequestFilterConditions>>(expect1);
+      }
+    }
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeSecurityEventLogsRequestFilterDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeSecurityEventLogsRequestFilterDateRange>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsRequestFilter() = default;
+};
+class DescribeSecurityEventLogsRequest : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSecurityEventLogsRequestFilter> filter{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeSecurityEventLogsRequest() {}
+
+  explicit DescribeSecurityEventLogsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Filter"].type()) {
+        DescribeSecurityEventLogsRequestFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Filter"]));
+        filter = make_shared<DescribeSecurityEventLogsRequestFilter>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsRequest() = default;
+};
+class DescribeSecurityEventLogsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterShrink{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeSecurityEventLogsShrinkRequest() {}
+
+  explicit DescribeSecurityEventLogsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsShrinkRequest() = default;
+};
+class DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange() {}
+
+  explicit DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange() = default;
+};
+class DescribeSecurityEventLogsResponseBodySecurityEventMetaData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange> dateRange{};
+  shared_ptr<string> units{};
+
+  DescribeSecurityEventLogsResponseBodySecurityEventMetaData() {}
+
+  explicit DescribeSecurityEventLogsResponseBodySecurityEventMetaData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (units) {
+      res["Units"] = boost::any(*units);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange>(model1);
+      }
+    }
+    if (m.find("Units") != m.end() && !m["Units"].empty()) {
+      units = make_shared<string>(boost::any_cast<string>(m["Units"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsResponseBodySecurityEventMetaData() = default;
+};
+class DescribeSecurityEventLogsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<boost::any>> securityEventLogs{};
+  shared_ptr<long> securityEventLogsTotalCount{};
+  shared_ptr<DescribeSecurityEventLogsResponseBodySecurityEventMetaData> securityEventMetaData{};
+
+  DescribeSecurityEventLogsResponseBody() {}
+
+  explicit DescribeSecurityEventLogsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (securityEventLogs) {
+      res["SecurityEventLogs"] = boost::any(*securityEventLogs);
+    }
+    if (securityEventLogsTotalCount) {
+      res["SecurityEventLogsTotalCount"] = boost::any(*securityEventLogsTotalCount);
+    }
+    if (securityEventMetaData) {
+      res["SecurityEventMetaData"] = securityEventMetaData ? boost::any(securityEventMetaData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SecurityEventLogs") != m.end() && !m["SecurityEventLogs"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityEventLogs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityEventLogs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      securityEventLogs = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("SecurityEventLogsTotalCount") != m.end() && !m["SecurityEventLogsTotalCount"].empty()) {
+      securityEventLogsTotalCount = make_shared<long>(boost::any_cast<long>(m["SecurityEventLogsTotalCount"]));
+    }
+    if (m.find("SecurityEventMetaData") != m.end() && !m["SecurityEventMetaData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityEventMetaData"].type()) {
+        DescribeSecurityEventLogsResponseBodySecurityEventMetaData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityEventMetaData"]));
+        securityEventMetaData = make_shared<DescribeSecurityEventLogsResponseBodySecurityEventMetaData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsResponseBody() = default;
+};
+class DescribeSecurityEventLogsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSecurityEventLogsResponseBody> body{};
+
+  DescribeSecurityEventLogsResponse() {}
+
+  explicit DescribeSecurityEventLogsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSecurityEventLogsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSecurityEventLogsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventLogsResponse() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricRequestFilterConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> opValue{};
+  shared_ptr<boost::any> values{};
+
+  DescribeSecurityEventTimeSeriesMetricRequestFilterConditions() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricRequestFilterConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (opValue) {
+      res["OpValue"] = boost::any(*opValue);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("OpValue") != m.end() && !m["OpValue"].empty()) {
+      opValue = make_shared<string>(boost::any_cast<string>(m["OpValue"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      values = make_shared<boost::any>(boost::any_cast<boost::any>(m["Values"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricRequestFilterConditions() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeSecurityEventTimeSeriesMetricRequestFilterConditions>> conditions{};
+  shared_ptr<DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange> dateRange{};
+
+  DescribeSecurityEventTimeSeriesMetricRequestFilter() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeSecurityEventTimeSeriesMetricRequestFilterConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSecurityEventTimeSeriesMetricRequestFilterConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeSecurityEventTimeSeriesMetricRequestFilterConditions>>(expect1);
+      }
+    }
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricRequestFilter() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricRequest : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSecurityEventTimeSeriesMetricRequestFilter> filter{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeSecurityEventTimeSeriesMetricRequest() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Filter"].type()) {
+        DescribeSecurityEventTimeSeriesMetricRequestFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Filter"]));
+        filter = make_shared<DescribeSecurityEventTimeSeriesMetricRequestFilter>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricRequest() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterShrink{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeSecurityEventTimeSeriesMetricShrinkRequest() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricShrinkRequest() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries : public Darabonba::Model {
+public:
+  shared_ptr<string> metric{};
+  shared_ptr<vector<string>> timestamps{};
+  shared_ptr<vector<long>> values{};
+
+  DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (timestamps) {
+      res["Timestamps"] = boost::any(*timestamps);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("Timestamps") != m.end() && !m["Timestamps"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Timestamps"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Timestamps"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      timestamps = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      values = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregateInterval{};
+  shared_ptr<DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange> dateRange{};
+  shared_ptr<string> units{};
+
+  DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregateInterval) {
+      res["AggregateInterval"] = boost::any(*aggregateInterval);
+    }
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (units) {
+      res["Units"] = boost::any(*units);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregateInterval") != m.end() && !m["AggregateInterval"].empty()) {
+      aggregateInterval = make_shared<string>(boost::any_cast<string>(m["AggregateInterval"]));
+    }
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange>(model1);
+      }
+    }
+    if (m.find("Units") != m.end() && !m["Units"].empty()) {
+      units = make_shared<string>(boost::any_cast<string>(m["Units"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries>> securityEventTimeSeries{};
+  shared_ptr<DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData> timeSeriesMetaData{};
+
+  DescribeSecurityEventTimeSeriesMetricResponseBody() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (securityEventTimeSeries) {
+      vector<boost::any> temp1;
+      for(auto item1:*securityEventTimeSeries){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SecurityEventTimeSeries"] = boost::any(temp1);
+    }
+    if (timeSeriesMetaData) {
+      res["TimeSeriesMetaData"] = timeSeriesMetaData ? boost::any(timeSeriesMetaData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SecurityEventTimeSeries") != m.end() && !m["SecurityEventTimeSeries"].empty()) {
+      if (typeid(vector<boost::any>) == m["SecurityEventTimeSeries"].type()) {
+        vector<DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SecurityEventTimeSeries"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        securityEventTimeSeries = make_shared<vector<DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries>>(expect1);
+      }
+    }
+    if (m.find("TimeSeriesMetaData") != m.end() && !m["TimeSeriesMetaData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TimeSeriesMetaData"].type()) {
+        DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TimeSeriesMetaData"]));
+        timeSeriesMetaData = make_shared<DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricResponseBody() = default;
+};
+class DescribeSecurityEventTimeSeriesMetricResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSecurityEventTimeSeriesMetricResponseBody> body{};
+
+  DescribeSecurityEventTimeSeriesMetricResponse() {}
+
+  explicit DescribeSecurityEventTimeSeriesMetricResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSecurityEventTimeSeriesMetricResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSecurityEventTimeSeriesMetricResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTimeSeriesMetricResponse() = default;
+};
+class DescribeSecurityEventTopNMetricRequestFilterConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> opValue{};
+  shared_ptr<boost::any> values{};
+
+  DescribeSecurityEventTopNMetricRequestFilterConditions() {}
+
+  explicit DescribeSecurityEventTopNMetricRequestFilterConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (opValue) {
+      res["OpValue"] = boost::any(*opValue);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("OpValue") != m.end() && !m["OpValue"].empty()) {
+      opValue = make_shared<string>(boost::any_cast<string>(m["OpValue"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      values = make_shared<boost::any>(boost::any_cast<boost::any>(m["Values"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricRequestFilterConditions() = default;
+};
+class DescribeSecurityEventTopNMetricRequestFilterDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeSecurityEventTopNMetricRequestFilterDateRange() {}
+
+  explicit DescribeSecurityEventTopNMetricRequestFilterDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricRequestFilterDateRange() = default;
+};
+class DescribeSecurityEventTopNMetricRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeSecurityEventTopNMetricRequestFilterConditions>> conditions{};
+  shared_ptr<DescribeSecurityEventTopNMetricRequestFilterDateRange> dateRange{};
+
+  DescribeSecurityEventTopNMetricRequestFilter() {}
+
+  explicit DescribeSecurityEventTopNMetricRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeSecurityEventTopNMetricRequestFilterConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSecurityEventTopNMetricRequestFilterConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeSecurityEventTopNMetricRequestFilterConditions>>(expect1);
+      }
+    }
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeSecurityEventTopNMetricRequestFilterDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeSecurityEventTopNMetricRequestFilterDateRange>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricRequestFilter() = default;
+};
+class DescribeSecurityEventTopNMetricRequest : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSecurityEventTopNMetricRequestFilter> filter{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeSecurityEventTopNMetricRequest() {}
+
+  explicit DescribeSecurityEventTopNMetricRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Filter"].type()) {
+        DescribeSecurityEventTopNMetricRequestFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Filter"]));
+        filter = make_shared<DescribeSecurityEventTopNMetricRequestFilter>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricRequest() = default;
+};
+class DescribeSecurityEventTopNMetricShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterShrink{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeSecurityEventTopNMetricShrinkRequest() {}
+
+  explicit DescribeSecurityEventTopNMetricShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricShrinkRequest() = default;
+};
+class DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues : public Darabonba::Model {
+public:
+  shared_ptr<string> attribute{};
+  shared_ptr<string> name{};
+  shared_ptr<long> value{};
+
+  DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues() {}
+
+  explicit DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attribute) {
+      res["Attribute"] = boost::any(*attribute);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attribute") != m.end() && !m["Attribute"].empty()) {
+      attribute = make_shared<string>(boost::any_cast<string>(m["Attribute"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues() = default;
+};
+class DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange : public Darabonba::Model {
+public:
+  shared_ptr<long> endDate{};
+  shared_ptr<long> startDate{};
+
+  DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange() {}
+
+  explicit DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange() = default;
+};
+class DescribeSecurityEventTopNMetricResponseBodyTopNMetaData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange> dateRange{};
+  shared_ptr<string> units{};
+
+  DescribeSecurityEventTopNMetricResponseBodyTopNMetaData() {}
+
+  explicit DescribeSecurityEventTopNMetricResponseBodyTopNMetaData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dateRange) {
+      res["DateRange"] = dateRange ? boost::any(dateRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (units) {
+      res["Units"] = boost::any(*units);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DateRange") != m.end() && !m["DateRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateRange"].type()) {
+        DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateRange"]));
+        dateRange = make_shared<DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange>(model1);
+      }
+    }
+    if (m.find("Units") != m.end() && !m["Units"].empty()) {
+      units = make_shared<string>(boost::any_cast<string>(m["Units"]));
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricResponseBodyTopNMetaData() = default;
+};
+class DescribeSecurityEventTopNMetricResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues>> securityEventTopNValues{};
+  shared_ptr<DescribeSecurityEventTopNMetricResponseBodyTopNMetaData> topNMetaData{};
+
+  DescribeSecurityEventTopNMetricResponseBody() {}
+
+  explicit DescribeSecurityEventTopNMetricResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (securityEventTopNValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*securityEventTopNValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SecurityEventTopNValues"] = boost::any(temp1);
+    }
+    if (topNMetaData) {
+      res["TopNMetaData"] = topNMetaData ? boost::any(topNMetaData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SecurityEventTopNValues") != m.end() && !m["SecurityEventTopNValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["SecurityEventTopNValues"].type()) {
+        vector<DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SecurityEventTopNValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        securityEventTopNValues = make_shared<vector<DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues>>(expect1);
+      }
+    }
+    if (m.find("TopNMetaData") != m.end() && !m["TopNMetaData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TopNMetaData"].type()) {
+        DescribeSecurityEventTopNMetricResponseBodyTopNMetaData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TopNMetaData"]));
+        topNMetaData = make_shared<DescribeSecurityEventTopNMetricResponseBodyTopNMetaData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricResponseBody() = default;
+};
+class DescribeSecurityEventTopNMetricResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSecurityEventTopNMetricResponseBody> body{};
+
+  DescribeSecurityEventTopNMetricResponse() {}
+
+  explicit DescribeSecurityEventTopNMetricResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSecurityEventTopNMetricResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSecurityEventTopNMetricResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSecurityEventTopNMetricResponse() = default;
 };
 class DescribeSensitiveApiStatisticRequest : public Darabonba::Model {
 public:
@@ -35871,6 +38327,10 @@ public:
   DescribeMajorProtectionBlackIpsResponse describeMajorProtectionBlackIps(shared_ptr<DescribeMajorProtectionBlackIpsRequest> request);
   DescribeMemberAccountsResponse describeMemberAccountsWithOptions(shared_ptr<DescribeMemberAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeMemberAccountsResponse describeMemberAccounts(shared_ptr<DescribeMemberAccountsRequest> request);
+  DescribeNetworkFlowTimeSeriesMetricResponse describeNetworkFlowTimeSeriesMetricWithOptions(shared_ptr<DescribeNetworkFlowTimeSeriesMetricRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNetworkFlowTimeSeriesMetricResponse describeNetworkFlowTimeSeriesMetric(shared_ptr<DescribeNetworkFlowTimeSeriesMetricRequest> request);
+  DescribeNetworkFlowTopNMetricResponse describeNetworkFlowTopNMetricWithOptions(shared_ptr<DescribeNetworkFlowTopNMetricRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNetworkFlowTopNMetricResponse describeNetworkFlowTopNMetric(shared_ptr<DescribeNetworkFlowTopNMetricRequest> request);
   DescribePauseProtectionStatusResponse describePauseProtectionStatusWithOptions(shared_ptr<DescribePauseProtectionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePauseProtectionStatusResponse describePauseProtectionStatus(shared_ptr<DescribePauseProtectionStatusRequest> request);
   DescribePeakTrendResponse describePeakTrendWithOptions(shared_ptr<DescribePeakTrendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35905,6 +38365,12 @@ public:
   DescribeRuleHitsTopUaResponse describeRuleHitsTopUa(shared_ptr<DescribeRuleHitsTopUaRequest> request);
   DescribeRuleHitsTopUrlResponse describeRuleHitsTopUrlWithOptions(shared_ptr<DescribeRuleHitsTopUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRuleHitsTopUrlResponse describeRuleHitsTopUrl(shared_ptr<DescribeRuleHitsTopUrlRequest> request);
+  DescribeSecurityEventLogsResponse describeSecurityEventLogsWithOptions(shared_ptr<DescribeSecurityEventLogsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSecurityEventLogsResponse describeSecurityEventLogs(shared_ptr<DescribeSecurityEventLogsRequest> request);
+  DescribeSecurityEventTimeSeriesMetricResponse describeSecurityEventTimeSeriesMetricWithOptions(shared_ptr<DescribeSecurityEventTimeSeriesMetricRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSecurityEventTimeSeriesMetricResponse describeSecurityEventTimeSeriesMetric(shared_ptr<DescribeSecurityEventTimeSeriesMetricRequest> request);
+  DescribeSecurityEventTopNMetricResponse describeSecurityEventTopNMetricWithOptions(shared_ptr<DescribeSecurityEventTopNMetricRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSecurityEventTopNMetricResponse describeSecurityEventTopNMetric(shared_ptr<DescribeSecurityEventTopNMetricRequest> request);
   DescribeSensitiveApiStatisticResponse describeSensitiveApiStatisticWithOptions(shared_ptr<DescribeSensitiveApiStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSensitiveApiStatisticResponse describeSensitiveApiStatistic(shared_ptr<DescribeSensitiveApiStatisticRequest> request);
   DescribeSensitiveDetectionResultResponse describeSensitiveDetectionResultWithOptions(shared_ptr<DescribeSensitiveDetectionResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
