@@ -1,3 +1,8 @@
+2025-03-27 Version: 2.0.19
+- Update API GetAICoachScript: add response parameters Body.points.$.answerList.$.answerValues.
+- Update API GetAICoachScript: add response parameters Body.points.$.answerList.$.enabledKeyword.
+
+
 2025-03-13 Version: 2.0.18
 - Generated cpp 2024-03-13 for IntelligentCreation.
 

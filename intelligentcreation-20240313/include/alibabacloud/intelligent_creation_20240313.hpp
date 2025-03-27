@@ -5862,6 +5862,156 @@ public:
 
   virtual ~GetAICoachScriptResponseBodyPointDeductionRuleList() = default;
 };
+class GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<long> weight{};
+
+  GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues() {}
+
+  explicit GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (weight) {
+      res["weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("weight") != m.end() && !m["weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["weight"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues() = default;
+};
+class GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+
+  GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules() {}
+
+  explicit GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules() = default;
+};
+class GetAICoachScriptResponseBodyPointsAnswerListAnswerValues : public Darabonba::Model {
+public:
+  shared_ptr<string> answerName{};
+  shared_ptr<long> answerWeight{};
+  shared_ptr<vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues>> keywordValues{};
+  shared_ptr<long> keywordWeight{};
+  shared_ptr<vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules>> scoringRules{};
+
+  GetAICoachScriptResponseBodyPointsAnswerListAnswerValues() {}
+
+  explicit GetAICoachScriptResponseBodyPointsAnswerListAnswerValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerName) {
+      res["answerName"] = boost::any(*answerName);
+    }
+    if (answerWeight) {
+      res["answerWeight"] = boost::any(*answerWeight);
+    }
+    if (keywordValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*keywordValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["keywordValues"] = boost::any(temp1);
+    }
+    if (keywordWeight) {
+      res["keywordWeight"] = boost::any(*keywordWeight);
+    }
+    if (scoringRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*scoringRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["scoringRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("answerName") != m.end() && !m["answerName"].empty()) {
+      answerName = make_shared<string>(boost::any_cast<string>(m["answerName"]));
+    }
+    if (m.find("answerWeight") != m.end() && !m["answerWeight"].empty()) {
+      answerWeight = make_shared<long>(boost::any_cast<long>(m["answerWeight"]));
+    }
+    if (m.find("keywordValues") != m.end() && !m["keywordValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["keywordValues"].type()) {
+        vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["keywordValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        keywordValues = make_shared<vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues>>(expect1);
+      }
+    }
+    if (m.find("keywordWeight") != m.end() && !m["keywordWeight"].empty()) {
+      keywordWeight = make_shared<long>(boost::any_cast<long>(m["keywordWeight"]));
+    }
+    if (m.find("scoringRules") != m.end() && !m["scoringRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["scoringRules"].type()) {
+        vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["scoringRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        scoringRules = make_shared<vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyPointsAnswerListAnswerValues() = default;
+};
 class GetAICoachScriptResponseBodyPointsAnswerListParameters : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -5900,6 +6050,8 @@ public:
 };
 class GetAICoachScriptResponseBodyPointsAnswerList : public Darabonba::Model {
 public:
+  shared_ptr<vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValues>> answerValues{};
+  shared_ptr<bool> enabledKeyword{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> nameList{};
   shared_ptr<string> operators{};
@@ -5917,6 +6069,16 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (answerValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["answerValues"] = boost::any(temp1);
+    }
+    if (enabledKeyword) {
+      res["enabledKeyword"] = boost::any(*enabledKeyword);
+    }
     if (name) {
       res["name"] = boost::any(*name);
     }
@@ -5943,6 +6105,22 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("answerValues") != m.end() && !m["answerValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["answerValues"].type()) {
+        vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["answerValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyPointsAnswerListAnswerValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerValues = make_shared<vector<GetAICoachScriptResponseBodyPointsAnswerListAnswerValues>>(expect1);
+      }
+    }
+    if (m.find("enabledKeyword") != m.end() && !m["enabledKeyword"].empty()) {
+      enabledKeyword = make_shared<bool>(boost::any_cast<bool>(m["enabledKeyword"]));
+    }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
