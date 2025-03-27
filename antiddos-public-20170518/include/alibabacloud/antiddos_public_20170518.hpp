@@ -2548,6 +2548,7 @@ public:
 class ModifyDefenseThresholdRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bps{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> ddosRegionId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
@@ -2567,6 +2568,9 @@ public:
     map<string, boost::any> res;
     if (bps) {
       res["Bps"] = boost::any(*bps);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
     }
     if (ddosRegionId) {
       res["DdosRegionId"] = boost::any(*ddosRegionId);
@@ -2592,6 +2596,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Bps") != m.end() && !m["Bps"].empty()) {
       bps = make_shared<long>(boost::any_cast<long>(m["Bps"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("DdosRegionId") != m.end() && !m["DdosRegionId"].empty()) {
       ddosRegionId = make_shared<string>(boost::any_cast<string>(m["DdosRegionId"]));
