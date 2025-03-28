@@ -79,6 +79,55 @@ ActivateLicenseResponse Alibabacloud_Brain-industrial20200920::Client::activateL
   return activateLicenseWithOptions(request, runtime);
 }
 
+AicsOpenApiInvokeResponse Alibabacloud_Brain-industrial20200920::Client::aicsOpenApiInvokeWithOptions(shared_ptr<AicsOpenApiInvokeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AicsOpenApiInvokeShrinkRequest> request = make_shared<AicsOpenApiInvokeShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->param)) {
+    request->paramShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->param, make_shared<string>("Param"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
+    query->insert(pair<string, string>("NodeId", *request->nodeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramShrink)) {
+    body->insert(pair<string, string>("Param", *request->paramShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AicsOpenApiInvoke"))},
+    {"version", boost::any(string("2020-09-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AicsOpenApiInvokeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AicsOpenApiInvokeResponse(execute(params, req, runtime));
+  }
+}
+
+AicsOpenApiInvokeResponse Alibabacloud_Brain-industrial20200920::Client::aicsOpenApiInvoke(shared_ptr<AicsOpenApiInvokeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return aicsOpenApiInvokeWithOptions(request, runtime);
+}
+
 CreateEssOptJobResponse Alibabacloud_Brain-industrial20200920::Client::createEssOptJobWithOptions(shared_ptr<CreateEssOptJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateEssOptJobShrinkRequest> request = make_shared<CreateEssOptJobShrinkRequest>();
