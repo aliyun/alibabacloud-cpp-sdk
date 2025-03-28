@@ -8378,6 +8378,278 @@ public:
 
   virtual ~ListOtaTaskResponse() = default;
 };
+class ListPersistentAppInstancesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<vector<string>> appInstancePersistentIds{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> productType{};
+
+  ListPersistentAppInstancesRequest() {}
+
+  explicit ListPersistentAppInstancesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstanceGroupId) {
+      res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
+    }
+    if (appInstancePersistentIds) {
+      res["AppInstancePersistentIds"] = boost::any(*appInstancePersistentIds);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
+      appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
+    }
+    if (m.find("AppInstancePersistentIds") != m.end() && !m["AppInstancePersistentIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AppInstancePersistentIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AppInstancePersistentIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      appInstancePersistentIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+  }
+
+
+  virtual ~ListPersistentAppInstancesRequest() = default;
+};
+class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels : public Darabonba::Model {
+public:
+  shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<string> appInstanceId{};
+  shared_ptr<string> appInstancePersistentId{};
+  shared_ptr<string> appInstancePersistentName{};
+  shared_ptr<string> appInstancePersistentStatus{};
+  shared_ptr<string> appInstanceStatus{};
+  shared_ptr<vector<string>> authorizedUsers{};
+  shared_ptr<string> gmtCreate{};
+
+  ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels() {}
+
+  explicit ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstanceGroupId) {
+      res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
+    }
+    if (appInstanceId) {
+      res["AppInstanceId"] = boost::any(*appInstanceId);
+    }
+    if (appInstancePersistentId) {
+      res["AppInstancePersistentId"] = boost::any(*appInstancePersistentId);
+    }
+    if (appInstancePersistentName) {
+      res["AppInstancePersistentName"] = boost::any(*appInstancePersistentName);
+    }
+    if (appInstancePersistentStatus) {
+      res["AppInstancePersistentStatus"] = boost::any(*appInstancePersistentStatus);
+    }
+    if (appInstanceStatus) {
+      res["AppInstanceStatus"] = boost::any(*appInstanceStatus);
+    }
+    if (authorizedUsers) {
+      res["AuthorizedUsers"] = boost::any(*authorizedUsers);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
+      appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
+    }
+    if (m.find("AppInstanceId") != m.end() && !m["AppInstanceId"].empty()) {
+      appInstanceId = make_shared<string>(boost::any_cast<string>(m["AppInstanceId"]));
+    }
+    if (m.find("AppInstancePersistentId") != m.end() && !m["AppInstancePersistentId"].empty()) {
+      appInstancePersistentId = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentId"]));
+    }
+    if (m.find("AppInstancePersistentName") != m.end() && !m["AppInstancePersistentName"].empty()) {
+      appInstancePersistentName = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentName"]));
+    }
+    if (m.find("AppInstancePersistentStatus") != m.end() && !m["AppInstancePersistentStatus"].empty()) {
+      appInstancePersistentStatus = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentStatus"]));
+    }
+    if (m.find("AppInstanceStatus") != m.end() && !m["AppInstanceStatus"].empty()) {
+      appInstanceStatus = make_shared<string>(boost::any_cast<string>(m["AppInstanceStatus"]));
+    }
+    if (m.find("AuthorizedUsers") != m.end() && !m["AuthorizedUsers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthorizedUsers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthorizedUsers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      authorizedUsers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+  }
+
+
+  virtual ~ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels() = default;
+};
+class ListPersistentAppInstancesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels>> persistentAppInstanceModels{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListPersistentAppInstancesResponseBody() {}
+
+  explicit ListPersistentAppInstancesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (persistentAppInstanceModels) {
+      vector<boost::any> temp1;
+      for(auto item1:*persistentAppInstanceModels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PersistentAppInstanceModels"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PersistentAppInstanceModels") != m.end() && !m["PersistentAppInstanceModels"].empty()) {
+      if (typeid(vector<boost::any>) == m["PersistentAppInstanceModels"].type()) {
+        vector<ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PersistentAppInstanceModels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        persistentAppInstanceModels = make_shared<vector<ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListPersistentAppInstancesResponseBody() = default;
+};
+class ListPersistentAppInstancesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPersistentAppInstancesResponseBody> body{};
+
+  ListPersistentAppInstancesResponse() {}
+
+  explicit ListPersistentAppInstancesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPersistentAppInstancesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPersistentAppInstancesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPersistentAppInstancesResponse() = default;
+};
 class ListRegionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizSource{};
@@ -12380,6 +12652,8 @@ public:
   ListNodesResponse listNodes(shared_ptr<ListNodesRequest> request);
   ListOtaTaskResponse listOtaTaskWithOptions(shared_ptr<ListOtaTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOtaTaskResponse listOtaTask(shared_ptr<ListOtaTaskRequest> request);
+  ListPersistentAppInstancesResponse listPersistentAppInstancesWithOptions(shared_ptr<ListPersistentAppInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPersistentAppInstancesResponse listPersistentAppInstances(shared_ptr<ListPersistentAppInstancesRequest> request);
   ListRegionsResponse listRegionsWithOptions(shared_ptr<ListRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRegionsResponse listRegions(shared_ptr<ListRegionsRequest> request);
   ListSessionPackagesResponse listSessionPackagesWithOptions(shared_ptr<ListSessionPackagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
