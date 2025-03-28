@@ -45,7 +45,7 @@ set_target_properties(${PROJECT_NAME}
 add_subdirectory(external)
 find_package(Boost REQUIRED COMPONENTS random system thread filesystem chrono atomic date_time regex)
 find_library(CPPREST_LIB cpprest)
-target_link_libraries(${PROJECT_NAME} PRIVATE crypto darabonba_util alibabacloud_open_api alibabacloud_endpoint_util darabonba_core ${Boost_LIBRARIES} ${CPPREST_LIB})
+target_link_libraries(${PROJECT_NAME} PRIVATE crypto darabonba_util alibabacloud_open_api alibabacloud_open_api_util alibabacloud_endpoint_util darabonba_core ${Boost_LIBRARIES} ${CPPREST_LIB})
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Install set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 message(STATUS "${PROJECT_NAME} : Project will be installed to ${CMAKE_INSTALL_PREFIX}")
