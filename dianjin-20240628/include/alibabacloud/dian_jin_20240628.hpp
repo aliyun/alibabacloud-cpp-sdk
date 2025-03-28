@@ -10041,6 +10041,7 @@ public:
   shared_ptr<vector<RealTimeDialogRequestConversationModel>> conversationModel{};
   shared_ptr<long> dialogMemoryTurns{};
   shared_ptr<map<string, boost::any>> metaData{};
+  shared_ptr<string> opType{};
   shared_ptr<bool> recommend{};
   shared_ptr<string> scriptContentPlayed{};
   shared_ptr<string> sessionId{};
@@ -10075,6 +10076,9 @@ public:
     }
     if (metaData) {
       res["metaData"] = boost::any(*metaData);
+    }
+    if (opType) {
+      res["opType"] = boost::any(*opType);
     }
     if (recommend) {
       res["recommend"] = boost::any(*recommend);
@@ -10124,6 +10128,9 @@ public:
          toMap1[item.first] = item.second;
       }
       metaData = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("opType") != m.end() && !m["opType"].empty()) {
+      opType = make_shared<string>(boost::any_cast<string>(m["opType"]));
     }
     if (m.find("recommend") != m.end() && !m["recommend"].empty()) {
       recommend = make_shared<bool>(boost::any_cast<bool>(m["recommend"]));

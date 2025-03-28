@@ -1441,6 +1441,9 @@ RealTimeDialogResponse Alibabacloud_DianJin20240628::Client::realTimeDialogWithO
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->metaData)) {
     body->insert(pair<string, map<string, boost::any>>("metaData", *request->metaData));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->opType)) {
+    body->insert(pair<string, string>("opType", *request->opType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->recommend)) {
     body->insert(pair<string, bool>("recommend", *request->recommend));
   }
