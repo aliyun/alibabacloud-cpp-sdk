@@ -861,6 +861,42 @@ public:
 
   virtual ~CreateChangeSetRequestResourcesToImport() = default;
 };
+class CreateChangeSetRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateChangeSetRequestTags() {}
+
+  explicit CreateChangeSetRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateChangeSetRequestTags() = default;
+};
 class CreateChangeSetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> changeSetName{};
@@ -874,6 +910,7 @@ public:
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> regionId{};
   shared_ptr<string> replacementOption{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<CreateChangeSetRequestResourcesToImport>> resourcesToImport{};
   shared_ptr<string> stackId{};
   shared_ptr<string> stackName{};
@@ -881,6 +918,7 @@ public:
   shared_ptr<string> stackPolicyDuringUpdateBody{};
   shared_ptr<string> stackPolicyDuringUpdateURL{};
   shared_ptr<string> stackPolicyURL{};
+  shared_ptr<vector<CreateChangeSetRequestTags>> tags{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateScratchId{};
@@ -936,6 +974,9 @@ public:
     if (replacementOption) {
       res["ReplacementOption"] = boost::any(*replacementOption);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourcesToImport) {
       vector<boost::any> temp1;
       for(auto item1:*resourcesToImport){
@@ -960,6 +1001,13 @@ public:
     }
     if (stackPolicyURL) {
       res["StackPolicyURL"] = boost::any(*stackPolicyURL);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
@@ -1036,6 +1084,9 @@ public:
     if (m.find("ReplacementOption") != m.end() && !m["ReplacementOption"].empty()) {
       replacementOption = make_shared<string>(boost::any_cast<string>(m["ReplacementOption"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourcesToImport") != m.end() && !m["ResourcesToImport"].empty()) {
       if (typeid(vector<boost::any>) == m["ResourcesToImport"].type()) {
         vector<CreateChangeSetRequestResourcesToImport> expect1;
@@ -1066,6 +1117,19 @@ public:
     }
     if (m.find("StackPolicyURL") != m.end() && !m["StackPolicyURL"].empty()) {
       stackPolicyURL = make_shared<string>(boost::any_cast<string>(m["StackPolicyURL"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateChangeSetRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateChangeSetRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateChangeSetRequestTags>>(expect1);
+      }
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
@@ -6618,6 +6682,42 @@ public:
 
   virtual ~GetChangeSetResponseBodyParameters() = default;
 };
+class GetChangeSetResponseBodyTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetChangeSetResponseBodyTags() {}
+
+  explicit GetChangeSetResponseBodyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetChangeSetResponseBodyTags() = default;
+};
 class GetChangeSetResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> changeSetId{};
@@ -6632,10 +6732,12 @@ public:
   shared_ptr<vector<GetChangeSetResponseBodyParameters>> parameters{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> stackId{};
   shared_ptr<string> stackName{};
   shared_ptr<string> status{};
   shared_ptr<string> statusReason{};
+  shared_ptr<vector<GetChangeSetResponseBodyTags>> tags{};
   shared_ptr<string> templateBody{};
   shared_ptr<long> timeoutInMinutes{};
 
@@ -6689,6 +6791,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (stackId) {
       res["StackId"] = boost::any(*stackId);
     }
@@ -6700,6 +6805,13 @@ public:
     }
     if (statusReason) {
       res["StatusReason"] = boost::any(*statusReason);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
@@ -6773,6 +6885,9 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
       stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
     }
@@ -6784,6 +6899,19 @@ public:
     }
     if (m.find("StatusReason") != m.end() && !m["StatusReason"].empty()) {
       statusReason = make_shared<string>(boost::any_cast<string>(m["StatusReason"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetChangeSetResponseBodyTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetChangeSetResponseBodyTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetChangeSetResponseBodyTags>>(expect1);
+      }
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
@@ -15201,6 +15329,42 @@ public:
 
   virtual ~ListChangeSetsRequest() = default;
 };
+class ListChangeSetsResponseBodyChangeSetsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListChangeSetsResponseBodyChangeSetsTags() {}
+
+  explicit ListChangeSetsResponseBodyChangeSetsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListChangeSetsResponseBodyChangeSetsTags() = default;
+};
 class ListChangeSetsResponseBodyChangeSets : public Darabonba::Model {
 public:
   shared_ptr<string> changeSetId{};
@@ -15210,10 +15374,12 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> executionStatus{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> stackId{};
   shared_ptr<string> stackName{};
   shared_ptr<string> status{};
   shared_ptr<string> statusReason{};
+  shared_ptr<vector<ListChangeSetsResponseBodyChangeSetsTags>> tags{};
 
   ListChangeSetsResponseBodyChangeSets() {}
 
@@ -15246,6 +15412,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (stackId) {
       res["StackId"] = boost::any(*stackId);
     }
@@ -15257,6 +15426,13 @@ public:
     }
     if (statusReason) {
       res["StatusReason"] = boost::any(*statusReason);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -15283,6 +15459,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
       stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
     }
@@ -15294,6 +15473,19 @@ public:
     }
     if (m.find("StatusReason") != m.end() && !m["StatusReason"].empty()) {
       statusReason = make_shared<string>(boost::any_cast<string>(m["StatusReason"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListChangeSetsResponseBodyChangeSetsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListChangeSetsResponseBodyChangeSetsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListChangeSetsResponseBodyChangeSetsTags>>(expect1);
+      }
     }
   }
 
