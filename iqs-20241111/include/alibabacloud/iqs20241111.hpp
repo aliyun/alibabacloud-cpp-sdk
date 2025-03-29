@@ -152,6 +152,7 @@ public:
   shared_ptr<double> score{};
   shared_ptr<string> siteLabel{};
   shared_ptr<string> snippet{};
+  shared_ptr<string> summary{};
   shared_ptr<string> title{};
 
   ScorePageItem() {}
@@ -215,6 +216,9 @@ public:
     }
     if (snippet) {
       res["snippet"] = boost::any(*snippet);
+    }
+    if (summary) {
+      res["summary"] = boost::any(*summary);
     }
     if (title) {
       res["title"] = boost::any(*title);
@@ -285,6 +289,9 @@ public:
     }
     if (m.find("snippet") != m.end() && !m["snippet"].empty()) {
       snippet = make_shared<string>(boost::any_cast<string>(m["snippet"]));
+    }
+    if (m.find("summary") != m.end() && !m["summary"].empty()) {
+      summary = make_shared<string>(boost::any_cast<string>(m["summary"]));
     }
     if (m.find("title") != m.end() && !m["title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["title"]));
@@ -1132,9 +1139,13 @@ public:
 };
 class GenericSearchRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableRerank{};
   shared_ptr<string> industry{};
   shared_ptr<long> page{};
   shared_ptr<string> query{};
+  shared_ptr<bool> returnMainText{};
+  shared_ptr<bool> returnMarkdownText{};
+  shared_ptr<bool> returnSummary{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> timeRange{};
 
@@ -1148,6 +1159,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableRerank) {
+      res["enableRerank"] = boost::any(*enableRerank);
+    }
     if (industry) {
       res["industry"] = boost::any(*industry);
     }
@@ -1156,6 +1170,15 @@ public:
     }
     if (query) {
       res["query"] = boost::any(*query);
+    }
+    if (returnMainText) {
+      res["returnMainText"] = boost::any(*returnMainText);
+    }
+    if (returnMarkdownText) {
+      res["returnMarkdownText"] = boost::any(*returnMarkdownText);
+    }
+    if (returnSummary) {
+      res["returnSummary"] = boost::any(*returnSummary);
     }
     if (sessionId) {
       res["sessionId"] = boost::any(*sessionId);
@@ -1167,6 +1190,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("enableRerank") != m.end() && !m["enableRerank"].empty()) {
+      enableRerank = make_shared<bool>(boost::any_cast<bool>(m["enableRerank"]));
+    }
     if (m.find("industry") != m.end() && !m["industry"].empty()) {
       industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
     }
@@ -1175,6 +1201,15 @@ public:
     }
     if (m.find("query") != m.end() && !m["query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("returnMainText") != m.end() && !m["returnMainText"].empty()) {
+      returnMainText = make_shared<bool>(boost::any_cast<bool>(m["returnMainText"]));
+    }
+    if (m.find("returnMarkdownText") != m.end() && !m["returnMarkdownText"].empty()) {
+      returnMarkdownText = make_shared<bool>(boost::any_cast<bool>(m["returnMarkdownText"]));
+    }
+    if (m.find("returnSummary") != m.end() && !m["returnSummary"].empty()) {
+      returnSummary = make_shared<bool>(boost::any_cast<bool>(m["returnSummary"]));
     }
     if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));

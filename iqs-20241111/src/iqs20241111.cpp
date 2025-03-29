@@ -131,6 +131,9 @@ GenericAdvancedSearchResponse Alibabacloud_IQS20241111::Client::genericAdvancedS
 GenericSearchResponse Alibabacloud_IQS20241111::Client::genericSearchWithOptions(shared_ptr<GenericSearchRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableRerank)) {
+    query->insert(pair<string, bool>("enableRerank", *request->enableRerank));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->industry)) {
     query->insert(pair<string, string>("industry", *request->industry));
   }
@@ -139,6 +142,15 @@ GenericSearchResponse Alibabacloud_IQS20241111::Client::genericSearchWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
     query->insert(pair<string, string>("query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->returnMainText)) {
+    query->insert(pair<string, bool>("returnMainText", *request->returnMainText));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->returnMarkdownText)) {
+    query->insert(pair<string, bool>("returnMarkdownText", *request->returnMarkdownText));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->returnSummary)) {
+    query->insert(pair<string, bool>("returnSummary", *request->returnSummary));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("sessionId", *request->sessionId));
