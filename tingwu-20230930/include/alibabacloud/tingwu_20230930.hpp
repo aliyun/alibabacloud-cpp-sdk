@@ -123,6 +123,7 @@ public:
 class CreateTaskRequestParametersContentExtractionExtractionContents : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> identity{};
   shared_ptr<string> title{};
 
   CreateTaskRequestParametersContentExtractionExtractionContents() {}
@@ -138,6 +139,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (identity) {
+      res["Identity"] = boost::any(*identity);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -147,6 +151,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Identity") != m.end() && !m["Identity"].empty()) {
+      identity = make_shared<string>(boost::any_cast<string>(m["Identity"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -367,6 +374,92 @@ public:
 
 
   virtual ~CreateTaskRequestParametersExtraParams() = default;
+};
+class CreateTaskRequestParametersIdentityRecognitionIdentityContents : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+
+  CreateTaskRequestParametersIdentityRecognitionIdentityContents() {}
+
+  explicit CreateTaskRequestParametersIdentityRecognitionIdentityContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersIdentityRecognitionIdentityContents() = default;
+};
+class CreateTaskRequestParametersIdentityRecognition : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateTaskRequestParametersIdentityRecognitionIdentityContents>> identityContents{};
+  shared_ptr<string> sceneIntroduction{};
+
+  CreateTaskRequestParametersIdentityRecognition() {}
+
+  explicit CreateTaskRequestParametersIdentityRecognition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*identityContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IdentityContents"] = boost::any(temp1);
+    }
+    if (sceneIntroduction) {
+      res["SceneIntroduction"] = boost::any(*sceneIntroduction);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityContents") != m.end() && !m["IdentityContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["IdentityContents"].type()) {
+        vector<CreateTaskRequestParametersIdentityRecognitionIdentityContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IdentityContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTaskRequestParametersIdentityRecognitionIdentityContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        identityContents = make_shared<vector<CreateTaskRequestParametersIdentityRecognitionIdentityContents>>(expect1);
+      }
+    }
+    if (m.find("SceneIntroduction") != m.end() && !m["SceneIntroduction"].empty()) {
+      sceneIntroduction = make_shared<string>(boost::any_cast<string>(m["SceneIntroduction"]));
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersIdentityRecognition() = default;
 };
 class CreateTaskRequestParametersMeetingAssistance : public Darabonba::Model {
 public:
@@ -764,6 +857,8 @@ public:
   shared_ptr<CreateTaskRequestParametersCustomPrompt> customPrompt{};
   shared_ptr<bool> customPromptEnabled{};
   shared_ptr<CreateTaskRequestParametersExtraParams> extraParams{};
+  shared_ptr<CreateTaskRequestParametersIdentityRecognition> identityRecognition{};
+  shared_ptr<bool> identityRecognitionEnabled{};
   shared_ptr<CreateTaskRequestParametersMeetingAssistance> meetingAssistance{};
   shared_ptr<bool> meetingAssistanceEnabled{};
   shared_ptr<bool> pptExtractionEnabled{};
@@ -804,6 +899,12 @@ public:
     }
     if (extraParams) {
       res["ExtraParams"] = extraParams ? boost::any(extraParams->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (identityRecognition) {
+      res["IdentityRecognition"] = identityRecognition ? boost::any(identityRecognition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (identityRecognitionEnabled) {
+      res["IdentityRecognitionEnabled"] = boost::any(*identityRecognitionEnabled);
     }
     if (meetingAssistance) {
       res["MeetingAssistance"] = meetingAssistance ? boost::any(meetingAssistance->toMap()) : boost::any(map<string,boost::any>({}));
@@ -874,6 +975,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExtraParams"]));
         extraParams = make_shared<CreateTaskRequestParametersExtraParams>(model1);
       }
+    }
+    if (m.find("IdentityRecognition") != m.end() && !m["IdentityRecognition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IdentityRecognition"].type()) {
+        CreateTaskRequestParametersIdentityRecognition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IdentityRecognition"]));
+        identityRecognition = make_shared<CreateTaskRequestParametersIdentityRecognition>(model1);
+      }
+    }
+    if (m.find("IdentityRecognitionEnabled") != m.end() && !m["IdentityRecognitionEnabled"].empty()) {
+      identityRecognitionEnabled = make_shared<bool>(boost::any_cast<bool>(m["IdentityRecognitionEnabled"]));
     }
     if (m.find("MeetingAssistance") != m.end() && !m["MeetingAssistance"].empty()) {
       if (typeid(map<string, boost::any>) == m["MeetingAssistance"].type()) {
