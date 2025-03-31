@@ -9713,7 +9713,9 @@ public:
   shared_ptr<GetDashboardRequestFilter> filter{};
   shared_ptr<string> name{};
   shared_ptr<string> pluginClassId{};
+  shared_ptr<string> pluginId{};
   shared_ptr<string> source{};
+  shared_ptr<string> upstreamCluster{};
 
   GetDashboardRequest() {}
 
@@ -9740,8 +9742,14 @@ public:
     if (pluginClassId) {
       res["pluginClassId"] = boost::any(*pluginClassId);
     }
+    if (pluginId) {
+      res["pluginId"] = boost::any(*pluginId);
+    }
     if (source) {
       res["source"] = boost::any(*source);
+    }
+    if (upstreamCluster) {
+      res["upstreamCluster"] = boost::any(*upstreamCluster);
     }
     return res;
   }
@@ -9766,8 +9774,14 @@ public:
     if (m.find("pluginClassId") != m.end() && !m["pluginClassId"].empty()) {
       pluginClassId = make_shared<string>(boost::any_cast<string>(m["pluginClassId"]));
     }
+    if (m.find("pluginId") != m.end() && !m["pluginId"].empty()) {
+      pluginId = make_shared<string>(boost::any_cast<string>(m["pluginId"]));
+    }
     if (m.find("source") != m.end() && !m["source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["source"]));
+    }
+    if (m.find("upstreamCluster") != m.end() && !m["upstreamCluster"].empty()) {
+      upstreamCluster = make_shared<string>(boost::any_cast<string>(m["upstreamCluster"]));
     }
   }
 
@@ -9781,7 +9795,9 @@ public:
   shared_ptr<string> filterShrink{};
   shared_ptr<string> name{};
   shared_ptr<string> pluginClassId{};
+  shared_ptr<string> pluginId{};
   shared_ptr<string> source{};
+  shared_ptr<string> upstreamCluster{};
 
   GetDashboardShrinkRequest() {}
 
@@ -9808,8 +9824,14 @@ public:
     if (pluginClassId) {
       res["pluginClassId"] = boost::any(*pluginClassId);
     }
+    if (pluginId) {
+      res["pluginId"] = boost::any(*pluginId);
+    }
     if (source) {
       res["source"] = boost::any(*source);
+    }
+    if (upstreamCluster) {
+      res["upstreamCluster"] = boost::any(*upstreamCluster);
     }
     return res;
   }
@@ -9830,8 +9852,14 @@ public:
     if (m.find("pluginClassId") != m.end() && !m["pluginClassId"].empty()) {
       pluginClassId = make_shared<string>(boost::any_cast<string>(m["pluginClassId"]));
     }
+    if (m.find("pluginId") != m.end() && !m["pluginId"].empty()) {
+      pluginId = make_shared<string>(boost::any_cast<string>(m["pluginId"]));
+    }
     if (m.find("source") != m.end() && !m["source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["source"]));
+    }
+    if (m.find("upstreamCluster") != m.end() && !m["upstreamCluster"].empty()) {
+      upstreamCluster = make_shared<string>(boost::any_cast<string>(m["upstreamCluster"]));
     }
   }
 
@@ -15120,6 +15148,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> types{};
+  shared_ptr<bool> withAPIsPublishedToEnvironment{};
   shared_ptr<string> withAuthPolicyInEnvironmentId{};
   shared_ptr<bool> withAuthPolicyList{};
   shared_ptr<string> withConsumerInfoById{};
@@ -15127,6 +15156,7 @@ public:
   shared_ptr<string> withEnvironmentInfoById{};
   shared_ptr<bool> withIngressInfo{};
   shared_ptr<string> withPluginAttachmentByPluginId{};
+  shared_ptr<bool> withPolicyConfigs{};
 
   ListHttpApisRequest() {}
 
@@ -15159,6 +15189,9 @@ public:
     if (types) {
       res["types"] = boost::any(*types);
     }
+    if (withAPIsPublishedToEnvironment) {
+      res["withAPIsPublishedToEnvironment"] = boost::any(*withAPIsPublishedToEnvironment);
+    }
     if (withAuthPolicyInEnvironmentId) {
       res["withAuthPolicyInEnvironmentId"] = boost::any(*withAuthPolicyInEnvironmentId);
     }
@@ -15179,6 +15212,9 @@ public:
     }
     if (withPluginAttachmentByPluginId) {
       res["withPluginAttachmentByPluginId"] = boost::any(*withPluginAttachmentByPluginId);
+    }
+    if (withPolicyConfigs) {
+      res["withPolicyConfigs"] = boost::any(*withPolicyConfigs);
     }
     return res;
   }
@@ -15205,6 +15241,9 @@ public:
     if (m.find("types") != m.end() && !m["types"].empty()) {
       types = make_shared<string>(boost::any_cast<string>(m["types"]));
     }
+    if (m.find("withAPIsPublishedToEnvironment") != m.end() && !m["withAPIsPublishedToEnvironment"].empty()) {
+      withAPIsPublishedToEnvironment = make_shared<bool>(boost::any_cast<bool>(m["withAPIsPublishedToEnvironment"]));
+    }
     if (m.find("withAuthPolicyInEnvironmentId") != m.end() && !m["withAuthPolicyInEnvironmentId"].empty()) {
       withAuthPolicyInEnvironmentId = make_shared<string>(boost::any_cast<string>(m["withAuthPolicyInEnvironmentId"]));
     }
@@ -15225,6 +15264,9 @@ public:
     }
     if (m.find("withPluginAttachmentByPluginId") != m.end() && !m["withPluginAttachmentByPluginId"].empty()) {
       withPluginAttachmentByPluginId = make_shared<string>(boost::any_cast<string>(m["withPluginAttachmentByPluginId"]));
+    }
+    if (m.find("withPolicyConfigs") != m.end() && !m["withPolicyConfigs"].empty()) {
+      withPolicyConfigs = make_shared<bool>(boost::any_cast<bool>(m["withPolicyConfigs"]));
     }
   }
 

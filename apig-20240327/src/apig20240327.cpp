@@ -907,8 +907,14 @@ GetDashboardResponse Alibabacloud_APIG20240327::Client::getDashboardWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->pluginClassId)) {
     query->insert(pair<string, string>("pluginClassId", *request->pluginClassId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pluginId)) {
+    query->insert(pair<string, string>("pluginId", *request->pluginId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->upstreamCluster)) {
+    query->insert(pair<string, string>("upstreamCluster", *request->upstreamCluster));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1677,6 +1683,9 @@ ListHttpApisResponse Alibabacloud_APIG20240327::Client::listHttpApisWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->types)) {
     query->insert(pair<string, string>("types", *request->types));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withAPIsPublishedToEnvironment)) {
+    query->insert(pair<string, bool>("withAPIsPublishedToEnvironment", *request->withAPIsPublishedToEnvironment));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->withAuthPolicyInEnvironmentId)) {
     query->insert(pair<string, string>("withAuthPolicyInEnvironmentId", *request->withAuthPolicyInEnvironmentId));
   }
@@ -1697,6 +1706,9 @@ ListHttpApisResponse Alibabacloud_APIG20240327::Client::listHttpApisWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->withPluginAttachmentByPluginId)) {
     query->insert(pair<string, string>("withPluginAttachmentByPluginId", *request->withPluginAttachmentByPluginId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withPolicyConfigs)) {
+    query->insert(pair<string, bool>("withPolicyConfigs", *request->withPolicyConfigs));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
