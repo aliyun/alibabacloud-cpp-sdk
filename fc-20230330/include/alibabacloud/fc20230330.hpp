@@ -9558,10 +9558,13 @@ public:
 };
 class ListFunctionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> fcVersion{};
+  shared_ptr<string> gpuType{};
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> prefix{};
+  shared_ptr<string> runtime{};
   shared_ptr<vector<Tag>> tags{};
 
   ListFunctionsRequest() {}
@@ -9574,8 +9577,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
     if (fcVersion) {
       res["fcVersion"] = boost::any(*fcVersion);
+    }
+    if (gpuType) {
+      res["gpuType"] = boost::any(*gpuType);
     }
     if (limit) {
       res["limit"] = boost::any(*limit);
@@ -9585,6 +9594,9 @@ public:
     }
     if (prefix) {
       res["prefix"] = boost::any(*prefix);
+    }
+    if (runtime) {
+      res["runtime"] = boost::any(*runtime);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -9597,8 +9609,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
     if (m.find("fcVersion") != m.end() && !m["fcVersion"].empty()) {
       fcVersion = make_shared<string>(boost::any_cast<string>(m["fcVersion"]));
+    }
+    if (m.find("gpuType") != m.end() && !m["gpuType"].empty()) {
+      gpuType = make_shared<string>(boost::any_cast<string>(m["gpuType"]));
     }
     if (m.find("limit") != m.end() && !m["limit"].empty()) {
       limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
@@ -9608,6 +9626,9 @@ public:
     }
     if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
       prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
+    }
+    if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
+      runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
     }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       if (typeid(vector<boost::any>) == m["tags"].type()) {
@@ -9629,10 +9650,13 @@ public:
 };
 class ListFunctionsShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> fcVersion{};
+  shared_ptr<string> gpuType{};
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> prefix{};
+  shared_ptr<string> runtime{};
   shared_ptr<string> tagsShrink{};
 
   ListFunctionsShrinkRequest() {}
@@ -9645,8 +9669,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
     if (fcVersion) {
       res["fcVersion"] = boost::any(*fcVersion);
+    }
+    if (gpuType) {
+      res["gpuType"] = boost::any(*gpuType);
     }
     if (limit) {
       res["limit"] = boost::any(*limit);
@@ -9657,6 +9687,9 @@ public:
     if (prefix) {
       res["prefix"] = boost::any(*prefix);
     }
+    if (runtime) {
+      res["runtime"] = boost::any(*runtime);
+    }
     if (tagsShrink) {
       res["tags"] = boost::any(*tagsShrink);
     }
@@ -9664,8 +9697,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
     if (m.find("fcVersion") != m.end() && !m["fcVersion"].empty()) {
       fcVersion = make_shared<string>(boost::any_cast<string>(m["fcVersion"]));
+    }
+    if (m.find("gpuType") != m.end() && !m["gpuType"].empty()) {
+      gpuType = make_shared<string>(boost::any_cast<string>(m["gpuType"]));
     }
     if (m.find("limit") != m.end() && !m["limit"].empty()) {
       limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
@@ -9675,6 +9714,9 @@ public:
     }
     if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
       prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
+    }
+    if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
+      runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
     }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));

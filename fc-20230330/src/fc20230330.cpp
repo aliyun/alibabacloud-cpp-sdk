@@ -1275,8 +1275,14 @@ ListFunctionsResponse Alibabacloud_FC20230330::Client::listFunctionsWithOptions(
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fcVersion)) {
     query->insert(pair<string, string>("fcVersion", *request->fcVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuType)) {
+    query->insert(pair<string, string>("gpuType", *request->gpuType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
     query->insert(pair<string, long>("limit", *request->limit));
@@ -1286,6 +1292,9 @@ ListFunctionsResponse Alibabacloud_FC20230330::Client::listFunctionsWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->prefix)) {
     query->insert(pair<string, string>("prefix", *request->prefix));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runtime)) {
+    query->insert(pair<string, string>("runtime", *request->runtime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
     query->insert(pair<string, string>("tags", *request->tagsShrink));
