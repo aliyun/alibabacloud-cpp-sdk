@@ -26526,6 +26526,123 @@ public:
 
   virtual ~GetCompressionRuleResponse() = default;
 };
+class GetCrossBorderOptimizationRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> siteId{};
+
+  GetCrossBorderOptimizationRequest() {}
+
+  explicit GetCrossBorderOptimizationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~GetCrossBorderOptimizationRequest() = default;
+};
+class GetCrossBorderOptimizationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+  shared_ptr<string> requestId{};
+
+  GetCrossBorderOptimizationResponseBody() {}
+
+  explicit GetCrossBorderOptimizationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetCrossBorderOptimizationResponseBody() = default;
+};
+class GetCrossBorderOptimizationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetCrossBorderOptimizationResponseBody> body{};
+
+  GetCrossBorderOptimizationResponse() {}
+
+  explicit GetCrossBorderOptimizationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetCrossBorderOptimizationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetCrossBorderOptimizationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetCrossBorderOptimizationResponse() = default;
+};
 class GetDevelopmentModeRequest : public Darabonba::Model {
 public:
   shared_ptr<long> siteId{};
@@ -59266,7 +59383,7 @@ public:
   shared_ptr<vector<string>> hostnames{};
   shared_ptr<string> id{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> siteId{};
+  shared_ptr<long> siteId{};
   shared_ptr<string> siteName{};
 
   SetOriginClientCertificateHostnamesResponseBody() {}
@@ -59315,7 +59432,7 @@ public:
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
-      siteId = make_shared<string>(boost::any_cast<string>(m["SiteId"]));
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
     }
     if (m.find("SiteName") != m.end() && !m["SiteName"].empty()) {
       siteName = make_shared<string>(boost::any_cast<string>(m["SiteName"]));
@@ -60718,6 +60835,123 @@ public:
 
 
   virtual ~UpdateCompressionRuleResponse() = default;
+};
+class UpdateCrossBorderOptimizationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+  shared_ptr<long> siteId{};
+
+  UpdateCrossBorderOptimizationRequest() {}
+
+  explicit UpdateCrossBorderOptimizationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~UpdateCrossBorderOptimizationRequest() = default;
+};
+class UpdateCrossBorderOptimizationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateCrossBorderOptimizationResponseBody() {}
+
+  explicit UpdateCrossBorderOptimizationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateCrossBorderOptimizationResponseBody() = default;
+};
+class UpdateCrossBorderOptimizationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCrossBorderOptimizationResponseBody> body{};
+
+  UpdateCrossBorderOptimizationResponse() {}
+
+  explicit UpdateCrossBorderOptimizationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCrossBorderOptimizationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCrossBorderOptimizationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCrossBorderOptimizationResponse() = default;
 };
 class UpdateCustomScenePolicyRequest : public Darabonba::Model {
 public:
@@ -70068,6 +70302,8 @@ public:
   GetCnameFlatteningResponse getCnameFlattening(shared_ptr<GetCnameFlatteningRequest> request);
   GetCompressionRuleResponse getCompressionRuleWithOptions(shared_ptr<GetCompressionRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCompressionRuleResponse getCompressionRule(shared_ptr<GetCompressionRuleRequest> request);
+  GetCrossBorderOptimizationResponse getCrossBorderOptimizationWithOptions(shared_ptr<GetCrossBorderOptimizationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCrossBorderOptimizationResponse getCrossBorderOptimization(shared_ptr<GetCrossBorderOptimizationRequest> request);
   GetDevelopmentModeResponse getDevelopmentModeWithOptions(shared_ptr<GetDevelopmentModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDevelopmentModeResponse getDevelopmentMode(shared_ptr<GetDevelopmentModeRequest> request);
   GetEdgeContainerAppResponse getEdgeContainerAppWithOptions(shared_ptr<GetEdgeContainerAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -70345,6 +70581,8 @@ public:
   UpdateCnameFlatteningResponse updateCnameFlattening(shared_ptr<UpdateCnameFlatteningRequest> request);
   UpdateCompressionRuleResponse updateCompressionRuleWithOptions(shared_ptr<UpdateCompressionRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateCompressionRuleResponse updateCompressionRule(shared_ptr<UpdateCompressionRuleRequest> request);
+  UpdateCrossBorderOptimizationResponse updateCrossBorderOptimizationWithOptions(shared_ptr<UpdateCrossBorderOptimizationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCrossBorderOptimizationResponse updateCrossBorderOptimization(shared_ptr<UpdateCrossBorderOptimizationRequest> request);
   UpdateCustomScenePolicyResponse updateCustomScenePolicyWithOptions(shared_ptr<UpdateCustomScenePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateCustomScenePolicyResponse updateCustomScenePolicy(shared_ptr<UpdateCustomScenePolicyRequest> request);
   UpdateDevelopmentModeResponse updateDevelopmentModeWithOptions(shared_ptr<UpdateDevelopmentModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -5367,6 +5367,36 @@ GetCompressionRuleResponse Alibabacloud_ESA20240910::Client::getCompressionRule(
   return getCompressionRuleWithOptions(request, runtime);
 }
 
+GetCrossBorderOptimizationResponse Alibabacloud_ESA20240910::Client::getCrossBorderOptimizationWithOptions(shared_ptr<GetCrossBorderOptimizationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCrossBorderOptimization"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetCrossBorderOptimizationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetCrossBorderOptimizationResponse(execute(params, req, runtime));
+  }
+}
+
+GetCrossBorderOptimizationResponse Alibabacloud_ESA20240910::Client::getCrossBorderOptimization(shared_ptr<GetCrossBorderOptimizationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCrossBorderOptimizationWithOptions(request, runtime);
+}
+
 GetDevelopmentModeResponse Alibabacloud_ESA20240910::Client::getDevelopmentModeWithOptions(shared_ptr<GetDevelopmentModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -10227,6 +10257,42 @@ UpdateCompressionRuleResponse Alibabacloud_ESA20240910::Client::updateCompressio
 UpdateCompressionRuleResponse Alibabacloud_ESA20240910::Client::updateCompressionRule(shared_ptr<UpdateCompressionRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateCompressionRuleWithOptions(request, runtime);
+}
+
+UpdateCrossBorderOptimizationResponse Alibabacloud_ESA20240910::Client::updateCrossBorderOptimizationWithOptions(shared_ptr<UpdateCrossBorderOptimizationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->enable)) {
+    query->insert(pair<string, string>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCrossBorderOptimization"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateCrossBorderOptimizationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateCrossBorderOptimizationResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateCrossBorderOptimizationResponse Alibabacloud_ESA20240910::Client::updateCrossBorderOptimization(shared_ptr<UpdateCrossBorderOptimizationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCrossBorderOptimizationWithOptions(request, runtime);
 }
 
 UpdateCustomScenePolicyResponse Alibabacloud_ESA20240910::Client::updateCustomScenePolicyWithOptions(shared_ptr<UpdateCustomScenePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
