@@ -1199,6 +1199,7 @@ class CreateGroupIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> tags{};
 
   CreateGroupIdRequest() {}
 
@@ -1216,6 +1217,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     return res;
   }
 
@@ -1225,6 +1229,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
     }
   }
 
@@ -4432,6 +4439,7 @@ public:
 class ListGroupIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> tags{};
 
   ListGroupIdRequest() {}
 
@@ -4446,6 +4454,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     return res;
   }
 
@@ -4453,10 +4464,49 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
   }
 
 
   virtual ~ListGroupIdRequest() = default;
+};
+class ListGroupIdResponseBodyDataTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListGroupIdResponseBodyDataTags() {}
+
+  explicit ListGroupIdResponseBodyDataTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListGroupIdResponseBodyDataTags() = default;
 };
 class ListGroupIdResponseBodyData : public Darabonba::Model {
 public:
@@ -4464,6 +4514,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<bool> independentNaming{};
   shared_ptr<string> instanceId{};
+  shared_ptr<vector<ListGroupIdResponseBodyDataTags>> tags{};
   shared_ptr<long> updateTime{};
 
   ListGroupIdResponseBodyData() {}
@@ -4488,6 +4539,13 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -4506,6 +4564,19 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListGroupIdResponseBodyDataTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGroupIdResponseBodyDataTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListGroupIdResponseBodyDataTags>>(expect1);
+      }
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
