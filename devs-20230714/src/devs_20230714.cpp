@@ -292,6 +292,41 @@ DeleteProjectResponse Alibabacloud_Devs20230714::Client::deleteProject(shared_pt
   return deleteProjectWithOptions(name, request, headers, runtime);
 }
 
+DeployEnvironmentResponse Alibabacloud_Devs20230714::Client::deployEnvironmentWithOptions(shared_ptr<string> projectName,
+                                                                                          shared_ptr<string> name,
+                                                                                          shared_ptr<DeployEnvironmentRequest> request,
+                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeployEnvironment"))},
+    {"version", boost::any(string("2023-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-07-14/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(projectName)) + string("/environments/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(name)) + string("/deploy"))},
+    {"method", boost::any(string("PATCH"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeployEnvironmentResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeployEnvironmentResponse(execute(params, req, runtime));
+  }
+}
+
+DeployEnvironmentResponse Alibabacloud_Devs20230714::Client::deployEnvironment(shared_ptr<string> projectName, shared_ptr<string> name, shared_ptr<DeployEnvironmentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deployEnvironmentWithOptions(projectName, name, request, headers, runtime);
+}
+
 GetEnvironmentResponse Alibabacloud_Devs20230714::Client::getEnvironmentWithOptions(shared_ptr<string> projectName,
                                                                                     shared_ptr<string> name,
                                                                                     shared_ptr<map<string, string>> headers,
@@ -322,6 +357,35 @@ GetEnvironmentResponse Alibabacloud_Devs20230714::Client::getEnvironment(shared_
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getEnvironmentWithOptions(projectName, name, headers, runtime);
+}
+
+GetEnvironmentDeploymentResponse Alibabacloud_Devs20230714::Client::getEnvironmentDeploymentWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetEnvironmentDeployment"))},
+    {"version", boost::any(string("2023-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-07-14/environmentdeployments/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(name)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetEnvironmentDeploymentResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetEnvironmentDeploymentResponse(execute(params, req, runtime));
+  }
+}
+
+GetEnvironmentDeploymentResponse Alibabacloud_Devs20230714::Client::getEnvironmentDeployment(shared_ptr<string> name) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getEnvironmentDeploymentWithOptions(name, headers, runtime);
 }
 
 GetPipelineResponse Alibabacloud_Devs20230714::Client::getPipelineWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

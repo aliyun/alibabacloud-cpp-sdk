@@ -13456,6 +13456,91 @@ public:
 
   virtual ~DeleteProjectResponse() = default;
 };
+class DeployEnvironmentRequest : public Darabonba::Model {
+public:
+  shared_ptr<DeployEnvironmentOptions> body{};
+
+  DeployEnvironmentRequest() {}
+
+  explicit DeployEnvironmentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeployEnvironmentOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeployEnvironmentOptions>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeployEnvironmentRequest() = default;
+};
+class DeployEnvironmentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnvironmentDeployment> body{};
+
+  DeployEnvironmentResponse() {}
+
+  explicit DeployEnvironmentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnvironmentDeployment model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnvironmentDeployment>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeployEnvironmentResponse() = default;
+};
 class GetEnvironmentResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -13507,6 +13592,58 @@ public:
 
 
   virtual ~GetEnvironmentResponse() = default;
+};
+class GetEnvironmentDeploymentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnvironmentDeployment> body{};
+
+  GetEnvironmentDeploymentResponse() {}
+
+  explicit GetEnvironmentDeploymentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnvironmentDeployment model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnvironmentDeployment>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetEnvironmentDeploymentResponse() = default;
 };
 class GetPipelineResponse : public Darabonba::Model {
 public:
@@ -15013,11 +15150,19 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteProjectResponse deleteProject(shared_ptr<string> name, shared_ptr<DeleteProjectRequest> request);
+  DeployEnvironmentResponse deployEnvironmentWithOptions(shared_ptr<string> projectName,
+                                                         shared_ptr<string> name,
+                                                         shared_ptr<DeployEnvironmentRequest> request,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeployEnvironmentResponse deployEnvironment(shared_ptr<string> projectName, shared_ptr<string> name, shared_ptr<DeployEnvironmentRequest> request);
   GetEnvironmentResponse getEnvironmentWithOptions(shared_ptr<string> projectName,
                                                    shared_ptr<string> name,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEnvironmentResponse getEnvironment(shared_ptr<string> projectName, shared_ptr<string> name);
+  GetEnvironmentDeploymentResponse getEnvironmentDeploymentWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetEnvironmentDeploymentResponse getEnvironmentDeployment(shared_ptr<string> name);
   GetPipelineResponse getPipelineWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPipelineResponse getPipeline(shared_ptr<string> name);
   GetProjectResponse getProjectWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
