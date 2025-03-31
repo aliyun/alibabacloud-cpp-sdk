@@ -1,3 +1,23 @@
+2025-03-31 Version: 3.1.0
+- Support API CancelSparkWarehouseBatchSQL.
+- Support API DescribeSparkSQLDiagnosisAttribute.
+- Support API DescribeSparkSQLDiagnosisList.
+- Support API ExecuteSparkWarehouseBatchSQL.
+- Support API GetSparkWarehouseBatchSQL.
+- Support API ListSparkWarehouseBatchSQL.
+- Support API UpgradeKernelVersion.
+- Update API CreateDBCluster: add request parameters ProductVersion.
+- Update API CreateDBCluster: add request parameters SecondaryVSwitchId.
+- Update API CreateDBCluster: add request parameters SecondaryZoneId.
+- Update API CreateDBResourceGroup: add request parameters RayConfig.
+- Update API DescribeDBClusterAttribute: add response parameters Body.Items.$.DiskEncryption.
+- Update API DescribeDBClusterAttribute: add response parameters Body.Items.$.SecondaryVSwitchId.
+- Update API DescribeDBClusterAttribute: add response parameters Body.Items.$.SecondaryZoneId.
+- Update API DescribeDBResourceGroup: add response parameters Body.GroupsInfo.$.RayConfig.
+- Update API ListSparkApps: add request parameters Filters.
+- Update API ModifyDBResourceGroup: add request parameters RayConfig.
+
+
 2024-12-30 Version: 3.0.7
 - Generated cpp 2021-12-01 for adb.
 
