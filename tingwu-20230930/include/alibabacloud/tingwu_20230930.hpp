@@ -1623,7 +1623,9 @@ public:
 class GetTaskInfoResponseBodyDataResult : public Darabonba::Model {
 public:
   shared_ptr<string> autoChapters{};
+  shared_ptr<string> contentExtraction{};
   shared_ptr<string> customPrompt{};
+  shared_ptr<string> identityRecognition{};
   shared_ptr<string> meetingAssistance{};
   shared_ptr<string> pptExtraction{};
   shared_ptr<string> serviceInspection{};
@@ -1645,8 +1647,14 @@ public:
     if (autoChapters) {
       res["AutoChapters"] = boost::any(*autoChapters);
     }
+    if (contentExtraction) {
+      res["ContentExtraction"] = boost::any(*contentExtraction);
+    }
     if (customPrompt) {
       res["CustomPrompt"] = boost::any(*customPrompt);
+    }
+    if (identityRecognition) {
+      res["IdentityRecognition"] = boost::any(*identityRecognition);
     }
     if (meetingAssistance) {
       res["MeetingAssistance"] = boost::any(*meetingAssistance);
@@ -1676,8 +1684,14 @@ public:
     if (m.find("AutoChapters") != m.end() && !m["AutoChapters"].empty()) {
       autoChapters = make_shared<string>(boost::any_cast<string>(m["AutoChapters"]));
     }
+    if (m.find("ContentExtraction") != m.end() && !m["ContentExtraction"].empty()) {
+      contentExtraction = make_shared<string>(boost::any_cast<string>(m["ContentExtraction"]));
+    }
     if (m.find("CustomPrompt") != m.end() && !m["CustomPrompt"].empty()) {
       customPrompt = make_shared<string>(boost::any_cast<string>(m["CustomPrompt"]));
+    }
+    if (m.find("IdentityRecognition") != m.end() && !m["IdentityRecognition"].empty()) {
+      identityRecognition = make_shared<string>(boost::any_cast<string>(m["IdentityRecognition"]));
     }
     if (m.find("MeetingAssistance") != m.end() && !m["MeetingAssistance"].empty()) {
       meetingAssistance = make_shared<string>(boost::any_cast<string>(m["MeetingAssistance"]));
