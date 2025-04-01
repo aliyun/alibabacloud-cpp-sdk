@@ -7900,6 +7900,42 @@ public:
 
   virtual ~DownloadModelOutput() = default;
 };
+class OpenStructOssSourceConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> bucket{};
+  shared_ptr<string> object{};
+
+  OpenStructOssSourceConfig() {}
+
+  explicit OpenStructOssSourceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucket) {
+      res["bucket"] = boost::any(*bucket);
+    }
+    if (object) {
+      res["object"] = boost::any(*object);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("object") != m.end() && !m["object"].empty()) {
+      object = make_shared<string>(boost::any_cast<string>(m["object"]));
+    }
+  }
+
+
+  virtual ~OpenStructOssSourceConfig() = default;
+};
 class EventFilterConfig : public Darabonba::Model {
 public:
   shared_ptr<BranchFilter> branch{};
@@ -8022,6 +8058,7 @@ public:
 };
 class SourceConfig : public Darabonba::Model {
 public:
+  shared_ptr<OpenStructOssSourceConfig> oss{};
   shared_ptr<RepositorySourceConfig> repository{};
   shared_ptr<TemplateSourceConfig> template_{};
 
@@ -8035,6 +8072,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (oss) {
+      res["oss"] = oss ? boost::any(oss->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (repository) {
       res["repository"] = repository ? boost::any(repository->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -8045,6 +8085,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("oss") != m.end() && !m["oss"].empty()) {
+      if (typeid(map<string, boost::any>) == m["oss"].type()) {
+        OpenStructOssSourceConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["oss"]));
+        oss = make_shared<OpenStructOssSourceConfig>(model1);
+      }
+    }
     if (m.find("repository") != m.end() && !m["repository"].empty()) {
       if (typeid(map<string, boost::any>) == m["repository"].type()) {
         RepositorySourceConfig model1;
@@ -12901,6 +12948,102 @@ public:
 
   virtual ~ToolsetSpec() = default;
 };
+class ActivateConnectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<GitAccount> account{};
+  shared_ptr<OAuthCredential> credential{};
+
+  ActivateConnectionRequest() {}
+
+  explicit ActivateConnectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (account) {
+      res["account"] = account ? boost::any(account->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (credential) {
+      res["credential"] = credential ? boost::any(credential->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("account") != m.end() && !m["account"].empty()) {
+      if (typeid(map<string, boost::any>) == m["account"].type()) {
+        GitAccount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["account"]));
+        account = make_shared<GitAccount>(model1);
+      }
+    }
+    if (m.find("credential") != m.end() && !m["credential"].empty()) {
+      if (typeid(map<string, boost::any>) == m["credential"].type()) {
+        OAuthCredential model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["credential"]));
+        credential = make_shared<OAuthCredential>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ActivateConnectionRequest() = default;
+};
+class ActivateConnectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<Connection> body{};
+
+  ActivateConnectionResponse() {}
+
+  explicit ActivateConnectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Connection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Connection>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ActivateConnectionResponse() = default;
+};
 class CancelPipelineResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -13471,6 +13614,116 @@ public:
 
   virtual ~DeleteArtifactResponse() = default;
 };
+class DeleteConnectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> force{};
+
+  DeleteConnectionRequest() {}
+
+  explicit DeleteConnectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (force) {
+      res["force"] = boost::any(*force);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("force") != m.end() && !m["force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["force"]));
+    }
+  }
+
+
+  virtual ~DeleteConnectionRequest() = default;
+};
+class DeleteConnectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteConnectionResponseBody() {}
+
+  explicit DeleteConnectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~DeleteConnectionResponseBody() = default;
+};
+class DeleteConnectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteConnectionResponseBody> body{};
+
+  DeleteConnectionResponse() {}
+
+  explicit DeleteConnectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteConnectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteConnectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteConnectionResponse() = default;
+};
 class DeleteEnvironmentResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -13770,6 +14023,58 @@ public:
 
 
   virtual ~FetchArtifactTempBucketTokenResponse() = default;
+};
+class FetchConnectionCredentialResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<OAuthCredential> body{};
+
+  FetchConnectionCredentialResponse() {}
+
+  explicit FetchConnectionCredentialResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OAuthCredential model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OAuthCredential>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FetchConnectionCredentialResponse() = default;
 };
 class GetArtifactResponse : public Darabonba::Model {
 public:
@@ -14186,6 +14491,229 @@ public:
 
 
   virtual ~GetTaskResponse() = default;
+};
+class ListConnectionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keyword{};
+  shared_ptr<vector<string>> labelSelector{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListConnectionsRequest() {}
+
+  explicit ListConnectionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyword) {
+      res["keyword"] = boost::any(*keyword);
+    }
+    if (labelSelector) {
+      res["labelSelector"] = boost::any(*labelSelector);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("keyword") != m.end() && !m["keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["keyword"]));
+    }
+    if (m.find("labelSelector") != m.end() && !m["labelSelector"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["labelSelector"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["labelSelector"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      labelSelector = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+  }
+
+
+  virtual ~ListConnectionsRequest() = default;
+};
+class ListConnectionsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keyword{};
+  shared_ptr<string> labelSelectorShrink{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListConnectionsShrinkRequest() {}
+
+  explicit ListConnectionsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyword) {
+      res["keyword"] = boost::any(*keyword);
+    }
+    if (labelSelectorShrink) {
+      res["labelSelector"] = boost::any(*labelSelectorShrink);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("keyword") != m.end() && !m["keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["keyword"]));
+    }
+    if (m.find("labelSelector") != m.end() && !m["labelSelector"].empty()) {
+      labelSelectorShrink = make_shared<string>(boost::any_cast<string>(m["labelSelector"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+  }
+
+
+  virtual ~ListConnectionsShrinkRequest() = default;
+};
+class ListConnectionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<Connection>> data{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListConnectionsResponseBody() {}
+
+  explicit ListConnectionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["totalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<Connection> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Connection model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<Connection>>(expect1);
+      }
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("totalCount") != m.end() && !m["totalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["totalCount"]));
+    }
+  }
+
+
+  virtual ~ListConnectionsResponseBody() = default;
+};
+class ListConnectionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListConnectionsResponseBody> body{};
+
+  ListConnectionsResponse() {}
+
+  explicit ListConnectionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListConnectionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListConnectionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListConnectionsResponse() = default;
 };
 class ListEnvironmentsRequest : public Darabonba::Model {
 public:
@@ -16025,6 +16553,11 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ActivateConnectionResponse activateConnectionWithOptions(shared_ptr<string> name,
+                                                           shared_ptr<ActivateConnectionRequest> request,
+                                                           shared_ptr<map<string, string>> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ActivateConnectionResponse activateConnection(shared_ptr<string> name, shared_ptr<ActivateConnectionRequest> request);
   CancelPipelineResponse cancelPipelineWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelPipelineResponse cancelPipeline(shared_ptr<string> name);
   CancelTaskResponse cancelTaskWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16044,6 +16577,11 @@ public:
   CreateTaskResponse createTask(shared_ptr<CreateTaskRequest> request);
   DeleteArtifactResponse deleteArtifactWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteArtifactResponse deleteArtifact(shared_ptr<string> name);
+  DeleteConnectionResponse deleteConnectionWithOptions(shared_ptr<string> name,
+                                                       shared_ptr<DeleteConnectionRequest> request,
+                                                       shared_ptr<map<string, string>> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteConnectionResponse deleteConnection(shared_ptr<string> name, shared_ptr<DeleteConnectionRequest> request);
   DeleteEnvironmentResponse deleteEnvironmentWithOptions(shared_ptr<string> projectName,
                                                          shared_ptr<string> name,
                                                          shared_ptr<map<string, string>> headers,
@@ -16064,6 +16602,8 @@ public:
   FetchArtifactDownloadUrlResponse fetchArtifactDownloadUrl(shared_ptr<string> name);
   FetchArtifactTempBucketTokenResponse fetchArtifactTempBucketTokenWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FetchArtifactTempBucketTokenResponse fetchArtifactTempBucketToken();
+  FetchConnectionCredentialResponse fetchConnectionCredentialWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FetchConnectionCredentialResponse fetchConnectionCredential(shared_ptr<string> name);
   GetArtifactResponse getArtifactWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetArtifactResponse getArtifact(shared_ptr<string> name);
   GetEnvironmentResponse getEnvironmentWithOptions(shared_ptr<string> projectName,
@@ -16083,6 +16623,8 @@ public:
   GetServiceDeploymentResponse getServiceDeployment(shared_ptr<string> name);
   GetTaskResponse getTaskWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTaskResponse getTask(shared_ptr<string> name);
+  ListConnectionsResponse listConnectionsWithOptions(shared_ptr<ListConnectionsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListConnectionsResponse listConnections(shared_ptr<ListConnectionsRequest> request);
   ListEnvironmentsResponse listEnvironmentsWithOptions(shared_ptr<string> projectName,
                                                        shared_ptr<ListEnvironmentsRequest> tmpReq,
                                                        shared_ptr<map<string, string>> headers,
