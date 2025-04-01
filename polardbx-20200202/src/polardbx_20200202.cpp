@@ -501,8 +501,8 @@ CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->CNNodeCount)) {
-    query->insert(pair<string, string>("CNNodeCount", *request->CNNodeCount));
+  if (!Darabonba_Util::Client::isUnset<long>(request->CNNodeCount)) {
+    query->insert(pair<string, long>("CNNodeCount", *request->CNNodeCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -516,8 +516,8 @@ CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance
   if (!Darabonba_Util::Client::isUnset<long>(request->DBNodeCount)) {
     query->insert(pair<string, long>("DBNodeCount", *request->DBNodeCount));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->DNNodeCount)) {
-    query->insert(pair<string, string>("DNNodeCount", *request->DNNodeCount));
+  if (!Darabonba_Util::Client::isUnset<long>(request->DNNodeCount)) {
+    query->insert(pair<string, long>("DNNodeCount", *request->DNNodeCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dnClass)) {
     query->insert(pair<string, string>("DnClass", *request->dnClass));
@@ -1117,6 +1117,42 @@ DescribeBinaryLogListResponse Alibabacloud_Polardbx20200202::Client::describeBin
 DescribeBinaryLogListResponse Alibabacloud_Polardbx20200202::Client::describeBinaryLogList(shared_ptr<DescribeBinaryLogListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeBinaryLogListWithOptions(request, runtime);
+}
+
+DescribeCdcInfoResponse Alibabacloud_Polardbx20200202::Client::describeCdcInfoWithOptions(shared_ptr<DescribeCdcInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceName)) {
+    query->insert(pair<string, string>("DBInstanceName", *request->DBInstanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCdcInfo"))},
+    {"version", boost::any(string("2020-02-02"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeCdcInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeCdcInfoResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeCdcInfoResponse Alibabacloud_Polardbx20200202::Client::describeCdcInfo(shared_ptr<DescribeCdcInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCdcInfoWithOptions(request, runtime);
 }
 
 DescribeCharacterSetResponse Alibabacloud_Polardbx20200202::Client::describeCharacterSetWithOptions(shared_ptr<DescribeCharacterSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3290,8 +3326,8 @@ UpdatePolarDBXInstanceNodeResponse Alibabacloud_Polardbx20200202::Client::update
   if (!Darabonba_Util::Client::isUnset<string>(request->addDNSpec)) {
     query->insert(pair<string, string>("AddDNSpec", *request->addDNSpec));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->CNNodeCount)) {
-    query->insert(pair<string, string>("CNNodeCount", *request->CNNodeCount));
+  if (!Darabonba_Util::Client::isUnset<long>(request->CNNodeCount)) {
+    query->insert(pair<string, long>("CNNodeCount", *request->CNNodeCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -3299,11 +3335,11 @@ UpdatePolarDBXInstanceNodeResponse Alibabacloud_Polardbx20200202::Client::update
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceName)) {
     query->insert(pair<string, string>("DBInstanceName", *request->DBInstanceName));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->DNNodeCount)) {
-    query->insert(pair<string, string>("DNNodeCount", *request->DNNodeCount));
+  if (!Darabonba_Util::Client::isUnset<long>(request->DNNodeCount)) {
+    query->insert(pair<string, long>("DNNodeCount", *request->DNNodeCount));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->dbInstanceNodeCount)) {
-    query->insert(pair<string, string>("DbInstanceNodeCount", *request->dbInstanceNodeCount));
+  if (!Darabonba_Util::Client::isUnset<long>(request->dbInstanceNodeCount)) {
+    query->insert(pair<string, long>("DbInstanceNodeCount", *request->dbInstanceNodeCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deleteDNIds)) {
     query->insert(pair<string, string>("DeleteDNIds", *request->deleteDNIds));
