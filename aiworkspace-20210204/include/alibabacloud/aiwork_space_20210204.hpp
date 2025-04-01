@@ -2704,6 +2704,8 @@ public:
   shared_ptr<vector<AddImageRequestLabels>> labels{};
   shared_ptr<string> name{};
   shared_ptr<long> size{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceType{};
   shared_ptr<string> workspaceId{};
 
   AddImageRequest() {}
@@ -2740,6 +2742,12 @@ public:
     }
     if (size) {
       res["Size"] = boost::any(*size);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -2778,6 +2786,12 @@ public:
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -10281,6 +10295,8 @@ public:
   shared_ptr<string> parentUserId{};
   shared_ptr<string> requestId{};
   shared_ptr<long> size{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceType{};
   shared_ptr<string> userId{};
   shared_ptr<string> workspaceId{};
 
@@ -10327,6 +10343,12 @@ public:
     }
     if (size) {
       res["Size"] = boost::any(*size);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
@@ -10377,6 +10399,12 @@ public:
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -13623,6 +13651,8 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> parentUserId{};
   shared_ptr<long> size{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceType{};
   shared_ptr<string> userId{};
   shared_ptr<string> workspaceId{};
 
@@ -13669,6 +13699,12 @@ public:
     }
     if (size) {
       res["Size"] = boost::any(*size);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
@@ -13719,6 +13755,12 @@ public:
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));

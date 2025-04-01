@@ -99,6 +99,12 @@ AddImageResponse Alibabacloud_AIWorkSpace20210204::Client::addImageWithOptions(s
   if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
     body->insert(pair<string, long>("Size", *request->size));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
+    body->insert(pair<string, string>("SourceId", *request->sourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    body->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
   }
