@@ -10703,6 +10703,7 @@ public:
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
   shared_ptr<string> originMtls{};
+  shared_ptr<string> originReadTimeout{};
   shared_ptr<string> originScheme{};
   shared_ptr<string> originSni{};
   shared_ptr<string> originVerify{};
@@ -10739,6 +10740,9 @@ public:
     }
     if (originMtls) {
       res["OriginMtls"] = boost::any(*originMtls);
+    }
+    if (originReadTimeout) {
+      res["OriginReadTimeout"] = boost::any(*originReadTimeout);
     }
     if (originScheme) {
       res["OriginScheme"] = boost::any(*originScheme);
@@ -10791,6 +10795,9 @@ public:
     }
     if (m.find("OriginMtls") != m.end() && !m["OriginMtls"].empty()) {
       originMtls = make_shared<string>(boost::any_cast<string>(m["OriginMtls"]));
+    }
+    if (m.find("OriginReadTimeout") != m.end() && !m["OriginReadTimeout"].empty()) {
+      originReadTimeout = make_shared<string>(boost::any_cast<string>(m["OriginReadTimeout"]));
     }
     if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
       originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
@@ -27409,6 +27416,187 @@ public:
 
   virtual ~GetEdgeContainerAppResourceReserveResponse() = default;
 };
+class GetEdgeContainerAppResourceStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+
+  GetEdgeContainerAppResourceStatusRequest() {}
+
+  explicit GetEdgeContainerAppResourceStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+  }
+
+
+  virtual ~GetEdgeContainerAppResourceStatusRequest() = default;
+};
+class GetEdgeContainerAppResourceStatusResponseBodyRegions : public Darabonba::Model {
+public:
+  shared_ptr<string> isp{};
+  shared_ptr<long> ready{};
+  shared_ptr<string> region{};
+  shared_ptr<long> total{};
+
+  GetEdgeContainerAppResourceStatusResponseBodyRegions() {}
+
+  explicit GetEdgeContainerAppResourceStatusResponseBodyRegions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
+    }
+    if (ready) {
+      res["Ready"] = boost::any(*ready);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
+    }
+    if (m.find("Ready") != m.end() && !m["Ready"].empty()) {
+      ready = make_shared<long>(boost::any_cast<long>(m["Ready"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetEdgeContainerAppResourceStatusResponseBodyRegions() = default;
+};
+class GetEdgeContainerAppResourceStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetEdgeContainerAppResourceStatusResponseBodyRegions>> regions{};
+  shared_ptr<string> requestId{};
+
+  GetEdgeContainerAppResourceStatusResponseBody() {}
+
+  explicit GetEdgeContainerAppResourceStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regions) {
+      vector<boost::any> temp1;
+      for(auto item1:*regions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Regions"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Regions"].type()) {
+        vector<GetEdgeContainerAppResourceStatusResponseBodyRegions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Regions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetEdgeContainerAppResourceStatusResponseBodyRegions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        regions = make_shared<vector<GetEdgeContainerAppResourceStatusResponseBodyRegions>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetEdgeContainerAppResourceStatusResponseBody() = default;
+};
+class GetEdgeContainerAppResourceStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetEdgeContainerAppResourceStatusResponseBody> body{};
+
+  GetEdgeContainerAppResourceStatusResponse() {}
+
+  explicit GetEdgeContainerAppResourceStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetEdgeContainerAppResourceStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetEdgeContainerAppResourceStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetEdgeContainerAppResourceStatusResponse() = default;
+};
 class GetEdgeContainerAppStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -33448,6 +33636,7 @@ public:
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
   shared_ptr<string> originMtls{};
+  shared_ptr<string> originReadTimeout{};
   shared_ptr<string> originScheme{};
   shared_ptr<string> originSni{};
   shared_ptr<string> originVerify{};
@@ -33490,6 +33679,9 @@ public:
     }
     if (originMtls) {
       res["OriginMtls"] = boost::any(*originMtls);
+    }
+    if (originReadTimeout) {
+      res["OriginReadTimeout"] = boost::any(*originReadTimeout);
     }
     if (originScheme) {
       res["OriginScheme"] = boost::any(*originScheme);
@@ -33548,6 +33740,9 @@ public:
     }
     if (m.find("OriginMtls") != m.end() && !m["OriginMtls"].empty()) {
       originMtls = make_shared<string>(boost::any_cast<string>(m["OriginMtls"]));
+    }
+    if (m.find("OriginReadTimeout") != m.end() && !m["OriginReadTimeout"].empty()) {
+      originReadTimeout = make_shared<string>(boost::any_cast<string>(m["OriginReadTimeout"]));
     }
     if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
       originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
@@ -49024,6 +49219,7 @@ public:
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
   shared_ptr<string> originMtls{};
+  shared_ptr<string> originReadTimeout{};
   shared_ptr<string> originScheme{};
   shared_ptr<string> originSni{};
   shared_ptr<string> originVerify{};
@@ -49065,6 +49261,9 @@ public:
     }
     if (originMtls) {
       res["OriginMtls"] = boost::any(*originMtls);
+    }
+    if (originReadTimeout) {
+      res["OriginReadTimeout"] = boost::any(*originReadTimeout);
     }
     if (originScheme) {
       res["OriginScheme"] = boost::any(*originScheme);
@@ -49120,6 +49319,9 @@ public:
     }
     if (m.find("OriginMtls") != m.end() && !m["OriginMtls"].empty()) {
       originMtls = make_shared<string>(boost::any_cast<string>(m["OriginMtls"]));
+    }
+    if (m.find("OriginReadTimeout") != m.end() && !m["OriginReadTimeout"].empty()) {
+      originReadTimeout = make_shared<string>(boost::any_cast<string>(m["OriginReadTimeout"]));
     }
     if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
       originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
@@ -64735,6 +64937,7 @@ public:
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
   shared_ptr<string> originMtls{};
+  shared_ptr<string> originReadTimeout{};
   shared_ptr<string> originScheme{};
   shared_ptr<string> originSni{};
   shared_ptr<string> originVerify{};
@@ -64773,6 +64976,9 @@ public:
     }
     if (originMtls) {
       res["OriginMtls"] = boost::any(*originMtls);
+    }
+    if (originReadTimeout) {
+      res["OriginReadTimeout"] = boost::any(*originReadTimeout);
     }
     if (originScheme) {
       res["OriginScheme"] = boost::any(*originScheme);
@@ -64825,6 +65031,9 @@ public:
     }
     if (m.find("OriginMtls") != m.end() && !m["OriginMtls"].empty()) {
       originMtls = make_shared<string>(boost::any_cast<string>(m["OriginMtls"]));
+    }
+    if (m.find("OriginReadTimeout") != m.end() && !m["OriginReadTimeout"].empty()) {
+      originReadTimeout = make_shared<string>(boost::any_cast<string>(m["OriginReadTimeout"]));
     }
     if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
       originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
@@ -70312,6 +70521,8 @@ public:
   GetEdgeContainerAppLogRiverResponse getEdgeContainerAppLogRiver(shared_ptr<GetEdgeContainerAppLogRiverRequest> request);
   GetEdgeContainerAppResourceReserveResponse getEdgeContainerAppResourceReserveWithOptions(shared_ptr<GetEdgeContainerAppResourceReserveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEdgeContainerAppResourceReserveResponse getEdgeContainerAppResourceReserve(shared_ptr<GetEdgeContainerAppResourceReserveRequest> request);
+  GetEdgeContainerAppResourceStatusResponse getEdgeContainerAppResourceStatusWithOptions(shared_ptr<GetEdgeContainerAppResourceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetEdgeContainerAppResourceStatusResponse getEdgeContainerAppResourceStatus(shared_ptr<GetEdgeContainerAppResourceStatusRequest> request);
   GetEdgeContainerAppStatusResponse getEdgeContainerAppStatusWithOptions(shared_ptr<GetEdgeContainerAppStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEdgeContainerAppStatusResponse getEdgeContainerAppStatus(shared_ptr<GetEdgeContainerAppStatusRequest> request);
   GetEdgeContainerAppVersionResponse getEdgeContainerAppVersionWithOptions(shared_ptr<GetEdgeContainerAppVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
