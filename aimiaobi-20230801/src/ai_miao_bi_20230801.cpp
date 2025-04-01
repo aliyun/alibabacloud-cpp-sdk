@@ -1598,6 +1598,9 @@ GetHotTopicBroadcastResponse Alibabacloud_AiMiaoBi20230801::Client::getHotTopicB
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetHotTopicBroadcastShrinkRequest> request = make_shared<GetHotTopicBroadcastShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->locations)) {
+    request->locationsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->locations, make_shared<string>("Locations"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig>(tmpReq->stepForCustomSummaryStyleConfig)) {
     request->stepForCustomSummaryStyleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->stepForCustomSummaryStyleConfig, make_shared<string>("StepForCustomSummaryStyleConfig"), make_shared<string>("json")));
   }
@@ -1619,6 +1622,15 @@ GetHotTopicBroadcastResponse Alibabacloud_AiMiaoBi20230801::Client::getHotTopicB
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->hotTopicVersion)) {
     body->insert(pair<string, string>("HotTopicVersion", *request->hotTopicVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->locationQuery)) {
+    body->insert(pair<string, string>("LocationQuery", *request->locationQuery));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->locationsShrink)) {
+    body->insert(pair<string, string>("Locations", *request->locationsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    body->insert(pair<string, string>("Query", *request->query));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
     body->insert(pair<string, long>("Size", *request->size));
@@ -4970,15 +4982,24 @@ RunTitleGenerationResponse Alibabacloud_AiMiaoBi20230801::Client::runTitleGenera
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<RunTitleGenerationShrinkRequest> request = make_shared<RunTitleGenerationShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->deduplicatedTitles)) {
+    request->deduplicatedTitlesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->deduplicatedTitles, make_shared<string>("DeduplicatedTitles"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<RunTitleGenerationRequestReferenceData>(tmpReq->referenceData)) {
     request->referenceDataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->referenceData, make_shared<string>("ReferenceData"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deduplicatedTitlesShrink)) {
+    body->insert(pair<string, string>("DeduplicatedTitles", *request->deduplicatedTitlesShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->referenceDataShrink)) {
     body->insert(pair<string, string>("ReferenceData", *request->referenceDataShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->titleCount)) {
+    body->insert(pair<string, string>("TitleCount", *request->titleCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));

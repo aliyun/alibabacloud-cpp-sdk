@@ -1,3 +1,6 @@
+2025-04-01 Version: 1.1.2
+- Generated cpp 2023-08-01 for AiMiaoBi.
+
 2025-03-18 Version: 1.1.1
 - Update API RunSearchGeneration: update param AgentContext.
 - Update API RunSearchSimilarArticles: update param ChatConfig.
