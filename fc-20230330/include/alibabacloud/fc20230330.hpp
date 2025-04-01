@@ -3789,6 +3789,49 @@ public:
 
   virtual ~Filter() = default;
 };
+class OpenStructFunctionRestriction : public Darabonba::Model {
+public:
+  shared_ptr<bool> disable{};
+  shared_ptr<string> lastModifiedTime{};
+  shared_ptr<string> reason{};
+
+  OpenStructFunctionRestriction() {}
+
+  explicit OpenStructFunctionRestriction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disable) {
+      res["disable"] = boost::any(*disable);
+    }
+    if (lastModifiedTime) {
+      res["lastModifiedTime"] = boost::any(*lastModifiedTime);
+    }
+    if (reason) {
+      res["reason"] = boost::any(*reason);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("disable") != m.end() && !m["disable"].empty()) {
+      disable = make_shared<bool>(boost::any_cast<bool>(m["disable"]));
+    }
+    if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
+      lastModifiedTime = make_shared<string>(boost::any_cast<string>(m["lastModifiedTime"]));
+    }
+    if (m.find("reason") != m.end() && !m["reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["reason"]));
+    }
+  }
+
+
+  virtual ~OpenStructFunctionRestriction() = default;
+};
 class FunctionLayer : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
@@ -3846,6 +3889,7 @@ public:
   shared_ptr<long> instanceConcurrency{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
   shared_ptr<bool> internetAccess{};
+  shared_ptr<OpenStructFunctionRestriction> invocationRestriction{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> lastUpdateStatus{};
   shared_ptr<string> lastUpdateStatusReason{};
@@ -3931,6 +3975,9 @@ public:
     }
     if (internetAccess) {
       res["internetAccess"] = boost::any(*internetAccess);
+    }
+    if (invocationRestriction) {
+      res["invocationRestriction"] = invocationRestriction ? boost::any(invocationRestriction->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (lastModifiedTime) {
       res["lastModifiedTime"] = boost::any(*lastModifiedTime);
@@ -4079,6 +4126,13 @@ public:
     }
     if (m.find("internetAccess") != m.end() && !m["internetAccess"].empty()) {
       internetAccess = make_shared<bool>(boost::any_cast<bool>(m["internetAccess"]));
+    }
+    if (m.find("invocationRestriction") != m.end() && !m["invocationRestriction"].empty()) {
+      if (typeid(map<string, boost::any>) == m["invocationRestriction"].type()) {
+        OpenStructFunctionRestriction model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["invocationRestriction"]));
+        invocationRestriction = make_shared<OpenStructFunctionRestriction>(model1);
+      }
     }
     if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
       lastModifiedTime = make_shared<string>(boost::any_cast<string>(m["lastModifiedTime"]));
@@ -8088,6 +8142,204 @@ public:
 
   virtual ~DeleteVpcBindingResponse() = default;
 };
+class DisableFunctionInvocationRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> abortOngoingRequest{};
+  shared_ptr<string> reason{};
+
+  DisableFunctionInvocationRequest() {}
+
+  explicit DisableFunctionInvocationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abortOngoingRequest) {
+      res["abortOngoingRequest"] = boost::any(*abortOngoingRequest);
+    }
+    if (reason) {
+      res["reason"] = boost::any(*reason);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("abortOngoingRequest") != m.end() && !m["abortOngoingRequest"].empty()) {
+      abortOngoingRequest = make_shared<bool>(boost::any_cast<bool>(m["abortOngoingRequest"]));
+    }
+    if (m.find("reason") != m.end() && !m["reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["reason"]));
+    }
+  }
+
+
+  virtual ~DisableFunctionInvocationRequest() = default;
+};
+class DisableFunctionInvocationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+
+  DisableFunctionInvocationResponseBody() {}
+
+  explicit DisableFunctionInvocationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~DisableFunctionInvocationResponseBody() = default;
+};
+class DisableFunctionInvocationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisableFunctionInvocationResponseBody> body{};
+
+  DisableFunctionInvocationResponse() {}
+
+  explicit DisableFunctionInvocationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableFunctionInvocationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableFunctionInvocationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableFunctionInvocationResponse() = default;
+};
+class EnableFunctionInvocationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+
+  EnableFunctionInvocationResponseBody() {}
+
+  explicit EnableFunctionInvocationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~EnableFunctionInvocationResponseBody() = default;
+};
+class EnableFunctionInvocationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableFunctionInvocationResponseBody> body{};
+
+  EnableFunctionInvocationResponse() {}
+
+  explicit EnableFunctionInvocationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableFunctionInvocationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableFunctionInvocationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableFunctionInvocationResponse() = default;
+};
 class GetAliasResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -11807,6 +12059,13 @@ public:
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVpcBindingResponse deleteVpcBinding(shared_ptr<string> functionName, shared_ptr<string> vpcId);
+  DisableFunctionInvocationResponse disableFunctionInvocationWithOptions(shared_ptr<string> functionName,
+                                                                         shared_ptr<DisableFunctionInvocationRequest> request,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableFunctionInvocationResponse disableFunctionInvocation(shared_ptr<string> functionName, shared_ptr<DisableFunctionInvocationRequest> request);
+  EnableFunctionInvocationResponse enableFunctionInvocationWithOptions(shared_ptr<string> functionName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableFunctionInvocationResponse enableFunctionInvocation(shared_ptr<string> functionName);
   GetAliasResponse getAliasWithOptions(shared_ptr<string> functionName,
                                        shared_ptr<string> aliasName,
                                        shared_ptr<map<string, string>> headers,

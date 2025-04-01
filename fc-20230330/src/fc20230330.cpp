@@ -558,6 +558,76 @@ DeleteVpcBindingResponse Alibabacloud_FC20230330::Client::deleteVpcBinding(share
   return deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
 }
 
+DisableFunctionInvocationResponse Alibabacloud_FC20230330::Client::disableFunctionInvocationWithOptions(shared_ptr<string> functionName,
+                                                                                                        shared_ptr<DisableFunctionInvocationRequest> request,
+                                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->abortOngoingRequest)) {
+    body->insert(pair<string, bool>("abortOngoingRequest", *request->abortOngoingRequest));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reason)) {
+    body->insert(pair<string, string>("reason", *request->reason));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DisableFunctionInvocation"))},
+    {"version", boost::any(string("2023-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/invoke/disable"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DisableFunctionInvocationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DisableFunctionInvocationResponse(execute(params, req, runtime));
+  }
+}
+
+DisableFunctionInvocationResponse Alibabacloud_FC20230330::Client::disableFunctionInvocation(shared_ptr<string> functionName, shared_ptr<DisableFunctionInvocationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return disableFunctionInvocationWithOptions(functionName, request, headers, runtime);
+}
+
+EnableFunctionInvocationResponse Alibabacloud_FC20230330::Client::enableFunctionInvocationWithOptions(shared_ptr<string> functionName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableFunctionInvocation"))},
+    {"version", boost::any(string("2023-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/invoke/enable"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EnableFunctionInvocationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return EnableFunctionInvocationResponse(execute(params, req, runtime));
+  }
+}
+
+EnableFunctionInvocationResponse Alibabacloud_FC20230330::Client::enableFunctionInvocation(shared_ptr<string> functionName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return enableFunctionInvocationWithOptions(functionName, headers, runtime);
+}
+
 GetAliasResponse Alibabacloud_FC20230330::Client::getAliasWithOptions(shared_ptr<string> functionName,
                                                                       shared_ptr<string> aliasName,
                                                                       shared_ptr<map<string, string>> headers,
