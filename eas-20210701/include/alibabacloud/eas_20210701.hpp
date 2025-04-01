@@ -7261,7 +7261,7 @@ public:
 class DescribeGroupEndpointsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
-  shared_ptr<DescribeGroupEndpointsResponseBodyEndpoints> endpoints{};
+  shared_ptr<vector<DescribeGroupEndpointsResponseBodyEndpoints>> endpoints{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -7279,7 +7279,11 @@ public:
       res["AccessToken"] = boost::any(*accessToken);
     }
     if (endpoints) {
-      res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*endpoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Endpoints"] = boost::any(temp1);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -7295,10 +7299,16 @@ public:
       accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
     }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Endpoints"].type()) {
-        DescribeGroupEndpointsResponseBodyEndpoints model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
-        endpoints = make_shared<DescribeGroupEndpointsResponseBodyEndpoints>(model1);
+      if (typeid(vector<boost::any>) == m["Endpoints"].type()) {
+        vector<DescribeGroupEndpointsResponseBodyEndpoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Endpoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGroupEndpointsResponseBodyEndpoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpoints = make_shared<vector<DescribeGroupEndpointsResponseBodyEndpoints>>(expect1);
       }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
@@ -9006,7 +9016,7 @@ public:
 class DescribeServiceEndpointsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
-  shared_ptr<DescribeServiceEndpointsResponseBodyEndpoints> endpoints{};
+  shared_ptr<vector<DescribeServiceEndpointsResponseBodyEndpoints>> endpoints{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -9024,7 +9034,11 @@ public:
       res["AccessToken"] = boost::any(*accessToken);
     }
     if (endpoints) {
-      res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*endpoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Endpoints"] = boost::any(temp1);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -9040,10 +9054,16 @@ public:
       accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
     }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Endpoints"].type()) {
-        DescribeServiceEndpointsResponseBodyEndpoints model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
-        endpoints = make_shared<DescribeServiceEndpointsResponseBodyEndpoints>(model1);
+      if (typeid(vector<boost::any>) == m["Endpoints"].type()) {
+        vector<DescribeServiceEndpointsResponseBodyEndpoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Endpoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeServiceEndpointsResponseBodyEndpoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpoints = make_shared<vector<DescribeServiceEndpointsResponseBodyEndpoints>>(expect1);
       }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
