@@ -2241,19 +2241,7 @@ ListServiceTestTasksResponse Alibabacloud_ComputeNestSupplier20210521::Client::l
 
 ListServiceUsagesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceUsagesWithOptions(shared_ptr<ListServiceUsagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<ListServiceUsagesRequestFilter>>(request->filter)) {
-    query->insert(pair<string, vector<ListServiceUsagesRequestFilter>>("Filter", *request->filter));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
-    query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
-    query->insert(pair<string, string>("NextToken", *request->nextToken));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->supplierRole)) {
-    query->insert(pair<string, string>("SupplierRole", *request->supplierRole));
-  }
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2262,7 +2250,7 @@ ListServiceUsagesResponse Alibabacloud_ComputeNestSupplier20210521::Client::list
     {"version", boost::any(string("2021-05-21"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
+    {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
