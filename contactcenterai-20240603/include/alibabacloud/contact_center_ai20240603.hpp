@@ -965,6 +965,42 @@ public:
 
   virtual ~AnalyzeImageResponse() = default;
 };
+class CreateTaskRequestCategoryTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagDesc{};
+  shared_ptr<string> tagName{};
+
+  CreateTaskRequestCategoryTags() {}
+
+  explicit CreateTaskRequestCategoryTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagDesc) {
+      res["tagDesc"] = boost::any(*tagDesc);
+    }
+    if (tagName) {
+      res["tagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagDesc") != m.end() && !m["tagDesc"].empty()) {
+      tagDesc = make_shared<string>(boost::any_cast<string>(m["tagDesc"]));
+    }
+    if (m.find("tagName") != m.end() && !m["tagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["tagName"]));
+    }
+  }
+
+
+  virtual ~CreateTaskRequestCategoryTags() = default;
+};
 class CreateTaskRequestDialogueSentences : public Darabonba::Model {
 public:
   shared_ptr<string> role{};
@@ -1422,8 +1458,45 @@ public:
 
   virtual ~CreateTaskRequestTranscription() = default;
 };
+class CreateTaskRequestVariables : public Darabonba::Model {
+public:
+  shared_ptr<string> variableCode{};
+  shared_ptr<string> variableValue{};
+
+  CreateTaskRequestVariables() {}
+
+  explicit CreateTaskRequestVariables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (variableCode) {
+      res["variableCode"] = boost::any(*variableCode);
+    }
+    if (variableValue) {
+      res["variableValue"] = boost::any(*variableValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("variableCode") != m.end() && !m["variableCode"].empty()) {
+      variableCode = make_shared<string>(boost::any_cast<string>(m["variableCode"]));
+    }
+    if (m.find("variableValue") != m.end() && !m["variableValue"].empty()) {
+      variableValue = make_shared<string>(boost::any_cast<string>(m["variableValue"]));
+    }
+  }
+
+
+  virtual ~CreateTaskRequestVariables() = default;
+};
 class CreateTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<CreateTaskRequestCategoryTags>> categoryTags{};
   shared_ptr<string> customPrompt{};
   shared_ptr<CreateTaskRequestDialogue> dialogue{};
   shared_ptr<CreateTaskRequestExamples> examples{};
@@ -1434,6 +1507,7 @@ public:
   shared_ptr<string> taskType{};
   shared_ptr<vector<string>> templateIds{};
   shared_ptr<CreateTaskRequestTranscription> transcription{};
+  shared_ptr<vector<CreateTaskRequestVariables>> variables{};
 
   CreateTaskRequest() {}
 
@@ -1445,6 +1519,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (categoryTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*categoryTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["categoryTags"] = boost::any(temp1);
+    }
     if (customPrompt) {
       res["customPrompt"] = boost::any(*customPrompt);
     }
@@ -1479,10 +1560,30 @@ public:
     if (transcription) {
       res["transcription"] = transcription ? boost::any(transcription->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (variables) {
+      vector<boost::any> temp1;
+      for(auto item1:*variables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["variables"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("categoryTags") != m.end() && !m["categoryTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["categoryTags"].type()) {
+        vector<CreateTaskRequestCategoryTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["categoryTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTaskRequestCategoryTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        categoryTags = make_shared<vector<CreateTaskRequestCategoryTags>>(expect1);
+      }
+    }
     if (m.find("customPrompt") != m.end() && !m["customPrompt"].empty()) {
       customPrompt = make_shared<string>(boost::any_cast<string>(m["customPrompt"]));
     }
@@ -1551,6 +1652,19 @@ public:
         CreateTaskRequestTranscription model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["transcription"]));
         transcription = make_shared<CreateTaskRequestTranscription>(model1);
+      }
+    }
+    if (m.find("variables") != m.end() && !m["variables"].empty()) {
+      if (typeid(vector<boost::any>) == m["variables"].type()) {
+        vector<CreateTaskRequestVariables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["variables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTaskRequestVariables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        variables = make_shared<vector<CreateTaskRequestVariables>>(expect1);
       }
     }
   }
@@ -3145,6 +3259,42 @@ public:
 
   virtual ~RunCompletionRequestServiceInspection() = default;
 };
+class RunCompletionRequestVariables : public Darabonba::Model {
+public:
+  shared_ptr<string> variableCode{};
+  shared_ptr<string> variableValue{};
+
+  RunCompletionRequestVariables() {}
+
+  explicit RunCompletionRequestVariables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (variableCode) {
+      res["variableCode"] = boost::any(*variableCode);
+    }
+    if (variableValue) {
+      res["variableValue"] = boost::any(*variableValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("variableCode") != m.end() && !m["variableCode"].empty()) {
+      variableCode = make_shared<string>(boost::any_cast<string>(m["variableCode"]));
+    }
+    if (m.find("variableValue") != m.end() && !m["variableValue"].empty()) {
+      variableValue = make_shared<string>(boost::any_cast<string>(m["variableValue"]));
+    }
+  }
+
+
+  virtual ~RunCompletionRequestVariables() = default;
+};
 class RunCompletionRequest : public Darabonba::Model {
 public:
   shared_ptr<RunCompletionRequestDialogue> dialogue{};
@@ -3153,6 +3303,7 @@ public:
   shared_ptr<RunCompletionRequestServiceInspection> serviceInspection{};
   shared_ptr<bool> stream{};
   shared_ptr<vector<long>> templateIds{};
+  shared_ptr<vector<RunCompletionRequestVariables>> variables{};
 
   RunCompletionRequest() {}
 
@@ -3185,6 +3336,13 @@ public:
     }
     if (templateIds) {
       res["TemplateIds"] = boost::any(*templateIds);
+    }
+    if (variables) {
+      vector<boost::any> temp1;
+      for(auto item1:*variables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["variables"] = boost::any(temp1);
     }
     return res;
   }
@@ -3232,6 +3390,19 @@ public:
         }
       }
       templateIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("variables") != m.end() && !m["variables"].empty()) {
+      if (typeid(vector<boost::any>) == m["variables"].type()) {
+        vector<RunCompletionRequestVariables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["variables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunCompletionRequestVariables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        variables = make_shared<vector<RunCompletionRequestVariables>>(expect1);
+      }
     }
   }
 

@@ -164,6 +164,9 @@ CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithO
                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTaskRequestCategoryTags>>(request->categoryTags)) {
+    body->insert(pair<string, vector<CreateTaskRequestCategoryTags>>("categoryTags", *request->categoryTags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->customPrompt)) {
     body->insert(pair<string, string>("customPrompt", *request->customPrompt));
   }
@@ -193,6 +196,9 @@ CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithO
   }
   if (!Darabonba_Util::Client::isUnset<CreateTaskRequestTranscription>(request->transcription)) {
     body->insert(pair<string, CreateTaskRequestTranscription>("transcription", *request->transcription));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTaskRequestVariables>>(request->variables)) {
+    body->insert(pair<string, vector<CreateTaskRequestVariables>>("variables", *request->variables));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -448,6 +454,9 @@ RunCompletionResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletio
   }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->templateIds)) {
     body->insert(pair<string, vector<long>>("TemplateIds", *request->templateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<RunCompletionRequestVariables>>(request->variables)) {
+    body->insert(pair<string, vector<RunCompletionRequestVariables>>("variables", *request->variables));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
