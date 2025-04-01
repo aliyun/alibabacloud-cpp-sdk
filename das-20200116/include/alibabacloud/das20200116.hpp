@@ -9406,6 +9406,7 @@ public:
   shared_ptr<long> rowsCountAffected{};
   shared_ptr<long> rowsExamined{};
   shared_ptr<long> rowsSent{};
+  shared_ptr<string> ruleId{};
   shared_ptr<string> SQLText{};
   shared_ptr<string> scheme{};
   shared_ptr<long> scnt{};
@@ -9662,6 +9663,9 @@ public:
     }
     if (rowsSent) {
       res["RowsSent"] = boost::any(*rowsSent);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
     }
     if (SQLText) {
       res["SQLText"] = boost::any(*SQLText);
@@ -9944,6 +9948,9 @@ public:
     }
     if (m.find("RowsSent") != m.end() && !m["RowsSent"].empty()) {
       rowsSent = make_shared<long>(boost::any_cast<long>(m["RowsSent"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
     }
     if (m.find("SQLText") != m.end() && !m["SQLText"].empty()) {
       SQLText = make_shared<string>(boost::any_cast<string>(m["SQLText"]));
@@ -11519,6 +11526,7 @@ public:
   shared_ptr<long> rows{};
   shared_ptr<long> scanRows{};
   shared_ptr<long> scnt{};
+  shared_ptr<long> sqlCommand{};
   shared_ptr<string> sqlId{};
   shared_ptr<string> sqlText{};
   shared_ptr<string> sqlType{};
@@ -11606,6 +11614,9 @@ public:
     }
     if (scnt) {
       res["Scnt"] = boost::any(*scnt);
+    }
+    if (sqlCommand) {
+      res["SqlCommand"] = boost::any(*sqlCommand);
     }
     if (sqlId) {
       res["SqlId"] = boost::any(*sqlId);
@@ -11709,6 +11720,9 @@ public:
     }
     if (m.find("Scnt") != m.end() && !m["Scnt"].empty()) {
       scnt = make_shared<long>(boost::any_cast<long>(m["Scnt"]));
+    }
+    if (m.find("SqlCommand") != m.end() && !m["SqlCommand"].empty()) {
+      sqlCommand = make_shared<long>(boost::any_cast<long>(m["SqlCommand"]));
     }
     if (m.find("SqlId") != m.end() && !m["SqlId"].empty()) {
       sqlId = make_shared<string>(boost::any_cast<string>(m["SqlId"]));
@@ -33216,6 +33230,7 @@ public:
 class ModifySqlLogConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> enable{};
+  shared_ptr<bool> enableAudit{};
   shared_ptr<vector<ModifySqlLogConfigRequestFilters>> filters{};
   shared_ptr<long> hotRetention{};
   shared_ptr<string> instanceId{};
@@ -33234,6 +33249,9 @@ public:
     map<string, boost::any> res;
     if (enable) {
       res["Enable"] = boost::any(*enable);
+    }
+    if (enableAudit) {
+      res["EnableAudit"] = boost::any(*enableAudit);
     }
     if (filters) {
       vector<boost::any> temp1;
@@ -33260,6 +33278,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("EnableAudit") != m.end() && !m["EnableAudit"].empty()) {
+      enableAudit = make_shared<bool>(boost::any_cast<bool>(m["EnableAudit"]));
     }
     if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
       if (typeid(vector<boost::any>) == m["Filters"].type()) {

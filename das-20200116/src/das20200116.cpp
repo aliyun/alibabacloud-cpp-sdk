@@ -4211,6 +4211,9 @@ ModifyAutoScalingConfigResponse Alibabacloud_DAS20200116::Client::modifyAutoScal
 ModifySqlLogConfigResponse Alibabacloud_DAS20200116::Client::modifySqlLogConfigWithOptions(shared_ptr<ModifySqlLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableAudit)) {
+    query->insert(pair<string, bool>("EnableAudit", *request->enableAudit));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ModifySqlLogConfigRequestFilters>>(request->filters)) {
     query->insert(pair<string, vector<ModifySqlLogConfigRequestFilters>>("Filters", *request->filters));
   }
