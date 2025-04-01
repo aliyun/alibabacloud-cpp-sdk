@@ -3652,6 +3652,7 @@ public:
   shared_ptr<long> amount{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<bool> autoUseCoupon{};
+  shared_ptr<string> cidr{};
   shared_ptr<string> ensRegionId{};
   shared_ptr<string> environmentVar{};
   shared_ptr<long> frequency{};
@@ -3684,6 +3685,9 @@ public:
     }
     if (autoUseCoupon) {
       res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
+    }
+    if (cidr) {
+      res["Cidr"] = boost::any(*cidr);
     }
     if (ensRegionId) {
       res["EnsRegionId"] = boost::any(*ensRegionId);
@@ -3736,6 +3740,9 @@ public:
     }
     if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
       autoUseCoupon = make_shared<bool>(boost::any_cast<bool>(m["AutoUseCoupon"]));
+    }
+    if (m.find("Cidr") != m.end() && !m["Cidr"].empty()) {
+      cidr = make_shared<string>(boost::any_cast<string>(m["Cidr"]));
     }
     if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
       ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
@@ -27889,6 +27896,7 @@ class DescribeFileSystemsResponseBodyFileSystems : public Darabonba::Model {
 public:
   shared_ptr<long> capacity{};
   shared_ptr<string> creationTime{};
+  shared_ptr<string> description{};
   shared_ptr<string> ensRegionId{};
   shared_ptr<string> fileSystemId{};
   shared_ptr<string> fileSystemName{};
@@ -27914,6 +27922,9 @@ public:
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (ensRegionId) {
       res["EnsRegionId"] = boost::any(*ensRegionId);
@@ -27955,6 +27966,9 @@ public:
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
       ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));

@@ -696,6 +696,9 @@ CreateARMServerInstancesResponse Alibabacloud_Ens20171110::Client::createARMServ
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoUseCoupon)) {
     query->insert(pair<string, bool>("AutoUseCoupon", *request->autoUseCoupon));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cidr)) {
+    query->insert(pair<string, string>("Cidr", *request->cidr));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ensRegionId)) {
     query->insert(pair<string, string>("EnsRegionId", *request->ensRegionId));
   }
