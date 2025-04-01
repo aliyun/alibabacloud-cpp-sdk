@@ -7900,14 +7900,14 @@ public:
 
   virtual ~DownloadModelOutput() = default;
 };
-class OpenStructOssSourceConfig : public Darabonba::Model {
+class OssSourceConfig : public Darabonba::Model {
 public:
   shared_ptr<string> bucket{};
   shared_ptr<string> object{};
 
-  OpenStructOssSourceConfig() {}
+  OssSourceConfig() {}
 
-  explicit OpenStructOssSourceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit OssSourceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -7934,7 +7934,7 @@ public:
   }
 
 
-  virtual ~OpenStructOssSourceConfig() = default;
+  virtual ~OssSourceConfig() = default;
 };
 class EventFilterConfig : public Darabonba::Model {
 public:
@@ -8058,7 +8058,7 @@ public:
 };
 class SourceConfig : public Darabonba::Model {
 public:
-  shared_ptr<OpenStructOssSourceConfig> oss{};
+  shared_ptr<OssSourceConfig> oss{};
   shared_ptr<RepositorySourceConfig> repository{};
   shared_ptr<TemplateSourceConfig> template_{};
 
@@ -8087,9 +8087,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("oss") != m.end() && !m["oss"].empty()) {
       if (typeid(map<string, boost::any>) == m["oss"].type()) {
-        OpenStructOssSourceConfig model1;
+        OssSourceConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["oss"]));
-        oss = make_shared<OpenStructOssSourceConfig>(model1);
+        oss = make_shared<OssSourceConfig>(model1);
       }
     }
     if (m.find("repository") != m.end() && !m["repository"].empty()) {
@@ -12947,6 +12947,42 @@ public:
 
 
   virtual ~ToolsetSpec() = default;
+};
+class OpenStructOssSourceConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> bucket{};
+  shared_ptr<string> object{};
+
+  OpenStructOssSourceConfig() {}
+
+  explicit OpenStructOssSourceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucket) {
+      res["bucket"] = boost::any(*bucket);
+    }
+    if (object) {
+      res["object"] = boost::any(*object);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("object") != m.end() && !m["object"].empty()) {
+      object = make_shared<string>(boost::any_cast<string>(m["object"]));
+    }
+  }
+
+
+  virtual ~OpenStructOssSourceConfig() = default;
 };
 class ActivateConnectionRequest : public Darabonba::Model {
 public:
