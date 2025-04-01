@@ -682,12 +682,18 @@ CreateProjectModifyRecordsResponse Alibabacloud_OceanBasePro20190901::Client::cr
   if (!Darabonba_Util::Client::isUnset<vector<CreateProjectModifyRecordsRequestDatabases>>(tmpReq->databases)) {
     request->databasesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->databases, make_shared<string>("Databases"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateProjectModifyRecordsRequestTransferMapping>(tmpReq->transferMapping)) {
+    request->transferMappingShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transferMapping, make_shared<string>("TransferMapping"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->databasesShrink)) {
     body->insert(pair<string, string>("Databases", *request->databasesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     body->insert(pair<string, string>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transferMappingShrink)) {
+    body->insert(pair<string, string>("TransferMapping", *request->transferMappingShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3764,6 +3770,54 @@ DescribeSlowSQLListResponse Alibabacloud_OceanBasePro20190901::Client::describeS
 DescribeSlowSQLListResponse Alibabacloud_OceanBasePro20190901::Client::describeSlowSQLList(shared_ptr<DescribeSlowSQLListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeSlowSQLListWithOptions(request, runtime);
+}
+
+DescribeSqlAuditStatResponse Alibabacloud_OceanBasePro20190901::Client::describeSqlAuditStatWithOptions(shared_ptr<DescribeSqlAuditStatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    body->insert(pair<string, string>("TenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeSqlAuditStat"))},
+    {"version", boost::any(string("2019-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeSqlAuditStatResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeSqlAuditStatResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeSqlAuditStatResponse Alibabacloud_OceanBasePro20190901::Client::describeSqlAuditStat(shared_ptr<DescribeSqlAuditStatRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeSqlAuditStatWithOptions(request, runtime);
 }
 
 DescribeStandbyCreateModeResponse Alibabacloud_OceanBasePro20190901::Client::describeStandbyCreateModeWithOptions(shared_ptr<DescribeStandbyCreateModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

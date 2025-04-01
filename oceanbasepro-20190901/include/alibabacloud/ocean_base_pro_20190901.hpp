@@ -6577,10 +6577,3046 @@ public:
 
   virtual ~CreateProjectModifyRecordsRequestDatabases() = default;
 };
+class CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping : public Darabonba::Model {
+public:
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+
+  CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping : public Darabonba::Model {
+public:
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+
+  CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingBlackTableRules : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping> objectMapping{};
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping> schemaMapping{};
+
+  CreateProjectModifyRecordsRequestTransferMappingBlackTableRules() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingBlackTableRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (objectMapping) {
+      res["ObjectMapping"] = objectMapping ? boost::any(objectMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (schemaMapping) {
+      res["SchemaMapping"] = schemaMapping ? boost::any(schemaMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ObjectMapping") != m.end() && !m["ObjectMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ObjectMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ObjectMapping"]));
+        objectMapping = make_shared<CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping>(model1);
+      }
+    }
+    if (m.find("SchemaMapping") != m.end() && !m["SchemaMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SchemaMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SchemaMapping"]));
+        schemaMapping = make_shared<CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingBlackTableRules() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping : public Darabonba::Model {
+public:
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+
+  CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping : public Darabonba::Model {
+public:
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+
+  CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingBlackViewRules : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping> objectMapping{};
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping> schemaMapping{};
+
+  CreateProjectModifyRecordsRequestTransferMappingBlackViewRules() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingBlackViewRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (objectMapping) {
+      res["ObjectMapping"] = objectMapping ? boost::any(objectMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (schemaMapping) {
+      res["SchemaMapping"] = schemaMapping ? boost::any(schemaMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ObjectMapping") != m.end() && !m["ObjectMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ObjectMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ObjectMapping"]));
+        objectMapping = make_shared<CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping>(model1);
+      }
+    }
+    if (m.find("SchemaMapping") != m.end() && !m["SchemaMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SchemaMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SchemaMapping"]));
+        schemaMapping = make_shared<CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingBlackViewRules() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> partitionSize{};
+  shared_ptr<string> partitionType{};
+  shared_ptr<string> virtualColumn{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (partitionSize) {
+      res["PartitionSize"] = boost::any(*partitionSize);
+    }
+    if (partitionType) {
+      res["PartitionType"] = boost::any(*partitionType);
+    }
+    if (virtualColumn) {
+      res["VirtualColumn"] = boost::any(*virtualColumn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PartitionSize") != m.end() && !m["PartitionSize"].empty()) {
+      partitionSize = make_shared<long>(boost::any_cast<long>(m["PartitionSize"]));
+    }
+    if (m.find("PartitionType") != m.end() && !m["PartitionType"].empty()) {
+      partitionType = make_shared<string>(boost::any_cast<string>(m["PartitionType"]));
+    }
+    if (m.find("VirtualColumn") != m.end() && !m["VirtualColumn"].empty()) {
+      virtualColumn = make_shared<string>(boost::any_cast<string>(m["VirtualColumn"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesTables : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig> obkvPartitionConfig{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesTables() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesTables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (obkvPartitionConfig) {
+      res["ObkvPartitionConfig"] = obkvPartitionConfig ? boost::any(obkvPartitionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ObkvPartitionConfig") != m.end() && !m["ObkvPartitionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ObkvPartitionConfig"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ObkvPartitionConfig"]));
+        obkvPartitionConfig = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig>(model1);
+      }
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesTables() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesViews : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesViews() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesViews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesViews() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabases : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables>> specificTables{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews>> specificViews{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesTables>> tables{};
+  shared_ptr<string> tenantName{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesViews>> views{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabases() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabases(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (specificTables) {
+      vector<boost::any> temp1;
+      for(auto item1:*specificTables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SpecificTables"] = boost::any(temp1);
+    }
+    if (specificViews) {
+      vector<boost::any> temp1;
+      for(auto item1:*specificViews){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SpecificViews"] = boost::any(temp1);
+    }
+    if (tables) {
+      vector<boost::any> temp1;
+      for(auto item1:*tables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tables"] = boost::any(temp1);
+    }
+    if (tenantName) {
+      res["TenantName"] = boost::any(*tenantName);
+    }
+    if (views) {
+      vector<boost::any> temp1;
+      for(auto item1:*views){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Views"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SpecificTables") != m.end() && !m["SpecificTables"].empty()) {
+      if (typeid(vector<boost::any>) == m["SpecificTables"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SpecificTables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        specificTables = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables>>(expect1);
+      }
+    }
+    if (m.find("SpecificViews") != m.end() && !m["SpecificViews"].empty()) {
+      if (typeid(vector<boost::any>) == m["SpecificViews"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SpecificViews"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        specificViews = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews>>(expect1);
+      }
+    }
+    if (m.find("Tables") != m.end() && !m["Tables"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tables"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesTables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesTables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tables = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesTables>>(expect1);
+      }
+    }
+    if (m.find("TenantName") != m.end() && !m["TenantName"].empty()) {
+      tenantName = make_shared<string>(boost::any_cast<string>(m["TenantName"]));
+    }
+    if (m.find("Views") != m.end() && !m["Views"].empty()) {
+      if (typeid(vector<boost::any>) == m["Views"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesViews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Views"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesViews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        views = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesViews>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabases() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables>> specificTables{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews>> specificViews{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables>> tables{};
+  shared_ptr<string> tenantName{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews>> views{};
+
+  CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (specificTables) {
+      vector<boost::any> temp1;
+      for(auto item1:*specificTables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SpecificTables"] = boost::any(temp1);
+    }
+    if (specificViews) {
+      vector<boost::any> temp1;
+      for(auto item1:*specificViews){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SpecificViews"] = boost::any(temp1);
+    }
+    if (tables) {
+      vector<boost::any> temp1;
+      for(auto item1:*tables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tables"] = boost::any(temp1);
+    }
+    if (tenantName) {
+      res["TenantName"] = boost::any(*tenantName);
+    }
+    if (views) {
+      vector<boost::any> temp1;
+      for(auto item1:*views){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Views"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SpecificTables") != m.end() && !m["SpecificTables"].empty()) {
+      if (typeid(vector<boost::any>) == m["SpecificTables"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SpecificTables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        specificTables = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables>>(expect1);
+      }
+    }
+    if (m.find("SpecificViews") != m.end() && !m["SpecificViews"].empty()) {
+      if (typeid(vector<boost::any>) == m["SpecificViews"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SpecificViews"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        specificViews = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews>>(expect1);
+      }
+    }
+    if (m.find("Tables") != m.end() && !m["Tables"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tables"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tables = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables>>(expect1);
+      }
+    }
+    if (m.find("TenantName") != m.end() && !m["TenantName"].empty()) {
+      tenantName = make_shared<string>(boost::any_cast<string>(m["TenantName"]));
+    }
+    if (m.find("Views") != m.end() && !m["Views"].empty()) {
+      if (typeid(vector<boost::any>) == m["Views"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Views"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        views = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> partitionSize{};
+  shared_ptr<string> partitionType{};
+  shared_ptr<string> virtualColumn{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (partitionSize) {
+      res["PartitionSize"] = boost::any(*partitionSize);
+    }
+    if (partitionType) {
+      res["PartitionType"] = boost::any(*partitionType);
+    }
+    if (virtualColumn) {
+      res["VirtualColumn"] = boost::any(*virtualColumn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PartitionSize") != m.end() && !m["PartitionSize"].empty()) {
+      partitionSize = make_shared<long>(boost::any_cast<long>(m["PartitionSize"]));
+    }
+    if (m.find("PartitionType") != m.end() && !m["PartitionType"].empty()) {
+      partitionType = make_shared<string>(boost::any_cast<string>(m["PartitionType"]));
+    }
+    if (m.find("VirtualColumn") != m.end() && !m["VirtualColumn"].empty()) {
+      virtualColumn = make_shared<string>(boost::any_cast<string>(m["VirtualColumn"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasTables : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig> obkvPartitionConfig{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasTables() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasTables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (obkvPartitionConfig) {
+      res["ObkvPartitionConfig"] = obkvPartitionConfig ? boost::any(obkvPartitionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ObkvPartitionConfig") != m.end() && !m["ObkvPartitionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ObkvPartitionConfig"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ObkvPartitionConfig"]));
+        obkvPartitionConfig = make_shared<CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig>(model1);
+      }
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasTables() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> distributedKeys{};
+  shared_ptr<string> partitionLifeCycle{};
+  shared_ptr<string> partitionStatement{};
+  shared_ptr<vector<string>> primaryKeys{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distributedKeys) {
+      res["DistributedKeys"] = boost::any(*distributedKeys);
+    }
+    if (partitionLifeCycle) {
+      res["PartitionLifeCycle"] = boost::any(*partitionLifeCycle);
+    }
+    if (partitionStatement) {
+      res["PartitionStatement"] = boost::any(*partitionStatement);
+    }
+    if (primaryKeys) {
+      res["PrimaryKeys"] = boost::any(*primaryKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistributedKeys") != m.end() && !m["DistributedKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DistributedKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DistributedKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      distributedKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PartitionLifeCycle") != m.end() && !m["PartitionLifeCycle"].empty()) {
+      partitionLifeCycle = make_shared<string>(boost::any_cast<string>(m["PartitionLifeCycle"]));
+    }
+    if (m.find("PartitionStatement") != m.end() && !m["PartitionStatement"].empty()) {
+      partitionStatement = make_shared<string>(boost::any_cast<string>(m["PartitionStatement"]));
+    }
+    if (m.find("PrimaryKeys") != m.end() && !m["PrimaryKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrimaryKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrimaryKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      primaryKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemasViews : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema> adbTableSchema{};
+  shared_ptr<vector<string>> filterColumns{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> shardColumns{};
+  shared_ptr<string> whereClause{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemasViews() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemasViews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adbTableSchema) {
+      res["AdbTableSchema"] = adbTableSchema ? boost::any(adbTableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (filterColumns) {
+      res["FilterColumns"] = boost::any(*filterColumns);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shardColumns) {
+      res["ShardColumns"] = boost::any(*shardColumns);
+    }
+    if (whereClause) {
+      res["WhereClause"] = boost::any(*whereClause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdbTableSchema") != m.end() && !m["AdbTableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdbTableSchema"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdbTableSchema"]));
+        adbTableSchema = make_shared<CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema>(model1);
+      }
+    }
+    if (m.find("FilterColumns") != m.end() && !m["FilterColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShardColumns") != m.end() && !m["ShardColumns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ShardColumns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ShardColumns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      shardColumns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhereClause") != m.end() && !m["WhereClause"].empty()) {
+      whereClause = make_shared<string>(boost::any_cast<string>(m["WhereClause"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemasViews() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingSchemas : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> id{};
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables>> specificTables{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews>> specificViews{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingSchemasTables>> tables{};
+  shared_ptr<string> tenantName{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingSchemasViews>> views{};
+
+  CreateProjectModifyRecordsRequestTransferMappingSchemas() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingSchemas(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (specificTables) {
+      vector<boost::any> temp1;
+      for(auto item1:*specificTables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SpecificTables"] = boost::any(temp1);
+    }
+    if (specificViews) {
+      vector<boost::any> temp1;
+      for(auto item1:*specificViews){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SpecificViews"] = boost::any(temp1);
+    }
+    if (tables) {
+      vector<boost::any> temp1;
+      for(auto item1:*tables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tables"] = boost::any(temp1);
+    }
+    if (tenantName) {
+      res["TenantName"] = boost::any(*tenantName);
+    }
+    if (views) {
+      vector<boost::any> temp1;
+      for(auto item1:*views){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Views"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SpecificTables") != m.end() && !m["SpecificTables"].empty()) {
+      if (typeid(vector<boost::any>) == m["SpecificTables"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SpecificTables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        specificTables = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables>>(expect1);
+      }
+    }
+    if (m.find("SpecificViews") != m.end() && !m["SpecificViews"].empty()) {
+      if (typeid(vector<boost::any>) == m["SpecificViews"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SpecificViews"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        specificViews = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews>>(expect1);
+      }
+    }
+    if (m.find("Tables") != m.end() && !m["Tables"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tables"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingSchemasTables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingSchemasTables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tables = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingSchemasTables>>(expect1);
+      }
+    }
+    if (m.find("TenantName") != m.end() && !m["TenantName"].empty()) {
+      tenantName = make_shared<string>(boost::any_cast<string>(m["TenantName"]));
+    }
+    if (m.find("Views") != m.end() && !m["Views"].empty()) {
+      if (typeid(vector<boost::any>) == m["Views"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingSchemasViews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Views"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingSchemasViews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        views = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingSchemasViews>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingSchemas() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping : public Darabonba::Model {
+public:
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+
+  CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping : public Darabonba::Model {
+public:
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+
+  CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping> objectMapping{};
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping> schemaMapping{};
+
+  CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (objectMapping) {
+      res["ObjectMapping"] = objectMapping ? boost::any(objectMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (schemaMapping) {
+      res["SchemaMapping"] = schemaMapping ? boost::any(schemaMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ObjectMapping") != m.end() && !m["ObjectMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ObjectMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ObjectMapping"]));
+        objectMapping = make_shared<CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping>(model1);
+      }
+    }
+    if (m.find("SchemaMapping") != m.end() && !m["SchemaMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SchemaMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SchemaMapping"]));
+        schemaMapping = make_shared<CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping : public Darabonba::Model {
+public:
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+
+  CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping : public Darabonba::Model {
+public:
+  shared_ptr<string> mappedName{};
+  shared_ptr<string> name{};
+
+  CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mappedName) {
+      res["MappedName"] = boost::any(*mappedName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MappedName") != m.end() && !m["MappedName"].empty()) {
+      mappedName = make_shared<string>(boost::any_cast<string>(m["MappedName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules : public Darabonba::Model {
+public:
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping> objectMapping{};
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping> schemaMapping{};
+
+  CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (objectMapping) {
+      res["ObjectMapping"] = objectMapping ? boost::any(objectMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (schemaMapping) {
+      res["SchemaMapping"] = schemaMapping ? boost::any(schemaMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ObjectMapping") != m.end() && !m["ObjectMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ObjectMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ObjectMapping"]));
+        objectMapping = make_shared<CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping>(model1);
+      }
+    }
+    if (m.find("SchemaMapping") != m.end() && !m["SchemaMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SchemaMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SchemaMapping"]));
+        schemaMapping = make_shared<CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules() = default;
+};
+class CreateProjectModifyRecordsRequestTransferMapping : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingBlackTableRules>> blackTableRules{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingBlackViewRules>> blackViewRules{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabases>> databases{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack>> databasesBlack{};
+  shared_ptr<string> mode{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingSchemas>> schemas{};
+  shared_ptr<vector<string>> tableAndViewBlackList{};
+  shared_ptr<vector<string>> tableAndViewWhiteList{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules>> whiteTableRules{};
+  shared_ptr<vector<CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules>> whiteViewRules{};
+
+  CreateProjectModifyRecordsRequestTransferMapping() {}
+
+  explicit CreateProjectModifyRecordsRequestTransferMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blackTableRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*blackTableRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BlackTableRules"] = boost::any(temp1);
+    }
+    if (blackViewRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*blackViewRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BlackViewRules"] = boost::any(temp1);
+    }
+    if (databases) {
+      vector<boost::any> temp1;
+      for(auto item1:*databases){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Databases"] = boost::any(temp1);
+    }
+    if (databasesBlack) {
+      vector<boost::any> temp1;
+      for(auto item1:*databasesBlack){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DatabasesBlack"] = boost::any(temp1);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (schemas) {
+      vector<boost::any> temp1;
+      for(auto item1:*schemas){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Schemas"] = boost::any(temp1);
+    }
+    if (tableAndViewBlackList) {
+      res["TableAndViewBlackList"] = boost::any(*tableAndViewBlackList);
+    }
+    if (tableAndViewWhiteList) {
+      res["TableAndViewWhiteList"] = boost::any(*tableAndViewWhiteList);
+    }
+    if (whiteTableRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*whiteTableRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WhiteTableRules"] = boost::any(temp1);
+    }
+    if (whiteViewRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*whiteViewRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WhiteViewRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlackTableRules") != m.end() && !m["BlackTableRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["BlackTableRules"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingBlackTableRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BlackTableRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingBlackTableRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        blackTableRules = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingBlackTableRules>>(expect1);
+      }
+    }
+    if (m.find("BlackViewRules") != m.end() && !m["BlackViewRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["BlackViewRules"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingBlackViewRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BlackViewRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingBlackViewRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        blackViewRules = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingBlackViewRules>>(expect1);
+      }
+    }
+    if (m.find("Databases") != m.end() && !m["Databases"].empty()) {
+      if (typeid(vector<boost::any>) == m["Databases"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabases> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Databases"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabases model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        databases = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabases>>(expect1);
+      }
+    }
+    if (m.find("DatabasesBlack") != m.end() && !m["DatabasesBlack"].empty()) {
+      if (typeid(vector<boost::any>) == m["DatabasesBlack"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DatabasesBlack"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        databasesBlack = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack>>(expect1);
+      }
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("Schemas") != m.end() && !m["Schemas"].empty()) {
+      if (typeid(vector<boost::any>) == m["Schemas"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingSchemas> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Schemas"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingSchemas model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        schemas = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingSchemas>>(expect1);
+      }
+    }
+    if (m.find("TableAndViewBlackList") != m.end() && !m["TableAndViewBlackList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TableAndViewBlackList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TableAndViewBlackList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tableAndViewBlackList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TableAndViewWhiteList") != m.end() && !m["TableAndViewWhiteList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TableAndViewWhiteList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TableAndViewWhiteList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tableAndViewWhiteList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhiteTableRules") != m.end() && !m["WhiteTableRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["WhiteTableRules"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WhiteTableRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        whiteTableRules = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules>>(expect1);
+      }
+    }
+    if (m.find("WhiteViewRules") != m.end() && !m["WhiteViewRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["WhiteViewRules"].type()) {
+        vector<CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WhiteViewRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        whiteViewRules = make_shared<vector<CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectModifyRecordsRequestTransferMapping() = default;
+};
 class CreateProjectModifyRecordsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<CreateProjectModifyRecordsRequestDatabases>> databases{};
   shared_ptr<string> id{};
+  shared_ptr<CreateProjectModifyRecordsRequestTransferMapping> transferMapping{};
 
   CreateProjectModifyRecordsRequest() {}
 
@@ -6602,6 +9638,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (transferMapping) {
+      res["TransferMapping"] = transferMapping ? boost::any(transferMapping->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -6622,6 +9661,13 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
+    if (m.find("TransferMapping") != m.end() && !m["TransferMapping"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TransferMapping"].type()) {
+        CreateProjectModifyRecordsRequestTransferMapping model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TransferMapping"]));
+        transferMapping = make_shared<CreateProjectModifyRecordsRequestTransferMapping>(model1);
+      }
+    }
   }
 
 
@@ -6631,6 +9677,7 @@ class CreateProjectModifyRecordsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> databasesShrink{};
   shared_ptr<string> id{};
+  shared_ptr<string> transferMappingShrink{};
 
   CreateProjectModifyRecordsShrinkRequest() {}
 
@@ -6648,6 +9695,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (transferMappingShrink) {
+      res["TransferMapping"] = boost::any(*transferMappingShrink);
+    }
     return res;
   }
 
@@ -6657,6 +9707,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("TransferMapping") != m.end() && !m["TransferMapping"].empty()) {
+      transferMappingShrink = make_shared<string>(boost::any_cast<string>(m["TransferMapping"]));
     }
   }
 
@@ -37164,6 +40217,313 @@ public:
 
   virtual ~DescribeSlowSQLListResponse() = default;
 };
+class DescribeSqlAuditStatRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> tenantId{};
+
+  DescribeSqlAuditStatRequest() {}
+
+  explicit DescribeSqlAuditStatRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+  }
+
+
+  virtual ~DescribeSqlAuditStatRequest() = default;
+};
+class DescribeSqlAuditStatResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<double> affectRows{};
+  shared_ptr<string> databaseName{};
+  shared_ptr<double> executeTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> operatorType{};
+  shared_ptr<double> returnRows{};
+  shared_ptr<double> scanRows{};
+  shared_ptr<string> sqlId{};
+  shared_ptr<string> sqlStatement{};
+  shared_ptr<string> tenantId{};
+  shared_ptr<long> totalAffectRows{};
+  shared_ptr<long> totalFailed{};
+  shared_ptr<long> totalReturnRows{};
+  shared_ptr<long> totalScanRows{};
+  shared_ptr<long> totalSucceed{};
+  shared_ptr<string> userClientIp{};
+  shared_ptr<string> userName{};
+
+  DescribeSqlAuditStatResponseBodyData() {}
+
+  explicit DescribeSqlAuditStatResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (affectRows) {
+      res["AffectRows"] = boost::any(*affectRows);
+    }
+    if (databaseName) {
+      res["DatabaseName"] = boost::any(*databaseName);
+    }
+    if (executeTime) {
+      res["ExecuteTime"] = boost::any(*executeTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (operatorType) {
+      res["OperatorType"] = boost::any(*operatorType);
+    }
+    if (returnRows) {
+      res["ReturnRows"] = boost::any(*returnRows);
+    }
+    if (scanRows) {
+      res["ScanRows"] = boost::any(*scanRows);
+    }
+    if (sqlId) {
+      res["SqlId"] = boost::any(*sqlId);
+    }
+    if (sqlStatement) {
+      res["SqlStatement"] = boost::any(*sqlStatement);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    if (totalAffectRows) {
+      res["TotalAffectRows"] = boost::any(*totalAffectRows);
+    }
+    if (totalFailed) {
+      res["TotalFailed"] = boost::any(*totalFailed);
+    }
+    if (totalReturnRows) {
+      res["TotalReturnRows"] = boost::any(*totalReturnRows);
+    }
+    if (totalScanRows) {
+      res["TotalScanRows"] = boost::any(*totalScanRows);
+    }
+    if (totalSucceed) {
+      res["TotalSucceed"] = boost::any(*totalSucceed);
+    }
+    if (userClientIp) {
+      res["UserClientIp"] = boost::any(*userClientIp);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AffectRows") != m.end() && !m["AffectRows"].empty()) {
+      affectRows = make_shared<double>(boost::any_cast<double>(m["AffectRows"]));
+    }
+    if (m.find("DatabaseName") != m.end() && !m["DatabaseName"].empty()) {
+      databaseName = make_shared<string>(boost::any_cast<string>(m["DatabaseName"]));
+    }
+    if (m.find("ExecuteTime") != m.end() && !m["ExecuteTime"].empty()) {
+      executeTime = make_shared<double>(boost::any_cast<double>(m["ExecuteTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OperatorType") != m.end() && !m["OperatorType"].empty()) {
+      operatorType = make_shared<string>(boost::any_cast<string>(m["OperatorType"]));
+    }
+    if (m.find("ReturnRows") != m.end() && !m["ReturnRows"].empty()) {
+      returnRows = make_shared<double>(boost::any_cast<double>(m["ReturnRows"]));
+    }
+    if (m.find("ScanRows") != m.end() && !m["ScanRows"].empty()) {
+      scanRows = make_shared<double>(boost::any_cast<double>(m["ScanRows"]));
+    }
+    if (m.find("SqlId") != m.end() && !m["SqlId"].empty()) {
+      sqlId = make_shared<string>(boost::any_cast<string>(m["SqlId"]));
+    }
+    if (m.find("SqlStatement") != m.end() && !m["SqlStatement"].empty()) {
+      sqlStatement = make_shared<string>(boost::any_cast<string>(m["SqlStatement"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+    if (m.find("TotalAffectRows") != m.end() && !m["TotalAffectRows"].empty()) {
+      totalAffectRows = make_shared<long>(boost::any_cast<long>(m["TotalAffectRows"]));
+    }
+    if (m.find("TotalFailed") != m.end() && !m["TotalFailed"].empty()) {
+      totalFailed = make_shared<long>(boost::any_cast<long>(m["TotalFailed"]));
+    }
+    if (m.find("TotalReturnRows") != m.end() && !m["TotalReturnRows"].empty()) {
+      totalReturnRows = make_shared<long>(boost::any_cast<long>(m["TotalReturnRows"]));
+    }
+    if (m.find("TotalScanRows") != m.end() && !m["TotalScanRows"].empty()) {
+      totalScanRows = make_shared<long>(boost::any_cast<long>(m["TotalScanRows"]));
+    }
+    if (m.find("TotalSucceed") != m.end() && !m["TotalSucceed"].empty()) {
+      totalSucceed = make_shared<long>(boost::any_cast<long>(m["TotalSucceed"]));
+    }
+    if (m.find("UserClientIp") != m.end() && !m["UserClientIp"].empty()) {
+      userClientIp = make_shared<string>(boost::any_cast<string>(m["UserClientIp"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~DescribeSqlAuditStatResponseBodyData() = default;
+};
+class DescribeSqlAuditStatResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeSqlAuditStatResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeSqlAuditStatResponseBody() {}
+
+  explicit DescribeSqlAuditStatResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<DescribeSqlAuditStatResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSqlAuditStatResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<DescribeSqlAuditStatResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeSqlAuditStatResponseBody() = default;
+};
+class DescribeSqlAuditStatResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSqlAuditStatResponseBody> body{};
+
+  DescribeSqlAuditStatResponse() {}
+
+  explicit DescribeSqlAuditStatResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSqlAuditStatResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSqlAuditStatResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSqlAuditStatResponse() = default;
+};
 class DescribeStandbyCreateModeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -57391,6 +60751,8 @@ public:
   DescribeSlowSQLHistoryListResponse describeSlowSQLHistoryList(shared_ptr<DescribeSlowSQLHistoryListRequest> request);
   DescribeSlowSQLListResponse describeSlowSQLListWithOptions(shared_ptr<DescribeSlowSQLListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSlowSQLListResponse describeSlowSQLList(shared_ptr<DescribeSlowSQLListRequest> request);
+  DescribeSqlAuditStatResponse describeSqlAuditStatWithOptions(shared_ptr<DescribeSqlAuditStatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSqlAuditStatResponse describeSqlAuditStat(shared_ptr<DescribeSqlAuditStatRequest> request);
   DescribeStandbyCreateModeResponse describeStandbyCreateModeWithOptions(shared_ptr<DescribeStandbyCreateModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeStandbyCreateModeResponse describeStandbyCreateMode(shared_ptr<DescribeStandbyCreateModeRequest> request);
   DescribeTagValuesResponse describeTagValuesWithOptions(shared_ptr<DescribeTagValuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
