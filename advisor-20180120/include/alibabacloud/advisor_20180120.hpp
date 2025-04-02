@@ -1745,6 +1745,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> operateColumn{};
   shared_ptr<string> product{};
+  shared_ptr<long> riskLevel{};
   shared_ptr<string> source{};
   shared_ptr<string> status{};
   shared_ptr<vector<long>> subCategory{};
@@ -1784,6 +1785,9 @@ public:
     }
     if (product) {
       res["Product"] = boost::any(*product);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -1827,6 +1831,9 @@ public:
     }
     if (m.find("Product") != m.end() && !m["Product"].empty()) {
       product = make_shared<string>(boost::any_cast<string>(m["Product"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
