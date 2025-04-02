@@ -23233,10 +23233,13 @@ public:
 };
 class CreateWorkspaceDocResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> dentryUuid{};
   shared_ptr<string> docKey{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> url{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
   shared_ptr<string> workspaceId{};
 
   CreateWorkspaceDocResponseBody() {}
@@ -23249,6 +23252,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dentryUuid) {
+      res["dentryUuid"] = boost::any(*dentryUuid);
+    }
     if (docKey) {
       res["docKey"] = boost::any(*docKey);
     }
@@ -23261,6 +23267,12 @@ public:
     if (url) {
       res["url"] = boost::any(*url);
     }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
     if (workspaceId) {
       res["workspaceId"] = boost::any(*workspaceId);
     }
@@ -23268,6 +23280,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("dentryUuid") != m.end() && !m["dentryUuid"].empty()) {
+      dentryUuid = make_shared<string>(boost::any_cast<string>(m["dentryUuid"]));
+    }
     if (m.find("docKey") != m.end() && !m["docKey"].empty()) {
       docKey = make_shared<string>(boost::any_cast<string>(m["docKey"]));
     }
@@ -23279,6 +23294,12 @@ public:
     }
     if (m.find("url") != m.end() && !m["url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
     }
     if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
