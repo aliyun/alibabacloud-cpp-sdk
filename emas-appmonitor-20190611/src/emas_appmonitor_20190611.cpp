@@ -277,3 +277,156 @@ GetIssuesResponse Alibabacloud_Emas-appmonitor20190611::Client::getIssues(shared
   return getIssuesWithOptions(request, runtime);
 }
 
+GetSymbolicFilesResponse Alibabacloud_Emas-appmonitor20190611::Client::getSymbolicFilesWithOptions(shared_ptr<GetSymbolicFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->appKey)) {
+    body->insert(pair<string, long>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appVersion)) {
+    body->insert(pair<string, string>("AppVersion", *request->appVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    body->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exportStatus)) {
+    body->insert(pair<string, string>("ExportStatus", *request->exportStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    body->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileType)) {
+    body->insert(pair<string, string>("FileType", *request->fileType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->os)) {
+    body->insert(pair<string, string>("Os", *request->os));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    body->insert(pair<string, long>("PageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    body->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSymbolicFiles"))},
+    {"version", boost::any(string("2019-06-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetSymbolicFilesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetSymbolicFilesResponse(execute(params, req, runtime));
+  }
+}
+
+GetSymbolicFilesResponse Alibabacloud_Emas-appmonitor20190611::Client::getSymbolicFiles(shared_ptr<GetSymbolicFilesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSymbolicFilesWithOptions(request, runtime);
+}
+
+RequestUploadTokenResponse Alibabacloud_Emas-appmonitor20190611::Client::requestUploadTokenWithOptions(shared_ptr<RequestUploadTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->appKey)) {
+    body->insert(pair<string, long>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->os)) {
+    body->insert(pair<string, string>("Os", *request->os));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RequestUploadToken"))},
+    {"version", boost::any(string("2019-06-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RequestUploadTokenResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RequestUploadTokenResponse(execute(params, req, runtime));
+  }
+}
+
+RequestUploadTokenResponse Alibabacloud_Emas-appmonitor20190611::Client::requestUploadToken(shared_ptr<RequestUploadTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return requestUploadTokenWithOptions(request, runtime);
+}
+
+SubmitSymbolicResponse Alibabacloud_Emas-appmonitor20190611::Client::submitSymbolicWithOptions(shared_ptr<SubmitSymbolicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->appKey)) {
+    body->insert(pair<string, long>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appVersion)) {
+    body->insert(pair<string, string>("AppVersion", *request->appVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->buildId)) {
+    body->insert(pair<string, string>("BuildId", *request->buildId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    body->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filePath)) {
+    body->insert(pair<string, string>("FilePath", *request->filePath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileType)) {
+    body->insert(pair<string, string>("FileType", *request->fileType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->os)) {
+    body->insert(pair<string, string>("Os", *request->os));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitSymbolic"))},
+    {"version", boost::any(string("2019-06-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SubmitSymbolicResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SubmitSymbolicResponse(execute(params, req, runtime));
+  }
+}
+
+SubmitSymbolicResponse Alibabacloud_Emas-appmonitor20190611::Client::submitSymbolic(shared_ptr<SubmitSymbolicRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitSymbolicWithOptions(request, runtime);
+}
+
