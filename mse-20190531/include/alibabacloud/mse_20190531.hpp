@@ -39778,6 +39778,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> versionCode{};
+  shared_ptr<string> versionLifecycle{};
   shared_ptr<string> vpcId{};
 
   ListClustersResponseBodyData() {}
@@ -39849,6 +39850,9 @@ public:
     }
     if (versionCode) {
       res["VersionCode"] = boost::any(*versionCode);
+    }
+    if (versionLifecycle) {
+      res["VersionLifecycle"] = boost::any(*versionLifecycle);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -39925,6 +39929,9 @@ public:
     }
     if (m.find("VersionCode") != m.end() && !m["VersionCode"].empty()) {
       versionCode = make_shared<string>(boost::any_cast<string>(m["VersionCode"]));
+    }
+    if (m.find("VersionLifecycle") != m.end() && !m["VersionLifecycle"].empty()) {
+      versionLifecycle = make_shared<string>(boost::any_cast<string>(m["VersionLifecycle"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -42365,6 +42372,84 @@ public:
 
   virtual ~ListGatewayResponseBodyDataResultElasticPolicy() = default;
 };
+class ListGatewayResponseBodyDataResultGatewayEntry : public Darabonba::Model {
+public:
+  shared_ptr<string> entryDomain{};
+  shared_ptr<vector<long>> httpPorts{};
+  shared_ptr<vector<long>> httpsPorts{};
+  shared_ptr<vector<string>> ipList{};
+  shared_ptr<string> netType{};
+
+  ListGatewayResponseBodyDataResultGatewayEntry() {}
+
+  explicit ListGatewayResponseBodyDataResultGatewayEntry(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entryDomain) {
+      res["EntryDomain"] = boost::any(*entryDomain);
+    }
+    if (httpPorts) {
+      res["HttpPorts"] = boost::any(*httpPorts);
+    }
+    if (httpsPorts) {
+      res["HttpsPorts"] = boost::any(*httpsPorts);
+    }
+    if (ipList) {
+      res["IpList"] = boost::any(*ipList);
+    }
+    if (netType) {
+      res["NetType"] = boost::any(*netType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntryDomain") != m.end() && !m["EntryDomain"].empty()) {
+      entryDomain = make_shared<string>(boost::any_cast<string>(m["EntryDomain"]));
+    }
+    if (m.find("HttpPorts") != m.end() && !m["HttpPorts"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["HttpPorts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HttpPorts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      httpPorts = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("HttpsPorts") != m.end() && !m["HttpsPorts"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["HttpsPorts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HttpsPorts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      httpsPorts = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("IpList") != m.end() && !m["IpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("NetType") != m.end() && !m["NetType"].empty()) {
+      netType = make_shared<string>(boost::any_cast<string>(m["NetType"]));
+    }
+  }
+
+
+  virtual ~ListGatewayResponseBodyDataResultGatewayEntry() = default;
+};
 class ListGatewayResponseBodyDataResultInitConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> enableWaf{};
@@ -42620,6 +42705,7 @@ public:
   shared_ptr<long> elasticReplica{};
   shared_ptr<string> elasticType{};
   shared_ptr<string> endDate{};
+  shared_ptr<vector<ListGatewayResponseBodyDataResultGatewayEntry>> gatewayEntry{};
   shared_ptr<string> gatewayType{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> gatewayVersion{};
@@ -42648,6 +42734,7 @@ public:
   shared_ptr<string> tag{};
   shared_ptr<long> totalReplica{};
   shared_ptr<bool> upgrade{};
+  shared_ptr<string> versionLifecycle{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vswitch2{};
 
@@ -42693,6 +42780,13 @@ public:
     }
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
+    }
+    if (gatewayEntry) {
+      vector<boost::any> temp1;
+      for(auto item1:*gatewayEntry){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GatewayEntry"] = boost::any(temp1);
     }
     if (gatewayType) {
       res["GatewayType"] = boost::any(*gatewayType);
@@ -42786,6 +42880,9 @@ public:
     if (upgrade) {
       res["Upgrade"] = boost::any(*upgrade);
     }
+    if (versionLifecycle) {
+      res["VersionLifecycle"] = boost::any(*versionLifecycle);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -42832,6 +42929,19 @@ public:
     }
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("GatewayEntry") != m.end() && !m["GatewayEntry"].empty()) {
+      if (typeid(vector<boost::any>) == m["GatewayEntry"].type()) {
+        vector<ListGatewayResponseBodyDataResultGatewayEntry> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GatewayEntry"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGatewayResponseBodyDataResultGatewayEntry model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        gatewayEntry = make_shared<vector<ListGatewayResponseBodyDataResultGatewayEntry>>(expect1);
+      }
     }
     if (m.find("GatewayType") != m.end() && !m["GatewayType"].empty()) {
       gatewayType = make_shared<string>(boost::any_cast<string>(m["GatewayType"]));
@@ -42944,6 +43054,9 @@ public:
     }
     if (m.find("Upgrade") != m.end() && !m["Upgrade"].empty()) {
       upgrade = make_shared<bool>(boost::any_cast<bool>(m["Upgrade"]));
+    }
+    if (m.find("VersionLifecycle") != m.end() && !m["VersionLifecycle"].empty()) {
+      versionLifecycle = make_shared<string>(boost::any_cast<string>(m["VersionLifecycle"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -57432,6 +57545,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<string> versionLifecycle{};
   shared_ptr<string> vpcId{};
 
   QueryClusterDetailResponseBodyData() {}
@@ -57555,6 +57669,9 @@ public:
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (versionLifecycle) {
+      res["VersionLifecycle"] = boost::any(*versionLifecycle);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -57685,6 +57802,9 @@ public:
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VersionLifecycle") != m.end() && !m["VersionLifecycle"].empty()) {
+      versionLifecycle = make_shared<string>(boost::any_cast<string>(m["VersionLifecycle"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -58249,6 +58369,7 @@ public:
   shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> versionCode{};
+  shared_ptr<string> versionLifecycle{};
   shared_ptr<string> vpcId{};
 
   QueryClusterInfoResponseBodyData() {}
@@ -58390,6 +58511,9 @@ public:
     }
     if (versionCode) {
       res["VersionCode"] = boost::any(*versionCode);
+    }
+    if (versionLifecycle) {
+      res["VersionLifecycle"] = boost::any(*versionLifecycle);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -58549,6 +58673,9 @@ public:
     }
     if (m.find("VersionCode") != m.end() && !m["VersionCode"].empty()) {
       versionCode = make_shared<string>(boost::any_cast<string>(m["VersionCode"]));
+    }
+    if (m.find("VersionLifecycle") != m.end() && !m["VersionLifecycle"].empty()) {
+      versionLifecycle = make_shared<string>(boost::any_cast<string>(m["VersionLifecycle"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
