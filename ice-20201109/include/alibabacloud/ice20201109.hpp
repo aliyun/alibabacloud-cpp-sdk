@@ -2223,14 +2223,12 @@ class LiveManifestConfig : public Darabonba::Model {
 public:
   shared_ptr<string> adMarkers{};
   shared_ptr<long> dateTimeInterval{};
-  shared_ptr<string> manifestName{};
   shared_ptr<long> maxVideoBitrate{};
   shared_ptr<long> minBufferTime{};
+  shared_ptr<long> minUpdatePeriod{};
   shared_ptr<long> minVideoBitrate{};
-  shared_ptr<string> protocol{};
-  shared_ptr<long> segmentNum{};
+  shared_ptr<long> segmentCount{};
   shared_ptr<string> streamOrder{};
-  shared_ptr<bool> useAudioRenditionGroups{};
 
   LiveManifestConfig() {}
 
@@ -2248,29 +2246,23 @@ public:
     if (dateTimeInterval) {
       res["DateTimeInterval"] = boost::any(*dateTimeInterval);
     }
-    if (manifestName) {
-      res["ManifestName"] = boost::any(*manifestName);
-    }
     if (maxVideoBitrate) {
       res["MaxVideoBitrate"] = boost::any(*maxVideoBitrate);
     }
     if (minBufferTime) {
       res["MinBufferTime"] = boost::any(*minBufferTime);
     }
+    if (minUpdatePeriod) {
+      res["MinUpdatePeriod"] = boost::any(*minUpdatePeriod);
+    }
     if (minVideoBitrate) {
       res["MinVideoBitrate"] = boost::any(*minVideoBitrate);
     }
-    if (protocol) {
-      res["Protocol"] = boost::any(*protocol);
-    }
-    if (segmentNum) {
-      res["SegmentNum"] = boost::any(*segmentNum);
+    if (segmentCount) {
+      res["SegmentCount"] = boost::any(*segmentCount);
     }
     if (streamOrder) {
       res["StreamOrder"] = boost::any(*streamOrder);
-    }
-    if (useAudioRenditionGroups) {
-      res["UseAudioRenditionGroups"] = boost::any(*useAudioRenditionGroups);
     }
     return res;
   }
@@ -2282,29 +2274,23 @@ public:
     if (m.find("DateTimeInterval") != m.end() && !m["DateTimeInterval"].empty()) {
       dateTimeInterval = make_shared<long>(boost::any_cast<long>(m["DateTimeInterval"]));
     }
-    if (m.find("ManifestName") != m.end() && !m["ManifestName"].empty()) {
-      manifestName = make_shared<string>(boost::any_cast<string>(m["ManifestName"]));
-    }
     if (m.find("MaxVideoBitrate") != m.end() && !m["MaxVideoBitrate"].empty()) {
       maxVideoBitrate = make_shared<long>(boost::any_cast<long>(m["MaxVideoBitrate"]));
     }
     if (m.find("MinBufferTime") != m.end() && !m["MinBufferTime"].empty()) {
       minBufferTime = make_shared<long>(boost::any_cast<long>(m["MinBufferTime"]));
     }
+    if (m.find("MinUpdatePeriod") != m.end() && !m["MinUpdatePeriod"].empty()) {
+      minUpdatePeriod = make_shared<long>(boost::any_cast<long>(m["MinUpdatePeriod"]));
+    }
     if (m.find("MinVideoBitrate") != m.end() && !m["MinVideoBitrate"].empty()) {
       minVideoBitrate = make_shared<long>(boost::any_cast<long>(m["MinVideoBitrate"]));
     }
-    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
-      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
-    }
-    if (m.find("SegmentNum") != m.end() && !m["SegmentNum"].empty()) {
-      segmentNum = make_shared<long>(boost::any_cast<long>(m["SegmentNum"]));
+    if (m.find("SegmentCount") != m.end() && !m["SegmentCount"].empty()) {
+      segmentCount = make_shared<long>(boost::any_cast<long>(m["SegmentCount"]));
     }
     if (m.find("StreamOrder") != m.end() && !m["StreamOrder"].empty()) {
       streamOrder = make_shared<string>(boost::any_cast<string>(m["StreamOrder"]));
-    }
-    if (m.find("UseAudioRenditionGroups") != m.end() && !m["UseAudioRenditionGroups"].empty()) {
-      useAudioRenditionGroups = make_shared<bool>(boost::any_cast<bool>(m["UseAudioRenditionGroups"]));
     }
   }
 
@@ -2315,6 +2301,7 @@ class LivePackagingConfigDrmConfig : public Darabonba::Model {
 public:
   shared_ptr<string> encryptionMethod{};
   shared_ptr<string> IV{};
+  shared_ptr<long> rotatePeriod{};
   shared_ptr<vector<string>> systemIds{};
   shared_ptr<string> url{};
 
@@ -2334,6 +2321,9 @@ public:
     if (IV) {
       res["IV"] = boost::any(*IV);
     }
+    if (rotatePeriod) {
+      res["RotatePeriod"] = boost::any(*rotatePeriod);
+    }
     if (systemIds) {
       res["SystemIds"] = boost::any(*systemIds);
     }
@@ -2349,6 +2339,9 @@ public:
     }
     if (m.find("IV") != m.end() && !m["IV"].empty()) {
       IV = make_shared<string>(boost::any_cast<string>(m["IV"]));
+    }
+    if (m.find("RotatePeriod") != m.end() && !m["RotatePeriod"].empty()) {
+      rotatePeriod = make_shared<long>(boost::any_cast<long>(m["RotatePeriod"]));
     }
     if (m.find("SystemIds") != m.end() && !m["SystemIds"].empty()) {
       vector<string> toVec1;
@@ -63437,7 +63430,9 @@ public:
 };
 class QueryIProductionJobResponseBodyOutput : public Darabonba::Model {
 public:
+  shared_ptr<string> biz{};
   shared_ptr<string> media{};
+  shared_ptr<string> outputUrl{};
   shared_ptr<string> type{};
 
   QueryIProductionJobResponseBodyOutput() {}
@@ -63450,8 +63445,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (biz) {
+      res["Biz"] = boost::any(*biz);
+    }
     if (media) {
       res["Media"] = boost::any(*media);
+    }
+    if (outputUrl) {
+      res["OutputUrl"] = boost::any(*outputUrl);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -63460,8 +63461,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Biz") != m.end() && !m["Biz"].empty()) {
+      biz = make_shared<string>(boost::any_cast<string>(m["Biz"]));
+    }
     if (m.find("Media") != m.end() && !m["Media"].empty()) {
       media = make_shared<string>(boost::any_cast<string>(m["Media"]));
+    }
+    if (m.find("OutputUrl") != m.end() && !m["OutputUrl"].empty()) {
+      outputUrl = make_shared<string>(boost::any_cast<string>(m["OutputUrl"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -63518,6 +63525,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<QueryIProductionJobResponseBodyOutput> output{};
   shared_ptr<vector<string>> outputFiles{};
+  shared_ptr<vector<string>> outputMediaIds{};
   shared_ptr<vector<string>> outputUrls{};
   shared_ptr<string> requestId{};
   shared_ptr<string> result{};
@@ -63562,6 +63570,9 @@ public:
     }
     if (outputFiles) {
       res["OutputFiles"] = boost::any(*outputFiles);
+    }
+    if (outputMediaIds) {
+      res["OutputMediaIds"] = boost::any(*outputMediaIds);
     }
     if (outputUrls) {
       res["OutputUrls"] = boost::any(*outputUrls);
@@ -63629,6 +63640,16 @@ public:
         }
       }
       outputFiles = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OutputMediaIds") != m.end() && !m["OutputMediaIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OutputMediaIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OutputMediaIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      outputMediaIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("OutputUrls") != m.end() && !m["OutputUrls"].empty()) {
       vector<string> toVec1;
@@ -77904,7 +77925,9 @@ public:
 };
 class SubmitIProductionJobRequestOutput : public Darabonba::Model {
 public:
+  shared_ptr<string> biz{};
   shared_ptr<string> media{};
+  shared_ptr<string> outputUrl{};
   shared_ptr<string> type{};
 
   SubmitIProductionJobRequestOutput() {}
@@ -77917,8 +77940,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (biz) {
+      res["Biz"] = boost::any(*biz);
+    }
     if (media) {
       res["Media"] = boost::any(*media);
+    }
+    if (outputUrl) {
+      res["OutputUrl"] = boost::any(*outputUrl);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -77927,8 +77956,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Biz") != m.end() && !m["Biz"].empty()) {
+      biz = make_shared<string>(boost::any_cast<string>(m["Biz"]));
+    }
     if (m.find("Media") != m.end() && !m["Media"].empty()) {
       media = make_shared<string>(boost::any_cast<string>(m["Media"]));
+    }
+    if (m.find("OutputUrl") != m.end() && !m["OutputUrl"].empty()) {
+      outputUrl = make_shared<string>(boost::any_cast<string>(m["OutputUrl"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
