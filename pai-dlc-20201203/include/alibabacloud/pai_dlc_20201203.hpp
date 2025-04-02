@@ -2500,9 +2500,11 @@ public:
   shared_ptr<string> gmtStartTime{};
   shared_ptr<vector<PodItem>> historyPods{};
   shared_ptr<string> ip{};
+  shared_ptr<string> nodeName{};
   shared_ptr<string> podId{};
   shared_ptr<string> podUid{};
   shared_ptr<string> status{};
+  shared_ptr<string> subStatus{};
   shared_ptr<string> type{};
 
   PodItem() {}
@@ -2534,6 +2536,9 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
+    if (nodeName) {
+      res["NodeName"] = boost::any(*nodeName);
+    }
     if (podId) {
       res["PodId"] = boost::any(*podId);
     }
@@ -2542,6 +2547,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (subStatus) {
+      res["SubStatus"] = boost::any(*subStatus);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -2575,6 +2583,9 @@ public:
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
     }
+    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
     if (m.find("PodId") != m.end() && !m["PodId"].empty()) {
       podId = make_shared<string>(boost::any_cast<string>(m["PodId"]));
     }
@@ -2583,6 +2594,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
+      subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -3325,6 +3339,7 @@ class LogInfo : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
   shared_ptr<string> id{};
+  shared_ptr<bool> isTruncated{};
   shared_ptr<string> podId{};
   shared_ptr<string> podUid{};
   shared_ptr<string> source{};
@@ -3345,6 +3360,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (isTruncated) {
+      res["IsTruncated"] = boost::any(*isTruncated);
     }
     if (podId) {
       res["PodId"] = boost::any(*podId);
@@ -3367,6 +3385,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("IsTruncated") != m.end() && !m["IsTruncated"].empty()) {
+      isTruncated = make_shared<bool>(boost::any_cast<bool>(m["IsTruncated"]));
     }
     if (m.find("PodId") != m.end() && !m["PodId"].empty()) {
       podId = make_shared<string>(boost::any_cast<string>(m["PodId"]));
@@ -3910,6 +3931,89 @@ public:
 
 
   virtual ~SanityCheckResultItem() = default;
+};
+class SeccompProfile : public Darabonba::Model {
+public:
+  shared_ptr<string> localhostProfile{};
+  shared_ptr<string> type{};
+
+  SeccompProfile() {}
+
+  explicit SeccompProfile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (localhostProfile) {
+      res["LocalhostProfile"] = boost::any(*localhostProfile);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LocalhostProfile") != m.end() && !m["LocalhostProfile"].empty()) {
+      localhostProfile = make_shared<string>(boost::any_cast<string>(m["LocalhostProfile"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~SeccompProfile() = default;
+};
+class SecurityContext : public Darabonba::Model {
+public:
+  shared_ptr<long> runAsGroup{};
+  shared_ptr<long> runAsUser{};
+  shared_ptr<SeccompProfile> seccompProfile{};
+
+  SecurityContext() {}
+
+  explicit SecurityContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (runAsGroup) {
+      res["RunAsGroup"] = boost::any(*runAsGroup);
+    }
+    if (runAsUser) {
+      res["RunAsUser"] = boost::any(*runAsUser);
+    }
+    if (seccompProfile) {
+      res["SeccompProfile"] = seccompProfile ? boost::any(seccompProfile->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RunAsGroup") != m.end() && !m["RunAsGroup"].empty()) {
+      runAsGroup = make_shared<long>(boost::any_cast<long>(m["RunAsGroup"]));
+    }
+    if (m.find("RunAsUser") != m.end() && !m["RunAsUser"].empty()) {
+      runAsUser = make_shared<long>(boost::any_cast<long>(m["RunAsUser"]));
+    }
+    if (m.find("SeccompProfile") != m.end() && !m["SeccompProfile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SeccompProfile"].type()) {
+        SeccompProfile model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SeccompProfile"]));
+        seccompProfile = make_shared<SeccompProfile>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SecurityContext() = default;
 };
 class SmartCache : public Darabonba::Model {
 public:
@@ -4608,6 +4712,7 @@ class CreateJobRequestDataSources : public Darabonba::Model {
 public:
   shared_ptr<string> dataSourceId{};
   shared_ptr<string> dataSourceVersion{};
+  shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> options{};
   shared_ptr<string> uri{};
@@ -4628,6 +4733,9 @@ public:
     if (dataSourceVersion) {
       res["DataSourceVersion"] = boost::any(*dataSourceVersion);
     }
+    if (mountAccess) {
+      res["MountAccess"] = boost::any(*mountAccess);
+    }
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
@@ -4646,6 +4754,9 @@ public:
     }
     if (m.find("DataSourceVersion") != m.end() && !m["DataSourceVersion"].empty()) {
       dataSourceVersion = make_shared<string>(boost::any_cast<string>(m["DataSourceVersion"]));
+    }
+    if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
+      mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));

@@ -1,3 +1,7 @@
+2025-04-02 Version: 1.5.19
+- Update API CreateJob: add request parameters body.DataSources.$.MountAccess.
+
+
 2025-01-21 Version: 1.5.18
 - Update API ListJobs: add param PaymentType.
 

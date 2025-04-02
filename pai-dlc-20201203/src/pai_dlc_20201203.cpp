@@ -18,12 +18,9 @@ using namespace Alibabacloud_Pai-dlc20201203;
 Alibabacloud_Pai-dlc20201203::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
-    {"ap-northeast-1", "pai-dlc.aliyuncs.com"},
     {"ap-northeast-2-pop", "pai-dlc.aliyuncs.com"},
     {"ap-south-1", "pai-dlc.aliyuncs.com"},
     {"ap-southeast-2", "pai-dlc.aliyuncs.com"},
-    {"ap-southeast-3", "pai-dlc.aliyuncs.com"},
-    {"ap-southeast-5", "pai-dlc.aliyuncs.com"},
     {"cn-beijing-finance-1", "pai-dlc.aliyuncs.com"},
     {"cn-beijing-finance-pop", "pai-dlc.aliyuncs.com"},
     {"cn-beijing-gov-1", "pai-dlc.aliyuncs.com"},
@@ -54,7 +51,6 @@ Alibabacloud_Pai-dlc20201203::Client::Client(const shared_ptr<Alibabacloud_OpenA
     {"cn-shenzhen-st4-d01", "pai-dlc.aliyuncs.com"},
     {"cn-shenzhen-su18-b01", "pai-dlc.aliyuncs.com"},
     {"cn-wuhan", "pai-dlc.aliyuncs.com"},
-    {"cn-wulanchabu", "pai-dlc.aliyuncs.com"},
     {"cn-yushanfang", "pai-dlc.aliyuncs.com"},
     {"cn-zhangbei", "pai-dlc.aliyuncs.com"},
     {"cn-zhangbei-na61-b01", "pai-dlc.aliyuncs.com"},
@@ -64,9 +60,7 @@ Alibabacloud_Pai-dlc20201203::Client::Client(const shared_ptr<Alibabacloud_OpenA
     {"eu-west-1", "pai-dlc.aliyuncs.com"},
     {"eu-west-1-oxs", "pai-dlc.aliyuncs.com"},
     {"me-east-1", "pai-dlc.aliyuncs.com"},
-    {"rus-west-1-pop", "pai-dlc.aliyuncs.com"},
-    {"us-east-1", "pai-dlc.aliyuncs.com"},
-    {"us-west-1", "pai-dlc.aliyuncs.com"}
+    {"rus-west-1-pop", "pai-dlc.aliyuncs.com"}
   })
 );
   checkConfig(config);
