@@ -4932,6 +4932,109 @@ DescribeRatePlanInstanceStatusResponse Alibabacloud_ESA20240910::Client::describ
   return describeRatePlanInstanceStatusWithOptions(request, runtime);
 }
 
+DescribeSiteTimeSeriesDataResponse Alibabacloud_ESA20240910::Client::describeSiteTimeSeriesDataWithOptions(shared_ptr<DescribeSiteTimeSeriesDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeSiteTimeSeriesDataShrinkRequest> request = make_shared<DescribeSiteTimeSeriesDataShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeSiteTimeSeriesDataRequestFields>>(tmpReq->fields)) {
+    request->fieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fields, make_shared<string>("Fields"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fieldsShrink)) {
+    query->insert(pair<string, string>("Fields", *request->fieldsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
+    query->insert(pair<string, string>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->siteId)) {
+    query->insert(pair<string, string>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeSiteTimeSeriesData"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeSiteTimeSeriesDataResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeSiteTimeSeriesDataResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeSiteTimeSeriesDataResponse Alibabacloud_ESA20240910::Client::describeSiteTimeSeriesData(shared_ptr<DescribeSiteTimeSeriesDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeSiteTimeSeriesDataWithOptions(request, runtime);
+}
+
+DescribeSiteTopDataResponse Alibabacloud_ESA20240910::Client::describeSiteTopDataWithOptions(shared_ptr<DescribeSiteTopDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeSiteTopDataShrinkRequest> request = make_shared<DescribeSiteTopDataShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeSiteTopDataRequestFields>>(tmpReq->fields)) {
+    request->fieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fields, make_shared<string>("Fields"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fieldsShrink)) {
+    query->insert(pair<string, string>("Fields", *request->fieldsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
+    query->insert(pair<string, string>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limit)) {
+    query->insert(pair<string, string>("Limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->siteId)) {
+    query->insert(pair<string, string>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeSiteTopData"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeSiteTopDataResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeSiteTopDataResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeSiteTopDataResponse Alibabacloud_ESA20240910::Client::describeSiteTopData(shared_ptr<DescribeSiteTopDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeSiteTopDataWithOptions(request, runtime);
+}
+
 DisableCustomScenePolicyResponse Alibabacloud_ESA20240910::Client::disableCustomScenePolicyWithOptions(shared_ptr<DisableCustomScenePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
