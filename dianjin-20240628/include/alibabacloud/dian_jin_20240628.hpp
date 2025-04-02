@@ -4153,6 +4153,8 @@ class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisResp 
 public:
   shared_ptr<string> dialogExecPlan{};
   shared_ptr<vector<GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels>> dialogLabels{};
+  shared_ptr<map<string, boost::any>> dialogOpenAnalysis{};
+  shared_ptr<map<string, boost::any>> dialogProcessAnalysis{};
   shared_ptr<string> dialogSop{};
   shared_ptr<string> dialogSummary{};
 
@@ -4175,6 +4177,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["dialogLabels"] = boost::any(temp1);
+    }
+    if (dialogOpenAnalysis) {
+      res["dialogOpenAnalysis"] = boost::any(*dialogOpenAnalysis);
+    }
+    if (dialogProcessAnalysis) {
+      res["dialogProcessAnalysis"] = boost::any(*dialogProcessAnalysis);
     }
     if (dialogSop) {
       res["dialogSop"] = boost::any(*dialogSop);
@@ -4201,6 +4209,22 @@ public:
         }
         dialogLabels = make_shared<vector<GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels>>(expect1);
       }
+    }
+    if (m.find("dialogOpenAnalysis") != m.end() && !m["dialogOpenAnalysis"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["dialogOpenAnalysis"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      dialogOpenAnalysis = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("dialogProcessAnalysis") != m.end() && !m["dialogProcessAnalysis"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["dialogProcessAnalysis"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      dialogProcessAnalysis = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("dialogSop") != m.end() && !m["dialogSop"].empty()) {
       dialogSop = make_shared<string>(boost::any_cast<string>(m["dialogSop"]));
