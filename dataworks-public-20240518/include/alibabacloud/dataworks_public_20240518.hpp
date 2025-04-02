@@ -39594,6 +39594,7 @@ public:
 };
 class ListNodesResponseBodyPagingInfoNodesRuntimeResource : public Darabonba::Model {
 public:
+  shared_ptr<string> resourceGroup{};
   shared_ptr<string> resourceGroupId{};
 
   ListNodesResponseBodyPagingInfoNodesRuntimeResource() {}
@@ -39606,6 +39607,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resourceGroup) {
+      res["ResourceGroup"] = boost::any(*resourceGroup);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -39613,6 +39617,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceGroup") != m.end() && !m["ResourceGroup"].empty()) {
+      resourceGroup = make_shared<string>(boost::any_cast<string>(m["ResourceGroup"]));
+    }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
