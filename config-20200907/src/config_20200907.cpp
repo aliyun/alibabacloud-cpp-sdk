@@ -524,6 +524,9 @@ CreateAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::createAgg
     request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceNameScope)) {
+    query->insert(pair<string, string>("ResourceNameScope", *request->resourceNameScope));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
     query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
@@ -979,6 +982,9 @@ CreateConfigRuleResponse Alibabacloud_Config20200907::Client::createConfigRuleWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdsScope)) {
     body->insert(pair<string, string>("ResourceIdsScope", *request->resourceIdsScope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceNameScope)) {
+    body->insert(pair<string, string>("ResourceNameScope", *request->resourceNameScope));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceTypesScopeShrink)) {
     body->insert(pair<string, string>("ResourceTypesScope", *request->resourceTypesScopeShrink));
@@ -5564,6 +5570,9 @@ UpdateAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::updateAgg
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdsScope)) {
     body->insert(pair<string, string>("ResourceIdsScope", *request->resourceIdsScope));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceNameScope)) {
+    body->insert(pair<string, string>("ResourceNameScope", *request->resourceNameScope));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceTypesScopeShrink)) {
     body->insert(pair<string, string>("ResourceTypesScope", *request->resourceTypesScopeShrink));
   }
@@ -5691,6 +5700,9 @@ UpdateAggregatorResponse Alibabacloud_Config20200907::Client::updateAggregatorWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->folderId)) {
+    body->insert(pair<string, string>("FolderId", *request->folderId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -5945,6 +5957,9 @@ UpdateConfigRuleResponse Alibabacloud_Config20200907::Client::updateConfigRuleWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdsScope)) {
     body->insert(pair<string, string>("ResourceIdsScope", *request->resourceIdsScope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceNameScope)) {
+    body->insert(pair<string, string>("ResourceNameScope", *request->resourceNameScope));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceTypesScopeShrink)) {
     body->insert(pair<string, string>("ResourceTypesScope", *request->resourceTypesScopeShrink));

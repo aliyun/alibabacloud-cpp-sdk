@@ -2571,6 +2571,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
@@ -2651,6 +2652,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -2762,6 +2766,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       vector<string> toVec1;
@@ -2915,6 +2922,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
@@ -2995,6 +3003,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScopeShrink) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScopeShrink);
@@ -3097,6 +3108,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScopeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -4825,6 +4839,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
@@ -4890,6 +4905,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -4986,6 +5004,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       vector<string> toVec1;
@@ -5134,6 +5155,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
@@ -5199,6 +5221,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScopeShrink) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScopeShrink);
@@ -5286,6 +5311,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScopeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -12406,6 +12434,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<string> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleSource> source{};
@@ -12509,6 +12538,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -12657,6 +12689,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -18345,6 +18380,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<string> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<GetConfigRuleResponseBodyConfigRuleScope> scope{};
@@ -18437,6 +18473,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -18576,6 +18615,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -35983,6 +36025,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<vector<UpdateAggregateConfigRuleRequestTag>> tag{};
@@ -36061,6 +36104,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -36166,6 +36212,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       vector<string> toVec1;
@@ -36313,6 +36362,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagShrink{};
@@ -36391,6 +36441,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScopeShrink) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScopeShrink);
@@ -36487,6 +36540,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScopeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -36857,6 +36913,7 @@ public:
   shared_ptr<string> aggregatorName{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<string> folderId{};
   shared_ptr<vector<UpdateAggregatorRequestTag>> tag{};
 
   UpdateAggregatorRequest() {}
@@ -36887,6 +36944,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (folderId) {
+      res["FolderId"] = boost::any(*folderId);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -36924,6 +36984,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
+      folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
+    }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
         vector<UpdateAggregatorRequestTag> expect1;
@@ -36949,6 +37012,7 @@ public:
   shared_ptr<string> aggregatorName{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<string> folderId{};
   shared_ptr<string> tagShrink{};
 
   UpdateAggregatorShrinkRequest() {}
@@ -36976,6 +37040,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (folderId) {
+      res["FolderId"] = boost::any(*folderId);
+    }
     if (tagShrink) {
       res["Tag"] = boost::any(*tagShrink);
     }
@@ -36997,6 +37064,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
+      folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
@@ -38168,6 +38238,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<vector<UpdateConfigRuleRequestTag>> tag{};
@@ -38234,6 +38305,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -38327,6 +38401,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       vector<string> toVec1;
@@ -38470,6 +38547,7 @@ public:
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceNameScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagShrink{};
@@ -38536,6 +38614,9 @@ public:
     }
     if (resourceIdsScope) {
       res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceNameScope) {
+      res["ResourceNameScope"] = boost::any(*resourceNameScope);
     }
     if (resourceTypesScopeShrink) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScopeShrink);
@@ -38620,6 +38701,9 @@ public:
     }
     if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
       resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceNameScope") != m.end() && !m["ResourceNameScope"].empty()) {
+      resourceNameScope = make_shared<string>(boost::any_cast<string>(m["ResourceNameScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScopeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
