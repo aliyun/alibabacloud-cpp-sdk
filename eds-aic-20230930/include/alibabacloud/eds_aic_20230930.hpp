@@ -1816,6 +1816,49 @@ public:
 
   virtual ~CreateAppResponse() = default;
 };
+class CreateCloudPhoneNodeRequestDisplayConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> dpi{};
+  shared_ptr<long> fps{};
+  shared_ptr<string> lockResolution{};
+
+  CreateCloudPhoneNodeRequestDisplayConfig() {}
+
+  explicit CreateCloudPhoneNodeRequestDisplayConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dpi) {
+      res["Dpi"] = boost::any(*dpi);
+    }
+    if (fps) {
+      res["Fps"] = boost::any(*fps);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dpi") != m.end() && !m["Dpi"].empty()) {
+      dpi = make_shared<long>(boost::any_cast<long>(m["Dpi"]));
+    }
+    if (m.find("Fps") != m.end() && !m["Fps"].empty()) {
+      fps = make_shared<long>(boost::any_cast<long>(m["Fps"]));
+    }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
+    }
+  }
+
+
+  virtual ~CreateCloudPhoneNodeRequestDisplayConfig() = default;
+};
 class CreateCloudPhoneNodeRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -1859,6 +1902,7 @@ public:
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> count{};
+  shared_ptr<CreateCloudPhoneNodeRequestDisplayConfig> displayConfig{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> networkId{};
@@ -1897,6 +1941,9 @@ public:
     }
     if (count) {
       res["Count"] = boost::any(*count);
+    }
+    if (displayConfig) {
+      res["DisplayConfig"] = displayConfig ? boost::any(displayConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -1960,6 +2007,13 @@ public:
     if (m.find("Count") != m.end() && !m["Count"].empty()) {
       count = make_shared<string>(boost::any_cast<string>(m["Count"]));
     }
+    if (m.find("DisplayConfig") != m.end() && !m["DisplayConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DisplayConfig"].type()) {
+        CreateCloudPhoneNodeRequestDisplayConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DisplayConfig"]));
+        displayConfig = make_shared<CreateCloudPhoneNodeRequestDisplayConfig>(model1);
+      }
+    }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
@@ -2013,6 +2067,211 @@ public:
 
 
   virtual ~CreateCloudPhoneNodeRequest() = default;
+};
+class CreateCloudPhoneNodeShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCloudPhoneNodeShrinkRequestTag() {}
+
+  explicit CreateCloudPhoneNodeShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCloudPhoneNodeShrinkRequestTag() = default;
+};
+class CreateCloudPhoneNodeShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<string> bizRegionId{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<string> count{};
+  shared_ptr<string> displayConfigShrink{};
+  shared_ptr<string> imageId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> networkId{};
+  shared_ptr<string> nodeName{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
+  shared_ptr<long> phoneCount{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<long> resolutionWidth{};
+  shared_ptr<long> serverShareDataVolume{};
+  shared_ptr<string> serverType{};
+  shared_ptr<vector<CreateCloudPhoneNodeShrinkRequestTag>> tag{};
+  shared_ptr<string> vSwitchId{};
+
+  CreateCloudPhoneNodeShrinkRequest() {}
+
+  explicit CreateCloudPhoneNodeShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (bizRegionId) {
+      res["BizRegionId"] = boost::any(*bizRegionId);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (displayConfigShrink) {
+      res["DisplayConfig"] = boost::any(*displayConfigShrink);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (networkId) {
+      res["NetworkId"] = boost::any(*networkId);
+    }
+    if (nodeName) {
+      res["NodeName"] = boost::any(*nodeName);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["PeriodUnit"] = boost::any(*periodUnit);
+    }
+    if (phoneCount) {
+      res["PhoneCount"] = boost::any(*phoneCount);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    if (serverShareDataVolume) {
+      res["ServerShareDataVolume"] = boost::any(*serverShareDataVolume);
+    }
+    if (serverType) {
+      res["ServerType"] = boost::any(*serverType);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
+      bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["Count"]));
+    }
+    if (m.find("DisplayConfig") != m.end() && !m["DisplayConfig"].empty()) {
+      displayConfigShrink = make_shared<string>(boost::any_cast<string>(m["DisplayConfig"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
+      networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
+    if (m.find("PhoneCount") != m.end() && !m["PhoneCount"].empty()) {
+      phoneCount = make_shared<long>(boost::any_cast<long>(m["PhoneCount"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+    if (m.find("ServerShareDataVolume") != m.end() && !m["ServerShareDataVolume"].empty()) {
+      serverShareDataVolume = make_shared<long>(boost::any_cast<long>(m["ServerShareDataVolume"]));
+    }
+    if (m.find("ServerType") != m.end() && !m["ServerType"].empty()) {
+      serverType = make_shared<string>(boost::any_cast<string>(m["ServerType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateCloudPhoneNodeShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCloudPhoneNodeShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateCloudPhoneNodeShrinkRequestTag>>(expect1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+  }
+
+
+  virtual ~CreateCloudPhoneNodeShrinkRequest() = default;
 };
 class CreateCloudPhoneNodeResponseBodyNodeInfos : public Darabonba::Model {
 public:
@@ -2612,6 +2871,7 @@ public:
   shared_ptr<string> lockResolution{};
   shared_ptr<CreatePolicyGroupRequestNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupName{};
+  shared_ptr<string> policyType{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
 
@@ -2645,6 +2905,9 @@ public:
     }
     if (policyGroupName) {
       res["PolicyGroupName"] = boost::any(*policyGroupName);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
     }
     if (resolutionHeight) {
       res["ResolutionHeight"] = boost::any(*resolutionHeight);
@@ -2681,6 +2944,9 @@ public:
     if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
       policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
     }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
     if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
       resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
     }
@@ -2701,6 +2967,7 @@ public:
   shared_ptr<string> lockResolution{};
   shared_ptr<string> netRedirectPolicyShrink{};
   shared_ptr<string> policyGroupName{};
+  shared_ptr<string> policyType{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
 
@@ -2735,6 +3002,9 @@ public:
     if (policyGroupName) {
       res["PolicyGroupName"] = boost::any(*policyGroupName);
     }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
     if (resolutionHeight) {
       res["ResolutionHeight"] = boost::any(*resolutionHeight);
     }
@@ -2765,6 +3035,9 @@ public:
     }
     if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
       policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
     }
     if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
       resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
@@ -4569,6 +4842,63 @@ public:
 
   virtual ~DescribeAndroidInstancesResponseBodyInstanceModelDisks() = default;
 };
+class DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> dpi{};
+  shared_ptr<long> fps{};
+  shared_ptr<string> lockResolution{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<long> resolutionWidth{};
+
+  DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig() {}
+
+  explicit DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dpi) {
+      res["Dpi"] = boost::any(*dpi);
+    }
+    if (fps) {
+      res["Fps"] = boost::any(*fps);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dpi") != m.end() && !m["Dpi"].empty()) {
+      dpi = make_shared<long>(boost::any_cast<long>(m["Dpi"]));
+    }
+    if (m.find("Fps") != m.end() && !m["Fps"].empty()) {
+      fps = make_shared<long>(boost::any_cast<long>(m["Fps"]));
+    }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+  }
+
+
+  virtual ~DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig() = default;
+};
 class DescribeAndroidInstancesResponseBodyInstanceModelTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -4619,6 +4949,7 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<string> cpu{};
   shared_ptr<vector<DescribeAndroidInstancesResponseBodyInstanceModelDisks>> disks{};
+  shared_ptr<DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig> displayConfig{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtExpired{};
@@ -4690,6 +5021,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Disks"] = boost::any(temp1);
+    }
+    if (displayConfig) {
+      res["DisplayConfig"] = displayConfig ? boost::any(displayConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -4806,6 +5140,13 @@ public:
           }
         }
         disks = make_shared<vector<DescribeAndroidInstancesResponseBodyInstanceModelDisks>>(expect1);
+      }
+    }
+    if (m.find("DisplayConfig") != m.end() && !m["DisplayConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DisplayConfig"].type()) {
+        DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DisplayConfig"]));
+        displayConfig = make_shared<DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig>(model1);
       }
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
@@ -5834,6 +6175,7 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtExpired{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<string> instanceType{};
   shared_ptr<long> memory{};
   shared_ptr<string> networkId{};
   shared_ptr<string> nodeId{};
@@ -5871,6 +6213,9 @@ public:
     }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -5926,6 +6271,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
@@ -9122,6 +9470,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<vector<string>> policyGroupIds{};
   shared_ptr<string> policyGroupName{};
+  shared_ptr<string> policyType{};
 
   ListPolicyGroupsRequest() {}
 
@@ -9145,6 +9494,9 @@ public:
     if (policyGroupName) {
       res["PolicyGroupName"] = boost::any(*policyGroupName);
     }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
     return res;
   }
 
@@ -9167,6 +9519,9 @@ public:
     }
     if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
       policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
     }
   }
 
@@ -12873,7 +13228,7 @@ public:
   CreateAndroidInstanceGroupResponse createAndroidInstanceGroup(shared_ptr<CreateAndroidInstanceGroupRequest> request);
   CreateAppResponse createAppWithOptions(shared_ptr<CreateAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAppResponse createApp(shared_ptr<CreateAppRequest> request);
-  CreateCloudPhoneNodeResponse createCloudPhoneNodeWithOptions(shared_ptr<CreateCloudPhoneNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCloudPhoneNodeResponse createCloudPhoneNodeWithOptions(shared_ptr<CreateCloudPhoneNodeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCloudPhoneNodeResponse createCloudPhoneNode(shared_ptr<CreateCloudPhoneNodeRequest> request);
   CreateCustomImageResponse createCustomImageWithOptions(shared_ptr<CreateCustomImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCustomImageResponse createCustomImage(shared_ptr<CreateCustomImageRequest> request);

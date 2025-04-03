@@ -409,8 +409,13 @@ CreateAppResponse Alibabacloud_Eds-aic20230930::Client::createApp(shared_ptr<Cre
   return createAppWithOptions(request, runtime);
 }
 
-CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPhoneNodeWithOptions(shared_ptr<CreateCloudPhoneNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPhoneNodeWithOptions(shared_ptr<CreateCloudPhoneNodeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateCloudPhoneNodeShrinkRequest> request = make_shared<CreateCloudPhoneNodeShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateCloudPhoneNodeRequestDisplayConfig>(tmpReq->displayConfig)) {
+    request->displayConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->displayConfig, make_shared<string>("DisplayConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
@@ -460,14 +465,19 @@ CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPh
   if (!Darabonba_Util::Client::isUnset<string>(request->serverType)) {
     query->insert(pair<string, string>("ServerType", *request->serverType));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateCloudPhoneNodeRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreateCloudPhoneNodeRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCloudPhoneNodeShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateCloudPhoneNodeShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayConfigShrink)) {
+    body->insert(pair<string, string>("DisplayConfig", *request->displayConfigShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateCloudPhoneNode"))},
@@ -596,6 +606,9 @@ CreatePolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::createPolicyGrou
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupName)) {
     body->insert(pair<string, string>("PolicyGroupName", *request->policyGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyType)) {
+    body->insert(pair<string, string>("PolicyType", *request->policyType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resolutionHeight)) {
     body->insert(pair<string, long>("ResolutionHeight", *request->resolutionHeight));
@@ -1830,6 +1843,9 @@ ListPolicyGroupsResponse Alibabacloud_Eds-aic20230930::Client::listPolicyGroupsW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupName)) {
     body->insert(pair<string, string>("PolicyGroupName", *request->policyGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyType)) {
+    body->insert(pair<string, string>("PolicyType", *request->policyType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
