@@ -6537,6 +6537,7 @@ public:
 class ExtendClusterRequestIpAllocationPolicyNodePolicy : public Darabonba::Model {
 public:
   shared_ptr<vector<ExtendClusterRequestIpAllocationPolicyNodePolicyBonds>> bonds{};
+  shared_ptr<string> hostname{};
   shared_ptr<string> nodeId{};
 
   ExtendClusterRequestIpAllocationPolicyNodePolicy() {}
@@ -6555,6 +6556,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Bonds"] = boost::any(temp1);
+    }
+    if (hostname) {
+      res["Hostname"] = boost::any(*hostname);
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
@@ -6575,6 +6579,9 @@ public:
         }
         bonds = make_shared<vector<ExtendClusterRequestIpAllocationPolicyNodePolicyBonds>>(expect1);
       }
+    }
+    if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
@@ -6659,6 +6666,42 @@ public:
 
   virtual ~ExtendClusterRequestIpAllocationPolicy() = default;
 };
+class ExtendClusterRequestNodeGroupsNodeTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ExtendClusterRequestNodeGroupsNodeTag() {}
+
+  explicit ExtendClusterRequestNodeGroupsNodeTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestNodeGroupsNodeTag() = default;
+};
 class ExtendClusterRequestNodeGroupsNodes : public Darabonba::Model {
 public:
   shared_ptr<string> hostname{};
@@ -6718,9 +6761,18 @@ public:
 };
 class ExtendClusterRequestNodeGroups : public Darabonba::Model {
 public:
+  shared_ptr<long> amount{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<vector<string>> hostnames{};
+  shared_ptr<string> loginPassword{};
   shared_ptr<string> nodeGroupId{};
+  shared_ptr<vector<ExtendClusterRequestNodeGroupsNodeTag>> nodeTag{};
   shared_ptr<vector<ExtendClusterRequestNodeGroupsNodes>> nodes{};
+  shared_ptr<long> period{};
   shared_ptr<string> userData{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
 
   ExtendClusterRequestNodeGroups() {}
@@ -6733,8 +6785,30 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (hostnames) {
+      res["Hostnames"] = boost::any(*hostnames);
+    }
+    if (loginPassword) {
+      res["LoginPassword"] = boost::any(*loginPassword);
+    }
     if (nodeGroupId) {
       res["NodeGroupId"] = boost::any(*nodeGroupId);
+    }
+    if (nodeTag) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodeTag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NodeTag"] = boost::any(temp1);
     }
     if (nodes) {
       vector<boost::any> temp1;
@@ -6743,8 +6817,17 @@ public:
       }
       res["Nodes"] = boost::any(temp1);
     }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
     if (userData) {
       res["UserData"] = boost::any(*userData);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
     }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
@@ -6753,8 +6836,43 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("Hostnames") != m.end() && !m["Hostnames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Hostnames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Hostnames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hostnames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LoginPassword") != m.end() && !m["LoginPassword"].empty()) {
+      loginPassword = make_shared<string>(boost::any_cast<string>(m["LoginPassword"]));
+    }
     if (m.find("NodeGroupId") != m.end() && !m["NodeGroupId"].empty()) {
       nodeGroupId = make_shared<string>(boost::any_cast<string>(m["NodeGroupId"]));
+    }
+    if (m.find("NodeTag") != m.end() && !m["NodeTag"].empty()) {
+      if (typeid(vector<boost::any>) == m["NodeTag"].type()) {
+        vector<ExtendClusterRequestNodeGroupsNodeTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodeTag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExtendClusterRequestNodeGroupsNodeTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodeTag = make_shared<vector<ExtendClusterRequestNodeGroupsNodeTag>>(expect1);
+      }
     }
     if (m.find("Nodes") != m.end() && !m["Nodes"].empty()) {
       if (typeid(vector<boost::any>) == m["Nodes"].type()) {
@@ -6769,8 +6887,17 @@ public:
         nodes = make_shared<vector<ExtendClusterRequestNodeGroupsNodes>>(expect1);
       }
     }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
