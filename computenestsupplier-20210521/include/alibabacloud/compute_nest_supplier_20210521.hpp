@@ -6440,6 +6440,7 @@ public:
   shared_ptr<string> alarmMetadata{};
   shared_ptr<string> approvalType{};
   shared_ptr<string> buildInfo{};
+  shared_ptr<string> buildParameters{};
   shared_ptr<string> categories{};
   shared_ptr<GetServiceResponseBodyCommodity> commodity{};
   shared_ptr<GetServiceResponseBodyComplianceMetadata> complianceMetadata{};
@@ -6509,6 +6510,9 @@ public:
     }
     if (buildInfo) {
       res["BuildInfo"] = boost::any(*buildInfo);
+    }
+    if (buildParameters) {
+      res["BuildParameters"] = boost::any(*buildParameters);
     }
     if (categories) {
       res["Categories"] = boost::any(*categories);
@@ -6684,6 +6688,9 @@ public:
     }
     if (m.find("BuildInfo") != m.end() && !m["BuildInfo"].empty()) {
       buildInfo = make_shared<string>(boost::any_cast<string>(m["BuildInfo"]));
+    }
+    if (m.find("BuildParameters") != m.end() && !m["BuildParameters"].empty()) {
+      buildParameters = make_shared<string>(boost::any_cast<string>(m["BuildParameters"]));
     }
     if (m.find("Categories") != m.end() && !m["Categories"].empty()) {
       categories = make_shared<string>(boost::any_cast<string>(m["Categories"]));
