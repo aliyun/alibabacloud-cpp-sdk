@@ -78,7 +78,12 @@ AddChatappPhoneNumberResponse Alibabacloud_Cams20200606::Client::addChatappPhone
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddChatappPhoneNumberResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddChatappPhoneNumberResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddChatappPhoneNumberResponse(execute(params, req, runtime));
+  }
 }
 
 AddChatappPhoneNumberResponse Alibabacloud_Cams20200606::Client::addChatappPhoneNumber(shared_ptr<AddChatappPhoneNumberRequest> request) {
@@ -129,7 +134,12 @@ BeeBotAssociateResponse Alibabacloud_Cams20200606::Client::beeBotAssociateWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BeeBotAssociateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BeeBotAssociateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BeeBotAssociateResponse(execute(params, req, runtime));
+  }
 }
 
 BeeBotAssociateResponse Alibabacloud_Cams20200606::Client::beeBotAssociate(shared_ptr<BeeBotAssociateRequest> request) {
@@ -195,7 +205,12 @@ BeeBotChatResponse Alibabacloud_Cams20200606::Client::beeBotChatWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BeeBotChatResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BeeBotChatResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BeeBotChatResponse(execute(params, req, runtime));
+  }
 }
 
 BeeBotChatResponse Alibabacloud_Cams20200606::Client::beeBotChat(shared_ptr<BeeBotChatRequest> request) {
@@ -232,7 +247,12 @@ ChatappBindWabaResponse Alibabacloud_Cams20200606::Client::chatappBindWabaWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatappBindWabaResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatappBindWabaResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatappBindWabaResponse(execute(params, req, runtime));
+  }
 }
 
 ChatappBindWabaResponse Alibabacloud_Cams20200606::Client::chatappBindWaba(shared_ptr<ChatappBindWabaRequest> request) {
@@ -260,7 +280,12 @@ ChatappEmbedSignUpResponse Alibabacloud_Cams20200606::Client::chatappEmbedSignUp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatappEmbedSignUpResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatappEmbedSignUpResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatappEmbedSignUpResponse(execute(params, req, runtime));
+  }
 }
 
 ChatappEmbedSignUpResponse Alibabacloud_Cams20200606::Client::chatappEmbedSignUp(shared_ptr<ChatappEmbedSignUpRequest> request) {
@@ -291,7 +316,12 @@ ChatappMigrationRegisterResponse Alibabacloud_Cams20200606::Client::chatappMigra
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatappMigrationRegisterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatappMigrationRegisterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatappMigrationRegisterResponse(execute(params, req, runtime));
+  }
 }
 
 ChatappMigrationRegisterResponse Alibabacloud_Cams20200606::Client::chatappMigrationRegister(shared_ptr<ChatappMigrationRegisterRequest> request) {
@@ -325,7 +355,12 @@ ChatappMigrationVerifiedResponse Alibabacloud_Cams20200606::Client::chatappMigra
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatappMigrationVerifiedResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatappMigrationVerifiedResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatappMigrationVerifiedResponse(execute(params, req, runtime));
+  }
 }
 
 ChatappMigrationVerifiedResponse Alibabacloud_Cams20200606::Client::chatappMigrationVerified(shared_ptr<ChatappMigrationVerifiedRequest> request) {
@@ -356,7 +391,12 @@ ChatappPhoneNumberDeregisterResponse Alibabacloud_Cams20200606::Client::chatappP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatappPhoneNumberDeregisterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatappPhoneNumberDeregisterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatappPhoneNumberDeregisterResponse(execute(params, req, runtime));
+  }
 }
 
 ChatappPhoneNumberDeregisterResponse Alibabacloud_Cams20200606::Client::chatappPhoneNumberDeregister(shared_ptr<ChatappPhoneNumberDeregisterRequest> request) {
@@ -396,7 +436,12 @@ ChatappPhoneNumberRegisterResponse Alibabacloud_Cams20200606::Client::chatappPho
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatappPhoneNumberRegisterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatappPhoneNumberRegisterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatappPhoneNumberRegisterResponse(execute(params, req, runtime));
+  }
 }
 
 ChatappPhoneNumberRegisterResponse Alibabacloud_Cams20200606::Client::chatappPhoneNumberRegister(shared_ptr<ChatappPhoneNumberRegisterRequest> request) {
@@ -433,7 +478,12 @@ ChatappSyncPhoneNumberResponse Alibabacloud_Cams20200606::Client::chatappSyncPho
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatappSyncPhoneNumberResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatappSyncPhoneNumberResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatappSyncPhoneNumberResponse(execute(params, req, runtime));
+  }
 }
 
 ChatappSyncPhoneNumberResponse Alibabacloud_Cams20200606::Client::chatappSyncPhoneNumber(shared_ptr<ChatappSyncPhoneNumberRequest> request) {
@@ -476,7 +526,12 @@ ChatappVerifyAndRegisterResponse Alibabacloud_Cams20200606::Client::chatappVerif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatappVerifyAndRegisterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatappVerifyAndRegisterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatappVerifyAndRegisterResponse(execute(params, req, runtime));
+  }
 }
 
 ChatappVerifyAndRegisterResponse Alibabacloud_Cams20200606::Client::chatappVerifyAndRegister(shared_ptr<ChatappVerifyAndRegisterRequest> request) {
@@ -510,7 +565,12 @@ CreateChatappMigrationInitiateResponse Alibabacloud_Cams20200606::Client::create
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateChatappMigrationInitiateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateChatappMigrationInitiateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateChatappMigrationInitiateResponse(execute(params, req, runtime));
+  }
 }
 
 CreateChatappMigrationInitiateResponse Alibabacloud_Cams20200606::Client::createChatappMigrationInitiate(shared_ptr<CreateChatappMigrationInitiateRequest> request) {
@@ -576,7 +636,12 @@ CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateChatappTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateChatappTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateChatappTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTemplate(shared_ptr<CreateChatappTemplateRequest> request) {
@@ -615,7 +680,12 @@ CreateFlowResponse Alibabacloud_Cams20200606::Client::createFlowWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateFlowResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateFlowResponse(execute(params, req, runtime));
+  }
 }
 
 CreateFlowResponse Alibabacloud_Cams20200606::Client::createFlow(shared_ptr<CreateFlowRequest> request) {
@@ -652,7 +722,12 @@ CreatePhoneMessageQrdlResponse Alibabacloud_Cams20200606::Client::createPhoneMes
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreatePhoneMessageQrdlResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreatePhoneMessageQrdlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreatePhoneMessageQrdlResponse(execute(params, req, runtime));
+  }
 }
 
 CreatePhoneMessageQrdlResponse Alibabacloud_Cams20200606::Client::createPhoneMessageQrdl(shared_ptr<CreatePhoneMessageQrdlRequest> request) {
@@ -707,7 +782,12 @@ DeleteChatappTemplateResponse Alibabacloud_Cams20200606::Client::deleteChatappTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteChatappTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteChatappTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteChatappTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteChatappTemplateResponse Alibabacloud_Cams20200606::Client::deleteChatappTemplate(shared_ptr<DeleteChatappTemplateRequest> request) {
@@ -738,7 +818,12 @@ DeleteFlowResponse Alibabacloud_Cams20200606::Client::deleteFlowWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteFlowResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteFlowResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteFlowResponse Alibabacloud_Cams20200606::Client::deleteFlow(shared_ptr<DeleteFlowRequest> request) {
@@ -772,7 +857,12 @@ DeletePhoneMessageQrdlResponse Alibabacloud_Cams20200606::Client::deletePhoneMes
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeletePhoneMessageQrdlResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeletePhoneMessageQrdlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeletePhoneMessageQrdlResponse(execute(params, req, runtime));
+  }
 }
 
 DeletePhoneMessageQrdlResponse Alibabacloud_Cams20200606::Client::deletePhoneMessageQrdl(shared_ptr<DeletePhoneMessageQrdlRequest> request) {
@@ -803,7 +893,12 @@ DeprecateFlowResponse Alibabacloud_Cams20200606::Client::deprecateFlowWithOption
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeprecateFlowResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeprecateFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeprecateFlowResponse(execute(params, req, runtime));
+  }
 }
 
 DeprecateFlowResponse Alibabacloud_Cams20200606::Client::deprecateFlow(shared_ptr<DeprecateFlowRequest> request) {
@@ -834,7 +929,12 @@ EnableWhatsappROIMetricResponse Alibabacloud_Cams20200606::Client::enableWhatsap
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return EnableWhatsappROIMetricResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EnableWhatsappROIMetricResponse(callApi(params, req, runtime));
+  }
+  else {
+    return EnableWhatsappROIMetricResponse(execute(params, req, runtime));
+  }
 }
 
 EnableWhatsappROIMetricResponse Alibabacloud_Cams20200606::Client::enableWhatsappROIMetric(shared_ptr<EnableWhatsappROIMetricRequest> request) {
@@ -877,7 +977,12 @@ GetChatappPhoneNumberMetricResponse Alibabacloud_Cams20200606::Client::getChatap
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetChatappPhoneNumberMetricResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetChatappPhoneNumberMetricResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetChatappPhoneNumberMetricResponse(execute(params, req, runtime));
+  }
 }
 
 GetChatappPhoneNumberMetricResponse Alibabacloud_Cams20200606::Client::getChatappPhoneNumberMetric(shared_ptr<GetChatappPhoneNumberMetricRequest> request) {
@@ -923,7 +1028,12 @@ GetChatappTemplateDetailResponse Alibabacloud_Cams20200606::Client::getChatappTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetChatappTemplateDetailResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetChatappTemplateDetailResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetChatappTemplateDetailResponse(execute(params, req, runtime));
+  }
 }
 
 GetChatappTemplateDetailResponse Alibabacloud_Cams20200606::Client::getChatappTemplateDetail(shared_ptr<GetChatappTemplateDetailRequest> request) {
@@ -972,7 +1082,12 @@ GetChatappTemplateMetricResponse Alibabacloud_Cams20200606::Client::getChatappTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetChatappTemplateMetricResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetChatappTemplateMetricResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetChatappTemplateMetricResponse(execute(params, req, runtime));
+  }
 }
 
 GetChatappTemplateMetricResponse Alibabacloud_Cams20200606::Client::getChatappTemplateMetric(shared_ptr<GetChatappTemplateMetricRequest> request) {
@@ -1000,7 +1115,12 @@ GetChatappUploadAuthorizationResponse Alibabacloud_Cams20200606::Client::getChat
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetChatappUploadAuthorizationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetChatappUploadAuthorizationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetChatappUploadAuthorizationResponse(execute(params, req, runtime));
+  }
 }
 
 GetChatappUploadAuthorizationResponse Alibabacloud_Cams20200606::Client::getChatappUploadAuthorization(shared_ptr<GetChatappUploadAuthorizationRequest> request) {
@@ -1046,7 +1166,12 @@ GetChatappVerifyCodeResponse Alibabacloud_Cams20200606::Client::getChatappVerify
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetChatappVerifyCodeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetChatappVerifyCodeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetChatappVerifyCodeResponse(execute(params, req, runtime));
+  }
 }
 
 GetChatappVerifyCodeResponse Alibabacloud_Cams20200606::Client::getChatappVerifyCode(shared_ptr<GetChatappVerifyCodeRequest> request) {
@@ -1086,7 +1211,12 @@ GetCommerceSettingResponse Alibabacloud_Cams20200606::Client::getCommerceSetting
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetCommerceSettingResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetCommerceSettingResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetCommerceSettingResponse(execute(params, req, runtime));
+  }
 }
 
 GetCommerceSettingResponse Alibabacloud_Cams20200606::Client::getCommerceSetting(shared_ptr<GetCommerceSettingRequest> request) {
@@ -1126,7 +1256,12 @@ GetConversationalAutomationResponse Alibabacloud_Cams20200606::Client::getConver
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetConversationalAutomationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetConversationalAutomationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetConversationalAutomationResponse(execute(params, req, runtime));
+  }
 }
 
 GetConversationalAutomationResponse Alibabacloud_Cams20200606::Client::getConversationalAutomation(shared_ptr<GetConversationalAutomationRequest> request) {
@@ -1157,7 +1292,12 @@ GetFlowResponse Alibabacloud_Cams20200606::Client::getFlowWithOptions(shared_ptr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetFlowResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetFlowResponse(execute(params, req, runtime));
+  }
 }
 
 GetFlowResponse Alibabacloud_Cams20200606::Client::getFlow(shared_ptr<GetFlowRequest> request) {
@@ -1188,7 +1328,12 @@ GetFlowJSONAssestResponse Alibabacloud_Cams20200606::Client::getFlowJSONAssestWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetFlowJSONAssestResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetFlowJSONAssestResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetFlowJSONAssestResponse(execute(params, req, runtime));
+  }
 }
 
 GetFlowJSONAssestResponse Alibabacloud_Cams20200606::Client::getFlowJSONAssest(shared_ptr<GetFlowJSONAssestRequest> request) {
@@ -1219,7 +1364,12 @@ GetFlowPreviewUrlResponse Alibabacloud_Cams20200606::Client::getFlowPreviewUrlWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetFlowPreviewUrlResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetFlowPreviewUrlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetFlowPreviewUrlResponse(execute(params, req, runtime));
+  }
 }
 
 GetFlowPreviewUrlResponse Alibabacloud_Cams20200606::Client::getFlowPreviewUrl(shared_ptr<GetFlowPreviewUrlRequest> request) {
@@ -1256,7 +1406,12 @@ GetMigrationVerifyCodeResponse Alibabacloud_Cams20200606::Client::getMigrationVe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetMigrationVerifyCodeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetMigrationVerifyCodeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetMigrationVerifyCodeResponse(execute(params, req, runtime));
+  }
 }
 
 GetMigrationVerifyCodeResponse Alibabacloud_Cams20200606::Client::getMigrationVerifyCode(shared_ptr<GetMigrationVerifyCodeRequest> request) {
@@ -1295,7 +1450,12 @@ GetPermissionByCodeResponse Alibabacloud_Cams20200606::Client::getPermissionByCo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPermissionByCodeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPermissionByCodeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPermissionByCodeResponse(execute(params, req, runtime));
+  }
 }
 
 GetPermissionByCodeResponse Alibabacloud_Cams20200606::Client::getPermissionByCode(shared_ptr<GetPermissionByCodeRequest> request) {
@@ -1326,7 +1486,12 @@ GetPhoneEncryptionPublicKeyResponse Alibabacloud_Cams20200606::Client::getPhoneE
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPhoneEncryptionPublicKeyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPhoneEncryptionPublicKeyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPhoneEncryptionPublicKeyResponse(execute(params, req, runtime));
+  }
 }
 
 GetPhoneEncryptionPublicKeyResponse Alibabacloud_Cams20200606::Client::getPhoneEncryptionPublicKey(shared_ptr<GetPhoneEncryptionPublicKeyRequest> request) {
@@ -1357,7 +1522,12 @@ GetPhoneNumberVerificationStatusResponse Alibabacloud_Cams20200606::Client::getP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPhoneNumberVerificationStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPhoneNumberVerificationStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPhoneNumberVerificationStatusResponse(execute(params, req, runtime));
+  }
 }
 
 GetPhoneNumberVerificationStatusResponse Alibabacloud_Cams20200606::Client::getPhoneNumberVerificationStatus(shared_ptr<GetPhoneNumberVerificationStatusRequest> request) {
@@ -1388,7 +1558,12 @@ GetPreValidatePhoneIdResponse Alibabacloud_Cams20200606::Client::getPreValidateP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPreValidatePhoneIdResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPreValidatePhoneIdResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPreValidatePhoneIdResponse(execute(params, req, runtime));
+  }
 }
 
 GetPreValidatePhoneIdResponse Alibabacloud_Cams20200606::Client::getPreValidatePhoneId(shared_ptr<GetPreValidatePhoneIdRequest> request) {
@@ -1428,7 +1603,12 @@ GetWhatsappConnectionCatalogResponse Alibabacloud_Cams20200606::Client::getWhats
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetWhatsappConnectionCatalogResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetWhatsappConnectionCatalogResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetWhatsappConnectionCatalogResponse(execute(params, req, runtime));
+  }
 }
 
 GetWhatsappConnectionCatalogResponse Alibabacloud_Cams20200606::Client::getWhatsappConnectionCatalog(shared_ptr<GetWhatsappConnectionCatalogRequest> request) {
@@ -1480,7 +1660,12 @@ GetWhatsappHealthStatusResponse Alibabacloud_Cams20200606::Client::getWhatsappHe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetWhatsappHealthStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetWhatsappHealthStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetWhatsappHealthStatusResponse(execute(params, req, runtime));
+  }
 }
 
 GetWhatsappHealthStatusResponse Alibabacloud_Cams20200606::Client::getWhatsappHealthStatus(shared_ptr<GetWhatsappHealthStatusRequest> request) {
@@ -1511,7 +1696,12 @@ IsvGetAppIdResponse Alibabacloud_Cams20200606::Client::isvGetAppIdWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return IsvGetAppIdResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return IsvGetAppIdResponse(callApi(params, req, runtime));
+  }
+  else {
+    return IsvGetAppIdResponse(execute(params, req, runtime));
+  }
 }
 
 IsvGetAppIdResponse Alibabacloud_Cams20200606::Client::isvGetAppId(shared_ptr<IsvGetAppIdRequest> request) {
@@ -1568,7 +1758,12 @@ ListChatappTemplateResponse Alibabacloud_Cams20200606::Client::listChatappTempla
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListChatappTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListChatappTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListChatappTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 ListChatappTemplateResponse Alibabacloud_Cams20200606::Client::listChatappTemplate(shared_ptr<ListChatappTemplateRequest> request) {
@@ -1607,7 +1802,12 @@ ListFlowResponse Alibabacloud_Cams20200606::Client::listFlowWithOptions(shared_p
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListFlowResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListFlowResponse(execute(params, req, runtime));
+  }
 }
 
 ListFlowResponse Alibabacloud_Cams20200606::Client::listFlow(shared_ptr<ListFlowRequest> request) {
@@ -1638,7 +1838,12 @@ ListPhoneMessageQrdlResponse Alibabacloud_Cams20200606::Client::listPhoneMessage
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListPhoneMessageQrdlResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListPhoneMessageQrdlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListPhoneMessageQrdlResponse(execute(params, req, runtime));
+  }
 }
 
 ListPhoneMessageQrdlResponse Alibabacloud_Cams20200606::Client::listPhoneMessageQrdl(shared_ptr<ListPhoneMessageQrdlRequest> request) {
@@ -1693,7 +1898,12 @@ ListProductResponse Alibabacloud_Cams20200606::Client::listProductWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListProductResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListProductResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListProductResponse(execute(params, req, runtime));
+  }
 }
 
 ListProductResponse Alibabacloud_Cams20200606::Client::listProduct(shared_ptr<ListProductRequest> request) {
@@ -1745,7 +1955,12 @@ ListProductCatalogResponse Alibabacloud_Cams20200606::Client::listProductCatalog
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListProductCatalogResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListProductCatalogResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListProductCatalogResponse(execute(params, req, runtime));
+  }
 }
 
 ListProductCatalogResponse Alibabacloud_Cams20200606::Client::listProductCatalog(shared_ptr<ListProductCatalogRequest> request) {
@@ -1811,7 +2026,12 @@ ModifyChatappTemplateResponse Alibabacloud_Cams20200606::Client::modifyChatappTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyChatappTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyChatappTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyChatappTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyChatappTemplateResponse Alibabacloud_Cams20200606::Client::modifyChatappTemplate(shared_ptr<ModifyChatappTemplateRequest> request) {
@@ -1853,7 +2073,12 @@ ModifyFlowResponse Alibabacloud_Cams20200606::Client::modifyFlowWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyFlowResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyFlowResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyFlowResponse Alibabacloud_Cams20200606::Client::modifyFlow(shared_ptr<ModifyFlowRequest> request) {
@@ -1919,7 +2144,12 @@ ModifyPhoneBusinessProfileResponse Alibabacloud_Cams20200606::Client::modifyPhon
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyPhoneBusinessProfileResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyPhoneBusinessProfileResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyPhoneBusinessProfileResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyPhoneBusinessProfileResponse Alibabacloud_Cams20200606::Client::modifyPhoneBusinessProfile(shared_ptr<ModifyPhoneBusinessProfileRequest> request) {
@@ -1950,7 +2180,12 @@ PublishFlowResponse Alibabacloud_Cams20200606::Client::publishFlowWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PublishFlowResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PublishFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PublishFlowResponse(execute(params, req, runtime));
+  }
 }
 
 PublishFlowResponse Alibabacloud_Cams20200606::Client::publishFlow(shared_ptr<PublishFlowRequest> request) {
@@ -1990,7 +2225,12 @@ QueryChatappBindWabaResponse Alibabacloud_Cams20200606::Client::queryChatappBind
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryChatappBindWabaResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryChatappBindWabaResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryChatappBindWabaResponse(execute(params, req, runtime));
+  }
 }
 
 QueryChatappBindWabaResponse Alibabacloud_Cams20200606::Client::queryChatappBindWaba(shared_ptr<QueryChatappBindWabaRequest> request) {
@@ -2006,6 +2246,15 @@ QueryChatappPhoneNumbersResponse Alibabacloud_Cams20200606::Client::queryChatapp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
     query->insert(pair<string, string>("IsvCode", *request->isvCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
@@ -2024,7 +2273,12 @@ QueryChatappPhoneNumbersResponse Alibabacloud_Cams20200606::Client::queryChatapp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryChatappPhoneNumbersResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryChatappPhoneNumbersResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryChatappPhoneNumbersResponse(execute(params, req, runtime));
+  }
 }
 
 QueryChatappPhoneNumbersResponse Alibabacloud_Cams20200606::Client::queryChatappPhoneNumbers(shared_ptr<QueryChatappPhoneNumbersRequest> request) {
@@ -2064,7 +2318,12 @@ QueryPhoneBusinessProfileResponse Alibabacloud_Cams20200606::Client::queryPhoneB
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryPhoneBusinessProfileResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryPhoneBusinessProfileResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryPhoneBusinessProfileResponse(execute(params, req, runtime));
+  }
 }
 
 QueryPhoneBusinessProfileResponse Alibabacloud_Cams20200606::Client::queryPhoneBusinessProfile(shared_ptr<QueryPhoneBusinessProfileRequest> request) {
@@ -2104,7 +2363,12 @@ QueryWabaBusinessInfoResponse Alibabacloud_Cams20200606::Client::queryWabaBusine
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryWabaBusinessInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryWabaBusinessInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryWabaBusinessInfoResponse(execute(params, req, runtime));
+  }
 }
 
 QueryWabaBusinessInfoResponse Alibabacloud_Cams20200606::Client::queryWabaBusinessInfo(shared_ptr<QueryWabaBusinessInfoRequest> request) {
@@ -2185,7 +2449,12 @@ SendChatappMassMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMas
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SendChatappMassMessageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SendChatappMassMessageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SendChatappMassMessageResponse(execute(params, req, runtime));
+  }
 }
 
 SendChatappMassMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMassMessage(shared_ptr<SendChatappMassMessageRequest> request) {
@@ -2304,7 +2573,12 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SendChatappMessageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SendChatappMessageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SendChatappMessageResponse(execute(params, req, runtime));
+  }
 }
 
 SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage(shared_ptr<SendChatappMessageRequest> request) {
@@ -2350,7 +2624,12 @@ SubmitIsvCustomerTermsResponse Alibabacloud_Cams20200606::Client::submitIsvCusto
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SubmitIsvCustomerTermsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SubmitIsvCustomerTermsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SubmitIsvCustomerTermsResponse(execute(params, req, runtime));
+  }
 }
 
 SubmitIsvCustomerTermsResponse Alibabacloud_Cams20200606::Client::submitIsvCustomerTerms(shared_ptr<SubmitIsvCustomerTermsRequest> request) {
@@ -2407,7 +2686,12 @@ TriggerChatFlowResponse Alibabacloud_Cams20200606::Client::triggerChatFlowWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return TriggerChatFlowResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TriggerChatFlowResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TriggerChatFlowResponse(execute(params, req, runtime));
+  }
 }
 
 TriggerChatFlowResponse Alibabacloud_Cams20200606::Client::triggerChatFlow(shared_ptr<TriggerChatFlowRequest> request) {
@@ -2444,7 +2728,12 @@ UpdateAccountWebhookResponse Alibabacloud_Cams20200606::Client::updateAccountWeb
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateAccountWebhookResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateAccountWebhookResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateAccountWebhookResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateAccountWebhookResponse Alibabacloud_Cams20200606::Client::updateAccountWebhook(shared_ptr<UpdateAccountWebhookRequest> request) {
@@ -2490,7 +2779,12 @@ UpdateCommerceSettingResponse Alibabacloud_Cams20200606::Client::updateCommerceS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateCommerceSettingResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateCommerceSettingResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateCommerceSettingResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateCommerceSettingResponse Alibabacloud_Cams20200606::Client::updateCommerceSetting(shared_ptr<UpdateCommerceSettingRequest> request) {
@@ -2547,7 +2841,12 @@ UpdateConversationalAutomationResponse Alibabacloud_Cams20200606::Client::update
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateConversationalAutomationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateConversationalAutomationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateConversationalAutomationResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateConversationalAutomationResponse Alibabacloud_Cams20200606::Client::updateConversationalAutomation(shared_ptr<UpdateConversationalAutomationRequest> request) {
@@ -2581,7 +2880,12 @@ UpdateFlowJSONAssetResponse Alibabacloud_Cams20200606::Client::updateFlowJSONAss
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateFlowJSONAssetResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateFlowJSONAssetResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateFlowJSONAssetResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateFlowJSONAssetResponse Alibabacloud_Cams20200606::Client::updateFlowJSONAsset(shared_ptr<UpdateFlowJSONAssetRequest> request) {
@@ -2615,7 +2919,12 @@ UpdatePhoneEncryptionPublicKeyResponse Alibabacloud_Cams20200606::Client::update
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdatePhoneEncryptionPublicKeyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdatePhoneEncryptionPublicKeyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdatePhoneEncryptionPublicKeyResponse(execute(params, req, runtime));
+  }
 }
 
 UpdatePhoneEncryptionPublicKeyResponse Alibabacloud_Cams20200606::Client::updatePhoneEncryptionPublicKey(shared_ptr<UpdatePhoneEncryptionPublicKeyRequest> request) {
@@ -2655,7 +2964,12 @@ UpdatePhoneMessageQrdlResponse Alibabacloud_Cams20200606::Client::updatePhoneMes
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdatePhoneMessageQrdlResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdatePhoneMessageQrdlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdatePhoneMessageQrdlResponse(execute(params, req, runtime));
+  }
 }
 
 UpdatePhoneMessageQrdlResponse Alibabacloud_Cams20200606::Client::updatePhoneMessageQrdl(shared_ptr<UpdatePhoneMessageQrdlRequest> request) {
@@ -2698,7 +3012,12 @@ UpdatePhoneWebhookResponse Alibabacloud_Cams20200606::Client::updatePhoneWebhook
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdatePhoneWebhookResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdatePhoneWebhookResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdatePhoneWebhookResponse(execute(params, req, runtime));
+  }
 }
 
 UpdatePhoneWebhookResponse Alibabacloud_Cams20200606::Client::updatePhoneWebhook(shared_ptr<UpdatePhoneWebhookRequest> request) {

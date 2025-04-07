@@ -2482,6 +2482,7 @@ public:
 class ChatappSyncPhoneNumberResponseBodyPhoneNumbers : public Darabonba::Model {
 public:
   shared_ptr<string> codeVerificationStatus{};
+  shared_ptr<string> isOfficial{};
   shared_ptr<string> messagingLimitTier{};
   shared_ptr<string> nameStatus{};
   shared_ptr<string> newNameStatus{};
@@ -2506,6 +2507,9 @@ public:
     map<string, boost::any> res;
     if (codeVerificationStatus) {
       res["CodeVerificationStatus"] = boost::any(*codeVerificationStatus);
+    }
+    if (isOfficial) {
+      res["IsOfficial"] = boost::any(*isOfficial);
     }
     if (messagingLimitTier) {
       res["MessagingLimitTier"] = boost::any(*messagingLimitTier);
@@ -2546,6 +2550,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CodeVerificationStatus") != m.end() && !m["CodeVerificationStatus"].empty()) {
       codeVerificationStatus = make_shared<string>(boost::any_cast<string>(m["CodeVerificationStatus"]));
+    }
+    if (m.find("IsOfficial") != m.end() && !m["IsOfficial"].empty()) {
+      isOfficial = make_shared<string>(boost::any_cast<string>(m["IsOfficial"]));
     }
     if (m.find("MessagingLimitTier") != m.end() && !m["MessagingLimitTier"].empty()) {
       messagingLimitTier = make_shared<string>(boost::any_cast<string>(m["MessagingLimitTier"]));
@@ -13199,6 +13206,9 @@ class QueryChatappPhoneNumbersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> isvCode{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> status{};
 
   QueryChatappPhoneNumbersRequest() {}
@@ -13217,6 +13227,15 @@ public:
     if (isvCode) {
       res["IsvCode"] = boost::any(*isvCode);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -13230,6 +13249,15 @@ public:
     if (m.find("IsvCode") != m.end() && !m["IsvCode"].empty()) {
       isvCode = make_shared<string>(boost::any_cast<string>(m["IsvCode"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
@@ -13241,6 +13269,7 @@ public:
 class QueryChatappPhoneNumbersResponseBodyPhoneNumbers : public Darabonba::Model {
 public:
   shared_ptr<string> codeVerificationStatus{};
+  shared_ptr<string> isOfficial{};
   shared_ptr<string> messagingLimitTier{};
   shared_ptr<string> nameStatus{};
   shared_ptr<string> newNameStatus{};
@@ -13265,6 +13294,9 @@ public:
     map<string, boost::any> res;
     if (codeVerificationStatus) {
       res["CodeVerificationStatus"] = boost::any(*codeVerificationStatus);
+    }
+    if (isOfficial) {
+      res["IsOfficial"] = boost::any(*isOfficial);
     }
     if (messagingLimitTier) {
       res["MessagingLimitTier"] = boost::any(*messagingLimitTier);
@@ -13305,6 +13337,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CodeVerificationStatus") != m.end() && !m["CodeVerificationStatus"].empty()) {
       codeVerificationStatus = make_shared<string>(boost::any_cast<string>(m["CodeVerificationStatus"]));
+    }
+    if (m.find("IsOfficial") != m.end() && !m["IsOfficial"].empty()) {
+      isOfficial = make_shared<string>(boost::any_cast<string>(m["IsOfficial"]));
     }
     if (m.find("MessagingLimitTier") != m.end() && !m["MessagingLimitTier"].empty()) {
       messagingLimitTier = make_shared<string>(boost::any_cast<string>(m["MessagingLimitTier"]));
@@ -13351,6 +13386,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<vector<QueryChatappPhoneNumbersResponseBodyPhoneNumbers>> phoneNumbers{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   QueryChatappPhoneNumbersResponseBody() {}
 
@@ -13381,6 +13417,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -13409,6 +13448,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
