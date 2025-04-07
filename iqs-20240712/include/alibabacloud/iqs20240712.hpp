@@ -44,8 +44,10 @@ public:
 };
 class CommonAgentQuery : public Darabonba::Model {
 public:
+  shared_ptr<long> limit{};
   shared_ptr<string> query{};
   shared_ptr<string> querySceneEnumCode{};
+  shared_ptr<string> searchModel{};
 
   CommonAgentQuery() {}
 
@@ -57,21 +59,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (limit) {
+      res["limit"] = boost::any(*limit);
+    }
     if (query) {
       res["query"] = boost::any(*query);
     }
     if (querySceneEnumCode) {
       res["querySceneEnumCode"] = boost::any(*querySceneEnumCode);
     }
+    if (searchModel) {
+      res["searchModel"] = boost::any(*searchModel);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("limit") != m.end() && !m["limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
+    }
     if (m.find("query") != m.end() && !m["query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["query"]));
     }
     if (m.find("querySceneEnumCode") != m.end() && !m["querySceneEnumCode"].empty()) {
       querySceneEnumCode = make_shared<string>(boost::any_cast<string>(m["querySceneEnumCode"]));
+    }
+    if (m.find("searchModel") != m.end() && !m["searchModel"].empty()) {
+      searchModel = make_shared<string>(boost::any_cast<string>(m["searchModel"]));
     }
   }
 
