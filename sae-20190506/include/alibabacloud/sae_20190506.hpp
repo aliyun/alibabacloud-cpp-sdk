@@ -13752,6 +13752,7 @@ public:
   shared_ptr<string> customHostAlias{};
   shared_ptr<string> customImageNetworkType{};
   shared_ptr<bool> deploy{};
+  shared_ptr<long> diskSize{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<bool> enableCpuBurst{};
@@ -13864,6 +13865,9 @@ public:
     }
     if (deploy) {
       res["Deploy"] = boost::any(*deploy);
+    }
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
     }
     if (dotnet) {
       res["Dotnet"] = boost::any(*dotnet);
@@ -14089,6 +14093,9 @@ public:
     if (m.find("Deploy") != m.end() && !m["Deploy"].empty()) {
       deploy = make_shared<bool>(boost::any_cast<bool>(m["Deploy"]));
     }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
+    }
     if (m.find("Dotnet") != m.end() && !m["Dotnet"].empty()) {
       dotnet = make_shared<string>(boost::any_cast<string>(m["Dotnet"]));
     }
@@ -14292,6 +14299,7 @@ public:
   shared_ptr<string> customHostAlias{};
   shared_ptr<string> customImageNetworkType{};
   shared_ptr<bool> deploy{};
+  shared_ptr<long> diskSize{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<bool> enableCpuBurst{};
@@ -14404,6 +14412,9 @@ public:
     }
     if (deploy) {
       res["Deploy"] = boost::any(*deploy);
+    }
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
     }
     if (dotnet) {
       res["Dotnet"] = boost::any(*dotnet);
@@ -14624,6 +14635,9 @@ public:
     }
     if (m.find("Deploy") != m.end() && !m["Deploy"].empty()) {
       deploy = make_shared<bool>(boost::any_cast<bool>(m["Deploy"]));
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
     }
     if (m.find("Dotnet") != m.end() && !m["Dotnet"].empty()) {
       dotnet = make_shared<string>(boost::any_cast<string>(m["Dotnet"]));
@@ -21547,6 +21561,7 @@ public:
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
   shared_ptr<string> customImageNetworkType{};
+  shared_ptr<long> diskSize{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableAhas{};
@@ -21674,6 +21689,9 @@ public:
     }
     if (customImageNetworkType) {
       res["CustomImageNetworkType"] = boost::any(*customImageNetworkType);
+    }
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
     }
     if (dotnet) {
       res["Dotnet"] = boost::any(*dotnet);
@@ -21951,6 +21969,9 @@ public:
     }
     if (m.find("CustomImageNetworkType") != m.end() && !m["CustomImageNetworkType"].empty()) {
       customImageNetworkType = make_shared<string>(boost::any_cast<string>(m["CustomImageNetworkType"]));
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
     }
     if (m.find("Dotnet") != m.end() && !m["Dotnet"].empty()) {
       dotnet = make_shared<string>(boost::any_cast<string>(m["Dotnet"]));
@@ -22868,6 +22889,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> pipelineId{};
   shared_ptr<bool> reverse{};
 
   DescribeApplicationInstancesRequest() {}
@@ -22895,6 +22917,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (pipelineId) {
+      res["PipelineId"] = boost::any(*pipelineId);
+    }
     if (reverse) {
       res["Reverse"] = boost::any(*reverse);
     }
@@ -22916,6 +22941,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PipelineId") != m.end() && !m["PipelineId"].empty()) {
+      pipelineId = make_shared<string>(boost::any_cast<string>(m["PipelineId"]));
     }
     if (m.find("Reverse") != m.end() && !m["Reverse"].empty()) {
       reverse = make_shared<bool>(boost::any_cast<bool>(m["Reverse"]));
@@ -22984,6 +23012,7 @@ public:
   shared_ptr<string> mainContainerStatus{};
   shared_ptr<string> packageVersion{};
   shared_ptr<vector<DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus>> sidecarContainersStatus{};
+  shared_ptr<long> timestamp{};
   shared_ptr<string> unhealthyMessage{};
   shared_ptr<string> vSwitchId{};
 
@@ -23042,6 +23071,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["SidecarContainersStatus"] = boost::any(temp1);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
     }
     if (unhealthyMessage) {
       res["UnhealthyMessage"] = boost::any(*unhealthyMessage);
@@ -23104,6 +23136,9 @@ public:
         }
         sidecarContainersStatus = make_shared<vector<DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus>>(expect1);
       }
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
     }
     if (m.find("UnhealthyMessage") != m.end() && !m["UnhealthyMessage"].empty()) {
       unhealthyMessage = make_shared<string>(boost::any_cast<string>(m["UnhealthyMessage"]));
@@ -34889,7 +34924,9 @@ public:
 };
 class GetChangeOrderMetricRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> appSource{};
+  shared_ptr<string> coType{};
   shared_ptr<string> cpuStrategy{};
   shared_ptr<string> createTime{};
   shared_ptr<long> limit{};
@@ -34906,8 +34943,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (appSource) {
       res["AppSource"] = boost::any(*appSource);
+    }
+    if (coType) {
+      res["CoType"] = boost::any(*coType);
     }
     if (cpuStrategy) {
       res["CpuStrategy"] = boost::any(*cpuStrategy);
@@ -34928,8 +34971,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("AppSource") != m.end() && !m["AppSource"].empty()) {
       appSource = make_shared<string>(boost::any_cast<string>(m["AppSource"]));
+    }
+    if (m.find("CoType") != m.end() && !m["CoType"].empty()) {
+      coType = make_shared<string>(boost::any_cast<string>(m["CoType"]));
     }
     if (m.find("CpuStrategy") != m.end() && !m["CpuStrategy"].empty()) {
       cpuStrategy = make_shared<string>(boost::any_cast<string>(m["CpuStrategy"]));
@@ -34954,10 +35003,14 @@ public:
 class GetChangeOrderMetricResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<double> avgTimeCostMs{};
   shared_ptr<long> error{};
   shared_ptr<double> errorPercent{};
+  shared_ptr<double> maxTimeCostMs{};
   shared_ptr<string> name{};
+  shared_ptr<string> optimizeSuggestions{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> taskTimeCostMsAvg{};
   shared_ptr<long> total{};
 
   GetChangeOrderMetricResponseBodyData() {}
@@ -34973,17 +35026,29 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (avgTimeCostMs) {
+      res["AvgTimeCostMs"] = boost::any(*avgTimeCostMs);
+    }
     if (error) {
       res["Error"] = boost::any(*error);
     }
     if (errorPercent) {
       res["ErrorPercent"] = boost::any(*errorPercent);
     }
+    if (maxTimeCostMs) {
+      res["MaxTimeCostMs"] = boost::any(*maxTimeCostMs);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (optimizeSuggestions) {
+      res["OptimizeSuggestions"] = boost::any(*optimizeSuggestions);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (taskTimeCostMsAvg) {
+      res["TaskTimeCostMsAvg"] = boost::any(*taskTimeCostMsAvg);
     }
     if (total) {
       res["Total"] = boost::any(*total);
@@ -34995,17 +35060,29 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
+    if (m.find("AvgTimeCostMs") != m.end() && !m["AvgTimeCostMs"].empty()) {
+      avgTimeCostMs = make_shared<double>(boost::any_cast<double>(m["AvgTimeCostMs"]));
+    }
     if (m.find("Error") != m.end() && !m["Error"].empty()) {
       error = make_shared<long>(boost::any_cast<long>(m["Error"]));
     }
     if (m.find("ErrorPercent") != m.end() && !m["ErrorPercent"].empty()) {
       errorPercent = make_shared<double>(boost::any_cast<double>(m["ErrorPercent"]));
     }
+    if (m.find("MaxTimeCostMs") != m.end() && !m["MaxTimeCostMs"].empty()) {
+      maxTimeCostMs = make_shared<double>(boost::any_cast<double>(m["MaxTimeCostMs"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("OptimizeSuggestions") != m.end() && !m["OptimizeSuggestions"].empty()) {
+      optimizeSuggestions = make_shared<string>(boost::any_cast<string>(m["OptimizeSuggestions"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TaskTimeCostMsAvg") != m.end() && !m["TaskTimeCostMsAvg"].empty()) {
+      taskTimeCostMsAvg = make_shared<string>(boost::any_cast<string>(m["TaskTimeCostMsAvg"]));
     }
     if (m.find("Total") != m.end() && !m["Total"].empty()) {
       total = make_shared<long>(boost::any_cast<long>(m["Total"]));
@@ -37372,6 +37449,7 @@ public:
   shared_ptr<string> baseAppId{};
   shared_ptr<vector<ListApplicationsResponseBodyDataApplicationsChildren>> children{};
   shared_ptr<long> cpu{};
+  shared_ptr<long> diskSize{};
   shared_ptr<string> enableIdle{};
   shared_ptr<string> imageUrl{};
   shared_ptr<long> instances{};
@@ -37424,6 +37502,9 @@ public:
     }
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
+    }
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
     }
     if (enableIdle) {
       res["EnableIdle"] = boost::any(*enableIdle);
@@ -37508,6 +37589,9 @@ public:
     }
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
     }
     if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
       enableIdle = make_shared<string>(boost::any_cast<string>(m["EnableIdle"]));
@@ -37778,7 +37862,9 @@ public:
   shared_ptr<string> coType{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> key{};
+  shared_ptr<string> orderBy{};
   shared_ptr<long> pageSize{};
+  shared_ptr<bool> reverse{};
 
   ListChangeOrdersRequest() {}
 
@@ -37805,8 +37891,14 @@ public:
     if (key) {
       res["Key"] = boost::any(*key);
     }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (reverse) {
+      res["Reverse"] = boost::any(*reverse);
     }
     return res;
   }
@@ -37827,8 +37919,14 @@ public:
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
     }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Reverse") != m.end() && !m["Reverse"].empty()) {
+      reverse = make_shared<bool>(boost::any_cast<bool>(m["Reverse"]));
     }
   }
 
@@ -43553,6 +43651,7 @@ class RescaleApplicationVerticallyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> cpu{};
+  shared_ptr<string> diskSize{};
   shared_ptr<string> memory{};
   shared_ptr<bool> autoEnableApplicationScalingRule{};
   shared_ptr<long> minReadyInstanceRatio{};
@@ -43573,6 +43672,9 @@ public:
     }
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
+    }
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -43595,6 +43697,9 @@ public:
     }
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<string>(boost::any_cast<string>(m["Cpu"]));
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<string>(boost::any_cast<string>(m["DiskSize"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<string>(boost::any_cast<string>(m["Memory"]));

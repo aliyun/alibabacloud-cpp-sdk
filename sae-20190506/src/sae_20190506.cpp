@@ -321,6 +321,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->deploy)) {
     query->insert(pair<string, bool>("Deploy", *request->deploy));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->diskSize)) {
+    query->insert(pair<string, long>("DiskSize", *request->diskSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dotnet)) {
     query->insert(pair<string, string>("Dotnet", *request->dotnet));
   }
@@ -2033,6 +2036,9 @@ DescribeApplicationInstancesResponse Alibabacloud_Sae20190506::Client::describeA
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pipelineId)) {
+    query->insert(pair<string, string>("PipelineId", *request->pipelineId));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->reverse)) {
     query->insert(pair<string, bool>("Reverse", *request->reverse));
   }
@@ -3491,8 +3497,14 @@ GetAvailabilityMetricResponse Alibabacloud_Sae20190506::Client::getAvailabilityM
 GetChangeOrderMetricResponse Alibabacloud_Sae20190506::Client::getChangeOrderMetricWithOptions(shared_ptr<GetChangeOrderMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appSource)) {
     query->insert(pair<string, string>("AppSource", *request->appSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->coType)) {
+    query->insert(pair<string, string>("CoType", *request->coType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cpuStrategy)) {
     query->insert(pair<string, string>("CpuStrategy", *request->cpuStrategy));
@@ -3947,8 +3959,14 @@ ListChangeOrdersResponse Alibabacloud_Sae20190506::Client::listChangeOrdersWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
     query->insert(pair<string, string>("Key", *request->key));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->reverse)) {
+    query->insert(pair<string, bool>("Reverse", *request->reverse));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -4790,6 +4808,9 @@ RescaleApplicationVerticallyResponse Alibabacloud_Sae20190506::Client::rescaleAp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cpu)) {
     query->insert(pair<string, string>("Cpu", *request->cpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskSize)) {
+    query->insert(pair<string, string>("DiskSize", *request->diskSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->memory)) {
     query->insert(pair<string, string>("Memory", *request->memory));
