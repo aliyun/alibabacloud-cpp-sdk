@@ -155,6 +155,9 @@ ApplyFileUploadLeaseResponse Alibabacloud_Bailian20231229::Client::applyFileUplo
   if (!Darabonba_Util::Client::isUnset<string>(request->sizeInBytes)) {
     body->insert(pair<string, string>("SizeInBytes", *request->sizeInBytes));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->useInternalEndpoint)) {
+    body->insert(pair<string, bool>("UseInternalEndpoint", *request->useInternalEndpoint));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

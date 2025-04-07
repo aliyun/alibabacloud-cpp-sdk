@@ -496,6 +496,7 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> md5{};
   shared_ptr<string> sizeInBytes{};
+  shared_ptr<bool> useInternalEndpoint{};
 
   ApplyFileUploadLeaseRequest() {}
 
@@ -519,6 +520,9 @@ public:
     if (sizeInBytes) {
       res["SizeInBytes"] = boost::any(*sizeInBytes);
     }
+    if (useInternalEndpoint) {
+      res["UseInternalEndpoint"] = boost::any(*useInternalEndpoint);
+    }
     return res;
   }
 
@@ -534,6 +538,9 @@ public:
     }
     if (m.find("SizeInBytes") != m.end() && !m["SizeInBytes"].empty()) {
       sizeInBytes = make_shared<string>(boost::any_cast<string>(m["SizeInBytes"]));
+    }
+    if (m.find("UseInternalEndpoint") != m.end() && !m["UseInternalEndpoint"].empty()) {
+      useInternalEndpoint = make_shared<bool>(boost::any_cast<bool>(m["UseInternalEndpoint"]));
     }
   }
 
