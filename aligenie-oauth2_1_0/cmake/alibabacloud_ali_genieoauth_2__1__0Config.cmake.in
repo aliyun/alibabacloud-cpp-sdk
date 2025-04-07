@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_ali_genieoauth_2__1__0Targets.cmake")
+check_required_components("alibabacloud_ali_genieoauth_2__1__0")
