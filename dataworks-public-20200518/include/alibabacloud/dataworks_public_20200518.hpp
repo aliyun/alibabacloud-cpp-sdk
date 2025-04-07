@@ -57717,6 +57717,7 @@ public:
 };
 class ListFilesRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> commitStatus{};
   shared_ptr<string> exactFileName{};
   shared_ptr<string> fileFolderPath{};
   shared_ptr<string> fileIdIn{};
@@ -57743,6 +57744,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commitStatus) {
+      res["CommitStatus"] = boost::any(*commitStatus);
+    }
     if (exactFileName) {
       res["ExactFileName"] = boost::any(*exactFileName);
     }
@@ -57792,6 +57796,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommitStatus") != m.end() && !m["CommitStatus"].empty()) {
+      commitStatus = make_shared<long>(boost::any_cast<long>(m["CommitStatus"]));
+    }
     if (m.find("ExactFileName") != m.end() && !m["ExactFileName"].empty()) {
       exactFileName = make_shared<string>(boost::any_cast<string>(m["ExactFileName"]));
     }

@@ -8774,6 +8774,9 @@ ListFileVersionsResponse Alibabacloud_Dataworks-public20200518::Client::listFile
 ListFilesResponse Alibabacloud_Dataworks-public20200518::Client::listFilesWithOptions(shared_ptr<ListFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->commitStatus)) {
+    body->insert(pair<string, long>("CommitStatus", *request->commitStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->exactFileName)) {
     body->insert(pair<string, string>("ExactFileName", *request->exactFileName));
   }
