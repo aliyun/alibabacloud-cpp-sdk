@@ -11136,6 +11136,7 @@ class RebootAndroidInstancesInGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
   shared_ptr<bool> forceStop{};
+  shared_ptr<string> saleMode{};
 
   RebootAndroidInstancesInGroupRequest() {}
 
@@ -11153,6 +11154,9 @@ public:
     if (forceStop) {
       res["ForceStop"] = boost::any(*forceStop);
     }
+    if (saleMode) {
+      res["SaleMode"] = boost::any(*saleMode);
+    }
     return res;
   }
 
@@ -11169,6 +11173,9 @@ public:
     }
     if (m.find("ForceStop") != m.end() && !m["ForceStop"].empty()) {
       forceStop = make_shared<bool>(boost::any_cast<bool>(m["ForceStop"]));
+    }
+    if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
+      saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
     }
   }
 
@@ -11772,6 +11779,7 @@ public:
 class ResetAndroidInstancesInGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<string> saleMode{};
 
   ResetAndroidInstancesInGroupRequest() {}
 
@@ -11786,6 +11794,9 @@ public:
     if (androidInstanceIds) {
       res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
     }
+    if (saleMode) {
+      res["SaleMode"] = boost::any(*saleMode);
+    }
     return res;
   }
 
@@ -11799,6 +11810,9 @@ public:
         }
       }
       androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
+      saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
     }
   }
 
@@ -12435,6 +12449,7 @@ public:
 class StartAndroidInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<string> saleMode{};
 
   StartAndroidInstanceRequest() {}
 
@@ -12449,6 +12464,9 @@ public:
     if (androidInstanceIds) {
       res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
     }
+    if (saleMode) {
+      res["SaleMode"] = boost::any(*saleMode);
+    }
     return res;
   }
 
@@ -12462,6 +12480,9 @@ public:
         }
       }
       androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
+      saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
     }
   }
 
@@ -12553,6 +12574,7 @@ class StopAndroidInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
   shared_ptr<bool> forceStop{};
+  shared_ptr<string> saleMode{};
 
   StopAndroidInstanceRequest() {}
 
@@ -12570,6 +12592,9 @@ public:
     if (forceStop) {
       res["ForceStop"] = boost::any(*forceStop);
     }
+    if (saleMode) {
+      res["SaleMode"] = boost::any(*saleMode);
+    }
     return res;
   }
 
@@ -12586,6 +12611,9 @@ public:
     }
     if (m.find("ForceStop") != m.end() && !m["ForceStop"].empty()) {
       forceStop = make_shared<bool>(boost::any_cast<bool>(m["ForceStop"]));
+    }
+    if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
+      saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
     }
   }
 

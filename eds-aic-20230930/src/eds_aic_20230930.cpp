@@ -2218,6 +2218,9 @@ RebootAndroidInstancesInGroupResponse Alibabacloud_Eds-aic20230930::Client::rebo
   if (!Darabonba_Util::Client::isUnset<bool>(request->forceStop)) {
     query->insert(pair<string, bool>("ForceStop", *request->forceStop));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
+    query->insert(pair<string, string>("SaleMode", *request->saleMode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2383,6 +2386,9 @@ ResetAndroidInstancesInGroupResponse Alibabacloud_Eds-aic20230930::Client::reset
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
     query->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
+    query->insert(pair<string, string>("SaleMode", *request->saleMode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2542,6 +2548,9 @@ StartAndroidInstanceResponse Alibabacloud_Eds-aic20230930::Client::startAndroidI
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
     query->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
+    query->insert(pair<string, string>("SaleMode", *request->saleMode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2577,6 +2586,9 @@ StopAndroidInstanceResponse Alibabacloud_Eds-aic20230930::Client::stopAndroidIns
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->forceStop)) {
     query->insert(pair<string, bool>("ForceStop", *request->forceStop));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
+    query->insert(pair<string, string>("SaleMode", *request->saleMode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
