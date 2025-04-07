@@ -4129,6 +4129,7 @@ public:
 };
 class GetConnectionTicketRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessType{};
   shared_ptr<string> appId{};
   shared_ptr<vector<string>> appInstanceGroupIdList{};
   shared_ptr<string> appInstanceId{};
@@ -4150,6 +4151,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessType) {
+      res["AccessType"] = boost::any(*accessType);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -4184,6 +4188,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessType") != m.end() && !m["AccessType"].empty()) {
+      accessType = make_shared<string>(boost::any_cast<string>(m["AccessType"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
