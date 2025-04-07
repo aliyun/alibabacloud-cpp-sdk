@@ -41,6 +41,9 @@ string Alibabacloud_Appstream-center20210903::Client::getEndpoint(shared_ptr<str
 GetConnectionTicketResponse Alibabacloud_Appstream-center20210903::Client::getConnectionTicketWithOptions(shared_ptr<GetConnectionTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessType)) {
+    body->insert(pair<string, string>("AccessType", *request->accessType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
