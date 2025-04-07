@@ -7411,6 +7411,49 @@ public:
 
   virtual ~DeleteVaultResponse() = default;
 };
+class DescribeBackupClientsRequestFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<string>> values{};
+
+  DescribeBackupClientsRequestFilters() {}
+
+  explicit DescribeBackupClientsRequestFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeBackupClientsRequestFilters() = default;
+};
 class DescribeBackupClientsRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -7455,6 +7498,7 @@ public:
   shared_ptr<string> crossAccountRoleName{};
   shared_ptr<string> crossAccountType{};
   shared_ptr<long> crossAccountUserId{};
+  shared_ptr<vector<DescribeBackupClientsRequestFilters>> filters{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -7487,6 +7531,13 @@ public:
     }
     if (crossAccountUserId) {
       res["CrossAccountUserId"] = boost::any(*crossAccountUserId);
+    }
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
     }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
@@ -7533,6 +7584,19 @@ public:
     if (m.find("CrossAccountUserId") != m.end() && !m["CrossAccountUserId"].empty()) {
       crossAccountUserId = make_shared<long>(boost::any_cast<long>(m["CrossAccountUserId"]));
     }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<DescribeBackupClientsRequestFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeBackupClientsRequestFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<DescribeBackupClientsRequestFilters>>(expect1);
+      }
+    }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
@@ -7566,6 +7630,49 @@ public:
 
 
   virtual ~DescribeBackupClientsRequest() = default;
+};
+class DescribeBackupClientsShrinkRequestFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<string>> values{};
+
+  DescribeBackupClientsShrinkRequestFilters() {}
+
+  explicit DescribeBackupClientsShrinkRequestFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeBackupClientsShrinkRequestFilters() = default;
 };
 class DescribeBackupClientsShrinkRequestTag : public Darabonba::Model {
 public:
@@ -7611,6 +7718,7 @@ public:
   shared_ptr<string> crossAccountRoleName{};
   shared_ptr<string> crossAccountType{};
   shared_ptr<long> crossAccountUserId{};
+  shared_ptr<vector<DescribeBackupClientsShrinkRequestFilters>> filters{};
   shared_ptr<string> instanceIdsShrink{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -7643,6 +7751,13 @@ public:
     }
     if (crossAccountUserId) {
       res["CrossAccountUserId"] = boost::any(*crossAccountUserId);
+    }
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
     }
     if (instanceIdsShrink) {
       res["InstanceIds"] = boost::any(*instanceIdsShrink);
@@ -7681,6 +7796,19 @@ public:
     }
     if (m.find("CrossAccountUserId") != m.end() && !m["CrossAccountUserId"].empty()) {
       crossAccountUserId = make_shared<long>(boost::any_cast<long>(m["CrossAccountUserId"]));
+    }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<DescribeBackupClientsShrinkRequestFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeBackupClientsShrinkRequestFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<DescribeBackupClientsShrinkRequestFilters>>(expect1);
+      }
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       instanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));

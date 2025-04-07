@@ -1658,6 +1658,9 @@ DescribeBackupClientsResponse Alibabacloud_Hbr20170908::Client::describeBackupCl
   if (!Darabonba_Util::Client::isUnset<long>(request->crossAccountUserId)) {
     query->insert(pair<string, long>("CrossAccountUserId", *request->crossAccountUserId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeBackupClientsShrinkRequestFilters>>(request->filters)) {
+    query->insert(pair<string, vector<DescribeBackupClientsShrinkRequestFilters>>("Filters", *request->filters));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
