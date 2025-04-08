@@ -766,6 +766,49 @@ public:
 
   virtual ~CreateDBClusterResponse() = default;
 };
+class CreateDBInstanceRequestMultiZone : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> vSwitchIds{};
+  shared_ptr<string> zoneId{};
+
+  CreateDBInstanceRequestMultiZone() {}
+
+  explicit CreateDBInstanceRequestMultiZone(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~CreateDBInstanceRequestMultiZone() = default;
+};
 class CreateDBInstanceRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -810,8 +853,10 @@ public:
   shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceDescription{};
+  shared_ptr<string> deployScheme{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<vector<CreateDBInstanceRequestMultiZone>> multiZone{};
   shared_ptr<string> period{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -851,11 +896,21 @@ public:
     if (DBInstanceDescription) {
       res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
     }
+    if (deployScheme) {
+      res["DeployScheme"] = boost::any(*deployScheme);
+    }
     if (engine) {
       res["Engine"] = boost::any(*engine);
     }
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
+    }
+    if (multiZone) {
+      vector<boost::any> temp1;
+      for(auto item1:*multiZone){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MultiZone"] = boost::any(temp1);
     }
     if (period) {
       res["Period"] = boost::any(*period);
@@ -913,11 +968,27 @@ public:
     if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
       DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
     }
+    if (m.find("DeployScheme") != m.end() && !m["DeployScheme"].empty()) {
+      deployScheme = make_shared<string>(boost::any_cast<string>(m["DeployScheme"]));
+    }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
+    }
+    if (m.find("MultiZone") != m.end() && !m["MultiZone"].empty()) {
+      if (typeid(vector<boost::any>) == m["MultiZone"].type()) {
+        vector<CreateDBInstanceRequestMultiZone> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MultiZone"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDBInstanceRequestMultiZone model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        multiZone = make_shared<vector<CreateDBInstanceRequestMultiZone>>(expect1);
+      }
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<string>(boost::any_cast<string>(m["Period"]));
@@ -972,8 +1043,10 @@ public:
   shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceDescription{};
+  shared_ptr<string> deployScheme{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<string> multiZoneShrink{};
   shared_ptr<string> period{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -1013,11 +1086,17 @@ public:
     if (DBInstanceDescription) {
       res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
     }
+    if (deployScheme) {
+      res["DeployScheme"] = boost::any(*deployScheme);
+    }
     if (engine) {
       res["Engine"] = boost::any(*engine);
     }
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
+    }
+    if (multiZoneShrink) {
+      res["MultiZone"] = boost::any(*multiZoneShrink);
     }
     if (period) {
       res["Period"] = boost::any(*period);
@@ -1071,11 +1150,17 @@ public:
     if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
       DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
     }
+    if (m.find("DeployScheme") != m.end() && !m["DeployScheme"].empty()) {
+      deployScheme = make_shared<string>(boost::any_cast<string>(m["DeployScheme"]));
+    }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
+    }
+    if (m.find("MultiZone") != m.end() && !m["MultiZone"].empty()) {
+      multiZoneShrink = make_shared<string>(boost::any_cast<string>(m["MultiZone"]));
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<string>(boost::any_cast<string>(m["Period"]));
@@ -2933,6 +3018,7 @@ public:
   shared_ptr<string> cacheStorageSizeGB{};
   shared_ptr<string> cacheStorageType{};
   shared_ptr<string> chargeType{};
+  shared_ptr<string> clusterBinding{};
   shared_ptr<long> cpuCores{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> dbClusterClass{};
@@ -2945,6 +3031,9 @@ public:
   shared_ptr<bool> scalingRulesEnable{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
+  shared_ptr<string> subDomain{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> zoneId{};
 
   DescribeDBInstanceAttributeResponseBodyDBClusterList() {}
 
@@ -2964,6 +3053,9 @@ public:
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (clusterBinding) {
+      res["ClusterBinding"] = boost::any(*clusterBinding);
     }
     if (cpuCores) {
       res["CpuCores"] = boost::any(*cpuCores);
@@ -3001,6 +3093,15 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (subDomain) {
+      res["SubDomain"] = boost::any(*subDomain);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
     return res;
   }
 
@@ -3013,6 +3114,9 @@ public:
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("ClusterBinding") != m.end() && !m["ClusterBinding"].empty()) {
+      clusterBinding = make_shared<string>(boost::any_cast<string>(m["ClusterBinding"]));
     }
     if (m.find("CpuCores") != m.end() && !m["CpuCores"].empty()) {
       cpuCores = make_shared<long>(boost::any_cast<long>(m["CpuCores"]));
@@ -3050,10 +3154,76 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("SubDomain") != m.end() && !m["SubDomain"].empty()) {
+      subDomain = make_shared<string>(boost::any_cast<string>(m["SubDomain"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
   }
 
 
   virtual ~DescribeDBInstanceAttributeResponseBodyDBClusterList() = default;
+};
+class DescribeDBInstanceAttributeResponseBodyMultiZone : public Darabonba::Model {
+public:
+  shared_ptr<long> availableIpCount{};
+  shared_ptr<string> cidr{};
+  shared_ptr<vector<string>> vSwitchIds{};
+  shared_ptr<string> zoneId{};
+
+  DescribeDBInstanceAttributeResponseBodyMultiZone() {}
+
+  explicit DescribeDBInstanceAttributeResponseBodyMultiZone(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (availableIpCount) {
+      res["AvailableIpCount"] = boost::any(*availableIpCount);
+    }
+    if (cidr) {
+      res["Cidr"] = boost::any(*cidr);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvailableIpCount") != m.end() && !m["AvailableIpCount"].empty()) {
+      availableIpCount = make_shared<long>(boost::any_cast<long>(m["AvailableIpCount"]));
+    }
+    if (m.find("Cidr") != m.end() && !m["Cidr"].empty()) {
+      cidr = make_shared<string>(boost::any_cast<string>(m["Cidr"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeDBInstanceAttributeResponseBodyMultiZone() = default;
 };
 class DescribeDBInstanceAttributeResponseBodyTags : public Darabonba::Model {
 public:
@@ -3098,6 +3268,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<vector<DescribeDBInstanceAttributeResponseBodyDBClusterList>> DBClusterList{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> deployScheme{};
   shared_ptr<string> description{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineMinorVersion{};
@@ -3108,6 +3279,7 @@ public:
   shared_ptr<string> lockReason{};
   shared_ptr<string> maintainEndtime{};
   shared_ptr<string> maintainStarttime{};
+  shared_ptr<vector<DescribeDBInstanceAttributeResponseBodyMultiZone>> multiZone{};
   shared_ptr<long> objectStoreSize{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
@@ -3117,6 +3289,7 @@ public:
   shared_ptr<long> storageSize{};
   shared_ptr<string> subDomain{};
   shared_ptr<vector<DescribeDBInstanceAttributeResponseBodyTags>> tags{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
 
@@ -3149,6 +3322,9 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (deployScheme) {
+      res["DeployScheme"] = boost::any(*deployScheme);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -3178,6 +3354,13 @@ public:
     }
     if (maintainStarttime) {
       res["MaintainStarttime"] = boost::any(*maintainStarttime);
+    }
+    if (multiZone) {
+      vector<boost::any> temp1;
+      for(auto item1:*multiZone){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MultiZone"] = boost::any(temp1);
     }
     if (objectStoreSize) {
       res["ObjectStoreSize"] = boost::any(*objectStoreSize);
@@ -3209,6 +3392,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -3252,6 +3438,9 @@ public:
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
+    if (m.find("DeployScheme") != m.end() && !m["DeployScheme"].empty()) {
+      deployScheme = make_shared<string>(boost::any_cast<string>(m["DeployScheme"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -3281,6 +3470,19 @@ public:
     }
     if (m.find("MaintainStarttime") != m.end() && !m["MaintainStarttime"].empty()) {
       maintainStarttime = make_shared<string>(boost::any_cast<string>(m["MaintainStarttime"]));
+    }
+    if (m.find("MultiZone") != m.end() && !m["MultiZone"].empty()) {
+      if (typeid(vector<boost::any>) == m["MultiZone"].type()) {
+        vector<DescribeDBInstanceAttributeResponseBodyMultiZone> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MultiZone"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBInstanceAttributeResponseBodyMultiZone model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        multiZone = make_shared<vector<DescribeDBInstanceAttributeResponseBodyMultiZone>>(expect1);
+      }
     }
     if (m.find("ObjectStoreSize") != m.end() && !m["ObjectStoreSize"].empty()) {
       objectStoreSize = make_shared<long>(boost::any_cast<long>(m["ObjectStoreSize"]));
@@ -3318,6 +3520,9 @@ public:
         }
         tags = make_shared<vector<DescribeDBInstanceAttributeResponseBodyTags>>(expect1);
       }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -4038,6 +4243,49 @@ public:
 
   virtual ~DescribeDBInstancesShrinkRequest() = default;
 };
+class DescribeDBInstancesResponseBodyItemsMultiZone : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> vSwitchIds{};
+  shared_ptr<string> zoneId{};
+
+  DescribeDBInstancesResponseBodyItemsMultiZone() {}
+
+  explicit DescribeDBInstancesResponseBodyItemsMultiZone(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeDBInstancesResponseBodyItemsMultiZone() = default;
+};
 class DescribeDBInstancesResponseBodyItemsTags : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -4080,8 +4328,10 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<long> clusterCount{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> deployScheme{};
   shared_ptr<string> description{};
   shared_ptr<string> engine{};
+  shared_ptr<string> engineMinorVersion{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> expireTime{};
   shared_ptr<string> gmtCreated{};
@@ -4094,6 +4344,7 @@ public:
   shared_ptr<string> maintainEndtime{};
   shared_ptr<string> maintainStartTimeStr{};
   shared_ptr<string> maintainStarttime{};
+  shared_ptr<vector<DescribeDBInstancesResponseBodyItemsMultiZone>> multiZone{};
   shared_ptr<long> objectStoreSize{};
   shared_ptr<string> parentInstance{};
   shared_ptr<string> regionId{};
@@ -4137,11 +4388,17 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (deployScheme) {
+      res["DeployScheme"] = boost::any(*deployScheme);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
+    }
+    if (engineMinorVersion) {
+      res["EngineMinorVersion"] = boost::any(*engineMinorVersion);
     }
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
@@ -4178,6 +4435,13 @@ public:
     }
     if (maintainStarttime) {
       res["MaintainStarttime"] = boost::any(*maintainStarttime);
+    }
+    if (multiZone) {
+      vector<boost::any> temp1;
+      for(auto item1:*multiZone){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MultiZone"] = boost::any(temp1);
     }
     if (objectStoreSize) {
       res["ObjectStoreSize"] = boost::any(*objectStoreSize);
@@ -4259,11 +4523,17 @@ public:
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
+    if (m.find("DeployScheme") != m.end() && !m["DeployScheme"].empty()) {
+      deployScheme = make_shared<string>(boost::any_cast<string>(m["DeployScheme"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineMinorVersion") != m.end() && !m["EngineMinorVersion"].empty()) {
+      engineMinorVersion = make_shared<string>(boost::any_cast<string>(m["EngineMinorVersion"]));
     }
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
@@ -4300,6 +4570,19 @@ public:
     }
     if (m.find("MaintainStarttime") != m.end() && !m["MaintainStarttime"].empty()) {
       maintainStarttime = make_shared<string>(boost::any_cast<string>(m["MaintainStarttime"]));
+    }
+    if (m.find("MultiZone") != m.end() && !m["MultiZone"].empty()) {
+      if (typeid(vector<boost::any>) == m["MultiZone"].type()) {
+        vector<DescribeDBInstancesResponseBodyItemsMultiZone> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MultiZone"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBInstancesResponseBodyItemsMultiZone model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        multiZone = make_shared<vector<DescribeDBInstancesResponseBodyItemsMultiZone>>(expect1);
+      }
     }
     if (m.find("ObjectStoreSize") != m.end() && !m["ObjectStoreSize"].empty()) {
       objectStoreSize = make_shared<long>(boost::any_cast<long>(m["ObjectStoreSize"]));

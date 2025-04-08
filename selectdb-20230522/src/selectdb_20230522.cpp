@@ -277,6 +277,9 @@ CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstance
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDBInstanceShrinkRequest> request = make_shared<CreateDBInstanceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDBInstanceRequestMultiZone>>(tmpReq->multiZone)) {
+    request->multiZoneShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->multiZone, make_shared<string>("MultiZone"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateDBInstanceRequestTag>>(tmpReq->tag)) {
     request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
   }
@@ -299,11 +302,17 @@ CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceDescription)) {
     query->insert(pair<string, string>("DBInstanceDescription", *request->DBInstanceDescription));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deployScheme)) {
+    query->insert(pair<string, string>("DeployScheme", *request->deployScheme));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
     query->insert(pair<string, string>("Engine", *request->engine));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
     query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->multiZoneShrink)) {
+    query->insert(pair<string, string>("MultiZone", *request->multiZoneShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->period)) {
     query->insert(pair<string, string>("Period", *request->period));
