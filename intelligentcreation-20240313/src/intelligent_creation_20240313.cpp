@@ -128,6 +128,9 @@ BatchCreateAICoachTaskResponse Alibabacloud_IntelligentCreation20240313::Client:
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->studentIds)) {
     body->insert(pair<string, vector<string>>("studentIds", *request->studentIds));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<BatchCreateAICoachTaskRequestStudentList>>(request->studentList)) {
+    body->insert(pair<string, vector<BatchCreateAICoachTaskRequestStudentList>>("studentList", *request->studentList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -448,6 +451,9 @@ CreateAICoachTaskResponse Alibabacloud_IntelligentCreation20240313::Client::crea
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scriptRecordId)) {
     body->insert(pair<string, string>("scriptRecordId", *request->scriptRecordId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->studentAudioUrl)) {
+    body->insert(pair<string, string>("studentAudioUrl", *request->studentAudioUrl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->studentId)) {
     body->insert(pair<string, string>("studentId", *request->studentId));

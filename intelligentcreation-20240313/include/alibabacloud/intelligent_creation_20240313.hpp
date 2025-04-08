@@ -1952,11 +1952,48 @@ public:
 
   virtual ~BatchAddDocumentResponse() = default;
 };
+class BatchCreateAICoachTaskRequestStudentList : public Darabonba::Model {
+public:
+  shared_ptr<string> studentAudioUrl{};
+  shared_ptr<string> studentId{};
+
+  BatchCreateAICoachTaskRequestStudentList() {}
+
+  explicit BatchCreateAICoachTaskRequestStudentList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (studentAudioUrl) {
+      res["studentAudioUrl"] = boost::any(*studentAudioUrl);
+    }
+    if (studentId) {
+      res["studentId"] = boost::any(*studentId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("studentAudioUrl") != m.end() && !m["studentAudioUrl"].empty()) {
+      studentAudioUrl = make_shared<string>(boost::any_cast<string>(m["studentAudioUrl"]));
+    }
+    if (m.find("studentId") != m.end() && !m["studentId"].empty()) {
+      studentId = make_shared<string>(boost::any_cast<string>(m["studentId"]));
+    }
+  }
+
+
+  virtual ~BatchCreateAICoachTaskRequestStudentList() = default;
+};
 class BatchCreateAICoachTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<string> scriptRecordId{};
   shared_ptr<vector<string>> studentIds{};
+  shared_ptr<vector<BatchCreateAICoachTaskRequestStudentList>> studentList{};
 
   BatchCreateAICoachTaskRequest() {}
 
@@ -1977,6 +2014,13 @@ public:
     if (studentIds) {
       res["studentIds"] = boost::any(*studentIds);
     }
+    if (studentList) {
+      vector<boost::any> temp1;
+      for(auto item1:*studentList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["studentList"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1996,6 +2040,19 @@ public:
         }
       }
       studentIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("studentList") != m.end() && !m["studentList"].empty()) {
+      if (typeid(vector<boost::any>) == m["studentList"].type()) {
+        vector<BatchCreateAICoachTaskRequestStudentList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["studentList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchCreateAICoachTaskRequestStudentList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        studentList = make_shared<vector<BatchCreateAICoachTaskRequestStudentList>>(expect1);
+      }
     }
   }
 
@@ -3684,6 +3741,7 @@ class CreateAICoachTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<string> scriptRecordId{};
+  shared_ptr<string> studentAudioUrl{};
   shared_ptr<string> studentId{};
 
   CreateAICoachTaskRequest() {}
@@ -3702,6 +3760,9 @@ public:
     if (scriptRecordId) {
       res["scriptRecordId"] = boost::any(*scriptRecordId);
     }
+    if (studentAudioUrl) {
+      res["studentAudioUrl"] = boost::any(*studentAudioUrl);
+    }
     if (studentId) {
       res["studentId"] = boost::any(*studentId);
     }
@@ -3714,6 +3775,9 @@ public:
     }
     if (m.find("scriptRecordId") != m.end() && !m["scriptRecordId"].empty()) {
       scriptRecordId = make_shared<string>(boost::any_cast<string>(m["scriptRecordId"]));
+    }
+    if (m.find("studentAudioUrl") != m.end() && !m["studentAudioUrl"].empty()) {
+      studentAudioUrl = make_shared<string>(boost::any_cast<string>(m["studentAudioUrl"]));
     }
     if (m.find("studentId") != m.end() && !m["studentId"].empty()) {
       studentId = make_shared<string>(boost::any_cast<string>(m["studentId"]));
@@ -5741,6 +5805,42 @@ public:
 
   virtual ~GetAICoachScriptRequest() = default;
 };
+class GetAICoachScriptResponseBodyCheckCheatConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> checkImage{};
+  shared_ptr<bool> checkVoice{};
+
+  GetAICoachScriptResponseBodyCheckCheatConfig() {}
+
+  explicit GetAICoachScriptResponseBodyCheckCheatConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkImage) {
+      res["checkImage"] = boost::any(*checkImage);
+    }
+    if (checkVoice) {
+      res["checkVoice"] = boost::any(*checkVoice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("checkImage") != m.end() && !m["checkImage"].empty()) {
+      checkImage = make_shared<bool>(boost::any_cast<bool>(m["checkImage"]));
+    }
+    if (m.find("checkVoice") != m.end() && !m["checkVoice"].empty()) {
+      checkVoice = make_shared<bool>(boost::any_cast<bool>(m["checkVoice"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyCheckCheatConfig() = default;
+};
 class GetAICoachScriptResponseBodyCompleteStrategy : public Darabonba::Model {
 public:
   shared_ptr<long> abnormalQuitSessionExpired{};
@@ -6376,7 +6476,9 @@ public:
 };
 class GetAICoachScriptResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<bool> appendQuestionFlag{};
   shared_ptr<string> assessmentScope{};
+  shared_ptr<GetAICoachScriptResponseBodyCheckCheatConfig> checkCheatConfig{};
   shared_ptr<GetAICoachScriptResponseBodyCompleteStrategy> completeStrategy{};
   shared_ptr<string> coverUrl{};
   shared_ptr<long> dialogueInputTextLimit{};
@@ -6416,8 +6518,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appendQuestionFlag) {
+      res["appendQuestionFlag"] = boost::any(*appendQuestionFlag);
+    }
     if (assessmentScope) {
       res["assessmentScope"] = boost::any(*assessmentScope);
+    }
+    if (checkCheatConfig) {
+      res["checkCheatConfig"] = checkCheatConfig ? boost::any(checkCheatConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (completeStrategy) {
       res["completeStrategy"] = completeStrategy ? boost::any(completeStrategy->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6519,8 +6627,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("appendQuestionFlag") != m.end() && !m["appendQuestionFlag"].empty()) {
+      appendQuestionFlag = make_shared<bool>(boost::any_cast<bool>(m["appendQuestionFlag"]));
+    }
     if (m.find("assessmentScope") != m.end() && !m["assessmentScope"].empty()) {
       assessmentScope = make_shared<string>(boost::any_cast<string>(m["assessmentScope"]));
+    }
+    if (m.find("checkCheatConfig") != m.end() && !m["checkCheatConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["checkCheatConfig"].type()) {
+        GetAICoachScriptResponseBodyCheckCheatConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["checkCheatConfig"]));
+        checkCheatConfig = make_shared<GetAICoachScriptResponseBodyCheckCheatConfig>(model1);
+      }
     }
     if (m.find("completeStrategy") != m.end() && !m["completeStrategy"].empty()) {
       if (typeid(map<string, boost::any>) == m["completeStrategy"].type()) {
