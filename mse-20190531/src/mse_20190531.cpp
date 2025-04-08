@@ -252,6 +252,9 @@ AddGatewayResponse Alibabacloud_Mse20190531::Client::addGatewayWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->internetSlbSpec)) {
     query->insert(pair<string, string>("InternetSlbSpec", *request->internetSlbSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managedEntryNetworkType)) {
+    query->insert(pair<string, string>("ManagedEntryNetworkType", *request->managedEntryNetworkType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->mserVersion)) {
     query->insert(pair<string, string>("MserVersion", *request->mserVersion));
   }

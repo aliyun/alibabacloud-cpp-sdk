@@ -2052,6 +2052,7 @@ public:
   shared_ptr<bool> enableXtrace{};
   shared_ptr<bool> enterpriseSecurityGroup{};
   shared_ptr<string> internetSlbSpec{};
+  shared_ptr<string> managedEntryNetworkType{};
   shared_ptr<string> mserVersion{};
   shared_ptr<string> name{};
   shared_ptr<string> nlbNetworkType{};
@@ -2101,6 +2102,9 @@ public:
     }
     if (internetSlbSpec) {
       res["InternetSlbSpec"] = boost::any(*internetSlbSpec);
+    }
+    if (managedEntryNetworkType) {
+      res["ManagedEntryNetworkType"] = boost::any(*managedEntryNetworkType);
     }
     if (mserVersion) {
       res["MserVersion"] = boost::any(*mserVersion);
@@ -2182,6 +2186,9 @@ public:
     }
     if (m.find("InternetSlbSpec") != m.end() && !m["InternetSlbSpec"].empty()) {
       internetSlbSpec = make_shared<string>(boost::any_cast<string>(m["InternetSlbSpec"]));
+    }
+    if (m.find("ManagedEntryNetworkType") != m.end() && !m["ManagedEntryNetworkType"].empty()) {
+      managedEntryNetworkType = make_shared<string>(boost::any_cast<string>(m["ManagedEntryNetworkType"]));
     }
     if (m.find("MserVersion") != m.end() && !m["MserVersion"].empty()) {
       mserVersion = make_shared<string>(boost::any_cast<string>(m["MserVersion"]));
@@ -2299,6 +2306,7 @@ public:
   shared_ptr<bool> enableXtrace{};
   shared_ptr<bool> enterpriseSecurityGroup{};
   shared_ptr<string> internetSlbSpec{};
+  shared_ptr<string> managedEntryNetworkType{};
   shared_ptr<string> mserVersion{};
   shared_ptr<string> name{};
   shared_ptr<string> nlbNetworkType{};
@@ -2348,6 +2356,9 @@ public:
     }
     if (internetSlbSpec) {
       res["InternetSlbSpec"] = boost::any(*internetSlbSpec);
+    }
+    if (managedEntryNetworkType) {
+      res["ManagedEntryNetworkType"] = boost::any(*managedEntryNetworkType);
     }
     if (mserVersion) {
       res["MserVersion"] = boost::any(*mserVersion);
@@ -2425,6 +2436,9 @@ public:
     }
     if (m.find("InternetSlbSpec") != m.end() && !m["InternetSlbSpec"].empty()) {
       internetSlbSpec = make_shared<string>(boost::any_cast<string>(m["InternetSlbSpec"]));
+    }
+    if (m.find("ManagedEntryNetworkType") != m.end() && !m["ManagedEntryNetworkType"].empty()) {
+      managedEntryNetworkType = make_shared<string>(boost::any_cast<string>(m["ManagedEntryNetworkType"]));
     }
     if (m.find("MserVersion") != m.end() && !m["MserVersion"].empty()) {
       mserVersion = make_shared<string>(boost::any_cast<string>(m["MserVersion"]));
@@ -25245,6 +25259,7 @@ public:
   shared_ptr<string> enableCustomAuthConfigPush{};
   shared_ptr<bool> enableGenerateRequestId{};
   shared_ptr<bool> enableGzip{};
+  shared_ptr<bool> enableGzipHardwareAccelerate{};
   shared_ptr<bool> enableHardwareAccelerate{};
   shared_ptr<bool> enableHttp2{};
   shared_ptr<bool> enableHttp3{};
@@ -25299,6 +25314,9 @@ public:
     }
     if (enableGzip) {
       res["EnableGzip"] = boost::any(*enableGzip);
+    }
+    if (enableGzipHardwareAccelerate) {
+      res["EnableGzipHardwareAccelerate"] = boost::any(*enableGzipHardwareAccelerate);
     }
     if (enableHardwareAccelerate) {
       res["EnableHardwareAccelerate"] = boost::any(*enableHardwareAccelerate);
@@ -25393,6 +25411,9 @@ public:
     }
     if (m.find("EnableGzip") != m.end() && !m["EnableGzip"].empty()) {
       enableGzip = make_shared<bool>(boost::any_cast<bool>(m["EnableGzip"]));
+    }
+    if (m.find("EnableGzipHardwareAccelerate") != m.end() && !m["EnableGzipHardwareAccelerate"].empty()) {
+      enableGzipHardwareAccelerate = make_shared<bool>(boost::any_cast<bool>(m["EnableGzipHardwareAccelerate"]));
     }
     if (m.find("EnableHardwareAccelerate") != m.end() && !m["EnableHardwareAccelerate"].empty()) {
       enableHardwareAccelerate = make_shared<bool>(boost::any_cast<bool>(m["EnableHardwareAccelerate"]));
@@ -25684,6 +25705,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<string> http2{};
   shared_ptr<long> id{};
+  shared_ptr<bool> isManaged{};
   shared_ptr<string> issuer{};
   shared_ptr<bool> mustHttps{};
   shared_ptr<string> name{};
@@ -25743,6 +25765,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
     }
     if (issuer) {
       res["Issuer"] = boost::any(*issuer);
@@ -25810,6 +25835,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
     }
     if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
       issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
@@ -44608,6 +44636,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<string> http2{};
   shared_ptr<long> id{};
+  shared_ptr<bool> isManaged{};
   shared_ptr<bool> mustHttps{};
   shared_ptr<string> name{};
   shared_ptr<string> protocol{};
@@ -44649,6 +44678,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
     }
     if (mustHttps) {
       res["MustHttps"] = boost::any(*mustHttps);
@@ -44702,6 +44734,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
     }
     if (m.find("MustHttps") != m.end() && !m["MustHttps"].empty()) {
       mustHttps = make_shared<bool>(boost::any_cast<bool>(m["MustHttps"]));
@@ -48973,6 +49008,7 @@ public:
 class ListGatewayZoneResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> localName{};
+  shared_ptr<bool> supportQat{};
   shared_ptr<string> zoneId{};
 
   ListGatewayZoneResponseBodyData() {}
@@ -48988,6 +49024,9 @@ public:
     if (localName) {
       res["LocalName"] = boost::any(*localName);
     }
+    if (supportQat) {
+      res["SupportQat"] = boost::any(*supportQat);
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -48997,6 +49036,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
+    }
+    if (m.find("SupportQat") != m.end() && !m["SupportQat"].empty()) {
+      supportQat = make_shared<bool>(boost::any_cast<bool>(m["SupportQat"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
