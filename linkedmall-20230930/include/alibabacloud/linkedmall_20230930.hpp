@@ -7304,7 +7304,8 @@ public:
 class SearchProductsResponseBodyProductsCategoryChain : public Darabonba::Model {
 public:
   shared_ptr<long> categoryId{};
-  shared_ptr<bool> level{};
+  shared_ptr<bool> isLeaf{};
+  shared_ptr<long> level{};
   shared_ptr<string> name{};
   shared_ptr<long> parentId{};
 
@@ -7320,6 +7321,9 @@ public:
     map<string, boost::any> res;
     if (categoryId) {
       res["categoryId"] = boost::any(*categoryId);
+    }
+    if (isLeaf) {
+      res["isLeaf"] = boost::any(*isLeaf);
     }
     if (level) {
       res["level"] = boost::any(*level);
@@ -7337,8 +7341,11 @@ public:
     if (m.find("categoryId") != m.end() && !m["categoryId"].empty()) {
       categoryId = make_shared<long>(boost::any_cast<long>(m["categoryId"]));
     }
+    if (m.find("isLeaf") != m.end() && !m["isLeaf"].empty()) {
+      isLeaf = make_shared<bool>(boost::any_cast<bool>(m["isLeaf"]));
+    }
     if (m.find("level") != m.end() && !m["level"].empty()) {
-      level = make_shared<bool>(boost::any_cast<bool>(m["level"]));
+      level = make_shared<long>(boost::any_cast<long>(m["level"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
