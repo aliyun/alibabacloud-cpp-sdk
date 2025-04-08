@@ -3052,6 +3052,9 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeNoWorkspace)) {
+    query->insert(pair<string, bool>("IncludeNoWorkspace", *request->includeNoWorkspace));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->labelShrink)) {
     query->insert(pair<string, string>("Label", *request->labelShrink));
   }

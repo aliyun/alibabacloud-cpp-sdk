@@ -13772,6 +13772,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> gateway{};
   shared_ptr<string> groupName{};
+  shared_ptr<bool> includeNoWorkspace{};
   shared_ptr<map<string, string>> label{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
@@ -13806,6 +13807,9 @@ public:
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
+    }
+    if (includeNoWorkspace) {
+      res["IncludeNoWorkspace"] = boost::any(*includeNoWorkspace);
     }
     if (label) {
       res["Label"] = boost::any(*label);
@@ -13864,6 +13868,9 @@ public:
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("IncludeNoWorkspace") != m.end() && !m["IncludeNoWorkspace"].empty()) {
+      includeNoWorkspace = make_shared<bool>(boost::any_cast<bool>(m["IncludeNoWorkspace"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["Label"]);
@@ -13925,6 +13932,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> gateway{};
   shared_ptr<string> groupName{};
+  shared_ptr<bool> includeNoWorkspace{};
   shared_ptr<string> labelShrink{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
@@ -13959,6 +13967,9 @@ public:
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
+    }
+    if (includeNoWorkspace) {
+      res["IncludeNoWorkspace"] = boost::any(*includeNoWorkspace);
     }
     if (labelShrink) {
       res["Label"] = boost::any(*labelShrink);
@@ -14017,6 +14028,9 @@ public:
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("IncludeNoWorkspace") != m.end() && !m["IncludeNoWorkspace"].empty()) {
+      includeNoWorkspace = make_shared<bool>(boost::any_cast<bool>(m["IncludeNoWorkspace"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       labelShrink = make_shared<string>(boost::any_cast<string>(m["Label"]));
