@@ -1,3 +1,7 @@
+2025-04-08 Version: 1.1.0
+- Support API GlobalSearch.
+
+
 2025-03-29 Version: 1.0.8
 - Update API GenericSearch: add request parameters enableRerank.
 - Update API GenericSearch: add request parameters returnMainText.

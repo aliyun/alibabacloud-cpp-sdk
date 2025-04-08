@@ -695,6 +695,290 @@ public:
 
   virtual ~GenericSearchResult() = default;
 };
+class GlobalPageItem : public Darabonba::Model {
+public:
+  shared_ptr<string> link{};
+  shared_ptr<string> snippet{};
+  shared_ptr<string> title{};
+
+  GlobalPageItem() {}
+
+  explicit GlobalPageItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (link) {
+      res["link"] = boost::any(*link);
+    }
+    if (snippet) {
+      res["snippet"] = boost::any(*snippet);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("link") != m.end() && !m["link"].empty()) {
+      link = make_shared<string>(boost::any_cast<string>(m["link"]));
+    }
+    if (m.find("snippet") != m.end() && !m["snippet"].empty()) {
+      snippet = make_shared<string>(boost::any_cast<string>(m["snippet"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~GlobalPageItem() = default;
+};
+class GlobalQueryContextOriginalQuery : public Darabonba::Model {
+public:
+  shared_ptr<string> page{};
+  shared_ptr<string> query{};
+  shared_ptr<string> timeRange{};
+
+  GlobalQueryContextOriginalQuery() {}
+
+  explicit GlobalQueryContextOriginalQuery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (page) {
+      res["page"] = boost::any(*page);
+    }
+    if (query) {
+      res["query"] = boost::any(*query);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      page = make_shared<string>(boost::any_cast<string>(m["page"]));
+    }
+    if (m.find("query") != m.end() && !m["query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~GlobalQueryContextOriginalQuery() = default;
+};
+class GlobalQueryContext : public Darabonba::Model {
+public:
+  shared_ptr<GlobalQueryContextOriginalQuery> originalQuery{};
+
+  GlobalQueryContext() {}
+
+  explicit GlobalQueryContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (originalQuery) {
+      res["originalQuery"] = originalQuery ? boost::any(originalQuery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("originalQuery") != m.end() && !m["originalQuery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["originalQuery"].type()) {
+        GlobalQueryContextOriginalQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["originalQuery"]));
+        originalQuery = make_shared<GlobalQueryContextOriginalQuery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GlobalQueryContext() = default;
+};
+class GlobalSceneItem : public Darabonba::Model {
+public:
+  shared_ptr<string> detail{};
+  shared_ptr<string> type{};
+
+  GlobalSceneItem() {}
+
+  explicit GlobalSceneItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detail) {
+      res["detail"] = boost::any(*detail);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("detail") != m.end() && !m["detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["detail"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GlobalSceneItem() = default;
+};
+class GlobalSearchInformation : public Darabonba::Model {
+public:
+  shared_ptr<long> searchTime{};
+  shared_ptr<long> total{};
+
+  GlobalSearchInformation() {}
+
+  explicit GlobalSearchInformation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (searchTime) {
+      res["searchTime"] = boost::any(*searchTime);
+    }
+    if (total) {
+      res["total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("searchTime") != m.end() && !m["searchTime"].empty()) {
+      searchTime = make_shared<long>(boost::any_cast<long>(m["searchTime"]));
+    }
+    if (m.find("total") != m.end() && !m["total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["total"]));
+    }
+  }
+
+
+  virtual ~GlobalSearchInformation() = default;
+};
+class GlobalSearchResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<GlobalPageItem>> pageItems{};
+  shared_ptr<GlobalQueryContext> queryContext{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GlobalSceneItem>> sceneItems{};
+  shared_ptr<GlobalSearchInformation> searchInformation{};
+
+  GlobalSearchResult() {}
+
+  explicit GlobalSearchResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*pageItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["pageItems"] = boost::any(temp1);
+    }
+    if (queryContext) {
+      res["queryContext"] = queryContext ? boost::any(queryContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sceneItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*sceneItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sceneItems"] = boost::any(temp1);
+    }
+    if (searchInformation) {
+      res["searchInformation"] = searchInformation ? boost::any(searchInformation->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("pageItems") != m.end() && !m["pageItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["pageItems"].type()) {
+        vector<GlobalPageItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["pageItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GlobalPageItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pageItems = make_shared<vector<GlobalPageItem>>(expect1);
+      }
+    }
+    if (m.find("queryContext") != m.end() && !m["queryContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["queryContext"].type()) {
+        GlobalQueryContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["queryContext"]));
+        queryContext = make_shared<GlobalQueryContext>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sceneItems") != m.end() && !m["sceneItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["sceneItems"].type()) {
+        vector<GlobalSceneItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sceneItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GlobalSceneItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sceneItems = make_shared<vector<GlobalSceneItem>>(expect1);
+      }
+    }
+    if (m.find("searchInformation") != m.end() && !m["searchInformation"].empty()) {
+      if (typeid(map<string, boost::any>) == m["searchInformation"].type()) {
+        GlobalSearchInformation model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["searchInformation"]));
+        searchInformation = make_shared<GlobalSearchInformation>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GlobalSearchResult() = default;
+};
 class AiSearchRequest : public Darabonba::Model {
 public:
   shared_ptr<string> industry{};
@@ -1274,6 +1558,108 @@ public:
 
   virtual ~GenericSearchResponse() = default;
 };
+class GlobalSearchRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> page{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> query{};
+  shared_ptr<string> timeRange{};
+
+  GlobalSearchRequest() {}
+
+  explicit GlobalSearchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (page) {
+      res["page"] = boost::any(*page);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (query) {
+      res["query"] = boost::any(*query);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["page"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("query") != m.end() && !m["query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~GlobalSearchRequest() = default;
+};
+class GlobalSearchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GlobalSearchResult> body{};
+
+  GlobalSearchResponse() {}
+
+  explicit GlobalSearchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GlobalSearchResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GlobalSearchResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GlobalSearchResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -1290,6 +1676,8 @@ public:
   GenericAdvancedSearchResponse genericAdvancedSearch(shared_ptr<GenericAdvancedSearchRequest> request);
   GenericSearchResponse genericSearchWithOptions(shared_ptr<GenericSearchRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenericSearchResponse genericSearch(shared_ptr<GenericSearchRequest> request);
+  GlobalSearchResponse globalSearchWithOptions(shared_ptr<GlobalSearchRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GlobalSearchResponse globalSearch(shared_ptr<GlobalSearchRequest> request);
 
   virtual ~Client() = default;
 };
