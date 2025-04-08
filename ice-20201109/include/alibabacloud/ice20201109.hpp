@@ -20524,7 +20524,9 @@ public:
 };
 class DescribeNotifyConfigResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> audioOssPath{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<bool> enableAudioRecording{};
   shared_ptr<bool> enableNotify{};
   shared_ptr<string> eventTypes{};
   shared_ptr<string> requestId{};
@@ -20540,8 +20542,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (audioOssPath) {
+      res["AudioOssPath"] = boost::any(*audioOssPath);
+    }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (enableAudioRecording) {
+      res["EnableAudioRecording"] = boost::any(*enableAudioRecording);
     }
     if (enableNotify) {
       res["EnableNotify"] = boost::any(*enableNotify);
@@ -20559,8 +20567,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AudioOssPath") != m.end() && !m["AudioOssPath"].empty()) {
+      audioOssPath = make_shared<string>(boost::any_cast<string>(m["AudioOssPath"]));
+    }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("EnableAudioRecording") != m.end() && !m["EnableAudioRecording"].empty()) {
+      enableAudioRecording = make_shared<bool>(boost::any_cast<bool>(m["EnableAudioRecording"]));
     }
     if (m.find("EnableNotify") != m.end() && !m["EnableNotify"].empty()) {
       enableNotify = make_shared<bool>(boost::any_cast<bool>(m["EnableNotify"]));
@@ -44270,8 +44284,66 @@ public:
 
   virtual ~ListAIAgentDialoguesRequest() = default;
 };
+class ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList : public Darabonba::Model {
+public:
+  shared_ptr<string> format{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<long> type{};
+  shared_ptr<string> url{};
+
+  ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList() {}
+
+  explicit ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (format) {
+      res["Format"] = boost::any(*format);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Format") != m.end() && !m["Format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList() = default;
+};
 class ListAIAgentDialoguesResponseBodyDialogues : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList>> attachedFileList{};
   shared_ptr<string> dialogueId{};
   shared_ptr<string> producer{};
   shared_ptr<string> reasoningText{};
@@ -44291,6 +44363,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (attachedFileList) {
+      vector<boost::any> temp1;
+      for(auto item1:*attachedFileList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AttachedFileList"] = boost::any(temp1);
+    }
     if (dialogueId) {
       res["DialogueId"] = boost::any(*dialogueId);
     }
@@ -44319,6 +44398,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachedFileList") != m.end() && !m["AttachedFileList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AttachedFileList"].type()) {
+        vector<ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AttachedFileList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        attachedFileList = make_shared<vector<ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList>>(expect1);
+      }
+    }
     if (m.find("DialogueId") != m.end() && !m["DialogueId"].empty()) {
       dialogueId = make_shared<string>(boost::any_cast<string>(m["DialogueId"]));
     }
@@ -73591,7 +73683,9 @@ public:
 class SetNotifyConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> AIAgentId{};
+  shared_ptr<string> audioOssPath{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<bool> enableAudioRecording{};
   shared_ptr<bool> enableNotify{};
   shared_ptr<string> eventTypes{};
   shared_ptr<string> token{};
@@ -73609,8 +73703,14 @@ public:
     if (AIAgentId) {
       res["AIAgentId"] = boost::any(*AIAgentId);
     }
+    if (audioOssPath) {
+      res["AudioOssPath"] = boost::any(*audioOssPath);
+    }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (enableAudioRecording) {
+      res["EnableAudioRecording"] = boost::any(*enableAudioRecording);
     }
     if (enableNotify) {
       res["EnableNotify"] = boost::any(*enableNotify);
@@ -73628,8 +73728,14 @@ public:
     if (m.find("AIAgentId") != m.end() && !m["AIAgentId"].empty()) {
       AIAgentId = make_shared<string>(boost::any_cast<string>(m["AIAgentId"]));
     }
+    if (m.find("AudioOssPath") != m.end() && !m["AudioOssPath"].empty()) {
+      audioOssPath = make_shared<string>(boost::any_cast<string>(m["AudioOssPath"]));
+    }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("EnableAudioRecording") != m.end() && !m["EnableAudioRecording"].empty()) {
+      enableAudioRecording = make_shared<bool>(boost::any_cast<bool>(m["EnableAudioRecording"]));
     }
     if (m.find("EnableNotify") != m.end() && !m["EnableNotify"].empty()) {
       enableNotify = make_shared<bool>(boost::any_cast<bool>(m["EnableNotify"]));

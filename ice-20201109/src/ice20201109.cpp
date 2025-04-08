@@ -10026,8 +10026,14 @@ SetNotifyConfigResponse Alibabacloud_ICE20201109::Client::setNotifyConfigWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->AIAgentId)) {
     query->insert(pair<string, string>("AIAgentId", *request->AIAgentId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->audioOssPath)) {
+    query->insert(pair<string, string>("AudioOssPath", *request->audioOssPath));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->callbackUrl)) {
     query->insert(pair<string, string>("CallbackUrl", *request->callbackUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableAudioRecording)) {
+    query->insert(pair<string, bool>("EnableAudioRecording", *request->enableAudioRecording));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableNotify)) {
     query->insert(pair<string, bool>("EnableNotify", *request->enableNotify));
