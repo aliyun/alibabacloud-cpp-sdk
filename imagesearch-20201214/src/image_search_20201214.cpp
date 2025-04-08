@@ -753,6 +753,54 @@ SearchImageByPicResponse Alibabacloud_ImageSearch20201214::Client::searchImageBy
   return *searchImageByPicResp;
 }
 
+SearchImageByTextResponse Alibabacloud_ImageSearch20201214::Client::searchImageByTextWithOptions(shared_ptr<SearchImageByTextRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->distinctProductId)) {
+    body->insert(pair<string, bool>("DistinctProductId", *request->distinctProductId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
+    body->insert(pair<string, string>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    body->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->num)) {
+    body->insert(pair<string, long>("Num", *request->num));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->start)) {
+    body->insert(pair<string, long>("Start", *request->start));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchImageByText"))},
+    {"version", boost::any(string("2020-12-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SearchImageByTextResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SearchImageByTextResponse(execute(params, req, runtime));
+  }
+}
+
+SearchImageByTextResponse Alibabacloud_ImageSearch20201214::Client::searchImageByText(shared_ptr<SearchImageByTextRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return searchImageByTextWithOptions(request, runtime);
+}
+
 UpdateImageResponse Alibabacloud_ImageSearch20201214::Client::updateImageWithOptions(shared_ptr<UpdateImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

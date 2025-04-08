@@ -3240,6 +3240,532 @@ public:
 
   virtual ~SearchImageByPicResponse() = default;
 };
+class SearchImageByTextRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> distinctProductId{};
+  shared_ptr<string> filter{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<long> num{};
+  shared_ptr<long> start{};
+  shared_ptr<string> text{};
+
+  SearchImageByTextRequest() {}
+
+  explicit SearchImageByTextRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (distinctProductId) {
+      res["DistinctProductId"] = boost::any(*distinctProductId);
+    }
+    if (filter) {
+      res["Filter"] = boost::any(*filter);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (num) {
+      res["Num"] = boost::any(*num);
+    }
+    if (start) {
+      res["Start"] = boost::any(*start);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DistinctProductId") != m.end() && !m["DistinctProductId"].empty()) {
+      distinctProductId = make_shared<bool>(boost::any_cast<bool>(m["DistinctProductId"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("Num") != m.end() && !m["Num"].empty()) {
+      num = make_shared<long>(boost::any_cast<long>(m["Num"]));
+    }
+    if (m.find("Start") != m.end() && !m["Start"].empty()) {
+      start = make_shared<long>(boost::any_cast<long>(m["Start"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~SearchImageByTextRequest() = default;
+};
+class SearchImageByTextResponseBodyAccessDeniedDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> authAction{};
+  shared_ptr<string> authPrincipalDisplayName{};
+  shared_ptr<string> authPrincipalOwnerId{};
+  shared_ptr<string> authPrincipalType{};
+  shared_ptr<string> encodedDiagnosticMessage{};
+  shared_ptr<string> noPermissionType{};
+  shared_ptr<string> policyType{};
+
+  SearchImageByTextResponseBodyAccessDeniedDetail() {}
+
+  explicit SearchImageByTextResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authAction) {
+      res["AuthAction"] = boost::any(*authAction);
+    }
+    if (authPrincipalDisplayName) {
+      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
+    }
+    if (authPrincipalOwnerId) {
+      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
+    }
+    if (authPrincipalType) {
+      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
+    }
+    if (encodedDiagnosticMessage) {
+      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
+    }
+    if (noPermissionType) {
+      res["NoPermissionType"] = boost::any(*noPermissionType);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
+      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
+    }
+    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
+      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
+    }
+    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
+      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
+    }
+    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
+      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
+    }
+    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
+      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
+    }
+    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
+      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+  }
+
+
+  virtual ~SearchImageByTextResponseBodyAccessDeniedDetail() = default;
+};
+class SearchImageByTextResponseBodyAuctions : public Darabonba::Model {
+public:
+  shared_ptr<long> categoryId{};
+  shared_ptr<string> customContent{};
+  shared_ptr<long> intAttr{};
+  shared_ptr<long> intAttr2{};
+  shared_ptr<long> intAttr3{};
+  shared_ptr<long> intAttr4{};
+  shared_ptr<string> picName{};
+  shared_ptr<string> productId{};
+  shared_ptr<double> score{};
+  shared_ptr<string> strAttr{};
+  shared_ptr<string> strAttr2{};
+  shared_ptr<string> strAttr3{};
+  shared_ptr<string> strAttr4{};
+
+  SearchImageByTextResponseBodyAuctions() {}
+
+  explicit SearchImageByTextResponseBodyAuctions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (customContent) {
+      res["CustomContent"] = boost::any(*customContent);
+    }
+    if (intAttr) {
+      res["IntAttr"] = boost::any(*intAttr);
+    }
+    if (intAttr2) {
+      res["IntAttr2"] = boost::any(*intAttr2);
+    }
+    if (intAttr3) {
+      res["IntAttr3"] = boost::any(*intAttr3);
+    }
+    if (intAttr4) {
+      res["IntAttr4"] = boost::any(*intAttr4);
+    }
+    if (picName) {
+      res["PicName"] = boost::any(*picName);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (strAttr) {
+      res["StrAttr"] = boost::any(*strAttr);
+    }
+    if (strAttr2) {
+      res["StrAttr2"] = boost::any(*strAttr2);
+    }
+    if (strAttr3) {
+      res["StrAttr3"] = boost::any(*strAttr3);
+    }
+    if (strAttr4) {
+      res["StrAttr4"] = boost::any(*strAttr4);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
+    }
+    if (m.find("CustomContent") != m.end() && !m["CustomContent"].empty()) {
+      customContent = make_shared<string>(boost::any_cast<string>(m["CustomContent"]));
+    }
+    if (m.find("IntAttr") != m.end() && !m["IntAttr"].empty()) {
+      intAttr = make_shared<long>(boost::any_cast<long>(m["IntAttr"]));
+    }
+    if (m.find("IntAttr2") != m.end() && !m["IntAttr2"].empty()) {
+      intAttr2 = make_shared<long>(boost::any_cast<long>(m["IntAttr2"]));
+    }
+    if (m.find("IntAttr3") != m.end() && !m["IntAttr3"].empty()) {
+      intAttr3 = make_shared<long>(boost::any_cast<long>(m["IntAttr3"]));
+    }
+    if (m.find("IntAttr4") != m.end() && !m["IntAttr4"].empty()) {
+      intAttr4 = make_shared<long>(boost::any_cast<long>(m["IntAttr4"]));
+    }
+    if (m.find("PicName") != m.end() && !m["PicName"].empty()) {
+      picName = make_shared<string>(boost::any_cast<string>(m["PicName"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["ProductId"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("StrAttr") != m.end() && !m["StrAttr"].empty()) {
+      strAttr = make_shared<string>(boost::any_cast<string>(m["StrAttr"]));
+    }
+    if (m.find("StrAttr2") != m.end() && !m["StrAttr2"].empty()) {
+      strAttr2 = make_shared<string>(boost::any_cast<string>(m["StrAttr2"]));
+    }
+    if (m.find("StrAttr3") != m.end() && !m["StrAttr3"].empty()) {
+      strAttr3 = make_shared<string>(boost::any_cast<string>(m["StrAttr3"]));
+    }
+    if (m.find("StrAttr4") != m.end() && !m["StrAttr4"].empty()) {
+      strAttr4 = make_shared<string>(boost::any_cast<string>(m["StrAttr4"]));
+    }
+  }
+
+
+  virtual ~SearchImageByTextResponseBodyAuctions() = default;
+};
+class SearchImageByTextResponseBodyHead : public Darabonba::Model {
+public:
+  shared_ptr<long> docsFound{};
+  shared_ptr<long> docsReturn{};
+  shared_ptr<long> searchTime{};
+
+  SearchImageByTextResponseBodyHead() {}
+
+  explicit SearchImageByTextResponseBodyHead(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (docsFound) {
+      res["DocsFound"] = boost::any(*docsFound);
+    }
+    if (docsReturn) {
+      res["DocsReturn"] = boost::any(*docsReturn);
+    }
+    if (searchTime) {
+      res["SearchTime"] = boost::any(*searchTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocsFound") != m.end() && !m["DocsFound"].empty()) {
+      docsFound = make_shared<long>(boost::any_cast<long>(m["DocsFound"]));
+    }
+    if (m.find("DocsReturn") != m.end() && !m["DocsReturn"].empty()) {
+      docsReturn = make_shared<long>(boost::any_cast<long>(m["DocsReturn"]));
+    }
+    if (m.find("SearchTime") != m.end() && !m["SearchTime"].empty()) {
+      searchTime = make_shared<long>(boost::any_cast<long>(m["SearchTime"]));
+    }
+  }
+
+
+  virtual ~SearchImageByTextResponseBodyHead() = default;
+};
+class SearchImageByTextResponseBodyPicInfoAllCategories : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+
+  SearchImageByTextResponseBodyPicInfoAllCategories() {}
+
+  explicit SearchImageByTextResponseBodyPicInfoAllCategories(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~SearchImageByTextResponseBodyPicInfoAllCategories() = default;
+};
+class SearchImageByTextResponseBodyPicInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<SearchImageByTextResponseBodyPicInfoAllCategories>> allCategories{};
+
+  SearchImageByTextResponseBodyPicInfo() {}
+
+  explicit SearchImageByTextResponseBodyPicInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allCategories) {
+      vector<boost::any> temp1;
+      for(auto item1:*allCategories){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AllCategories"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllCategories") != m.end() && !m["AllCategories"].empty()) {
+      if (typeid(vector<boost::any>) == m["AllCategories"].type()) {
+        vector<SearchImageByTextResponseBodyPicInfoAllCategories> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AllCategories"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchImageByTextResponseBodyPicInfoAllCategories model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        allCategories = make_shared<vector<SearchImageByTextResponseBodyPicInfoAllCategories>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SearchImageByTextResponseBodyPicInfo() = default;
+};
+class SearchImageByTextResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SearchImageByTextResponseBodyAccessDeniedDetail> accessDeniedDetail{};
+  shared_ptr<vector<SearchImageByTextResponseBodyAuctions>> auctions{};
+  shared_ptr<long> code{};
+  shared_ptr<SearchImageByTextResponseBodyHead> head{};
+  shared_ptr<string> msg{};
+  shared_ptr<SearchImageByTextResponseBodyPicInfo> picInfo{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SearchImageByTextResponseBody() {}
+
+  explicit SearchImageByTextResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (auctions) {
+      vector<boost::any> temp1;
+      for(auto item1:*auctions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Auctions"] = boost::any(temp1);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (head) {
+      res["Head"] = head ? boost::any(head->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (picInfo) {
+      res["PicInfo"] = picInfo ? boost::any(picInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
+        SearchImageByTextResponseBodyAccessDeniedDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
+        accessDeniedDetail = make_shared<SearchImageByTextResponseBodyAccessDeniedDetail>(model1);
+      }
+    }
+    if (m.find("Auctions") != m.end() && !m["Auctions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Auctions"].type()) {
+        vector<SearchImageByTextResponseBodyAuctions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Auctions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchImageByTextResponseBodyAuctions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        auctions = make_shared<vector<SearchImageByTextResponseBodyAuctions>>(expect1);
+      }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Head") != m.end() && !m["Head"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Head"].type()) {
+        SearchImageByTextResponseBodyHead model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Head"]));
+        head = make_shared<SearchImageByTextResponseBodyHead>(model1);
+      }
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("PicInfo") != m.end() && !m["PicInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PicInfo"].type()) {
+        SearchImageByTextResponseBodyPicInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PicInfo"]));
+        picInfo = make_shared<SearchImageByTextResponseBodyPicInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SearchImageByTextResponseBody() = default;
+};
+class SearchImageByTextResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SearchImageByTextResponseBody> body{};
+
+  SearchImageByTextResponse() {}
+
+  explicit SearchImageByTextResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SearchImageByTextResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SearchImageByTextResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SearchImageByTextResponse() = default;
+};
 class UpdateImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> customContent{};
@@ -3481,6 +4007,8 @@ public:
   SearchImageByPicResponse searchImageByPicWithOptions(shared_ptr<SearchImageByPicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchImageByPicResponse searchImageByPic(shared_ptr<SearchImageByPicRequest> request);
   SearchImageByPicResponse searchImageByPicAdvance(shared_ptr<SearchImageByPicAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SearchImageByTextResponse searchImageByTextWithOptions(shared_ptr<SearchImageByTextRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SearchImageByTextResponse searchImageByText(shared_ptr<SearchImageByTextRequest> request);
   UpdateImageResponse updateImageWithOptions(shared_ptr<UpdateImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateImageResponse updateImage(shared_ptr<UpdateImageRequest> request);
 
