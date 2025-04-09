@@ -2093,6 +2093,7 @@ public:
   shared_ptr<bool> healthCheckEnabled{};
   shared_ptr<string> healthCheckExp{};
   shared_ptr<vector<string>> healthCheckHttpCode{};
+  shared_ptr<string> healthCheckHttpVersion{};
   shared_ptr<long> healthCheckInterval{};
   shared_ptr<string> healthCheckReq{};
   shared_ptr<string> healthCheckType{};
@@ -2128,6 +2129,9 @@ public:
     }
     if (healthCheckHttpCode) {
       res["HealthCheckHttpCode"] = boost::any(*healthCheckHttpCode);
+    }
+    if (healthCheckHttpVersion) {
+      res["HealthCheckHttpVersion"] = boost::any(*healthCheckHttpVersion);
     }
     if (healthCheckInterval) {
       res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
@@ -2178,6 +2182,9 @@ public:
         }
       }
       healthCheckHttpCode = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HealthCheckHttpVersion") != m.end() && !m["HealthCheckHttpVersion"].empty()) {
+      healthCheckHttpVersion = make_shared<string>(boost::any_cast<string>(m["HealthCheckHttpVersion"]));
     }
     if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
       healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
@@ -8303,6 +8310,7 @@ public:
   shared_ptr<bool> healthCheckEnabled{};
   shared_ptr<string> healthCheckExp{};
   shared_ptr<vector<string>> healthCheckHttpCode{};
+  shared_ptr<string> healthCheckHttpVersion{};
   shared_ptr<long> healthCheckInterval{};
   shared_ptr<string> healthCheckReq{};
   shared_ptr<string> healthCheckType{};
@@ -8338,6 +8346,9 @@ public:
     }
     if (healthCheckHttpCode) {
       res["HealthCheckHttpCode"] = boost::any(*healthCheckHttpCode);
+    }
+    if (healthCheckHttpVersion) {
+      res["HealthCheckHttpVersion"] = boost::any(*healthCheckHttpVersion);
     }
     if (healthCheckInterval) {
       res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
@@ -8388,6 +8399,9 @@ public:
         }
       }
       healthCheckHttpCode = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HealthCheckHttpVersion") != m.end() && !m["HealthCheckHttpVersion"].empty()) {
+      healthCheckHttpVersion = make_shared<string>(boost::any_cast<string>(m["HealthCheckHttpVersion"]));
     }
     if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
       healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
@@ -12336,6 +12350,7 @@ public:
   shared_ptr<bool> healthCheckEnabled{};
   shared_ptr<string> healthCheckExp{};
   shared_ptr<vector<string>> healthCheckHttpCode{};
+  shared_ptr<string> healthCheckHttpVersion{};
   shared_ptr<long> healthCheckInterval{};
   shared_ptr<string> healthCheckReq{};
   shared_ptr<string> healthCheckType{};
@@ -12371,6 +12386,9 @@ public:
     }
     if (healthCheckHttpCode) {
       res["HealthCheckHttpCode"] = boost::any(*healthCheckHttpCode);
+    }
+    if (healthCheckHttpVersion) {
+      res["HealthCheckHttpVersion"] = boost::any(*healthCheckHttpVersion);
     }
     if (healthCheckInterval) {
       res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
@@ -12421,6 +12439,9 @@ public:
         }
       }
       healthCheckHttpCode = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HealthCheckHttpVersion") != m.end() && !m["HealthCheckHttpVersion"].empty()) {
+      healthCheckHttpVersion = make_shared<string>(boost::any_cast<string>(m["HealthCheckHttpVersion"]));
     }
     if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
       healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
