@@ -10659,6 +10659,7 @@ public:
 class CreateImageRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoCleanUserdata{};
+  shared_ptr<vector<string>> dataSnapshotIds{};
   shared_ptr<string> description{};
   shared_ptr<string> desktopId{};
   shared_ptr<string> diskType{};
@@ -10680,6 +10681,9 @@ public:
     map<string, boost::any> res;
     if (autoCleanUserdata) {
       res["AutoCleanUserdata"] = boost::any(*autoCleanUserdata);
+    }
+    if (dataSnapshotIds) {
+      res["DataSnapshotIds"] = boost::any(*dataSnapshotIds);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -10711,6 +10715,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoCleanUserdata") != m.end() && !m["AutoCleanUserdata"].empty()) {
       autoCleanUserdata = make_shared<bool>(boost::any_cast<bool>(m["AutoCleanUserdata"]));
+    }
+    if (m.find("DataSnapshotIds") != m.end() && !m["DataSnapshotIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DataSnapshotIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DataSnapshotIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dataSnapshotIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -20607,6 +20621,7 @@ public:
   shared_ptr<string> gpuSpec{};
   shared_ptr<long> idleDisconnectDuration{};
   shared_ptr<string> imageId{};
+  shared_ptr<bool> isLdap{};
   shared_ptr<long> keepDuration{};
   shared_ptr<long> loadPolicy{};
   shared_ptr<long> maxDesktopsCount{};
@@ -20712,6 +20727,9 @@ public:
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (isLdap) {
+      res["IsLdap"] = boost::any(*isLdap);
     }
     if (keepDuration) {
       res["KeepDuration"] = boost::any(*keepDuration);
@@ -20877,6 +20895,9 @@ public:
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("IsLdap") != m.end() && !m["IsLdap"].empty()) {
+      isLdap = make_shared<bool>(boost::any_cast<bool>(m["IsLdap"]));
     }
     if (m.find("KeepDuration") != m.end() && !m["KeepDuration"].empty()) {
       keepDuration = make_shared<long>(boost::any_cast<long>(m["KeepDuration"]));
@@ -23727,6 +23748,7 @@ public:
   shared_ptr<bool> hibernationOptionsConfigured{};
   shared_ptr<string> hostName{};
   shared_ptr<string> imageId{};
+  shared_ptr<bool> isLdap{};
   shared_ptr<string> managementFlag{};
   shared_ptr<vector<string>> managementFlags{};
   shared_ptr<long> memory{};
@@ -23870,6 +23892,9 @@ public:
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (isLdap) {
+      res["IsLdap"] = boost::any(*isLdap);
     }
     if (managementFlag) {
       res["ManagementFlag"] = boost::any(*managementFlag);
@@ -24106,6 +24131,9 @@ public:
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("IsLdap") != m.end() && !m["IsLdap"].empty()) {
+      isLdap = make_shared<bool>(boost::any_cast<bool>(m["IsLdap"]));
     }
     if (m.find("ManagementFlag") != m.end() && !m["ManagementFlag"].empty()) {
       managementFlag = make_shared<string>(boost::any_cast<string>(m["ManagementFlag"]));
@@ -36697,6 +36725,7 @@ public:
   shared_ptr<string> desktopId{};
   shared_ptr<string> desktopName{};
   shared_ptr<string> displayName{};
+  shared_ptr<string> displayNameNew{};
   shared_ptr<string> endUserEmail{};
   shared_ptr<string> endUserId{};
   shared_ptr<string> endUserName{};
@@ -36705,6 +36734,7 @@ public:
   shared_ptr<string> endUserType{};
   shared_ptr<DescribeUsersInGroupResponseBodyEndUsersExternalInfo> externalInfo{};
   shared_ptr<string> userDesktopId{};
+  shared_ptr<string> userPrincipalName{};
   shared_ptr<vector<DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModels>> userSetPropertiesModels{};
 
   DescribeUsersInGroupResponseBodyEndUsers() {}
@@ -36728,6 +36758,9 @@ public:
     }
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
+    }
+    if (displayNameNew) {
+      res["DisplayNameNew"] = boost::any(*displayNameNew);
     }
     if (endUserEmail) {
       res["EndUserEmail"] = boost::any(*endUserEmail);
@@ -36753,6 +36786,9 @@ public:
     if (userDesktopId) {
       res["UserDesktopId"] = boost::any(*userDesktopId);
     }
+    if (userPrincipalName) {
+      res["UserPrincipalName"] = boost::any(*userPrincipalName);
+    }
     if (userSetPropertiesModels) {
       vector<boost::any> temp1;
       for(auto item1:*userSetPropertiesModels){
@@ -36775,6 +36811,9 @@ public:
     }
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("DisplayNameNew") != m.end() && !m["DisplayNameNew"].empty()) {
+      displayNameNew = make_shared<string>(boost::any_cast<string>(m["DisplayNameNew"]));
     }
     if (m.find("EndUserEmail") != m.end() && !m["EndUserEmail"].empty()) {
       endUserEmail = make_shared<string>(boost::any_cast<string>(m["EndUserEmail"]));
@@ -36803,6 +36842,9 @@ public:
     }
     if (m.find("UserDesktopId") != m.end() && !m["UserDesktopId"].empty()) {
       userDesktopId = make_shared<string>(boost::any_cast<string>(m["UserDesktopId"]));
+    }
+    if (m.find("UserPrincipalName") != m.end() && !m["UserPrincipalName"].empty()) {
+      userPrincipalName = make_shared<string>(boost::any_cast<string>(m["UserPrincipalName"]));
     }
     if (m.find("UserSetPropertiesModels") != m.end() && !m["UserSetPropertiesModels"].empty()) {
       if (typeid(vector<boost::any>) == m["UserSetPropertiesModels"].type()) {
@@ -41493,9 +41535,11 @@ class ListDirectoryUsersResponseBodyUsers : public Darabonba::Model {
 public:
   shared_ptr<long> assignedDesktopNumber{};
   shared_ptr<string> displayName{};
+  shared_ptr<string> displayNameNew{};
   shared_ptr<string> email{};
   shared_ptr<string> endUser{};
   shared_ptr<string> phone{};
+  shared_ptr<string> userPrincipalName{};
 
   ListDirectoryUsersResponseBodyUsers() {}
 
@@ -41513,6 +41557,9 @@ public:
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
     }
+    if (displayNameNew) {
+      res["DisplayNameNew"] = boost::any(*displayNameNew);
+    }
     if (email) {
       res["Email"] = boost::any(*email);
     }
@@ -41521,6 +41568,9 @@ public:
     }
     if (phone) {
       res["Phone"] = boost::any(*phone);
+    }
+    if (userPrincipalName) {
+      res["UserPrincipalName"] = boost::any(*userPrincipalName);
     }
     return res;
   }
@@ -41532,6 +41582,9 @@ public:
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
     }
+    if (m.find("DisplayNameNew") != m.end() && !m["DisplayNameNew"].empty()) {
+      displayNameNew = make_shared<string>(boost::any_cast<string>(m["DisplayNameNew"]));
+    }
     if (m.find("Email") != m.end() && !m["Email"].empty()) {
       email = make_shared<string>(boost::any_cast<string>(m["Email"]));
     }
@@ -41540,6 +41593,9 @@ public:
     }
     if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("UserPrincipalName") != m.end() && !m["UserPrincipalName"].empty()) {
+      userPrincipalName = make_shared<string>(boost::any_cast<string>(m["UserPrincipalName"]));
     }
   }
 
@@ -42196,9 +42252,11 @@ class ListOfficeSiteUsersResponseBodyUsers : public Darabonba::Model {
 public:
   shared_ptr<long> assignedDesktopNumber{};
   shared_ptr<string> displayName{};
+  shared_ptr<string> displayNameNew{};
   shared_ptr<string> email{};
   shared_ptr<string> endUser{};
   shared_ptr<string> phone{};
+  shared_ptr<string> userPrincipalName{};
 
   ListOfficeSiteUsersResponseBodyUsers() {}
 
@@ -42216,6 +42274,9 @@ public:
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
     }
+    if (displayNameNew) {
+      res["DisplayNameNew"] = boost::any(*displayNameNew);
+    }
     if (email) {
       res["Email"] = boost::any(*email);
     }
@@ -42224,6 +42285,9 @@ public:
     }
     if (phone) {
       res["Phone"] = boost::any(*phone);
+    }
+    if (userPrincipalName) {
+      res["UserPrincipalName"] = boost::any(*userPrincipalName);
     }
     return res;
   }
@@ -42235,6 +42299,9 @@ public:
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
     }
+    if (m.find("DisplayNameNew") != m.end() && !m["DisplayNameNew"].empty()) {
+      displayNameNew = make_shared<string>(boost::any_cast<string>(m["DisplayNameNew"]));
+    }
     if (m.find("Email") != m.end() && !m["Email"].empty()) {
       email = make_shared<string>(boost::any_cast<string>(m["Email"]));
     }
@@ -42243,6 +42310,9 @@ public:
     }
     if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("UserPrincipalName") != m.end() && !m["UserPrincipalName"].empty()) {
+      userPrincipalName = make_shared<string>(boost::any_cast<string>(m["UserPrincipalName"]));
     }
   }
 
@@ -52540,6 +52610,7 @@ public:
 };
 class RebuildDesktopsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> afterStatus{};
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> imageId{};
   shared_ptr<string> language{};
@@ -52556,6 +52627,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (afterStatus) {
+      res["AfterStatus"] = boost::any(*afterStatus);
+    }
     if (desktopId) {
       res["DesktopId"] = boost::any(*desktopId);
     }
@@ -52575,6 +52649,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AfterStatus") != m.end() && !m["AfterStatus"].empty()) {
+      afterStatus = make_shared<string>(boost::any_cast<string>(m["AfterStatus"]));
+    }
     if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["DesktopId"].type()) {

@@ -2580,6 +2580,9 @@ CreateImageResponse Alibabacloud_Ecd20200930::Client::createImageWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoCleanUserdata)) {
     query->insert(pair<string, bool>("AutoCleanUserdata", *request->autoCleanUserdata));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->dataSnapshotIds)) {
+    query->insert(pair<string, vector<string>>("DataSnapshotIds", *request->dataSnapshotIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -10541,6 +10544,9 @@ RebootDesktopsResponse Alibabacloud_Ecd20200930::Client::rebootDesktops(shared_p
 RebuildDesktopsResponse Alibabacloud_Ecd20200930::Client::rebuildDesktopsWithOptions(shared_ptr<RebuildDesktopsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->afterStatus)) {
+    query->insert(pair<string, string>("AfterStatus", *request->afterStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->desktopId)) {
     query->insert(pair<string, vector<string>>("DesktopId", *request->desktopId));
   }
