@@ -589,6 +589,7 @@ public:
 };
 class CreateAppResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> instaneId{};
 
   CreateAppResponseBodyResult() {}
@@ -601,6 +602,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["appId"] = boost::any(*appId);
+    }
     if (instaneId) {
       res["instaneId"] = boost::any(*instaneId);
     }
@@ -608,6 +612,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("appId") != m.end() && !m["appId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["appId"]));
+    }
     if (m.find("instaneId") != m.end() && !m["instaneId"].empty()) {
       instaneId = make_shared<string>(boost::any_cast<string>(m["instaneId"]));
     }
