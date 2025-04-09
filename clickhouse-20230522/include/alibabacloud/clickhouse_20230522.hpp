@@ -596,6 +596,7 @@ public:
   shared_ptr<string> engineVersion{};
   shared_ptr<vector<CreateDBInstanceRequestMultiZone>> multiZone{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scaleMax{};
   shared_ptr<string> scaleMin{};
   shared_ptr<string> sourceDBInstanceId{};
@@ -640,6 +641,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (scaleMax) {
       res["ScaleMax"] = boost::any(*scaleMax);
@@ -697,6 +701,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
       scaleMax = make_shared<string>(boost::any_cast<string>(m["ScaleMax"]));
     }
@@ -730,6 +737,7 @@ public:
   shared_ptr<string> engineVersion{};
   shared_ptr<string> multiZoneShrink{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scaleMax{};
   shared_ptr<string> scaleMin{};
   shared_ptr<string> sourceDBInstanceId{};
@@ -770,6 +778,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (scaleMax) {
       res["ScaleMax"] = boost::any(*scaleMax);
@@ -816,6 +827,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
       scaleMax = make_shared<string>(boost::any_cast<string>(m["ScaleMax"]));

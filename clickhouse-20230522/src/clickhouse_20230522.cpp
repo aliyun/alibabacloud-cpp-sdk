@@ -217,6 +217,9 @@ CreateDBInstanceResponse Alibabacloud_Clickhouse20230522::Client::createDBInstan
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->scaleMax)) {
     query->insert(pair<string, string>("ScaleMax", *request->scaleMax));
   }
