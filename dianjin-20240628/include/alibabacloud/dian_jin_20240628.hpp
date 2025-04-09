@@ -4475,6 +4475,332 @@ public:
 
   virtual ~GetDialogAnalysisResultResponse() = default;
 };
+class GetDialogDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sessionId{};
+
+  GetDialogDetailRequest() {}
+
+  explicit GetDialogDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+  }
+
+
+  virtual ~GetDialogDetailRequest() = default;
+};
+class GetDialogDetailResponseBodyDataDialogueList : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> customerId{};
+  shared_ptr<string> customerServiceId{};
+  shared_ptr<string> customerServiceType{};
+  shared_ptr<bool> hangUpDialog{};
+  shared_ptr<long> id{};
+  shared_ptr<string> intentCode{};
+  shared_ptr<string> intentName{};
+  shared_ptr<string> role{};
+  shared_ptr<string> type{};
+
+  GetDialogDetailResponseBodyDataDialogueList() {}
+
+  explicit GetDialogDetailResponseBodyDataDialogueList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (customerId) {
+      res["customerId"] = boost::any(*customerId);
+    }
+    if (customerServiceId) {
+      res["customerServiceId"] = boost::any(*customerServiceId);
+    }
+    if (customerServiceType) {
+      res["customerServiceType"] = boost::any(*customerServiceType);
+    }
+    if (hangUpDialog) {
+      res["hangUpDialog"] = boost::any(*hangUpDialog);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (intentCode) {
+      res["intentCode"] = boost::any(*intentCode);
+    }
+    if (intentName) {
+      res["intentName"] = boost::any(*intentName);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("customerId") != m.end() && !m["customerId"].empty()) {
+      customerId = make_shared<string>(boost::any_cast<string>(m["customerId"]));
+    }
+    if (m.find("customerServiceId") != m.end() && !m["customerServiceId"].empty()) {
+      customerServiceId = make_shared<string>(boost::any_cast<string>(m["customerServiceId"]));
+    }
+    if (m.find("customerServiceType") != m.end() && !m["customerServiceType"].empty()) {
+      customerServiceType = make_shared<string>(boost::any_cast<string>(m["customerServiceType"]));
+    }
+    if (m.find("hangUpDialog") != m.end() && !m["hangUpDialog"].empty()) {
+      hangUpDialog = make_shared<bool>(boost::any_cast<bool>(m["hangUpDialog"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("intentCode") != m.end() && !m["intentCode"].empty()) {
+      intentCode = make_shared<string>(boost::any_cast<string>(m["intentCode"]));
+    }
+    if (m.find("intentName") != m.end() && !m["intentName"].empty()) {
+      intentName = make_shared<string>(boost::any_cast<string>(m["intentName"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetDialogDetailResponseBodyDataDialogueList() = default;
+};
+class GetDialogDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetDialogDetailResponseBodyDataDialogueList>> dialogueList{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> status{};
+  shared_ptr<long> totalDialogTurns{};
+  shared_ptr<long> validDialogTurns{};
+
+  GetDialogDetailResponseBodyData() {}
+
+  explicit GetDialogDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dialogueList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueList"] = boost::any(temp1);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (totalDialogTurns) {
+      res["totalDialogTurns"] = boost::any(*totalDialogTurns);
+    }
+    if (validDialogTurns) {
+      res["validDialogTurns"] = boost::any(*validDialogTurns);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dialogueList") != m.end() && !m["dialogueList"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueList"].type()) {
+        vector<GetDialogDetailResponseBodyDataDialogueList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDialogDetailResponseBodyDataDialogueList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueList = make_shared<vector<GetDialogDetailResponseBodyDataDialogueList>>(expect1);
+      }
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmtCreate"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("totalDialogTurns") != m.end() && !m["totalDialogTurns"].empty()) {
+      totalDialogTurns = make_shared<long>(boost::any_cast<long>(m["totalDialogTurns"]));
+    }
+    if (m.find("validDialogTurns") != m.end() && !m["validDialogTurns"].empty()) {
+      validDialogTurns = make_shared<long>(boost::any_cast<long>(m["validDialogTurns"]));
+    }
+  }
+
+
+  virtual ~GetDialogDetailResponseBodyData() = default;
+};
+class GetDialogDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> cost{};
+  shared_ptr<GetDialogDetailResponseBodyData> data{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> time{};
+
+  GetDialogDetailResponseBody() {}
+
+  explicit GetDialogDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = boost::any(*cost);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      cost = make_shared<long>(boost::any_cast<long>(m["cost"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetDialogDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetDialogDetailResponseBodyData>(model1);
+      }
+    }
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~GetDialogDetailResponseBody() = default;
+};
+class GetDialogDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDialogDetailResponseBody> body{};
+
+  GetDialogDetailResponse() {}
+
+  explicit GetDialogDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDialogDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDialogDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDialogDetailResponse() = default;
+};
 class GetDocumentChunkListRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> chunkIdList{};
@@ -16189,6 +16515,11 @@ public:
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDialogAnalysisResultResponse getDialogAnalysisResult(shared_ptr<string> workspaceId, shared_ptr<GetDialogAnalysisResultRequest> request);
+  GetDialogDetailResponse getDialogDetailWithOptions(shared_ptr<string> workspaceId,
+                                                     shared_ptr<GetDialogDetailRequest> request,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDialogDetailResponse getDialogDetail(shared_ptr<string> workspaceId, shared_ptr<GetDialogDetailRequest> request);
   GetDocumentChunkListResponse getDocumentChunkListWithOptions(shared_ptr<string> workspaceId,
                                                                shared_ptr<GetDocumentChunkListRequest> request,
                                                                shared_ptr<map<string, string>> headers,
