@@ -496,6 +496,8 @@ public:
   shared_ptr<bool> dohResolveAllEnabled{};
   shared_ptr<long> monthDohResolveCount{};
   shared_ptr<long> monthFreeCount{};
+  shared_ptr<long> monthHttpAesResolveCount{};
+  shared_ptr<long> monthHttpsAesResolveCount{};
   shared_ptr<long> monthHttpsResolveCount{};
   shared_ptr<long> monthResolveCount{};
   shared_ptr<long> packageCount{};
@@ -529,6 +531,12 @@ public:
     }
     if (monthFreeCount) {
       res["MonthFreeCount"] = boost::any(*monthFreeCount);
+    }
+    if (monthHttpAesResolveCount) {
+      res["MonthHttpAesResolveCount"] = boost::any(*monthHttpAesResolveCount);
+    }
+    if (monthHttpsAesResolveCount) {
+      res["MonthHttpsAesResolveCount"] = boost::any(*monthHttpsAesResolveCount);
     }
     if (monthHttpsResolveCount) {
       res["MonthHttpsResolveCount"] = boost::any(*monthHttpsResolveCount);
@@ -572,6 +580,12 @@ public:
     }
     if (m.find("MonthFreeCount") != m.end() && !m["MonthFreeCount"].empty()) {
       monthFreeCount = make_shared<long>(boost::any_cast<long>(m["MonthFreeCount"]));
+    }
+    if (m.find("MonthHttpAesResolveCount") != m.end() && !m["MonthHttpAesResolveCount"].empty()) {
+      monthHttpAesResolveCount = make_shared<long>(boost::any_cast<long>(m["MonthHttpAesResolveCount"]));
+    }
+    if (m.find("MonthHttpsAesResolveCount") != m.end() && !m["MonthHttpsAesResolveCount"].empty()) {
+      monthHttpsAesResolveCount = make_shared<long>(boost::any_cast<long>(m["MonthHttpsAesResolveCount"]));
     }
     if (m.find("MonthHttpsResolveCount") != m.end() && !m["MonthHttpsResolveCount"].empty()) {
       monthHttpsResolveCount = make_shared<long>(boost::any_cast<long>(m["MonthHttpsResolveCount"]));
@@ -735,8 +749,10 @@ public:
   shared_ptr<long> doh{};
   shared_ptr<long> http{};
   shared_ptr<long> http6{};
+  shared_ptr<string> httpAes{};
   shared_ptr<long> https{};
   shared_ptr<long> https6{};
+  shared_ptr<string> httpsAes{};
 
   GetResolveCountSummaryResponseBodyResolveSummary() {}
 
@@ -757,11 +773,17 @@ public:
     if (http6) {
       res["Http6"] = boost::any(*http6);
     }
+    if (httpAes) {
+      res["HttpAes"] = boost::any(*httpAes);
+    }
     if (https) {
       res["Https"] = boost::any(*https);
     }
     if (https6) {
       res["Https6"] = boost::any(*https6);
+    }
+    if (httpsAes) {
+      res["HttpsAes"] = boost::any(*httpsAes);
     }
     return res;
   }
@@ -776,11 +798,17 @@ public:
     if (m.find("Http6") != m.end() && !m["Http6"].empty()) {
       http6 = make_shared<long>(boost::any_cast<long>(m["Http6"]));
     }
+    if (m.find("HttpAes") != m.end() && !m["HttpAes"].empty()) {
+      httpAes = make_shared<string>(boost::any_cast<string>(m["HttpAes"]));
+    }
     if (m.find("Https") != m.end() && !m["Https"].empty()) {
       https = make_shared<long>(boost::any_cast<long>(m["Https"]));
     }
     if (m.find("Https6") != m.end() && !m["Https6"].empty()) {
       https6 = make_shared<long>(boost::any_cast<long>(m["Https6"]));
+    }
+    if (m.find("HttpsAes") != m.end() && !m["HttpsAes"].empty()) {
+      httpsAes = make_shared<string>(boost::any_cast<string>(m["HttpsAes"]));
     }
   }
 
@@ -1153,6 +1181,8 @@ public:
 class ListDomainsResponseBodyDomainInfosDomainInfo : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
+  shared_ptr<long> resolveHttpAes{};
+  shared_ptr<long> resolveHttpsAes{};
   shared_ptr<long> resolved{};
   shared_ptr<long> resolved6{};
   shared_ptr<long> resolvedDoh{};
@@ -1172,6 +1202,12 @@ public:
     map<string, boost::any> res;
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
+    }
+    if (resolveHttpAes) {
+      res["ResolveHttpAes"] = boost::any(*resolveHttpAes);
+    }
+    if (resolveHttpsAes) {
+      res["ResolveHttpsAes"] = boost::any(*resolveHttpsAes);
     }
     if (resolved) {
       res["Resolved"] = boost::any(*resolved);
@@ -1197,6 +1233,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("ResolveHttpAes") != m.end() && !m["ResolveHttpAes"].empty()) {
+      resolveHttpAes = make_shared<long>(boost::any_cast<long>(m["ResolveHttpAes"]));
+    }
+    if (m.find("ResolveHttpsAes") != m.end() && !m["ResolveHttpsAes"].empty()) {
+      resolveHttpsAes = make_shared<long>(boost::any_cast<long>(m["ResolveHttpsAes"]));
     }
     if (m.find("Resolved") != m.end() && !m["Resolved"].empty()) {
       resolved = make_shared<long>(boost::any_cast<long>(m["Resolved"]));

@@ -60,7 +60,12 @@ AddDomainResponse Alibabacloud_Httpdns20160201::Client::addDomainWithOptions(sha
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddDomainResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddDomainResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddDomainResponse(execute(params, req, runtime));
+  }
 }
 
 AddDomainResponse Alibabacloud_Httpdns20160201::Client::addDomain(shared_ptr<AddDomainRequest> request) {
@@ -91,7 +96,12 @@ DeleteDomainResponse Alibabacloud_Httpdns20160201::Client::deleteDomainWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteDomainResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteDomainResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteDomainResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteDomainResponse Alibabacloud_Httpdns20160201::Client::deleteDomain(shared_ptr<DeleteDomainRequest> request) {
@@ -125,7 +135,12 @@ DescribeDomainsResponse Alibabacloud_Httpdns20160201::Client::describeDomainsWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeDomainsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeDomainsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeDomainsResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeDomainsResponse Alibabacloud_Httpdns20160201::Client::describeDomains(shared_ptr<DescribeDomainsRequest> request) {
@@ -146,7 +161,12 @@ GetAccountInfoResponse Alibabacloud_Httpdns20160201::Client::getAccountInfoWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetAccountInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetAccountInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetAccountInfoResponse(execute(params, req, runtime));
+  }
 }
 
 GetAccountInfoResponse Alibabacloud_Httpdns20160201::Client::getAccountInfo() {
@@ -177,7 +197,12 @@ GetResolveCountSummaryResponse Alibabacloud_Httpdns20160201::Client::getResolveC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetResolveCountSummaryResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetResolveCountSummaryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetResolveCountSummaryResponse(execute(params, req, runtime));
+  }
 }
 
 GetResolveCountSummaryResponse Alibabacloud_Httpdns20160201::Client::getResolveCountSummary(shared_ptr<GetResolveCountSummaryRequest> request) {
@@ -214,7 +239,12 @@ GetResolveStatisticsResponse Alibabacloud_Httpdns20160201::Client::getResolveSta
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetResolveStatisticsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetResolveStatisticsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetResolveStatisticsResponse(execute(params, req, runtime));
+  }
 }
 
 GetResolveStatisticsResponse Alibabacloud_Httpdns20160201::Client::getResolveStatistics(shared_ptr<GetResolveStatisticsRequest> request) {
@@ -251,7 +281,12 @@ ListDomainsResponse Alibabacloud_Httpdns20160201::Client::listDomainsWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListDomainsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListDomainsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListDomainsResponse(execute(params, req, runtime));
+  }
 }
 
 ListDomainsResponse Alibabacloud_Httpdns20160201::Client::listDomains(shared_ptr<ListDomainsRequest> request) {
@@ -284,7 +319,12 @@ RefreshResolveCacheResponse Alibabacloud_Httpdns20160201::Client::refreshResolve
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RefreshResolveCacheResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RefreshResolveCacheResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RefreshResolveCacheResponse(execute(params, req, runtime));
+  }
 }
 
 RefreshResolveCacheResponse Alibabacloud_Httpdns20160201::Client::refreshResolveCache(shared_ptr<RefreshResolveCacheRequest> request) {
