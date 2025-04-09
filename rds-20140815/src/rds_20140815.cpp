@@ -10303,6 +10303,86 @@ DescribeRCInstanceAttributeResponse Alibabacloud_Rds20140815::Client::describeRC
   return describeRCInstanceAttributeWithOptions(request, runtime);
 }
 
+DescribeRCInstanceTypeFamiliesResponse Alibabacloud_Rds20140815::Client::describeRCInstanceTypeFamiliesWithOptions(shared_ptr<DescribeRCInstanceTypeFamiliesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRCInstanceTypeFamilies"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeRCInstanceTypeFamiliesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeRCInstanceTypeFamiliesResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeRCInstanceTypeFamiliesResponse Alibabacloud_Rds20140815::Client::describeRCInstanceTypeFamilies(shared_ptr<DescribeRCInstanceTypeFamiliesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRCInstanceTypeFamiliesWithOptions(request, runtime);
+}
+
+DescribeRCInstanceTypesResponse Alibabacloud_Rds20140815::Client::describeRCInstanceTypesWithOptions(shared_ptr<DescribeRCInstanceTypesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeRCInstanceTypesShrinkRequest> request = make_shared<DescribeRCInstanceTypesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceType)) {
+    request->instanceTypeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceType, make_shared<string>("InstanceType"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->commodityCode)) {
+    query->insert(pair<string, string>("CommodityCode", *request->commodityCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeShrink)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceTypeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeFamily)) {
+    query->insert(pair<string, string>("InstanceTypeFamily", *request->instanceTypeFamily));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRCInstanceTypes"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeRCInstanceTypesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeRCInstanceTypesResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeRCInstanceTypesResponse Alibabacloud_Rds20140815::Client::describeRCInstanceTypes(shared_ptr<DescribeRCInstanceTypesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRCInstanceTypesWithOptions(request, runtime);
+}
+
 DescribeRCInstanceVncUrlResponse Alibabacloud_Rds20140815::Client::describeRCInstanceVncUrlWithOptions(shared_ptr<DescribeRCInstanceVncUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -15921,6 +16001,54 @@ ModifyParameterGroupResponse Alibabacloud_Rds20140815::Client::modifyParameterGr
 ModifyParameterGroupResponse Alibabacloud_Rds20140815::Client::modifyParameterGroup(shared_ptr<ModifyParameterGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyParameterGroupWithOptions(request, runtime);
+}
+
+ModifyRCDiskSpecResponse Alibabacloud_Rds20140815::Client::modifyRCDiskSpecWithOptions(shared_ptr<ModifyRCDiskSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskCategory)) {
+    query->insert(pair<string, string>("DiskCategory", *request->diskCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskId)) {
+    query->insert(pair<string, string>("DiskId", *request->diskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->performanceLevel)) {
+    query->insert(pair<string, string>("PerformanceLevel", *request->performanceLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyRCDiskSpec"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyRCDiskSpecResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyRCDiskSpecResponse(execute(params, req, runtime));
+  }
+}
+
+ModifyRCDiskSpecResponse Alibabacloud_Rds20140815::Client::modifyRCDiskSpec(shared_ptr<ModifyRCDiskSpecRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyRCDiskSpecWithOptions(request, runtime);
 }
 
 ModifyRCInstanceResponse Alibabacloud_Rds20140815::Client::modifyRCInstanceWithOptions(shared_ptr<ModifyRCInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
