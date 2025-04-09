@@ -5864,7 +5864,11 @@ class GetAllowedIpListResponseBodyAllowedListInternetList : public Darabonba::Mo
 public:
   shared_ptr<map<string, string>> allowedIpGroup{};
   shared_ptr<vector<string>> allowedIpList{};
+  shared_ptr<vector<string>> blackIPList{};
+  shared_ptr<map<string, string>> blackIPMap{};
   shared_ptr<string> portRange{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<bool> userDefinedSharedSecurityGroup{};
 
   GetAllowedIpListResponseBodyAllowedListInternetList() {}
 
@@ -5882,8 +5886,20 @@ public:
     if (allowedIpList) {
       res["AllowedIpList"] = boost::any(*allowedIpList);
     }
+    if (blackIPList) {
+      res["BlackIPList"] = boost::any(*blackIPList);
+    }
+    if (blackIPMap) {
+      res["BlackIPMap"] = boost::any(*blackIPMap);
+    }
     if (portRange) {
       res["PortRange"] = boost::any(*portRange);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (userDefinedSharedSecurityGroup) {
+      res["UserDefinedSharedSecurityGroup"] = boost::any(*userDefinedSharedSecurityGroup);
     }
     return res;
   }
@@ -5907,8 +5923,32 @@ public:
       }
       allowedIpList = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("BlackIPList") != m.end() && !m["BlackIPList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BlackIPList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BlackIPList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      blackIPList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BlackIPMap") != m.end() && !m["BlackIPMap"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["BlackIPMap"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      blackIPMap = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
       portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("UserDefinedSharedSecurityGroup") != m.end() && !m["UserDefinedSharedSecurityGroup"].empty()) {
+      userDefinedSharedSecurityGroup = make_shared<bool>(boost::any_cast<bool>(m["UserDefinedSharedSecurityGroup"]));
     }
   }
 
@@ -5919,7 +5959,11 @@ class GetAllowedIpListResponseBodyAllowedListVpcList : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> allowedIpGroup{};
   shared_ptr<vector<string>> allowedIpList{};
+  shared_ptr<vector<string>> blackIPList{};
+  shared_ptr<map<string, string>> blackIPMap{};
   shared_ptr<string> portRange{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<bool> userDefinedSharedSecurityGroup{};
 
   GetAllowedIpListResponseBodyAllowedListVpcList() {}
 
@@ -5937,8 +5981,20 @@ public:
     if (allowedIpList) {
       res["AllowedIpList"] = boost::any(*allowedIpList);
     }
+    if (blackIPList) {
+      res["BlackIPList"] = boost::any(*blackIPList);
+    }
+    if (blackIPMap) {
+      res["BlackIPMap"] = boost::any(*blackIPMap);
+    }
     if (portRange) {
       res["PortRange"] = boost::any(*portRange);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (userDefinedSharedSecurityGroup) {
+      res["UserDefinedSharedSecurityGroup"] = boost::any(*userDefinedSharedSecurityGroup);
     }
     return res;
   }
@@ -5962,8 +6018,32 @@ public:
       }
       allowedIpList = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("BlackIPList") != m.end() && !m["BlackIPList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BlackIPList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BlackIPList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      blackIPList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BlackIPMap") != m.end() && !m["BlackIPMap"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["BlackIPMap"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      blackIPMap = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
       portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("UserDefinedSharedSecurityGroup") != m.end() && !m["UserDefinedSharedSecurityGroup"].empty()) {
+      userDefinedSharedSecurityGroup = make_shared<bool>(boost::any_cast<bool>(m["UserDefinedSharedSecurityGroup"]));
     }
   }
 
