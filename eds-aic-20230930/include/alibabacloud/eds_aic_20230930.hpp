@@ -910,6 +910,230 @@ public:
 
   virtual ~BatchGetAcpConnectionTicketResponse() = default;
 };
+class ChangeCloudPhoneNodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> nodeId{};
+  shared_ptr<long> phoneCount{};
+
+  ChangeCloudPhoneNodeRequest() {}
+
+  explicit ChangeCloudPhoneNodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    if (phoneCount) {
+      res["PhoneCount"] = boost::any(*phoneCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("PhoneCount") != m.end() && !m["PhoneCount"].empty()) {
+      phoneCount = make_shared<long>(boost::any_cast<long>(m["PhoneCount"]));
+    }
+  }
+
+
+  virtual ~ChangeCloudPhoneNodeRequest() = default;
+};
+class ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos() {}
+
+  explicit ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos() = default;
+};
+class ChangeCloudPhoneNodeResponseBodyNodeInfos : public Darabonba::Model {
+public:
+  shared_ptr<vector<ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos>> instanceInfos{};
+  shared_ptr<string> nodeId{};
+
+  ChangeCloudPhoneNodeResponseBodyNodeInfos() {}
+
+  explicit ChangeCloudPhoneNodeResponseBodyNodeInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*instanceInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InstanceInfos"] = boost::any(temp1);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceInfos") != m.end() && !m["InstanceInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["InstanceInfos"].type()) {
+        vector<ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InstanceInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instanceInfos = make_shared<vector<ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos>>(expect1);
+      }
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+  }
+
+
+  virtual ~ChangeCloudPhoneNodeResponseBodyNodeInfos() = default;
+};
+class ChangeCloudPhoneNodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ChangeCloudPhoneNodeResponseBodyNodeInfos>> nodeInfos{};
+  shared_ptr<string> requestId{};
+
+  ChangeCloudPhoneNodeResponseBody() {}
+
+  explicit ChangeCloudPhoneNodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nodeInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodeInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NodeInfos"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NodeInfos") != m.end() && !m["NodeInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["NodeInfos"].type()) {
+        vector<ChangeCloudPhoneNodeResponseBodyNodeInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodeInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ChangeCloudPhoneNodeResponseBodyNodeInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodeInfos = make_shared<vector<ChangeCloudPhoneNodeResponseBodyNodeInfos>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ChangeCloudPhoneNodeResponseBody() = default;
+};
+class ChangeCloudPhoneNodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ChangeCloudPhoneNodeResponseBody> body{};
+
+  ChangeCloudPhoneNodeResponse() {}
+
+  explicit ChangeCloudPhoneNodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ChangeCloudPhoneNodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ChangeCloudPhoneNodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ChangeCloudPhoneNodeResponse() = default;
+};
 class CheckResourceStockRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acpSpecId{};
@@ -8808,6 +9032,151 @@ public:
 
   virtual ~EndCoordinationResponse() = default;
 };
+class ExpandDataVolumeRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<string> bizRegionId{};
+  shared_ptr<vector<string>> nodeIds{};
+  shared_ptr<long> shareDataVolume{};
+
+  ExpandDataVolumeRequest() {}
+
+  explicit ExpandDataVolumeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (bizRegionId) {
+      res["BizRegionId"] = boost::any(*bizRegionId);
+    }
+    if (nodeIds) {
+      res["NodeIds"] = boost::any(*nodeIds);
+    }
+    if (shareDataVolume) {
+      res["ShareDataVolume"] = boost::any(*shareDataVolume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
+      bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
+    }
+    if (m.find("NodeIds") != m.end() && !m["NodeIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NodeIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NodeIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nodeIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ShareDataVolume") != m.end() && !m["ShareDataVolume"].empty()) {
+      shareDataVolume = make_shared<long>(boost::any_cast<long>(m["ShareDataVolume"]));
+    }
+  }
+
+
+  virtual ~ExpandDataVolumeRequest() = default;
+};
+class ExpandDataVolumeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  ExpandDataVolumeResponseBody() {}
+
+  explicit ExpandDataVolumeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ExpandDataVolumeResponseBody() = default;
+};
+class ExpandDataVolumeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExpandDataVolumeResponseBody> body{};
+
+  ExpandDataVolumeResponse() {}
+
+  explicit ExpandDataVolumeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExpandDataVolumeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExpandDataVolumeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExpandDataVolumeResponse() = default;
+};
 class FetchFileRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIdList{};
@@ -13250,6 +13619,8 @@ public:
   BackupFileResponse backupFile(shared_ptr<BackupFileRequest> request);
   BatchGetAcpConnectionTicketResponse batchGetAcpConnectionTicketWithOptions(shared_ptr<BatchGetAcpConnectionTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchGetAcpConnectionTicketResponse batchGetAcpConnectionTicket(shared_ptr<BatchGetAcpConnectionTicketRequest> request);
+  ChangeCloudPhoneNodeResponse changeCloudPhoneNodeWithOptions(shared_ptr<ChangeCloudPhoneNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ChangeCloudPhoneNodeResponse changeCloudPhoneNode(shared_ptr<ChangeCloudPhoneNodeRequest> request);
   CheckResourceStockResponse checkResourceStockWithOptions(shared_ptr<CheckResourceStockRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckResourceStockResponse checkResourceStock(shared_ptr<CheckResourceStockRequest> request);
   CreateAndroidInstanceGroupResponse createAndroidInstanceGroupWithOptions(shared_ptr<CreateAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -13310,6 +13681,8 @@ public:
   DowngradeAndroidInstanceGroupResponse downgradeAndroidInstanceGroup(shared_ptr<DowngradeAndroidInstanceGroupRequest> request);
   EndCoordinationResponse endCoordinationWithOptions(shared_ptr<EndCoordinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EndCoordinationResponse endCoordination(shared_ptr<EndCoordinationRequest> request);
+  ExpandDataVolumeResponse expandDataVolumeWithOptions(shared_ptr<ExpandDataVolumeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExpandDataVolumeResponse expandDataVolume(shared_ptr<ExpandDataVolumeRequest> request);
   FetchFileResponse fetchFileWithOptions(shared_ptr<FetchFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FetchFileResponse fetchFile(shared_ptr<FetchFileRequest> request);
   GenerateCoordinationCodeResponse generateCoordinationCodeWithOptions(shared_ptr<GenerateCoordinationCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
