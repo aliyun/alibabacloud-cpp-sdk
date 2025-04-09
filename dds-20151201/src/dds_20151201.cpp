@@ -25,33 +25,26 @@ Alibabacloud_Dds20151201::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-wulanchabu", "mongodb.aliyuncs.com"},
     {"cn-hangzhou", "mongodb.aliyuncs.com"},
     {"cn-shanghai", "mongodb.aliyuncs.com"},
-    {"cn-nanjing", "mongodb.cn-nanjing.aliyuncs.com"},
-    {"cn-fuzhou", "mongodb.cn-fuzhou.aliyuncs.com"},
     {"cn-shenzhen", "mongodb.aliyuncs.com"},
     {"cn-heyuan", "mongodb.aliyuncs.com"},
     {"cn-guangzhou", "mongodb.aliyuncs.com"},
     {"cn-chengdu", "mongodb.cn-chengdu.aliyuncs.com"},
     {"cn-hongkong", "mongodb.cn-hongkong.aliyuncs.com"},
     {"ap-northeast-1", "mongodb.ap-northeast-1.aliyuncs.com"},
-    {"ap-northeast-2", "mongodb.ap-northeast-2.aliyuncs.com"},
     {"ap-southeast-1", "mongodb.ap-southeast-1.aliyuncs.com"},
     {"ap-southeast-2", "mongodb.ap-southeast-2.aliyuncs.com"},
     {"ap-southeast-3", "mongodb.ap-southeast-3.aliyuncs.com"},
     {"ap-southeast-5", "mongodb.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-6", "mongodb.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-7", "mongodb.ap-southeast-7.aliyuncs.com"},
-    {"cn-zhengzhou-jva", "mongodb.cn-zhengzhou-jva.aliyuncs.com"},
     {"us-east-1", "mongodb.us-east-1.aliyuncs.com"},
     {"us-west-1", "mongodb.us-west-1.aliyuncs.com"},
     {"eu-west-1", "mongodb.eu-west-1.aliyuncs.com"},
     {"eu-central-1", "mongodb.eu-central-1.aliyuncs.com"},
     {"ap-south-1", "mongodb.ap-south-1.aliyuncs.com"},
     {"me-east-1", "mongodb.me-east-1.aliyuncs.com"},
-    {"me-central-1", "mongodb.me-central-1.aliyuncs.com"},
     {"cn-hangzhou-finance", "mongodb.aliyuncs.com"},
     {"cn-shanghai-finance-1", "mongodb.aliyuncs.com"},
     {"cn-shenzhen-finance-1", "mongodb.aliyuncs.com"},
-    {"cn-north-2-gov-1", "mongodb.aliyuncs.com"},
+    {"cn-north-2-gov-1", "mongodb.cn-north-2-gov-1.aliyuncs.com"},
     {"ap-northeast-2-pop", "mongodb.aliyuncs.com"},
     {"cn-beijing-finance-1", "mongodb.aliyuncs.com"},
     {"cn-beijing-finance-pop", "mongodb.aliyuncs.com"},
@@ -1456,6 +1449,9 @@ DescribeActiveOperationTasksResponse Alibabacloud_Dds20151201::Client::describeA
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -1689,6 +1685,9 @@ DescribeAvailabilityZonesResponse Alibabacloud_Dds20151201::Client::describeAvai
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceChargeType)) {
     query->insert(pair<string, string>("InstanceChargeType", *request->instanceChargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mongoType)) {
     query->insert(pair<string, string>("MongoType", *request->mongoType));
@@ -2470,6 +2469,54 @@ DescribeDBInstanceSSLResponse Alibabacloud_Dds20151201::Client::describeDBInstan
   return describeDBInstanceSSLWithOptions(request, runtime);
 }
 
+DescribeDBInstanceSpecInfoResponse Alibabacloud_Dds20151201::Client::describeDBInstanceSpecInfoWithOptions(shared_ptr<DescribeDBInstanceSpecInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceClass)) {
+    query->insert(pair<string, string>("InstanceClass", *request->instanceClass));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDBInstanceSpecInfo"))},
+    {"version", boost::any(string("2015-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeDBInstanceSpecInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeDBInstanceSpecInfoResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeDBInstanceSpecInfoResponse Alibabacloud_Dds20151201::Client::describeDBInstanceSpecInfo(shared_ptr<DescribeDBInstanceSpecInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDBInstanceSpecInfoWithOptions(request, runtime);
+}
+
 DescribeDBInstanceSwitchLogResponse Alibabacloud_Dds20151201::Client::describeDBInstanceSwitchLogWithOptions(shared_ptr<DescribeDBInstanceSwitchLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2911,6 +2958,9 @@ DescribeHistoryTasksResponse Alibabacloud_Dds20151201::Client::describeHistoryTa
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -2973,6 +3023,9 @@ DescribeHistoryTasksStatResponse Alibabacloud_Dds20151201::Client::describeHisto
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
@@ -4482,6 +4535,9 @@ ModifyActiveOperationTasksResponse Alibabacloud_Dds20151201::Client::modifyActiv
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
