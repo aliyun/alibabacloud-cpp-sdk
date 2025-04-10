@@ -21792,6 +21792,85 @@ public:
 
   virtual ~DescribeEnsEipAddressesRequest() = default;
 };
+class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag() {}
+
+  explicit DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag() = default;
+};
+class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag>> tag{};
+
+  DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags() {}
+
+  explicit DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags() = default;
+};
 class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress : public Darabonba::Model {
 public:
   shared_ptr<string> allocationId{};
@@ -21809,6 +21888,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<bool> standby{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags> tags{};
 
   DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress() {}
 
@@ -21865,6 +21945,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -21913,6 +21996,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags>(model1);
+      }
     }
   }
 
@@ -38177,6 +38267,42 @@ public:
 
   virtual ~DescribeNatGatewaysResponseBodyNatGatewaysIpLists() = default;
 };
+class DescribeNatGatewaysResponseBodyNatGatewaysTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeNatGatewaysResponseBodyNatGatewaysTags() {}
+
+  explicit DescribeNatGatewaysResponseBodyNatGatewaysTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeNatGatewaysResponseBodyNatGatewaysTags() = default;
+};
 class DescribeNatGatewaysResponseBodyNatGateways : public Darabonba::Model {
 public:
   shared_ptr<string> creationTime{};
@@ -38187,6 +38313,7 @@ public:
   shared_ptr<string> networkId{};
   shared_ptr<string> spec{};
   shared_ptr<string> status{};
+  shared_ptr<vector<DescribeNatGatewaysResponseBodyNatGatewaysTags>> tags{};
   shared_ptr<string> vSwitchId{};
 
   DescribeNatGatewaysResponseBodyNatGateways() {}
@@ -38226,6 +38353,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -38267,6 +38401,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeNatGatewaysResponseBodyNatGatewaysTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNatGatewaysResponseBodyNatGatewaysTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeNatGatewaysResponseBodyNatGatewaysTags>>(expect1);
+      }
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -40283,6 +40430,85 @@ public:
 
   virtual ~DescribeNetworksResponseBodyNetworksNetworkRouteTableIds() = default;
 };
+class DescribeNetworksResponseBodyNetworksNetworkTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeNetworksResponseBodyNetworksNetworkTagsTag() {}
+
+  explicit DescribeNetworksResponseBodyNetworksNetworkTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworksResponseBodyNetworksNetworkTagsTag() = default;
+};
+class DescribeNetworksResponseBodyNetworksNetworkTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNetworksResponseBodyNetworksNetworkTagsTag>> tag{};
+
+  DescribeNetworksResponseBodyNetworksNetworkTags() {}
+
+  explicit DescribeNetworksResponseBodyNetworksNetworkTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeNetworksResponseBodyNetworksNetworkTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNetworksResponseBodyNetworksNetworkTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeNetworksResponseBodyNetworksNetworkTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNetworksResponseBodyNetworksNetworkTags() = default;
+};
 class DescribeNetworksResponseBodyNetworksNetworkVSwitchIds : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> vSwitchId{};
@@ -40333,6 +40559,7 @@ public:
   shared_ptr<DescribeNetworksResponseBodyNetworksNetworkRouteTableIds> routeTableIds{};
   shared_ptr<string> routerTableId{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeNetworksResponseBodyNetworksNetworkTags> tags{};
   shared_ptr<DescribeNetworksResponseBodyNetworksNetworkVSwitchIds> vSwitchIds{};
 
   DescribeNetworksResponseBodyNetworksNetwork() {}
@@ -40381,6 +40608,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (vSwitchIds) {
       res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -40427,6 +40657,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeNetworksResponseBodyNetworksNetworkTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeNetworksResponseBodyNetworksNetworkTags>(model1);
+      }
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
@@ -50003,6 +50240,85 @@ public:
 
   virtual ~DescribeVSwitchesRequest() = default;
 };
+class DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag() {}
+
+  explicit DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag() = default;
+};
+class DescribeVSwitchesResponseBodyVSwitchesVSwitchTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag>> tag{};
+
+  DescribeVSwitchesResponseBodyVSwitchesVSwitchTags() {}
+
+  explicit DescribeVSwitchesResponseBodyVSwitchesVSwitchTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVSwitchesResponseBodyVSwitchesVSwitchTags() = default;
+};
 class DescribeVSwitchesResponseBodyVSwitchesVSwitch : public Darabonba::Model {
 public:
   shared_ptr<string> cidrBlock{};
@@ -50012,6 +50328,7 @@ public:
   shared_ptr<long> freeIpCount{};
   shared_ptr<string> networkId{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeVSwitchesResponseBodyVSwitchesVSwitchTags> tags{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vSwitchName{};
 
@@ -50046,6 +50363,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -50076,6 +50396,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeVSwitchesResponseBodyVSwitchesVSwitchTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeVSwitchesResponseBodyVSwitchesVSwitchTags>(model1);
+      }
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
