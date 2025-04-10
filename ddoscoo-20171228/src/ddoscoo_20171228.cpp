@@ -178,14 +178,22 @@ ConfigHealthCheckResponse Alibabacloud_Ddoscoo20171228::Client::configHealthChec
   return configHealthCheckWithOptions(request, runtime);
 }
 
-ConfigLayer4RuleResponse Alibabacloud_Ddoscoo20171228::Client::configLayer4RuleWithOptions(shared_ptr<ConfigLayer4RuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ConfigLayer4RuleResponse Alibabacloud_Ddoscoo20171228::Client::configLayer4RuleWithOptions(shared_ptr<ConfigLayer4RuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ConfigLayer4RuleShrinkRequest> request = make_shared<ConfigLayer4RuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ConfigLayer4RuleRequestUsTimeout>(tmpReq->usTimeout)) {
+    request->usTimeoutShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->usTimeout, make_shared<string>("UsTimeout"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->listeners)) {
     query->insert(pair<string, string>("Listeners", *request->listeners));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->proxyEnable)) {
     query->insert(pair<string, long>("ProxyEnable", *request->proxyEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usTimeoutShrink)) {
+    query->insert(pair<string, string>("UsTimeout", *request->usTimeoutShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -538,14 +546,22 @@ CreateAsyncTaskResponse Alibabacloud_Ddoscoo20171228::Client::createAsyncTask(sh
   return createAsyncTaskWithOptions(request, runtime);
 }
 
-CreateLayer4RuleResponse Alibabacloud_Ddoscoo20171228::Client::createLayer4RuleWithOptions(shared_ptr<CreateLayer4RuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateLayer4RuleResponse Alibabacloud_Ddoscoo20171228::Client::createLayer4RuleWithOptions(shared_ptr<CreateLayer4RuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateLayer4RuleShrinkRequest> request = make_shared<CreateLayer4RuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateLayer4RuleRequestUsTimeout>(tmpReq->usTimeout)) {
+    request->usTimeoutShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->usTimeout, make_shared<string>("UsTimeout"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->listeners)) {
     query->insert(pair<string, string>("Listeners", *request->listeners));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->proxyEnable)) {
     query->insert(pair<string, long>("ProxyEnable", *request->proxyEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usTimeoutShrink)) {
+    query->insert(pair<string, string>("UsTimeout", *request->usTimeoutShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

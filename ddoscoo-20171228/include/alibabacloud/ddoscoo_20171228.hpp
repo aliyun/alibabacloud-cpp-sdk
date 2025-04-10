@@ -441,10 +441,47 @@ public:
 
   virtual ~ConfigHealthCheckResponse() = default;
 };
+class ConfigLayer4RuleRequestUsTimeout : public Darabonba::Model {
+public:
+  shared_ptr<long> connectTimeout{};
+  shared_ptr<long> rsTimeout{};
+
+  ConfigLayer4RuleRequestUsTimeout() {}
+
+  explicit ConfigLayer4RuleRequestUsTimeout(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectTimeout) {
+      res["ConnectTimeout"] = boost::any(*connectTimeout);
+    }
+    if (rsTimeout) {
+      res["RsTimeout"] = boost::any(*rsTimeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
+      connectTimeout = make_shared<long>(boost::any_cast<long>(m["ConnectTimeout"]));
+    }
+    if (m.find("RsTimeout") != m.end() && !m["RsTimeout"].empty()) {
+      rsTimeout = make_shared<long>(boost::any_cast<long>(m["RsTimeout"]));
+    }
+  }
+
+
+  virtual ~ConfigLayer4RuleRequestUsTimeout() = default;
+};
 class ConfigLayer4RuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> listeners{};
   shared_ptr<long> proxyEnable{};
+  shared_ptr<ConfigLayer4RuleRequestUsTimeout> usTimeout{};
 
   ConfigLayer4RuleRequest() {}
 
@@ -462,6 +499,9 @@ public:
     if (proxyEnable) {
       res["ProxyEnable"] = boost::any(*proxyEnable);
     }
+    if (usTimeout) {
+      res["UsTimeout"] = usTimeout ? boost::any(usTimeout->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -472,10 +512,60 @@ public:
     if (m.find("ProxyEnable") != m.end() && !m["ProxyEnable"].empty()) {
       proxyEnable = make_shared<long>(boost::any_cast<long>(m["ProxyEnable"]));
     }
+    if (m.find("UsTimeout") != m.end() && !m["UsTimeout"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UsTimeout"].type()) {
+        ConfigLayer4RuleRequestUsTimeout model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UsTimeout"]));
+        usTimeout = make_shared<ConfigLayer4RuleRequestUsTimeout>(model1);
+      }
+    }
   }
 
 
   virtual ~ConfigLayer4RuleRequest() = default;
+};
+class ConfigLayer4RuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> listeners{};
+  shared_ptr<long> proxyEnable{};
+  shared_ptr<string> usTimeoutShrink{};
+
+  ConfigLayer4RuleShrinkRequest() {}
+
+  explicit ConfigLayer4RuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (listeners) {
+      res["Listeners"] = boost::any(*listeners);
+    }
+    if (proxyEnable) {
+      res["ProxyEnable"] = boost::any(*proxyEnable);
+    }
+    if (usTimeoutShrink) {
+      res["UsTimeout"] = boost::any(*usTimeoutShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Listeners") != m.end() && !m["Listeners"].empty()) {
+      listeners = make_shared<string>(boost::any_cast<string>(m["Listeners"]));
+    }
+    if (m.find("ProxyEnable") != m.end() && !m["ProxyEnable"].empty()) {
+      proxyEnable = make_shared<long>(boost::any_cast<long>(m["ProxyEnable"]));
+    }
+    if (m.find("UsTimeout") != m.end() && !m["UsTimeout"].empty()) {
+      usTimeoutShrink = make_shared<string>(boost::any_cast<string>(m["UsTimeout"]));
+    }
+  }
+
+
+  virtual ~ConfigLayer4RuleShrinkRequest() = default;
 };
 class ConfigLayer4RuleResponseBody : public Darabonba::Model {
 public:
@@ -1580,10 +1670,47 @@ public:
 
   virtual ~CreateAsyncTaskResponse() = default;
 };
+class CreateLayer4RuleRequestUsTimeout : public Darabonba::Model {
+public:
+  shared_ptr<long> connectTimeout{};
+  shared_ptr<long> rsTimeout{};
+
+  CreateLayer4RuleRequestUsTimeout() {}
+
+  explicit CreateLayer4RuleRequestUsTimeout(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectTimeout) {
+      res["ConnectTimeout"] = boost::any(*connectTimeout);
+    }
+    if (rsTimeout) {
+      res["RsTimeout"] = boost::any(*rsTimeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
+      connectTimeout = make_shared<long>(boost::any_cast<long>(m["ConnectTimeout"]));
+    }
+    if (m.find("RsTimeout") != m.end() && !m["RsTimeout"].empty()) {
+      rsTimeout = make_shared<long>(boost::any_cast<long>(m["RsTimeout"]));
+    }
+  }
+
+
+  virtual ~CreateLayer4RuleRequestUsTimeout() = default;
+};
 class CreateLayer4RuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> listeners{};
   shared_ptr<long> proxyEnable{};
+  shared_ptr<CreateLayer4RuleRequestUsTimeout> usTimeout{};
 
   CreateLayer4RuleRequest() {}
 
@@ -1601,6 +1728,9 @@ public:
     if (proxyEnable) {
       res["ProxyEnable"] = boost::any(*proxyEnable);
     }
+    if (usTimeout) {
+      res["UsTimeout"] = usTimeout ? boost::any(usTimeout->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -1611,10 +1741,60 @@ public:
     if (m.find("ProxyEnable") != m.end() && !m["ProxyEnable"].empty()) {
       proxyEnable = make_shared<long>(boost::any_cast<long>(m["ProxyEnable"]));
     }
+    if (m.find("UsTimeout") != m.end() && !m["UsTimeout"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UsTimeout"].type()) {
+        CreateLayer4RuleRequestUsTimeout model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UsTimeout"]));
+        usTimeout = make_shared<CreateLayer4RuleRequestUsTimeout>(model1);
+      }
+    }
   }
 
 
   virtual ~CreateLayer4RuleRequest() = default;
+};
+class CreateLayer4RuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> listeners{};
+  shared_ptr<long> proxyEnable{};
+  shared_ptr<string> usTimeoutShrink{};
+
+  CreateLayer4RuleShrinkRequest() {}
+
+  explicit CreateLayer4RuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (listeners) {
+      res["Listeners"] = boost::any(*listeners);
+    }
+    if (proxyEnable) {
+      res["ProxyEnable"] = boost::any(*proxyEnable);
+    }
+    if (usTimeoutShrink) {
+      res["UsTimeout"] = boost::any(*usTimeoutShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Listeners") != m.end() && !m["Listeners"].empty()) {
+      listeners = make_shared<string>(boost::any_cast<string>(m["Listeners"]));
+    }
+    if (m.find("ProxyEnable") != m.end() && !m["ProxyEnable"].empty()) {
+      proxyEnable = make_shared<long>(boost::any_cast<long>(m["ProxyEnable"]));
+    }
+    if (m.find("UsTimeout") != m.end() && !m["UsTimeout"].empty()) {
+      usTimeoutShrink = make_shared<string>(boost::any_cast<string>(m["UsTimeout"]));
+    }
+  }
+
+
+  virtual ~CreateLayer4RuleShrinkRequest() = default;
 };
 class CreateLayer4RuleResponseBody : public Darabonba::Model {
 public:
@@ -7880,6 +8060,42 @@ public:
 
   virtual ~DescribeLayer4RulesRequest() = default;
 };
+class DescribeLayer4RulesResponseBodyListenersUsTimeout : public Darabonba::Model {
+public:
+  shared_ptr<long> connectTimeout{};
+  shared_ptr<long> rsTimeout{};
+
+  DescribeLayer4RulesResponseBodyListenersUsTimeout() {}
+
+  explicit DescribeLayer4RulesResponseBodyListenersUsTimeout(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectTimeout) {
+      res["ConnectTimeout"] = boost::any(*connectTimeout);
+    }
+    if (rsTimeout) {
+      res["RsTimeout"] = boost::any(*rsTimeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
+      connectTimeout = make_shared<long>(boost::any_cast<long>(m["ConnectTimeout"]));
+    }
+    if (m.find("RsTimeout") != m.end() && !m["RsTimeout"].empty()) {
+      rsTimeout = make_shared<long>(boost::any_cast<long>(m["RsTimeout"]));
+    }
+  }
+
+
+  virtual ~DescribeLayer4RulesResponseBodyListenersUsTimeout() = default;
+};
 class DescribeLayer4RulesResponseBodyListeners : public Darabonba::Model {
 public:
   shared_ptr<long> backendPort{};
@@ -7895,6 +8111,7 @@ public:
   shared_ptr<string> proxyStatus{};
   shared_ptr<vector<string>> realServers{};
   shared_ptr<string> remark{};
+  shared_ptr<DescribeLayer4RulesResponseBodyListenersUsTimeout> usTimeout{};
 
   DescribeLayer4RulesResponseBodyListeners() {}
 
@@ -7945,6 +8162,9 @@ public:
     if (remark) {
       res["Remark"] = boost::any(*remark);
     }
+    if (usTimeout) {
+      res["UsTimeout"] = usTimeout ? boost::any(usTimeout->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -7994,6 +8214,13 @@ public:
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("UsTimeout") != m.end() && !m["UsTimeout"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UsTimeout"].type()) {
+        DescribeLayer4RulesResponseBodyListenersUsTimeout model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UsTimeout"]));
+        usTimeout = make_shared<DescribeLayer4RulesResponseBodyListenersUsTimeout>(model1);
+      }
     }
   }
 
@@ -12825,7 +13052,7 @@ public:
   CloseDomainSlsConfigResponse closeDomainSlsConfig(shared_ptr<CloseDomainSlsConfigRequest> request);
   ConfigHealthCheckResponse configHealthCheckWithOptions(shared_ptr<ConfigHealthCheckRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigHealthCheckResponse configHealthCheck(shared_ptr<ConfigHealthCheckRequest> request);
-  ConfigLayer4RuleResponse configLayer4RuleWithOptions(shared_ptr<ConfigLayer4RuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConfigLayer4RuleResponse configLayer4RuleWithOptions(shared_ptr<ConfigLayer4RuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigLayer4RuleResponse configLayer4Rule(shared_ptr<ConfigLayer4RuleRequest> request);
   ConfigLayer4RuleAttributeResponse configLayer4RuleAttributeWithOptions(shared_ptr<ConfigLayer4RuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigLayer4RuleAttributeResponse configLayer4RuleAttribute(shared_ptr<ConfigLayer4RuleAttributeRequest> request);
@@ -12841,7 +13068,7 @@ public:
   ConfigLayer7RuleResponse configLayer7Rule(shared_ptr<ConfigLayer7RuleRequest> request);
   CreateAsyncTaskResponse createAsyncTaskWithOptions(shared_ptr<CreateAsyncTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAsyncTaskResponse createAsyncTask(shared_ptr<CreateAsyncTaskRequest> request);
-  CreateLayer4RuleResponse createLayer4RuleWithOptions(shared_ptr<CreateLayer4RuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateLayer4RuleResponse createLayer4RuleWithOptions(shared_ptr<CreateLayer4RuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateLayer4RuleResponse createLayer4Rule(shared_ptr<CreateLayer4RuleRequest> request);
   CreateLayer7RuleResponse createLayer7RuleWithOptions(shared_ptr<CreateLayer7RuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateLayer7RuleResponse createLayer7Rule(shared_ptr<CreateLayer7RuleRequest> request);
