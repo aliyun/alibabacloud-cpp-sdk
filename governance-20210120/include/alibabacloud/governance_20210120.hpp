@@ -3150,6 +3150,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> snapshotId{};
 
   ListEvaluationMetricDetailsRequest() {}
 
@@ -3176,6 +3177,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (snapshotId) {
+      res["SnapshotId"] = boost::any(*snapshotId);
+    }
     return res;
   }
 
@@ -3194,6 +3198,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
+      snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
     }
   }
 
@@ -3437,10 +3444,55 @@ public:
 
   virtual ~ListEvaluationMetricDetailsResponse() = default;
 };
+class ListEvaluationResultsRequestFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<string>> values{};
+
+  ListEvaluationResultsRequestFilters() {}
+
+  explicit ListEvaluationResultsRequestFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListEvaluationResultsRequestFilters() = default;
+};
 class ListEvaluationResultsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
+  shared_ptr<vector<ListEvaluationResultsRequestFilters>> filters{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> snapshotId{};
 
   ListEvaluationResultsRequest() {}
 
@@ -3455,8 +3507,18 @@ public:
     if (accountId) {
       res["AccountId"] = boost::any(*accountId);
     }
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (snapshotId) {
+      res["SnapshotId"] = boost::any(*snapshotId);
     }
     return res;
   }
@@ -3465,8 +3527,24 @@ public:
     if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
       accountId = make_shared<long>(boost::any_cast<long>(m["AccountId"]));
     }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<ListEvaluationResultsRequestFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListEvaluationResultsRequestFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<ListEvaluationResultsRequestFilters>>(expect1);
+      }
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
+      snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
     }
   }
 

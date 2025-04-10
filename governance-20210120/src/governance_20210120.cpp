@@ -67,7 +67,12 @@ BatchEnrollAccountsResponse Alibabacloud_Governance20210120::Client::batchEnroll
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BatchEnrollAccountsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BatchEnrollAccountsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BatchEnrollAccountsResponse(execute(params, req, runtime));
+  }
 }
 
 BatchEnrollAccountsResponse Alibabacloud_Governance20210120::Client::batchEnrollAccounts(shared_ptr<BatchEnrollAccountsRequest> request) {
@@ -104,7 +109,12 @@ CreateAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::cr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateAccountFactoryBaselineResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateAccountFactoryBaselineResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateAccountFactoryBaselineResponse(execute(params, req, runtime));
+  }
 }
 
 CreateAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::createAccountFactoryBaseline(shared_ptr<CreateAccountFactoryBaselineRequest> request) {
@@ -135,7 +145,12 @@ DeleteAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::de
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteAccountFactoryBaselineResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteAccountFactoryBaselineResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteAccountFactoryBaselineResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::deleteAccountFactoryBaseline(shared_ptr<DeleteAccountFactoryBaselineRequest> request) {
@@ -195,7 +210,12 @@ EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccountWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return EnrollAccountResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EnrollAccountResponse(callApi(params, req, runtime));
+  }
+  else {
+    return EnrollAccountResponse(execute(params, req, runtime));
+  }
 }
 
 EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccount(shared_ptr<EnrollAccountRequest> request) {
@@ -226,7 +246,12 @@ GetAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::getAc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetAccountFactoryBaselineResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetAccountFactoryBaselineResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetAccountFactoryBaselineResponse(execute(params, req, runtime));
+  }
 }
 
 GetAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::getAccountFactoryBaseline(shared_ptr<GetAccountFactoryBaselineRequest> request) {
@@ -257,7 +282,12 @@ GetEnrolledAccountResponse Alibabacloud_Governance20210120::Client::getEnrolledA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetEnrolledAccountResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetEnrolledAccountResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetEnrolledAccountResponse(execute(params, req, runtime));
+  }
 }
 
 GetEnrolledAccountResponse Alibabacloud_Governance20210120::Client::getEnrolledAccount(shared_ptr<GetEnrolledAccountRequest> request) {
@@ -300,7 +330,12 @@ ListAccountFactoryBaselineItemsResponse Alibabacloud_Governance20210120::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAccountFactoryBaselineItemsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAccountFactoryBaselineItemsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAccountFactoryBaselineItemsResponse(execute(params, req, runtime));
+  }
 }
 
 ListAccountFactoryBaselineItemsResponse Alibabacloud_Governance20210120::Client::listAccountFactoryBaselineItems(shared_ptr<ListAccountFactoryBaselineItemsRequest> request) {
@@ -334,7 +369,12 @@ ListAccountFactoryBaselinesResponse Alibabacloud_Governance20210120::Client::lis
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAccountFactoryBaselinesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAccountFactoryBaselinesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAccountFactoryBaselinesResponse(execute(params, req, runtime));
+  }
 }
 
 ListAccountFactoryBaselinesResponse Alibabacloud_Governance20210120::Client::listAccountFactoryBaselines(shared_ptr<ListAccountFactoryBaselinesRequest> request) {
@@ -368,7 +408,12 @@ ListEnrolledAccountsResponse Alibabacloud_Governance20210120::Client::listEnroll
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListEnrolledAccountsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListEnrolledAccountsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListEnrolledAccountsResponse(execute(params, req, runtime));
+  }
 }
 
 ListEnrolledAccountsResponse Alibabacloud_Governance20210120::Client::listEnrolledAccounts(shared_ptr<ListEnrolledAccountsRequest> request) {
@@ -399,7 +444,12 @@ ListEvaluationMetadataResponse Alibabacloud_Governance20210120::Client::listEval
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListEvaluationMetadataResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListEvaluationMetadataResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListEvaluationMetadataResponse(execute(params, req, runtime));
+  }
 }
 
 ListEvaluationMetadataResponse Alibabacloud_Governance20210120::Client::listEvaluationMetadata(shared_ptr<ListEvaluationMetadataRequest> request) {
@@ -425,6 +475,9 @@ ListEvaluationMetricDetailsResponse Alibabacloud_Governance20210120::Client::lis
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
+    query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -439,7 +492,12 @@ ListEvaluationMetricDetailsResponse Alibabacloud_Governance20210120::Client::lis
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListEvaluationMetricDetailsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListEvaluationMetricDetailsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListEvaluationMetricDetailsResponse(execute(params, req, runtime));
+  }
 }
 
 ListEvaluationMetricDetailsResponse Alibabacloud_Governance20210120::Client::listEvaluationMetricDetails(shared_ptr<ListEvaluationMetricDetailsRequest> request) {
@@ -453,8 +511,14 @@ ListEvaluationResultsResponse Alibabacloud_Governance20210120::Client::listEvalu
   if (!Darabonba_Util::Client::isUnset<long>(request->accountId)) {
     query->insert(pair<string, long>("AccountId", *request->accountId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListEvaluationResultsRequestFilters>>(request->filters)) {
+    query->insert(pair<string, vector<ListEvaluationResultsRequestFilters>>("Filters", *request->filters));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
+    query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -470,7 +534,12 @@ ListEvaluationResultsResponse Alibabacloud_Governance20210120::Client::listEvalu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListEvaluationResultsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListEvaluationResultsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListEvaluationResultsResponse(execute(params, req, runtime));
+  }
 }
 
 ListEvaluationResultsResponse Alibabacloud_Governance20210120::Client::listEvaluationResults(shared_ptr<ListEvaluationResultsRequest> request) {
@@ -507,7 +576,12 @@ ListEvaluationScoreHistoryResponse Alibabacloud_Governance20210120::Client::list
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListEvaluationScoreHistoryResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListEvaluationScoreHistoryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListEvaluationScoreHistoryResponse(execute(params, req, runtime));
+  }
 }
 
 ListEvaluationScoreHistoryResponse Alibabacloud_Governance20210120::Client::listEvaluationScoreHistory(shared_ptr<ListEvaluationScoreHistoryRequest> request) {
@@ -549,7 +623,12 @@ RunEvaluationResponse Alibabacloud_Governance20210120::Client::runEvaluationWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RunEvaluationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RunEvaluationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RunEvaluationResponse(execute(params, req, runtime));
+  }
 }
 
 RunEvaluationResponse Alibabacloud_Governance20210120::Client::runEvaluation(shared_ptr<RunEvaluationRequest> request) {
@@ -589,7 +668,12 @@ UpdateAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::up
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateAccountFactoryBaselineResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateAccountFactoryBaselineResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateAccountFactoryBaselineResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::updateAccountFactoryBaseline(shared_ptr<UpdateAccountFactoryBaselineRequest> request) {
