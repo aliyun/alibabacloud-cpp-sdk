@@ -6471,6 +6471,9 @@ DescribeSnapshotsResponse Alibabacloud_Ecd20200930::Client::describeSnapshotsWit
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
+    query->insert(pair<string, string>("OsType", *request->osType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

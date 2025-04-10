@@ -30167,6 +30167,8 @@ public:
   shared_ptr<bool> enableInternetAccess{};
   shared_ptr<bool> enableServiceRoute{};
   shared_ptr<vector<string>> fileSystemIds{};
+  shared_ptr<bool> isLdap{};
+  shared_ptr<string> ldapUrl{};
   shared_ptr<vector<DescribeOfficeSitesResponseBodyOfficeSitesLogs>> logs{};
   shared_ptr<bool> mfaEnabled{};
   shared_ptr<string> name{};
@@ -30291,6 +30293,12 @@ public:
     }
     if (fileSystemIds) {
       res["FileSystemIds"] = boost::any(*fileSystemIds);
+    }
+    if (isLdap) {
+      res["IsLdap"] = boost::any(*isLdap);
+    }
+    if (ldapUrl) {
+      res["LdapUrl"] = boost::any(*ldapUrl);
     }
     if (logs) {
       vector<boost::any> temp1;
@@ -30502,6 +30510,12 @@ public:
         }
       }
       fileSystemIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IsLdap") != m.end() && !m["IsLdap"].empty()) {
+      isLdap = make_shared<bool>(boost::any_cast<bool>(m["IsLdap"]));
+    }
+    if (m.find("LdapUrl") != m.end() && !m["LdapUrl"].empty()) {
+      ldapUrl = make_shared<string>(boost::any_cast<string>(m["LdapUrl"]));
     }
     if (m.find("Logs") != m.end() && !m["Logs"].empty()) {
       if (typeid(vector<boost::any>) == m["Logs"].type()) {
@@ -34908,6 +34922,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> osType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> snapshotId{};
   shared_ptr<string> snapshotName{};
@@ -34942,6 +34957,9 @@ public:
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
+    }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -34983,6 +35001,9 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -35015,6 +35036,8 @@ public:
   shared_ptr<string> desktopId{};
   shared_ptr<string> desktopName{};
   shared_ptr<string> desktopStatus{};
+  shared_ptr<string> diskStatus{};
+  shared_ptr<string> osType{};
   shared_ptr<string> progress{};
   shared_ptr<string> protocolType{};
   shared_ptr<long> remainTime{};
@@ -35059,6 +35082,12 @@ public:
     }
     if (desktopStatus) {
       res["DesktopStatus"] = boost::any(*desktopStatus);
+    }
+    if (diskStatus) {
+      res["DiskStatus"] = boost::any(*diskStatus);
+    }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
     }
     if (progress) {
       res["Progress"] = boost::any(*progress);
@@ -35123,6 +35152,12 @@ public:
     }
     if (m.find("DesktopStatus") != m.end() && !m["DesktopStatus"].empty()) {
       desktopStatus = make_shared<string>(boost::any_cast<string>(m["DesktopStatus"]));
+    }
+    if (m.find("DiskStatus") != m.end() && !m["DiskStatus"].empty()) {
+      diskStatus = make_shared<string>(boost::any_cast<string>(m["DiskStatus"]));
+    }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
     }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
