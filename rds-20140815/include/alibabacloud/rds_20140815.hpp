@@ -37186,6 +37186,7 @@ public:
 class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
+  shared_ptr<string> node{};
   shared_ptr<string> service{};
   shared_ptr<string> valueFormat{};
   shared_ptr<DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKeyValues> values{};
@@ -37203,6 +37204,9 @@ public:
     if (key) {
       res["Key"] = boost::any(*key);
     }
+    if (node) {
+      res["Node"] = boost::any(*node);
+    }
     if (service) {
       res["Service"] = boost::any(*service);
     }
@@ -37218,6 +37222,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Node") != m.end() && !m["Node"].empty()) {
+      node = make_shared<string>(boost::any_cast<string>(m["Node"]));
     }
     if (m.find("Service") != m.end() && !m["Service"].empty()) {
       service = make_shared<string>(boost::any_cast<string>(m["Service"]));
