@@ -452,6 +452,42 @@ public:
 
   virtual ~CreateAppRequestQuotaInfo() = default;
 };
+class CreateAppRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateAppRequestTags() {}
+
+  explicit CreateAppRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~CreateAppRequestTags() = default;
+};
 class CreateAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
@@ -463,7 +499,9 @@ public:
   shared_ptr<CreateAppRequestQuotaInfo> quotaInfo{};
   shared_ptr<string> regionId{};
   shared_ptr<string> scenario{};
+  shared_ptr<vector<CreateAppRequestTags>> tags{};
   shared_ptr<string> version{};
+  shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
 
   CreateAppRequest() {}
@@ -511,8 +549,18 @@ public:
     if (scenario) {
       res["scenario"] = boost::any(*scenario);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
     if (version) {
       res["version"] = boost::any(*version);
+    }
+    if (clientToken) {
+      res["clientToken"] = boost::any(*clientToken);
     }
     if (dryRun) {
       res["dryRun"] = boost::any(*dryRun);
@@ -576,8 +624,24 @@ public:
     if (m.find("scenario") != m.end() && !m["scenario"].empty()) {
       scenario = make_shared<string>(boost::any_cast<string>(m["scenario"]));
     }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<CreateAppRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAppRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateAppRequestTags>>(expect1);
+      }
+    }
     if (m.find("version") != m.end() && !m["version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
+    if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
     if (m.find("dryRun") != m.end() && !m["dryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["dryRun"]));
@@ -1759,11 +1823,48 @@ public:
 
   virtual ~GetAppResponseBodyResultPrivateNetwork() = default;
 };
+class GetAppResponseBodyResultTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetAppResponseBodyResultTags() {}
+
+  explicit GetAppResponseBodyResultTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetAppResponseBodyResultTags() = default;
+};
 class GetAppResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> appType{};
+  shared_ptr<string> chargeType{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> instanceId{};
@@ -1772,7 +1873,9 @@ public:
   shared_ptr<string> ownerId{};
   shared_ptr<vector<GetAppResponseBodyResultPrivateNetwork>> privateNetwork{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> scenario{};
   shared_ptr<string> status{};
+  shared_ptr<vector<GetAppResponseBodyResultTags>> tags{};
   shared_ptr<string> version{};
 
   GetAppResponseBodyResult() {}
@@ -1793,6 +1896,9 @@ public:
     }
     if (appType) {
       res["appType"] = boost::any(*appType);
+    }
+    if (chargeType) {
+      res["chargeType"] = boost::any(*chargeType);
     }
     if (createTime) {
       res["createTime"] = boost::any(*createTime);
@@ -1826,8 +1932,18 @@ public:
     if (regionId) {
       res["regionId"] = boost::any(*regionId);
     }
+    if (scenario) {
+      res["scenario"] = boost::any(*scenario);
+    }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
     }
     if (version) {
       res["version"] = boost::any(*version);
@@ -1844,6 +1960,9 @@ public:
     }
     if (m.find("appType") != m.end() && !m["appType"].empty()) {
       appType = make_shared<string>(boost::any_cast<string>(m["appType"]));
+    }
+    if (m.find("chargeType") != m.end() && !m["chargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["chargeType"]));
     }
     if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
@@ -1889,8 +2008,24 @@ public:
     if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
     }
+    if (m.find("scenario") != m.end() && !m["scenario"].empty()) {
+      scenario = make_shared<string>(boost::any_cast<string>(m["scenario"]));
+    }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<GetAppResponseBodyResultTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAppResponseBodyResultTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetAppResponseBodyResultTags>>(expect1);
+      }
     }
     if (m.find("version") != m.end() && !m["version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["version"]));
@@ -2827,6 +2962,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> status{};
+  shared_ptr<string> tags{};
 
   ListAppsRequest() {}
 
@@ -2859,6 +2995,9 @@ public:
     if (status) {
       res["status"] = boost::any(*status);
     }
+    if (tags) {
+      res["tags"] = boost::any(*tags);
+    }
     return res;
   }
 
@@ -2883,6 +3022,9 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tags = make_shared<string>(boost::any_cast<string>(m["tags"]));
     }
   }
 

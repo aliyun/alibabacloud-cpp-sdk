@@ -72,6 +72,9 @@ CancelSpecReviewTaskResponse Alibabacloud_Es-serverless20230627::Client::cancelS
 CreateAppResponse Alibabacloud_Es-serverless20230627::Client::createAppWithOptions(shared_ptr<CreateAppRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("dryRun", *request->dryRun));
   }
@@ -102,6 +105,9 @@ CreateAppResponse Alibabacloud_Es-serverless20230627::Client::createAppWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
     body->insert(pair<string, string>("scenario", *request->scenario));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestTags>>(request->tags)) {
+    body->insert(pair<string, vector<CreateAppRequestTags>>("tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
     body->insert(pair<string, string>("version", *request->version));
@@ -543,6 +549,9 @@ ListAppsResponse Alibabacloud_Es-serverless20230627::Client::listAppsWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
+    query->insert(pair<string, string>("tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
