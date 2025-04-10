@@ -1023,6 +1023,9 @@ DescribeAndroidInstancesResponse Alibabacloud_Eds-aic20230930::Client::describeA
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeName)) {
     query->insert(pair<string, string>("NodeName", *request->nodeName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->officeSiteIds)) {
+    query->insert(pair<string, vector<string>>("OfficeSiteIds", *request->officeSiteIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
     query->insert(pair<string, string>("SaleMode", *request->saleMode));
   }

@@ -4889,6 +4889,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> nodeName{};
+  shared_ptr<vector<string>> officeSiteIds{};
   shared_ptr<string> saleMode{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeAndroidInstancesRequestTag>> tag{};
@@ -4938,6 +4939,9 @@ public:
     }
     if (nodeName) {
       res["NodeName"] = boost::any(*nodeName);
+    }
+    if (officeSiteIds) {
+      res["OfficeSiteIds"] = boost::any(*officeSiteIds);
     }
     if (saleMode) {
       res["SaleMode"] = boost::any(*saleMode);
@@ -5005,6 +5009,16 @@ public:
     }
     if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
       nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
+    if (m.find("OfficeSiteIds") != m.end() && !m["OfficeSiteIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OfficeSiteIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OfficeSiteIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      officeSiteIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
       saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
