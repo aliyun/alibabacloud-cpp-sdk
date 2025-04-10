@@ -7706,6 +7706,7 @@ public:
 };
 class RunTagMiningAnalysisRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> businessType{};
   shared_ptr<string> content{};
   shared_ptr<string> extraInfo{};
@@ -7724,6 +7725,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (businessType) {
       res["businessType"] = boost::any(*businessType);
     }
@@ -7753,6 +7757,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
     }
@@ -7791,6 +7798,7 @@ public:
 };
 class RunTagMiningAnalysisShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> businessType{};
   shared_ptr<string> content{};
   shared_ptr<string> extraInfo{};
@@ -7809,6 +7817,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (businessType) {
       res["businessType"] = boost::any(*businessType);
     }
@@ -7834,6 +7845,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
     }
@@ -10048,6 +10062,7 @@ public:
 };
 class SubmitTagMiningAnalysisTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> businessType{};
   shared_ptr<vector<string>> contents{};
   shared_ptr<string> extraInfo{};
@@ -10067,6 +10082,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (businessType) {
       res["businessType"] = boost::any(*businessType);
     }
@@ -10099,6 +10117,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
     }
@@ -10147,6 +10168,7 @@ public:
 };
 class SubmitTagMiningAnalysisTaskShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> businessType{};
   shared_ptr<string> contentsShrink{};
   shared_ptr<string> extraInfo{};
@@ -10166,6 +10188,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (businessType) {
       res["businessType"] = boost::any(*businessType);
     }
@@ -10194,6 +10219,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
     }

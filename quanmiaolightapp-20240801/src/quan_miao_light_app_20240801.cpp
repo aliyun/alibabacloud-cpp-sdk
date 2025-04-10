@@ -842,6 +842,9 @@ RunTagMiningAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runT
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiKey)) {
+    body->insert(pair<string, string>("apiKey", *request->apiKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->businessType)) {
     body->insert(pair<string, string>("businessType", *request->businessType));
   }
@@ -1015,6 +1018,9 @@ SubmitTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Clien
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiKey)) {
+    body->insert(pair<string, string>("apiKey", *request->apiKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->businessType)) {
     body->insert(pair<string, string>("businessType", *request->businessType));
   }
