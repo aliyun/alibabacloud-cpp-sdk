@@ -7932,6 +7932,42 @@ public:
 
   virtual ~ListPublishedAgentResponse() = default;
 };
+class RetrieveRequestQueryHistory : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> role{};
+
+  RetrieveRequestQueryHistory() {}
+
+  explicit RetrieveRequestQueryHistory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~RetrieveRequestQueryHistory() = default;
+};
 class RetrieveRequestRerank : public Darabonba::Model {
 public:
   shared_ptr<string> modelName{};
@@ -7998,6 +8034,7 @@ public:
   shared_ptr<vector<string>> images{};
   shared_ptr<string> indexId{};
   shared_ptr<string> query{};
+  shared_ptr<vector<RetrieveRequestQueryHistory>> queryHistory{};
   shared_ptr<vector<RetrieveRequestRerank>> rerank{};
   shared_ptr<double> rerankMinScore{};
   shared_ptr<long> rerankTopN{};
@@ -8033,6 +8070,13 @@ public:
     }
     if (query) {
       res["Query"] = boost::any(*query);
+    }
+    if (queryHistory) {
+      vector<boost::any> temp1;
+      for(auto item1:*queryHistory){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QueryHistory"] = boost::any(temp1);
     }
     if (rerank) {
       vector<boost::any> temp1;
@@ -8091,6 +8135,19 @@ public:
     }
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("QueryHistory") != m.end() && !m["QueryHistory"].empty()) {
+      if (typeid(vector<boost::any>) == m["QueryHistory"].type()) {
+        vector<RetrieveRequestQueryHistory> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QueryHistory"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RetrieveRequestQueryHistory model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        queryHistory = make_shared<vector<RetrieveRequestQueryHistory>>(expect1);
+      }
     }
     if (m.find("Rerank") != m.end() && !m["Rerank"].empty()) {
       if (typeid(vector<boost::any>) == m["Rerank"].type()) {
@@ -8158,6 +8215,7 @@ public:
   shared_ptr<string> imagesShrink{};
   shared_ptr<string> indexId{};
   shared_ptr<string> query{};
+  shared_ptr<string> queryHistoryShrink{};
   shared_ptr<string> rerankShrink{};
   shared_ptr<double> rerankMinScore{};
   shared_ptr<long> rerankTopN{};
@@ -8193,6 +8251,9 @@ public:
     }
     if (query) {
       res["Query"] = boost::any(*query);
+    }
+    if (queryHistoryShrink) {
+      res["QueryHistory"] = boost::any(*queryHistoryShrink);
     }
     if (rerankShrink) {
       res["Rerank"] = boost::any(*rerankShrink);
@@ -8236,6 +8297,9 @@ public:
     }
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("QueryHistory") != m.end() && !m["QueryHistory"].empty()) {
+      queryHistoryShrink = make_shared<string>(boost::any_cast<string>(m["QueryHistory"]));
     }
     if (m.find("Rerank") != m.end() && !m["Rerank"].empty()) {
       rerankShrink = make_shared<string>(boost::any_cast<string>(m["Rerank"]));
