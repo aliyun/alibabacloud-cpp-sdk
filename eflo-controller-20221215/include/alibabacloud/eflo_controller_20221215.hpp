@@ -1144,6 +1144,49 @@ public:
 
   virtual ~CreateClusterRequestNodeGroupsNodes() = default;
 };
+class CreateClusterRequestNodeGroupsSystemDisk : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> performanceLevel{};
+  shared_ptr<long> size{};
+
+  CreateClusterRequestNodeGroupsSystemDisk() {}
+
+  explicit CreateClusterRequestNodeGroupsSystemDisk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNodeGroupsSystemDisk() = default;
+};
 class CreateClusterRequestNodeGroups : public Darabonba::Model {
 public:
   shared_ptr<string> imageId{};
@@ -1151,6 +1194,7 @@ public:
   shared_ptr<string> nodeGroupDescription{};
   shared_ptr<string> nodeGroupName{};
   shared_ptr<vector<CreateClusterRequestNodeGroupsNodes>> nodes{};
+  shared_ptr<CreateClusterRequestNodeGroupsSystemDisk> systemDisk{};
   shared_ptr<string> userData{};
   shared_ptr<string> zoneId{};
 
@@ -1182,6 +1226,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Nodes"] = boost::any(temp1);
+    }
+    if (systemDisk) {
+      res["SystemDisk"] = systemDisk ? boost::any(systemDisk->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (userData) {
       res["UserData"] = boost::any(*userData);
@@ -1216,6 +1263,13 @@ public:
           }
         }
         nodes = make_shared<vector<CreateClusterRequestNodeGroupsNodes>>(expect1);
+      }
+    }
+    if (m.find("SystemDisk") != m.end() && !m["SystemDisk"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SystemDisk"].type()) {
+        CreateClusterRequestNodeGroupsSystemDisk model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SystemDisk"]));
+        systemDisk = make_shared<CreateClusterRequestNodeGroupsSystemDisk>(model1);
       }
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
@@ -2707,6 +2761,49 @@ public:
 
   virtual ~CreateNetTestTaskResponse() = default;
 };
+class CreateNodeGroupRequestNodeGroupSystemDisk : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> performanceLevel{};
+  shared_ptr<long> size{};
+
+  CreateNodeGroupRequestNodeGroupSystemDisk() {}
+
+  explicit CreateNodeGroupRequestNodeGroupSystemDisk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+  }
+
+
+  virtual ~CreateNodeGroupRequestNodeGroupSystemDisk() = default;
+};
 class CreateNodeGroupRequestNodeGroup : public Darabonba::Model {
 public:
   shared_ptr<string> az{};
@@ -2714,6 +2811,7 @@ public:
   shared_ptr<string> machineType{};
   shared_ptr<string> nodeGroupDescription{};
   shared_ptr<string> nodeGroupName{};
+  shared_ptr<CreateNodeGroupRequestNodeGroupSystemDisk> systemDisk{};
   shared_ptr<string> userData{};
 
   CreateNodeGroupRequestNodeGroup() {}
@@ -2741,6 +2839,9 @@ public:
     if (nodeGroupName) {
       res["NodeGroupName"] = boost::any(*nodeGroupName);
     }
+    if (systemDisk) {
+      res["SystemDisk"] = systemDisk ? boost::any(systemDisk->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
@@ -2762,6 +2863,13 @@ public:
     }
     if (m.find("NodeGroupName") != m.end() && !m["NodeGroupName"].empty()) {
       nodeGroupName = make_shared<string>(boost::any_cast<string>(m["NodeGroupName"]));
+    }
+    if (m.find("SystemDisk") != m.end() && !m["SystemDisk"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SystemDisk"].type()) {
+        CreateNodeGroupRequestNodeGroupSystemDisk model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SystemDisk"]));
+        systemDisk = make_shared<CreateNodeGroupRequestNodeGroupSystemDisk>(model1);
+      }
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
@@ -4955,6 +5063,63 @@ public:
 
   virtual ~DescribeNodeRequest() = default;
 };
+class DescribeNodeResponseBodyDisks : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> diskId{};
+  shared_ptr<string> performanceLevel{};
+  shared_ptr<long> size{};
+  shared_ptr<string> type{};
+
+  DescribeNodeResponseBodyDisks() {}
+
+  explicit DescribeNodeResponseBodyDisks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeNodeResponseBodyDisks() = default;
+};
 class DescribeNodeResponseBodyNetworks : public Darabonba::Model {
 public:
   shared_ptr<string> bondName{};
@@ -5010,6 +5175,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> createTime{};
+  shared_ptr<vector<DescribeNodeResponseBodyDisks>> disks{};
   shared_ptr<string> expiredTime{};
   shared_ptr<string> hostname{};
   shared_ptr<string> hpnZone{};
@@ -5045,6 +5211,13 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (disks) {
+      vector<boost::any> temp1;
+      for(auto item1:*disks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Disks"] = boost::any(temp1);
     }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
@@ -5110,6 +5283,19 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Disks") != m.end() && !m["Disks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Disks"].type()) {
+        vector<DescribeNodeResponseBodyDisks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Disks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNodeResponseBodyDisks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        disks = make_shared<vector<DescribeNodeResponseBodyDisks>>(expect1);
+      }
     }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
