@@ -7569,6 +7569,36 @@ ListCertificatesResponse Alibabacloud_ESA20240910::Client::listCertificates(shar
   return listCertificatesWithOptions(request, runtime);
 }
 
+ListCertificatesByRecordResponse Alibabacloud_ESA20240910::Client::listCertificatesByRecordWithOptions(shared_ptr<ListCertificatesByRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCertificatesByRecord"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListCertificatesByRecordResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListCertificatesByRecordResponse(execute(params, req, runtime));
+  }
+}
+
+ListCertificatesByRecordResponse Alibabacloud_ESA20240910::Client::listCertificatesByRecord(shared_ptr<ListCertificatesByRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCertificatesByRecordWithOptions(request, runtime);
+}
+
 ListCiphersResponse Alibabacloud_ESA20240910::Client::listCiphersWithOptions(shared_ptr<ListCiphersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
