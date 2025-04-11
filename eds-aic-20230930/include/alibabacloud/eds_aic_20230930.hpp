@@ -1789,6 +1789,7 @@ public:
   shared_ptr<string> iconUrl{};
   shared_ptr<string> installParam{};
   shared_ptr<string> ossAppUrl{};
+  shared_ptr<string> signApk{};
 
   CreateAppRequest() {}
 
@@ -1827,6 +1828,9 @@ public:
     if (ossAppUrl) {
       res["OssAppUrl"] = boost::any(*ossAppUrl);
     }
+    if (signApk) {
+      res["SignApk"] = boost::any(*signApk);
+    }
     return res;
   }
 
@@ -1862,6 +1866,9 @@ public:
     if (m.find("OssAppUrl") != m.end() && !m["OssAppUrl"].empty()) {
       ossAppUrl = make_shared<string>(boost::any_cast<string>(m["OssAppUrl"]));
     }
+    if (m.find("SignApk") != m.end() && !m["SignApk"].empty()) {
+      signApk = make_shared<string>(boost::any_cast<string>(m["SignApk"]));
+    }
   }
 
 
@@ -1878,6 +1885,7 @@ public:
   shared_ptr<string> iconUrl{};
   shared_ptr<string> installParam{};
   shared_ptr<string> ossAppUrl{};
+  shared_ptr<string> signApk{};
 
   CreateAppShrinkRequest() {}
 
@@ -1916,6 +1924,9 @@ public:
     if (ossAppUrl) {
       res["OssAppUrl"] = boost::any(*ossAppUrl);
     }
+    if (signApk) {
+      res["SignApk"] = boost::any(*signApk);
+    }
     return res;
   }
 
@@ -1946,6 +1957,9 @@ public:
     }
     if (m.find("OssAppUrl") != m.end() && !m["OssAppUrl"].empty()) {
       ossAppUrl = make_shared<string>(boost::any_cast<string>(m["OssAppUrl"]));
+    }
+    if (m.find("SignApk") != m.end() && !m["SignApk"].empty()) {
+      signApk = make_shared<string>(boost::any_cast<string>(m["SignApk"]));
     }
   }
 
@@ -5585,6 +5599,7 @@ class DescribeAppsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> appIdList{};
   shared_ptr<string> appName{};
+  shared_ptr<string> appType{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> installationStatus{};
   shared_ptr<string> MD5{};
@@ -5607,6 +5622,9 @@ public:
     }
     if (appName) {
       res["AppName"] = boost::any(*appName);
+    }
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
     }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
@@ -5643,6 +5661,9 @@ public:
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<string>(boost::any_cast<string>(m["AppType"]));
+    }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
@@ -5672,6 +5693,7 @@ public:
   shared_ptr<string> apkSize{};
   shared_ptr<long> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<string> appType{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> description{};
   shared_ptr<string> gmtCreate{};
@@ -5704,6 +5726,9 @@ public:
     }
     if (appName) {
       res["AppName"] = boost::any(*appName);
+    }
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
     }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
@@ -5750,6 +5775,9 @@ public:
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<string>(boost::any_cast<string>(m["AppType"]));
     }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));

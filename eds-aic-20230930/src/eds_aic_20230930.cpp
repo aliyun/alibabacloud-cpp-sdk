@@ -421,6 +421,9 @@ CreateAppResponse Alibabacloud_Eds-aic20230930::Client::createAppWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->ossAppUrl)) {
     query->insert(pair<string, string>("OssAppUrl", *request->ossAppUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signApk)) {
+    query->insert(pair<string, string>("SignApk", *request->signApk));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1070,6 +1073,9 @@ DescribeAppsResponse Alibabacloud_Eds-aic20230930::Client::describeAppsWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
     query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    query->insert(pair<string, string>("AppType", *request->appType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
     query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
