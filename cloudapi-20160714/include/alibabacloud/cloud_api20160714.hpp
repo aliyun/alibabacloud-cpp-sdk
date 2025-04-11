@@ -52384,6 +52384,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
   shared_ptr<string> securityToken{};
+  shared_ptr<bool> sslOcspCacheEnable{};
   shared_ptr<bool> sslOcspEnable{};
   shared_ptr<string> sslVerifyDepth{};
 
@@ -52421,6 +52422,9 @@ public:
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
+    if (sslOcspCacheEnable) {
+      res["SslOcspCacheEnable"] = boost::any(*sslOcspCacheEnable);
+    }
     if (sslOcspEnable) {
       res["SslOcspEnable"] = boost::any(*sslOcspEnable);
     }
@@ -52454,6 +52458,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("SslOcspCacheEnable") != m.end() && !m["SslOcspCacheEnable"].empty()) {
+      sslOcspCacheEnable = make_shared<bool>(boost::any_cast<bool>(m["SslOcspCacheEnable"]));
     }
     if (m.find("SslOcspEnable") != m.end() && !m["SslOcspEnable"].empty()) {
       sslOcspEnable = make_shared<bool>(boost::any_cast<bool>(m["SslOcspEnable"]));

@@ -9393,6 +9393,9 @@ SetDomainCertificateResponse Alibabacloud_CloudAPI20160714::Client::setDomainCer
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->sslOcspCacheEnable)) {
+    query->insert(pair<string, bool>("SslOcspCacheEnable", *request->sslOcspCacheEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->sslOcspEnable)) {
     query->insert(pair<string, bool>("SslOcspEnable", *request->sslOcspEnable));
   }
