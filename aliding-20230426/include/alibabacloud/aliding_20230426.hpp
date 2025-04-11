@@ -30388,6 +30388,659 @@ public:
 
   virtual ~GetAllSheetsResponse() = default;
 };
+class GetAssistantCapabilityHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountId{};
+
+  GetAssistantCapabilityHeaders() {}
+
+  explicit GetAssistantCapabilityHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityHeaders() = default;
+};
+class GetAssistantCapabilityRequestContentCardCallback : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> userId{};
+
+  GetAssistantCapabilityRequestContentCardCallback() {}
+
+  explicit GetAssistantCapabilityRequestContentCardCallback(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityRequestContentCardCallback() = default;
+};
+class GetAssistantCapabilityRequestContentDingCard : public Darabonba::Model {
+public:
+  shared_ptr<string> cardDesc{};
+  shared_ptr<string> content{};
+  shared_ptr<string> contentType{};
+  shared_ptr<bool> finished{};
+  shared_ptr<string> templateId{};
+
+  GetAssistantCapabilityRequestContentDingCard() {}
+
+  explicit GetAssistantCapabilityRequestContentDingCard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardDesc) {
+      res["cardDesc"] = boost::any(*cardDesc);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (contentType) {
+      res["contentType"] = boost::any(*contentType);
+    }
+    if (finished) {
+      res["finished"] = boost::any(*finished);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cardDesc") != m.end() && !m["cardDesc"].empty()) {
+      cardDesc = make_shared<string>(boost::any_cast<string>(m["cardDesc"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("contentType") != m.end() && !m["contentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["contentType"]));
+    }
+    if (m.find("finished") != m.end() && !m["finished"].empty()) {
+      finished = make_shared<bool>(boost::any_cast<bool>(m["finished"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityRequestContentDingCard() = default;
+};
+class GetAssistantCapabilityRequestContentImageUrl : public Darabonba::Model {
+public:
+  shared_ptr<string> detail{};
+  shared_ptr<string> imageDesc{};
+  shared_ptr<string> url{};
+
+  GetAssistantCapabilityRequestContentImageUrl() {}
+
+  explicit GetAssistantCapabilityRequestContentImageUrl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detail) {
+      res["detail"] = boost::any(*detail);
+    }
+    if (imageDesc) {
+      res["imageDesc"] = boost::any(*imageDesc);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("detail") != m.end() && !m["detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["detail"]));
+    }
+    if (m.find("imageDesc") != m.end() && !m["imageDesc"].empty()) {
+      imageDesc = make_shared<string>(boost::any_cast<string>(m["imageDesc"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityRequestContentImageUrl() = default;
+};
+class GetAssistantCapabilityRequestContentMarkdown : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  GetAssistantCapabilityRequestContentMarkdown() {}
+
+  explicit GetAssistantCapabilityRequestContentMarkdown(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityRequestContentMarkdown() = default;
+};
+class GetAssistantCapabilityRequestContentText : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  GetAssistantCapabilityRequestContentText() {}
+
+  explicit GetAssistantCapabilityRequestContentText(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityRequestContentText() = default;
+};
+class GetAssistantCapabilityRequestContent : public Darabonba::Model {
+public:
+  shared_ptr<GetAssistantCapabilityRequestContentCardCallback> cardCallback{};
+  shared_ptr<GetAssistantCapabilityRequestContentDingCard> dingCard{};
+  shared_ptr<GetAssistantCapabilityRequestContentImageUrl> imageUrl{};
+  shared_ptr<GetAssistantCapabilityRequestContentMarkdown> markdown{};
+  shared_ptr<GetAssistantCapabilityRequestContentText> text{};
+  shared_ptr<string> type{};
+
+  GetAssistantCapabilityRequestContent() {}
+
+  explicit GetAssistantCapabilityRequestContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardCallback) {
+      res["cardCallback"] = cardCallback ? boost::any(cardCallback->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dingCard) {
+      res["dingCard"] = dingCard ? boost::any(dingCard->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (imageUrl) {
+      res["imageUrl"] = imageUrl ? boost::any(imageUrl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (markdown) {
+      res["markdown"] = markdown ? boost::any(markdown->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (text) {
+      res["text"] = text ? boost::any(text->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cardCallback") != m.end() && !m["cardCallback"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cardCallback"].type()) {
+        GetAssistantCapabilityRequestContentCardCallback model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cardCallback"]));
+        cardCallback = make_shared<GetAssistantCapabilityRequestContentCardCallback>(model1);
+      }
+    }
+    if (m.find("dingCard") != m.end() && !m["dingCard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["dingCard"].type()) {
+        GetAssistantCapabilityRequestContentDingCard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["dingCard"]));
+        dingCard = make_shared<GetAssistantCapabilityRequestContentDingCard>(model1);
+      }
+    }
+    if (m.find("imageUrl") != m.end() && !m["imageUrl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["imageUrl"].type()) {
+        GetAssistantCapabilityRequestContentImageUrl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["imageUrl"]));
+        imageUrl = make_shared<GetAssistantCapabilityRequestContentImageUrl>(model1);
+      }
+    }
+    if (m.find("markdown") != m.end() && !m["markdown"].empty()) {
+      if (typeid(map<string, boost::any>) == m["markdown"].type()) {
+        GetAssistantCapabilityRequestContentMarkdown model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["markdown"]));
+        markdown = make_shared<GetAssistantCapabilityRequestContentMarkdown>(model1);
+      }
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      if (typeid(map<string, boost::any>) == m["text"].type()) {
+        GetAssistantCapabilityRequestContentText model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["text"]));
+        text = make_shared<GetAssistantCapabilityRequestContentText>(model1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityRequestContent() = default;
+};
+class GetAssistantCapabilityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> assistantId{};
+  shared_ptr<vector<GetAssistantCapabilityRequestContent>> content{};
+  shared_ptr<string> id{};
+  shared_ptr<map<string, boost::any>> metadata{};
+  shared_ptr<string> originalAssistantId{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> threadId{};
+  shared_ptr<long> timeout{};
+
+  GetAssistantCapabilityRequest() {}
+
+  explicit GetAssistantCapabilityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistantId) {
+      res["assistantId"] = boost::any(*assistantId);
+    }
+    if (content) {
+      vector<boost::any> temp1;
+      for(auto item1:*content){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["content"] = boost::any(temp1);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (metadata) {
+      res["metadata"] = boost::any(*metadata);
+    }
+    if (originalAssistantId) {
+      res["originalAssistantId"] = boost::any(*originalAssistantId);
+    }
+    if (protocol) {
+      res["protocol"] = boost::any(*protocol);
+    }
+    if (threadId) {
+      res["threadId"] = boost::any(*threadId);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistantId") != m.end() && !m["assistantId"].empty()) {
+      assistantId = make_shared<string>(boost::any_cast<string>(m["assistantId"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      if (typeid(vector<boost::any>) == m["content"].type()) {
+        vector<GetAssistantCapabilityRequestContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["content"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAssistantCapabilityRequestContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        content = make_shared<vector<GetAssistantCapabilityRequestContent>>(expect1);
+      }
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("metadata") != m.end() && !m["metadata"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["metadata"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metadata = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("originalAssistantId") != m.end() && !m["originalAssistantId"].empty()) {
+      originalAssistantId = make_shared<string>(boost::any_cast<string>(m["originalAssistantId"]));
+    }
+    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+    if (m.find("threadId") != m.end() && !m["threadId"].empty()) {
+      threadId = make_shared<string>(boost::any_cast<string>(m["threadId"]));
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityRequest() = default;
+};
+class GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList : public Darabonba::Model {
+public:
+  shared_ptr<string> capabilityOverview{};
+  shared_ptr<string> description{};
+  shared_ptr<map<string, boost::any>> metadata{};
+  shared_ptr<string> name{};
+
+  GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList() {}
+
+  explicit GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (capabilityOverview) {
+      res["capabilityOverview"] = boost::any(*capabilityOverview);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (metadata) {
+      res["metadata"] = boost::any(*metadata);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("capabilityOverview") != m.end() && !m["capabilityOverview"].empty()) {
+      capabilityOverview = make_shared<string>(boost::any_cast<string>(m["capabilityOverview"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("metadata") != m.end() && !m["metadata"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["metadata"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metadata = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList() = default;
+};
+class GetAssistantCapabilityResponseBodyCapabilityAssessment : public Darabonba::Model {
+public:
+  shared_ptr<string> briefCapability{};
+  shared_ptr<vector<GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList>> capabilityList{};
+
+  GetAssistantCapabilityResponseBodyCapabilityAssessment() {}
+
+  explicit GetAssistantCapabilityResponseBodyCapabilityAssessment(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (briefCapability) {
+      res["briefCapability"] = boost::any(*briefCapability);
+    }
+    if (capabilityList) {
+      vector<boost::any> temp1;
+      for(auto item1:*capabilityList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["capabilityList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("briefCapability") != m.end() && !m["briefCapability"].empty()) {
+      briefCapability = make_shared<string>(boost::any_cast<string>(m["briefCapability"]));
+    }
+    if (m.find("capabilityList") != m.end() && !m["capabilityList"].empty()) {
+      if (typeid(vector<boost::any>) == m["capabilityList"].type()) {
+        vector<GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["capabilityList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        capabilityList = make_shared<vector<GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityResponseBodyCapabilityAssessment() = default;
+};
+class GetAssistantCapabilityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> assistantDescription{};
+  shared_ptr<bool> canHandle{};
+  shared_ptr<GetAssistantCapabilityResponseBodyCapabilityAssessment> capabilityAssessment{};
+  shared_ptr<string> id{};
+  shared_ptr<map<string, boost::any>> metadata{};
+  shared_ptr<string> requestId{};
+
+  GetAssistantCapabilityResponseBody() {}
+
+  explicit GetAssistantCapabilityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistantDescription) {
+      res["assistantDescription"] = boost::any(*assistantDescription);
+    }
+    if (canHandle) {
+      res["canHandle"] = boost::any(*canHandle);
+    }
+    if (capabilityAssessment) {
+      res["capabilityAssessment"] = capabilityAssessment ? boost::any(capabilityAssessment->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (metadata) {
+      res["metadata"] = boost::any(*metadata);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistantDescription") != m.end() && !m["assistantDescription"].empty()) {
+      assistantDescription = make_shared<string>(boost::any_cast<string>(m["assistantDescription"]));
+    }
+    if (m.find("canHandle") != m.end() && !m["canHandle"].empty()) {
+      canHandle = make_shared<bool>(boost::any_cast<bool>(m["canHandle"]));
+    }
+    if (m.find("capabilityAssessment") != m.end() && !m["capabilityAssessment"].empty()) {
+      if (typeid(map<string, boost::any>) == m["capabilityAssessment"].type()) {
+        GetAssistantCapabilityResponseBodyCapabilityAssessment model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["capabilityAssessment"]));
+        capabilityAssessment = make_shared<GetAssistantCapabilityResponseBodyCapabilityAssessment>(model1);
+      }
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("metadata") != m.end() && !m["metadata"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["metadata"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metadata = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityResponseBody() = default;
+};
+class GetAssistantCapabilityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAssistantCapabilityResponseBody> body{};
+
+  GetAssistantCapabilityResponse() {}
+
+  explicit GetAssistantCapabilityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAssistantCapabilityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAssistantCapabilityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAssistantCapabilityResponse() = default;
+};
 class GetConversaionSpaceHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -106448,6 +107101,8 @@ public:
   GetActivityListResponse getActivityList(shared_ptr<GetActivityListRequest> request);
   GetAllSheetsResponse getAllSheetsWithOptions(shared_ptr<GetAllSheetsRequest> tmpReq, shared_ptr<GetAllSheetsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAllSheetsResponse getAllSheets(shared_ptr<GetAllSheetsRequest> request);
+  GetAssistantCapabilityResponse getAssistantCapabilityWithOptions(shared_ptr<GetAssistantCapabilityRequest> request, shared_ptr<GetAssistantCapabilityHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAssistantCapabilityResponse getAssistantCapability(shared_ptr<GetAssistantCapabilityRequest> request);
   GetConversaionSpaceResponse getConversaionSpaceWithOptions(shared_ptr<GetConversaionSpaceRequest> tmpReq, shared_ptr<GetConversaionSpaceHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetConversaionSpaceResponse getConversaionSpace(shared_ptr<GetConversaionSpaceRequest> request);
   GetCorpAccomplishmentTasksResponse getCorpAccomplishmentTasksWithOptions(shared_ptr<GetCorpAccomplishmentTasksRequest> request, shared_ptr<GetCorpAccomplishmentTasksHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

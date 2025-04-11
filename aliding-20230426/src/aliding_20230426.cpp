@@ -4601,6 +4601,69 @@ GetAllSheetsResponse Alibabacloud_Aliding20230426::Client::getAllSheets(shared_p
   return getAllSheetsWithOptions(request, headers, runtime);
 }
 
+GetAssistantCapabilityResponse Alibabacloud_Aliding20230426::Client::getAssistantCapabilityWithOptions(shared_ptr<GetAssistantCapabilityRequest> request, shared_ptr<GetAssistantCapabilityHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assistantId)) {
+    body->insert(pair<string, string>("assistantId", *request->assistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<GetAssistantCapabilityRequestContent>>(request->content)) {
+    body->insert(pair<string, vector<GetAssistantCapabilityRequestContent>>("content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    body->insert(pair<string, string>("id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->metadata)) {
+    body->insert(pair<string, map<string, boost::any>>("metadata", *request->metadata));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originalAssistantId)) {
+    body->insert(pair<string, string>("originalAssistantId", *request->originalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
+    body->insert(pair<string, string>("protocol", *request->protocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->threadId)) {
+    body->insert(pair<string, string>("threadId", *request->threadId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    body->insert(pair<string, long>("timeout", *request->timeout));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountId)) {
+    realHeaders->insert(pair<string, string>("accountId", Darabonba_Util::Client::toJSONString(headers->accountId)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAssistantCapability"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/ai/v1/assistant/getAssistantCapability"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetAssistantCapabilityResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetAssistantCapabilityResponse(execute(params, req, runtime));
+  }
+}
+
+GetAssistantCapabilityResponse Alibabacloud_Aliding20230426::Client::getAssistantCapability(shared_ptr<GetAssistantCapabilityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetAssistantCapabilityHeaders> headers = make_shared<GetAssistantCapabilityHeaders>();
+  return getAssistantCapabilityWithOptions(request, headers, runtime);
+}
+
 GetConversaionSpaceResponse Alibabacloud_Aliding20230426::Client::getConversaionSpaceWithOptions(shared_ptr<GetConversaionSpaceRequest> tmpReq, shared_ptr<GetConversaionSpaceHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetConversaionSpaceShrinkRequest> request = make_shared<GetConversaionSpaceShrinkRequest>();
