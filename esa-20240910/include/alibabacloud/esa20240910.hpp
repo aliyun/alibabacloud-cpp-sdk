@@ -57866,6 +57866,7 @@ public:
 };
 class ListWafTemplateRulesRequestQueryArgs : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> kinds{};
   shared_ptr<string> type{};
 
   ListWafTemplateRulesRequestQueryArgs() {}
@@ -57878,6 +57879,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (kinds) {
+      res["Kinds"] = boost::any(*kinds);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -57885,6 +57889,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Kinds") != m.end() && !m["Kinds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Kinds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Kinds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      kinds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
