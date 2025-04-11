@@ -5084,6 +5084,9 @@ ModifyDtsJobEndpointResponse Alibabacloud_Dts20200101::Client::modifyDtsJobEndpo
   if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
     query->insert(pair<string, string>("Username", *request->username));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

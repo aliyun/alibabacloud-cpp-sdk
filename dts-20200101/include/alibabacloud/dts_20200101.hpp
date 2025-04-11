@@ -11520,6 +11520,7 @@ public:
 };
 class DescribeDtsJobDetailResponseBodyDestinationEndpoint : public Darabonba::Model {
 public:
+  shared_ptr<string> aliyunUid{};
   shared_ptr<bool> canModifyPassword{};
   shared_ptr<string> databaseName{};
   shared_ptr<string> engineName{};
@@ -11529,6 +11530,7 @@ public:
   shared_ptr<string> oracleSID{};
   shared_ptr<string> port{};
   shared_ptr<string> region{};
+  shared_ptr<string> roleName{};
   shared_ptr<string> sslSolutionEnum{};
   shared_ptr<string> userName{};
 
@@ -11542,6 +11544,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aliyunUid) {
+      res["AliyunUid"] = boost::any(*aliyunUid);
+    }
     if (canModifyPassword) {
       res["CanModifyPassword"] = boost::any(*canModifyPassword);
     }
@@ -11569,6 +11574,9 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
     if (sslSolutionEnum) {
       res["SslSolutionEnum"] = boost::any(*sslSolutionEnum);
     }
@@ -11579,6 +11587,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunUid") != m.end() && !m["AliyunUid"].empty()) {
+      aliyunUid = make_shared<string>(boost::any_cast<string>(m["AliyunUid"]));
+    }
     if (m.find("CanModifyPassword") != m.end() && !m["CanModifyPassword"].empty()) {
       canModifyPassword = make_shared<bool>(boost::any_cast<bool>(m["CanModifyPassword"]));
     }
@@ -11605,6 +11616,9 @@ public:
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
     }
     if (m.find("SslSolutionEnum") != m.end() && !m["SslSolutionEnum"].empty()) {
       sslSolutionEnum = make_shared<string>(boost::any_cast<string>(m["SslSolutionEnum"]));
@@ -38496,6 +38510,7 @@ public:
   shared_ptr<string> shardUsername{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> username{};
+  shared_ptr<bool> zeroEtlJob{};
 
   ModifyDtsJobEndpointRequest() {}
 
@@ -38567,6 +38582,9 @@ public:
     if (username) {
       res["Username"] = boost::any(*username);
     }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
+    }
     return res;
   }
 
@@ -38630,6 +38648,9 @@ public:
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
