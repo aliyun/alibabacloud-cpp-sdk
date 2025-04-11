@@ -475,6 +475,9 @@ ListEvaluationMetricDetailsResponse Alibabacloud_Governance20210120::Client::lis
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
     query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
   }
@@ -516,6 +519,9 @@ ListEvaluationResultsResponse Alibabacloud_Governance20210120::Client::listEvalu
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
     query->insert(pair<string, string>("SnapshotId", *request->snapshotId));

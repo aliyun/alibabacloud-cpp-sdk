@@ -3150,6 +3150,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> scope{};
   shared_ptr<string> snapshotId{};
 
   ListEvaluationMetricDetailsRequest() {}
@@ -3177,6 +3178,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
     }
@@ -3198,6 +3202,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
     }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
@@ -3492,6 +3499,7 @@ public:
   shared_ptr<long> accountId{};
   shared_ptr<vector<ListEvaluationResultsRequestFilters>> filters{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> scope{};
   shared_ptr<string> snapshotId{};
 
   ListEvaluationResultsRequest() {}
@@ -3516,6 +3524,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
     }
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
@@ -3543,6 +3554,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
     }
@@ -3550,6 +3564,35 @@ public:
 
 
   virtual ~ListEvaluationResultsRequest() = default;
+};
+class ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary : public Darabonba::Model {
+public:
+  shared_ptr<long> nonCompliant{};
+
+  ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary() {}
+
+  explicit ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nonCompliant) {
+      res["NonCompliant"] = boost::any(*nonCompliant);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NonCompliant") != m.end() && !m["NonCompliant"].empty()) {
+      nonCompliant = make_shared<long>(boost::any_cast<long>(m["NonCompliant"]));
+    }
+  }
+
+
+  virtual ~ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary() = default;
 };
 class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo : public Darabonba::Model {
 public:
@@ -3618,6 +3661,7 @@ public:
 };
 class ListEvaluationResultsResponseBodyResultsMetricResults : public Darabonba::Model {
 public:
+  shared_ptr<ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary> accountSummary{};
   shared_ptr<ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo> errorInfo{};
   shared_ptr<string> evaluationTime{};
   shared_ptr<string> id{};
@@ -3636,6 +3680,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountSummary) {
+      res["AccountSummary"] = accountSummary ? boost::any(accountSummary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (errorInfo) {
       res["ErrorInfo"] = errorInfo ? boost::any(errorInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3661,6 +3708,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountSummary") != m.end() && !m["AccountSummary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountSummary"].type()) {
+        ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountSummary"]));
+        accountSummary = make_shared<ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary>(model1);
+      }
+    }
     if (m.find("ErrorInfo") != m.end() && !m["ErrorInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["ErrorInfo"].type()) {
         ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo model1;
