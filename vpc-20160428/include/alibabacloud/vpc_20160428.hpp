@@ -45065,6 +45065,7 @@ public:
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> ipv6GatewayId{};
   shared_ptr<string> name{};
+  shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
@@ -45105,6 +45106,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -45151,6 +45155,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -45475,6 +45482,7 @@ public:
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> ipv6GatewayId{};
   shared_ptr<string> name{};
+  shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
@@ -45511,6 +45519,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -45551,6 +45562,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
