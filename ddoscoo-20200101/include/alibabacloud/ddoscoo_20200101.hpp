@@ -668,6 +668,123 @@ public:
 
   virtual ~ConfigDomainSecurityProfileResponse() = default;
 };
+class ConfigL7GlobalRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> ruleAttr{};
+
+  ConfigL7GlobalRuleRequest() {}
+
+  explicit ConfigL7GlobalRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (ruleAttr) {
+      res["RuleAttr"] = boost::any(*ruleAttr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("RuleAttr") != m.end() && !m["RuleAttr"].empty()) {
+      ruleAttr = make_shared<string>(boost::any_cast<string>(m["RuleAttr"]));
+    }
+  }
+
+
+  virtual ~ConfigL7GlobalRuleRequest() = default;
+};
+class ConfigL7GlobalRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ConfigL7GlobalRuleResponseBody() {}
+
+  explicit ConfigL7GlobalRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ConfigL7GlobalRuleResponseBody() = default;
+};
+class ConfigL7GlobalRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ConfigL7GlobalRuleResponseBody> body{};
+
+  ConfigL7GlobalRuleResponse() {}
+
+  explicit ConfigL7GlobalRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ConfigL7GlobalRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ConfigL7GlobalRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ConfigL7GlobalRuleResponse() = default;
+};
 class ConfigL7RsPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
@@ -12894,6 +13011,7 @@ class DescribeDomainViewTopUrlRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
   shared_ptr<long> endTime{};
+  shared_ptr<long> inerval{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> startTime{};
   shared_ptr<long> top{};
@@ -12914,6 +13032,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (inerval) {
+      res["Inerval"] = boost::any(*inerval);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -12932,6 +13053,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Inerval") != m.end() && !m["Inerval"].empty()) {
+      inerval = make_shared<long>(boost::any_cast<long>(m["Inerval"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -16180,6 +16304,208 @@ public:
 
 
   virtual ~DescribeInstancesResponse() = default;
+};
+class DescribeL7GlobalRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> lang{};
+
+  DescribeL7GlobalRuleRequest() {}
+
+  explicit DescribeL7GlobalRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+  }
+
+
+  virtual ~DescribeL7GlobalRuleRequest() = default;
+};
+class DescribeL7GlobalRuleResponseBodyGlobalRules : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> actionDefault{};
+  shared_ptr<string> description{};
+  shared_ptr<long> enabled{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleName{};
+
+  DescribeL7GlobalRuleResponseBodyGlobalRules() {}
+
+  explicit DescribeL7GlobalRuleResponseBodyGlobalRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (actionDefault) {
+      res["ActionDefault"] = boost::any(*actionDefault);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ActionDefault") != m.end() && !m["ActionDefault"].empty()) {
+      actionDefault = make_shared<string>(boost::any_cast<string>(m["ActionDefault"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<long>(boost::any_cast<long>(m["Enabled"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~DescribeL7GlobalRuleResponseBodyGlobalRules() = default;
+};
+class DescribeL7GlobalRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeL7GlobalRuleResponseBodyGlobalRules>> globalRules{};
+  shared_ptr<string> requestId{};
+
+  DescribeL7GlobalRuleResponseBody() {}
+
+  explicit DescribeL7GlobalRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalRules"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalRules") != m.end() && !m["GlobalRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalRules"].type()) {
+        vector<DescribeL7GlobalRuleResponseBodyGlobalRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeL7GlobalRuleResponseBodyGlobalRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalRules = make_shared<vector<DescribeL7GlobalRuleResponseBodyGlobalRules>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeL7GlobalRuleResponseBody() = default;
+};
+class DescribeL7GlobalRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeL7GlobalRuleResponseBody> body{};
+
+  DescribeL7GlobalRuleResponse() {}
+
+  explicit DescribeL7GlobalRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeL7GlobalRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeL7GlobalRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeL7GlobalRuleResponse() = default;
 };
 class DescribeL7RsPolicyRequest : public Darabonba::Model {
 public:
@@ -33602,6 +33928,8 @@ public:
   AttachSceneDefenseObjectResponse attachSceneDefenseObject(shared_ptr<AttachSceneDefenseObjectRequest> request);
   ConfigDomainSecurityProfileResponse configDomainSecurityProfileWithOptions(shared_ptr<ConfigDomainSecurityProfileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigDomainSecurityProfileResponse configDomainSecurityProfile(shared_ptr<ConfigDomainSecurityProfileRequest> request);
+  ConfigL7GlobalRuleResponse configL7GlobalRuleWithOptions(shared_ptr<ConfigL7GlobalRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConfigL7GlobalRuleResponse configL7GlobalRule(shared_ptr<ConfigL7GlobalRuleRequest> request);
   ConfigL7RsPolicyResponse configL7RsPolicyWithOptions(shared_ptr<ConfigL7RsPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigL7RsPolicyResponse configL7RsPolicy(shared_ptr<ConfigL7RsPolicyRequest> request);
   ConfigL7UsKeepaliveResponse configL7UsKeepaliveWithOptions(shared_ptr<ConfigL7UsKeepaliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -33776,6 +34104,8 @@ public:
   DescribeInstanceStatusResponse describeInstanceStatus(shared_ptr<DescribeInstanceStatusRequest> request);
   DescribeInstancesResponse describeInstancesWithOptions(shared_ptr<DescribeInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstancesResponse describeInstances(shared_ptr<DescribeInstancesRequest> request);
+  DescribeL7GlobalRuleResponse describeL7GlobalRuleWithOptions(shared_ptr<DescribeL7GlobalRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeL7GlobalRuleResponse describeL7GlobalRule(shared_ptr<DescribeL7GlobalRuleRequest> request);
   DescribeL7RsPolicyResponse describeL7RsPolicyWithOptions(shared_ptr<DescribeL7RsPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeL7RsPolicyResponse describeL7RsPolicy(shared_ptr<DescribeL7RsPolicyRequest> request);
   DescribeL7UsKeepaliveResponse describeL7UsKeepaliveWithOptions(shared_ptr<DescribeL7UsKeepaliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -244,6 +244,42 @@ ConfigDomainSecurityProfileResponse Alibabacloud_Ddoscoo20200101::Client::config
   return configDomainSecurityProfileWithOptions(request, runtime);
 }
 
+ConfigL7GlobalRuleResponse Alibabacloud_Ddoscoo20200101::Client::configL7GlobalRuleWithOptions(shared_ptr<ConfigL7GlobalRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleAttr)) {
+    query->insert(pair<string, string>("RuleAttr", *request->ruleAttr));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConfigL7GlobalRule"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ConfigL7GlobalRuleResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ConfigL7GlobalRuleResponse(execute(params, req, runtime));
+  }
+}
+
+ConfigL7GlobalRuleResponse Alibabacloud_Ddoscoo20200101::Client::configL7GlobalRule(shared_ptr<ConfigL7GlobalRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return configL7GlobalRuleWithOptions(request, runtime);
+}
+
 ConfigL7RsPolicyResponse Alibabacloud_Ddoscoo20200101::Client::configL7RsPolicyWithOptions(shared_ptr<ConfigL7RsPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3175,6 +3211,9 @@ DescribeDomainViewTopUrlResponse Alibabacloud_Ddoscoo20200101::Client::describeD
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     query->insert(pair<string, long>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->inerval)) {
+    query->insert(pair<string, long>("Inerval", *request->inerval));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -3743,6 +3782,42 @@ DescribeInstancesResponse Alibabacloud_Ddoscoo20200101::Client::describeInstance
 DescribeInstancesResponse Alibabacloud_Ddoscoo20200101::Client::describeInstances(shared_ptr<DescribeInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeInstancesWithOptions(request, runtime);
+}
+
+DescribeL7GlobalRuleResponse Alibabacloud_Ddoscoo20200101::Client::describeL7GlobalRuleWithOptions(shared_ptr<DescribeL7GlobalRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeL7GlobalRule"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeL7GlobalRuleResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeL7GlobalRuleResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeL7GlobalRuleResponse Alibabacloud_Ddoscoo20200101::Client::describeL7GlobalRule(shared_ptr<DescribeL7GlobalRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeL7GlobalRuleWithOptions(request, runtime);
 }
 
 DescribeL7RsPolicyResponse Alibabacloud_Ddoscoo20200101::Client::describeL7RsPolicyWithOptions(shared_ptr<DescribeL7RsPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
