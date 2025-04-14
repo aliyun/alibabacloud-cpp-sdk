@@ -15678,6 +15678,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceType{};
+  shared_ptr<string> sourceTypes{};
 
   ListServicesRequest() {}
 
@@ -15707,6 +15708,9 @@ public:
     if (sourceType) {
       res["sourceType"] = boost::any(*sourceType);
     }
+    if (sourceTypes) {
+      res["sourceTypes"] = boost::any(*sourceTypes);
+    }
     return res;
   }
 
@@ -15728,6 +15732,9 @@ public:
     }
     if (m.find("sourceType") != m.end() && !m["sourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["sourceType"]));
+    }
+    if (m.find("sourceTypes") != m.end() && !m["sourceTypes"].empty()) {
+      sourceTypes = make_shared<string>(boost::any_cast<string>(m["sourceTypes"]));
     }
   }
 
