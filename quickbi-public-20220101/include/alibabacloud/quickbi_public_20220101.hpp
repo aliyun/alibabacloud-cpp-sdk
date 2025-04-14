@@ -22630,6 +22630,8 @@ public:
 class SmartqQueryAbilityResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> chartType{};
+  shared_ptr<string> conclusionText{};
+  shared_ptr<string> logicSql{};
   shared_ptr<vector<SmartqQueryAbilityResponseBodyResultMetaType>> metaType{};
   shared_ptr<vector<SmartqQueryAbilityResponseBodyResultValues>> values{};
 
@@ -22645,6 +22647,12 @@ public:
     map<string, boost::any> res;
     if (chartType) {
       res["ChartType"] = boost::any(*chartType);
+    }
+    if (conclusionText) {
+      res["ConclusionText"] = boost::any(*conclusionText);
+    }
+    if (logicSql) {
+      res["LogicSql"] = boost::any(*logicSql);
     }
     if (metaType) {
       vector<boost::any> temp1;
@@ -22666,6 +22674,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ChartType") != m.end() && !m["ChartType"].empty()) {
       chartType = make_shared<string>(boost::any_cast<string>(m["ChartType"]));
+    }
+    if (m.find("ConclusionText") != m.end() && !m["ConclusionText"].empty()) {
+      conclusionText = make_shared<string>(boost::any_cast<string>(m["ConclusionText"]));
+    }
+    if (m.find("LogicSql") != m.end() && !m["LogicSql"].empty()) {
+      logicSql = make_shared<string>(boost::any_cast<string>(m["LogicSql"]));
     }
     if (m.find("MetaType") != m.end() && !m["MetaType"].empty()) {
       if (typeid(vector<boost::any>) == m["MetaType"].type()) {
