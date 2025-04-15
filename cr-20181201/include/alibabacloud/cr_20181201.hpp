@@ -3608,6 +3608,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> repoId{};
   shared_ptr<string> scanService{};
+  shared_ptr<string> scanType{};
   shared_ptr<string> tag{};
 
   CreateRepoTagScanTaskRequest() {}
@@ -3632,6 +3633,9 @@ public:
     if (scanService) {
       res["ScanService"] = boost::any(*scanService);
     }
+    if (scanType) {
+      res["ScanType"] = boost::any(*scanType);
+    }
     if (tag) {
       res["Tag"] = boost::any(*tag);
     }
@@ -3650,6 +3654,9 @@ public:
     }
     if (m.find("ScanService") != m.end() && !m["ScanService"].empty()) {
       scanService = make_shared<string>(boost::any_cast<string>(m["ScanService"]));
+    }
+    if (m.find("ScanType") != m.end() && !m["ScanType"].empty()) {
+      scanType = make_shared<string>(boost::any_cast<string>(m["ScanType"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
@@ -11131,6 +11138,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> repoId{};
   shared_ptr<string> scanTaskId{};
+  shared_ptr<string> scanType{};
   shared_ptr<string> tag{};
 
   GetRepoTagScanStatusRequest() {}
@@ -11155,6 +11163,9 @@ public:
     if (scanTaskId) {
       res["ScanTaskId"] = boost::any(*scanTaskId);
     }
+    if (scanType) {
+      res["ScanType"] = boost::any(*scanType);
+    }
     if (tag) {
       res["Tag"] = boost::any(*tag);
     }
@@ -11173,6 +11184,9 @@ public:
     }
     if (m.find("ScanTaskId") != m.end() && !m["ScanTaskId"].empty()) {
       scanTaskId = make_shared<string>(boost::any_cast<string>(m["ScanTaskId"]));
+    }
+    if (m.find("ScanType") != m.end() && !m["ScanType"].empty()) {
+      scanType = make_shared<string>(boost::any_cast<string>(m["ScanType"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));

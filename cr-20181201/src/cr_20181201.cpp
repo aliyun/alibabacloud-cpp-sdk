@@ -60,12 +60,7 @@ CancelArtifactBuildTaskResponse Alibabacloud_Cr20181201::Client::cancelArtifactB
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelArtifactBuildTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelArtifactBuildTaskResponse(execute(params, req, runtime));
-  }
+  return CancelArtifactBuildTaskResponse(callApi(params, req, runtime));
 }
 
 CancelArtifactBuildTaskResponse Alibabacloud_Cr20181201::Client::cancelArtifactBuildTask(shared_ptr<CancelArtifactBuildTaskRequest> request) {
@@ -99,12 +94,7 @@ CancelRepoBuildRecordResponse Alibabacloud_Cr20181201::Client::cancelRepoBuildRe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelRepoBuildRecordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelRepoBuildRecordResponse(execute(params, req, runtime));
-  }
+  return CancelRepoBuildRecordResponse(callApi(params, req, runtime));
 }
 
 CancelRepoBuildRecordResponse Alibabacloud_Cr20181201::Client::cancelRepoBuildRecord(shared_ptr<CancelRepoBuildRecordRequest> request) {
@@ -135,12 +125,7 @@ CancelRepoSyncTaskResponse Alibabacloud_Cr20181201::Client::cancelRepoSyncTaskWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelRepoSyncTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelRepoSyncTaskResponse(execute(params, req, runtime));
-  }
+  return CancelRepoSyncTaskResponse(callApi(params, req, runtime));
 }
 
 CancelRepoSyncTaskResponse Alibabacloud_Cr20181201::Client::cancelRepoSyncTask(shared_ptr<CancelRepoSyncTaskRequest> request) {
@@ -174,12 +159,7 @@ ChangeResourceGroupResponse Alibabacloud_Cr20181201::Client::changeResourceGroup
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ChangeResourceGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ChangeResourceGroupResponse(execute(params, req, runtime));
-  }
+  return ChangeResourceGroupResponse(callApi(params, req, runtime));
 }
 
 ChangeResourceGroupResponse Alibabacloud_Cr20181201::Client::changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request) {
@@ -224,12 +204,7 @@ CreateArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::createArtifactB
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateArtifactBuildRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateArtifactBuildRuleResponse(execute(params, req, runtime));
-  }
+  return CreateArtifactBuildRuleResponse(callApi(params, req, runtime));
 }
 
 CreateArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::createArtifactBuildRule(shared_ptr<CreateArtifactBuildRuleRequest> request) {
@@ -281,12 +256,7 @@ CreateArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::createArtif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateArtifactLifecycleRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateArtifactLifecycleRuleResponse(execute(params, req, runtime));
-  }
+  return CreateArtifactLifecycleRuleResponse(callApi(params, req, runtime));
 }
 
 CreateArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::createArtifactLifecycleRule(shared_ptr<CreateArtifactLifecycleRuleRequest> request) {
@@ -344,12 +314,7 @@ CreateArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::createAr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateArtifactSubscriptionRuleResponse(execute(params, req, runtime));
-  }
+  return CreateArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
 }
 
 CreateArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::createArtifactSubscriptionRule(shared_ptr<CreateArtifactSubscriptionRuleRequest> request) {
@@ -380,12 +345,7 @@ CreateArtifactSubscriptionTaskResponse Alibabacloud_Cr20181201::Client::createAr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateArtifactSubscriptionTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateArtifactSubscriptionTaskResponse(execute(params, req, runtime));
-  }
+  return CreateArtifactSubscriptionTaskResponse(callApi(params, req, runtime));
 }
 
 CreateArtifactSubscriptionTaskResponse Alibabacloud_Cr20181201::Client::createArtifactSubscriptionTask(shared_ptr<CreateArtifactSubscriptionTaskRequest> request) {
@@ -419,12 +379,7 @@ CreateBuildRecordByRecordResponse Alibabacloud_Cr20181201::Client::createBuildRe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateBuildRecordByRecordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateBuildRecordByRecordResponse(execute(params, req, runtime));
-  }
+  return CreateBuildRecordByRecordResponse(callApi(params, req, runtime));
 }
 
 CreateBuildRecordByRecordResponse Alibabacloud_Cr20181201::Client::createBuildRecordByRecord(shared_ptr<CreateBuildRecordByRecordRequest> request) {
@@ -458,12 +413,7 @@ CreateBuildRecordByRuleResponse Alibabacloud_Cr20181201::Client::createBuildReco
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateBuildRecordByRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateBuildRecordByRuleResponse(execute(params, req, runtime));
-  }
+  return CreateBuildRecordByRuleResponse(callApi(params, req, runtime));
 }
 
 CreateBuildRecordByRuleResponse Alibabacloud_Cr20181201::Client::createBuildRecordByRule(shared_ptr<CreateBuildRecordByRuleRequest> request) {
@@ -509,12 +459,7 @@ CreateChainResponse Alibabacloud_Cr20181201::Client::createChainWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateChainResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateChainResponse(execute(params, req, runtime));
-  }
+  return CreateChainResponse(callApi(params, req, runtime));
 }
 
 CreateChainResponse Alibabacloud_Cr20181201::Client::createChain(shared_ptr<CreateChainRequest> request) {
@@ -551,12 +496,7 @@ CreateChartNamespaceResponse Alibabacloud_Cr20181201::Client::createChartNamespa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateChartNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateChartNamespaceResponse(execute(params, req, runtime));
-  }
+  return CreateChartNamespaceResponse(callApi(params, req, runtime));
 }
 
 CreateChartNamespaceResponse Alibabacloud_Cr20181201::Client::createChartNamespace(shared_ptr<CreateChartNamespaceRequest> request) {
@@ -596,12 +536,7 @@ CreateChartRepositoryResponse Alibabacloud_Cr20181201::Client::createChartReposi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateChartRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateChartRepositoryResponse(execute(params, req, runtime));
-  }
+  return CreateChartRepositoryResponse(callApi(params, req, runtime));
 }
 
 CreateChartRepositoryResponse Alibabacloud_Cr20181201::Client::createChartRepository(shared_ptr<CreateChartRepositoryRequest> request) {
@@ -641,12 +576,7 @@ CreateInstanceEndpointAclPolicyResponse Alibabacloud_Cr20181201::Client::createI
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateInstanceEndpointAclPolicyResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateInstanceEndpointAclPolicyResponse(execute(params, req, runtime));
-  }
+  return CreateInstanceEndpointAclPolicyResponse(callApi(params, req, runtime));
 }
 
 CreateInstanceEndpointAclPolicyResponse Alibabacloud_Cr20181201::Client::createInstanceEndpointAclPolicy(shared_ptr<CreateInstanceEndpointAclPolicyRequest> request) {
@@ -686,12 +616,7 @@ CreateInstanceVpcEndpointLinkedVpcResponse Alibabacloud_Cr20181201::Client::crea
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateInstanceVpcEndpointLinkedVpcResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateInstanceVpcEndpointLinkedVpcResponse(execute(params, req, runtime));
-  }
+  return CreateInstanceVpcEndpointLinkedVpcResponse(callApi(params, req, runtime));
 }
 
 CreateInstanceVpcEndpointLinkedVpcResponse Alibabacloud_Cr20181201::Client::createInstanceVpcEndpointLinkedVpc(shared_ptr<CreateInstanceVpcEndpointLinkedVpcRequest> request) {
@@ -728,12 +653,7 @@ CreateNamespaceResponse Alibabacloud_Cr20181201::Client::createNamespaceWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateNamespaceResponse(execute(params, req, runtime));
-  }
+  return CreateNamespaceResponse(callApi(params, req, runtime));
 }
 
 CreateNamespaceResponse Alibabacloud_Cr20181201::Client::createNamespace(shared_ptr<CreateNamespaceRequest> request) {
@@ -785,12 +705,7 @@ CreateRepoBuildRuleResponse Alibabacloud_Cr20181201::Client::createRepoBuildRule
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepoBuildRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepoBuildRuleResponse(execute(params, req, runtime));
-  }
+  return CreateRepoBuildRuleResponse(callApi(params, req, runtime));
 }
 
 CreateRepoBuildRuleResponse Alibabacloud_Cr20181201::Client::createRepoBuildRule(shared_ptr<CreateRepoBuildRuleRequest> request) {
@@ -839,12 +754,7 @@ CreateRepoSourceCodeRepoResponse Alibabacloud_Cr20181201::Client::createRepoSour
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepoSourceCodeRepoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepoSourceCodeRepoResponse(execute(params, req, runtime));
-  }
+  return CreateRepoSourceCodeRepoResponse(callApi(params, req, runtime));
 }
 
 CreateRepoSourceCodeRepoResponse Alibabacloud_Cr20181201::Client::createRepoSourceCodeRepo(shared_ptr<CreateRepoSourceCodeRepoRequest> request) {
@@ -908,12 +818,7 @@ CreateRepoSyncRuleResponse Alibabacloud_Cr20181201::Client::createRepoSyncRuleWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepoSyncRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepoSyncRuleResponse(execute(params, req, runtime));
-  }
+  return CreateRepoSyncRuleResponse(callApi(params, req, runtime));
 }
 
 CreateRepoSyncRuleResponse Alibabacloud_Cr20181201::Client::createRepoSyncRule(shared_ptr<CreateRepoSyncRuleRequest> request) {
@@ -968,12 +873,7 @@ CreateRepoSyncTaskResponse Alibabacloud_Cr20181201::Client::createRepoSyncTaskWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepoSyncTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepoSyncTaskResponse(execute(params, req, runtime));
-  }
+  return CreateRepoSyncTaskResponse(callApi(params, req, runtime));
 }
 
 CreateRepoSyncTaskResponse Alibabacloud_Cr20181201::Client::createRepoSyncTask(shared_ptr<CreateRepoSyncTaskRequest> request) {
@@ -1010,12 +910,7 @@ CreateRepoSyncTaskByRuleResponse Alibabacloud_Cr20181201::Client::createRepoSync
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepoSyncTaskByRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepoSyncTaskByRuleResponse(execute(params, req, runtime));
-  }
+  return CreateRepoSyncTaskByRuleResponse(callApi(params, req, runtime));
 }
 
 CreateRepoSyncTaskByRuleResponse Alibabacloud_Cr20181201::Client::createRepoSyncTaskByRule(shared_ptr<CreateRepoSyncTaskByRuleRequest> request) {
@@ -1055,12 +950,7 @@ CreateRepoTagResponse Alibabacloud_Cr20181201::Client::createRepoTagWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepoTagResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepoTagResponse(execute(params, req, runtime));
-  }
+  return CreateRepoTagResponse(callApi(params, req, runtime));
 }
 
 CreateRepoTagResponse Alibabacloud_Cr20181201::Client::createRepoTag(shared_ptr<CreateRepoTagRequest> request) {
@@ -1083,6 +973,9 @@ CreateRepoTagScanTaskResponse Alibabacloud_Cr20181201::Client::createRepoTagScan
   if (!Darabonba_Util::Client::isUnset<string>(request->scanService)) {
     query->insert(pair<string, string>("ScanService", *request->scanService));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scanType)) {
+    query->insert(pair<string, string>("ScanType", *request->scanType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
     query->insert(pair<string, string>("Tag", *request->tag));
   }
@@ -1100,12 +993,7 @@ CreateRepoTagScanTaskResponse Alibabacloud_Cr20181201::Client::createRepoTagScan
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepoTagScanTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepoTagScanTaskResponse(execute(params, req, runtime));
-  }
+  return CreateRepoTagScanTaskResponse(callApi(params, req, runtime));
 }
 
 CreateRepoTagScanTaskResponse Alibabacloud_Cr20181201::Client::createRepoTagScanTask(shared_ptr<CreateRepoTagScanTaskRequest> request) {
@@ -1148,12 +1036,7 @@ CreateRepoTriggerResponse Alibabacloud_Cr20181201::Client::createRepoTriggerWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepoTriggerResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepoTriggerResponse(execute(params, req, runtime));
-  }
+  return CreateRepoTriggerResponse(callApi(params, req, runtime));
 }
 
 CreateRepoTriggerResponse Alibabacloud_Cr20181201::Client::createRepoTrigger(shared_ptr<CreateRepoTriggerRequest> request) {
@@ -1199,12 +1082,7 @@ CreateRepositoryResponse Alibabacloud_Cr20181201::Client::createRepositoryWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRepositoryResponse(execute(params, req, runtime));
-  }
+  return CreateRepositoryResponse(callApi(params, req, runtime));
 }
 
 CreateRepositoryResponse Alibabacloud_Cr20181201::Client::createRepository(shared_ptr<CreateRepositoryRequest> request) {
@@ -1235,12 +1113,7 @@ DeleteArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::deleteArtif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteArtifactLifecycleRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteArtifactLifecycleRuleResponse(execute(params, req, runtime));
-  }
+  return DeleteArtifactLifecycleRuleResponse(callApi(params, req, runtime));
 }
 
 DeleteArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::deleteArtifactLifecycleRule(shared_ptr<DeleteArtifactLifecycleRuleRequest> request) {
@@ -1271,12 +1144,7 @@ DeleteArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::deleteAr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteArtifactSubscriptionRuleResponse(execute(params, req, runtime));
-  }
+  return DeleteArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
 }
 
 DeleteArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::deleteArtifactSubscriptionRule(shared_ptr<DeleteArtifactSubscriptionRuleRequest> request) {
@@ -1307,12 +1175,7 @@ DeleteChainResponse Alibabacloud_Cr20181201::Client::deleteChainWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteChainResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteChainResponse(execute(params, req, runtime));
-  }
+  return DeleteChainResponse(callApi(params, req, runtime));
 }
 
 DeleteChainResponse Alibabacloud_Cr20181201::Client::deleteChain(shared_ptr<DeleteChainRequest> request) {
@@ -1343,12 +1206,7 @@ DeleteChartNamespaceResponse Alibabacloud_Cr20181201::Client::deleteChartNamespa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteChartNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteChartNamespaceResponse(execute(params, req, runtime));
-  }
+  return DeleteChartNamespaceResponse(callApi(params, req, runtime));
 }
 
 DeleteChartNamespaceResponse Alibabacloud_Cr20181201::Client::deleteChartNamespace(shared_ptr<DeleteChartNamespaceRequest> request) {
@@ -1388,12 +1246,7 @@ DeleteChartReleaseResponse Alibabacloud_Cr20181201::Client::deleteChartReleaseWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteChartReleaseResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteChartReleaseResponse(execute(params, req, runtime));
-  }
+  return DeleteChartReleaseResponse(callApi(params, req, runtime));
 }
 
 DeleteChartReleaseResponse Alibabacloud_Cr20181201::Client::deleteChartRelease(shared_ptr<DeleteChartReleaseRequest> request) {
@@ -1427,12 +1280,7 @@ DeleteChartRepositoryResponse Alibabacloud_Cr20181201::Client::deleteChartReposi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteChartRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteChartRepositoryResponse(execute(params, req, runtime));
-  }
+  return DeleteChartRepositoryResponse(callApi(params, req, runtime));
 }
 
 DeleteChartRepositoryResponse Alibabacloud_Cr20181201::Client::deleteChartRepository(shared_ptr<DeleteChartRepositoryRequest> request) {
@@ -1463,12 +1311,7 @@ DeleteEventCenterRuleResponse Alibabacloud_Cr20181201::Client::deleteEventCenter
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteEventCenterRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteEventCenterRuleResponse(execute(params, req, runtime));
-  }
+  return DeleteEventCenterRuleResponse(callApi(params, req, runtime));
 }
 
 DeleteEventCenterRuleResponse Alibabacloud_Cr20181201::Client::deleteEventCenterRule(shared_ptr<DeleteEventCenterRuleRequest> request) {
@@ -1505,12 +1348,7 @@ DeleteInstanceEndpointAclPolicyResponse Alibabacloud_Cr20181201::Client::deleteI
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteInstanceEndpointAclPolicyResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteInstanceEndpointAclPolicyResponse(execute(params, req, runtime));
-  }
+  return DeleteInstanceEndpointAclPolicyResponse(callApi(params, req, runtime));
 }
 
 DeleteInstanceEndpointAclPolicyResponse Alibabacloud_Cr20181201::Client::deleteInstanceEndpointAclPolicy(shared_ptr<DeleteInstanceEndpointAclPolicyRequest> request) {
@@ -1547,12 +1385,7 @@ DeleteInstanceVpcEndpointLinkedVpcResponse Alibabacloud_Cr20181201::Client::dele
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteInstanceVpcEndpointLinkedVpcResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteInstanceVpcEndpointLinkedVpcResponse(execute(params, req, runtime));
-  }
+  return DeleteInstanceVpcEndpointLinkedVpcResponse(callApi(params, req, runtime));
 }
 
 DeleteInstanceVpcEndpointLinkedVpcResponse Alibabacloud_Cr20181201::Client::deleteInstanceVpcEndpointLinkedVpc(shared_ptr<DeleteInstanceVpcEndpointLinkedVpcRequest> request) {
@@ -1583,12 +1416,7 @@ DeleteNamespaceResponse Alibabacloud_Cr20181201::Client::deleteNamespaceWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteNamespaceResponse(execute(params, req, runtime));
-  }
+  return DeleteNamespaceResponse(callApi(params, req, runtime));
 }
 
 DeleteNamespaceResponse Alibabacloud_Cr20181201::Client::deleteNamespace(shared_ptr<DeleteNamespaceRequest> request) {
@@ -1622,12 +1450,7 @@ DeleteRepoBuildRuleResponse Alibabacloud_Cr20181201::Client::deleteRepoBuildRule
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteRepoBuildRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteRepoBuildRuleResponse(execute(params, req, runtime));
-  }
+  return DeleteRepoBuildRuleResponse(callApi(params, req, runtime));
 }
 
 DeleteRepoBuildRuleResponse Alibabacloud_Cr20181201::Client::deleteRepoBuildRule(shared_ptr<DeleteRepoBuildRuleRequest> request) {
@@ -1658,12 +1481,7 @@ DeleteRepoSyncRuleResponse Alibabacloud_Cr20181201::Client::deleteRepoSyncRuleWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteRepoSyncRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteRepoSyncRuleResponse(execute(params, req, runtime));
-  }
+  return DeleteRepoSyncRuleResponse(callApi(params, req, runtime));
 }
 
 DeleteRepoSyncRuleResponse Alibabacloud_Cr20181201::Client::deleteRepoSyncRule(shared_ptr<DeleteRepoSyncRuleRequest> request) {
@@ -1697,12 +1515,7 @@ DeleteRepoTagResponse Alibabacloud_Cr20181201::Client::deleteRepoTagWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteRepoTagResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteRepoTagResponse(execute(params, req, runtime));
-  }
+  return DeleteRepoTagResponse(callApi(params, req, runtime));
 }
 
 DeleteRepoTagResponse Alibabacloud_Cr20181201::Client::deleteRepoTag(shared_ptr<DeleteRepoTagRequest> request) {
@@ -1736,12 +1549,7 @@ DeleteRepoTriggerResponse Alibabacloud_Cr20181201::Client::deleteRepoTriggerWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteRepoTriggerResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteRepoTriggerResponse(execute(params, req, runtime));
-  }
+  return DeleteRepoTriggerResponse(callApi(params, req, runtime));
 }
 
 DeleteRepoTriggerResponse Alibabacloud_Cr20181201::Client::deleteRepoTrigger(shared_ptr<DeleteRepoTriggerRequest> request) {
@@ -1778,12 +1586,7 @@ DeleteRepositoryResponse Alibabacloud_Cr20181201::Client::deleteRepositoryWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteRepositoryResponse(execute(params, req, runtime));
-  }
+  return DeleteRepositoryResponse(callApi(params, req, runtime));
 }
 
 DeleteRepositoryResponse Alibabacloud_Cr20181201::Client::deleteRepository(shared_ptr<DeleteRepositoryRequest> request) {
@@ -1808,12 +1611,7 @@ GetArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::getArtifactBuildRu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetArtifactBuildRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetArtifactBuildRuleResponse(execute(params, req, runtime));
-  }
+  return GetArtifactBuildRuleResponse(callApi(params, req, runtime));
 }
 
 GetArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::getArtifactBuildRule(shared_ptr<GetArtifactBuildRuleRequest> request) {
@@ -1838,12 +1636,7 @@ GetArtifactBuildTaskResponse Alibabacloud_Cr20181201::Client::getArtifactBuildTa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetArtifactBuildTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetArtifactBuildTaskResponse(execute(params, req, runtime));
-  }
+  return GetArtifactBuildTaskResponse(callApi(params, req, runtime));
 }
 
 GetArtifactBuildTaskResponse Alibabacloud_Cr20181201::Client::getArtifactBuildTask(shared_ptr<GetArtifactBuildTaskRequest> request) {
@@ -1868,12 +1661,7 @@ GetArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::getArtifactLif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetArtifactLifecycleRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetArtifactLifecycleRuleResponse(execute(params, req, runtime));
-  }
+  return GetArtifactLifecycleRuleResponse(callApi(params, req, runtime));
 }
 
 GetArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::getArtifactLifecycleRule(shared_ptr<GetArtifactLifecycleRuleRequest> request) {
@@ -1898,12 +1686,7 @@ GetArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::getArtifact
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetArtifactSubscriptionRuleResponse(execute(params, req, runtime));
-  }
+  return GetArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
 }
 
 GetArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::getArtifactSubscriptionRule(shared_ptr<GetArtifactSubscriptionRuleRequest> request) {
@@ -1928,12 +1711,7 @@ GetArtifactSubscriptionTaskResponse Alibabacloud_Cr20181201::Client::getArtifact
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetArtifactSubscriptionTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetArtifactSubscriptionTaskResponse(execute(params, req, runtime));
-  }
+  return GetArtifactSubscriptionTaskResponse(callApi(params, req, runtime));
 }
 
 GetArtifactSubscriptionTaskResponse Alibabacloud_Cr20181201::Client::getArtifactSubscriptionTask(shared_ptr<GetArtifactSubscriptionTaskRequest> request) {
@@ -1958,12 +1736,7 @@ GetArtifactSubscriptionTaskResultResponse Alibabacloud_Cr20181201::Client::getAr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetArtifactSubscriptionTaskResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetArtifactSubscriptionTaskResultResponse(execute(params, req, runtime));
-  }
+  return GetArtifactSubscriptionTaskResultResponse(callApi(params, req, runtime));
 }
 
 GetArtifactSubscriptionTaskResultResponse Alibabacloud_Cr20181201::Client::getArtifactSubscriptionTaskResult(shared_ptr<GetArtifactSubscriptionTaskResultRequest> request) {
@@ -1991,12 +1764,7 @@ GetAuthorizationTokenResponse Alibabacloud_Cr20181201::Client::getAuthorizationT
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAuthorizationTokenResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAuthorizationTokenResponse(execute(params, req, runtime));
-  }
+  return GetAuthorizationTokenResponse(callApi(params, req, runtime));
 }
 
 GetAuthorizationTokenResponse Alibabacloud_Cr20181201::Client::getAuthorizationToken(shared_ptr<GetAuthorizationTokenRequest> request) {
@@ -2027,12 +1795,7 @@ GetChainResponse Alibabacloud_Cr20181201::Client::getChainWithOptions(shared_ptr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetChainResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetChainResponse(execute(params, req, runtime));
-  }
+  return GetChainResponse(callApi(params, req, runtime));
 }
 
 GetChainResponse Alibabacloud_Cr20181201::Client::getChain(shared_ptr<GetChainRequest> request) {
@@ -2063,12 +1826,7 @@ GetChartNamespaceResponse Alibabacloud_Cr20181201::Client::getChartNamespaceWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetChartNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetChartNamespaceResponse(execute(params, req, runtime));
-  }
+  return GetChartNamespaceResponse(callApi(params, req, runtime));
 }
 
 GetChartNamespaceResponse Alibabacloud_Cr20181201::Client::getChartNamespace(shared_ptr<GetChartNamespaceRequest> request) {
@@ -2102,12 +1860,7 @@ GetChartRepositoryResponse Alibabacloud_Cr20181201::Client::getChartRepositoryWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetChartRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetChartRepositoryResponse(execute(params, req, runtime));
-  }
+  return GetChartRepositoryResponse(callApi(params, req, runtime));
 }
 
 GetChartRepositoryResponse Alibabacloud_Cr20181201::Client::getChartRepository(shared_ptr<GetChartRepositoryRequest> request) {
@@ -2135,12 +1888,7 @@ GetInstanceResponse Alibabacloud_Cr20181201::Client::getInstanceWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetInstanceResponse(execute(params, req, runtime));
-  }
+  return GetInstanceResponse(callApi(params, req, runtime));
 }
 
 GetInstanceResponse Alibabacloud_Cr20181201::Client::getInstance(shared_ptr<GetInstanceRequest> request) {
@@ -2161,12 +1909,7 @@ GetInstanceCountResponse Alibabacloud_Cr20181201::Client::getInstanceCountWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetInstanceCountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetInstanceCountResponse(execute(params, req, runtime));
-  }
+  return GetInstanceCountResponse(callApi(params, req, runtime));
 }
 
 GetInstanceCountResponse Alibabacloud_Cr20181201::Client::getInstanceCount() {
@@ -2200,12 +1943,7 @@ GetInstanceEndpointResponse Alibabacloud_Cr20181201::Client::getInstanceEndpoint
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetInstanceEndpointResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetInstanceEndpointResponse(execute(params, req, runtime));
-  }
+  return GetInstanceEndpointResponse(callApi(params, req, runtime));
 }
 
 GetInstanceEndpointResponse Alibabacloud_Cr20181201::Client::getInstanceEndpoint(shared_ptr<GetInstanceEndpointRequest> request) {
@@ -2233,12 +1971,7 @@ GetInstanceUsageResponse Alibabacloud_Cr20181201::Client::getInstanceUsageWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetInstanceUsageResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetInstanceUsageResponse(execute(params, req, runtime));
-  }
+  return GetInstanceUsageResponse(callApi(params, req, runtime));
 }
 
 GetInstanceUsageResponse Alibabacloud_Cr20181201::Client::getInstanceUsage(shared_ptr<GetInstanceUsageRequest> request) {
@@ -2269,12 +2002,7 @@ GetInstanceVpcEndpointResponse Alibabacloud_Cr20181201::Client::getInstanceVpcEn
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetInstanceVpcEndpointResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetInstanceVpcEndpointResponse(execute(params, req, runtime));
-  }
+  return GetInstanceVpcEndpointResponse(callApi(params, req, runtime));
 }
 
 GetInstanceVpcEndpointResponse Alibabacloud_Cr20181201::Client::getInstanceVpcEndpoint(shared_ptr<GetInstanceVpcEndpointRequest> request) {
@@ -2308,12 +2036,7 @@ GetNamespaceResponse Alibabacloud_Cr20181201::Client::getNamespaceWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetNamespaceResponse(execute(params, req, runtime));
-  }
+  return GetNamespaceResponse(callApi(params, req, runtime));
 }
 
 GetNamespaceResponse Alibabacloud_Cr20181201::Client::getNamespace(shared_ptr<GetNamespaceRequest> request) {
@@ -2344,12 +2067,7 @@ GetRepoBuildRecordResponse Alibabacloud_Cr20181201::Client::getRepoBuildRecordWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRepoBuildRecordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRepoBuildRecordResponse(execute(params, req, runtime));
-  }
+  return GetRepoBuildRecordResponse(callApi(params, req, runtime));
 }
 
 GetRepoBuildRecordResponse Alibabacloud_Cr20181201::Client::getRepoBuildRecord(shared_ptr<GetRepoBuildRecordRequest> request) {
@@ -2383,12 +2101,7 @@ GetRepoBuildRecordStatusResponse Alibabacloud_Cr20181201::Client::getRepoBuildRe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRepoBuildRecordStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRepoBuildRecordStatusResponse(execute(params, req, runtime));
-  }
+  return GetRepoBuildRecordStatusResponse(callApi(params, req, runtime));
 }
 
 GetRepoBuildRecordStatusResponse Alibabacloud_Cr20181201::Client::getRepoBuildRecordStatus(shared_ptr<GetRepoBuildRecordStatusRequest> request) {
@@ -2419,12 +2132,7 @@ GetRepoSourceCodeRepoResponse Alibabacloud_Cr20181201::Client::getRepoSourceCode
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRepoSourceCodeRepoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRepoSourceCodeRepoResponse(execute(params, req, runtime));
-  }
+  return GetRepoSourceCodeRepoResponse(callApi(params, req, runtime));
 }
 
 GetRepoSourceCodeRepoResponse Alibabacloud_Cr20181201::Client::getRepoSourceCodeRepo(shared_ptr<GetRepoSourceCodeRepoRequest> request) {
@@ -2455,12 +2163,7 @@ GetRepoSyncTaskResponse Alibabacloud_Cr20181201::Client::getRepoSyncTaskWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRepoSyncTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRepoSyncTaskResponse(execute(params, req, runtime));
-  }
+  return GetRepoSyncTaskResponse(callApi(params, req, runtime));
 }
 
 GetRepoSyncTaskResponse Alibabacloud_Cr20181201::Client::getRepoSyncTask(shared_ptr<GetRepoSyncTaskRequest> request) {
@@ -2485,12 +2188,7 @@ GetRepoTagResponse Alibabacloud_Cr20181201::Client::getRepoTagWithOptions(shared
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRepoTagResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRepoTagResponse(execute(params, req, runtime));
-  }
+  return GetRepoTagResponse(callApi(params, req, runtime));
 }
 
 GetRepoTagResponse Alibabacloud_Cr20181201::Client::getRepoTag(shared_ptr<GetRepoTagRequest> request) {
@@ -2513,6 +2211,9 @@ GetRepoTagScanStatusResponse Alibabacloud_Cr20181201::Client::getRepoTagScanStat
   if (!Darabonba_Util::Client::isUnset<string>(request->scanTaskId)) {
     query->insert(pair<string, string>("ScanTaskId", *request->scanTaskId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scanType)) {
+    query->insert(pair<string, string>("ScanType", *request->scanType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
     query->insert(pair<string, string>("Tag", *request->tag));
   }
@@ -2530,12 +2231,7 @@ GetRepoTagScanStatusResponse Alibabacloud_Cr20181201::Client::getRepoTagScanStat
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRepoTagScanStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRepoTagScanStatusResponse(execute(params, req, runtime));
-  }
+  return GetRepoTagScanStatusResponse(callApi(params, req, runtime));
 }
 
 GetRepoTagScanStatusResponse Alibabacloud_Cr20181201::Client::getRepoTagScanStatus(shared_ptr<GetRepoTagScanStatusRequest> request) {
@@ -2575,12 +2271,7 @@ GetRepoTagScanSummaryResponse Alibabacloud_Cr20181201::Client::getRepoTagScanSum
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRepoTagScanSummaryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRepoTagScanSummaryResponse(execute(params, req, runtime));
-  }
+  return GetRepoTagScanSummaryResponse(callApi(params, req, runtime));
 }
 
 GetRepoTagScanSummaryResponse Alibabacloud_Cr20181201::Client::getRepoTagScanSummary(shared_ptr<GetRepoTagScanSummaryRequest> request) {
@@ -2617,12 +2308,7 @@ GetRepositoryResponse Alibabacloud_Cr20181201::Client::getRepositoryWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRepositoryResponse(execute(params, req, runtime));
-  }
+  return GetRepositoryResponse(callApi(params, req, runtime));
 }
 
 GetRepositoryResponse Alibabacloud_Cr20181201::Client::getRepository(shared_ptr<GetRepositoryRequest> request) {
@@ -2647,12 +2333,7 @@ ListArtifactBuildTaskLogResponse Alibabacloud_Cr20181201::Client::listArtifactBu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListArtifactBuildTaskLogResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListArtifactBuildTaskLogResponse(execute(params, req, runtime));
-  }
+  return ListArtifactBuildTaskLogResponse(callApi(params, req, runtime));
 }
 
 ListArtifactBuildTaskLogResponse Alibabacloud_Cr20181201::Client::listArtifactBuildTaskLog(shared_ptr<ListArtifactBuildTaskLogRequest> request) {
@@ -2677,12 +2358,7 @@ ListArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::listArtifactL
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListArtifactLifecycleRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListArtifactLifecycleRuleResponse(execute(params, req, runtime));
-  }
+  return ListArtifactLifecycleRuleResponse(callApi(params, req, runtime));
 }
 
 ListArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::listArtifactLifecycleRule(shared_ptr<ListArtifactLifecycleRuleRequest> request) {
@@ -2707,12 +2383,7 @@ ListArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::listArtifa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListArtifactSubscriptionRuleResponse(execute(params, req, runtime));
-  }
+  return ListArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
 }
 
 ListArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::listArtifactSubscriptionRule(shared_ptr<ListArtifactSubscriptionRuleRequest> request) {
@@ -2737,12 +2408,7 @@ ListArtifactSubscriptionTaskResponse Alibabacloud_Cr20181201::Client::listArtifa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListArtifactSubscriptionTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListArtifactSubscriptionTaskResponse(execute(params, req, runtime));
-  }
+  return ListArtifactSubscriptionTaskResponse(callApi(params, req, runtime));
 }
 
 ListArtifactSubscriptionTaskResponse Alibabacloud_Cr20181201::Client::listArtifactSubscriptionTask(shared_ptr<ListArtifactSubscriptionTaskRequest> request) {
@@ -2782,12 +2448,7 @@ ListChainResponse Alibabacloud_Cr20181201::Client::listChainWithOptions(shared_p
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListChainResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListChainResponse(execute(params, req, runtime));
-  }
+  return ListChainResponse(callApi(params, req, runtime));
 }
 
 ListChainResponse Alibabacloud_Cr20181201::Client::listChain(shared_ptr<ListChainRequest> request) {
@@ -2827,12 +2488,7 @@ ListChainInstanceResponse Alibabacloud_Cr20181201::Client::listChainInstanceWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListChainInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListChainInstanceResponse(execute(params, req, runtime));
-  }
+  return ListChainInstanceResponse(callApi(params, req, runtime));
 }
 
 ListChainInstanceResponse Alibabacloud_Cr20181201::Client::listChainInstance(shared_ptr<ListChainInstanceRequest> request) {
@@ -2872,12 +2528,7 @@ ListChartNamespaceResponse Alibabacloud_Cr20181201::Client::listChartNamespaceWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListChartNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListChartNamespaceResponse(execute(params, req, runtime));
-  }
+  return ListChartNamespaceResponse(callApi(params, req, runtime));
 }
 
 ListChartNamespaceResponse Alibabacloud_Cr20181201::Client::listChartNamespace(shared_ptr<ListChartNamespaceRequest> request) {
@@ -2920,12 +2571,7 @@ ListChartReleaseResponse Alibabacloud_Cr20181201::Client::listChartReleaseWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListChartReleaseResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListChartReleaseResponse(execute(params, req, runtime));
-  }
+  return ListChartReleaseResponse(callApi(params, req, runtime));
 }
 
 ListChartReleaseResponse Alibabacloud_Cr20181201::Client::listChartRelease(shared_ptr<ListChartReleaseRequest> request) {
@@ -2968,12 +2614,7 @@ ListChartRepositoryResponse Alibabacloud_Cr20181201::Client::listChartRepository
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListChartRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListChartRepositoryResponse(execute(params, req, runtime));
-  }
+  return ListChartRepositoryResponse(callApi(params, req, runtime));
 }
 
 ListChartRepositoryResponse Alibabacloud_Cr20181201::Client::listChartRepository(shared_ptr<ListChartRepositoryRequest> request) {
@@ -2998,12 +2639,7 @@ ListEventCenterRecordResponse Alibabacloud_Cr20181201::Client::listEventCenterRe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListEventCenterRecordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListEventCenterRecordResponse(execute(params, req, runtime));
-  }
+  return ListEventCenterRecordResponse(callApi(params, req, runtime));
 }
 
 ListEventCenterRecordResponse Alibabacloud_Cr20181201::Client::listEventCenterRecord(shared_ptr<ListEventCenterRecordRequest> request) {
@@ -3028,12 +2664,7 @@ ListEventCenterRuleNameResponse Alibabacloud_Cr20181201::Client::listEventCenter
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListEventCenterRuleNameResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListEventCenterRuleNameResponse(execute(params, req, runtime));
-  }
+  return ListEventCenterRuleNameResponse(callApi(params, req, runtime));
 }
 
 ListEventCenterRuleNameResponse Alibabacloud_Cr20181201::Client::listEventCenterRuleName(shared_ptr<ListEventCenterRuleNameRequest> request) {
@@ -3073,12 +2704,7 @@ ListInstanceResponse Alibabacloud_Cr20181201::Client::listInstanceWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListInstanceResponse(execute(params, req, runtime));
-  }
+  return ListInstanceResponse(callApi(params, req, runtime));
 }
 
 ListInstanceResponse Alibabacloud_Cr20181201::Client::listInstance(shared_ptr<ListInstanceRequest> request) {
@@ -3112,12 +2738,7 @@ ListInstanceEndpointResponse Alibabacloud_Cr20181201::Client::listInstanceEndpoi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListInstanceEndpointResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListInstanceEndpointResponse(execute(params, req, runtime));
-  }
+  return ListInstanceEndpointResponse(callApi(params, req, runtime));
 }
 
 ListInstanceEndpointResponse Alibabacloud_Cr20181201::Client::listInstanceEndpoint(shared_ptr<ListInstanceEndpointRequest> request) {
@@ -3145,12 +2766,7 @@ ListInstanceRegionResponse Alibabacloud_Cr20181201::Client::listInstanceRegionWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListInstanceRegionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListInstanceRegionResponse(execute(params, req, runtime));
-  }
+  return ListInstanceRegionResponse(callApi(params, req, runtime));
 }
 
 ListInstanceRegionResponse Alibabacloud_Cr20181201::Client::listInstanceRegion(shared_ptr<ListInstanceRegionRequest> request) {
@@ -3190,12 +2806,7 @@ ListNamespaceResponse Alibabacloud_Cr20181201::Client::listNamespaceWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListNamespaceResponse(execute(params, req, runtime));
-  }
+  return ListNamespaceResponse(callApi(params, req, runtime));
 }
 
 ListNamespaceResponse Alibabacloud_Cr20181201::Client::listNamespace(shared_ptr<ListNamespaceRequest> request) {
@@ -3232,12 +2843,7 @@ ListRepoBuildRecordResponse Alibabacloud_Cr20181201::Client::listRepoBuildRecord
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepoBuildRecordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepoBuildRecordResponse(execute(params, req, runtime));
-  }
+  return ListRepoBuildRecordResponse(callApi(params, req, runtime));
 }
 
 ListRepoBuildRecordResponse Alibabacloud_Cr20181201::Client::listRepoBuildRecord(shared_ptr<ListRepoBuildRecordRequest> request) {
@@ -3274,12 +2880,7 @@ ListRepoBuildRecordLogResponse Alibabacloud_Cr20181201::Client::listRepoBuildRec
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepoBuildRecordLogResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepoBuildRecordLogResponse(execute(params, req, runtime));
-  }
+  return ListRepoBuildRecordLogResponse(callApi(params, req, runtime));
 }
 
 ListRepoBuildRecordLogResponse Alibabacloud_Cr20181201::Client::listRepoBuildRecordLog(shared_ptr<ListRepoBuildRecordLogRequest> request) {
@@ -3316,12 +2917,7 @@ ListRepoBuildRuleResponse Alibabacloud_Cr20181201::Client::listRepoBuildRuleWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepoBuildRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepoBuildRuleResponse(execute(params, req, runtime));
-  }
+  return ListRepoBuildRuleResponse(callApi(params, req, runtime));
 }
 
 ListRepoBuildRuleResponse Alibabacloud_Cr20181201::Client::listRepoBuildRule(shared_ptr<ListRepoBuildRuleRequest> request) {
@@ -3367,12 +2963,7 @@ ListRepoSyncRuleResponse Alibabacloud_Cr20181201::Client::listRepoSyncRuleWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepoSyncRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepoSyncRuleResponse(execute(params, req, runtime));
-  }
+  return ListRepoSyncRuleResponse(callApi(params, req, runtime));
 }
 
 ListRepoSyncRuleResponse Alibabacloud_Cr20181201::Client::listRepoSyncRule(shared_ptr<ListRepoSyncRuleRequest> request) {
@@ -3418,12 +3009,7 @@ ListRepoSyncTaskResponse Alibabacloud_Cr20181201::Client::listRepoSyncTaskWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepoSyncTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepoSyncTaskResponse(execute(params, req, runtime));
-  }
+  return ListRepoSyncTaskResponse(callApi(params, req, runtime));
 }
 
 ListRepoSyncTaskResponse Alibabacloud_Cr20181201::Client::listRepoSyncTask(shared_ptr<ListRepoSyncTaskRequest> request) {
@@ -3460,12 +3046,7 @@ ListRepoTagResponse Alibabacloud_Cr20181201::Client::listRepoTagWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepoTagResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepoTagResponse(execute(params, req, runtime));
-  }
+  return ListRepoTagResponse(callApi(params, req, runtime));
 }
 
 ListRepoTagResponse Alibabacloud_Cr20181201::Client::listRepoTag(shared_ptr<ListRepoTagRequest> request) {
@@ -3523,12 +3104,7 @@ ListRepoTagScanResultResponse Alibabacloud_Cr20181201::Client::listRepoTagScanRe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepoTagScanResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepoTagScanResultResponse(execute(params, req, runtime));
-  }
+  return ListRepoTagScanResultResponse(callApi(params, req, runtime));
 }
 
 ListRepoTagScanResultResponse Alibabacloud_Cr20181201::Client::listRepoTagScanResult(shared_ptr<ListRepoTagScanResultRequest> request) {
@@ -3559,12 +3135,7 @@ ListRepoTriggerResponse Alibabacloud_Cr20181201::Client::listRepoTriggerWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepoTriggerResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepoTriggerResponse(execute(params, req, runtime));
-  }
+  return ListRepoTriggerResponse(callApi(params, req, runtime));
 }
 
 ListRepoTriggerResponse Alibabacloud_Cr20181201::Client::listRepoTrigger(shared_ptr<ListRepoTriggerRequest> request) {
@@ -3607,12 +3178,7 @@ ListRepositoryResponse Alibabacloud_Cr20181201::Client::listRepositoryWithOption
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRepositoryResponse(execute(params, req, runtime));
-  }
+  return ListRepositoryResponse(callApi(params, req, runtime));
 }
 
 ListRepositoryResponse Alibabacloud_Cr20181201::Client::listRepository(shared_ptr<ListRepositoryRequest> request) {
@@ -3637,12 +3203,7 @@ ListScanBaselineByTaskResponse Alibabacloud_Cr20181201::Client::listScanBaseline
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListScanBaselineByTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListScanBaselineByTaskResponse(execute(params, req, runtime));
-  }
+  return ListScanBaselineByTaskResponse(callApi(params, req, runtime));
 }
 
 ListScanBaselineByTaskResponse Alibabacloud_Cr20181201::Client::listScanBaselineByTask(shared_ptr<ListScanBaselineByTaskRequest> request) {
@@ -3667,12 +3228,7 @@ ListScanMaliciousFileByTaskResponse Alibabacloud_Cr20181201::Client::listScanMal
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListScanMaliciousFileByTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListScanMaliciousFileByTaskResponse(execute(params, req, runtime));
-  }
+  return ListScanMaliciousFileByTaskResponse(callApi(params, req, runtime));
 }
 
 ListScanMaliciousFileByTaskResponse Alibabacloud_Cr20181201::Client::listScanMaliciousFileByTask(shared_ptr<ListScanMaliciousFileByTaskRequest> request) {
@@ -3712,12 +3268,7 @@ ListTagResourcesResponse Alibabacloud_Cr20181201::Client::listTagResourcesWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTagResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTagResourcesResponse(execute(params, req, runtime));
-  }
+  return ListTagResourcesResponse(callApi(params, req, runtime));
 }
 
 ListTagResourcesResponse Alibabacloud_Cr20181201::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
@@ -3748,12 +3299,7 @@ ResetLoginPasswordResponse Alibabacloud_Cr20181201::Client::resetLoginPasswordWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ResetLoginPasswordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ResetLoginPasswordResponse(execute(params, req, runtime));
-  }
+  return ResetLoginPasswordResponse(callApi(params, req, runtime));
 }
 
 ResetLoginPasswordResponse Alibabacloud_Cr20181201::Client::resetLoginPassword(shared_ptr<ResetLoginPasswordRequest> request) {
@@ -3790,12 +3336,7 @@ TagResourcesResponse Alibabacloud_Cr20181201::Client::tagResourcesWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return TagResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return TagResourcesResponse(execute(params, req, runtime));
-  }
+  return TagResourcesResponse(callApi(params, req, runtime));
 }
 
 TagResourcesResponse Alibabacloud_Cr20181201::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
@@ -3835,12 +3376,7 @@ UntagResourcesResponse Alibabacloud_Cr20181201::Client::untagResourcesWithOption
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UntagResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UntagResourcesResponse(execute(params, req, runtime));
-  }
+  return UntagResourcesResponse(callApi(params, req, runtime));
 }
 
 UntagResourcesResponse Alibabacloud_Cr20181201::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
@@ -3895,12 +3431,7 @@ UpdateArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::updateArtif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateArtifactLifecycleRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateArtifactLifecycleRuleResponse(execute(params, req, runtime));
-  }
+  return UpdateArtifactLifecycleRuleResponse(callApi(params, req, runtime));
 }
 
 UpdateArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::updateArtifactLifecycleRule(shared_ptr<UpdateArtifactLifecycleRuleRequest> request) {
@@ -3961,12 +3492,7 @@ UpdateArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::updateAr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateArtifactSubscriptionRuleResponse(execute(params, req, runtime));
-  }
+  return UpdateArtifactSubscriptionRuleResponse(callApi(params, req, runtime));
 }
 
 UpdateArtifactSubscriptionRuleResponse Alibabacloud_Cr20181201::Client::updateArtifactSubscriptionRule(shared_ptr<UpdateArtifactSubscriptionRuleRequest> request) {
@@ -4009,12 +3535,7 @@ UpdateChainResponse Alibabacloud_Cr20181201::Client::updateChainWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateChainResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateChainResponse(execute(params, req, runtime));
-  }
+  return UpdateChainResponse(callApi(params, req, runtime));
 }
 
 UpdateChainResponse Alibabacloud_Cr20181201::Client::updateChain(shared_ptr<UpdateChainRequest> request) {
@@ -4051,12 +3572,7 @@ UpdateChartNamespaceResponse Alibabacloud_Cr20181201::Client::updateChartNamespa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateChartNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateChartNamespaceResponse(execute(params, req, runtime));
-  }
+  return UpdateChartNamespaceResponse(callApi(params, req, runtime));
 }
 
 UpdateChartNamespaceResponse Alibabacloud_Cr20181201::Client::updateChartNamespace(shared_ptr<UpdateChartNamespaceRequest> request) {
@@ -4096,12 +3612,7 @@ UpdateChartRepositoryResponse Alibabacloud_Cr20181201::Client::updateChartReposi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateChartRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateChartRepositoryResponse(execute(params, req, runtime));
-  }
+  return UpdateChartRepositoryResponse(callApi(params, req, runtime));
 }
 
 UpdateChartRepositoryResponse Alibabacloud_Cr20181201::Client::updateChartRepository(shared_ptr<UpdateChartRepositoryRequest> request) {
@@ -4164,12 +3675,7 @@ UpdateEventCenterRuleResponse Alibabacloud_Cr20181201::Client::updateEventCenter
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateEventCenterRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateEventCenterRuleResponse(execute(params, req, runtime));
-  }
+  return UpdateEventCenterRuleResponse(callApi(params, req, runtime));
 }
 
 UpdateEventCenterRuleResponse Alibabacloud_Cr20181201::Client::updateEventCenterRule(shared_ptr<UpdateEventCenterRuleRequest> request) {
@@ -4206,12 +3712,7 @@ UpdateInstanceEndpointStatusResponse Alibabacloud_Cr20181201::Client::updateInst
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateInstanceEndpointStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateInstanceEndpointStatusResponse(execute(params, req, runtime));
-  }
+  return UpdateInstanceEndpointStatusResponse(callApi(params, req, runtime));
 }
 
 UpdateInstanceEndpointStatusResponse Alibabacloud_Cr20181201::Client::updateInstanceEndpointStatus(shared_ptr<UpdateInstanceEndpointStatusRequest> request) {
@@ -4248,12 +3749,7 @@ UpdateNamespaceResponse Alibabacloud_Cr20181201::Client::updateNamespaceWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateNamespaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateNamespaceResponse(execute(params, req, runtime));
-  }
+  return UpdateNamespaceResponse(callApi(params, req, runtime));
 }
 
 UpdateNamespaceResponse Alibabacloud_Cr20181201::Client::updateNamespace(shared_ptr<UpdateNamespaceRequest> request) {
@@ -4308,12 +3804,7 @@ UpdateRepoBuildRuleResponse Alibabacloud_Cr20181201::Client::updateRepoBuildRule
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateRepoBuildRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateRepoBuildRuleResponse(execute(params, req, runtime));
-  }
+  return UpdateRepoBuildRuleResponse(callApi(params, req, runtime));
 }
 
 UpdateRepoBuildRuleResponse Alibabacloud_Cr20181201::Client::updateRepoBuildRule(shared_ptr<UpdateRepoBuildRuleRequest> request) {
@@ -4365,12 +3856,7 @@ UpdateRepoSourceCodeRepoResponse Alibabacloud_Cr20181201::Client::updateRepoSour
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateRepoSourceCodeRepoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateRepoSourceCodeRepoResponse(execute(params, req, runtime));
-  }
+  return UpdateRepoSourceCodeRepoResponse(callApi(params, req, runtime));
 }
 
 UpdateRepoSourceCodeRepoResponse Alibabacloud_Cr20181201::Client::updateRepoSourceCodeRepo(shared_ptr<UpdateRepoSourceCodeRepoRequest> request) {
@@ -4416,12 +3902,7 @@ UpdateRepoTriggerResponse Alibabacloud_Cr20181201::Client::updateRepoTriggerWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateRepoTriggerResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateRepoTriggerResponse(execute(params, req, runtime));
-  }
+  return UpdateRepoTriggerResponse(callApi(params, req, runtime));
 }
 
 UpdateRepoTriggerResponse Alibabacloud_Cr20181201::Client::updateRepoTrigger(shared_ptr<UpdateRepoTriggerRequest> request) {
@@ -4470,12 +3951,7 @@ UpdateRepositoryResponse Alibabacloud_Cr20181201::Client::updateRepositoryWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateRepositoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateRepositoryResponse(execute(params, req, runtime));
-  }
+  return UpdateRepositoryResponse(callApi(params, req, runtime));
 }
 
 UpdateRepositoryResponse Alibabacloud_Cr20181201::Client::updateRepository(shared_ptr<UpdateRepositoryRequest> request) {
