@@ -19398,6 +19398,7 @@ public:
   shared_ptr<string> mountHost{};
   shared_ptr<string> nasConfigs{};
   shared_ptr<string> nasId{};
+  shared_ptr<string> newSaeVersion{};
   shared_ptr<string> oidcRoleName{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
@@ -19556,6 +19557,9 @@ public:
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
+    }
+    if (newSaeVersion) {
+      res["NewSaeVersion"] = boost::any(*newSaeVersion);
     }
     if (oidcRoleName) {
       res["OidcRoleName"] = boost::any(*oidcRoleName);
@@ -19775,6 +19779,9 @@ public:
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
     }
+    if (m.find("NewSaeVersion") != m.end() && !m["NewSaeVersion"].empty()) {
+      newSaeVersion = make_shared<string>(boost::any_cast<string>(m["NewSaeVersion"]));
+    }
     if (m.find("OidcRoleName") != m.end() && !m["OidcRoleName"].empty()) {
       oidcRoleName = make_shared<string>(boost::any_cast<string>(m["OidcRoleName"]));
     }
@@ -19924,6 +19931,7 @@ public:
   shared_ptr<string> mountHost{};
   shared_ptr<string> nasConfigs{};
   shared_ptr<string> nasId{};
+  shared_ptr<string> newSaeVersion{};
   shared_ptr<string> oidcRoleName{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
@@ -20082,6 +20090,9 @@ public:
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
+    }
+    if (newSaeVersion) {
+      res["NewSaeVersion"] = boost::any(*newSaeVersion);
     }
     if (oidcRoleName) {
       res["OidcRoleName"] = boost::any(*oidcRoleName);
@@ -20296,6 +20307,9 @@ public:
     }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
+    }
+    if (m.find("NewSaeVersion") != m.end() && !m["NewSaeVersion"].empty()) {
+      newSaeVersion = make_shared<string>(boost::any_cast<string>(m["NewSaeVersion"]));
     }
     if (m.find("OidcRoleName") != m.end() && !m["OidcRoleName"].empty()) {
       oidcRoleName = make_shared<string>(boost::any_cast<string>(m["OidcRoleName"]));
