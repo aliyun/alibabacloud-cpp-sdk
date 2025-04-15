@@ -28575,8 +28575,10 @@ public:
   shared_ptr<string> namespaceInfos{};
   shared_ptr<vector<GetGovernanceKubernetesClusterResponseBodyDataNamespaces>> namespaces{};
   shared_ptr<string> pilotStartTime{};
+  shared_ptr<string> pilotVersion{};
   shared_ptr<string> region{};
   shared_ptr<string> updateTime{};
+  shared_ptr<string> versionLifeCycle{};
 
   GetGovernanceKubernetesClusterResponseBodyData() {}
 
@@ -28610,11 +28612,17 @@ public:
     if (pilotStartTime) {
       res["PilotStartTime"] = boost::any(*pilotStartTime);
     }
+    if (pilotVersion) {
+      res["PilotVersion"] = boost::any(*pilotVersion);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (versionLifeCycle) {
+      res["VersionLifeCycle"] = boost::any(*versionLifeCycle);
     }
     return res;
   }
@@ -28648,11 +28656,17 @@ public:
     if (m.find("PilotStartTime") != m.end() && !m["PilotStartTime"].empty()) {
       pilotStartTime = make_shared<string>(boost::any_cast<string>(m["PilotStartTime"]));
     }
+    if (m.find("PilotVersion") != m.end() && !m["PilotVersion"].empty()) {
+      pilotVersion = make_shared<string>(boost::any_cast<string>(m["PilotVersion"]));
+    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("VersionLifeCycle") != m.end() && !m["VersionLifeCycle"].empty()) {
+      versionLifeCycle = make_shared<string>(boost::any_cast<string>(m["VersionLifeCycle"]));
     }
   }
 
@@ -59901,7 +59915,9 @@ public:
   shared_ptr<string> k8sVersion{};
   shared_ptr<string> namespaceInfos{};
   shared_ptr<string> pilotStartTime{};
+  shared_ptr<string> pilotVersion{};
   shared_ptr<string> region{};
+  shared_ptr<string> versionLifeCycle{};
 
   QueryGovernanceKubernetesClusterResponseBodyDataResult() {}
 
@@ -59928,8 +59944,14 @@ public:
     if (pilotStartTime) {
       res["PilotStartTime"] = boost::any(*pilotStartTime);
     }
+    if (pilotVersion) {
+      res["PilotVersion"] = boost::any(*pilotVersion);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
+    }
+    if (versionLifeCycle) {
+      res["VersionLifeCycle"] = boost::any(*versionLifeCycle);
     }
     return res;
   }
@@ -59950,8 +59972,14 @@ public:
     if (m.find("PilotStartTime") != m.end() && !m["PilotStartTime"].empty()) {
       pilotStartTime = make_shared<string>(boost::any_cast<string>(m["PilotStartTime"]));
     }
+    if (m.find("PilotVersion") != m.end() && !m["PilotVersion"].empty()) {
+      pilotVersion = make_shared<string>(boost::any_cast<string>(m["PilotVersion"]));
+    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("VersionLifeCycle") != m.end() && !m["VersionLifeCycle"].empty()) {
+      versionLifeCycle = make_shared<string>(boost::any_cast<string>(m["VersionLifeCycle"]));
     }
   }
 
