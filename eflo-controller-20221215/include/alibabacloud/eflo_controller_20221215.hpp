@@ -8529,6 +8529,7 @@ public:
   shared_ptr<string> machineType{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<vector<string>> operatingStates{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<ListFreeNodesRequestTags>> tags{};
 
@@ -8553,6 +8554,9 @@ public:
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
+    }
+    if (operatingStates) {
+      res["OperatingStates"] = boost::any(*operatingStates);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -8579,6 +8583,16 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OperatingStates") != m.end() && !m["OperatingStates"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OperatingStates"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OperatingStates"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      operatingStates = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
