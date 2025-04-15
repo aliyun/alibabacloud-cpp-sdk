@@ -8,6 +8,7 @@
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -500,6 +501,233 @@ public:
 
 
   virtual ~CheckResultResponse() = default;
+};
+class CheckVerifyLogRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> merchantBizId{};
+  shared_ptr<string> transactionId{};
+
+  CheckVerifyLogRequest() {}
+
+  explicit CheckVerifyLogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (merchantBizId) {
+      res["MerchantBizId"] = boost::any(*merchantBizId);
+    }
+    if (transactionId) {
+      res["TransactionId"] = boost::any(*transactionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
+      merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
+    }
+    if (m.find("TransactionId") != m.end() && !m["TransactionId"].empty()) {
+      transactionId = make_shared<string>(boost::any_cast<string>(m["TransactionId"]));
+    }
+  }
+
+
+  virtual ~CheckVerifyLogRequest() = default;
+};
+class CheckVerifyLogResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> extInfo{};
+  shared_ptr<string> interruptPage{};
+  shared_ptr<vector<string>> logInfo{};
+  shared_ptr<string> logStatisticsInfo{};
+  shared_ptr<string> passed{};
+  shared_ptr<string> subCode{};
+  shared_ptr<string> verifyErrorCode{};
+  shared_ptr<string> verifyStatus{};
+
+  CheckVerifyLogResponseBodyResult() {}
+
+  explicit CheckVerifyLogResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extInfo) {
+      res["ExtInfo"] = boost::any(*extInfo);
+    }
+    if (interruptPage) {
+      res["InterruptPage"] = boost::any(*interruptPage);
+    }
+    if (logInfo) {
+      res["LogInfo"] = boost::any(*logInfo);
+    }
+    if (logStatisticsInfo) {
+      res["LogStatisticsInfo"] = boost::any(*logStatisticsInfo);
+    }
+    if (passed) {
+      res["Passed"] = boost::any(*passed);
+    }
+    if (subCode) {
+      res["SubCode"] = boost::any(*subCode);
+    }
+    if (verifyErrorCode) {
+      res["VerifyErrorCode"] = boost::any(*verifyErrorCode);
+    }
+    if (verifyStatus) {
+      res["VerifyStatus"] = boost::any(*verifyStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtInfo") != m.end() && !m["ExtInfo"].empty()) {
+      extInfo = make_shared<string>(boost::any_cast<string>(m["ExtInfo"]));
+    }
+    if (m.find("InterruptPage") != m.end() && !m["InterruptPage"].empty()) {
+      interruptPage = make_shared<string>(boost::any_cast<string>(m["InterruptPage"]));
+    }
+    if (m.find("LogInfo") != m.end() && !m["LogInfo"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LogInfo"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LogInfo"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      logInfo = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LogStatisticsInfo") != m.end() && !m["LogStatisticsInfo"].empty()) {
+      logStatisticsInfo = make_shared<string>(boost::any_cast<string>(m["LogStatisticsInfo"]));
+    }
+    if (m.find("Passed") != m.end() && !m["Passed"].empty()) {
+      passed = make_shared<string>(boost::any_cast<string>(m["Passed"]));
+    }
+    if (m.find("SubCode") != m.end() && !m["SubCode"].empty()) {
+      subCode = make_shared<string>(boost::any_cast<string>(m["SubCode"]));
+    }
+    if (m.find("VerifyErrorCode") != m.end() && !m["VerifyErrorCode"].empty()) {
+      verifyErrorCode = make_shared<string>(boost::any_cast<string>(m["VerifyErrorCode"]));
+    }
+    if (m.find("VerifyStatus") != m.end() && !m["VerifyStatus"].empty()) {
+      verifyStatus = make_shared<string>(boost::any_cast<string>(m["VerifyStatus"]));
+    }
+  }
+
+
+  virtual ~CheckVerifyLogResponseBodyResult() = default;
+};
+class CheckVerifyLogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<CheckVerifyLogResponseBodyResult> result{};
+
+  CheckVerifyLogResponseBody() {}
+
+  explicit CheckVerifyLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        CheckVerifyLogResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<CheckVerifyLogResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckVerifyLogResponseBody() = default;
+};
+class CheckVerifyLogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckVerifyLogResponseBody> body{};
+
+  CheckVerifyLogResponse() {}
+
+  explicit CheckVerifyLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckVerifyLogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckVerifyLogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckVerifyLogResponse() = default;
 };
 class DeleteVerifyResultRequest : public Darabonba::Model {
 public:
@@ -1475,6 +1703,7 @@ public:
 };
 class FaceGuardRiskResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<double> guardRiskScore{};
   shared_ptr<string> riskExtends{};
   shared_ptr<string> riskTags{};
   shared_ptr<string> transactionId{};
@@ -1489,6 +1718,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (guardRiskScore) {
+      res["GuardRiskScore"] = boost::any(*guardRiskScore);
+    }
     if (riskExtends) {
       res["RiskExtends"] = boost::any(*riskExtends);
     }
@@ -1502,6 +1734,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("GuardRiskScore") != m.end() && !m["GuardRiskScore"].empty()) {
+      guardRiskScore = make_shared<double>(boost::any_cast<double>(m["GuardRiskScore"]));
+    }
     if (m.find("RiskExtends") != m.end() && !m["RiskExtends"].empty()) {
       riskExtends = make_shared<string>(boost::any_cast<string>(m["RiskExtends"]));
     }
@@ -3082,6 +3317,8 @@ public:
   CardOcrResponse cardOcr(shared_ptr<CardOcrRequest> request);
   CheckResultResponse checkResultWithOptions(shared_ptr<CheckResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckResultResponse checkResult(shared_ptr<CheckResultRequest> request);
+  CheckVerifyLogResponse checkVerifyLogWithOptions(shared_ptr<CheckVerifyLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckVerifyLogResponse checkVerifyLog(shared_ptr<CheckVerifyLogRequest> request);
   DeleteVerifyResultResponse deleteVerifyResultWithOptions(shared_ptr<DeleteVerifyResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVerifyResultResponse deleteVerifyResult(shared_ptr<DeleteVerifyResultRequest> request);
   DocOcrResponse docOcrWithOptions(shared_ptr<DocOcrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
