@@ -6161,6 +6161,49 @@ public:
 
   virtual ~GetCipStatsResponseBodyDataLabelStatChartImageTreeChar() = default;
 };
+class GetCipStatsResponseBodyDataLabelStatChartTextTreeChart : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  GetCipStatsResponseBodyDataLabelStatChartTextTreeChart() {}
+
+  explicit GetCipStatsResponseBodyDataLabelStatChartTextTreeChart(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetCipStatsResponseBodyDataLabelStatChartTextTreeChart() = default;
+};
 class GetCipStatsResponseBodyDataLabelStatChartTreeChart : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -6294,6 +6337,7 @@ class GetCipStatsResponseBodyDataLabelStatChart : public Darabonba::Model {
 public:
   shared_ptr<vector<GetCipStatsResponseBodyDataLabelStatChartImageTreeChar>> imageTreeChar{};
   shared_ptr<string> serviceCode{};
+  shared_ptr<vector<GetCipStatsResponseBodyDataLabelStatChartTextTreeChart>> textTreeChart{};
   shared_ptr<long> totalCount{};
   shared_ptr<vector<GetCipStatsResponseBodyDataLabelStatChartTreeChart>> treeChart{};
   shared_ptr<vector<GetCipStatsResponseBodyDataLabelStatChartVoiceTreeChart>> voiceTreeChart{};
@@ -6319,6 +6363,13 @@ public:
     }
     if (serviceCode) {
       res["ServiceCode"] = boost::any(*serviceCode);
+    }
+    if (textTreeChart) {
+      vector<boost::any> temp1;
+      for(auto item1:*textTreeChart){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TextTreeChart"] = boost::any(temp1);
     }
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
@@ -6366,6 +6417,19 @@ public:
     }
     if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
       serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
+    }
+    if (m.find("TextTreeChart") != m.end() && !m["TextTreeChart"].empty()) {
+      if (typeid(vector<boost::any>) == m["TextTreeChart"].type()) {
+        vector<GetCipStatsResponseBodyDataLabelStatChartTextTreeChart> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TextTreeChart"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCipStatsResponseBodyDataLabelStatChartTextTreeChart model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        textTreeChart = make_shared<vector<GetCipStatsResponseBodyDataLabelStatChartTextTreeChart>>(expect1);
+      }
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
