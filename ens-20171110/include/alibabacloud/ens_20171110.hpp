@@ -21794,8 +21794,10 @@ public:
 };
 class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag : public Darabonba::Model {
 public:
+  shared_ptr<string> key{};
   shared_ptr<string> tagKey{};
   shared_ptr<string> tagValue{};
+  shared_ptr<string> value{};
 
   DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag() {}
 
@@ -21807,21 +21809,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
     if (tagKey) {
       res["TagKey"] = boost::any(*tagKey);
     }
     if (tagValue) {
       res["TagValue"] = boost::any(*tagValue);
     }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
     if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
       tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
     }
     if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
       tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
     }
   }
 
@@ -38269,8 +38283,10 @@ public:
 };
 class DescribeNatGatewaysResponseBodyNatGatewaysTags : public Darabonba::Model {
 public:
+  shared_ptr<string> key{};
   shared_ptr<string> tagKey{};
   shared_ptr<string> tagValue{};
+  shared_ptr<string> value{};
 
   DescribeNatGatewaysResponseBodyNatGatewaysTags() {}
 
@@ -38282,21 +38298,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
     if (tagKey) {
       res["TagKey"] = boost::any(*tagKey);
     }
     if (tagValue) {
       res["TagValue"] = boost::any(*tagValue);
     }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
     if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
       tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
     }
     if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
       tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
     }
   }
 
@@ -40432,8 +40460,10 @@ public:
 };
 class DescribeNetworksResponseBodyNetworksNetworkTagsTag : public Darabonba::Model {
 public:
+  shared_ptr<string> key{};
   shared_ptr<string> tagKey{};
   shared_ptr<string> tagValue{};
+  shared_ptr<string> value{};
 
   DescribeNetworksResponseBodyNetworksNetworkTagsTag() {}
 
@@ -40445,21 +40475,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
     if (tagKey) {
       res["TagKey"] = boost::any(*tagKey);
     }
     if (tagValue) {
       res["TagValue"] = boost::any(*tagValue);
     }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
     if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
       tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
     }
     if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
       tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
     }
   }
 
@@ -50242,8 +50284,10 @@ public:
 };
 class DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag : public Darabonba::Model {
 public:
+  shared_ptr<string> key{};
   shared_ptr<string> tagKey{};
   shared_ptr<string> tagValue{};
+  shared_ptr<string> value{};
 
   DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag() {}
 
@@ -50255,21 +50299,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
     if (tagKey) {
       res["TagKey"] = boost::any(*tagKey);
     }
     if (tagValue) {
       res["TagValue"] = boost::any(*tagValue);
     }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
     if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
       tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
     }
     if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
       tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
     }
   }
 
