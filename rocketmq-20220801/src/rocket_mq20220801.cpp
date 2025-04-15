@@ -167,6 +167,56 @@ CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsume
   return createConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
 }
 
+CreateDisasterRecoveryPlanResponse Alibabacloud_RocketMQ20220801::Client::createDisasterRecoveryPlanWithOptions(shared_ptr<CreateDisasterRecoveryPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoSyncCheckpoint)) {
+    body->insert(pair<string, bool>("autoSyncCheckpoint", *request->autoSyncCheckpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDisasterRecoveryPlanRequestInstances>>(request->instances)) {
+    body->insert(pair<string, vector<CreateDisasterRecoveryPlanRequestInstances>>("instances", *request->instances));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planDesc)) {
+    body->insert(pair<string, string>("planDesc", *request->planDesc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planName)) {
+    body->insert(pair<string, string>("planName", *request->planName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planType)) {
+    body->insert(pair<string, string>("planType", *request->planType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->syncCheckpointEnabled)) {
+    body->insert(pair<string, bool>("syncCheckpointEnabled", *request->syncCheckpointEnabled));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDisasterRecoveryPlan"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateDisasterRecoveryPlanResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateDisasterRecoveryPlanResponse(execute(params, req, runtime));
+  }
+}
+
+CreateDisasterRecoveryPlanResponse Alibabacloud_RocketMQ20220801::Client::createDisasterRecoveryPlan(shared_ptr<CreateDisasterRecoveryPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createDisasterRecoveryPlanWithOptions(request, headers, runtime);
+}
+
 CreateInstanceResponse Alibabacloud_RocketMQ20220801::Client::createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -499,6 +549,38 @@ DeleteConsumerGroupSubscriptionResponse Alibabacloud_RocketMQ20220801::Client::d
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteConsumerGroupSubscriptionWithOptions(instanceId, consumerGroupId, request, headers, runtime);
+}
+
+DeleteDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::deleteDisasterRecoveryItemWithOptions(shared_ptr<string> planId,
+                                                                                                                shared_ptr<string> itemId,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDisasterRecoveryItem"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)) + string("/items/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(itemId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteDisasterRecoveryItemResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteDisasterRecoveryItemResponse(execute(params, req, runtime));
+  }
+}
+
+DeleteDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::deleteDisasterRecoveryItem(shared_ptr<string> planId, shared_ptr<string> itemId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
 }
 
 DeleteDisasterRecoveryPlanResponse Alibabacloud_RocketMQ20220801::Client::deleteDisasterRecoveryPlanWithOptions(shared_ptr<string> planId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -854,6 +936,67 @@ GetConsumerStackResponse Alibabacloud_RocketMQ20220801::Client::getConsumerStack
   return getConsumerStackWithOptions(instanceId, consumerGroupId, request, headers, runtime);
 }
 
+GetDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::getDisasterRecoveryItemWithOptions(shared_ptr<string> planId,
+                                                                                                          shared_ptr<string> itemId,
+                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDisasterRecoveryItem"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)) + string("/items/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(itemId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetDisasterRecoveryItemResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetDisasterRecoveryItemResponse(execute(params, req, runtime));
+  }
+}
+
+GetDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::getDisasterRecoveryItem(shared_ptr<string> planId, shared_ptr<string> itemId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
+}
+
+GetDisasterRecoveryPlanResponse Alibabacloud_RocketMQ20220801::Client::getDisasterRecoveryPlanWithOptions(shared_ptr<string> planId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDisasterRecoveryPlan"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetDisasterRecoveryPlanResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetDisasterRecoveryPlanResponse(execute(params, req, runtime));
+  }
+}
+
+GetDisasterRecoveryPlanResponse Alibabacloud_RocketMQ20220801::Client::getDisasterRecoveryPlan(shared_ptr<string> planId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getDisasterRecoveryPlanWithOptions(planId, headers, runtime);
+}
+
 GetInstanceResponse Alibabacloud_RocketMQ20220801::Client::getInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -1167,10 +1310,17 @@ ListConsumerConnectionsResponse Alibabacloud_RocketMQ20220801::Client::listConsu
 
 ListConsumerGroupSubscriptionsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroupSubscriptionsWithOptions(shared_ptr<string> instanceId,
                                                                                                                         shared_ptr<string> consumerGroupId,
+                                                                                                                        shared_ptr<ListConsumerGroupSubscriptionsRequest> request,
                                                                                                                         shared_ptr<map<string, string>> headers,
                                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->topicName)) {
+    query->insert(pair<string, string>("topicName", *request->topicName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListConsumerGroupSubscriptions"))},
@@ -1191,10 +1341,10 @@ ListConsumerGroupSubscriptionsResponse Alibabacloud_RocketMQ20220801::Client::li
   }
 }
 
-ListConsumerGroupSubscriptionsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroupSubscriptions(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId) {
+ListConsumerGroupSubscriptionsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroupSubscriptions(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId, shared_ptr<ListConsumerGroupSubscriptionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listConsumerGroupSubscriptionsWithOptions(instanceId, consumerGroupId, headers, runtime);
+  return listConsumerGroupSubscriptionsWithOptions(instanceId, consumerGroupId, request, headers, runtime);
 }
 
 ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroupsWithOptions(shared_ptr<string> instanceId,
@@ -1239,6 +1389,145 @@ ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGr
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listConsumerGroupsWithOptions(instanceId, request, headers, runtime);
+}
+
+ListDisasterRecoveryCheckpointsResponse Alibabacloud_RocketMQ20220801::Client::listDisasterRecoveryCheckpointsWithOptions(shared_ptr<string> planId,
+                                                                                                                          shared_ptr<string> itemId,
+                                                                                                                          shared_ptr<ListDisasterRecoveryCheckpointsRequest> request,
+                                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
+    query->insert(pair<string, string>("filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("instanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDisasterRecoveryCheckpoints"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)) + string("/items/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(itemId)) + string("/checkpoints"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListDisasterRecoveryCheckpointsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListDisasterRecoveryCheckpointsResponse(execute(params, req, runtime));
+  }
+}
+
+ListDisasterRecoveryCheckpointsResponse Alibabacloud_RocketMQ20220801::Client::listDisasterRecoveryCheckpoints(shared_ptr<string> planId, shared_ptr<string> itemId, shared_ptr<ListDisasterRecoveryCheckpointsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listDisasterRecoveryCheckpointsWithOptions(planId, itemId, request, headers, runtime);
+}
+
+ListDisasterRecoveryItemsResponse Alibabacloud_RocketMQ20220801::Client::listDisasterRecoveryItemsWithOptions(shared_ptr<string> planId,
+                                                                                                              shared_ptr<ListDisasterRecoveryItemsRequest> request,
+                                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
+    query->insert(pair<string, string>("filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topicName)) {
+    query->insert(pair<string, string>("topicName", *request->topicName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDisasterRecoveryItems"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)) + string("/items"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListDisasterRecoveryItemsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListDisasterRecoveryItemsResponse(execute(params, req, runtime));
+  }
+}
+
+ListDisasterRecoveryItemsResponse Alibabacloud_RocketMQ20220801::Client::listDisasterRecoveryItems(shared_ptr<string> planId, shared_ptr<ListDisasterRecoveryItemsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listDisasterRecoveryItemsWithOptions(planId, request, headers, runtime);
+}
+
+ListDisasterRecoveryPlansResponse Alibabacloud_RocketMQ20220801::Client::listDisasterRecoveryPlansWithOptions(shared_ptr<ListDisasterRecoveryPlansRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
+    query->insert(pair<string, string>("filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("instanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDisasterRecoveryPlans"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListDisasterRecoveryPlansResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListDisasterRecoveryPlansResponse(execute(params, req, runtime));
+  }
+}
+
+ListDisasterRecoveryPlansResponse Alibabacloud_RocketMQ20220801::Client::listDisasterRecoveryPlans(shared_ptr<ListDisasterRecoveryPlansRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listDisasterRecoveryPlansWithOptions(request, headers, runtime);
 }
 
 ListInstanceAccountResponse Alibabacloud_RocketMQ20220801::Client::listInstanceAccountWithOptions(shared_ptr<string> instanceId,
@@ -1862,6 +2151,39 @@ StopDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::stopDisa
   return stopDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
 }
 
+SyncDisasterRecoveryCheckpointResponse Alibabacloud_RocketMQ20220801::Client::syncDisasterRecoveryCheckpointWithOptions(shared_ptr<string> planId,
+                                                                                                                        shared_ptr<string> itemId,
+                                                                                                                        shared_ptr<string> checkpointId,
+                                                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SyncDisasterRecoveryCheckpoint"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)) + string("/items/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(itemId)) + string("/checkpoints/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(checkpointId)))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SyncDisasterRecoveryCheckpointResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SyncDisasterRecoveryCheckpointResponse(execute(params, req, runtime));
+  }
+}
+
+SyncDisasterRecoveryCheckpointResponse Alibabacloud_RocketMQ20220801::Client::syncDisasterRecoveryCheckpoint(shared_ptr<string> planId, shared_ptr<string> itemId, shared_ptr<string> checkpointId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return syncDisasterRecoveryCheckpointWithOptions(planId, itemId, checkpointId, headers, runtime);
+}
+
 TagResourcesResponse Alibabacloud_RocketMQ20220801::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1999,6 +2321,98 @@ UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsume
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
+}
+
+UpdateDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::updateDisasterRecoveryItemWithOptions(shared_ptr<string> planId,
+                                                                                                                shared_ptr<string> itemId,
+                                                                                                                shared_ptr<UpdateDisasterRecoveryItemRequest> request,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateDisasterRecoveryItemRequestTopics>>(request->topics)) {
+    body->insert(pair<string, vector<UpdateDisasterRecoveryItemRequestTopics>>("topics", *request->topics));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDisasterRecoveryItem"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)) + string("/items/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(itemId)))},
+    {"method", boost::any(string("PATCH"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateDisasterRecoveryItemResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateDisasterRecoveryItemResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::updateDisasterRecoveryItem(shared_ptr<string> planId, shared_ptr<string> itemId, shared_ptr<UpdateDisasterRecoveryItemRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateDisasterRecoveryItemWithOptions(planId, itemId, request, headers, runtime);
+}
+
+UpdateDisasterRecoveryPlanResponse Alibabacloud_RocketMQ20220801::Client::updateDisasterRecoveryPlanWithOptions(shared_ptr<string> planId,
+                                                                                                                shared_ptr<UpdateDisasterRecoveryPlanRequest> request,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoSyncCheckpoint)) {
+    body->insert(pair<string, bool>("autoSyncCheckpoint", *request->autoSyncCheckpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateDisasterRecoveryPlanRequestInstances>>(request->instances)) {
+    body->insert(pair<string, vector<UpdateDisasterRecoveryPlanRequestInstances>>("instances", *request->instances));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planDesc)) {
+    body->insert(pair<string, string>("planDesc", *request->planDesc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planName)) {
+    body->insert(pair<string, string>("planName", *request->planName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planType)) {
+    body->insert(pair<string, string>("planType", *request->planType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->syncCheckpointEnabled)) {
+    body->insert(pair<string, bool>("syncCheckpointEnabled", *request->syncCheckpointEnabled));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDisasterRecoveryPlan"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)))},
+    {"method", boost::any(string("PATCH"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateDisasterRecoveryPlanResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateDisasterRecoveryPlanResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateDisasterRecoveryPlanResponse Alibabacloud_RocketMQ20220801::Client::updateDisasterRecoveryPlan(shared_ptr<string> planId, shared_ptr<UpdateDisasterRecoveryPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateDisasterRecoveryPlanWithOptions(planId, request, headers, runtime);
 }
 
 UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstanceWithOptions(shared_ptr<string> instanceId,
