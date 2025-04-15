@@ -300,6 +300,9 @@ CreateEventStreamingResponse Alibabacloud_Eventbridge20200401::Client::createEve
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceShrink)) {
     body->insert(pair<string, string>("Source", *request->sourceShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEventStreamingShrinkRequestTags>>(request->tags)) {
+    body->insert(pair<string, vector<CreateEventStreamingShrinkRequestTags>>("Tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->transformsShrink)) {
     body->insert(pair<string, string>("Transforms", *request->transformsShrink));
   }
@@ -1116,6 +1119,9 @@ ListEventStreamingsResponse Alibabacloud_Eventbridge20200401::Client::listEventS
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceArn)) {
     body->insert(pair<string, string>("SourceArn", *request->sourceArn));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListEventStreamingsRequestTags>>(request->tags)) {
+    body->insert(pair<string, vector<ListEventStreamingsRequestTags>>("Tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
