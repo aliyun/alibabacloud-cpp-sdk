@@ -38,6 +38,86 @@ string Alibabacloud_Ecd20201001::Client::getEndpoint(shared_ptr<string> productI
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CalMcpToolResponse Alibabacloud_Ecd20201001::Client::calMcpToolWithOptions(shared_ptr<CalMcpToolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->args)) {
+    body->insert(pair<string, string>("Args", *request->args));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorization)) {
+    body->insert(pair<string, string>("Authorization", *request->authorization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalUserId)) {
+    body->insert(pair<string, string>("ExternalUserId", *request->externalUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->server)) {
+    body->insert(pair<string, string>("Server", *request->server));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tool)) {
+    body->insert(pair<string, string>("Tool", *request->tool));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CalMcpTool"))},
+    {"version", boost::any(string("2020-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CalMcpToolResponse(callApi(params, req, runtime));
+}
+
+CalMcpToolResponse Alibabacloud_Ecd20201001::Client::calMcpTool(shared_ptr<CalMcpToolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return calMcpToolWithOptions(request, runtime);
+}
+
+CreateMcpSessionResponse Alibabacloud_Ecd20201001::Client::createMcpSessionWithOptions(shared_ptr<CreateMcpSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorization)) {
+    body->insert(pair<string, string>("Authorization", *request->authorization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalUserId)) {
+    body->insert(pair<string, string>("ExternalUserId", *request->externalUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMcpSession"))},
+    {"version", boost::any(string("2020-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMcpSessionResponse(callApi(params, req, runtime));
+}
+
+CreateMcpSessionResponse Alibabacloud_Ecd20201001::Client::createMcpSession(shared_ptr<CreateMcpSessionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createMcpSessionWithOptions(request, runtime);
+}
+
 DescribeDesktopsResponse Alibabacloud_Ecd20201001::Client::describeDesktopsWithOptions(shared_ptr<DescribeDesktopsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -188,6 +268,65 @@ GetConnectionTicketResponse Alibabacloud_Ecd20201001::Client::getConnectionTicke
   return getConnectionTicketWithOptions(request, runtime);
 }
 
+GetMcpResourceResponse Alibabacloud_Ecd20201001::Client::getMcpResourceWithOptions(shared_ptr<GetMcpResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorization)) {
+    body->insert(pair<string, string>("Authorization", *request->authorization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMcpResource"))},
+    {"version", boost::any(string("2020-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMcpResourceResponse(callApi(params, req, runtime));
+}
+
+GetMcpResourceResponse Alibabacloud_Ecd20201001::Client::getMcpResource(shared_ptr<GetMcpResourceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMcpResourceWithOptions(request, runtime);
+}
+
+ListMcpToolsResponse Alibabacloud_Ecd20201001::Client::listMcpToolsWithOptions(shared_ptr<ListMcpToolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorization)) {
+    body->insert(pair<string, string>("Authorization", *request->authorization));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMcpTools"))},
+    {"version", boost::any(string("2020-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMcpToolsResponse(callApi(params, req, runtime));
+}
+
+ListMcpToolsResponse Alibabacloud_Ecd20201001::Client::listMcpTools(shared_ptr<ListMcpToolsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listMcpToolsWithOptions(request, runtime);
+}
+
 RebootDesktopsResponse Alibabacloud_Ecd20201001::Client::rebootDesktopsWithOptions(shared_ptr<RebootDesktopsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -223,6 +362,37 @@ RebootDesktopsResponse Alibabacloud_Ecd20201001::Client::rebootDesktopsWithOptio
 RebootDesktopsResponse Alibabacloud_Ecd20201001::Client::rebootDesktops(shared_ptr<RebootDesktopsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return rebootDesktopsWithOptions(request, runtime);
+}
+
+ReleaseMcpSessionResponse Alibabacloud_Ecd20201001::Client::releaseMcpSessionWithOptions(shared_ptr<ReleaseMcpSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorization)) {
+    body->insert(pair<string, string>("Authorization", *request->authorization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReleaseMcpSession"))},
+    {"version", boost::any(string("2020-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReleaseMcpSessionResponse(callApi(params, req, runtime));
+}
+
+ReleaseMcpSessionResponse Alibabacloud_Ecd20201001::Client::releaseMcpSession(shared_ptr<ReleaseMcpSessionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return releaseMcpSessionWithOptions(request, runtime);
 }
 
 StartDesktopsResponse Alibabacloud_Ecd20201001::Client::startDesktopsWithOptions(shared_ptr<StartDesktopsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
