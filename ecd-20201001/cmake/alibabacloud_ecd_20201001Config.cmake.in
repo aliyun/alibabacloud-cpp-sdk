@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_ecd_20201001Targets.cmake")
+check_required_components("alibabacloud_ecd_20201001")
