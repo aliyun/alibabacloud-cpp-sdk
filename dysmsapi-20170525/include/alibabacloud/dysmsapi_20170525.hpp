@@ -1668,6 +1668,7 @@ public:
 class CreateSmsSignRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applySceneContent{};
+  shared_ptr<string> authorizationLetterId{};
   shared_ptr<vector<string>> moreData{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> qualificationId{};
@@ -1691,6 +1692,9 @@ public:
     map<string, boost::any> res;
     if (applySceneContent) {
       res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (authorizationLetterId) {
+      res["AuthorizationLetterId"] = boost::any(*authorizationLetterId);
     }
     if (moreData) {
       res["MoreData"] = boost::any(*moreData);
@@ -1728,6 +1732,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
       applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("AuthorizationLetterId") != m.end() && !m["AuthorizationLetterId"].empty()) {
+      authorizationLetterId = make_shared<string>(boost::any_cast<string>(m["AuthorizationLetterId"]));
     }
     if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
       vector<string> toVec1;
@@ -1774,6 +1781,7 @@ public:
 class CreateSmsSignShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applySceneContent{};
+  shared_ptr<string> authorizationLetterId{};
   shared_ptr<string> moreDataShrink{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> qualificationId{};
@@ -1797,6 +1805,9 @@ public:
     map<string, boost::any> res;
     if (applySceneContent) {
       res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (authorizationLetterId) {
+      res["AuthorizationLetterId"] = boost::any(*authorizationLetterId);
     }
     if (moreDataShrink) {
       res["MoreData"] = boost::any(*moreDataShrink);
@@ -1834,6 +1845,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
       applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("AuthorizationLetterId") != m.end() && !m["AuthorizationLetterId"].empty()) {
+      authorizationLetterId = make_shared<string>(boost::any_cast<string>(m["AuthorizationLetterId"]));
     }
     if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
       moreDataShrink = make_shared<string>(boost::any_cast<string>(m["MoreData"]));
@@ -4252,6 +4266,8 @@ class GetSmsSignResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> applyScene{};
   shared_ptr<GetSmsSignResponseBodyAuditInfo> auditInfo{};
+  shared_ptr<bool> authorizationLetterAuditPass{};
+  shared_ptr<string> authorizationLetterId{};
   shared_ptr<string> code{};
   shared_ptr<string> createDate{};
   shared_ptr<vector<string>> fileUrlList{};
@@ -4283,6 +4299,12 @@ public:
     }
     if (auditInfo) {
       res["AuditInfo"] = auditInfo ? boost::any(auditInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (authorizationLetterAuditPass) {
+      res["AuthorizationLetterAuditPass"] = boost::any(*authorizationLetterAuditPass);
+    }
+    if (authorizationLetterId) {
+      res["AuthorizationLetterId"] = boost::any(*authorizationLetterId);
     }
     if (code) {
       res["Code"] = boost::any(*code);
@@ -4342,6 +4364,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuditInfo"]));
         auditInfo = make_shared<GetSmsSignResponseBodyAuditInfo>(model1);
       }
+    }
+    if (m.find("AuthorizationLetterAuditPass") != m.end() && !m["AuthorizationLetterAuditPass"].empty()) {
+      authorizationLetterAuditPass = make_shared<bool>(boost::any_cast<bool>(m["AuthorizationLetterAuditPass"]));
+    }
+    if (m.find("AuthorizationLetterId") != m.end() && !m["AuthorizationLetterId"].empty()) {
+      authorizationLetterId = make_shared<string>(boost::any_cast<string>(m["AuthorizationLetterId"]));
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
@@ -8013,11 +8041,13 @@ public:
 class QuerySmsSignListResponseBodySmsSignList : public Darabonba::Model {
 public:
   shared_ptr<string> auditStatus{};
+  shared_ptr<string> authorizationLetterId{};
   shared_ptr<string> businessType{};
   shared_ptr<string> createDate{};
   shared_ptr<string> orderId{};
   shared_ptr<QuerySmsSignListResponseBodySmsSignListReason> reason{};
   shared_ptr<string> signName{};
+  shared_ptr<bool> authorizationLetterAuditPass{};
 
   QuerySmsSignListResponseBodySmsSignList() {}
 
@@ -8031,6 +8061,9 @@ public:
     map<string, boost::any> res;
     if (auditStatus) {
       res["AuditStatus"] = boost::any(*auditStatus);
+    }
+    if (authorizationLetterId) {
+      res["AuthorizationLetterId"] = boost::any(*authorizationLetterId);
     }
     if (businessType) {
       res["BusinessType"] = boost::any(*businessType);
@@ -8047,12 +8080,18 @@ public:
     if (signName) {
       res["SignName"] = boost::any(*signName);
     }
+    if (authorizationLetterAuditPass) {
+      res["authorizationLetterAuditPass"] = boost::any(*authorizationLetterAuditPass);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuditStatus") != m.end() && !m["AuditStatus"].empty()) {
       auditStatus = make_shared<string>(boost::any_cast<string>(m["AuditStatus"]));
+    }
+    if (m.find("AuthorizationLetterId") != m.end() && !m["AuthorizationLetterId"].empty()) {
+      authorizationLetterId = make_shared<string>(boost::any_cast<string>(m["AuthorizationLetterId"]));
     }
     if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["BusinessType"]));
@@ -8072,6 +8111,9 @@ public:
     }
     if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
       signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+    if (m.find("authorizationLetterAuditPass") != m.end() && !m["authorizationLetterAuditPass"].empty()) {
+      authorizationLetterAuditPass = make_shared<bool>(boost::any_cast<bool>(m["authorizationLetterAuditPass"]));
     }
   }
 
@@ -10491,6 +10533,7 @@ public:
 class UpdateSmsSignRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applySceneContent{};
+  shared_ptr<string> authorizationLetterId{};
   shared_ptr<vector<string>> moreData{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> qualificationId{};
@@ -10514,6 +10557,9 @@ public:
     map<string, boost::any> res;
     if (applySceneContent) {
       res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (authorizationLetterId) {
+      res["AuthorizationLetterId"] = boost::any(*authorizationLetterId);
     }
     if (moreData) {
       res["MoreData"] = boost::any(*moreData);
@@ -10551,6 +10597,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
       applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("AuthorizationLetterId") != m.end() && !m["AuthorizationLetterId"].empty()) {
+      authorizationLetterId = make_shared<string>(boost::any_cast<string>(m["AuthorizationLetterId"]));
     }
     if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
       vector<string> toVec1;
@@ -10597,6 +10646,7 @@ public:
 class UpdateSmsSignShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applySceneContent{};
+  shared_ptr<string> authorizationLetterId{};
   shared_ptr<string> moreDataShrink{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> qualificationId{};
@@ -10620,6 +10670,9 @@ public:
     map<string, boost::any> res;
     if (applySceneContent) {
       res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (authorizationLetterId) {
+      res["AuthorizationLetterId"] = boost::any(*authorizationLetterId);
     }
     if (moreDataShrink) {
       res["MoreData"] = boost::any(*moreDataShrink);
@@ -10657,6 +10710,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
       applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("AuthorizationLetterId") != m.end() && !m["AuthorizationLetterId"].empty()) {
+      authorizationLetterId = make_shared<string>(boost::any_cast<string>(m["AuthorizationLetterId"]));
     }
     if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
       moreDataShrink = make_shared<string>(boost::any_cast<string>(m["MoreData"]));
