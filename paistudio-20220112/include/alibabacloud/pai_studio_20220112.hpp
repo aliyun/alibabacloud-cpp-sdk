@@ -13099,6 +13099,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> quotaId{};
+  shared_ptr<string> reasonCodes{};
   shared_ptr<string> resourceGroupIds{};
   shared_ptr<string> sortBy{};
   shared_ptr<bool> verbose{};
@@ -13152,6 +13153,9 @@ public:
     if (quotaId) {
       res["QuotaId"] = boost::any(*quotaId);
     }
+    if (reasonCodes) {
+      res["ReasonCodes"] = boost::any(*reasonCodes);
+    }
     if (resourceGroupIds) {
       res["ResourceGroupIds"] = boost::any(*resourceGroupIds);
     }
@@ -13203,6 +13207,9 @@ public:
     }
     if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
       quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
+    }
+    if (m.find("ReasonCodes") != m.end() && !m["ReasonCodes"].empty()) {
+      reasonCodes = make_shared<string>(boost::any_cast<string>(m["ReasonCodes"]));
     }
     if (m.find("ResourceGroupIds") != m.end() && !m["ResourceGroupIds"].empty()) {
       resourceGroupIds = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIds"]));

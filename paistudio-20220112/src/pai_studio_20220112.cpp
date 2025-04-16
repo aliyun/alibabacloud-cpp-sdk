@@ -81,12 +81,7 @@ CheckInstanceWebTerminalResponse Alibabacloud_PaiStudio20220112::Client::checkIn
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckInstanceWebTerminalResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckInstanceWebTerminalResponse(execute(params, req, runtime));
-  }
+  return CheckInstanceWebTerminalResponse(callApi(params, req, runtime));
 }
 
 CheckInstanceWebTerminalResponse Alibabacloud_PaiStudio20220112::Client::checkInstanceWebTerminal(shared_ptr<string> TrainingJobId, shared_ptr<string> InstanceId, shared_ptr<CheckInstanceWebTerminalRequest> request) {
@@ -125,12 +120,7 @@ CreateAlgorithmResponse Alibabacloud_PaiStudio20220112::Client::createAlgorithmW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateAlgorithmResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateAlgorithmResponse(execute(params, req, runtime));
-  }
+  return CreateAlgorithmResponse(callApi(params, req, runtime));
 }
 
 CreateAlgorithmResponse Alibabacloud_PaiStudio20220112::Client::createAlgorithm(shared_ptr<CreateAlgorithmRequest> request) {
@@ -169,12 +159,7 @@ CreateAlgorithmVersionResponse Alibabacloud_PaiStudio20220112::Client::createAlg
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateAlgorithmVersionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateAlgorithmVersionResponse(execute(params, req, runtime));
-  }
+  return CreateAlgorithmVersionResponse(callApi(params, req, runtime));
 }
 
 CreateAlgorithmVersionResponse Alibabacloud_PaiStudio20220112::Client::createAlgorithmVersion(shared_ptr<string> AlgorithmId, shared_ptr<string> AlgorithmVersion, shared_ptr<CreateAlgorithmVersionRequest> request) {
@@ -201,12 +186,7 @@ CreateInstanceWebTerminalResponse Alibabacloud_PaiStudio20220112::Client::create
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateInstanceWebTerminalResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateInstanceWebTerminalResponse(execute(params, req, runtime));
-  }
+  return CreateInstanceWebTerminalResponse(callApi(params, req, runtime));
 }
 
 CreateInstanceWebTerminalResponse Alibabacloud_PaiStudio20220112::Client::createInstanceWebTerminal(shared_ptr<string> TrainingJobId, shared_ptr<string> InstanceId) {
@@ -263,12 +243,7 @@ CreateQuotaResponse Alibabacloud_PaiStudio20220112::Client::createQuotaWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateQuotaResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateQuotaResponse(execute(params, req, runtime));
-  }
+  return CreateQuotaResponse(callApi(params, req, runtime));
 }
 
 CreateQuotaResponse Alibabacloud_PaiStudio20220112::Client::createQuota(shared_ptr<CreateQuotaRequest> request) {
@@ -313,12 +288,7 @@ CreateResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::createResour
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateResourceGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateResourceGroupResponse(execute(params, req, runtime));
-  }
+  return CreateResourceGroupResponse(callApi(params, req, runtime));
 }
 
 CreateResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::createResourceGroup(shared_ptr<CreateResourceGroupRequest> request) {
@@ -408,12 +378,7 @@ CreateTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::createTraining
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateTrainingJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateTrainingJobResponse(execute(params, req, runtime));
-  }
+  return CreateTrainingJobResponse(callApi(params, req, runtime));
 }
 
 CreateTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::createTrainingJob(shared_ptr<CreateTrainingJobRequest> request) {
@@ -437,12 +402,7 @@ DeleteAlgorithmResponse Alibabacloud_PaiStudio20220112::Client::deleteAlgorithmW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteAlgorithmResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteAlgorithmResponse(execute(params, req, runtime));
-  }
+  return DeleteAlgorithmResponse(callApi(params, req, runtime));
 }
 
 DeleteAlgorithmResponse Alibabacloud_PaiStudio20220112::Client::deleteAlgorithm(shared_ptr<string> AlgorithmId) {
@@ -469,12 +429,7 @@ DeleteAlgorithmVersionResponse Alibabacloud_PaiStudio20220112::Client::deleteAlg
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteAlgorithmVersionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteAlgorithmVersionResponse(execute(params, req, runtime));
-  }
+  return DeleteAlgorithmVersionResponse(callApi(params, req, runtime));
 }
 
 DeleteAlgorithmVersionResponse Alibabacloud_PaiStudio20220112::Client::deleteAlgorithmVersion(shared_ptr<string> AlgorithmId, shared_ptr<string> AlgorithmVersion) {
@@ -498,12 +453,7 @@ DeleteMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::deleteMachine
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteMachineGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteMachineGroupResponse(execute(params, req, runtime));
-  }
+  return DeleteMachineGroupResponse(callApi(params, req, runtime));
 }
 
 DeleteMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::deleteMachineGroup(shared_ptr<string> MachineGroupID) {
@@ -527,12 +477,7 @@ DeleteQuotaResponse Alibabacloud_PaiStudio20220112::Client::deleteQuotaWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteQuotaResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteQuotaResponse(execute(params, req, runtime));
-  }
+  return DeleteQuotaResponse(callApi(params, req, runtime));
 }
 
 DeleteQuotaResponse Alibabacloud_PaiStudio20220112::Client::deleteQuota(shared_ptr<string> QuotaId) {
@@ -556,12 +501,7 @@ DeleteResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::deleteResour
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteResourceGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteResourceGroupResponse(execute(params, req, runtime));
-  }
+  return DeleteResourceGroupResponse(callApi(params, req, runtime));
 }
 
 DeleteResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::deleteResourceGroup(shared_ptr<string> ResourceGroupID) {
@@ -588,12 +528,7 @@ DeleteResourceGroupMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteResourceGroupMachineGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteResourceGroupMachineGroupResponse(execute(params, req, runtime));
-  }
+  return DeleteResourceGroupMachineGroupResponse(callApi(params, req, runtime));
 }
 
 DeleteResourceGroupMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::deleteResourceGroupMachineGroup(shared_ptr<string> MachineGroupID, shared_ptr<string> ResourceGroupID) {
@@ -617,12 +552,7 @@ DeleteTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::deleteTraining
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteTrainingJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteTrainingJobResponse(execute(params, req, runtime));
-  }
+  return DeleteTrainingJobResponse(callApi(params, req, runtime));
 }
 
 DeleteTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::deleteTrainingJob(shared_ptr<string> TrainingJobId) {
@@ -655,12 +585,7 @@ DeleteTrainingJobLabelsResponse Alibabacloud_PaiStudio20220112::Client::deleteTr
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteTrainingJobLabelsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteTrainingJobLabelsResponse(execute(params, req, runtime));
-  }
+  return DeleteTrainingJobLabelsResponse(callApi(params, req, runtime));
 }
 
 DeleteTrainingJobLabelsResponse Alibabacloud_PaiStudio20220112::Client::deleteTrainingJobLabels(shared_ptr<string> TrainingJobId, shared_ptr<DeleteTrainingJobLabelsRequest> request) {
@@ -684,12 +609,7 @@ GetAlgorithmResponse Alibabacloud_PaiStudio20220112::Client::getAlgorithmWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAlgorithmResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAlgorithmResponse(execute(params, req, runtime));
-  }
+  return GetAlgorithmResponse(callApi(params, req, runtime));
 }
 
 GetAlgorithmResponse Alibabacloud_PaiStudio20220112::Client::getAlgorithm(shared_ptr<string> AlgorithmId) {
@@ -716,12 +636,7 @@ GetAlgorithmVersionResponse Alibabacloud_PaiStudio20220112::Client::getAlgorithm
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAlgorithmVersionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAlgorithmVersionResponse(execute(params, req, runtime));
-  }
+  return GetAlgorithmVersionResponse(callApi(params, req, runtime));
 }
 
 GetAlgorithmVersionResponse Alibabacloud_PaiStudio20220112::Client::getAlgorithmVersion(shared_ptr<string> AlgorithmId, shared_ptr<string> AlgorithmVersion) {
@@ -745,12 +660,7 @@ GetMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::getMachineGroupW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetMachineGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetMachineGroupResponse(execute(params, req, runtime));
-  }
+  return GetMachineGroupResponse(callApi(params, req, runtime));
 }
 
 GetMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::getMachineGroup(shared_ptr<string> MachineGroupID) {
@@ -796,12 +706,7 @@ GetNodeMetricsResponse Alibabacloud_PaiStudio20220112::Client::getNodeMetricsWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetNodeMetricsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetNodeMetricsResponse(execute(params, req, runtime));
-  }
+  return GetNodeMetricsResponse(callApi(params, req, runtime));
 }
 
 GetNodeMetricsResponse Alibabacloud_PaiStudio20220112::Client::getNodeMetrics(shared_ptr<string> ResourceGroupID, shared_ptr<string> MetricType, shared_ptr<GetNodeMetricsRequest> request) {
@@ -834,12 +739,7 @@ GetQuotaResponse Alibabacloud_PaiStudio20220112::Client::getQuotaWithOptions(sha
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetQuotaResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetQuotaResponse(execute(params, req, runtime));
-  }
+  return GetQuotaResponse(callApi(params, req, runtime));
 }
 
 GetQuotaResponse Alibabacloud_PaiStudio20220112::Client::getQuota(shared_ptr<string> QuotaId, shared_ptr<GetQuotaRequest> request) {
@@ -880,12 +780,7 @@ GetResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::getResourceGrou
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetResourceGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetResourceGroupResponse(execute(params, req, runtime));
-  }
+  return GetResourceGroupResponse(callApi(params, req, runtime));
 }
 
 GetResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroup(shared_ptr<string> ResourceGroupID, shared_ptr<GetResourceGroupRequest> request) {
@@ -924,12 +819,7 @@ GetResourceGroupMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::get
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetResourceGroupMachineGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetResourceGroupMachineGroupResponse(execute(params, req, runtime));
-  }
+  return GetResourceGroupMachineGroupResponse(callApi(params, req, runtime));
 }
 
 GetResourceGroupMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroupMachineGroup(shared_ptr<string> MachineGroupID, shared_ptr<string> ResourceGroupID, shared_ptr<GetResourceGroupMachineGroupRequest> request) {
@@ -962,12 +852,7 @@ GetResourceGroupRequestResponse Alibabacloud_PaiStudio20220112::Client::getResou
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetResourceGroupRequestResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetResourceGroupRequestResponse(execute(params, req, runtime));
-  }
+  return GetResourceGroupRequestResponse(callApi(params, req, runtime));
 }
 
 GetResourceGroupRequestResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroupRequest(shared_ptr<GetResourceGroupRequestRequest> request) {
@@ -997,12 +882,7 @@ GetResourceGroupTotalResponse Alibabacloud_PaiStudio20220112::Client::getResourc
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetResourceGroupTotalResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetResourceGroupTotalResponse(execute(params, req, runtime));
-  }
+  return GetResourceGroupTotalResponse(callApi(params, req, runtime));
 }
 
 GetResourceGroupTotalResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroupTotal(shared_ptr<GetResourceGroupTotalRequest> request) {
@@ -1053,12 +933,7 @@ GetSpotPriceHistoryResponse Alibabacloud_PaiStudio20220112::Client::getSpotPrice
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetSpotPriceHistoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetSpotPriceHistoryResponse(execute(params, req, runtime));
-  }
+  return GetSpotPriceHistoryResponse(callApi(params, req, runtime));
 }
 
 GetSpotPriceHistoryResponse Alibabacloud_PaiStudio20220112::Client::getSpotPriceHistory(shared_ptr<string> InstanceType, shared_ptr<GetSpotPriceHistoryRequest> request) {
@@ -1091,12 +966,7 @@ GetTokenResponse Alibabacloud_PaiStudio20220112::Client::getTokenWithOptions(sha
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetTokenResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetTokenResponse(execute(params, req, runtime));
-  }
+  return GetTokenResponse(callApi(params, req, runtime));
 }
 
 GetTokenResponse Alibabacloud_PaiStudio20220112::Client::getToken(shared_ptr<GetTokenRequest> request) {
@@ -1120,12 +990,7 @@ GetTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::getTrainingJobWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetTrainingJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetTrainingJobResponse(execute(params, req, runtime));
-  }
+  return GetTrainingJobResponse(callApi(params, req, runtime));
 }
 
 GetTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::getTrainingJob(shared_ptr<string> TrainingJobId) {
@@ -1149,12 +1014,7 @@ GetTrainingJobErrorInfoResponse Alibabacloud_PaiStudio20220112::Client::getTrain
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetTrainingJobErrorInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetTrainingJobErrorInfoResponse(execute(params, req, runtime));
-  }
+  return GetTrainingJobErrorInfoResponse(callApi(params, req, runtime));
 }
 
 GetTrainingJobErrorInfoResponse Alibabacloud_PaiStudio20220112::Client::getTrainingJobErrorInfo(shared_ptr<string> TrainingJobId) {
@@ -1187,12 +1047,7 @@ GetTrainingJobLatestMetricsResponse Alibabacloud_PaiStudio20220112::Client::getT
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetTrainingJobLatestMetricsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetTrainingJobLatestMetricsResponse(execute(params, req, runtime));
-  }
+  return GetTrainingJobLatestMetricsResponse(callApi(params, req, runtime));
 }
 
 GetTrainingJobLatestMetricsResponse Alibabacloud_PaiStudio20220112::Client::getTrainingJobLatestMetrics(shared_ptr<string> TrainingJobId, shared_ptr<GetTrainingJobLatestMetricsRequest> request) {
@@ -1243,12 +1098,7 @@ GetUserViewMetricsResponse Alibabacloud_PaiStudio20220112::Client::getUserViewMe
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetUserViewMetricsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetUserViewMetricsResponse(execute(params, req, runtime));
-  }
+  return GetUserViewMetricsResponse(callApi(params, req, runtime));
 }
 
 GetUserViewMetricsResponse Alibabacloud_PaiStudio20220112::Client::getUserViewMetrics(shared_ptr<string> ResourceGroupID, shared_ptr<GetUserViewMetricsRequest> request) {
@@ -1284,12 +1134,7 @@ ListAlgorithmVersionsResponse Alibabacloud_PaiStudio20220112::Client::listAlgori
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAlgorithmVersionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAlgorithmVersionsResponse(execute(params, req, runtime));
-  }
+  return ListAlgorithmVersionsResponse(callApi(params, req, runtime));
 }
 
 ListAlgorithmVersionsResponse Alibabacloud_PaiStudio20220112::Client::listAlgorithmVersions(shared_ptr<string> AlgorithmId, shared_ptr<ListAlgorithmVersionsRequest> request) {
@@ -1334,12 +1179,7 @@ ListAlgorithmsResponse Alibabacloud_PaiStudio20220112::Client::listAlgorithmsWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAlgorithmsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAlgorithmsResponse(execute(params, req, runtime));
-  }
+  return ListAlgorithmsResponse(callApi(params, req, runtime));
 }
 
 ListAlgorithmsResponse Alibabacloud_PaiStudio20220112::Client::listAlgorithms(shared_ptr<ListAlgorithmsRequest> request) {
@@ -1390,6 +1230,9 @@ ListNodesResponse Alibabacloud_PaiStudio20220112::Client::listNodesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->quotaId)) {
     query->insert(pair<string, string>("QuotaId", *request->quotaId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reasonCodes)) {
+    query->insert(pair<string, string>("ReasonCodes", *request->reasonCodes));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupIds)) {
     query->insert(pair<string, string>("ResourceGroupIds", *request->resourceGroupIds));
   }
@@ -1414,12 +1257,7 @@ ListNodesResponse Alibabacloud_PaiStudio20220112::Client::listNodesWithOptions(s
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListNodesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListNodesResponse(execute(params, req, runtime));
-  }
+  return ListNodesResponse(callApi(params, req, runtime));
 }
 
 ListNodesResponse Alibabacloud_PaiStudio20220112::Client::listNodes(shared_ptr<ListNodesRequest> request) {
@@ -1506,12 +1344,7 @@ ListQuotaWorkloadsResponse Alibabacloud_PaiStudio20220112::Client::listQuotaWork
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListQuotaWorkloadsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListQuotaWorkloadsResponse(execute(params, req, runtime));
-  }
+  return ListQuotaWorkloadsResponse(callApi(params, req, runtime));
 }
 
 ListQuotaWorkloadsResponse Alibabacloud_PaiStudio20220112::Client::listQuotaWorkloads(shared_ptr<string> QuotaId, shared_ptr<ListQuotaWorkloadsRequest> request) {
@@ -1580,12 +1413,7 @@ ListQuotasResponse Alibabacloud_PaiStudio20220112::Client::listQuotasWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListQuotasResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListQuotasResponse(execute(params, req, runtime));
-  }
+  return ListQuotasResponse(callApi(params, req, runtime));
 }
 
 ListQuotasResponse Alibabacloud_PaiStudio20220112::Client::listQuotas(shared_ptr<ListQuotasRequest> request) {
@@ -1654,12 +1482,7 @@ ListResourceGroupMachineGroupsResponse Alibabacloud_PaiStudio20220112::Client::l
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListResourceGroupMachineGroupsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListResourceGroupMachineGroupsResponse(execute(params, req, runtime));
-  }
+  return ListResourceGroupMachineGroupsResponse(callApi(params, req, runtime));
 }
 
 ListResourceGroupMachineGroupsResponse Alibabacloud_PaiStudio20220112::Client::listResourceGroupMachineGroups(shared_ptr<string> ResourceGroupID, shared_ptr<ListResourceGroupMachineGroupsRequest> request) {
@@ -1713,12 +1536,7 @@ ListResourceGroupsResponse Alibabacloud_PaiStudio20220112::Client::listResourceG
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListResourceGroupsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListResourceGroupsResponse(execute(params, req, runtime));
-  }
+  return ListResourceGroupsResponse(callApi(params, req, runtime));
 }
 
 ListResourceGroupsResponse Alibabacloud_PaiStudio20220112::Client::listResourceGroups(shared_ptr<ListResourceGroupsRequest> request) {
@@ -1760,12 +1578,7 @@ ListTrainingJobEventsResponse Alibabacloud_PaiStudio20220112::Client::listTraini
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTrainingJobEventsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTrainingJobEventsResponse(execute(params, req, runtime));
-  }
+  return ListTrainingJobEventsResponse(callApi(params, req, runtime));
 }
 
 ListTrainingJobEventsResponse Alibabacloud_PaiStudio20220112::Client::listTrainingJobEvents(shared_ptr<string> TrainingJobId, shared_ptr<ListTrainingJobEventsRequest> request) {
@@ -1808,12 +1621,7 @@ ListTrainingJobInstanceEventsResponse Alibabacloud_PaiStudio20220112::Client::li
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTrainingJobInstanceEventsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTrainingJobInstanceEventsResponse(execute(params, req, runtime));
-  }
+  return ListTrainingJobInstanceEventsResponse(callApi(params, req, runtime));
 }
 
 ListTrainingJobInstanceEventsResponse Alibabacloud_PaiStudio20220112::Client::listTrainingJobInstanceEvents(shared_ptr<string> TrainingJobId, shared_ptr<string> InstanceId, shared_ptr<ListTrainingJobInstanceEventsRequest> request) {
@@ -1858,12 +1666,7 @@ ListTrainingJobInstanceMetricsResponse Alibabacloud_PaiStudio20220112::Client::l
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTrainingJobInstanceMetricsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTrainingJobInstanceMetricsResponse(execute(params, req, runtime));
-  }
+  return ListTrainingJobInstanceMetricsResponse(callApi(params, req, runtime));
 }
 
 ListTrainingJobInstanceMetricsResponse Alibabacloud_PaiStudio20220112::Client::listTrainingJobInstanceMetrics(shared_ptr<string> TrainingJobId, shared_ptr<ListTrainingJobInstanceMetricsRequest> request) {
@@ -1911,12 +1714,7 @@ ListTrainingJobLogsResponse Alibabacloud_PaiStudio20220112::Client::listTraining
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTrainingJobLogsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTrainingJobLogsResponse(execute(params, req, runtime));
-  }
+  return ListTrainingJobLogsResponse(callApi(params, req, runtime));
 }
 
 ListTrainingJobLogsResponse Alibabacloud_PaiStudio20220112::Client::listTrainingJobLogs(shared_ptr<string> TrainingJobId, shared_ptr<ListTrainingJobLogsRequest> request) {
@@ -1964,12 +1762,7 @@ ListTrainingJobMetricsResponse Alibabacloud_PaiStudio20220112::Client::listTrain
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTrainingJobMetricsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTrainingJobMetricsResponse(execute(params, req, runtime));
-  }
+  return ListTrainingJobMetricsResponse(callApi(params, req, runtime));
 }
 
 ListTrainingJobMetricsResponse Alibabacloud_PaiStudio20220112::Client::listTrainingJobMetrics(shared_ptr<string> TrainingJobId, shared_ptr<ListTrainingJobMetricsRequest> request) {
@@ -1993,12 +1786,7 @@ ListTrainingJobOutputModelsResponse Alibabacloud_PaiStudio20220112::Client::list
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTrainingJobOutputModelsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTrainingJobOutputModelsResponse(execute(params, req, runtime));
-  }
+  return ListTrainingJobOutputModelsResponse(callApi(params, req, runtime));
 }
 
 ListTrainingJobOutputModelsResponse Alibabacloud_PaiStudio20220112::Client::listTrainingJobOutputModels(shared_ptr<string> TrainingJobId) {
@@ -2072,12 +1860,7 @@ ListTrainingJobsResponse Alibabacloud_PaiStudio20220112::Client::listTrainingJob
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTrainingJobsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTrainingJobsResponse(execute(params, req, runtime));
-  }
+  return ListTrainingJobsResponse(callApi(params, req, runtime));
 }
 
 ListTrainingJobsResponse Alibabacloud_PaiStudio20220112::Client::listTrainingJobs(shared_ptr<ListTrainingJobsRequest> request) {
@@ -2113,12 +1896,7 @@ ScaleQuotaResponse Alibabacloud_PaiStudio20220112::Client::scaleQuotaWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ScaleQuotaResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ScaleQuotaResponse(execute(params, req, runtime));
-  }
+  return ScaleQuotaResponse(callApi(params, req, runtime));
 }
 
 ScaleQuotaResponse Alibabacloud_PaiStudio20220112::Client::scaleQuota(shared_ptr<string> QuotaId, shared_ptr<ScaleQuotaRequest> request) {
@@ -2142,12 +1920,7 @@ StopTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::stopTrainingJobW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StopTrainingJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StopTrainingJobResponse(execute(params, req, runtime));
-  }
+  return StopTrainingJobResponse(callApi(params, req, runtime));
 }
 
 StopTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::stopTrainingJob(shared_ptr<string> TrainingJobId) {
@@ -2183,12 +1956,7 @@ UpdateAlgorithmResponse Alibabacloud_PaiStudio20220112::Client::updateAlgorithmW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateAlgorithmResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateAlgorithmResponse(execute(params, req, runtime));
-  }
+  return UpdateAlgorithmResponse(callApi(params, req, runtime));
 }
 
 UpdateAlgorithmResponse Alibabacloud_PaiStudio20220112::Client::updateAlgorithm(shared_ptr<string> AlgorithmId, shared_ptr<UpdateAlgorithmRequest> request) {
@@ -2227,12 +1995,7 @@ UpdateAlgorithmVersionResponse Alibabacloud_PaiStudio20220112::Client::updateAlg
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateAlgorithmVersionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateAlgorithmVersionResponse(execute(params, req, runtime));
-  }
+  return UpdateAlgorithmVersionResponse(callApi(params, req, runtime));
 }
 
 UpdateAlgorithmVersionResponse Alibabacloud_PaiStudio20220112::Client::updateAlgorithmVersion(shared_ptr<string> AlgorithmId, shared_ptr<string> AlgorithmVersion, shared_ptr<UpdateAlgorithmVersionRequest> request) {
@@ -2277,12 +2040,7 @@ UpdateQuotaResponse Alibabacloud_PaiStudio20220112::Client::updateQuotaWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateQuotaResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateQuotaResponse(execute(params, req, runtime));
-  }
+  return UpdateQuotaResponse(callApi(params, req, runtime));
 }
 
 UpdateQuotaResponse Alibabacloud_PaiStudio20220112::Client::updateQuota(shared_ptr<string> QuotaId, shared_ptr<UpdateQuotaRequest> request) {
@@ -2324,12 +2082,7 @@ UpdateResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::updateResour
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateResourceGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateResourceGroupResponse(execute(params, req, runtime));
-  }
+  return UpdateResourceGroupResponse(callApi(params, req, runtime));
 }
 
 UpdateResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::updateResourceGroup(shared_ptr<string> ResourceGroupID, shared_ptr<UpdateResourceGroupRequest> request) {
@@ -2362,12 +2115,7 @@ UpdateTrainingJobLabelsResponse Alibabacloud_PaiStudio20220112::Client::updateTr
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateTrainingJobLabelsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateTrainingJobLabelsResponse(execute(params, req, runtime));
-  }
+  return UpdateTrainingJobLabelsResponse(callApi(params, req, runtime));
 }
 
 UpdateTrainingJobLabelsResponse Alibabacloud_PaiStudio20220112::Client::updateTrainingJobLabels(shared_ptr<string> TrainingJobId, shared_ptr<UpdateTrainingJobLabelsRequest> request) {
