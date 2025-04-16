@@ -36809,12 +36809,56 @@ public:
 
   virtual ~RecordLifecycleActionHeartbeatResponse() = default;
 };
+class RemoveInstancesRequestLifecycleHookContext : public Darabonba::Model {
+public:
+  shared_ptr<bool> disableLifecycleHook{};
+  shared_ptr<vector<string>> ignoredLifecycleHookIds{};
+
+  RemoveInstancesRequestLifecycleHookContext() {}
+
+  explicit RemoveInstancesRequestLifecycleHookContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disableLifecycleHook) {
+      res["DisableLifecycleHook"] = boost::any(*disableLifecycleHook);
+    }
+    if (ignoredLifecycleHookIds) {
+      res["IgnoredLifecycleHookIds"] = boost::any(*ignoredLifecycleHookIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableLifecycleHook") != m.end() && !m["DisableLifecycleHook"].empty()) {
+      disableLifecycleHook = make_shared<bool>(boost::any_cast<bool>(m["DisableLifecycleHook"]));
+    }
+    if (m.find("IgnoredLifecycleHookIds") != m.end() && !m["IgnoredLifecycleHookIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IgnoredLifecycleHookIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IgnoredLifecycleHookIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ignoredLifecycleHookIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RemoveInstancesRequestLifecycleHookContext() = default;
+};
 class RemoveInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> decreaseDesiredCapacity{};
   shared_ptr<bool> ignoreInvalidInstance{};
   shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<RemoveInstancesRequestLifecycleHookContext> lifecycleHookContext{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -36845,6 +36889,9 @@ public:
     }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (lifecycleHookContext) {
+      res["LifecycleHookContext"] = lifecycleHookContext ? boost::any(lifecycleHookContext->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -36893,6 +36940,13 @@ public:
       }
       instanceIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("LifecycleHookContext") != m.end() && !m["LifecycleHookContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LifecycleHookContext"].type()) {
+        RemoveInstancesRequestLifecycleHookContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LifecycleHookContext"]));
+        lifecycleHookContext = make_shared<RemoveInstancesRequestLifecycleHookContext>(model1);
+      }
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
@@ -36921,6 +36975,126 @@ public:
 
 
   virtual ~RemoveInstancesRequest() = default;
+};
+class RemoveInstancesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> decreaseDesiredCapacity{};
+  shared_ptr<bool> ignoreInvalidInstance{};
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<string> lifecycleHookContextShrink{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> removePolicy{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> scalingGroupId{};
+  shared_ptr<long> stopInstanceTimeout{};
+
+  RemoveInstancesShrinkRequest() {}
+
+  explicit RemoveInstancesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (decreaseDesiredCapacity) {
+      res["DecreaseDesiredCapacity"] = boost::any(*decreaseDesiredCapacity);
+    }
+    if (ignoreInvalidInstance) {
+      res["IgnoreInvalidInstance"] = boost::any(*ignoreInvalidInstance);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (lifecycleHookContextShrink) {
+      res["LifecycleHookContext"] = boost::any(*lifecycleHookContextShrink);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (removePolicy) {
+      res["RemovePolicy"] = boost::any(*removePolicy);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (stopInstanceTimeout) {
+      res["StopInstanceTimeout"] = boost::any(*stopInstanceTimeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DecreaseDesiredCapacity") != m.end() && !m["DecreaseDesiredCapacity"].empty()) {
+      decreaseDesiredCapacity = make_shared<bool>(boost::any_cast<bool>(m["DecreaseDesiredCapacity"]));
+    }
+    if (m.find("IgnoreInvalidInstance") != m.end() && !m["IgnoreInvalidInstance"].empty()) {
+      ignoreInvalidInstance = make_shared<bool>(boost::any_cast<bool>(m["IgnoreInvalidInstance"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecycleHookContext") != m.end() && !m["LifecycleHookContext"].empty()) {
+      lifecycleHookContextShrink = make_shared<string>(boost::any_cast<string>(m["LifecycleHookContext"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemovePolicy") != m.end() && !m["RemovePolicy"].empty()) {
+      removePolicy = make_shared<string>(boost::any_cast<string>(m["RemovePolicy"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("StopInstanceTimeout") != m.end() && !m["StopInstanceTimeout"].empty()) {
+      stopInstanceTimeout = make_shared<long>(boost::any_cast<long>(m["StopInstanceTimeout"]));
+    }
+  }
+
+
+  virtual ~RemoveInstancesShrinkRequest() = default;
 };
 class RemoveInstancesResponseBody : public Darabonba::Model {
 public:
@@ -39698,7 +39872,7 @@ public:
   RebalanceInstancesResponse rebalanceInstances(shared_ptr<RebalanceInstancesRequest> request);
   RecordLifecycleActionHeartbeatResponse recordLifecycleActionHeartbeatWithOptions(shared_ptr<RecordLifecycleActionHeartbeatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecordLifecycleActionHeartbeatResponse recordLifecycleActionHeartbeat(shared_ptr<RecordLifecycleActionHeartbeatRequest> request);
-  RemoveInstancesResponse removeInstancesWithOptions(shared_ptr<RemoveInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveInstancesResponse removeInstancesWithOptions(shared_ptr<RemoveInstancesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveInstancesResponse removeInstances(shared_ptr<RemoveInstancesRequest> request);
   ResumeInstanceRefreshResponse resumeInstanceRefreshWithOptions(shared_ptr<ResumeInstanceRefreshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeInstanceRefreshResponse resumeInstanceRefresh(shared_ptr<ResumeInstanceRefreshRequest> request);
