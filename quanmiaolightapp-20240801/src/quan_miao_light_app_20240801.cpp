@@ -37,6 +37,83 @@ string Alibabacloud_QuanMiaoLightApp20240801::Client::getEndpoint(shared_ptr<str
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CancelAsyncTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::cancelAsyncTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                  shared_ptr<CancelAsyncTaskRequest> request,
+                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelAsyncTask"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/cancelAsyncTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelAsyncTaskResponse(callApi(params, req, runtime));
+}
+
+CancelAsyncTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::cancelAsyncTask(shared_ptr<string> workspaceId, shared_ptr<CancelAsyncTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return cancelAsyncTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
+ExportAnalysisTagDetailByTaskIdResponse Alibabacloud_QuanMiaoLightApp20240801::Client::exportAnalysisTagDetailByTaskIdWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                                  shared_ptr<ExportAnalysisTagDetailByTaskIdRequest> tmpReq,
+                                                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ExportAnalysisTagDetailByTaskIdShrinkRequest> request = make_shared<ExportAnalysisTagDetailByTaskIdShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->categories)) {
+    request->categoriesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->categories, make_shared<string>("categories"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoriesShrink)) {
+    body->insert(pair<string, string>("categories", *request->categoriesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
+    body->insert(pair<string, string>("category", *request->category));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExportAnalysisTagDetailByTaskId"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/exportAnalysisTagDetailByTaskId"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExportAnalysisTagDetailByTaskIdResponse(callApi(params, req, runtime));
+}
+
+ExportAnalysisTagDetailByTaskIdResponse Alibabacloud_QuanMiaoLightApp20240801::Client::exportAnalysisTagDetailByTaskId(shared_ptr<string> workspaceId, shared_ptr<ExportAnalysisTagDetailByTaskIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return exportAnalysisTagDetailByTaskIdWithOptions(workspaceId, request, headers, runtime);
+}
+
 GenerateBroadcastNewsResponse Alibabacloud_QuanMiaoLightApp20240801::Client::generateBroadcastNewsWithOptions(shared_ptr<string> workspaceId,
                                                                                                               shared_ptr<GenerateBroadcastNewsRequest> request,
                                                                                                               shared_ptr<map<string, string>> headers,
@@ -61,12 +138,7 @@ GenerateBroadcastNewsResponse Alibabacloud_QuanMiaoLightApp20240801::Client::gen
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GenerateBroadcastNewsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GenerateBroadcastNewsResponse(execute(params, req, runtime));
-  }
+  return GenerateBroadcastNewsResponse(callApi(params, req, runtime));
 }
 
 GenerateBroadcastNewsResponse Alibabacloud_QuanMiaoLightApp20240801::Client::generateBroadcastNews(shared_ptr<string> workspaceId, shared_ptr<GenerateBroadcastNewsRequest> request) {
@@ -116,18 +188,46 @@ GenerateOutputFormatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::gene
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GenerateOutputFormatResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GenerateOutputFormatResponse(execute(params, req, runtime));
-  }
+  return GenerateOutputFormatResponse(callApi(params, req, runtime));
 }
 
 GenerateOutputFormatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::generateOutputFormat(shared_ptr<string> workspaceId, shared_ptr<GenerateOutputFormatRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return generateOutputFormatWithOptions(workspaceId, request, headers, runtime);
+}
+
+GetEnterpriseVocAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getEnterpriseVocAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                            shared_ptr<GetEnterpriseVocAnalysisTaskRequest> request,
+                                                                                                                            shared_ptr<map<string, string>> headers,
+                                                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetEnterpriseVocAnalysisTask"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/getEnterpriseVocAnalysisTask"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetEnterpriseVocAnalysisTaskResponse(callApi(params, req, runtime));
+}
+
+GetEnterpriseVocAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getEnterpriseVocAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<GetEnterpriseVocAnalysisTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getEnterpriseVocAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
 }
 
 GetTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getTagMiningAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
@@ -154,12 +254,7 @@ GetTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetTagMiningAnalysisTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetTagMiningAnalysisTaskResponse(execute(params, req, runtime));
-  }
+  return GetTagMiningAnalysisTaskResponse(callApi(params, req, runtime));
 }
 
 GetTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getTagMiningAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<GetTagMiningAnalysisTaskRequest> request) {
@@ -183,12 +278,7 @@ GetVideoAnalysisConfigResponse Alibabacloud_QuanMiaoLightApp20240801::Client::ge
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetVideoAnalysisConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetVideoAnalysisConfigResponse(execute(params, req, runtime));
-  }
+  return GetVideoAnalysisConfigResponse(callApi(params, req, runtime));
 }
 
 GetVideoAnalysisConfigResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getVideoAnalysisConfig(shared_ptr<string> workspaceId) {
@@ -221,12 +311,7 @@ GetVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getV
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetVideoAnalysisTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetVideoAnalysisTaskResponse(execute(params, req, runtime));
-  }
+  return GetVideoAnalysisTaskResponse(callApi(params, req, runtime));
 }
 
 GetVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getVideoAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<GetVideoAnalysisTaskRequest> request) {
@@ -271,18 +356,72 @@ ListHotTopicSummariesResponse Alibabacloud_QuanMiaoLightApp20240801::Client::lis
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListHotTopicSummariesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListHotTopicSummariesResponse(execute(params, req, runtime));
-  }
+  return ListHotTopicSummariesResponse(callApi(params, req, runtime));
 }
 
 ListHotTopicSummariesResponse Alibabacloud_QuanMiaoLightApp20240801::Client::listHotTopicSummaries(shared_ptr<string> workspaceId, shared_ptr<ListHotTopicSummariesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listHotTopicSummariesWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunEnterpriseVocAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runEnterpriseVocAnalysisWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                    shared_ptr<RunEnterpriseVocAnalysisRequest> tmpReq,
+                                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RunEnterpriseVocAnalysisShrinkRequest> request = make_shared<RunEnterpriseVocAnalysisShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<RunEnterpriseVocAnalysisRequestFilterTags>>(tmpReq->filterTags)) {
+    request->filterTagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterTags, make_shared<string>("filterTags"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<RunEnterpriseVocAnalysisRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extraInfo)) {
+    body->insert(pair<string, string>("extraInfo", *request->extraInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterTagsShrink)) {
+    body->insert(pair<string, string>("filterTags", *request->filterTagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputFormat)) {
+    body->insert(pair<string, string>("outputFormat", *request->outputFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    body->insert(pair<string, string>("tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskDescription)) {
+    body->insert(pair<string, string>("taskDescription", *request->taskDescription));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunEnterpriseVocAnalysis"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/runEnterpriseVocAnalysis"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunEnterpriseVocAnalysisResponse(callApi(params, req, runtime));
+}
+
+RunEnterpriseVocAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runEnterpriseVocAnalysis(shared_ptr<string> workspaceId, shared_ptr<RunEnterpriseVocAnalysisRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runEnterpriseVocAnalysisWithOptions(workspaceId, request, headers, runtime);
 }
 
 RunHotTopicChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runHotTopicChatWithOptions(shared_ptr<string> workspaceId,
@@ -356,12 +495,7 @@ RunHotTopicChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runHotTop
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunHotTopicChatResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunHotTopicChatResponse(execute(params, req, runtime));
-  }
+  return RunHotTopicChatResponse(callApi(params, req, runtime));
 }
 
 RunHotTopicChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runHotTopicChat(shared_ptr<string> workspaceId, shared_ptr<RunHotTopicChatRequest> request) {
@@ -408,12 +542,7 @@ RunHotTopicSummaryResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runHot
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunHotTopicSummaryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunHotTopicSummaryResponse(execute(params, req, runtime));
-  }
+  return RunHotTopicSummaryResponse(callApi(params, req, runtime));
 }
 
 RunHotTopicSummaryResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runHotTopicSummary(shared_ptr<string> workspaceId, shared_ptr<RunHotTopicSummaryRequest> request) {
@@ -460,12 +589,7 @@ RunMarketingInformationExtractResponse Alibabacloud_QuanMiaoLightApp20240801::Cl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunMarketingInformationExtractResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunMarketingInformationExtractResponse(execute(params, req, runtime));
-  }
+  return RunMarketingInformationExtractResponse(callApi(params, req, runtime));
 }
 
 RunMarketingInformationExtractResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runMarketingInformationExtract(shared_ptr<string> workspaceId, shared_ptr<RunMarketingInformationExtractRequest> request) {
@@ -516,12 +640,7 @@ RunMarketingInformationWritingResponse Alibabacloud_QuanMiaoLightApp20240801::Cl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunMarketingInformationWritingResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunMarketingInformationWritingResponse(execute(params, req, runtime));
-  }
+  return RunMarketingInformationWritingResponse(callApi(params, req, runtime));
 }
 
 RunMarketingInformationWritingResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runMarketingInformationWriting(shared_ptr<string> workspaceId, shared_ptr<RunMarketingInformationWritingRequest> request) {
@@ -577,12 +696,7 @@ RunNetworkContentAuditResponse Alibabacloud_QuanMiaoLightApp20240801::Client::ru
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunNetworkContentAuditResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunNetworkContentAuditResponse(execute(params, req, runtime));
-  }
+  return RunNetworkContentAuditResponse(callApi(params, req, runtime));
 }
 
 RunNetworkContentAuditResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runNetworkContentAudit(shared_ptr<string> workspaceId, shared_ptr<RunNetworkContentAuditRequest> request) {
@@ -618,12 +732,7 @@ RunScriptChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptCh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunScriptChatResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunScriptChatResponse(execute(params, req, runtime));
-  }
+  return RunScriptChatResponse(callApi(params, req, runtime));
 }
 
 RunScriptChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptChat(shared_ptr<string> workspaceId, shared_ptr<RunScriptChatRequest> request) {
@@ -662,12 +771,7 @@ RunScriptContinueResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScri
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunScriptContinueResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunScriptContinueResponse(execute(params, req, runtime));
-  }
+  return RunScriptContinueResponse(callApi(params, req, runtime));
 }
 
 RunScriptContinueResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptContinue(shared_ptr<string> workspaceId, shared_ptr<RunScriptContinueRequest> request) {
@@ -718,12 +822,7 @@ RunScriptPlanningResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScri
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunScriptPlanningResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunScriptPlanningResponse(execute(params, req, runtime));
-  }
+  return RunScriptPlanningResponse(callApi(params, req, runtime));
 }
 
 RunScriptPlanningResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptPlanning(shared_ptr<string> workspaceId, shared_ptr<RunScriptPlanningRequest> request) {
@@ -756,12 +855,7 @@ RunScriptRefineResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScript
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunScriptRefineResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunScriptRefineResponse(execute(params, req, runtime));
-  }
+  return RunScriptRefineResponse(callApi(params, req, runtime));
 }
 
 RunScriptRefineResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptRefine(shared_ptr<string> workspaceId, shared_ptr<RunScriptRefineRequest> request) {
@@ -817,12 +911,7 @@ RunStyleWritingResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runStyleW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunStyleWritingResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunStyleWritingResponse(execute(params, req, runtime));
-  }
+  return RunStyleWritingResponse(callApi(params, req, runtime));
 }
 
 RunStyleWritingResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runStyleWriting(shared_ptr<string> workspaceId, shared_ptr<RunStyleWritingRequest> request) {
@@ -881,12 +970,7 @@ RunTagMiningAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runT
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunTagMiningAnalysisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunTagMiningAnalysisResponse(execute(params, req, runtime));
-  }
+  return RunTagMiningAnalysisResponse(callApi(params, req, runtime));
 }
 
 RunTagMiningAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runTagMiningAnalysis(shared_ptr<string> workspaceId, shared_ptr<RunTagMiningAnalysisRequest> request) {
@@ -990,18 +1074,81 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunVideoAnalysisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunVideoAnalysisResponse(execute(params, req, runtime));
-  }
+  return RunVideoAnalysisResponse(callApi(params, req, runtime));
 }
 
 RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideoAnalysis(shared_ptr<string> workspaceId, shared_ptr<RunVideoAnalysisRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return runVideoAnalysisWithOptions(workspaceId, request, headers, runtime);
+}
+
+SubmitEnterpriseVocAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitEnterpriseVocAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                                  shared_ptr<SubmitEnterpriseVocAnalysisTaskRequest> tmpReq,
+                                                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitEnterpriseVocAnalysisTaskShrinkRequest> request = make_shared<SubmitEnterpriseVocAnalysisTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitEnterpriseVocAnalysisTaskRequestContents>>(tmpReq->contents)) {
+    request->contentsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->contents, make_shared<string>("contents"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitEnterpriseVocAnalysisTaskRequestFilterTags>>(tmpReq->filterTags)) {
+    request->filterTagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterTags, make_shared<string>("filterTags"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitEnterpriseVocAnalysisTaskRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentsShrink)) {
+    body->insert(pair<string, string>("contents", *request->contentsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extraInfo)) {
+    body->insert(pair<string, string>("extraInfo", *request->extraInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileKey)) {
+    body->insert(pair<string, string>("fileKey", *request->fileKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterTagsShrink)) {
+    body->insert(pair<string, string>("filterTags", *request->filterTagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputFormat)) {
+    body->insert(pair<string, string>("outputFormat", *request->outputFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    body->insert(pair<string, string>("tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskDescription)) {
+    body->insert(pair<string, string>("taskDescription", *request->taskDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    body->insert(pair<string, string>("url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitEnterpriseVocAnalysisTask"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/submitEnterpriseVocAnalysisTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitEnterpriseVocAnalysisTaskResponse(callApi(params, req, runtime));
+}
+
+SubmitEnterpriseVocAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitEnterpriseVocAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<SubmitEnterpriseVocAnalysisTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitEnterpriseVocAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
 }
 
 SubmitTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitTagMiningAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
@@ -1060,12 +1207,7 @@ SubmitTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Clien
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitTagMiningAnalysisTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitTagMiningAnalysisTaskResponse(execute(params, req, runtime));
-  }
+  return SubmitTagMiningAnalysisTaskResponse(callApi(params, req, runtime));
 }
 
 SubmitTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitTagMiningAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<SubmitTagMiningAnalysisTaskRequest> request) {
@@ -1166,12 +1308,7 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitVideoAnalysisTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitVideoAnalysisTaskResponse(execute(params, req, runtime));
-  }
+  return SubmitVideoAnalysisTaskResponse(callApi(params, req, runtime));
 }
 
 SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitVideoAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<SubmitVideoAnalysisTaskRequest> request) {
@@ -1204,12 +1341,7 @@ UpdateVideoAnalysisConfigResponse Alibabacloud_QuanMiaoLightApp20240801::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateVideoAnalysisConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateVideoAnalysisConfigResponse(execute(params, req, runtime));
-  }
+  return UpdateVideoAnalysisConfigResponse(callApi(params, req, runtime));
 }
 
 UpdateVideoAnalysisConfigResponse Alibabacloud_QuanMiaoLightApp20240801::Client::updateVideoAnalysisConfig(shared_ptr<string> workspaceId, shared_ptr<UpdateVideoAnalysisConfigRequest> request) {
