@@ -652,6 +652,9 @@ CreateVpcFirewallCenConfigureResponse Alibabacloud_Cloudfw20171207::Client::crea
   if (!Darabonba_Util::Client::isUnset<string>(request->firewallVpcCidrBlock)) {
     query->insert(pair<string, string>("FirewallVpcCidrBlock", *request->firewallVpcCidrBlock));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->firewallVpcStandbyZoneId)) {
+    query->insert(pair<string, string>("FirewallVpcStandbyZoneId", *request->firewallVpcStandbyZoneId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->firewallVpcZoneId)) {
     query->insert(pair<string, string>("FirewallVpcZoneId", *request->firewallVpcZoneId));
   }
@@ -2981,6 +2984,9 @@ DescribeVpcFirewallAclGroupListResponse Alibabacloud_Cloudfw20171207::Client::de
   if (!Darabonba_Util::Client::isUnset<string>(request->firewallConfigureStatus)) {
     query->insert(pair<string, string>("FirewallConfigureStatus", *request->firewallConfigureStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->firewallId)) {
+    query->insert(pair<string, string>("FirewallId", *request->firewallId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
@@ -3722,11 +3728,11 @@ ModifyControlPolicyPositionResponse Alibabacloud_Cloudfw20171207::Client::modify
 ModifyDefaultIPSConfigResponse Alibabacloud_Cloudfw20171207::Client::modifyDefaultIPSConfigWithOptions(shared_ptr<ModifyDefaultIPSConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->basicRules)) {
-    query->insert(pair<string, string>("BasicRules", *request->basicRules));
+  if (!Darabonba_Util::Client::isUnset<long>(request->basicRules)) {
+    query->insert(pair<string, long>("BasicRules", *request->basicRules));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ctiRules)) {
-    query->insert(pair<string, string>("CtiRules", *request->ctiRules));
+  if (!Darabonba_Util::Client::isUnset<long>(request->ctiRules)) {
+    query->insert(pair<string, long>("CtiRules", *request->ctiRules));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
@@ -3734,14 +3740,14 @@ ModifyDefaultIPSConfigResponse Alibabacloud_Cloudfw20171207::Client::modifyDefau
   if (!Darabonba_Util::Client::isUnset<long>(request->maxSdl)) {
     query->insert(pair<string, long>("MaxSdl", *request->maxSdl));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->patchRules)) {
-    query->insert(pair<string, string>("PatchRules", *request->patchRules));
+  if (!Darabonba_Util::Client::isUnset<long>(request->patchRules)) {
+    query->insert(pair<string, long>("PatchRules", *request->patchRules));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ruleClass)) {
-    query->insert(pair<string, string>("RuleClass", *request->ruleClass));
+  if (!Darabonba_Util::Client::isUnset<long>(request->ruleClass)) {
+    query->insert(pair<string, long>("RuleClass", *request->ruleClass));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->runMode)) {
-    query->insert(pair<string, string>("RunMode", *request->runMode));
+  if (!Darabonba_Util::Client::isUnset<long>(request->runMode)) {
+    query->insert(pair<string, long>("RunMode", *request->runMode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4016,6 +4022,9 @@ ModifyObjectGroupOperationResponse Alibabacloud_Cloudfw20171207::Client::modifyO
 ModifyPolicyAdvancedConfigResponse Alibabacloud_Cloudfw20171207::Client::modifyPolicyAdvancedConfigWithOptions(shared_ptr<ModifyPolicyAdvancedConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->eips)) {
+    query->insert(pair<string, vector<string>>("Eips", *request->eips));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->internetSwitch)) {
     query->insert(pair<string, string>("InternetSwitch", *request->internetSwitch));
   }

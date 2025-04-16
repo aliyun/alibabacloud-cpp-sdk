@@ -2313,6 +2313,7 @@ public:
   shared_ptr<string> firewallSwitch{};
   shared_ptr<string> firewallVSwitchCidrBlock{};
   shared_ptr<string> firewallVpcCidrBlock{};
+  shared_ptr<string> firewallVpcStandbyZoneId{};
   shared_ptr<string> firewallVpcZoneId{};
   shared_ptr<string> lang{};
   shared_ptr<string> memberUid{};
@@ -2342,6 +2343,9 @@ public:
     }
     if (firewallVpcCidrBlock) {
       res["FirewallVpcCidrBlock"] = boost::any(*firewallVpcCidrBlock);
+    }
+    if (firewallVpcStandbyZoneId) {
+      res["FirewallVpcStandbyZoneId"] = boost::any(*firewallVpcStandbyZoneId);
     }
     if (firewallVpcZoneId) {
       res["FirewallVpcZoneId"] = boost::any(*firewallVpcZoneId);
@@ -2379,6 +2383,9 @@ public:
     }
     if (m.find("FirewallVpcCidrBlock") != m.end() && !m["FirewallVpcCidrBlock"].empty()) {
       firewallVpcCidrBlock = make_shared<string>(boost::any_cast<string>(m["FirewallVpcCidrBlock"]));
+    }
+    if (m.find("FirewallVpcStandbyZoneId") != m.end() && !m["FirewallVpcStandbyZoneId"].empty()) {
+      firewallVpcStandbyZoneId = make_shared<string>(boost::any_cast<string>(m["FirewallVpcStandbyZoneId"]));
     }
     if (m.find("FirewallVpcZoneId") != m.end() && !m["FirewallVpcZoneId"].empty()) {
       firewallVpcZoneId = make_shared<string>(boost::any_cast<string>(m["FirewallVpcZoneId"]));
@@ -6794,7 +6801,6 @@ class DescribeDefaultIPSConfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> basicRules{};
   shared_ptr<long> ctiRules{};
-  shared_ptr<string> freeTrailStatus{};
   shared_ptr<long> maxSdl{};
   shared_ptr<long> patchRules{};
   shared_ptr<string> requestId{};
@@ -6816,9 +6822,6 @@ public:
     }
     if (ctiRules) {
       res["CtiRules"] = boost::any(*ctiRules);
-    }
-    if (freeTrailStatus) {
-      res["FreeTrailStatus"] = boost::any(*freeTrailStatus);
     }
     if (maxSdl) {
       res["MaxSdl"] = boost::any(*maxSdl);
@@ -6844,9 +6847,6 @@ public:
     }
     if (m.find("CtiRules") != m.end() && !m["CtiRules"].empty()) {
       ctiRules = make_shared<long>(boost::any_cast<long>(m["CtiRules"]));
-    }
-    if (m.find("FreeTrailStatus") != m.end() && !m["FreeTrailStatus"].empty()) {
-      freeTrailStatus = make_shared<string>(boost::any_cast<string>(m["FreeTrailStatus"]));
     }
     if (m.find("MaxSdl") != m.end() && !m["MaxSdl"].empty()) {
       maxSdl = make_shared<long>(boost::any_cast<long>(m["MaxSdl"]));
@@ -13588,6 +13588,7 @@ public:
 class DescribeSignatureLibVersionResponseBodyVersion : public Darabonba::Model {
 public:
   shared_ptr<string> type{};
+  shared_ptr<long> updateTime{};
   shared_ptr<string> version{};
 
   DescribeSignatureLibVersionResponseBodyVersion() {}
@@ -13603,6 +13604,9 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
     }
@@ -13612,6 +13616,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
@@ -14429,7 +14436,9 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> routeMode{};
   shared_ptr<string> trAttachmentMasterCidr{};
+  shared_ptr<string> trAttachmentMasterZone{};
   shared_ptr<string> trAttachmentSlaveCidr{};
+  shared_ptr<string> trAttachmentSlaveZone{};
   shared_ptr<string> transitRouterId{};
 
   DescribeTrFirewallsV2DetailResponseBody() {}
@@ -14487,8 +14496,14 @@ public:
     if (trAttachmentMasterCidr) {
       res["TrAttachmentMasterCidr"] = boost::any(*trAttachmentMasterCidr);
     }
+    if (trAttachmentMasterZone) {
+      res["TrAttachmentMasterZone"] = boost::any(*trAttachmentMasterZone);
+    }
     if (trAttachmentSlaveCidr) {
       res["TrAttachmentSlaveCidr"] = boost::any(*trAttachmentSlaveCidr);
+    }
+    if (trAttachmentSlaveZone) {
+      res["TrAttachmentSlaveZone"] = boost::any(*trAttachmentSlaveZone);
     }
     if (transitRouterId) {
       res["TransitRouterId"] = boost::any(*transitRouterId);
@@ -14542,8 +14557,14 @@ public:
     if (m.find("TrAttachmentMasterCidr") != m.end() && !m["TrAttachmentMasterCidr"].empty()) {
       trAttachmentMasterCidr = make_shared<string>(boost::any_cast<string>(m["TrAttachmentMasterCidr"]));
     }
+    if (m.find("TrAttachmentMasterZone") != m.end() && !m["TrAttachmentMasterZone"].empty()) {
+      trAttachmentMasterZone = make_shared<string>(boost::any_cast<string>(m["TrAttachmentMasterZone"]));
+    }
     if (m.find("TrAttachmentSlaveCidr") != m.end() && !m["TrAttachmentSlaveCidr"].empty()) {
       trAttachmentSlaveCidr = make_shared<string>(boost::any_cast<string>(m["TrAttachmentSlaveCidr"]));
+    }
+    if (m.find("TrAttachmentSlaveZone") != m.end() && !m["TrAttachmentSlaveZone"].empty()) {
+      trAttachmentSlaveZone = make_shared<string>(boost::any_cast<string>(m["TrAttachmentSlaveZone"]));
     }
     if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
       transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
@@ -14703,6 +14724,35 @@ public:
 
 
   virtual ~DescribeTrFirewallsV2ListRequest() = default;
+};
+class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> strictMode{};
+
+  DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig() {}
+
+  explicit DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (strictMode) {
+      res["StrictMode"] = boost::any(*strictMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StrictMode") != m.end() && !m["StrictMode"].empty()) {
+      strictMode = make_shared<long>(boost::any_cast<long>(m["StrictMode"]));
+    }
+  }
+
+
+  virtual ~DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig() = default;
 };
 class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig : public Darabonba::Model {
 public:
@@ -14954,6 +15004,7 @@ public:
 };
 class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls : public Darabonba::Model {
 public:
+  shared_ptr<DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig> aclConfig{};
   shared_ptr<string> cenId{};
   shared_ptr<string> cenName{};
   shared_ptr<string> cloudFirewallVpcOrderType{};
@@ -14981,6 +15032,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aclConfig) {
+      res["AclConfig"] = aclConfig ? boost::any(aclConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
     }
@@ -15033,6 +15087,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclConfig") != m.end() && !m["AclConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclConfig"].type()) {
+        DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclConfig"]));
+        aclConfig = make_shared<DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig>(model1);
+      }
+    }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
     }
@@ -16102,6 +16163,7 @@ class DescribeVpcFirewallAclGroupListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> currentPage{};
   shared_ptr<string> firewallConfigureStatus{};
+  shared_ptr<string> firewallId{};
   shared_ptr<string> lang{};
   shared_ptr<string> pageSize{};
 
@@ -16121,6 +16183,9 @@ public:
     if (firewallConfigureStatus) {
       res["FirewallConfigureStatus"] = boost::any(*firewallConfigureStatus);
     }
+    if (firewallId) {
+      res["FirewallId"] = boost::any(*firewallId);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -16137,6 +16202,9 @@ public:
     if (m.find("FirewallConfigureStatus") != m.end() && !m["FirewallConfigureStatus"].empty()) {
       firewallConfigureStatus = make_shared<string>(boost::any_cast<string>(m["FirewallConfigureStatus"]));
     }
+    if (m.find("FirewallId") != m.end() && !m["FirewallId"].empty()) {
+      firewallId = make_shared<string>(boost::any_cast<string>(m["FirewallId"]));
+    }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
@@ -16148,8 +16216,38 @@ public:
 
   virtual ~DescribeVpcFirewallAclGroupListRequest() = default;
 };
+class DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> strictMode{};
+
+  DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig() {}
+
+  explicit DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (strictMode) {
+      res["StrictMode"] = boost::any(*strictMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StrictMode") != m.end() && !m["StrictMode"].empty()) {
+      strictMode = make_shared<long>(boost::any_cast<long>(m["StrictMode"]));
+    }
+  }
+
+
+  virtual ~DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig() = default;
+};
 class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList : public Darabonba::Model {
 public:
+  shared_ptr<DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig> aclConfig{};
   shared_ptr<string> aclGroupId{};
   shared_ptr<string> aclGroupName{};
   shared_ptr<long> aclRuleCount{};
@@ -16166,6 +16264,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aclConfig) {
+      res["AclConfig"] = aclConfig ? boost::any(aclConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (aclGroupId) {
       res["AclGroupId"] = boost::any(*aclGroupId);
     }
@@ -16185,6 +16286,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclConfig") != m.end() && !m["AclConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclConfig"].type()) {
+        DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclConfig"]));
+        aclConfig = make_shared<DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig>(model1);
+      }
+    }
     if (m.find("AclGroupId") != m.end() && !m["AclGroupId"].empty()) {
       aclGroupId = make_shared<string>(boost::any_cast<string>(m["AclGroupId"]));
     }
@@ -16360,10 +16468,12 @@ public:
 class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc : public Darabonba::Model {
 public:
   shared_ptr<long> allowConfiguration{};
+  shared_ptr<string> standbyZoneId{};
   shared_ptr<string> vpcCidr{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vswitchCidr{};
   shared_ptr<string> vswitchId{};
+  shared_ptr<string> vswitchZoneId{};
   shared_ptr<string> zoneId{};
 
   DescribeVpcFirewallCenDetailResponseBodyFirewallVpc() {}
@@ -16379,6 +16489,9 @@ public:
     if (allowConfiguration) {
       res["AllowConfiguration"] = boost::any(*allowConfiguration);
     }
+    if (standbyZoneId) {
+      res["StandbyZoneId"] = boost::any(*standbyZoneId);
+    }
     if (vpcCidr) {
       res["VpcCidr"] = boost::any(*vpcCidr);
     }
@@ -16391,6 +16504,9 @@ public:
     if (vswitchId) {
       res["VswitchId"] = boost::any(*vswitchId);
     }
+    if (vswitchZoneId) {
+      res["VswitchZoneId"] = boost::any(*vswitchZoneId);
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -16400,6 +16516,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllowConfiguration") != m.end() && !m["AllowConfiguration"].empty()) {
       allowConfiguration = make_shared<long>(boost::any_cast<long>(m["AllowConfiguration"]));
+    }
+    if (m.find("StandbyZoneId") != m.end() && !m["StandbyZoneId"].empty()) {
+      standbyZoneId = make_shared<string>(boost::any_cast<string>(m["StandbyZoneId"]));
     }
     if (m.find("VpcCidr") != m.end() && !m["VpcCidr"].empty()) {
       vpcCidr = make_shared<string>(boost::any_cast<string>(m["VpcCidr"]));
@@ -16412,6 +16531,9 @@ public:
     }
     if (m.find("VswitchId") != m.end() && !m["VswitchId"].empty()) {
       vswitchId = make_shared<string>(boost::any_cast<string>(m["VswitchId"]));
+    }
+    if (m.find("VswitchZoneId") != m.end() && !m["VswitchZoneId"].empty()) {
+      vswitchZoneId = make_shared<string>(boost::any_cast<string>(m["VswitchZoneId"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
@@ -16970,6 +17092,35 @@ public:
 
   virtual ~DescribeVpcFirewallCenListRequest() = default;
 };
+class DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> strictMode{};
+
+  DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig() {}
+
+  explicit DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (strictMode) {
+      res["StrictMode"] = boost::any(*strictMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StrictMode") != m.end() && !m["StrictMode"].empty()) {
+      strictMode = make_shared<long>(boost::any_cast<long>(m["StrictMode"]));
+    }
+  }
+
+
+  virtual ~DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig() = default;
+};
 class DescribeVpcFirewallCenListResponseBodyVpcFirewallsIpsConfig : public Darabonba::Model {
 public:
   shared_ptr<long> basicRules{};
@@ -17249,6 +17400,7 @@ public:
 };
 class DescribeVpcFirewallCenListResponseBodyVpcFirewalls : public Darabonba::Model {
 public:
+  shared_ptr<DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig> aclConfig{};
   shared_ptr<string> cenId{};
   shared_ptr<string> cenName{};
   shared_ptr<string> connectType{};
@@ -17272,6 +17424,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aclConfig) {
+      res["AclConfig"] = aclConfig ? boost::any(aclConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
     }
@@ -17312,6 +17467,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclConfig") != m.end() && !m["AclConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclConfig"].type()) {
+        DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclConfig"]));
+        aclConfig = make_shared<DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig>(model1);
+      }
+    }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
     }
@@ -18977,6 +19139,35 @@ public:
 
   virtual ~DescribeVpcFirewallListRequest() = default;
 };
+class DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> strictMode{};
+
+  DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig() {}
+
+  explicit DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (strictMode) {
+      res["StrictMode"] = boost::any(*strictMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StrictMode") != m.end() && !m["StrictMode"].empty()) {
+      strictMode = make_shared<long>(boost::any_cast<long>(m["StrictMode"]));
+    }
+  }
+
+
+  virtual ~DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig() = default;
+};
 class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig : public Darabonba::Model {
 public:
   shared_ptr<long> basicRules{};
@@ -19357,6 +19548,7 @@ public:
 };
 class DescribeVpcFirewallListResponseBodyVpcFirewalls : public Darabonba::Model {
 public:
+  shared_ptr<DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig> aclConfig{};
   shared_ptr<long> bandwidth{};
   shared_ptr<string> connectSubType{};
   shared_ptr<string> connectType{};
@@ -19380,6 +19572,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aclConfig) {
+      res["AclConfig"] = aclConfig ? boost::any(aclConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (bandwidth) {
       res["Bandwidth"] = boost::any(*bandwidth);
     }
@@ -19420,6 +19615,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclConfig") != m.end() && !m["AclConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclConfig"].type()) {
+        DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclConfig"]));
+        aclConfig = make_shared<DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig>(model1);
+      }
+    }
     if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
       bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
     }
@@ -21276,13 +21478,13 @@ public:
 };
 class ModifyDefaultIPSConfigRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> basicRules{};
-  shared_ptr<string> ctiRules{};
+  shared_ptr<long> basicRules{};
+  shared_ptr<long> ctiRules{};
   shared_ptr<string> lang{};
   shared_ptr<long> maxSdl{};
-  shared_ptr<string> patchRules{};
-  shared_ptr<string> ruleClass{};
-  shared_ptr<string> runMode{};
+  shared_ptr<long> patchRules{};
+  shared_ptr<long> ruleClass{};
+  shared_ptr<long> runMode{};
 
   ModifyDefaultIPSConfigRequest() {}
 
@@ -21320,10 +21522,10 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BasicRules") != m.end() && !m["BasicRules"].empty()) {
-      basicRules = make_shared<string>(boost::any_cast<string>(m["BasicRules"]));
+      basicRules = make_shared<long>(boost::any_cast<long>(m["BasicRules"]));
     }
     if (m.find("CtiRules") != m.end() && !m["CtiRules"].empty()) {
-      ctiRules = make_shared<string>(boost::any_cast<string>(m["CtiRules"]));
+      ctiRules = make_shared<long>(boost::any_cast<long>(m["CtiRules"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
@@ -21332,13 +21534,13 @@ public:
       maxSdl = make_shared<long>(boost::any_cast<long>(m["MaxSdl"]));
     }
     if (m.find("PatchRules") != m.end() && !m["PatchRules"].empty()) {
-      patchRules = make_shared<string>(boost::any_cast<string>(m["PatchRules"]));
+      patchRules = make_shared<long>(boost::any_cast<long>(m["PatchRules"]));
     }
     if (m.find("RuleClass") != m.end() && !m["RuleClass"].empty()) {
-      ruleClass = make_shared<string>(boost::any_cast<string>(m["RuleClass"]));
+      ruleClass = make_shared<long>(boost::any_cast<long>(m["RuleClass"]));
     }
     if (m.find("RunMode") != m.end() && !m["RunMode"].empty()) {
-      runMode = make_shared<string>(boost::any_cast<string>(m["RunMode"]));
+      runMode = make_shared<long>(boost::any_cast<long>(m["RunMode"]));
     }
   }
 
@@ -22301,6 +22503,7 @@ public:
 };
 class ModifyPolicyAdvancedConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> eips{};
   shared_ptr<string> internetSwitch{};
   shared_ptr<string> lang{};
   shared_ptr<string> sourceIp{};
@@ -22315,6 +22518,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (eips) {
+      res["Eips"] = boost::any(*eips);
+    }
     if (internetSwitch) {
       res["InternetSwitch"] = boost::any(*internetSwitch);
     }
@@ -22328,6 +22534,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Eips") != m.end() && !m["Eips"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Eips"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Eips"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      eips = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("InternetSwitch") != m.end() && !m["InternetSwitch"].empty()) {
       internetSwitch = make_shared<string>(boost::any_cast<string>(m["InternetSwitch"]));
     }
