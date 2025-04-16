@@ -37,6 +37,70 @@ string Alibabacloud_ContactCenterAI20240603::Client::getEndpoint(shared_ptr<stri
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AnalyzeAudioSyncResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeAudioSyncWithOptions(shared_ptr<string> workspaceId,
+                                                                                                   shared_ptr<string> appId,
+                                                                                                   shared_ptr<AnalyzeAudioSyncRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AnalyzeAudioSyncRequestCategoryTags>>(request->categoryTags)) {
+    body->insert(pair<string, vector<AnalyzeAudioSyncRequestCategoryTags>>("categoryTags", *request->categoryTags));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customPrompt)) {
+    body->insert(pair<string, string>("customPrompt", *request->customPrompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AnalyzeAudioSyncRequestFields>>(request->fields)) {
+    body->insert(pair<string, vector<AnalyzeAudioSyncRequestFields>>("fields", *request->fields));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelCode)) {
+    body->insert(pair<string, string>("modelCode", *request->modelCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseFormatType)) {
+    body->insert(pair<string, string>("responseFormatType", *request->responseFormatType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resultTypes)) {
+    body->insert(pair<string, vector<string>>("resultTypes", *request->resultTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<AnalyzeAudioSyncRequestServiceInspection>(request->serviceInspection)) {
+    body->insert(pair<string, AnalyzeAudioSyncRequestServiceInspection>("serviceInspection", *request->serviceInspection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
+    body->insert(pair<string, bool>("stream", *request->stream));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->templateIds)) {
+    body->insert(pair<string, vector<string>>("templateIds", *request->templateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<AnalyzeAudioSyncRequestTranscription>(request->transcription)) {
+    body->insert(pair<string, AnalyzeAudioSyncRequestTranscription>("transcription", *request->transcription));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AnalyzeAudioSyncRequestVariables>>(request->variables)) {
+    body->insert(pair<string, vector<AnalyzeAudioSyncRequestVariables>>("variables", *request->variables));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AnalyzeAudioSync"))},
+    {"version", boost::any(string("2024-06-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/ccai/app/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appId)) + string("/analyzeAudioSync"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AnalyzeAudioSyncResponse(callApi(params, req, runtime));
+}
+
+AnalyzeAudioSyncResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeAudioSync(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeAudioSyncRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return analyzeAudioSyncWithOptions(workspaceId, appId, request, headers, runtime);
+}
+
 AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeConversationWithOptions(shared_ptr<string> workspaceId,
                                                                                                          shared_ptr<string> appId,
                                                                                                          shared_ptr<AnalyzeConversationRequest> request,
@@ -61,6 +125,9 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->modelCode)) {
     body->insert(pair<string, string>("modelCode", *request->modelCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseFormatType)) {
+    body->insert(pair<string, string>("responseFormatType", *request->responseFormatType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resultTypes)) {
     body->insert(pair<string, vector<string>>("resultTypes", *request->resultTypes));
@@ -98,12 +165,7 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AnalyzeConversationResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AnalyzeConversationResponse(execute(params, req, runtime));
-  }
+  return AnalyzeConversationResponse(callApi(params, req, runtime));
 }
 
 AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeConversation(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeConversationRequest> request) {
@@ -121,6 +183,9 @@ AnalyzeImageResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeImageW
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->imageUrls)) {
     body->insert(pair<string, vector<string>>("imageUrls", *request->imageUrls));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseFormatType)) {
+    body->insert(pair<string, string>("responseFormatType", *request->responseFormatType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resultTypes)) {
     body->insert(pair<string, vector<string>>("resultTypes", *request->resultTypes));
@@ -143,12 +208,7 @@ AnalyzeImageResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeImageW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AnalyzeImageResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AnalyzeImageResponse(execute(params, req, runtime));
-  }
+  return AnalyzeImageResponse(callApi(params, req, runtime));
 }
 
 AnalyzeImageResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeImage(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeImageRequest> request) {
@@ -181,6 +241,9 @@ CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->modelCode)) {
     body->insert(pair<string, string>("modelCode", *request->modelCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseFormatType)) {
+    body->insert(pair<string, string>("responseFormatType", *request->responseFormatType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resultTypes)) {
     body->insert(pair<string, vector<string>>("resultTypes", *request->resultTypes));
@@ -215,12 +278,7 @@ CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateTaskResponse(execute(params, req, runtime));
-  }
+  return CreateTaskResponse(callApi(params, req, runtime));
 }
 
 CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTask(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<CreateTaskRequest> request) {
@@ -262,12 +320,7 @@ CreateVocabResponse Alibabacloud_ContactCenterAI20240603::Client::createVocabWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateVocabResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateVocabResponse(execute(params, req, runtime));
-  }
+  return CreateVocabResponse(callApi(params, req, runtime));
 }
 
 CreateVocabResponse Alibabacloud_ContactCenterAI20240603::Client::createVocab(shared_ptr<CreateVocabRequest> request) {
@@ -300,12 +353,7 @@ DeleteVocabResponse Alibabacloud_ContactCenterAI20240603::Client::deleteVocabWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteVocabResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteVocabResponse(execute(params, req, runtime));
-  }
+  return DeleteVocabResponse(callApi(params, req, runtime));
 }
 
 DeleteVocabResponse Alibabacloud_ContactCenterAI20240603::Client::deleteVocab(shared_ptr<DeleteVocabRequest> request) {
@@ -343,12 +391,7 @@ GetTaskResultResponse Alibabacloud_ContactCenterAI20240603::Client::getTaskResul
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetTaskResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetTaskResultResponse(execute(params, req, runtime));
-  }
+  return GetTaskResultResponse(callApi(params, req, runtime));
 }
 
 GetTaskResultResponse Alibabacloud_ContactCenterAI20240603::Client::getTaskResult(shared_ptr<GetTaskResultRequest> request) {
@@ -381,12 +424,7 @@ GetVocabResponse Alibabacloud_ContactCenterAI20240603::Client::getVocabWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetVocabResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetVocabResponse(execute(params, req, runtime));
-  }
+  return GetVocabResponse(callApi(params, req, runtime));
 }
 
 GetVocabResponse Alibabacloud_ContactCenterAI20240603::Client::getVocab(shared_ptr<GetVocabRequest> request) {
@@ -416,12 +454,7 @@ ListVocabResponse Alibabacloud_ContactCenterAI20240603::Client::listVocabWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListVocabResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListVocabResponse(execute(params, req, runtime));
-  }
+  return ListVocabResponse(callApi(params, req, runtime));
 }
 
 ListVocabResponse Alibabacloud_ContactCenterAI20240603::Client::listVocab(shared_ptr<ListVocabRequest> request) {
@@ -455,6 +488,9 @@ RunCompletionResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletio
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->templateIds)) {
     body->insert(pair<string, vector<long>>("TemplateIds", *request->templateIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseFormatType)) {
+    body->insert(pair<string, string>("responseFormatType", *request->responseFormatType));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<RunCompletionRequestVariables>>(request->variables)) {
     body->insert(pair<string, vector<RunCompletionRequestVariables>>("variables", *request->variables));
   }
@@ -473,12 +509,7 @@ RunCompletionResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunCompletionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunCompletionResponse(execute(params, req, runtime));
-  }
+  return RunCompletionResponse(callApi(params, req, runtime));
 }
 
 RunCompletionResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletion(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<RunCompletionRequest> request) {
@@ -503,6 +534,9 @@ RunCompletionMessageResponse Alibabacloud_ContactCenterAI20240603::Client::runCo
   if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
     body->insert(pair<string, bool>("Stream", *request->stream));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseFormatType)) {
+    body->insert(pair<string, string>("responseFormatType", *request->responseFormatType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -518,12 +552,7 @@ RunCompletionMessageResponse Alibabacloud_ContactCenterAI20240603::Client::runCo
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RunCompletionMessageResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RunCompletionMessageResponse(execute(params, req, runtime));
-  }
+  return RunCompletionMessageResponse(callApi(params, req, runtime));
 }
 
 RunCompletionMessageResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletionMessage(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<RunCompletionMessageRequest> request) {
@@ -565,12 +594,7 @@ UpdateVocabResponse Alibabacloud_ContactCenterAI20240603::Client::updateVocabWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateVocabResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateVocabResponse(execute(params, req, runtime));
-  }
+  return UpdateVocabResponse(callApi(params, req, runtime));
 }
 
 UpdateVocabResponse Alibabacloud_ContactCenterAI20240603::Client::updateVocab(shared_ptr<UpdateVocabRequest> request) {

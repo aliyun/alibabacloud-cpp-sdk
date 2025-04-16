@@ -13,6 +13,649 @@
 using namespace std;
 
 namespace Alibabacloud_ContactCenterAI20240603 {
+class AnalyzeAudioSyncRequestCategoryTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagDesc{};
+  shared_ptr<string> tagName{};
+
+  AnalyzeAudioSyncRequestCategoryTags() {}
+
+  explicit AnalyzeAudioSyncRequestCategoryTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagDesc) {
+      res["tagDesc"] = boost::any(*tagDesc);
+    }
+    if (tagName) {
+      res["tagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagDesc") != m.end() && !m["tagDesc"].empty()) {
+      tagDesc = make_shared<string>(boost::any_cast<string>(m["tagDesc"]));
+    }
+    if (m.find("tagName") != m.end() && !m["tagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["tagName"]));
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncRequestCategoryTags() = default;
+};
+class AnalyzeAudioSyncRequestFieldsEnumValues : public Darabonba::Model {
+public:
+  shared_ptr<string> desc{};
+  shared_ptr<string> enumValue{};
+
+  AnalyzeAudioSyncRequestFieldsEnumValues() {}
+
+  explicit AnalyzeAudioSyncRequestFieldsEnumValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desc) {
+      res["desc"] = boost::any(*desc);
+    }
+    if (enumValue) {
+      res["enumValue"] = boost::any(*enumValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("desc") != m.end() && !m["desc"].empty()) {
+      desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
+    }
+    if (m.find("enumValue") != m.end() && !m["enumValue"].empty()) {
+      enumValue = make_shared<string>(boost::any_cast<string>(m["enumValue"]));
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncRequestFieldsEnumValues() = default;
+};
+class AnalyzeAudioSyncRequestFields : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> desc{};
+  shared_ptr<vector<AnalyzeAudioSyncRequestFieldsEnumValues>> enumValues{};
+  shared_ptr<string> name{};
+
+  AnalyzeAudioSyncRequestFields() {}
+
+  explicit AnalyzeAudioSyncRequestFields(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (desc) {
+      res["desc"] = boost::any(*desc);
+    }
+    if (enumValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*enumValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["enumValues"] = boost::any(temp1);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("desc") != m.end() && !m["desc"].empty()) {
+      desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
+    }
+    if (m.find("enumValues") != m.end() && !m["enumValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["enumValues"].type()) {
+        vector<AnalyzeAudioSyncRequestFieldsEnumValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["enumValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeAudioSyncRequestFieldsEnumValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        enumValues = make_shared<vector<AnalyzeAudioSyncRequestFieldsEnumValues>>(expect1);
+      }
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncRequestFields() = default;
+};
+class AnalyzeAudioSyncRequestServiceInspectionInspectionContents : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> title{};
+
+  AnalyzeAudioSyncRequestServiceInspectionInspectionContents() {}
+
+  explicit AnalyzeAudioSyncRequestServiceInspectionInspectionContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncRequestServiceInspectionInspectionContents() = default;
+};
+class AnalyzeAudioSyncRequestServiceInspection : public Darabonba::Model {
+public:
+  shared_ptr<vector<AnalyzeAudioSyncRequestServiceInspectionInspectionContents>> inspectionContents{};
+  shared_ptr<string> inspectionIntroduction{};
+  shared_ptr<string> sceneIntroduction{};
+
+  AnalyzeAudioSyncRequestServiceInspection() {}
+
+  explicit AnalyzeAudioSyncRequestServiceInspection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*inspectionContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["inspectionContents"] = boost::any(temp1);
+    }
+    if (inspectionIntroduction) {
+      res["inspectionIntroduction"] = boost::any(*inspectionIntroduction);
+    }
+    if (sceneIntroduction) {
+      res["sceneIntroduction"] = boost::any(*sceneIntroduction);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inspectionContents") != m.end() && !m["inspectionContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["inspectionContents"].type()) {
+        vector<AnalyzeAudioSyncRequestServiceInspectionInspectionContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["inspectionContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeAudioSyncRequestServiceInspectionInspectionContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inspectionContents = make_shared<vector<AnalyzeAudioSyncRequestServiceInspectionInspectionContents>>(expect1);
+      }
+    }
+    if (m.find("inspectionIntroduction") != m.end() && !m["inspectionIntroduction"].empty()) {
+      inspectionIntroduction = make_shared<string>(boost::any_cast<string>(m["inspectionIntroduction"]));
+    }
+    if (m.find("sceneIntroduction") != m.end() && !m["sceneIntroduction"].empty()) {
+      sceneIntroduction = make_shared<string>(boost::any_cast<string>(m["sceneIntroduction"]));
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncRequestServiceInspection() = default;
+};
+class AnalyzeAudioSyncRequestTranscription : public Darabonba::Model {
+public:
+  shared_ptr<string> asrModelCode{};
+  shared_ptr<long> autoSplit{};
+  shared_ptr<long> clientChannel{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> level{};
+  shared_ptr<long> serviceChannel{};
+  shared_ptr<vector<string>> serviceChannelKeywords{};
+  shared_ptr<string> vocabularyId{};
+  shared_ptr<string> voiceFileUrl{};
+
+  AnalyzeAudioSyncRequestTranscription() {}
+
+  explicit AnalyzeAudioSyncRequestTranscription(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asrModelCode) {
+      res["asrModelCode"] = boost::any(*asrModelCode);
+    }
+    if (autoSplit) {
+      res["autoSplit"] = boost::any(*autoSplit);
+    }
+    if (clientChannel) {
+      res["clientChannel"] = boost::any(*clientChannel);
+    }
+    if (fileName) {
+      res["fileName"] = boost::any(*fileName);
+    }
+    if (level) {
+      res["level"] = boost::any(*level);
+    }
+    if (serviceChannel) {
+      res["serviceChannel"] = boost::any(*serviceChannel);
+    }
+    if (serviceChannelKeywords) {
+      res["serviceChannelKeywords"] = boost::any(*serviceChannelKeywords);
+    }
+    if (vocabularyId) {
+      res["vocabularyId"] = boost::any(*vocabularyId);
+    }
+    if (voiceFileUrl) {
+      res["voiceFileUrl"] = boost::any(*voiceFileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("asrModelCode") != m.end() && !m["asrModelCode"].empty()) {
+      asrModelCode = make_shared<string>(boost::any_cast<string>(m["asrModelCode"]));
+    }
+    if (m.find("autoSplit") != m.end() && !m["autoSplit"].empty()) {
+      autoSplit = make_shared<long>(boost::any_cast<long>(m["autoSplit"]));
+    }
+    if (m.find("clientChannel") != m.end() && !m["clientChannel"].empty()) {
+      clientChannel = make_shared<long>(boost::any_cast<long>(m["clientChannel"]));
+    }
+    if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
+    if (m.find("level") != m.end() && !m["level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["level"]));
+    }
+    if (m.find("serviceChannel") != m.end() && !m["serviceChannel"].empty()) {
+      serviceChannel = make_shared<long>(boost::any_cast<long>(m["serviceChannel"]));
+    }
+    if (m.find("serviceChannelKeywords") != m.end() && !m["serviceChannelKeywords"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["serviceChannelKeywords"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["serviceChannelKeywords"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      serviceChannelKeywords = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("vocabularyId") != m.end() && !m["vocabularyId"].empty()) {
+      vocabularyId = make_shared<string>(boost::any_cast<string>(m["vocabularyId"]));
+    }
+    if (m.find("voiceFileUrl") != m.end() && !m["voiceFileUrl"].empty()) {
+      voiceFileUrl = make_shared<string>(boost::any_cast<string>(m["voiceFileUrl"]));
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncRequestTranscription() = default;
+};
+class AnalyzeAudioSyncRequestVariables : public Darabonba::Model {
+public:
+  shared_ptr<string> variableCode{};
+  shared_ptr<string> variableValue{};
+
+  AnalyzeAudioSyncRequestVariables() {}
+
+  explicit AnalyzeAudioSyncRequestVariables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (variableCode) {
+      res["variableCode"] = boost::any(*variableCode);
+    }
+    if (variableValue) {
+      res["variableValue"] = boost::any(*variableValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("variableCode") != m.end() && !m["variableCode"].empty()) {
+      variableCode = make_shared<string>(boost::any_cast<string>(m["variableCode"]));
+    }
+    if (m.find("variableValue") != m.end() && !m["variableValue"].empty()) {
+      variableValue = make_shared<string>(boost::any_cast<string>(m["variableValue"]));
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncRequestVariables() = default;
+};
+class AnalyzeAudioSyncRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<AnalyzeAudioSyncRequestCategoryTags>> categoryTags{};
+  shared_ptr<string> customPrompt{};
+  shared_ptr<vector<AnalyzeAudioSyncRequestFields>> fields{};
+  shared_ptr<string> modelCode{};
+  shared_ptr<string> responseFormatType{};
+  shared_ptr<vector<string>> resultTypes{};
+  shared_ptr<AnalyzeAudioSyncRequestServiceInspection> serviceInspection{};
+  shared_ptr<bool> stream{};
+  shared_ptr<vector<string>> templateIds{};
+  shared_ptr<AnalyzeAudioSyncRequestTranscription> transcription{};
+  shared_ptr<vector<AnalyzeAudioSyncRequestVariables>> variables{};
+
+  AnalyzeAudioSyncRequest() {}
+
+  explicit AnalyzeAudioSyncRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*categoryTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["categoryTags"] = boost::any(temp1);
+    }
+    if (customPrompt) {
+      res["customPrompt"] = boost::any(*customPrompt);
+    }
+    if (fields) {
+      vector<boost::any> temp1;
+      for(auto item1:*fields){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["fields"] = boost::any(temp1);
+    }
+    if (modelCode) {
+      res["modelCode"] = boost::any(*modelCode);
+    }
+    if (responseFormatType) {
+      res["responseFormatType"] = boost::any(*responseFormatType);
+    }
+    if (resultTypes) {
+      res["resultTypes"] = boost::any(*resultTypes);
+    }
+    if (serviceInspection) {
+      res["serviceInspection"] = serviceInspection ? boost::any(serviceInspection->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stream) {
+      res["stream"] = boost::any(*stream);
+    }
+    if (templateIds) {
+      res["templateIds"] = boost::any(*templateIds);
+    }
+    if (transcription) {
+      res["transcription"] = transcription ? boost::any(transcription->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (variables) {
+      vector<boost::any> temp1;
+      for(auto item1:*variables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["variables"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("categoryTags") != m.end() && !m["categoryTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["categoryTags"].type()) {
+        vector<AnalyzeAudioSyncRequestCategoryTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["categoryTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeAudioSyncRequestCategoryTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        categoryTags = make_shared<vector<AnalyzeAudioSyncRequestCategoryTags>>(expect1);
+      }
+    }
+    if (m.find("customPrompt") != m.end() && !m["customPrompt"].empty()) {
+      customPrompt = make_shared<string>(boost::any_cast<string>(m["customPrompt"]));
+    }
+    if (m.find("fields") != m.end() && !m["fields"].empty()) {
+      if (typeid(vector<boost::any>) == m["fields"].type()) {
+        vector<AnalyzeAudioSyncRequestFields> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["fields"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeAudioSyncRequestFields model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fields = make_shared<vector<AnalyzeAudioSyncRequestFields>>(expect1);
+      }
+    }
+    if (m.find("modelCode") != m.end() && !m["modelCode"].empty()) {
+      modelCode = make_shared<string>(boost::any_cast<string>(m["modelCode"]));
+    }
+    if (m.find("responseFormatType") != m.end() && !m["responseFormatType"].empty()) {
+      responseFormatType = make_shared<string>(boost::any_cast<string>(m["responseFormatType"]));
+    }
+    if (m.find("resultTypes") != m.end() && !m["resultTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["resultTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["resultTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resultTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("serviceInspection") != m.end() && !m["serviceInspection"].empty()) {
+      if (typeid(map<string, boost::any>) == m["serviceInspection"].type()) {
+        AnalyzeAudioSyncRequestServiceInspection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["serviceInspection"]));
+        serviceInspection = make_shared<AnalyzeAudioSyncRequestServiceInspection>(model1);
+      }
+    }
+    if (m.find("stream") != m.end() && !m["stream"].empty()) {
+      stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
+    }
+    if (m.find("templateIds") != m.end() && !m["templateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["templateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["templateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      templateIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("transcription") != m.end() && !m["transcription"].empty()) {
+      if (typeid(map<string, boost::any>) == m["transcription"].type()) {
+        AnalyzeAudioSyncRequestTranscription model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["transcription"]));
+        transcription = make_shared<AnalyzeAudioSyncRequestTranscription>(model1);
+      }
+    }
+    if (m.find("variables") != m.end() && !m["variables"].empty()) {
+      if (typeid(vector<boost::any>) == m["variables"].type()) {
+        vector<AnalyzeAudioSyncRequestVariables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["variables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeAudioSyncRequestVariables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        variables = make_shared<vector<AnalyzeAudioSyncRequestVariables>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncRequest() = default;
+};
+class AnalyzeAudioSyncResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> finishReason{};
+  shared_ptr<string> inputTokens{};
+  shared_ptr<string> outputTokens{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> text{};
+  shared_ptr<string> totalTokens{};
+
+  AnalyzeAudioSyncResponseBody() {}
+
+  explicit AnalyzeAudioSyncResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (finishReason) {
+      res["finishReason"] = boost::any(*finishReason);
+    }
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("finishReason") != m.end() && !m["finishReason"].empty()) {
+      finishReason = make_shared<string>(boost::any_cast<string>(m["finishReason"]));
+    }
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<string>(boost::any_cast<string>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<string>(boost::any_cast<string>(m["outputTokens"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<string>(boost::any_cast<string>(m["totalTokens"]));
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncResponseBody() = default;
+};
+class AnalyzeAudioSyncResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AnalyzeAudioSyncResponseBody> body{};
+
+  AnalyzeAudioSyncResponse() {}
+
+  explicit AnalyzeAudioSyncResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AnalyzeAudioSyncResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AnalyzeAudioSyncResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeAudioSyncResponse() = default;
+};
 class AnalyzeConversationRequestCategoryTags : public Darabonba::Model {
 public:
   shared_ptr<string> tagDesc{};
@@ -465,6 +1108,7 @@ public:
   shared_ptr<vector<AnalyzeConversationRequestExamples>> examples{};
   shared_ptr<vector<AnalyzeConversationRequestFields>> fields{};
   shared_ptr<string> modelCode{};
+  shared_ptr<string> responseFormatType{};
   shared_ptr<vector<string>> resultTypes{};
   shared_ptr<string> sceneName{};
   shared_ptr<AnalyzeConversationRequestServiceInspection> serviceInspection{};
@@ -512,6 +1156,9 @@ public:
     }
     if (modelCode) {
       res["modelCode"] = boost::any(*modelCode);
+    }
+    if (responseFormatType) {
+      res["responseFormatType"] = boost::any(*responseFormatType);
     }
     if (resultTypes) {
       res["resultTypes"] = boost::any(*resultTypes);
@@ -593,6 +1240,9 @@ public:
     }
     if (m.find("modelCode") != m.end() && !m["modelCode"].empty()) {
       modelCode = make_shared<string>(boost::any_cast<string>(m["modelCode"]));
+    }
+    if (m.find("responseFormatType") != m.end() && !m["responseFormatType"].empty()) {
+      responseFormatType = make_shared<string>(boost::any_cast<string>(m["responseFormatType"]));
     }
     if (m.find("resultTypes") != m.end() && !m["resultTypes"].empty()) {
       vector<string> toVec1;
@@ -788,6 +1438,7 @@ public:
 class AnalyzeImageRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> imageUrls{};
+  shared_ptr<string> responseFormatType{};
   shared_ptr<vector<string>> resultTypes{};
   shared_ptr<bool> stream{};
 
@@ -803,6 +1454,9 @@ public:
     map<string, boost::any> res;
     if (imageUrls) {
       res["imageUrls"] = boost::any(*imageUrls);
+    }
+    if (responseFormatType) {
+      res["responseFormatType"] = boost::any(*responseFormatType);
     }
     if (resultTypes) {
       res["resultTypes"] = boost::any(*resultTypes);
@@ -823,6 +1477,9 @@ public:
         }
       }
       imageUrls = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("responseFormatType") != m.end() && !m["responseFormatType"].empty()) {
+      responseFormatType = make_shared<string>(boost::any_cast<string>(m["responseFormatType"]));
     }
     if (m.find("resultTypes") != m.end() && !m["resultTypes"].empty()) {
       vector<string> toVec1;
@@ -1502,6 +2159,7 @@ public:
   shared_ptr<CreateTaskRequestExamples> examples{};
   shared_ptr<vector<CreateTaskRequestFields>> fields{};
   shared_ptr<string> modelCode{};
+  shared_ptr<string> responseFormatType{};
   shared_ptr<vector<string>> resultTypes{};
   shared_ptr<CreateTaskRequestServiceInspection> serviceInspection{};
   shared_ptr<string> taskType{};
@@ -1544,6 +2202,9 @@ public:
     }
     if (modelCode) {
       res["modelCode"] = boost::any(*modelCode);
+    }
+    if (responseFormatType) {
+      res["responseFormatType"] = boost::any(*responseFormatType);
     }
     if (resultTypes) {
       res["resultTypes"] = boost::any(*resultTypes);
@@ -1616,6 +2277,9 @@ public:
     }
     if (m.find("modelCode") != m.end() && !m["modelCode"].empty()) {
       modelCode = make_shared<string>(boost::any_cast<string>(m["modelCode"]));
+    }
+    if (m.find("responseFormatType") != m.end() && !m["responseFormatType"].empty()) {
+      responseFormatType = make_shared<string>(boost::any_cast<string>(m["responseFormatType"]));
     }
     if (m.find("resultTypes") != m.end() && !m["resultTypes"].empty()) {
       vector<string> toVec1;
@@ -3303,6 +3967,7 @@ public:
   shared_ptr<RunCompletionRequestServiceInspection> serviceInspection{};
   shared_ptr<bool> stream{};
   shared_ptr<vector<long>> templateIds{};
+  shared_ptr<string> responseFormatType{};
   shared_ptr<vector<RunCompletionRequestVariables>> variables{};
 
   RunCompletionRequest() {}
@@ -3336,6 +4001,9 @@ public:
     }
     if (templateIds) {
       res["TemplateIds"] = boost::any(*templateIds);
+    }
+    if (responseFormatType) {
+      res["responseFormatType"] = boost::any(*responseFormatType);
     }
     if (variables) {
       vector<boost::any> temp1;
@@ -3390,6 +4058,9 @@ public:
         }
       }
       templateIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("responseFormatType") != m.end() && !m["responseFormatType"].empty()) {
+      responseFormatType = make_shared<string>(boost::any_cast<string>(m["responseFormatType"]));
     }
     if (m.find("variables") != m.end() && !m["variables"].empty()) {
       if (typeid(vector<boost::any>) == m["variables"].type()) {
@@ -3566,6 +4237,7 @@ public:
   shared_ptr<vector<RunCompletionMessageRequestMessages>> messages{};
   shared_ptr<string> modelCode{};
   shared_ptr<bool> stream{};
+  shared_ptr<string> responseFormatType{};
 
   RunCompletionMessageRequest() {}
 
@@ -3590,6 +4262,9 @@ public:
     if (stream) {
       res["Stream"] = boost::any(*stream);
     }
+    if (responseFormatType) {
+      res["responseFormatType"] = boost::any(*responseFormatType);
+    }
     return res;
   }
 
@@ -3612,6 +4287,9 @@ public:
     }
     if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
       stream = make_shared<bool>(boost::any_cast<bool>(m["Stream"]));
+    }
+    if (m.find("responseFormatType") != m.end() && !m["responseFormatType"].empty()) {
+      responseFormatType = make_shared<string>(boost::any_cast<string>(m["responseFormatType"]));
     }
   }
 
@@ -3946,6 +4624,12 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AnalyzeAudioSyncResponse analyzeAudioSyncWithOptions(shared_ptr<string> workspaceId,
+                                                       shared_ptr<string> appId,
+                                                       shared_ptr<AnalyzeAudioSyncRequest> request,
+                                                       shared_ptr<map<string, string>> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AnalyzeAudioSyncResponse analyzeAudioSync(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeAudioSyncRequest> request);
   AnalyzeConversationResponse analyzeConversationWithOptions(shared_ptr<string> workspaceId,
                                                              shared_ptr<string> appId,
                                                              shared_ptr<AnalyzeConversationRequest> request,
