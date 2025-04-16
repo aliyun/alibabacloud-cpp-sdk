@@ -1,3 +1,14 @@
+2025-04-16 Version: 1.1.0
+- Support API ListDynamicDisposalProcesses.
+- Update API CreatePrivateAccessApplication: add request parameters L7Config.
+- Update API CreatePrivateAccessPolicy: add request parameters TriggerTemplateId.
+- Update API GetPrivateAccessApplication: add response parameters Body.Application.L7Config.
+- Update API GetPrivateAccessPolicy: add response parameters Body.Policy.TriggerTemplateId.
+- Update API ListPrivateAccessPolices: add response parameters Body.Polices.$.TriggerTemplateId.
+- Update API UpdatePrivateAccessApplication: add request parameters L7Config.
+- Update API UpdatePrivateAccessPolicy: add request parameters TriggerTemplateId.
+
+
 2025-01-16 Version: 1.0.22
 - Generated cpp 2023-01-20 for csas.
 

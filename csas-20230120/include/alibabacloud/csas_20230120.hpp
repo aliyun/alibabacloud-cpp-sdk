@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_CSAS20230120_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -52,7 +53,11 @@ public:
 class DisposalContent : public Darabonba::Model {
 public:
   shared_ptr<string> alertContent{};
+  shared_ptr<string> alertContentEn{};
   shared_ptr<string> alertTitle{};
+  shared_ptr<string> alertTitleEn{};
+  shared_ptr<string> noticeContent{};
+  shared_ptr<string> noticeContentEn{};
   shared_ptr<vector<string>> notifyActions{};
   shared_ptr<vector<string>> prohibitActions{};
 
@@ -69,8 +74,20 @@ public:
     if (alertContent) {
       res["AlertContent"] = boost::any(*alertContent);
     }
+    if (alertContentEn) {
+      res["AlertContentEn"] = boost::any(*alertContentEn);
+    }
     if (alertTitle) {
       res["AlertTitle"] = boost::any(*alertTitle);
+    }
+    if (alertTitleEn) {
+      res["AlertTitleEn"] = boost::any(*alertTitleEn);
+    }
+    if (noticeContent) {
+      res["NoticeContent"] = boost::any(*noticeContent);
+    }
+    if (noticeContentEn) {
+      res["NoticeContentEn"] = boost::any(*noticeContentEn);
     }
     if (notifyActions) {
       res["NotifyActions"] = boost::any(*notifyActions);
@@ -85,8 +102,20 @@ public:
     if (m.find("AlertContent") != m.end() && !m["AlertContent"].empty()) {
       alertContent = make_shared<string>(boost::any_cast<string>(m["AlertContent"]));
     }
+    if (m.find("AlertContentEn") != m.end() && !m["AlertContentEn"].empty()) {
+      alertContentEn = make_shared<string>(boost::any_cast<string>(m["AlertContentEn"]));
+    }
     if (m.find("AlertTitle") != m.end() && !m["AlertTitle"].empty()) {
       alertTitle = make_shared<string>(boost::any_cast<string>(m["AlertTitle"]));
+    }
+    if (m.find("AlertTitleEn") != m.end() && !m["AlertTitleEn"].empty()) {
+      alertTitleEn = make_shared<string>(boost::any_cast<string>(m["AlertTitleEn"]));
+    }
+    if (m.find("NoticeContent") != m.end() && !m["NoticeContent"].empty()) {
+      noticeContent = make_shared<string>(boost::any_cast<string>(m["NoticeContent"]));
+    }
+    if (m.find("NoticeContentEn") != m.end() && !m["NoticeContentEn"].empty()) {
+      noticeContentEn = make_shared<string>(boost::any_cast<string>(m["NoticeContentEn"]));
     }
     if (m.find("NotifyActions") != m.end() && !m["NotifyActions"].empty()) {
       vector<string> toVec1;
@@ -112,6 +141,591 @@ public:
 
 
   virtual ~DisposalContent() = default;
+};
+class PAL7ConfigBypassConfigUrlBypassRules : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> froms{};
+  shared_ptr<vector<string>> paths{};
+
+  PAL7ConfigBypassConfigUrlBypassRules() {}
+
+  explicit PAL7ConfigBypassConfigUrlBypassRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (froms) {
+      res["Froms"] = boost::any(*froms);
+    }
+    if (paths) {
+      res["Paths"] = boost::any(*paths);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Froms") != m.end() && !m["Froms"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Froms"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Froms"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      froms = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Paths") != m.end() && !m["Paths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Paths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Paths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      paths = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~PAL7ConfigBypassConfigUrlBypassRules() = default;
+};
+class PAL7ConfigBypassConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> appBypassFroms{};
+  shared_ptr<string> mode{};
+  shared_ptr<vector<PAL7ConfigBypassConfigUrlBypassRules>> urlBypassRules{};
+
+  PAL7ConfigBypassConfig() {}
+
+  explicit PAL7ConfigBypassConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appBypassFroms) {
+      res["AppBypassFroms"] = boost::any(*appBypassFroms);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (urlBypassRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*urlBypassRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UrlBypassRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppBypassFroms") != m.end() && !m["AppBypassFroms"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AppBypassFroms"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AppBypassFroms"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      appBypassFroms = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("UrlBypassRules") != m.end() && !m["UrlBypassRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["UrlBypassRules"].type()) {
+        vector<PAL7ConfigBypassConfigUrlBypassRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UrlBypassRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PAL7ConfigBypassConfigUrlBypassRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        urlBypassRules = make_shared<vector<PAL7ConfigBypassConfigUrlBypassRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PAL7ConfigBypassConfig() = default;
+};
+class PAL7ConfigDnsConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> dnsServers{};
+
+  PAL7ConfigDnsConfig() {}
+
+  explicit PAL7ConfigDnsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dnsServers) {
+      res["DnsServers"] = boost::any(*dnsServers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DnsServers") != m.end() && !m["DnsServers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DnsServers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DnsServers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dnsServers = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~PAL7ConfigDnsConfig() = default;
+};
+class PAL7ConfigReplaceRule : public Darabonba::Model {
+public:
+  shared_ptr<string> from{};
+  shared_ptr<string> to{};
+
+  PAL7ConfigReplaceRule() {}
+
+  explicit PAL7ConfigReplaceRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (from) {
+      res["From"] = boost::any(*from);
+    }
+    if (to) {
+      res["To"] = boost::any(*to);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("From") != m.end() && !m["From"].empty()) {
+      from = make_shared<string>(boost::any_cast<string>(m["From"]));
+    }
+    if (m.find("To") != m.end() && !m["To"].empty()) {
+      to = make_shared<string>(boost::any_cast<string>(m["To"]));
+    }
+  }
+
+
+  virtual ~PAL7ConfigReplaceRule() = default;
+};
+class PAL7ConfigJsHookConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> mode{};
+  shared_ptr<vector<PAL7ConfigReplaceRule>> replaceRules{};
+
+  PAL7ConfigJsHookConfig() {}
+
+  explicit PAL7ConfigJsHookConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (replaceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*replaceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReplaceRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("ReplaceRules") != m.end() && !m["ReplaceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReplaceRules"].type()) {
+        vector<PAL7ConfigReplaceRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReplaceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PAL7ConfigReplaceRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        replaceRules = make_shared<vector<PAL7ConfigReplaceRule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PAL7ConfigJsHookConfig() = default;
+};
+class PAL7ConfigRewriteOp : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> oldValue{};
+  shared_ptr<string> op{};
+  shared_ptr<string> value{};
+  shared_ptr<string> valueVariable{};
+
+  PAL7ConfigRewriteOp() {}
+
+  explicit PAL7ConfigRewriteOp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (oldValue) {
+      res["OldValue"] = boost::any(*oldValue);
+    }
+    if (op) {
+      res["Op"] = boost::any(*op);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (valueVariable) {
+      res["ValueVariable"] = boost::any(*valueVariable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("OldValue") != m.end() && !m["OldValue"].empty()) {
+      oldValue = make_shared<string>(boost::any_cast<string>(m["OldValue"]));
+    }
+    if (m.find("Op") != m.end() && !m["Op"].empty()) {
+      op = make_shared<string>(boost::any_cast<string>(m["Op"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("ValueVariable") != m.end() && !m["ValueVariable"].empty()) {
+      valueVariable = make_shared<string>(boost::any_cast<string>(m["ValueVariable"]));
+    }
+  }
+
+
+  virtual ~PAL7ConfigRewriteOp() = default;
+};
+class PAL7ConfigRequestHeaderRewriteConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<PAL7ConfigRewriteOp>> ops{};
+
+  PAL7ConfigRequestHeaderRewriteConfig() {}
+
+  explicit PAL7ConfigRequestHeaderRewriteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ops) {
+      vector<boost::any> temp1;
+      for(auto item1:*ops){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Ops"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ops") != m.end() && !m["Ops"].empty()) {
+      if (typeid(vector<boost::any>) == m["Ops"].type()) {
+        vector<PAL7ConfigRewriteOp> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Ops"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PAL7ConfigRewriteOp model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ops = make_shared<vector<PAL7ConfigRewriteOp>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PAL7ConfigRequestHeaderRewriteConfig() = default;
+};
+class PAL7ConfigRequestQueryRewriteConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<PAL7ConfigRewriteOp>> ops{};
+
+  PAL7ConfigRequestQueryRewriteConfig() {}
+
+  explicit PAL7ConfigRequestQueryRewriteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ops) {
+      vector<boost::any> temp1;
+      for(auto item1:*ops){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Ops"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ops") != m.end() && !m["Ops"].empty()) {
+      if (typeid(vector<boost::any>) == m["Ops"].type()) {
+        vector<PAL7ConfigRewriteOp> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Ops"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PAL7ConfigRewriteOp model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ops = make_shared<vector<PAL7ConfigRewriteOp>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PAL7ConfigRequestQueryRewriteConfig() = default;
+};
+class PAL7ConfigResponseHeaderRewriteConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<PAL7ConfigRewriteOp>> ops{};
+
+  PAL7ConfigResponseHeaderRewriteConfig() {}
+
+  explicit PAL7ConfigResponseHeaderRewriteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ops) {
+      vector<boost::any> temp1;
+      for(auto item1:*ops){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Ops"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ops") != m.end() && !m["Ops"].empty()) {
+      if (typeid(vector<boost::any>) == m["Ops"].type()) {
+        vector<PAL7ConfigRewriteOp> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Ops"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PAL7ConfigRewriteOp model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ops = make_shared<vector<PAL7ConfigRewriteOp>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PAL7ConfigResponseHeaderRewriteConfig() = default;
+};
+class PAL7ConfigResponseRewriteConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> mode{};
+  shared_ptr<vector<PAL7ConfigReplaceRule>> replaceRules{};
+
+  PAL7ConfigResponseRewriteConfig() {}
+
+  explicit PAL7ConfigResponseRewriteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (replaceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*replaceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReplaceRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("ReplaceRules") != m.end() && !m["ReplaceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReplaceRules"].type()) {
+        vector<PAL7ConfigReplaceRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReplaceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PAL7ConfigReplaceRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        replaceRules = make_shared<vector<PAL7ConfigReplaceRule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PAL7ConfigResponseRewriteConfig() = default;
+};
+class PAL7Config : public Darabonba::Model {
+public:
+  shared_ptr<PAL7ConfigBypassConfig> bypassConfig{};
+  shared_ptr<string> certId{};
+  shared_ptr<PAL7ConfigDnsConfig> dnsConfig{};
+  shared_ptr<PAL7ConfigJsHookConfig> jsHookConfig{};
+  shared_ptr<vector<uint8_t>> proxyDomainTypes{};
+  shared_ptr<PAL7ConfigRequestHeaderRewriteConfig> requestHeaderRewriteConfig{};
+  shared_ptr<PAL7ConfigRequestQueryRewriteConfig> requestQueryRewriteConfig{};
+  shared_ptr<PAL7ConfigResponseHeaderRewriteConfig> responseHeaderRewriteConfig{};
+  shared_ptr<PAL7ConfigResponseRewriteConfig> responseRewriteConfig{};
+
+  PAL7Config() {}
+
+  explicit PAL7Config(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bypassConfig) {
+      res["BypassConfig"] = bypassConfig ? boost::any(bypassConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
+    if (dnsConfig) {
+      res["DnsConfig"] = dnsConfig ? boost::any(dnsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (jsHookConfig) {
+      res["JsHookConfig"] = jsHookConfig ? boost::any(jsHookConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (proxyDomainTypes) {
+      res["ProxyDomainTypes"] = boost::any(*proxyDomainTypes);
+    }
+    if (requestHeaderRewriteConfig) {
+      res["RequestHeaderRewriteConfig"] = requestHeaderRewriteConfig ? boost::any(requestHeaderRewriteConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestQueryRewriteConfig) {
+      res["RequestQueryRewriteConfig"] = requestQueryRewriteConfig ? boost::any(requestQueryRewriteConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseHeaderRewriteConfig) {
+      res["ResponseHeaderRewriteConfig"] = responseHeaderRewriteConfig ? boost::any(responseHeaderRewriteConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseRewriteConfig) {
+      res["ResponseRewriteConfig"] = responseRewriteConfig ? boost::any(responseRewriteConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BypassConfig") != m.end() && !m["BypassConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BypassConfig"].type()) {
+        PAL7ConfigBypassConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BypassConfig"]));
+        bypassConfig = make_shared<PAL7ConfigBypassConfig>(model1);
+      }
+    }
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<string>(boost::any_cast<string>(m["CertId"]));
+    }
+    if (m.find("DnsConfig") != m.end() && !m["DnsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DnsConfig"].type()) {
+        PAL7ConfigDnsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DnsConfig"]));
+        dnsConfig = make_shared<PAL7ConfigDnsConfig>(model1);
+      }
+    }
+    if (m.find("JsHookConfig") != m.end() && !m["JsHookConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["JsHookConfig"].type()) {
+        PAL7ConfigJsHookConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["JsHookConfig"]));
+        jsHookConfig = make_shared<PAL7ConfigJsHookConfig>(model1);
+      }
+    }
+    if (m.find("ProxyDomainTypes") != m.end() && !m["ProxyDomainTypes"].empty()) {
+      proxyDomainTypes = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ProxyDomainTypes"]));
+    }
+    if (m.find("RequestHeaderRewriteConfig") != m.end() && !m["RequestHeaderRewriteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RequestHeaderRewriteConfig"].type()) {
+        PAL7ConfigRequestHeaderRewriteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestHeaderRewriteConfig"]));
+        requestHeaderRewriteConfig = make_shared<PAL7ConfigRequestHeaderRewriteConfig>(model1);
+      }
+    }
+    if (m.find("RequestQueryRewriteConfig") != m.end() && !m["RequestQueryRewriteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RequestQueryRewriteConfig"].type()) {
+        PAL7ConfigRequestQueryRewriteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestQueryRewriteConfig"]));
+        requestQueryRewriteConfig = make_shared<PAL7ConfigRequestQueryRewriteConfig>(model1);
+      }
+    }
+    if (m.find("ResponseHeaderRewriteConfig") != m.end() && !m["ResponseHeaderRewriteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResponseHeaderRewriteConfig"].type()) {
+        PAL7ConfigResponseHeaderRewriteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseHeaderRewriteConfig"]));
+        responseHeaderRewriteConfig = make_shared<PAL7ConfigResponseHeaderRewriteConfig>(model1);
+      }
+    }
+    if (m.find("ResponseRewriteConfig") != m.end() && !m["ResponseRewriteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResponseRewriteConfig"].type()) {
+        PAL7ConfigResponseRewriteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseRewriteConfig"]));
+        responseRewriteConfig = make_shared<PAL7ConfigResponseRewriteConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PAL7Config() = default;
 };
 class RecoveryContent : public Darabonba::Model {
 public:
@@ -258,6 +872,98 @@ public:
 
 
   virtual ~Rule() = default;
+};
+class UserCertificate : public Darabonba::Model {
+public:
+  shared_ptr<string> certId{};
+  shared_ptr<string> certificate{};
+  shared_ptr<string> description{};
+  shared_ptr<vector<string>> dnsNames{};
+  shared_ptr<long> expTimeUnix{};
+  shared_ptr<long> gmtCreateUnix{};
+  shared_ptr<long> gmtModifiedUnix{};
+  shared_ptr<string> name{};
+  shared_ptr<string> privateKey{};
+
+  UserCertificate() {}
+
+  explicit UserCertificate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
+    if (certificate) {
+      res["Certificate"] = boost::any(*certificate);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dnsNames) {
+      res["DnsNames"] = boost::any(*dnsNames);
+    }
+    if (expTimeUnix) {
+      res["ExpTimeUnix"] = boost::any(*expTimeUnix);
+    }
+    if (gmtCreateUnix) {
+      res["GmtCreateUnix"] = boost::any(*gmtCreateUnix);
+    }
+    if (gmtModifiedUnix) {
+      res["GmtModifiedUnix"] = boost::any(*gmtModifiedUnix);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (privateKey) {
+      res["PrivateKey"] = boost::any(*privateKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<string>(boost::any_cast<string>(m["CertId"]));
+    }
+    if (m.find("Certificate") != m.end() && !m["Certificate"].empty()) {
+      certificate = make_shared<string>(boost::any_cast<string>(m["Certificate"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DnsNames") != m.end() && !m["DnsNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DnsNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DnsNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dnsNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExpTimeUnix") != m.end() && !m["ExpTimeUnix"].empty()) {
+      expTimeUnix = make_shared<long>(boost::any_cast<long>(m["ExpTimeUnix"]));
+    }
+    if (m.find("GmtCreateUnix") != m.end() && !m["GmtCreateUnix"].empty()) {
+      gmtCreateUnix = make_shared<long>(boost::any_cast<long>(m["GmtCreateUnix"]));
+    }
+    if (m.find("GmtModifiedUnix") != m.end() && !m["GmtModifiedUnix"].empty()) {
+      gmtModifiedUnix = make_shared<long>(boost::any_cast<long>(m["GmtModifiedUnix"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PrivateKey") != m.end() && !m["PrivateKey"].empty()) {
+      privateKey = make_shared<string>(boost::any_cast<string>(m["PrivateKey"]));
+    }
+  }
+
+
+  virtual ~UserCertificate() = default;
 };
 class AttachApplication2ConnectorRequest : public Darabonba::Model {
 public:
@@ -1858,6 +2564,7 @@ public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> browserAccessStatus{};
   shared_ptr<string> description{};
+  shared_ptr<PAL7Config> l7Config{};
   shared_ptr<string> l7ProxyDomainAutomaticPrefix{};
   shared_ptr<string> l7ProxyDomainCustom{};
   shared_ptr<string> name{};
@@ -1884,6 +2591,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (l7Config) {
+      res["L7Config"] = l7Config ? boost::any(l7Config->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (l7ProxyDomainAutomaticPrefix) {
       res["L7ProxyDomainAutomaticPrefix"] = boost::any(*l7ProxyDomainAutomaticPrefix);
@@ -1930,6 +2640,13 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("L7Config") != m.end() && !m["L7Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["L7Config"].type()) {
+        PAL7Config model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["L7Config"]));
+        l7Config = make_shared<PAL7Config>(model1);
+      }
+    }
     if (m.find("L7ProxyDomainAutomaticPrefix") != m.end() && !m["L7ProxyDomainAutomaticPrefix"].empty()) {
       l7ProxyDomainAutomaticPrefix = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomaticPrefix"]));
     }
@@ -1972,6 +2689,169 @@ public:
 
 
   virtual ~CreatePrivateAccessApplicationRequest() = default;
+};
+class CreatePrivateAccessApplicationShrinkRequestPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> begin{};
+  shared_ptr<long> end{};
+
+  CreatePrivateAccessApplicationShrinkRequestPortRanges() {}
+
+  explicit CreatePrivateAccessApplicationShrinkRequestPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (begin) {
+      res["Begin"] = boost::any(*begin);
+    }
+    if (end) {
+      res["End"] = boost::any(*end);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Begin") != m.end() && !m["Begin"].empty()) {
+      begin = make_shared<long>(boost::any_cast<long>(m["Begin"]));
+    }
+    if (m.find("End") != m.end() && !m["End"].empty()) {
+      end = make_shared<long>(boost::any_cast<long>(m["End"]));
+    }
+  }
+
+
+  virtual ~CreatePrivateAccessApplicationShrinkRequestPortRanges() = default;
+};
+class CreatePrivateAccessApplicationShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> addresses{};
+  shared_ptr<string> browserAccessStatus{};
+  shared_ptr<string> description{};
+  shared_ptr<string> l7ConfigShrink{};
+  shared_ptr<string> l7ProxyDomainAutomaticPrefix{};
+  shared_ptr<string> l7ProxyDomainCustom{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<CreatePrivateAccessApplicationShrinkRequestPortRanges>> portRanges{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<string>> tagIds{};
+
+  CreatePrivateAccessApplicationShrinkRequest() {}
+
+  explicit CreatePrivateAccessApplicationShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addresses) {
+      res["Addresses"] = boost::any(*addresses);
+    }
+    if (browserAccessStatus) {
+      res["BrowserAccessStatus"] = boost::any(*browserAccessStatus);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (l7ConfigShrink) {
+      res["L7Config"] = boost::any(*l7ConfigShrink);
+    }
+    if (l7ProxyDomainAutomaticPrefix) {
+      res["L7ProxyDomainAutomaticPrefix"] = boost::any(*l7ProxyDomainAutomaticPrefix);
+    }
+    if (l7ProxyDomainCustom) {
+      res["L7ProxyDomainCustom"] = boost::any(*l7ProxyDomainCustom);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Addresses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Addresses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      addresses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BrowserAccessStatus") != m.end() && !m["BrowserAccessStatus"].empty()) {
+      browserAccessStatus = make_shared<string>(boost::any_cast<string>(m["BrowserAccessStatus"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("L7Config") != m.end() && !m["L7Config"].empty()) {
+      l7ConfigShrink = make_shared<string>(boost::any_cast<string>(m["L7Config"]));
+    }
+    if (m.find("L7ProxyDomainAutomaticPrefix") != m.end() && !m["L7ProxyDomainAutomaticPrefix"].empty()) {
+      l7ProxyDomainAutomaticPrefix = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomaticPrefix"]));
+    }
+    if (m.find("L7ProxyDomainCustom") != m.end() && !m["L7ProxyDomainCustom"].empty()) {
+      l7ProxyDomainCustom = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainCustom"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<CreatePrivateAccessApplicationShrinkRequestPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePrivateAccessApplicationShrinkRequestPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<CreatePrivateAccessApplicationShrinkRequestPortRanges>>(expect1);
+      }
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreatePrivateAccessApplicationShrinkRequest() = default;
 };
 class CreatePrivateAccessApplicationResponseBody : public Darabonba::Model {
 public:
@@ -2124,6 +3004,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<string> status{};
   shared_ptr<vector<string>> tagIds{};
+  shared_ptr<string> triggerTemplateId{};
   shared_ptr<vector<string>> userGroupIds{};
   shared_ptr<string> userGroupMode{};
 
@@ -2173,6 +3054,9 @@ public:
     }
     if (tagIds) {
       res["TagIds"] = boost::any(*tagIds);
+    }
+    if (triggerTemplateId) {
+      res["TriggerTemplateId"] = boost::any(*triggerTemplateId);
     }
     if (userGroupIds) {
       res["UserGroupIds"] = boost::any(*userGroupIds);
@@ -2240,6 +3124,9 @@ public:
         }
       }
       tagIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TriggerTemplateId") != m.end() && !m["TriggerTemplateId"].empty()) {
+      triggerTemplateId = make_shared<string>(boost::any_cast<string>(m["TriggerTemplateId"]));
     }
     if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
       vector<string> toVec1;
@@ -8884,6 +9771,7 @@ public:
   shared_ptr<vector<string>> connectorIds{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<PAL7Config> l7Config{};
   shared_ptr<string> l7ProxyDomainAutomatic{};
   shared_ptr<string> l7ProxyDomainCustom{};
   shared_ptr<string> name{};
@@ -8920,6 +9808,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (l7Config) {
+      res["L7Config"] = l7Config ? boost::any(l7Config->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (l7ProxyDomainAutomatic) {
       res["L7ProxyDomainAutomatic"] = boost::any(*l7ProxyDomainAutomatic);
@@ -8984,6 +9875,13 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("L7Config") != m.end() && !m["L7Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["L7Config"].type()) {
+        PAL7Config model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["L7Config"]));
+        l7Config = make_shared<PAL7Config>(model1);
+      }
     }
     if (m.find("L7ProxyDomainAutomatic") != m.end() && !m["L7ProxyDomainAutomatic"].empty()) {
       l7ProxyDomainAutomatic = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomatic"]));
@@ -9224,6 +10122,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<string> status{};
   shared_ptr<vector<string>> tagIds{};
+  shared_ptr<string> triggerTemplateId{};
   shared_ptr<vector<string>> userGroupIds{};
   shared_ptr<string> userGroupMode{};
 
@@ -9279,6 +10178,9 @@ public:
     }
     if (tagIds) {
       res["TagIds"] = boost::any(*tagIds);
+    }
+    if (triggerTemplateId) {
+      res["TriggerTemplateId"] = boost::any(*triggerTemplateId);
     }
     if (userGroupIds) {
       res["UserGroupIds"] = boost::any(*userGroupIds);
@@ -9352,6 +10254,9 @@ public:
         }
       }
       tagIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TriggerTemplateId") != m.end() && !m["TriggerTemplateId"].empty()) {
+      triggerTemplateId = make_shared<string>(boost::any_cast<string>(m["TriggerTemplateId"]));
     }
     if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
       vector<string> toVec1;
@@ -14227,6 +15132,533 @@ public:
 
   virtual ~ListConnectorsResponse() = default;
 };
+class ListDynamicDisposalProcessesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> devTag{};
+  shared_ptr<string> disposalAction{};
+  shared_ptr<string> disposalProcessId{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> recoveryType{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> userName{};
+
+  ListDynamicDisposalProcessesRequest() {}
+
+  explicit ListDynamicDisposalProcessesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (devTag) {
+      res["DevTag"] = boost::any(*devTag);
+    }
+    if (disposalAction) {
+      res["DisposalAction"] = boost::any(*disposalAction);
+    }
+    if (disposalProcessId) {
+      res["DisposalProcessId"] = boost::any(*disposalProcessId);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (recoveryType) {
+      res["RecoveryType"] = boost::any(*recoveryType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("DevTag") != m.end() && !m["DevTag"].empty()) {
+      devTag = make_shared<string>(boost::any_cast<string>(m["DevTag"]));
+    }
+    if (m.find("DisposalAction") != m.end() && !m["DisposalAction"].empty()) {
+      disposalAction = make_shared<string>(boost::any_cast<string>(m["DisposalAction"]));
+    }
+    if (m.find("DisposalProcessId") != m.end() && !m["DisposalProcessId"].empty()) {
+      disposalProcessId = make_shared<string>(boost::any_cast<string>(m["DisposalProcessId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RecoveryType") != m.end() && !m["RecoveryType"].empty()) {
+      recoveryType = make_shared<string>(boost::any_cast<string>(m["RecoveryType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~ListDynamicDisposalProcessesRequest() = default;
+};
+class ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceBasicInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> cpu{};
+  shared_ptr<string> devTag{};
+  shared_ptr<string> devType{};
+  shared_ptr<string> disk{};
+  shared_ptr<string> hostname{};
+  shared_ptr<string> mac{};
+  shared_ptr<string> memory{};
+  shared_ptr<string> osVersion{};
+
+  ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceBasicInfo() {}
+
+  explicit ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceBasicInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (devTag) {
+      res["DevTag"] = boost::any(*devTag);
+    }
+    if (devType) {
+      res["DevType"] = boost::any(*devType);
+    }
+    if (disk) {
+      res["Disk"] = boost::any(*disk);
+    }
+    if (hostname) {
+      res["Hostname"] = boost::any(*hostname);
+    }
+    if (mac) {
+      res["Mac"] = boost::any(*mac);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (osVersion) {
+      res["OsVersion"] = boost::any(*osVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<string>(boost::any_cast<string>(m["Cpu"]));
+    }
+    if (m.find("DevTag") != m.end() && !m["DevTag"].empty()) {
+      devTag = make_shared<string>(boost::any_cast<string>(m["DevTag"]));
+    }
+    if (m.find("DevType") != m.end() && !m["DevType"].empty()) {
+      devType = make_shared<string>(boost::any_cast<string>(m["DevType"]));
+    }
+    if (m.find("Disk") != m.end() && !m["Disk"].empty()) {
+      disk = make_shared<string>(boost::any_cast<string>(m["Disk"]));
+    }
+    if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
+      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<string>(boost::any_cast<string>(m["Memory"]));
+    }
+    if (m.find("OsVersion") != m.end() && !m["OsVersion"].empty()) {
+      osVersion = make_shared<string>(boost::any_cast<string>(m["OsVersion"]));
+    }
+  }
+
+
+  virtual ~ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceBasicInfo() = default;
+};
+class ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStatusInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> appVersion{};
+  shared_ptr<string> department{};
+  shared_ptr<string> dlpStatus{};
+  shared_ptr<string> internetIp{};
+  shared_ptr<string> laStatus{};
+  shared_ptr<string> loginStatus{};
+  shared_ptr<string> nacStatus{};
+  shared_ptr<string> privateIp{};
+  shared_ptr<string> saseUserId{};
+  shared_ptr<string> username{};
+  shared_ptr<string> workshop{};
+  shared_ptr<string> ztnaStatus{};
+
+  ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStatusInfo() {}
+
+  explicit ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStatusInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appVersion) {
+      res["AppVersion"] = boost::any(*appVersion);
+    }
+    if (department) {
+      res["Department"] = boost::any(*department);
+    }
+    if (dlpStatus) {
+      res["DlpStatus"] = boost::any(*dlpStatus);
+    }
+    if (internetIp) {
+      res["InternetIp"] = boost::any(*internetIp);
+    }
+    if (laStatus) {
+      res["LaStatus"] = boost::any(*laStatus);
+    }
+    if (loginStatus) {
+      res["LoginStatus"] = boost::any(*loginStatus);
+    }
+    if (nacStatus) {
+      res["NacStatus"] = boost::any(*nacStatus);
+    }
+    if (privateIp) {
+      res["PrivateIp"] = boost::any(*privateIp);
+    }
+    if (saseUserId) {
+      res["SaseUserId"] = boost::any(*saseUserId);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    if (workshop) {
+      res["Workshop"] = boost::any(*workshop);
+    }
+    if (ztnaStatus) {
+      res["ZtnaStatus"] = boost::any(*ztnaStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
+      appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
+    }
+    if (m.find("Department") != m.end() && !m["Department"].empty()) {
+      department = make_shared<string>(boost::any_cast<string>(m["Department"]));
+    }
+    if (m.find("DlpStatus") != m.end() && !m["DlpStatus"].empty()) {
+      dlpStatus = make_shared<string>(boost::any_cast<string>(m["DlpStatus"]));
+    }
+    if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
+      internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
+    }
+    if (m.find("LaStatus") != m.end() && !m["LaStatus"].empty()) {
+      laStatus = make_shared<string>(boost::any_cast<string>(m["LaStatus"]));
+    }
+    if (m.find("LoginStatus") != m.end() && !m["LoginStatus"].empty()) {
+      loginStatus = make_shared<string>(boost::any_cast<string>(m["LoginStatus"]));
+    }
+    if (m.find("NacStatus") != m.end() && !m["NacStatus"].empty()) {
+      nacStatus = make_shared<string>(boost::any_cast<string>(m["NacStatus"]));
+    }
+    if (m.find("PrivateIp") != m.end() && !m["PrivateIp"].empty()) {
+      privateIp = make_shared<string>(boost::any_cast<string>(m["PrivateIp"]));
+    }
+    if (m.find("SaseUserId") != m.end() && !m["SaseUserId"].empty()) {
+      saseUserId = make_shared<string>(boost::any_cast<string>(m["SaseUserId"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("Workshop") != m.end() && !m["Workshop"].empty()) {
+      workshop = make_shared<string>(boost::any_cast<string>(m["Workshop"]));
+    }
+    if (m.find("ZtnaStatus") != m.end() && !m["ZtnaStatus"].empty()) {
+      ztnaStatus = make_shared<string>(boost::any_cast<string>(m["ZtnaStatus"]));
+    }
+  }
+
+
+  virtual ~ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStatusInfo() = default;
+};
+class ListDynamicDisposalProcessesResponseBodyDisposalProcesses : public Darabonba::Model {
+public:
+  shared_ptr<string> department{};
+  shared_ptr<string> devTag{};
+  shared_ptr<ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceBasicInfo> deviceBasicInfo{};
+  shared_ptr<ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStatusInfo> deviceStatusInfo{};
+  shared_ptr<vector<string>> disposalActions{};
+  shared_ptr<string> disposalProcessId{};
+  shared_ptr<string> disposalTime{};
+  shared_ptr<string> dynamicPolicyId{};
+  shared_ptr<string> dynamicPolicyName{};
+  shared_ptr<string> hostname{};
+  shared_ptr<string> recoveryType{};
+  shared_ptr<boost::any> ruleContent{};
+  shared_ptr<string> saseUserId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> userName{};
+
+  ListDynamicDisposalProcessesResponseBodyDisposalProcesses() {}
+
+  explicit ListDynamicDisposalProcessesResponseBodyDisposalProcesses(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (department) {
+      res["Department"] = boost::any(*department);
+    }
+    if (devTag) {
+      res["DevTag"] = boost::any(*devTag);
+    }
+    if (deviceBasicInfo) {
+      res["DeviceBasicInfo"] = deviceBasicInfo ? boost::any(deviceBasicInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deviceStatusInfo) {
+      res["DeviceStatusInfo"] = deviceStatusInfo ? boost::any(deviceStatusInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (disposalActions) {
+      res["DisposalActions"] = boost::any(*disposalActions);
+    }
+    if (disposalProcessId) {
+      res["DisposalProcessId"] = boost::any(*disposalProcessId);
+    }
+    if (disposalTime) {
+      res["DisposalTime"] = boost::any(*disposalTime);
+    }
+    if (dynamicPolicyId) {
+      res["DynamicPolicyId"] = boost::any(*dynamicPolicyId);
+    }
+    if (dynamicPolicyName) {
+      res["DynamicPolicyName"] = boost::any(*dynamicPolicyName);
+    }
+    if (hostname) {
+      res["Hostname"] = boost::any(*hostname);
+    }
+    if (recoveryType) {
+      res["RecoveryType"] = boost::any(*recoveryType);
+    }
+    if (ruleContent) {
+      res["RuleContent"] = boost::any(*ruleContent);
+    }
+    if (saseUserId) {
+      res["SaseUserId"] = boost::any(*saseUserId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Department") != m.end() && !m["Department"].empty()) {
+      department = make_shared<string>(boost::any_cast<string>(m["Department"]));
+    }
+    if (m.find("DevTag") != m.end() && !m["DevTag"].empty()) {
+      devTag = make_shared<string>(boost::any_cast<string>(m["DevTag"]));
+    }
+    if (m.find("DeviceBasicInfo") != m.end() && !m["DeviceBasicInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeviceBasicInfo"].type()) {
+        ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceBasicInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeviceBasicInfo"]));
+        deviceBasicInfo = make_shared<ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceBasicInfo>(model1);
+      }
+    }
+    if (m.find("DeviceStatusInfo") != m.end() && !m["DeviceStatusInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeviceStatusInfo"].type()) {
+        ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStatusInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeviceStatusInfo"]));
+        deviceStatusInfo = make_shared<ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStatusInfo>(model1);
+      }
+    }
+    if (m.find("DisposalActions") != m.end() && !m["DisposalActions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DisposalActions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DisposalActions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      disposalActions = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DisposalProcessId") != m.end() && !m["DisposalProcessId"].empty()) {
+      disposalProcessId = make_shared<string>(boost::any_cast<string>(m["DisposalProcessId"]));
+    }
+    if (m.find("DisposalTime") != m.end() && !m["DisposalTime"].empty()) {
+      disposalTime = make_shared<string>(boost::any_cast<string>(m["DisposalTime"]));
+    }
+    if (m.find("DynamicPolicyId") != m.end() && !m["DynamicPolicyId"].empty()) {
+      dynamicPolicyId = make_shared<string>(boost::any_cast<string>(m["DynamicPolicyId"]));
+    }
+    if (m.find("DynamicPolicyName") != m.end() && !m["DynamicPolicyName"].empty()) {
+      dynamicPolicyName = make_shared<string>(boost::any_cast<string>(m["DynamicPolicyName"]));
+    }
+    if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("RecoveryType") != m.end() && !m["RecoveryType"].empty()) {
+      recoveryType = make_shared<string>(boost::any_cast<string>(m["RecoveryType"]));
+    }
+    if (m.find("RuleContent") != m.end() && !m["RuleContent"].empty()) {
+      ruleContent = make_shared<boost::any>(boost::any_cast<boost::any>(m["RuleContent"]));
+    }
+    if (m.find("SaseUserId") != m.end() && !m["SaseUserId"].empty()) {
+      saseUserId = make_shared<string>(boost::any_cast<string>(m["SaseUserId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~ListDynamicDisposalProcessesResponseBodyDisposalProcesses() = default;
+};
+class ListDynamicDisposalProcessesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListDynamicDisposalProcessesResponseBodyDisposalProcesses>> disposalProcesses{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalNum{};
+
+  ListDynamicDisposalProcessesResponseBody() {}
+
+  explicit ListDynamicDisposalProcessesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disposalProcesses) {
+      vector<boost::any> temp1;
+      for(auto item1:*disposalProcesses){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DisposalProcesses"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalNum) {
+      res["TotalNum"] = boost::any(*totalNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisposalProcesses") != m.end() && !m["DisposalProcesses"].empty()) {
+      if (typeid(vector<boost::any>) == m["DisposalProcesses"].type()) {
+        vector<ListDynamicDisposalProcessesResponseBodyDisposalProcesses> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DisposalProcesses"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDynamicDisposalProcessesResponseBodyDisposalProcesses model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        disposalProcesses = make_shared<vector<ListDynamicDisposalProcessesResponseBodyDisposalProcesses>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalNum") != m.end() && !m["TotalNum"].empty()) {
+      totalNum = make_shared<long>(boost::any_cast<long>(m["TotalNum"]));
+    }
+  }
+
+
+  virtual ~ListDynamicDisposalProcessesResponseBody() = default;
+};
+class ListDynamicDisposalProcessesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDynamicDisposalProcessesResponseBody> body{};
+
+  ListDynamicDisposalProcessesResponse() {}
+
+  explicit ListDynamicDisposalProcessesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDynamicDisposalProcessesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDynamicDisposalProcessesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDynamicDisposalProcessesResponse() = default;
+};
 class ListDynamicRouteRegionsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> regions{};
@@ -17840,6 +19272,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<string> status{};
   shared_ptr<vector<string>> tagIds{};
+  shared_ptr<string> triggerTemplateId{};
   shared_ptr<vector<string>> userGroupIds{};
   shared_ptr<string> userGroupMode{};
 
@@ -17895,6 +19328,9 @@ public:
     }
     if (tagIds) {
       res["TagIds"] = boost::any(*tagIds);
+    }
+    if (triggerTemplateId) {
+      res["TriggerTemplateId"] = boost::any(*triggerTemplateId);
     }
     if (userGroupIds) {
       res["UserGroupIds"] = boost::any(*userGroupIds);
@@ -17968,6 +19404,9 @@ public:
         }
       }
       tagIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TriggerTemplateId") != m.end() && !m["TriggerTemplateId"].empty()) {
+      triggerTemplateId = make_shared<string>(boost::any_cast<string>(m["TriggerTemplateId"]));
     }
     if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
       vector<string> toVec1;
@@ -26086,6 +27525,7 @@ public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> applicationId{};
   shared_ptr<string> description{};
+  shared_ptr<PAL7Config> l7Config{};
   shared_ptr<string> l7ProxyDomainAutomaticPrefix{};
   shared_ptr<string> l7ProxyDomainCustom{};
   shared_ptr<string> l7ProxyDomainPrivate{};
@@ -26113,6 +27553,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (l7Config) {
+      res["L7Config"] = l7Config ? boost::any(l7Config->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (l7ProxyDomainAutomaticPrefix) {
       res["L7ProxyDomainAutomaticPrefix"] = boost::any(*l7ProxyDomainAutomaticPrefix);
@@ -26162,6 +27605,13 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("L7Config") != m.end() && !m["L7Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["L7Config"].type()) {
+        PAL7Config model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["L7Config"]));
+        l7Config = make_shared<PAL7Config>(model1);
+      }
+    }
     if (m.find("L7ProxyDomainAutomaticPrefix") != m.end() && !m["L7ProxyDomainAutomaticPrefix"].empty()) {
       l7ProxyDomainAutomaticPrefix = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomaticPrefix"]));
     }
@@ -26207,6 +27657,176 @@ public:
 
 
   virtual ~UpdatePrivateAccessApplicationRequest() = default;
+};
+class UpdatePrivateAccessApplicationShrinkRequestPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> begin{};
+  shared_ptr<long> end{};
+
+  UpdatePrivateAccessApplicationShrinkRequestPortRanges() {}
+
+  explicit UpdatePrivateAccessApplicationShrinkRequestPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (begin) {
+      res["Begin"] = boost::any(*begin);
+    }
+    if (end) {
+      res["End"] = boost::any(*end);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Begin") != m.end() && !m["Begin"].empty()) {
+      begin = make_shared<long>(boost::any_cast<long>(m["Begin"]));
+    }
+    if (m.find("End") != m.end() && !m["End"].empty()) {
+      end = make_shared<long>(boost::any_cast<long>(m["End"]));
+    }
+  }
+
+
+  virtual ~UpdatePrivateAccessApplicationShrinkRequestPortRanges() = default;
+};
+class UpdatePrivateAccessApplicationShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> addresses{};
+  shared_ptr<string> applicationId{};
+  shared_ptr<string> description{};
+  shared_ptr<string> l7ConfigShrink{};
+  shared_ptr<string> l7ProxyDomainAutomaticPrefix{};
+  shared_ptr<string> l7ProxyDomainCustom{};
+  shared_ptr<string> l7ProxyDomainPrivate{};
+  shared_ptr<string> modifyType{};
+  shared_ptr<vector<UpdatePrivateAccessApplicationShrinkRequestPortRanges>> portRanges{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<string>> tagIds{};
+
+  UpdatePrivateAccessApplicationShrinkRequest() {}
+
+  explicit UpdatePrivateAccessApplicationShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addresses) {
+      res["Addresses"] = boost::any(*addresses);
+    }
+    if (applicationId) {
+      res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (l7ConfigShrink) {
+      res["L7Config"] = boost::any(*l7ConfigShrink);
+    }
+    if (l7ProxyDomainAutomaticPrefix) {
+      res["L7ProxyDomainAutomaticPrefix"] = boost::any(*l7ProxyDomainAutomaticPrefix);
+    }
+    if (l7ProxyDomainCustom) {
+      res["L7ProxyDomainCustom"] = boost::any(*l7ProxyDomainCustom);
+    }
+    if (l7ProxyDomainPrivate) {
+      res["L7ProxyDomainPrivate"] = boost::any(*l7ProxyDomainPrivate);
+    }
+    if (modifyType) {
+      res["ModifyType"] = boost::any(*modifyType);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Addresses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Addresses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      addresses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
+      applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("L7Config") != m.end() && !m["L7Config"].empty()) {
+      l7ConfigShrink = make_shared<string>(boost::any_cast<string>(m["L7Config"]));
+    }
+    if (m.find("L7ProxyDomainAutomaticPrefix") != m.end() && !m["L7ProxyDomainAutomaticPrefix"].empty()) {
+      l7ProxyDomainAutomaticPrefix = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomaticPrefix"]));
+    }
+    if (m.find("L7ProxyDomainCustom") != m.end() && !m["L7ProxyDomainCustom"].empty()) {
+      l7ProxyDomainCustom = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainCustom"]));
+    }
+    if (m.find("L7ProxyDomainPrivate") != m.end() && !m["L7ProxyDomainPrivate"].empty()) {
+      l7ProxyDomainPrivate = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainPrivate"]));
+    }
+    if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
+      modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<UpdatePrivateAccessApplicationShrinkRequestPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdatePrivateAccessApplicationShrinkRequestPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<UpdatePrivateAccessApplicationShrinkRequestPortRanges>>(expect1);
+      }
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdatePrivateAccessApplicationShrinkRequest() = default;
 };
 class UpdatePrivateAccessApplicationResponseBody : public Darabonba::Model {
 public:
@@ -26353,6 +27973,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<string> status{};
   shared_ptr<vector<string>> tagIds{};
+  shared_ptr<string> triggerTemplateId{};
   shared_ptr<vector<string>> userGroupIds{};
   shared_ptr<string> userGroupMode{};
 
@@ -26405,6 +28026,9 @@ public:
     }
     if (tagIds) {
       res["TagIds"] = boost::any(*tagIds);
+    }
+    if (triggerTemplateId) {
+      res["TriggerTemplateId"] = boost::any(*triggerTemplateId);
     }
     if (userGroupIds) {
       res["UserGroupIds"] = boost::any(*userGroupIds);
@@ -26475,6 +28099,9 @@ public:
         }
       }
       tagIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TriggerTemplateId") != m.end() && !m["TriggerTemplateId"].empty()) {
+      triggerTemplateId = make_shared<string>(boost::any_cast<string>(m["TriggerTemplateId"]));
     }
     if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
       vector<string> toVec1;
@@ -28608,7 +30235,7 @@ public:
   CreateDynamicRouteResponse createDynamicRoute(shared_ptr<CreateDynamicRouteRequest> request);
   CreateIdpDepartmentResponse createIdpDepartmentWithOptions(shared_ptr<CreateIdpDepartmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIdpDepartmentResponse createIdpDepartment(shared_ptr<CreateIdpDepartmentRequest> request);
-  CreatePrivateAccessApplicationResponse createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePrivateAccessApplicationResponse createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePrivateAccessApplicationResponse createPrivateAccessApplication(shared_ptr<CreatePrivateAccessApplicationRequest> request);
   CreatePrivateAccessPolicyResponse createPrivateAccessPolicyWithOptions(shared_ptr<CreatePrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePrivateAccessPolicyResponse createPrivateAccessPolicy(shared_ptr<CreatePrivateAccessPolicyRequest> request);
@@ -28700,6 +30327,8 @@ public:
   ListClientUsersResponse listClientUsers(shared_ptr<ListClientUsersRequest> request);
   ListConnectorsResponse listConnectorsWithOptions(shared_ptr<ListConnectorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConnectorsResponse listConnectors(shared_ptr<ListConnectorsRequest> request);
+  ListDynamicDisposalProcessesResponse listDynamicDisposalProcessesWithOptions(shared_ptr<ListDynamicDisposalProcessesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDynamicDisposalProcessesResponse listDynamicDisposalProcesses(shared_ptr<ListDynamicDisposalProcessesRequest> request);
   ListDynamicRouteRegionsResponse listDynamicRouteRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDynamicRouteRegionsResponse listDynamicRouteRegions();
   ListDynamicRoutesResponse listDynamicRoutesWithOptions(shared_ptr<ListDynamicRoutesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28780,7 +30409,7 @@ public:
   UpdateIdpDepartmentResponse updateIdpDepartment(shared_ptr<UpdateIdpDepartmentRequest> request);
   UpdateNacUserCertStatusResponse updateNacUserCertStatusWithOptions(shared_ptr<UpdateNacUserCertStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateNacUserCertStatusResponse updateNacUserCertStatus(shared_ptr<UpdateNacUserCertStatusRequest> request);
-  UpdatePrivateAccessApplicationResponse updatePrivateAccessApplicationWithOptions(shared_ptr<UpdatePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePrivateAccessApplicationResponse updatePrivateAccessApplicationWithOptions(shared_ptr<UpdatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrivateAccessApplicationResponse updatePrivateAccessApplication(shared_ptr<UpdatePrivateAccessApplicationRequest> request);
   UpdatePrivateAccessPolicyResponse updatePrivateAccessPolicyWithOptions(shared_ptr<UpdatePrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrivateAccessPolicyResponse updatePrivateAccessPolicy(shared_ptr<UpdatePrivateAccessPolicyRequest> request);
