@@ -162,6 +162,51 @@ CheckVerifyLogResponse Alibabacloud_Cloudauth-intl20220809::Client::checkVerifyL
   return checkVerifyLogWithOptions(request, runtime);
 }
 
+DeepfakeDetectIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::deepfakeDetectIntlWithOptions(shared_ptr<DeepfakeDetectIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->faceInputType)) {
+    query->insert(pair<string, string>("FaceInputType", *request->faceInputType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->faceUrl)) {
+    query->insert(pair<string, string>("FaceUrl", *request->faceUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
+    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneCode)) {
+    query->insert(pair<string, string>("SceneCode", *request->sceneCode));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->faceBase64)) {
+    body->insert(pair<string, string>("FaceBase64", *request->faceBase64));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeepfakeDetectIntl"))},
+    {"version", boost::any(string("2022-08-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeepfakeDetectIntlResponse(callApi(params, req, runtime));
+}
+
+DeepfakeDetectIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::deepfakeDetectIntl(shared_ptr<DeepfakeDetectIntlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deepfakeDetectIntlWithOptions(request, runtime);
+}
+
 DeleteVerifyResultResponse Alibabacloud_Cloudauth-intl20220809::Client::deleteVerifyResultWithOptions(shared_ptr<DeleteVerifyResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
