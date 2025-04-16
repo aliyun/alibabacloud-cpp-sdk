@@ -3552,7 +3552,7 @@ public:
   shared_ptr<string> computingIpVersion{};
   shared_ptr<string> createTime{};
   shared_ptr<string> hpnZone{};
-  shared_ptr<vector<DescribeClusterResponseBodyNetworks>> networks{};
+  shared_ptr<DescribeClusterResponseBodyNetworks> networks{};
   shared_ptr<long> nodeCount{};
   shared_ptr<long> nodeGroupCount{};
   shared_ptr<string> openEniJumboFrame{};
@@ -3602,11 +3602,7 @@ public:
       res["HpnZone"] = boost::any(*hpnZone);
     }
     if (networks) {
-      vector<boost::any> temp1;
-      for(auto item1:*networks){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Networks"] = boost::any(temp1);
+      res["Networks"] = networks ? boost::any(networks->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (nodeCount) {
       res["NodeCount"] = boost::any(*nodeCount);
@@ -3674,16 +3670,10 @@ public:
       hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
     }
     if (m.find("Networks") != m.end() && !m["Networks"].empty()) {
-      if (typeid(vector<boost::any>) == m["Networks"].type()) {
-        vector<DescribeClusterResponseBodyNetworks> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Networks"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeClusterResponseBodyNetworks model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        networks = make_shared<vector<DescribeClusterResponseBodyNetworks>>(expect1);
+      if (typeid(map<string, boost::any>) == m["Networks"].type()) {
+        DescribeClusterResponseBodyNetworks model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Networks"]));
+        networks = make_shared<DescribeClusterResponseBodyNetworks>(model1);
       }
     }
     if (m.find("NodeCount") != m.end() && !m["NodeCount"].empty()) {
@@ -8926,7 +8916,7 @@ public:
   shared_ptr<long> nodeCount{};
   shared_ptr<string> platform{};
   shared_ptr<string> releaseFileMd5{};
-  shared_ptr<long> releaseFileSize{};
+  shared_ptr<string> releaseFileSize{};
   shared_ptr<string> type{};
 
   ListImagesResponseBodyImages() {}
@@ -8998,7 +8988,7 @@ public:
       releaseFileMd5 = make_shared<string>(boost::any_cast<string>(m["ReleaseFileMd5"]));
     }
     if (m.find("ReleaseFileSize") != m.end() && !m["ReleaseFileSize"].empty()) {
-      releaseFileSize = make_shared<long>(boost::any_cast<long>(m["ReleaseFileSize"]));
+      releaseFileSize = make_shared<string>(boost::any_cast<string>(m["ReleaseFileSize"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
