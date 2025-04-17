@@ -5078,6 +5078,9 @@ SubmitEnterpriseVocAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::s
     request->filterTagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterTags, make_shared<string>("FilterTags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiKey)) {
+    body->insert(pair<string, string>("ApiKey", *request->apiKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->contentTagsShrink)) {
     body->insert(pair<string, string>("ContentTags", *request->contentTagsShrink));
   }

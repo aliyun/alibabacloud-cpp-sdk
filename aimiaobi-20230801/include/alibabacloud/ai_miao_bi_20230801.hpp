@@ -48802,6 +48802,7 @@ public:
 };
 class SubmitEnterpriseVocAnalysisTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<vector<SubmitEnterpriseVocAnalysisTaskRequestContentTags>> contentTags{};
   shared_ptr<vector<SubmitEnterpriseVocAnalysisTaskRequestContents>> contents{};
   shared_ptr<string> fileKey{};
@@ -48823,6 +48824,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["ApiKey"] = boost::any(*apiKey);
+    }
     if (contentTags) {
       vector<boost::any> temp1;
       for(auto item1:*contentTags){
@@ -48869,6 +48873,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiKey") != m.end() && !m["ApiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["ApiKey"]));
+    }
     if (m.find("ContentTags") != m.end() && !m["ContentTags"].empty()) {
       if (typeid(vector<boost::any>) == m["ContentTags"].type()) {
         vector<SubmitEnterpriseVocAnalysisTaskRequestContentTags> expect1;
@@ -48936,6 +48943,7 @@ public:
 };
 class SubmitEnterpriseVocAnalysisTaskShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> contentTagsShrink{};
   shared_ptr<string> contentsShrink{};
   shared_ptr<string> fileKey{};
@@ -48957,6 +48965,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["ApiKey"] = boost::any(*apiKey);
+    }
     if (contentTagsShrink) {
       res["ContentTags"] = boost::any(*contentTagsShrink);
     }
@@ -48991,6 +49002,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiKey") != m.end() && !m["ApiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["ApiKey"]));
+    }
     if (m.find("ContentTags") != m.end() && !m["ContentTags"].empty()) {
       contentTagsShrink = make_shared<string>(boost::any_cast<string>(m["ContentTags"]));
     }
