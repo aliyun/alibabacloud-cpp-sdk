@@ -896,6 +896,9 @@ DescribeAndroidInstancesResponse Alibabacloud_Eds-aic20230930::Client::describeA
   if (!Darabonba_Util::Client::isUnset<string>(request->androidInstanceName)) {
     query->insert(pair<string, string>("AndroidInstanceName", *request->androidInstanceName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizedUserId)) {
+    query->insert(pair<string, string>("AuthorizedUserId", *request->authorizedUserId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
     query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
   }

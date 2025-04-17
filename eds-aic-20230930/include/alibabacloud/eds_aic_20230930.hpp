@@ -4893,6 +4893,7 @@ class DescribeAndroidInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
   shared_ptr<string> androidInstanceName{};
+  shared_ptr<string> authorizedUserId{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> instanceGroupId{};
@@ -4923,6 +4924,9 @@ public:
     }
     if (androidInstanceName) {
       res["AndroidInstanceName"] = boost::any(*androidInstanceName);
+    }
+    if (authorizedUserId) {
+      res["AuthorizedUserId"] = boost::any(*authorizedUserId);
     }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
@@ -4986,6 +4990,9 @@ public:
     }
     if (m.find("AndroidInstanceName") != m.end() && !m["AndroidInstanceName"].empty()) {
       androidInstanceName = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceName"]));
+    }
+    if (m.find("AuthorizedUserId") != m.end() && !m["AuthorizedUserId"].empty()) {
+      authorizedUserId = make_shared<string>(boost::any_cast<string>(m["AuthorizedUserId"]));
     }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
@@ -10067,6 +10074,56 @@ public:
 
   virtual ~ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy() = default;
 };
+class ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceGroupIds{};
+  shared_ptr<vector<string>> cloudPhoneMatrixIds{};
+
+  ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources() {}
+
+  explicit ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceGroupIds) {
+      res["AndroidInstanceGroupIds"] = boost::any(*androidInstanceGroupIds);
+    }
+    if (cloudPhoneMatrixIds) {
+      res["CloudPhoneMatrixIds"] = boost::any(*cloudPhoneMatrixIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceGroupIds") != m.end() && !m["AndroidInstanceGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CloudPhoneMatrixIds") != m.end() && !m["CloudPhoneMatrixIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CloudPhoneMatrixIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CloudPhoneMatrixIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cloudPhoneMatrixIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources() = default;
+};
 class ListPolicyGroupsResponseBodyPolicyGroupModel : public Darabonba::Model {
 public:
   shared_ptr<string> cameraRedirect{};
@@ -10078,6 +10135,7 @@ public:
   shared_ptr<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> policyGroupName{};
+  shared_ptr<ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources> policyRelatedResources{};
   shared_ptr<long> sessionResolutionHeight{};
   shared_ptr<long> sessionResolutionWidth{};
 
@@ -10117,6 +10175,9 @@ public:
     }
     if (policyGroupName) {
       res["PolicyGroupName"] = boost::any(*policyGroupName);
+    }
+    if (policyRelatedResources) {
+      res["PolicyRelatedResources"] = policyRelatedResources ? boost::any(policyRelatedResources->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sessionResolutionHeight) {
       res["SessionResolutionHeight"] = boost::any(*sessionResolutionHeight);
@@ -10158,6 +10219,13 @@ public:
     }
     if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
       policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
+    }
+    if (m.find("PolicyRelatedResources") != m.end() && !m["PolicyRelatedResources"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PolicyRelatedResources"].type()) {
+        ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PolicyRelatedResources"]));
+        policyRelatedResources = make_shared<ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources>(model1);
+      }
     }
     if (m.find("SessionResolutionHeight") != m.end() && !m["SessionResolutionHeight"].empty()) {
       sessionResolutionHeight = make_shared<long>(boost::any_cast<long>(m["SessionResolutionHeight"]));
