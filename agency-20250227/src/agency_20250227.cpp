@@ -102,6 +102,24 @@ GetBillDetailFileListResponse Alibabacloud_Agency20250227::Client::getBillDetail
   if (!Darabonba_Util::Client::isUnset<string>(request->billMonth)) {
     query->insert(pair<string, string>("BillMonth", *request->billMonth));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossAccessKeyId)) {
+    query->insert(pair<string, string>("OssAccessKeyId", *request->ossAccessKeyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossAccessKeySecret)) {
+    query->insert(pair<string, string>("OssAccessKeySecret", *request->ossAccessKeySecret));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossBucketName)) {
+    query->insert(pair<string, string>("OssBucketName", *request->ossBucketName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossEndpoint)) {
+    query->insert(pair<string, string>("OssEndpoint", *request->ossEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossRegion)) {
+    query->insert(pair<string, string>("OssRegion", *request->ossRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossSecurityToken)) {
+    query->insert(pair<string, string>("OssSecurityToken", *request->ossSecurityToken));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -116,12 +134,7 @@ GetBillDetailFileListResponse Alibabacloud_Agency20250227::Client::getBillDetail
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetBillDetailFileListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetBillDetailFileListResponse(execute(params, req, runtime));
-  }
+  return GetBillDetailFileListResponse(callApi(params, req, runtime));
 }
 
 GetBillDetailFileListResponse Alibabacloud_Agency20250227::Client::getBillDetailFileList(shared_ptr<GetBillDetailFileListRequest> request) {
@@ -149,12 +162,7 @@ GetCommissionDetailFileListResponse Alibabacloud_Agency20250227::Client::getComm
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetCommissionDetailFileListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetCommissionDetailFileListResponse(execute(params, req, runtime));
-  }
+  return GetCommissionDetailFileListResponse(callApi(params, req, runtime));
 }
 
 GetCommissionDetailFileListResponse Alibabacloud_Agency20250227::Client::getCommissionDetailFileList(shared_ptr<GetCommissionDetailFileListRequest> request) {
@@ -238,12 +246,7 @@ GetCustomerOrderListResponse Alibabacloud_Agency20250227::Client::getCustomerOrd
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetCustomerOrderListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetCustomerOrderListResponse(execute(params, req, runtime));
-  }
+  return GetCustomerOrderListResponse(callApi(params, req, runtime));
 }
 
 GetCustomerOrderListResponse Alibabacloud_Agency20250227::Client::getCustomerOrderList(shared_ptr<GetCustomerOrderListRequest> request) {
@@ -271,12 +274,7 @@ GetRenewalRateListResponse Alibabacloud_Agency20250227::Client::getRenewalRateLi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRenewalRateListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRenewalRateListResponse(execute(params, req, runtime));
-  }
+  return GetRenewalRateListResponse(callApi(params, req, runtime));
 }
 
 GetRenewalRateListResponse Alibabacloud_Agency20250227::Client::getRenewalRateList(shared_ptr<GetRenewalRateListRequest> request) {
@@ -313,12 +311,7 @@ GetSubPartnerListResponse Alibabacloud_Agency20250227::Client::getSubPartnerList
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetSubPartnerListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetSubPartnerListResponse(execute(params, req, runtime));
-  }
+  return GetSubPartnerListResponse(callApi(params, req, runtime));
 }
 
 GetSubPartnerListResponse Alibabacloud_Agency20250227::Client::getSubPartnerList(shared_ptr<GetSubPartnerListRequest> request) {
@@ -399,12 +392,7 @@ GetSubPartnerOrderListResponse Alibabacloud_Agency20250227::Client::getSubPartne
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetSubPartnerOrderListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetSubPartnerOrderListResponse(execute(params, req, runtime));
-  }
+  return GetSubPartnerOrderListResponse(callApi(params, req, runtime));
 }
 
 GetSubPartnerOrderListResponse Alibabacloud_Agency20250227::Client::getSubPartnerOrderList(shared_ptr<GetSubPartnerOrderListRequest> request) {

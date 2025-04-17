@@ -16,6 +16,12 @@ namespace Alibabacloud_Agency20250227 {
 class GetBillDetailFileListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> billMonth{};
+  shared_ptr<string> ossAccessKeyId{};
+  shared_ptr<string> ossAccessKeySecret{};
+  shared_ptr<string> ossBucketName{};
+  shared_ptr<string> ossEndpoint{};
+  shared_ptr<string> ossRegion{};
+  shared_ptr<string> ossSecurityToken{};
 
   GetBillDetailFileListRequest() {}
 
@@ -30,12 +36,48 @@ public:
     if (billMonth) {
       res["BillMonth"] = boost::any(*billMonth);
     }
+    if (ossAccessKeyId) {
+      res["OssAccessKeyId"] = boost::any(*ossAccessKeyId);
+    }
+    if (ossAccessKeySecret) {
+      res["OssAccessKeySecret"] = boost::any(*ossAccessKeySecret);
+    }
+    if (ossBucketName) {
+      res["OssBucketName"] = boost::any(*ossBucketName);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
+    if (ossRegion) {
+      res["OssRegion"] = boost::any(*ossRegion);
+    }
+    if (ossSecurityToken) {
+      res["OssSecurityToken"] = boost::any(*ossSecurityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BillMonth") != m.end() && !m["BillMonth"].empty()) {
       billMonth = make_shared<string>(boost::any_cast<string>(m["BillMonth"]));
+    }
+    if (m.find("OssAccessKeyId") != m.end() && !m["OssAccessKeyId"].empty()) {
+      ossAccessKeyId = make_shared<string>(boost::any_cast<string>(m["OssAccessKeyId"]));
+    }
+    if (m.find("OssAccessKeySecret") != m.end() && !m["OssAccessKeySecret"].empty()) {
+      ossAccessKeySecret = make_shared<string>(boost::any_cast<string>(m["OssAccessKeySecret"]));
+    }
+    if (m.find("OssBucketName") != m.end() && !m["OssBucketName"].empty()) {
+      ossBucketName = make_shared<string>(boost::any_cast<string>(m["OssBucketName"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
+    if (m.find("OssRegion") != m.end() && !m["OssRegion"].empty()) {
+      ossRegion = make_shared<string>(boost::any_cast<string>(m["OssRegion"]));
+    }
+    if (m.find("OssSecurityToken") != m.end() && !m["OssSecurityToken"].empty()) {
+      ossSecurityToken = make_shared<string>(boost::any_cast<string>(m["OssSecurityToken"]));
     }
   }
 
@@ -47,6 +89,7 @@ public:
   shared_ptr<string> billMonth{};
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<string> status{};
   shared_ptr<string> type{};
 
   GetBillDetailFileListResponseBodyData() {}
@@ -68,6 +111,9 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -83,6 +129,9 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
