@@ -379,6 +379,12 @@ RunEnterpriseVocAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->akProxy)) {
+    body->insert(pair<string, string>("akProxy", *request->akProxy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiKey)) {
+    body->insert(pair<string, string>("apiKey", *request->apiKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     body->insert(pair<string, string>("content", *request->content));
   }
@@ -604,6 +610,9 @@ RunMarketingInformationWritingResponse Alibabacloud_QuanMiaoLightApp20240801::Cl
                                                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiKey)) {
+    body->insert(pair<string, string>("apiKey", *request->apiKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->customLimitation)) {
     body->insert(pair<string, string>("customLimitation", *request->customLimitation));
   }
@@ -660,6 +669,9 @@ RunNetworkContentAuditResponse Alibabacloud_QuanMiaoLightApp20240801::Client::ru
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiKey)) {
+    body->insert(pair<string, string>("apiKey", *request->apiKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->businessType)) {
     body->insert(pair<string, string>("businessType", *request->businessType));
   }
@@ -1100,6 +1112,9 @@ SubmitEnterpriseVocAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::C
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiKey)) {
+    body->insert(pair<string, string>("apiKey", *request->apiKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->contentsShrink)) {
     body->insert(pair<string, string>("contents", *request->contentsShrink));
   }

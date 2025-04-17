@@ -4000,6 +4000,8 @@ public:
 };
 class RunEnterpriseVocAnalysisRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> akProxy{};
+  shared_ptr<string> apiKey{};
   shared_ptr<string> content{};
   shared_ptr<string> extraInfo{};
   shared_ptr<vector<RunEnterpriseVocAnalysisRequestFilterTags>> filterTags{};
@@ -4018,6 +4020,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (akProxy) {
+      res["akProxy"] = boost::any(*akProxy);
+    }
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (content) {
       res["content"] = boost::any(*content);
     }
@@ -4051,6 +4059,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("akProxy") != m.end() && !m["akProxy"].empty()) {
+      akProxy = make_shared<string>(boost::any_cast<string>(m["akProxy"]));
+    }
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("content") != m.end() && !m["content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["content"]));
     }
@@ -4099,6 +4113,8 @@ public:
 };
 class RunEnterpriseVocAnalysisShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> akProxy{};
+  shared_ptr<string> apiKey{};
   shared_ptr<string> content{};
   shared_ptr<string> extraInfo{};
   shared_ptr<string> filterTagsShrink{};
@@ -4117,6 +4133,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (akProxy) {
+      res["akProxy"] = boost::any(*akProxy);
+    }
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (content) {
       res["content"] = boost::any(*content);
     }
@@ -4142,6 +4164,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("akProxy") != m.end() && !m["akProxy"].empty()) {
+      akProxy = make_shared<string>(boost::any_cast<string>(m["akProxy"]));
+    }
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("content") != m.end() && !m["content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["content"]));
     }
@@ -6423,6 +6451,7 @@ public:
 };
 class RunMarketingInformationWritingRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> customLimitation{};
   shared_ptr<string> customPrompt{};
   shared_ptr<string> inputExample{};
@@ -6441,6 +6470,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (customLimitation) {
       res["customLimitation"] = boost::any(*customLimitation);
     }
@@ -6466,6 +6498,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("customLimitation") != m.end() && !m["customLimitation"].empty()) {
       customLimitation = make_shared<string>(boost::any_cast<string>(m["customLimitation"]));
     }
@@ -6494,6 +6529,7 @@ public:
 };
 class RunMarketingInformationWritingResponseBodyHeader : public Darabonba::Model {
 public:
+  shared_ptr<string> errorMessage{};
   shared_ptr<string> event{};
   shared_ptr<string> eventInfo{};
   shared_ptr<string> requestId{};
@@ -6511,6 +6547,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
     if (event) {
       res["event"] = boost::any(*event);
     }
@@ -6533,6 +6572,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
     if (m.find("event") != m.end() && !m["event"].empty()) {
       event = make_shared<string>(boost::any_cast<string>(m["event"]));
     }
@@ -6813,6 +6855,7 @@ public:
 };
 class RunNetworkContentAuditRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> businessType{};
   shared_ptr<string> content{};
   shared_ptr<string> extraInfo{};
@@ -6831,6 +6874,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (businessType) {
       res["businessType"] = boost::any(*businessType);
     }
@@ -6860,6 +6906,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
     }
@@ -6898,6 +6947,7 @@ public:
 };
 class RunNetworkContentAuditShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> businessType{};
   shared_ptr<string> content{};
   shared_ptr<string> extraInfo{};
@@ -6916,6 +6966,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (businessType) {
       res["businessType"] = boost::any(*businessType);
     }
@@ -6941,6 +6994,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
     }
@@ -11569,6 +11625,7 @@ public:
 };
 class SubmitEnterpriseVocAnalysisTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<vector<SubmitEnterpriseVocAnalysisTaskRequestContents>> contents{};
   shared_ptr<string> extraInfo{};
   shared_ptr<string> fileKey{};
@@ -11589,6 +11646,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (contents) {
       vector<boost::any> temp1;
       for(auto item1:*contents){
@@ -11632,6 +11692,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("contents") != m.end() && !m["contents"].empty()) {
       if (typeid(vector<boost::any>) == m["contents"].type()) {
         vector<SubmitEnterpriseVocAnalysisTaskRequestContents> expect1;
@@ -11696,6 +11759,7 @@ public:
 };
 class SubmitEnterpriseVocAnalysisTaskShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiKey{};
   shared_ptr<string> contentsShrink{};
   shared_ptr<string> extraInfo{};
   shared_ptr<string> fileKey{};
@@ -11716,6 +11780,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
     if (contentsShrink) {
       res["contents"] = boost::any(*contentsShrink);
     }
@@ -11747,6 +11814,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
     if (m.find("contents") != m.end() && !m["contents"].empty()) {
       contentsShrink = make_shared<string>(boost::any_cast<string>(m["contents"]));
     }
