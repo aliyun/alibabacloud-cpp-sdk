@@ -24800,6 +24800,1385 @@ public:
 
   virtual ~ListAlertNotificationsResponse() = default;
 };
+class ListApiByAppRequestPageQuery : public Darabonba::Model {
+public:
+  shared_ptr<long> appKey{};
+  shared_ptr<string> keyword{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+
+  ListApiByAppRequestPageQuery() {}
+
+  explicit ListApiByAppRequestPageQuery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<long>(boost::any_cast<long>(m["AppKey"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppRequestPageQuery() = default;
+};
+class ListApiByAppRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> opTenantId{};
+  shared_ptr<ListApiByAppRequestPageQuery> pageQuery{};
+
+  ListApiByAppRequest() {}
+
+  explicit ListApiByAppRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (opTenantId) {
+      res["OpTenantId"] = boost::any(*opTenantId);
+    }
+    if (pageQuery) {
+      res["PageQuery"] = pageQuery ? boost::any(pageQuery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OpTenantId") != m.end() && !m["OpTenantId"].empty()) {
+      opTenantId = make_shared<long>(boost::any_cast<long>(m["OpTenantId"]));
+    }
+    if (m.find("PageQuery") != m.end() && !m["PageQuery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PageQuery"].type()) {
+        ListApiByAppRequestPageQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PageQuery"]));
+        pageQuery = make_shared<ListApiByAppRequestPageQuery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListApiByAppRequest() = default;
+};
+class ListApiByAppShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> opTenantId{};
+  shared_ptr<string> pageQueryShrink{};
+
+  ListApiByAppShrinkRequest() {}
+
+  explicit ListApiByAppShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (opTenantId) {
+      res["OpTenantId"] = boost::any(*opTenantId);
+    }
+    if (pageQueryShrink) {
+      res["PageQuery"] = boost::any(*pageQueryShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OpTenantId") != m.end() && !m["OpTenantId"].empty()) {
+      opTenantId = make_shared<long>(boost::any_cast<long>(m["OpTenantId"]));
+    }
+    if (m.find("PageQuery") != m.end() && !m["PageQuery"].empty()) {
+      pageQueryShrink = make_shared<string>(boost::any_cast<string>(m["PageQuery"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppShrinkRequest() = default;
+};
+class ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList : public Darabonba::Model {
+public:
+  shared_ptr<string> datasourceId{};
+  shared_ptr<string> datasourceName{};
+  shared_ptr<long> datasourceType{};
+  shared_ptr<string> datasourceUrl{};
+  shared_ptr<string> tableName{};
+
+  ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList() {}
+
+  explicit ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasourceId) {
+      res["DatasourceId"] = boost::any(*datasourceId);
+    }
+    if (datasourceName) {
+      res["DatasourceName"] = boost::any(*datasourceName);
+    }
+    if (datasourceType) {
+      res["DatasourceType"] = boost::any(*datasourceType);
+    }
+    if (datasourceUrl) {
+      res["DatasourceUrl"] = boost::any(*datasourceUrl);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasourceId") != m.end() && !m["DatasourceId"].empty()) {
+      datasourceId = make_shared<string>(boost::any_cast<string>(m["DatasourceId"]));
+    }
+    if (m.find("DatasourceName") != m.end() && !m["DatasourceName"].empty()) {
+      datasourceName = make_shared<string>(boost::any_cast<string>(m["DatasourceName"]));
+    }
+    if (m.find("DatasourceType") != m.end() && !m["DatasourceType"].empty()) {
+      datasourceType = make_shared<long>(boost::any_cast<long>(m["DatasourceType"]));
+    }
+    if (m.find("DatasourceUrl") != m.end() && !m["DatasourceUrl"].empty()) {
+      datasourceUrl = make_shared<string>(boost::any_cast<string>(m["DatasourceUrl"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList() = default;
+};
+class ListApiByAppResponseBodyListResultDataPublicParamList : public Darabonba::Model {
+public:
+  shared_ptr<string> dateFormat{};
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> description{};
+  shared_ptr<string> descriptionCode{};
+  shared_ptr<long> id{};
+  shared_ptr<string> initialValue{};
+  shared_ptr<string> mappingColumn{};
+  shared_ptr<long> must{};
+  shared_ptr<string> operator_{};
+  shared_ptr<long> optional{};
+  shared_ptr<string> originalColumn{};
+  shared_ptr<string> paramName{};
+  shared_ptr<string> paramType{};
+  shared_ptr<string> parameterLocation{};
+  shared_ptr<string> sample{};
+  shared_ptr<vector<ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList>> tableAndDsList{};
+
+  ListApiByAppResponseBodyListResultDataPublicParamList() {}
+
+  explicit ListApiByAppResponseBodyListResultDataPublicParamList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dateFormat) {
+      res["DateFormat"] = boost::any(*dateFormat);
+    }
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (descriptionCode) {
+      res["DescriptionCode"] = boost::any(*descriptionCode);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (initialValue) {
+      res["InitialValue"] = boost::any(*initialValue);
+    }
+    if (mappingColumn) {
+      res["MappingColumn"] = boost::any(*mappingColumn);
+    }
+    if (must) {
+      res["Must"] = boost::any(*must);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (optional) {
+      res["Optional"] = boost::any(*optional);
+    }
+    if (originalColumn) {
+      res["OriginalColumn"] = boost::any(*originalColumn);
+    }
+    if (paramName) {
+      res["ParamName"] = boost::any(*paramName);
+    }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (parameterLocation) {
+      res["ParameterLocation"] = boost::any(*parameterLocation);
+    }
+    if (sample) {
+      res["Sample"] = boost::any(*sample);
+    }
+    if (tableAndDsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*tableAndDsList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TableAndDsList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DateFormat") != m.end() && !m["DateFormat"].empty()) {
+      dateFormat = make_shared<string>(boost::any_cast<string>(m["DateFormat"]));
+    }
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DescriptionCode") != m.end() && !m["DescriptionCode"].empty()) {
+      descriptionCode = make_shared<string>(boost::any_cast<string>(m["DescriptionCode"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("InitialValue") != m.end() && !m["InitialValue"].empty()) {
+      initialValue = make_shared<string>(boost::any_cast<string>(m["InitialValue"]));
+    }
+    if (m.find("MappingColumn") != m.end() && !m["MappingColumn"].empty()) {
+      mappingColumn = make_shared<string>(boost::any_cast<string>(m["MappingColumn"]));
+    }
+    if (m.find("Must") != m.end() && !m["Must"].empty()) {
+      must = make_shared<long>(boost::any_cast<long>(m["Must"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("Optional") != m.end() && !m["Optional"].empty()) {
+      optional = make_shared<long>(boost::any_cast<long>(m["Optional"]));
+    }
+    if (m.find("OriginalColumn") != m.end() && !m["OriginalColumn"].empty()) {
+      originalColumn = make_shared<string>(boost::any_cast<string>(m["OriginalColumn"]));
+    }
+    if (m.find("ParamName") != m.end() && !m["ParamName"].empty()) {
+      paramName = make_shared<string>(boost::any_cast<string>(m["ParamName"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("ParameterLocation") != m.end() && !m["ParameterLocation"].empty()) {
+      parameterLocation = make_shared<string>(boost::any_cast<string>(m["ParameterLocation"]));
+    }
+    if (m.find("Sample") != m.end() && !m["Sample"].empty()) {
+      sample = make_shared<string>(boost::any_cast<string>(m["Sample"]));
+    }
+    if (m.find("TableAndDsList") != m.end() && !m["TableAndDsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TableAndDsList"].type()) {
+        vector<ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TableAndDsList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tableAndDsList = make_shared<vector<ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResultDataPublicParamList() = default;
+};
+class ListApiByAppResponseBodyListResultDataRegisterApi : public Darabonba::Model {
+public:
+  shared_ptr<long> apiId{};
+  shared_ptr<string> authenticationMode{};
+  shared_ptr<string> datasourceId{};
+  shared_ptr<string> datasourceName{};
+  shared_ptr<string> failExample{};
+  shared_ptr<long> httpMethod{};
+  shared_ptr<long> modelType{};
+  shared_ptr<string> path{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> successExample{};
+  shared_ptr<long> timeout{};
+  shared_ptr<string> url{};
+
+  ListApiByAppResponseBodyListResultDataRegisterApi() {}
+
+  explicit ListApiByAppResponseBodyListResultDataRegisterApi(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (authenticationMode) {
+      res["AuthenticationMode"] = boost::any(*authenticationMode);
+    }
+    if (datasourceId) {
+      res["DatasourceId"] = boost::any(*datasourceId);
+    }
+    if (datasourceName) {
+      res["DatasourceName"] = boost::any(*datasourceName);
+    }
+    if (failExample) {
+      res["FailExample"] = boost::any(*failExample);
+    }
+    if (httpMethod) {
+      res["HttpMethod"] = boost::any(*httpMethod);
+    }
+    if (modelType) {
+      res["ModelType"] = boost::any(*modelType);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (successExample) {
+      res["SuccessExample"] = boost::any(*successExample);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<long>(boost::any_cast<long>(m["ApiId"]));
+    }
+    if (m.find("AuthenticationMode") != m.end() && !m["AuthenticationMode"].empty()) {
+      authenticationMode = make_shared<string>(boost::any_cast<string>(m["AuthenticationMode"]));
+    }
+    if (m.find("DatasourceId") != m.end() && !m["DatasourceId"].empty()) {
+      datasourceId = make_shared<string>(boost::any_cast<string>(m["DatasourceId"]));
+    }
+    if (m.find("DatasourceName") != m.end() && !m["DatasourceName"].empty()) {
+      datasourceName = make_shared<string>(boost::any_cast<string>(m["DatasourceName"]));
+    }
+    if (m.find("FailExample") != m.end() && !m["FailExample"].empty()) {
+      failExample = make_shared<string>(boost::any_cast<string>(m["FailExample"]));
+    }
+    if (m.find("HttpMethod") != m.end() && !m["HttpMethod"].empty()) {
+      httpMethod = make_shared<long>(boost::any_cast<long>(m["HttpMethod"]));
+    }
+    if (m.find("ModelType") != m.end() && !m["ModelType"].empty()) {
+      modelType = make_shared<long>(boost::any_cast<long>(m["ModelType"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SuccessExample") != m.end() && !m["SuccessExample"].empty()) {
+      successExample = make_shared<string>(boost::any_cast<string>(m["SuccessExample"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResultDataRegisterApi() = default;
+};
+class ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList : public Darabonba::Model {
+public:
+  shared_ptr<string> datasourceId{};
+  shared_ptr<string> datasourceName{};
+  shared_ptr<long> datasourceType{};
+  shared_ptr<string> datasourceUrl{};
+  shared_ptr<string> tableName{};
+
+  ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList() {}
+
+  explicit ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasourceId) {
+      res["DatasourceId"] = boost::any(*datasourceId);
+    }
+    if (datasourceName) {
+      res["DatasourceName"] = boost::any(*datasourceName);
+    }
+    if (datasourceType) {
+      res["DatasourceType"] = boost::any(*datasourceType);
+    }
+    if (datasourceUrl) {
+      res["DatasourceUrl"] = boost::any(*datasourceUrl);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasourceId") != m.end() && !m["DatasourceId"].empty()) {
+      datasourceId = make_shared<string>(boost::any_cast<string>(m["DatasourceId"]));
+    }
+    if (m.find("DatasourceName") != m.end() && !m["DatasourceName"].empty()) {
+      datasourceName = make_shared<string>(boost::any_cast<string>(m["DatasourceName"]));
+    }
+    if (m.find("DatasourceType") != m.end() && !m["DatasourceType"].empty()) {
+      datasourceType = make_shared<long>(boost::any_cast<long>(m["DatasourceType"]));
+    }
+    if (m.find("DatasourceUrl") != m.end() && !m["DatasourceUrl"].empty()) {
+      datasourceUrl = make_shared<string>(boost::any_cast<string>(m["DatasourceUrl"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList() = default;
+};
+class ListApiByAppResponseBodyListResultDataRequestParamList : public Darabonba::Model {
+public:
+  shared_ptr<string> dateFormat{};
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> description{};
+  shared_ptr<string> descriptionCode{};
+  shared_ptr<long> id{};
+  shared_ptr<string> initialValue{};
+  shared_ptr<string> mappingColumn{};
+  shared_ptr<long> must{};
+  shared_ptr<string> operator_{};
+  shared_ptr<long> optional{};
+  shared_ptr<string> originalColumn{};
+  shared_ptr<string> paramName{};
+  shared_ptr<string> paramType{};
+  shared_ptr<string> parameterLocation{};
+  shared_ptr<string> sample{};
+  shared_ptr<vector<ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList>> tableAndDsList{};
+
+  ListApiByAppResponseBodyListResultDataRequestParamList() {}
+
+  explicit ListApiByAppResponseBodyListResultDataRequestParamList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dateFormat) {
+      res["DateFormat"] = boost::any(*dateFormat);
+    }
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (descriptionCode) {
+      res["DescriptionCode"] = boost::any(*descriptionCode);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (initialValue) {
+      res["InitialValue"] = boost::any(*initialValue);
+    }
+    if (mappingColumn) {
+      res["MappingColumn"] = boost::any(*mappingColumn);
+    }
+    if (must) {
+      res["Must"] = boost::any(*must);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (optional) {
+      res["Optional"] = boost::any(*optional);
+    }
+    if (originalColumn) {
+      res["OriginalColumn"] = boost::any(*originalColumn);
+    }
+    if (paramName) {
+      res["ParamName"] = boost::any(*paramName);
+    }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (parameterLocation) {
+      res["ParameterLocation"] = boost::any(*parameterLocation);
+    }
+    if (sample) {
+      res["Sample"] = boost::any(*sample);
+    }
+    if (tableAndDsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*tableAndDsList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TableAndDsList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DateFormat") != m.end() && !m["DateFormat"].empty()) {
+      dateFormat = make_shared<string>(boost::any_cast<string>(m["DateFormat"]));
+    }
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DescriptionCode") != m.end() && !m["DescriptionCode"].empty()) {
+      descriptionCode = make_shared<string>(boost::any_cast<string>(m["DescriptionCode"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("InitialValue") != m.end() && !m["InitialValue"].empty()) {
+      initialValue = make_shared<string>(boost::any_cast<string>(m["InitialValue"]));
+    }
+    if (m.find("MappingColumn") != m.end() && !m["MappingColumn"].empty()) {
+      mappingColumn = make_shared<string>(boost::any_cast<string>(m["MappingColumn"]));
+    }
+    if (m.find("Must") != m.end() && !m["Must"].empty()) {
+      must = make_shared<long>(boost::any_cast<long>(m["Must"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("Optional") != m.end() && !m["Optional"].empty()) {
+      optional = make_shared<long>(boost::any_cast<long>(m["Optional"]));
+    }
+    if (m.find("OriginalColumn") != m.end() && !m["OriginalColumn"].empty()) {
+      originalColumn = make_shared<string>(boost::any_cast<string>(m["OriginalColumn"]));
+    }
+    if (m.find("ParamName") != m.end() && !m["ParamName"].empty()) {
+      paramName = make_shared<string>(boost::any_cast<string>(m["ParamName"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("ParameterLocation") != m.end() && !m["ParameterLocation"].empty()) {
+      parameterLocation = make_shared<string>(boost::any_cast<string>(m["ParameterLocation"]));
+    }
+    if (m.find("Sample") != m.end() && !m["Sample"].empty()) {
+      sample = make_shared<string>(boost::any_cast<string>(m["Sample"]));
+    }
+    if (m.find("TableAndDsList") != m.end() && !m["TableAndDsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TableAndDsList"].type()) {
+        vector<ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TableAndDsList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tableAndDsList = make_shared<vector<ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResultDataRequestParamList() = default;
+};
+class ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList : public Darabonba::Model {
+public:
+  shared_ptr<string> datasourceId{};
+  shared_ptr<string> datasourceName{};
+  shared_ptr<long> datasourceType{};
+  shared_ptr<string> datasourceUrl{};
+  shared_ptr<string> tableName{};
+
+  ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList() {}
+
+  explicit ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasourceId) {
+      res["DatasourceId"] = boost::any(*datasourceId);
+    }
+    if (datasourceName) {
+      res["DatasourceName"] = boost::any(*datasourceName);
+    }
+    if (datasourceType) {
+      res["DatasourceType"] = boost::any(*datasourceType);
+    }
+    if (datasourceUrl) {
+      res["DatasourceUrl"] = boost::any(*datasourceUrl);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasourceId") != m.end() && !m["DatasourceId"].empty()) {
+      datasourceId = make_shared<string>(boost::any_cast<string>(m["DatasourceId"]));
+    }
+    if (m.find("DatasourceName") != m.end() && !m["DatasourceName"].empty()) {
+      datasourceName = make_shared<string>(boost::any_cast<string>(m["DatasourceName"]));
+    }
+    if (m.find("DatasourceType") != m.end() && !m["DatasourceType"].empty()) {
+      datasourceType = make_shared<long>(boost::any_cast<long>(m["DatasourceType"]));
+    }
+    if (m.find("DatasourceUrl") != m.end() && !m["DatasourceUrl"].empty()) {
+      datasourceUrl = make_shared<string>(boost::any_cast<string>(m["DatasourceUrl"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList() = default;
+};
+class ListApiByAppResponseBodyListResultDataResponseParamList : public Darabonba::Model {
+public:
+  shared_ptr<string> dateFormat{};
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> description{};
+  shared_ptr<string> descriptionCode{};
+  shared_ptr<long> id{};
+  shared_ptr<string> initialValue{};
+  shared_ptr<string> mappingColumn{};
+  shared_ptr<long> must{};
+  shared_ptr<string> operator_{};
+  shared_ptr<long> optional{};
+  shared_ptr<string> originalColumn{};
+  shared_ptr<string> paramName{};
+  shared_ptr<string> paramType{};
+  shared_ptr<string> parameterLocation{};
+  shared_ptr<string> sample{};
+  shared_ptr<vector<ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList>> tableAndDsList{};
+
+  ListApiByAppResponseBodyListResultDataResponseParamList() {}
+
+  explicit ListApiByAppResponseBodyListResultDataResponseParamList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dateFormat) {
+      res["DateFormat"] = boost::any(*dateFormat);
+    }
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (descriptionCode) {
+      res["DescriptionCode"] = boost::any(*descriptionCode);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (initialValue) {
+      res["InitialValue"] = boost::any(*initialValue);
+    }
+    if (mappingColumn) {
+      res["MappingColumn"] = boost::any(*mappingColumn);
+    }
+    if (must) {
+      res["Must"] = boost::any(*must);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (optional) {
+      res["Optional"] = boost::any(*optional);
+    }
+    if (originalColumn) {
+      res["OriginalColumn"] = boost::any(*originalColumn);
+    }
+    if (paramName) {
+      res["ParamName"] = boost::any(*paramName);
+    }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (parameterLocation) {
+      res["ParameterLocation"] = boost::any(*parameterLocation);
+    }
+    if (sample) {
+      res["Sample"] = boost::any(*sample);
+    }
+    if (tableAndDsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*tableAndDsList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TableAndDsList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DateFormat") != m.end() && !m["DateFormat"].empty()) {
+      dateFormat = make_shared<string>(boost::any_cast<string>(m["DateFormat"]));
+    }
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DescriptionCode") != m.end() && !m["DescriptionCode"].empty()) {
+      descriptionCode = make_shared<string>(boost::any_cast<string>(m["DescriptionCode"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("InitialValue") != m.end() && !m["InitialValue"].empty()) {
+      initialValue = make_shared<string>(boost::any_cast<string>(m["InitialValue"]));
+    }
+    if (m.find("MappingColumn") != m.end() && !m["MappingColumn"].empty()) {
+      mappingColumn = make_shared<string>(boost::any_cast<string>(m["MappingColumn"]));
+    }
+    if (m.find("Must") != m.end() && !m["Must"].empty()) {
+      must = make_shared<long>(boost::any_cast<long>(m["Must"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("Optional") != m.end() && !m["Optional"].empty()) {
+      optional = make_shared<long>(boost::any_cast<long>(m["Optional"]));
+    }
+    if (m.find("OriginalColumn") != m.end() && !m["OriginalColumn"].empty()) {
+      originalColumn = make_shared<string>(boost::any_cast<string>(m["OriginalColumn"]));
+    }
+    if (m.find("ParamName") != m.end() && !m["ParamName"].empty()) {
+      paramName = make_shared<string>(boost::any_cast<string>(m["ParamName"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("ParameterLocation") != m.end() && !m["ParameterLocation"].empty()) {
+      parameterLocation = make_shared<string>(boost::any_cast<string>(m["ParameterLocation"]));
+    }
+    if (m.find("Sample") != m.end() && !m["Sample"].empty()) {
+      sample = make_shared<string>(boost::any_cast<string>(m["Sample"]));
+    }
+    if (m.find("TableAndDsList") != m.end() && !m["TableAndDsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TableAndDsList"].type()) {
+        vector<ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TableAndDsList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tableAndDsList = make_shared<vector<ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResultDataResponseParamList() = default;
+};
+class ListApiByAppResponseBodyListResultData : public Darabonba::Model {
+public:
+  shared_ptr<long> apiNo{};
+  shared_ptr<long> apiTimeout{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> bizModuleEnName{};
+  shared_ptr<string> cacheSwitch{};
+  shared_ptr<string> cacheTime{};
+  shared_ptr<long> createType{};
+  shared_ptr<long> dbEnv{};
+  shared_ptr<string> description{};
+  shared_ptr<long> directDatasourceId{};
+  shared_ptr<string> directDatasourceName{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<long> id{};
+  shared_ptr<bool> isLogicalTable{};
+  shared_ptr<long> isPagedQuery{};
+  shared_ptr<long> maxReturnNum{};
+  shared_ptr<long> modelType{};
+  shared_ptr<string> name{};
+  shared_ptr<long> projId{};
+  shared_ptr<string> projName{};
+  shared_ptr<long> protocol{};
+  shared_ptr<string> protocolName{};
+  shared_ptr<vector<ListApiByAppResponseBodyListResultDataPublicParamList>> publicParamList{};
+  shared_ptr<ListApiByAppResponseBodyListResultDataRegisterApi> registerApi{};
+  shared_ptr<long> requestMethod{};
+  shared_ptr<string> requestMethodName{};
+  shared_ptr<vector<ListApiByAppResponseBodyListResultDataRequestParamList>> requestParamList{};
+  shared_ptr<string> resourceGroupName{};
+  shared_ptr<vector<ListApiByAppResponseBodyListResultDataResponseParamList>> responseParamList{};
+  shared_ptr<string> resultSample{};
+  shared_ptr<long> returnType{};
+  shared_ptr<string> returnTypeName{};
+  shared_ptr<string> rsGrpId{};
+  shared_ptr<string> scriptType{};
+  shared_ptr<long> specialSql{};
+  shared_ptr<string> sqlStatement{};
+  shared_ptr<string> tableName{};
+  shared_ptr<string> timeout{};
+  shared_ptr<long> updateRate{};
+  shared_ptr<string> updateRateName{};
+  shared_ptr<string> version{};
+
+  ListApiByAppResponseBodyListResultData() {}
+
+  explicit ListApiByAppResponseBodyListResultData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiNo) {
+      res["ApiNo"] = boost::any(*apiNo);
+    }
+    if (apiTimeout) {
+      res["ApiTimeout"] = boost::any(*apiTimeout);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (bizModuleEnName) {
+      res["BizModuleEnName"] = boost::any(*bizModuleEnName);
+    }
+    if (cacheSwitch) {
+      res["CacheSwitch"] = boost::any(*cacheSwitch);
+    }
+    if (cacheTime) {
+      res["CacheTime"] = boost::any(*cacheTime);
+    }
+    if (createType) {
+      res["CreateType"] = boost::any(*createType);
+    }
+    if (dbEnv) {
+      res["DbEnv"] = boost::any(*dbEnv);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (directDatasourceId) {
+      res["DirectDatasourceId"] = boost::any(*directDatasourceId);
+    }
+    if (directDatasourceName) {
+      res["DirectDatasourceName"] = boost::any(*directDatasourceName);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (isLogicalTable) {
+      res["IsLogicalTable"] = boost::any(*isLogicalTable);
+    }
+    if (isPagedQuery) {
+      res["IsPagedQuery"] = boost::any(*isPagedQuery);
+    }
+    if (maxReturnNum) {
+      res["MaxReturnNum"] = boost::any(*maxReturnNum);
+    }
+    if (modelType) {
+      res["ModelType"] = boost::any(*modelType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (projId) {
+      res["ProjId"] = boost::any(*projId);
+    }
+    if (projName) {
+      res["ProjName"] = boost::any(*projName);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (protocolName) {
+      res["ProtocolName"] = boost::any(*protocolName);
+    }
+    if (publicParamList) {
+      vector<boost::any> temp1;
+      for(auto item1:*publicParamList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PublicParamList"] = boost::any(temp1);
+    }
+    if (registerApi) {
+      res["RegisterApi"] = registerApi ? boost::any(registerApi->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestMethod) {
+      res["RequestMethod"] = boost::any(*requestMethod);
+    }
+    if (requestMethodName) {
+      res["RequestMethodName"] = boost::any(*requestMethodName);
+    }
+    if (requestParamList) {
+      vector<boost::any> temp1;
+      for(auto item1:*requestParamList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RequestParamList"] = boost::any(temp1);
+    }
+    if (resourceGroupName) {
+      res["ResourceGroupName"] = boost::any(*resourceGroupName);
+    }
+    if (responseParamList) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseParamList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseParamList"] = boost::any(temp1);
+    }
+    if (resultSample) {
+      res["ResultSample"] = boost::any(*resultSample);
+    }
+    if (returnType) {
+      res["ReturnType"] = boost::any(*returnType);
+    }
+    if (returnTypeName) {
+      res["ReturnTypeName"] = boost::any(*returnTypeName);
+    }
+    if (rsGrpId) {
+      res["RsGrpId"] = boost::any(*rsGrpId);
+    }
+    if (scriptType) {
+      res["ScriptType"] = boost::any(*scriptType);
+    }
+    if (specialSql) {
+      res["SpecialSql"] = boost::any(*specialSql);
+    }
+    if (sqlStatement) {
+      res["SqlStatement"] = boost::any(*sqlStatement);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    if (updateRate) {
+      res["UpdateRate"] = boost::any(*updateRate);
+    }
+    if (updateRateName) {
+      res["UpdateRateName"] = boost::any(*updateRateName);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiNo") != m.end() && !m["ApiNo"].empty()) {
+      apiNo = make_shared<long>(boost::any_cast<long>(m["ApiNo"]));
+    }
+    if (m.find("ApiTimeout") != m.end() && !m["ApiTimeout"].empty()) {
+      apiTimeout = make_shared<long>(boost::any_cast<long>(m["ApiTimeout"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("BizModuleEnName") != m.end() && !m["BizModuleEnName"].empty()) {
+      bizModuleEnName = make_shared<string>(boost::any_cast<string>(m["BizModuleEnName"]));
+    }
+    if (m.find("CacheSwitch") != m.end() && !m["CacheSwitch"].empty()) {
+      cacheSwitch = make_shared<string>(boost::any_cast<string>(m["CacheSwitch"]));
+    }
+    if (m.find("CacheTime") != m.end() && !m["CacheTime"].empty()) {
+      cacheTime = make_shared<string>(boost::any_cast<string>(m["CacheTime"]));
+    }
+    if (m.find("CreateType") != m.end() && !m["CreateType"].empty()) {
+      createType = make_shared<long>(boost::any_cast<long>(m["CreateType"]));
+    }
+    if (m.find("DbEnv") != m.end() && !m["DbEnv"].empty()) {
+      dbEnv = make_shared<long>(boost::any_cast<long>(m["DbEnv"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DirectDatasourceId") != m.end() && !m["DirectDatasourceId"].empty()) {
+      directDatasourceId = make_shared<long>(boost::any_cast<long>(m["DirectDatasourceId"]));
+    }
+    if (m.find("DirectDatasourceName") != m.end() && !m["DirectDatasourceName"].empty()) {
+      directDatasourceName = make_shared<string>(boost::any_cast<string>(m["DirectDatasourceName"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IsLogicalTable") != m.end() && !m["IsLogicalTable"].empty()) {
+      isLogicalTable = make_shared<bool>(boost::any_cast<bool>(m["IsLogicalTable"]));
+    }
+    if (m.find("IsPagedQuery") != m.end() && !m["IsPagedQuery"].empty()) {
+      isPagedQuery = make_shared<long>(boost::any_cast<long>(m["IsPagedQuery"]));
+    }
+    if (m.find("MaxReturnNum") != m.end() && !m["MaxReturnNum"].empty()) {
+      maxReturnNum = make_shared<long>(boost::any_cast<long>(m["MaxReturnNum"]));
+    }
+    if (m.find("ModelType") != m.end() && !m["ModelType"].empty()) {
+      modelType = make_shared<long>(boost::any_cast<long>(m["ModelType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProjId") != m.end() && !m["ProjId"].empty()) {
+      projId = make_shared<long>(boost::any_cast<long>(m["ProjId"]));
+    }
+    if (m.find("ProjName") != m.end() && !m["ProjName"].empty()) {
+      projName = make_shared<string>(boost::any_cast<string>(m["ProjName"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<long>(boost::any_cast<long>(m["Protocol"]));
+    }
+    if (m.find("ProtocolName") != m.end() && !m["ProtocolName"].empty()) {
+      protocolName = make_shared<string>(boost::any_cast<string>(m["ProtocolName"]));
+    }
+    if (m.find("PublicParamList") != m.end() && !m["PublicParamList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PublicParamList"].type()) {
+        vector<ListApiByAppResponseBodyListResultDataPublicParamList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PublicParamList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApiByAppResponseBodyListResultDataPublicParamList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        publicParamList = make_shared<vector<ListApiByAppResponseBodyListResultDataPublicParamList>>(expect1);
+      }
+    }
+    if (m.find("RegisterApi") != m.end() && !m["RegisterApi"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RegisterApi"].type()) {
+        ListApiByAppResponseBodyListResultDataRegisterApi model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegisterApi"]));
+        registerApi = make_shared<ListApiByAppResponseBodyListResultDataRegisterApi>(model1);
+      }
+    }
+    if (m.find("RequestMethod") != m.end() && !m["RequestMethod"].empty()) {
+      requestMethod = make_shared<long>(boost::any_cast<long>(m["RequestMethod"]));
+    }
+    if (m.find("RequestMethodName") != m.end() && !m["RequestMethodName"].empty()) {
+      requestMethodName = make_shared<string>(boost::any_cast<string>(m["RequestMethodName"]));
+    }
+    if (m.find("RequestParamList") != m.end() && !m["RequestParamList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RequestParamList"].type()) {
+        vector<ListApiByAppResponseBodyListResultDataRequestParamList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RequestParamList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApiByAppResponseBodyListResultDataRequestParamList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        requestParamList = make_shared<vector<ListApiByAppResponseBodyListResultDataRequestParamList>>(expect1);
+      }
+    }
+    if (m.find("ResourceGroupName") != m.end() && !m["ResourceGroupName"].empty()) {
+      resourceGroupName = make_shared<string>(boost::any_cast<string>(m["ResourceGroupName"]));
+    }
+    if (m.find("ResponseParamList") != m.end() && !m["ResponseParamList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseParamList"].type()) {
+        vector<ListApiByAppResponseBodyListResultDataResponseParamList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseParamList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApiByAppResponseBodyListResultDataResponseParamList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseParamList = make_shared<vector<ListApiByAppResponseBodyListResultDataResponseParamList>>(expect1);
+      }
+    }
+    if (m.find("ResultSample") != m.end() && !m["ResultSample"].empty()) {
+      resultSample = make_shared<string>(boost::any_cast<string>(m["ResultSample"]));
+    }
+    if (m.find("ReturnType") != m.end() && !m["ReturnType"].empty()) {
+      returnType = make_shared<long>(boost::any_cast<long>(m["ReturnType"]));
+    }
+    if (m.find("ReturnTypeName") != m.end() && !m["ReturnTypeName"].empty()) {
+      returnTypeName = make_shared<string>(boost::any_cast<string>(m["ReturnTypeName"]));
+    }
+    if (m.find("RsGrpId") != m.end() && !m["RsGrpId"].empty()) {
+      rsGrpId = make_shared<string>(boost::any_cast<string>(m["RsGrpId"]));
+    }
+    if (m.find("ScriptType") != m.end() && !m["ScriptType"].empty()) {
+      scriptType = make_shared<string>(boost::any_cast<string>(m["ScriptType"]));
+    }
+    if (m.find("SpecialSql") != m.end() && !m["SpecialSql"].empty()) {
+      specialSql = make_shared<long>(boost::any_cast<long>(m["SpecialSql"]));
+    }
+    if (m.find("SqlStatement") != m.end() && !m["SqlStatement"].empty()) {
+      sqlStatement = make_shared<string>(boost::any_cast<string>(m["SqlStatement"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<string>(boost::any_cast<string>(m["Timeout"]));
+    }
+    if (m.find("UpdateRate") != m.end() && !m["UpdateRate"].empty()) {
+      updateRate = make_shared<long>(boost::any_cast<long>(m["UpdateRate"]));
+    }
+    if (m.find("UpdateRateName") != m.end() && !m["UpdateRateName"].empty()) {
+      updateRateName = make_shared<string>(boost::any_cast<string>(m["UpdateRateName"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResultData() = default;
+};
+class ListApiByAppResponseBodyListResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListApiByAppResponseBodyListResultData>> data{};
+  shared_ptr<long> totalCount{};
+
+  ListApiByAppResponseBodyListResult() {}
+
+  explicit ListApiByAppResponseBodyListResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListApiByAppResponseBodyListResultData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApiByAppResponseBodyListResultData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListApiByAppResponseBodyListResultData>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBodyListResult() = default;
+};
+class ListApiByAppResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<ListApiByAppResponseBodyListResult> listResult{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListApiByAppResponseBody() {}
+
+  explicit ListApiByAppResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (listResult) {
+      res["ListResult"] = listResult ? boost::any(listResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("ListResult") != m.end() && !m["ListResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ListResult"].type()) {
+        ListApiByAppResponseBodyListResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ListResult"]));
+        listResult = make_shared<ListApiByAppResponseBodyListResult>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListApiByAppResponseBody() = default;
+};
+class ListApiByAppResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListApiByAppResponseBody> body{};
+
+  ListApiByAppResponse() {}
+
+  explicit ListApiByAppResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListApiByAppResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListApiByAppResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListApiByAppResponse() = default;
+};
 class ListAuthorizedDataServiceApiDetailsRequestListQuery : public Darabonba::Model {
 public:
   shared_ptr<long> appKey{};
@@ -41674,6 +43053,8 @@ public:
   ListAlertEventsResponse listAlertEvents(shared_ptr<ListAlertEventsRequest> request);
   ListAlertNotificationsResponse listAlertNotificationsWithOptions(shared_ptr<ListAlertNotificationsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAlertNotificationsResponse listAlertNotifications(shared_ptr<ListAlertNotificationsRequest> request);
+  ListApiByAppResponse listApiByAppWithOptions(shared_ptr<ListApiByAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListApiByAppResponse listApiByApp(shared_ptr<ListApiByAppRequest> request);
   ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetailsWithOptions(shared_ptr<ListAuthorizedDataServiceApiDetailsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetails(shared_ptr<ListAuthorizedDataServiceApiDetailsRequest> request);
   ListBizEntitiesResponse listBizEntitiesWithOptions(shared_ptr<ListBizEntitiesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
