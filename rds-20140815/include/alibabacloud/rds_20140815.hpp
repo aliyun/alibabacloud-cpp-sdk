@@ -63322,6 +63322,7 @@ public:
   shared_ptr<string> sourceMajorVersion{};
   shared_ptr<string> targetMajorVersion{};
   shared_ptr<long> taskId{};
+  shared_ptr<string> upgradeMode{};
 
   DescribeUpgradeMajorVersionPrecheckTaskResponseBodyItems() {}
 
@@ -63363,6 +63364,9 @@ public:
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
+    if (upgradeMode) {
+      res["UpgradeMode"] = boost::any(*upgradeMode);
+    }
     return res;
   }
 
@@ -63396,6 +63400,9 @@ public:
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
+    }
+    if (m.find("UpgradeMode") != m.end() && !m["UpgradeMode"].empty()) {
+      upgradeMode = make_shared<string>(boost::any_cast<string>(m["UpgradeMode"]));
     }
   }
 
@@ -63625,6 +63632,11 @@ public:
   shared_ptr<string> targetMajorVersion{};
   shared_ptr<long> taskId{};
   shared_ptr<string> upgradeMode{};
+  shared_ptr<bool> cutOver{};
+  shared_ptr<long> totalLogicRepDelayTime{};
+  shared_ptr<long> totalLogicRepLatencyMB{};
+  shared_ptr<string> zeroDownTimeConnectionString{};
+  shared_ptr<long> zeroDownTimePort{};
 
   DescribeUpgradeMajorVersionTasksResponseBodyItems() {}
 
@@ -63675,6 +63687,21 @@ public:
     if (upgradeMode) {
       res["UpgradeMode"] = boost::any(*upgradeMode);
     }
+    if (cutOver) {
+      res["cutOver"] = boost::any(*cutOver);
+    }
+    if (totalLogicRepDelayTime) {
+      res["totalLogicRepDelayTime"] = boost::any(*totalLogicRepDelayTime);
+    }
+    if (totalLogicRepLatencyMB) {
+      res["totalLogicRepLatencyMB"] = boost::any(*totalLogicRepLatencyMB);
+    }
+    if (zeroDownTimeConnectionString) {
+      res["zeroDownTimeConnectionString"] = boost::any(*zeroDownTimeConnectionString);
+    }
+    if (zeroDownTimePort) {
+      res["zeroDownTimePort"] = boost::any(*zeroDownTimePort);
+    }
     return res;
   }
 
@@ -63717,6 +63744,21 @@ public:
     }
     if (m.find("UpgradeMode") != m.end() && !m["UpgradeMode"].empty()) {
       upgradeMode = make_shared<string>(boost::any_cast<string>(m["UpgradeMode"]));
+    }
+    if (m.find("cutOver") != m.end() && !m["cutOver"].empty()) {
+      cutOver = make_shared<bool>(boost::any_cast<bool>(m["cutOver"]));
+    }
+    if (m.find("totalLogicRepDelayTime") != m.end() && !m["totalLogicRepDelayTime"].empty()) {
+      totalLogicRepDelayTime = make_shared<long>(boost::any_cast<long>(m["totalLogicRepDelayTime"]));
+    }
+    if (m.find("totalLogicRepLatencyMB") != m.end() && !m["totalLogicRepLatencyMB"].empty()) {
+      totalLogicRepLatencyMB = make_shared<long>(boost::any_cast<long>(m["totalLogicRepLatencyMB"]));
+    }
+    if (m.find("zeroDownTimeConnectionString") != m.end() && !m["zeroDownTimeConnectionString"].empty()) {
+      zeroDownTimeConnectionString = make_shared<string>(boost::any_cast<string>(m["zeroDownTimeConnectionString"]));
+    }
+    if (m.find("zeroDownTimePort") != m.end() && !m["zeroDownTimePort"].empty()) {
+      zeroDownTimePort = make_shared<long>(boost::any_cast<long>(m["zeroDownTimePort"]));
     }
   }
 
@@ -78951,6 +78993,8 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
+  shared_ptr<string> rebootTime{};
+  shared_ptr<bool> rebootWhenFinished{};
   shared_ptr<string> regionId{};
 
   ModifyRCInstanceRequest() {}
@@ -78978,6 +79022,12 @@ public:
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
+    if (rebootTime) {
+      res["RebootTime"] = boost::any(*rebootTime);
+    }
+    if (rebootWhenFinished) {
+      res["RebootWhenFinished"] = boost::any(*rebootWhenFinished);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -78999,6 +79049,12 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("RebootTime") != m.end() && !m["RebootTime"].empty()) {
+      rebootTime = make_shared<string>(boost::any_cast<string>(m["RebootTime"]));
+    }
+    if (m.find("RebootWhenFinished") != m.end() && !m["RebootWhenFinished"].empty()) {
+      rebootWhenFinished = make_shared<bool>(boost::any_cast<bool>(m["RebootWhenFinished"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -88892,6 +88948,144 @@ public:
 
   virtual ~SwitchDBInstanceVpcResponse() = default;
 };
+class SwitchOverMajorVersionUpgradeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<vector<uint8_t>> regionId{};
+  shared_ptr<long> switchoverTimeout{};
+  shared_ptr<string> type{};
+
+  SwitchOverMajorVersionUpgradeRequest() {}
+
+  explicit SwitchOverMajorVersionUpgradeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (switchoverTimeout) {
+      res["SwitchoverTimeout"] = boost::any(*switchoverTimeout);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["RegionId"]));
+    }
+    if (m.find("SwitchoverTimeout") != m.end() && !m["SwitchoverTimeout"].empty()) {
+      switchoverTimeout = make_shared<long>(boost::any_cast<long>(m["SwitchoverTimeout"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~SwitchOverMajorVersionUpgradeRequest() = default;
+};
+class SwitchOverMajorVersionUpgradeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SwitchOverMajorVersionUpgradeResponseBody() {}
+
+  explicit SwitchOverMajorVersionUpgradeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SwitchOverMajorVersionUpgradeResponseBody() = default;
+};
+class SwitchOverMajorVersionUpgradeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SwitchOverMajorVersionUpgradeResponseBody> body{};
+
+  SwitchOverMajorVersionUpgradeResponse() {}
+
+  explicit SwitchOverMajorVersionUpgradeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SwitchOverMajorVersionUpgradeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SwitchOverMajorVersionUpgradeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SwitchOverMajorVersionUpgradeResponse() = default;
+};
 class SwitchReplicationLinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -91283,6 +91477,7 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> targetMajorVersion{};
+  shared_ptr<string> upgradeMode{};
 
   UpgradeDBInstanceMajorVersionPrecheckRequest() {}
 
@@ -91303,6 +91498,9 @@ public:
     if (targetMajorVersion) {
       res["TargetMajorVersion"] = boost::any(*targetMajorVersion);
     }
+    if (upgradeMode) {
+      res["UpgradeMode"] = boost::any(*upgradeMode);
+    }
     return res;
   }
 
@@ -91315,6 +91513,9 @@ public:
     }
     if (m.find("TargetMajorVersion") != m.end() && !m["TargetMajorVersion"].empty()) {
       targetMajorVersion = make_shared<string>(boost::any_cast<string>(m["TargetMajorVersion"]));
+    }
+    if (m.find("UpgradeMode") != m.end() && !m["UpgradeMode"].empty()) {
+      upgradeMode = make_shared<string>(boost::any_cast<string>(m["UpgradeMode"]));
     }
   }
 
@@ -92277,6 +92478,8 @@ public:
   SwitchDBInstanceNetTypeResponse switchDBInstanceNetType(shared_ptr<SwitchDBInstanceNetTypeRequest> request);
   SwitchDBInstanceVpcResponse switchDBInstanceVpcWithOptions(shared_ptr<SwitchDBInstanceVpcRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SwitchDBInstanceVpcResponse switchDBInstanceVpc(shared_ptr<SwitchDBInstanceVpcRequest> request);
+  SwitchOverMajorVersionUpgradeResponse switchOverMajorVersionUpgradeWithOptions(shared_ptr<SwitchOverMajorVersionUpgradeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SwitchOverMajorVersionUpgradeResponse switchOverMajorVersionUpgrade(shared_ptr<SwitchOverMajorVersionUpgradeRequest> request);
   SwitchReplicationLinkResponse switchReplicationLinkWithOptions(shared_ptr<SwitchReplicationLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SwitchReplicationLinkResponse switchReplicationLink(shared_ptr<SwitchReplicationLinkRequest> request);
   SyncRCKeyPairResponse syncRCKeyPairWithOptions(shared_ptr<SyncRCKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
