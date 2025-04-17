@@ -6774,9 +6774,11 @@ public:
   shared_ptr<string> format{};
   shared_ptr<double> height{};
   shared_ptr<double> interval{};
+  shared_ptr<string> mode{};
   shared_ptr<long> number{};
   shared_ptr<string> scaleType{};
   shared_ptr<double> startTime{};
+  shared_ptr<long> threshold{};
   shared_ptr<string> URI{};
   shared_ptr<double> width{};
 
@@ -6799,6 +6801,9 @@ public:
     if (interval) {
       res["Interval"] = boost::any(*interval);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
     if (number) {
       res["Number"] = boost::any(*number);
     }
@@ -6807,6 +6812,9 @@ public:
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
     }
     if (URI) {
       res["URI"] = boost::any(*URI);
@@ -6827,6 +6835,9 @@ public:
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<double>(boost::any_cast<double>(m["Interval"]));
     }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
     if (m.find("Number") != m.end() && !m["Number"].empty()) {
       number = make_shared<long>(boost::any_cast<long>(m["Number"]));
     }
@@ -6835,6 +6846,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<long>(boost::any_cast<long>(m["Threshold"]));
     }
     if (m.find("URI") != m.end() && !m["URI"].empty()) {
       URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
@@ -6852,12 +6866,14 @@ public:
   shared_ptr<string> format{};
   shared_ptr<double> interval{};
   shared_ptr<long> margin{};
+  shared_ptr<string> mode{};
   shared_ptr<long> number{};
   shared_ptr<long> pad{};
   shared_ptr<double> scaleHeight{};
   shared_ptr<string> scaleType{};
   shared_ptr<double> scaleWidth{};
   shared_ptr<double> startTime{};
+  shared_ptr<long> threshold{};
   shared_ptr<long> tileHeight{};
   shared_ptr<long> tileWidth{};
   shared_ptr<string> URI{};
@@ -6881,6 +6897,9 @@ public:
     if (margin) {
       res["Margin"] = boost::any(*margin);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
     if (number) {
       res["Number"] = boost::any(*number);
     }
@@ -6898,6 +6917,9 @@ public:
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
     }
     if (tileHeight) {
       res["TileHeight"] = boost::any(*tileHeight);
@@ -6921,6 +6943,9 @@ public:
     if (m.find("Margin") != m.end() && !m["Margin"].empty()) {
       margin = make_shared<long>(boost::any_cast<long>(m["Margin"]));
     }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
     if (m.find("Number") != m.end() && !m["Number"].empty()) {
       number = make_shared<long>(boost::any_cast<long>(m["Number"]));
     }
@@ -6938,6 +6963,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<long>(boost::any_cast<long>(m["Threshold"]));
     }
     if (m.find("TileHeight") != m.end() && !m["TileHeight"].empty()) {
       tileHeight = make_shared<long>(boost::any_cast<long>(m["TileHeight"]));
@@ -15028,6 +15056,10 @@ public:
 };
 class CreateMediaConvertTaskRequestSources : public Darabonba::Model {
 public:
+  shared_ptr<string> alignMode{};
+  shared_ptr<bool> attached{};
+  shared_ptr<bool> disableAudio{};
+  shared_ptr<bool> disableVideo{};
   shared_ptr<double> duration{};
   shared_ptr<double> startTime{};
   shared_ptr<vector<CreateMediaConvertTaskRequestSourcesSubtitles>> subtitles{};
@@ -15043,6 +15075,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alignMode) {
+      res["AlignMode"] = boost::any(*alignMode);
+    }
+    if (attached) {
+      res["Attached"] = boost::any(*attached);
+    }
+    if (disableAudio) {
+      res["DisableAudio"] = boost::any(*disableAudio);
+    }
+    if (disableVideo) {
+      res["DisableVideo"] = boost::any(*disableVideo);
+    }
     if (duration) {
       res["Duration"] = boost::any(*duration);
     }
@@ -15063,6 +15107,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlignMode") != m.end() && !m["AlignMode"].empty()) {
+      alignMode = make_shared<string>(boost::any_cast<string>(m["AlignMode"]));
+    }
+    if (m.find("Attached") != m.end() && !m["Attached"].empty()) {
+      attached = make_shared<bool>(boost::any_cast<bool>(m["Attached"]));
+    }
+    if (m.find("DisableAudio") != m.end() && !m["DisableAudio"].empty()) {
+      disableAudio = make_shared<bool>(boost::any_cast<bool>(m["DisableAudio"]));
+    }
+    if (m.find("DisableVideo") != m.end() && !m["DisableVideo"].empty()) {
+      disableVideo = make_shared<bool>(boost::any_cast<bool>(m["DisableVideo"]));
+    }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
     }
