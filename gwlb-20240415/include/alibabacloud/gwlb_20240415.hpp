@@ -856,6 +856,7 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scheduler{};
+  shared_ptr<string> serverFailoverMode{};
   shared_ptr<string> serverGroupName{};
   shared_ptr<string> serverGroupType{};
   shared_ptr<vector<CreateServerGroupRequestTag>> tag{};
@@ -891,6 +892,9 @@ public:
     }
     if (scheduler) {
       res["Scheduler"] = boost::any(*scheduler);
+    }
+    if (serverFailoverMode) {
+      res["ServerFailoverMode"] = boost::any(*serverFailoverMode);
     }
     if (serverGroupName) {
       res["ServerGroupName"] = boost::any(*serverGroupName);
@@ -940,6 +944,9 @@ public:
     }
     if (m.find("Scheduler") != m.end() && !m["Scheduler"].empty()) {
       scheduler = make_shared<string>(boost::any_cast<string>(m["Scheduler"]));
+    }
+    if (m.find("ServerFailoverMode") != m.end() && !m["ServerFailoverMode"].empty()) {
+      serverFailoverMode = make_shared<string>(boost::any_cast<string>(m["ServerFailoverMode"]));
     }
     if (m.find("ServerGroupName") != m.end() && !m["ServerGroupName"].empty()) {
       serverGroupName = make_shared<string>(boost::any_cast<string>(m["ServerGroupName"]));
@@ -2581,6 +2588,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<GetLoadBalancerAttributeResponseBodyTags>> tags{};
+  shared_ptr<string> trafficMode{};
   shared_ptr<string> vpcId{};
   shared_ptr<vector<GetLoadBalancerAttributeResponseBodyZoneMappings>> zoneMappings{};
 
@@ -2624,6 +2632,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (trafficMode) {
+      res["TrafficMode"] = boost::any(*trafficMode);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -2675,6 +2686,9 @@ public:
         }
         tags = make_shared<vector<GetLoadBalancerAttributeResponseBodyTags>>(expect1);
       }
+    }
+    if (m.find("TrafficMode") != m.end() && !m["TrafficMode"].empty()) {
+      trafficMode = make_shared<string>(boost::any_cast<string>(m["TrafficMode"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -3162,6 +3176,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> skip{};
   shared_ptr<vector<ListLoadBalancersRequestTag>> tag{};
+  shared_ptr<string> trafficMode{};
   shared_ptr<vector<string>> vpcIds{};
   shared_ptr<vector<string>> zoneIds{};
 
@@ -3208,6 +3223,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tag"] = boost::any(temp1);
+    }
+    if (trafficMode) {
+      res["TrafficMode"] = boost::any(*trafficMode);
     }
     if (vpcIds) {
       res["VpcIds"] = boost::any(*vpcIds);
@@ -3272,6 +3290,9 @@ public:
         }
         tag = make_shared<vector<ListLoadBalancersRequestTag>>(expect1);
       }
+    }
+    if (m.find("TrafficMode") != m.end() && !m["TrafficMode"].empty()) {
+      trafficMode = make_shared<string>(boost::any_cast<string>(m["TrafficMode"]));
     }
     if (m.find("VpcIds") != m.end() && !m["VpcIds"].empty()) {
       vector<string> toVec1;
@@ -4265,6 +4286,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scheduler{};
   shared_ptr<long> serverCount{};
+  shared_ptr<string> serverFailoverMode{};
   shared_ptr<string> serverGroupId{};
   shared_ptr<string> serverGroupName{};
   shared_ptr<string> serverGroupStatus{};
@@ -4305,6 +4327,9 @@ public:
     }
     if (serverCount) {
       res["ServerCount"] = boost::any(*serverCount);
+    }
+    if (serverFailoverMode) {
+      res["ServerFailoverMode"] = boost::any(*serverFailoverMode);
     }
     if (serverGroupId) {
       res["ServerGroupId"] = boost::any(*serverGroupId);
@@ -4370,6 +4395,9 @@ public:
     }
     if (m.find("ServerCount") != m.end() && !m["ServerCount"].empty()) {
       serverCount = make_shared<long>(boost::any_cast<long>(m["ServerCount"]));
+    }
+    if (m.find("ServerFailoverMode") != m.end() && !m["ServerFailoverMode"].empty()) {
+      serverFailoverMode = make_shared<string>(boost::any_cast<string>(m["ServerFailoverMode"]));
     }
     if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
       serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
@@ -5631,6 +5659,7 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<string> loadBalancerId{};
   shared_ptr<string> loadBalancerName{};
+  shared_ptr<string> trafficMode{};
 
   UpdateLoadBalancerAttributeRequest() {}
 
@@ -5654,6 +5683,9 @@ public:
     if (loadBalancerName) {
       res["LoadBalancerName"] = boost::any(*loadBalancerName);
     }
+    if (trafficMode) {
+      res["TrafficMode"] = boost::any(*trafficMode);
+    }
     return res;
   }
 
@@ -5669,6 +5701,9 @@ public:
     }
     if (m.find("LoadBalancerName") != m.end() && !m["LoadBalancerName"].empty()) {
       loadBalancerName = make_shared<string>(boost::any_cast<string>(m["LoadBalancerName"]));
+    }
+    if (m.find("TrafficMode") != m.end() && !m["TrafficMode"].empty()) {
+      trafficMode = make_shared<string>(boost::any_cast<string>(m["TrafficMode"]));
     }
   }
 
@@ -6079,6 +6114,7 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<UpdateServerGroupAttributeRequestHealthCheckConfig> healthCheckConfig{};
   shared_ptr<string> scheduler{};
+  shared_ptr<string> serverFailoverMode{};
   shared_ptr<string> serverGroupId{};
   shared_ptr<string> serverGroupName{};
 
@@ -6106,6 +6142,9 @@ public:
     }
     if (scheduler) {
       res["Scheduler"] = boost::any(*scheduler);
+    }
+    if (serverFailoverMode) {
+      res["ServerFailoverMode"] = boost::any(*serverFailoverMode);
     }
     if (serverGroupId) {
       res["ServerGroupId"] = boost::any(*serverGroupId);
@@ -6139,6 +6178,9 @@ public:
     }
     if (m.find("Scheduler") != m.end() && !m["Scheduler"].empty()) {
       scheduler = make_shared<string>(boost::any_cast<string>(m["Scheduler"]));
+    }
+    if (m.find("ServerFailoverMode") != m.end() && !m["ServerFailoverMode"].empty()) {
+      serverFailoverMode = make_shared<string>(boost::any_cast<string>(m["ServerFailoverMode"]));
     }
     if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
       serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));

@@ -16,7 +16,7 @@ using namespace std;
 using namespace Alibabacloud_Gwlb20240415;
 
 Alibabacloud_Gwlb20240415::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
-  _endpointRule = make_shared<string>("");
+  _endpointRule = make_shared<string>("regional");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("gwlb"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
 };
@@ -196,6 +196,9 @@ CreateServerGroupResponse Alibabacloud_Gwlb20240415::Client::createServerGroupWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scheduler)) {
     body->insert(pair<string, string>("Scheduler", *request->scheduler));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverFailoverMode)) {
+    body->insert(pair<string, string>("ServerFailoverMode", *request->serverFailoverMode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serverGroupName)) {
     body->insert(pair<string, string>("ServerGroupName", *request->serverGroupName));
@@ -566,6 +569,9 @@ ListLoadBalancersResponse Alibabacloud_Gwlb20240415::Client::listLoadBalancersWi
   }
   if (!Darabonba_Util::Client::isUnset<vector<ListLoadBalancersRequestTag>>(request->tag)) {
     bodyFlat->insert(pair<string, vector<ListLoadBalancersRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficMode)) {
+    body->insert(pair<string, string>("TrafficMode", *request->trafficMode));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vpcIds)) {
     bodyFlat->insert(pair<string, vector<string>>("VpcIds", *request->vpcIds));
@@ -958,6 +964,9 @@ UpdateLoadBalancerAttributeResponse Alibabacloud_Gwlb20240415::Client::updateLoa
   if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerName)) {
     body->insert(pair<string, string>("LoadBalancerName", *request->loadBalancerName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficMode)) {
+    body->insert(pair<string, string>("TrafficMode", *request->trafficMode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1037,6 +1046,9 @@ UpdateServerGroupAttributeResponse Alibabacloud_Gwlb20240415::Client::updateServ
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scheduler)) {
     body->insert(pair<string, string>("Scheduler", *request->scheduler));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverFailoverMode)) {
+    body->insert(pair<string, string>("ServerFailoverMode", *request->serverFailoverMode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serverGroupId)) {
     body->insert(pair<string, string>("ServerGroupId", *request->serverGroupId));
