@@ -3446,6 +3446,42 @@ public:
 
   virtual ~GetServiceResponseBodyServiceInfos() = default;
 };
+class GetServiceResponseBodySupportContacts : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  GetServiceResponseBodySupportContacts() {}
+
+  explicit GetServiceResponseBodySupportContacts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetServiceResponseBodySupportContacts() = default;
+};
 class GetServiceResponseBodyTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -3512,6 +3548,7 @@ public:
   shared_ptr<string> supplierName{};
   shared_ptr<long> supplierUid{};
   shared_ptr<string> supplierUrl{};
+  shared_ptr<vector<GetServiceResponseBodySupportContacts>> supportContacts{};
   shared_ptr<vector<GetServiceResponseBodyTags>> tags{};
   shared_ptr<string> tenantType{};
   shared_ptr<long> trialDuration{};
@@ -3624,6 +3661,13 @@ public:
     }
     if (supplierUrl) {
       res["SupplierUrl"] = boost::any(*supplierUrl);
+    }
+    if (supportContacts) {
+      vector<boost::any> temp1;
+      for(auto item1:*supportContacts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SupportContacts"] = boost::any(temp1);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -3768,6 +3812,19 @@ public:
     }
     if (m.find("SupplierUrl") != m.end() && !m["SupplierUrl"].empty()) {
       supplierUrl = make_shared<string>(boost::any_cast<string>(m["SupplierUrl"]));
+    }
+    if (m.find("SupportContacts") != m.end() && !m["SupportContacts"].empty()) {
+      if (typeid(vector<boost::any>) == m["SupportContacts"].type()) {
+        vector<GetServiceResponseBodySupportContacts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SupportContacts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetServiceResponseBodySupportContacts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        supportContacts = make_shared<vector<GetServiceResponseBodySupportContacts>>(expect1);
+      }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
