@@ -30840,6 +30840,7 @@ public:
   shared_ptr<string> sessionId{};
   shared_ptr<long> wordNumber{};
   shared_ptr<string> workspaceId{};
+  shared_ptr<string> referenceContent{};
 
   RunDocBrainmapRequest() {}
 
@@ -30872,6 +30873,9 @@ public:
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
+    if (referenceContent) {
+      res["referenceContent"] = boost::any(*referenceContent);
+    }
     return res;
   }
 
@@ -30896,6 +30900,9 @@ public:
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+    if (m.find("referenceContent") != m.end() && !m["referenceContent"].empty()) {
+      referenceContent = make_shared<string>(boost::any_cast<string>(m["referenceContent"]));
     }
   }
 
@@ -31201,6 +31208,7 @@ public:
   shared_ptr<string> sessionId{};
   shared_ptr<string> summaryPrompt{};
   shared_ptr<string> workspaceId{};
+  shared_ptr<string> referenceContent{};
 
   RunDocIntroductionRequest() {}
 
@@ -31233,6 +31241,9 @@ public:
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
+    if (referenceContent) {
+      res["referenceContent"] = boost::any(*referenceContent);
+    }
     return res;
   }
 
@@ -31257,6 +31268,9 @@ public:
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+    if (m.find("referenceContent") != m.end() && !m["referenceContent"].empty()) {
+      referenceContent = make_shared<string>(boost::any_cast<string>(m["referenceContent"]));
     }
   }
 
