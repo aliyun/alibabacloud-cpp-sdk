@@ -10713,6 +10713,11 @@ public:
 class CreateOriginRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dnsRecord{};
+  shared_ptr<string> follow302Enable{};
+  shared_ptr<string> follow302MaxTries{};
+  shared_ptr<string> follow302RetainArgs{};
+  shared_ptr<string> follow302RetainHeader{};
+  shared_ptr<string> follow302TargetHost{};
   shared_ptr<string> originHost{};
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
@@ -10742,6 +10747,21 @@ public:
     map<string, boost::any> res;
     if (dnsRecord) {
       res["DnsRecord"] = boost::any(*dnsRecord);
+    }
+    if (follow302Enable) {
+      res["Follow302Enable"] = boost::any(*follow302Enable);
+    }
+    if (follow302MaxTries) {
+      res["Follow302MaxTries"] = boost::any(*follow302MaxTries);
+    }
+    if (follow302RetainArgs) {
+      res["Follow302RetainArgs"] = boost::any(*follow302RetainArgs);
+    }
+    if (follow302RetainHeader) {
+      res["Follow302RetainHeader"] = boost::any(*follow302RetainHeader);
+    }
+    if (follow302TargetHost) {
+      res["Follow302TargetHost"] = boost::any(*follow302TargetHost);
     }
     if (originHost) {
       res["OriginHost"] = boost::any(*originHost);
@@ -10797,6 +10817,21 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DnsRecord") != m.end() && !m["DnsRecord"].empty()) {
       dnsRecord = make_shared<string>(boost::any_cast<string>(m["DnsRecord"]));
+    }
+    if (m.find("Follow302Enable") != m.end() && !m["Follow302Enable"].empty()) {
+      follow302Enable = make_shared<string>(boost::any_cast<string>(m["Follow302Enable"]));
+    }
+    if (m.find("Follow302MaxTries") != m.end() && !m["Follow302MaxTries"].empty()) {
+      follow302MaxTries = make_shared<string>(boost::any_cast<string>(m["Follow302MaxTries"]));
+    }
+    if (m.find("Follow302RetainArgs") != m.end() && !m["Follow302RetainArgs"].empty()) {
+      follow302RetainArgs = make_shared<string>(boost::any_cast<string>(m["Follow302RetainArgs"]));
+    }
+    if (m.find("Follow302RetainHeader") != m.end() && !m["Follow302RetainHeader"].empty()) {
+      follow302RetainHeader = make_shared<string>(boost::any_cast<string>(m["Follow302RetainHeader"]));
+    }
+    if (m.find("Follow302TargetHost") != m.end() && !m["Follow302TargetHost"].empty()) {
+      follow302TargetHost = make_shared<string>(boost::any_cast<string>(m["Follow302TargetHost"]));
     }
     if (m.find("OriginHost") != m.end() && !m["OriginHost"].empty()) {
       originHost = make_shared<string>(boost::any_cast<string>(m["OriginHost"]));
@@ -34940,6 +34975,11 @@ public:
   shared_ptr<long> configId{};
   shared_ptr<string> configType{};
   shared_ptr<string> dnsRecord{};
+  shared_ptr<string> follow302Enable{};
+  shared_ptr<string> follow302MaxTries{};
+  shared_ptr<string> follow302RetainArgs{};
+  shared_ptr<string> follow302RetainHeader{};
+  shared_ptr<string> follow302TargetHost{};
   shared_ptr<string> originHost{};
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
@@ -34975,6 +35015,21 @@ public:
     }
     if (dnsRecord) {
       res["DnsRecord"] = boost::any(*dnsRecord);
+    }
+    if (follow302Enable) {
+      res["Follow302Enable"] = boost::any(*follow302Enable);
+    }
+    if (follow302MaxTries) {
+      res["Follow302MaxTries"] = boost::any(*follow302MaxTries);
+    }
+    if (follow302RetainArgs) {
+      res["Follow302RetainArgs"] = boost::any(*follow302RetainArgs);
+    }
+    if (follow302RetainHeader) {
+      res["Follow302RetainHeader"] = boost::any(*follow302RetainHeader);
+    }
+    if (follow302TargetHost) {
+      res["Follow302TargetHost"] = boost::any(*follow302TargetHost);
     }
     if (originHost) {
       res["OriginHost"] = boost::any(*originHost);
@@ -35036,6 +35091,21 @@ public:
     }
     if (m.find("DnsRecord") != m.end() && !m["DnsRecord"].empty()) {
       dnsRecord = make_shared<string>(boost::any_cast<string>(m["DnsRecord"]));
+    }
+    if (m.find("Follow302Enable") != m.end() && !m["Follow302Enable"].empty()) {
+      follow302Enable = make_shared<string>(boost::any_cast<string>(m["Follow302Enable"]));
+    }
+    if (m.find("Follow302MaxTries") != m.end() && !m["Follow302MaxTries"].empty()) {
+      follow302MaxTries = make_shared<string>(boost::any_cast<string>(m["Follow302MaxTries"]));
+    }
+    if (m.find("Follow302RetainArgs") != m.end() && !m["Follow302RetainArgs"].empty()) {
+      follow302RetainArgs = make_shared<string>(boost::any_cast<string>(m["Follow302RetainArgs"]));
+    }
+    if (m.find("Follow302RetainHeader") != m.end() && !m["Follow302RetainHeader"].empty()) {
+      follow302RetainHeader = make_shared<string>(boost::any_cast<string>(m["Follow302RetainHeader"]));
+    }
+    if (m.find("Follow302TargetHost") != m.end() && !m["Follow302TargetHost"].empty()) {
+      follow302TargetHost = make_shared<string>(boost::any_cast<string>(m["Follow302TargetHost"]));
     }
     if (m.find("OriginHost") != m.end() && !m["OriginHost"].empty()) {
       originHost = make_shared<string>(boost::any_cast<string>(m["OriginHost"]));
@@ -40732,6 +40802,7 @@ public:
   shared_ptr<string> phase{};
   shared_ptr<long> position{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> rulesetId{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -40762,6 +40833,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (rulesetId) {
+      res["RulesetId"] = boost::any(*rulesetId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -40794,6 +40868,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RulesetId") != m.end() && !m["RulesetId"].empty()) {
+      rulesetId = make_shared<long>(boost::any_cast<long>(m["RulesetId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -51109,6 +51186,11 @@ public:
   shared_ptr<long> configId{};
   shared_ptr<string> configType{};
   shared_ptr<string> dnsRecord{};
+  shared_ptr<string> follow302Enable{};
+  shared_ptr<string> follow302MaxTries{};
+  shared_ptr<string> follow302RetainArgs{};
+  shared_ptr<string> follow302RetainHeader{};
+  shared_ptr<string> follow302TargetHost{};
   shared_ptr<string> originHost{};
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
@@ -51143,6 +51225,21 @@ public:
     }
     if (dnsRecord) {
       res["DnsRecord"] = boost::any(*dnsRecord);
+    }
+    if (follow302Enable) {
+      res["Follow302Enable"] = boost::any(*follow302Enable);
+    }
+    if (follow302MaxTries) {
+      res["Follow302MaxTries"] = boost::any(*follow302MaxTries);
+    }
+    if (follow302RetainArgs) {
+      res["Follow302RetainArgs"] = boost::any(*follow302RetainArgs);
+    }
+    if (follow302RetainHeader) {
+      res["Follow302RetainHeader"] = boost::any(*follow302RetainHeader);
+    }
+    if (follow302TargetHost) {
+      res["Follow302TargetHost"] = boost::any(*follow302TargetHost);
     }
     if (originHost) {
       res["OriginHost"] = boost::any(*originHost);
@@ -51201,6 +51298,21 @@ public:
     }
     if (m.find("DnsRecord") != m.end() && !m["DnsRecord"].empty()) {
       dnsRecord = make_shared<string>(boost::any_cast<string>(m["DnsRecord"]));
+    }
+    if (m.find("Follow302Enable") != m.end() && !m["Follow302Enable"].empty()) {
+      follow302Enable = make_shared<string>(boost::any_cast<string>(m["Follow302Enable"]));
+    }
+    if (m.find("Follow302MaxTries") != m.end() && !m["Follow302MaxTries"].empty()) {
+      follow302MaxTries = make_shared<string>(boost::any_cast<string>(m["Follow302MaxTries"]));
+    }
+    if (m.find("Follow302RetainArgs") != m.end() && !m["Follow302RetainArgs"].empty()) {
+      follow302RetainArgs = make_shared<string>(boost::any_cast<string>(m["Follow302RetainArgs"]));
+    }
+    if (m.find("Follow302RetainHeader") != m.end() && !m["Follow302RetainHeader"].empty()) {
+      follow302RetainHeader = make_shared<string>(boost::any_cast<string>(m["Follow302RetainHeader"]));
+    }
+    if (m.find("Follow302TargetHost") != m.end() && !m["Follow302TargetHost"].empty()) {
+      follow302TargetHost = make_shared<string>(boost::any_cast<string>(m["Follow302TargetHost"]));
     }
     if (m.find("OriginHost") != m.end() && !m["OriginHost"].empty()) {
       originHost = make_shared<string>(boost::any_cast<string>(m["OriginHost"]));
@@ -67664,6 +67776,11 @@ class UpdateOriginRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<long> configId{};
   shared_ptr<string> dnsRecord{};
+  shared_ptr<string> follow302Enable{};
+  shared_ptr<string> follow302MaxTries{};
+  shared_ptr<string> follow302RetainArgs{};
+  shared_ptr<string> follow302RetainHeader{};
+  shared_ptr<string> follow302TargetHost{};
   shared_ptr<string> originHost{};
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
@@ -67695,6 +67812,21 @@ public:
     }
     if (dnsRecord) {
       res["DnsRecord"] = boost::any(*dnsRecord);
+    }
+    if (follow302Enable) {
+      res["Follow302Enable"] = boost::any(*follow302Enable);
+    }
+    if (follow302MaxTries) {
+      res["Follow302MaxTries"] = boost::any(*follow302MaxTries);
+    }
+    if (follow302RetainArgs) {
+      res["Follow302RetainArgs"] = boost::any(*follow302RetainArgs);
+    }
+    if (follow302RetainHeader) {
+      res["Follow302RetainHeader"] = boost::any(*follow302RetainHeader);
+    }
+    if (follow302TargetHost) {
+      res["Follow302TargetHost"] = boost::any(*follow302TargetHost);
     }
     if (originHost) {
       res["OriginHost"] = boost::any(*originHost);
@@ -67750,6 +67882,21 @@ public:
     }
     if (m.find("DnsRecord") != m.end() && !m["DnsRecord"].empty()) {
       dnsRecord = make_shared<string>(boost::any_cast<string>(m["DnsRecord"]));
+    }
+    if (m.find("Follow302Enable") != m.end() && !m["Follow302Enable"].empty()) {
+      follow302Enable = make_shared<string>(boost::any_cast<string>(m["Follow302Enable"]));
+    }
+    if (m.find("Follow302MaxTries") != m.end() && !m["Follow302MaxTries"].empty()) {
+      follow302MaxTries = make_shared<string>(boost::any_cast<string>(m["Follow302MaxTries"]));
+    }
+    if (m.find("Follow302RetainArgs") != m.end() && !m["Follow302RetainArgs"].empty()) {
+      follow302RetainArgs = make_shared<string>(boost::any_cast<string>(m["Follow302RetainArgs"]));
+    }
+    if (m.find("Follow302RetainHeader") != m.end() && !m["Follow302RetainHeader"].empty()) {
+      follow302RetainHeader = make_shared<string>(boost::any_cast<string>(m["Follow302RetainHeader"]));
+    }
+    if (m.find("Follow302TargetHost") != m.end() && !m["Follow302TargetHost"].empty()) {
+      follow302TargetHost = make_shared<string>(boost::any_cast<string>(m["Follow302TargetHost"]));
     }
     if (m.find("OriginHost") != m.end() && !m["OriginHost"].empty()) {
       originHost = make_shared<string>(boost::any_cast<string>(m["OriginHost"]));
