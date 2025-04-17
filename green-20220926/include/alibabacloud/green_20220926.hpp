@@ -6577,7 +6577,7 @@ public:
 class GetCipStatsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<GetCipStatsResponseBodyDataLabelStatChart>> labelStatChart{};
-  shared_ptr<map<string, boost::any>> totalStat{};
+  shared_ptr<map<string, map<string, boost::any>>> totalStat{};
   shared_ptr<vector<string>> uids{};
   shared_ptr<vector<string>> x{};
   shared_ptr<vector<GetCipStatsResponseBodyDataY>> y{};
@@ -6641,12 +6641,17 @@ public:
       }
     }
     if (m.find("TotalStat") != m.end() && !m["TotalStat"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TotalStat"]);
-      map<string, boost::any> toMap1;
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["TotalStat"]);
+      map<string, map<string, boost::any>> toMap1;
       for (auto item:map1) {
-         toMap1[item.first] = item.second;
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
       }
-      totalStat = make_shared<map<string, boost::any>>(toMap1);
+      totalStat = make_shared<map<string, map<string, boost::any>>>(toMap1);
     }
     if (m.find("Uids") != m.end() && !m["Uids"].empty()) {
       vector<string> toVec1;
