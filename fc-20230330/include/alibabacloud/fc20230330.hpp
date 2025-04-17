@@ -2902,6 +2902,118 @@ public:
 
   virtual ~DeliveryOption() = default;
 };
+class DescribeRegionsOutputRegionsRegion : public Darabonba::Model {
+public:
+  shared_ptr<string> localName{};
+  shared_ptr<string> regionId{};
+
+  DescribeRegionsOutputRegionsRegion() {}
+
+  explicit DescribeRegionsOutputRegionsRegion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (localName) {
+      res["LocalName"] = boost::any(*localName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
+      localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeRegionsOutputRegionsRegion() = default;
+};
+class DescribeRegionsOutputRegions : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeRegionsOutputRegionsRegion>> region{};
+
+  DescribeRegionsOutputRegions() {}
+
+  explicit DescribeRegionsOutputRegions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (region) {
+      vector<boost::any> temp1;
+      for(auto item1:*region){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Region"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      if (typeid(vector<boost::any>) == m["Region"].type()) {
+        vector<DescribeRegionsOutputRegionsRegion> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Region"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRegionsOutputRegionsRegion model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        region = make_shared<vector<DescribeRegionsOutputRegionsRegion>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRegionsOutputRegions() = default;
+};
+class DescribeRegionsOutput : public Darabonba::Model {
+public:
+  shared_ptr<DescribeRegionsOutputRegions> regions{};
+
+  DescribeRegionsOutput() {}
+
+  explicit DescribeRegionsOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regions) {
+      res["Regions"] = regions ? boost::any(regions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Regions"].type()) {
+        DescribeRegionsOutputRegions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Regions"]));
+        regions = make_shared<DescribeRegionsOutputRegions>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRegionsOutput() = default;
+};
 class Error : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
@@ -3789,15 +3901,15 @@ public:
 
   virtual ~Filter() = default;
 };
-class OpenStructFunctionRestriction : public Darabonba::Model {
+class FunctionRestriction : public Darabonba::Model {
 public:
   shared_ptr<bool> disable{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> reason{};
 
-  OpenStructFunctionRestriction() {}
+  FunctionRestriction() {}
 
-  explicit OpenStructFunctionRestriction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit FunctionRestriction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -3830,7 +3942,7 @@ public:
   }
 
 
-  virtual ~OpenStructFunctionRestriction() = default;
+  virtual ~FunctionRestriction() = default;
 };
 class FunctionLayer : public Darabonba::Model {
 public:
@@ -3889,7 +4001,7 @@ public:
   shared_ptr<long> instanceConcurrency{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
   shared_ptr<bool> internetAccess{};
-  shared_ptr<OpenStructFunctionRestriction> invocationRestriction{};
+  shared_ptr<FunctionRestriction> invocationRestriction{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> lastUpdateStatus{};
   shared_ptr<string> lastUpdateStatusReason{};
@@ -4129,9 +4241,9 @@ public:
     }
     if (m.find("invocationRestriction") != m.end() && !m["invocationRestriction"].empty()) {
       if (typeid(map<string, boost::any>) == m["invocationRestriction"].type()) {
-        OpenStructFunctionRestriction model1;
+        FunctionRestriction model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["invocationRestriction"]));
-        invocationRestriction = make_shared<OpenStructFunctionRestriction>(model1);
+        invocationRestriction = make_shared<FunctionRestriction>(model1);
       }
     }
     if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
@@ -7063,118 +7175,6 @@ public:
 
   virtual ~UpdateTriggerInput() = default;
 };
-class OpenStructDescribeRegionsOutputRegionsRegion : public Darabonba::Model {
-public:
-  shared_ptr<string> localName{};
-  shared_ptr<string> regionId{};
-
-  OpenStructDescribeRegionsOutputRegionsRegion() {}
-
-  explicit OpenStructDescribeRegionsOutputRegionsRegion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (localName) {
-      res["LocalName"] = boost::any(*localName);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
-      localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-  }
-
-
-  virtual ~OpenStructDescribeRegionsOutputRegionsRegion() = default;
-};
-class OpenStructDescribeRegionsOutputRegions : public Darabonba::Model {
-public:
-  shared_ptr<vector<OpenStructDescribeRegionsOutputRegionsRegion>> region{};
-
-  OpenStructDescribeRegionsOutputRegions() {}
-
-  explicit OpenStructDescribeRegionsOutputRegions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (region) {
-      vector<boost::any> temp1;
-      for(auto item1:*region){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Region"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Region") != m.end() && !m["Region"].empty()) {
-      if (typeid(vector<boost::any>) == m["Region"].type()) {
-        vector<OpenStructDescribeRegionsOutputRegionsRegion> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Region"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            OpenStructDescribeRegionsOutputRegionsRegion model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        region = make_shared<vector<OpenStructDescribeRegionsOutputRegionsRegion>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~OpenStructDescribeRegionsOutputRegions() = default;
-};
-class OpenStructDescribeRegionsOutput : public Darabonba::Model {
-public:
-  shared_ptr<OpenStructDescribeRegionsOutputRegions> regions{};
-
-  OpenStructDescribeRegionsOutput() {}
-
-  explicit OpenStructDescribeRegionsOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (regions) {
-      res["Regions"] = regions ? boost::any(regions->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Regions"].type()) {
-        OpenStructDescribeRegionsOutputRegions model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Regions"]));
-        regions = make_shared<OpenStructDescribeRegionsOutputRegions>(model1);
-      }
-    }
-  }
-
-
-  virtual ~OpenStructDescribeRegionsOutput() = default;
-};
 class CreateAliasRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateAliasInput> body{};
@@ -8175,7 +8175,7 @@ class DescribeRegionsResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
-  shared_ptr<OpenStructDescribeRegionsOutput> body{};
+  shared_ptr<DescribeRegionsOutput> body{};
 
   DescribeRegionsResponse() {}
 
@@ -8213,9 +8213,9 @@ public:
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
-        OpenStructDescribeRegionsOutput model1;
+        DescribeRegionsOutput model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<OpenStructDescribeRegionsOutput>(model1);
+        body = make_shared<DescribeRegionsOutput>(model1);
       }
     }
   }
