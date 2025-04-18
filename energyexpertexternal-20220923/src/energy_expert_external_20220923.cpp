@@ -68,12 +68,7 @@ AnalyzeVlRealtimeResponse Alibabacloud_EnergyExpertExternal20220923::Client::ana
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AnalyzeVlRealtimeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AnalyzeVlRealtimeResponse(execute(params, req, runtime));
-  }
+  return AnalyzeVlRealtimeResponse(callApi(params, req, runtime));
 }
 
 AnalyzeVlRealtimeResponse Alibabacloud_EnergyExpertExternal20220923::Client::analyzeVlRealtime(shared_ptr<AnalyzeVlRealtimeRequest> request) {
@@ -181,12 +176,7 @@ BatchSaveInstructionStatusResponse Alibabacloud_EnergyExpertExternal20220923::Cl
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return BatchSaveInstructionStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return BatchSaveInstructionStatusResponse(execute(params, req, runtime));
-  }
+  return BatchSaveInstructionStatusResponse(callApi(params, req, runtime));
 }
 
 BatchSaveInstructionStatusResponse Alibabacloud_EnergyExpertExternal20220923::Client::batchSaveInstructionStatus(shared_ptr<BatchSaveInstructionStatusRequest> request) {
@@ -255,12 +245,7 @@ BatchUpdateSystemRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return BatchUpdateSystemRunningPlanResponse(callApi(params, req, runtime));
-  }
-  else {
-    return BatchUpdateSystemRunningPlanResponse(execute(params, req, runtime));
-  }
+  return BatchUpdateSystemRunningPlanResponse(callApi(params, req, runtime));
 }
 
 BatchUpdateSystemRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::Client::batchUpdateSystemRunningPlan(shared_ptr<BatchUpdateSystemRunningPlanRequest> request) {
@@ -296,12 +281,7 @@ EditProhibitedDevicesResponse Alibabacloud_EnergyExpertExternal20220923::Client:
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return EditProhibitedDevicesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return EditProhibitedDevicesResponse(execute(params, req, runtime));
-  }
+  return EditProhibitedDevicesResponse(callApi(params, req, runtime));
 }
 
 EditProhibitedDevicesResponse Alibabacloud_EnergyExpertExternal20220923::Client::editProhibitedDevices(shared_ptr<EditProhibitedDevicesRequest> request) {
@@ -337,12 +317,7 @@ EditUnfavorableAreaDevicesResponse Alibabacloud_EnergyExpertExternal20220923::Cl
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return EditUnfavorableAreaDevicesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return EditUnfavorableAreaDevicesResponse(execute(params, req, runtime));
-  }
+  return EditUnfavorableAreaDevicesResponse(callApi(params, req, runtime));
 }
 
 EditUnfavorableAreaDevicesResponse Alibabacloud_EnergyExpertExternal20220923::Client::editUnfavorableAreaDevices(shared_ptr<EditUnfavorableAreaDevicesRequest> request) {
@@ -378,12 +353,7 @@ GenerateResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::genera
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GenerateResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GenerateResultResponse(execute(params, req, runtime));
-  }
+  return GenerateResultResponse(callApi(params, req, runtime));
 }
 
 GenerateResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::generateResult(shared_ptr<GenerateResultRequest> request) {
@@ -416,12 +386,7 @@ GetAreaElecConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client:
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAreaElecConstituteResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAreaElecConstituteResponse(execute(params, req, runtime));
-  }
+  return GetAreaElecConstituteResponse(callApi(params, req, runtime));
 }
 
 GetAreaElecConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getAreaElecConstitute(shared_ptr<GetAreaElecConstituteRequest> request) {
@@ -463,12 +428,7 @@ GetCarbonEmissionTrendResponse Alibabacloud_EnergyExpertExternal20220923::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetCarbonEmissionTrendResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetCarbonEmissionTrendResponse(execute(params, req, runtime));
-  }
+  return GetCarbonEmissionTrendResponse(callApi(params, req, runtime));
 }
 
 GetCarbonEmissionTrendResponse Alibabacloud_EnergyExpertExternal20220923::Client::getCarbonEmissionTrend(shared_ptr<GetCarbonEmissionTrendRequest> request) {
@@ -498,12 +458,7 @@ GetDataItemListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDa
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDataItemListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDataItemListResponse(execute(params, req, runtime));
-  }
+  return GetDataItemListResponse(callApi(params, req, runtime));
 }
 
 GetDataItemListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDataItemList(shared_ptr<GetDataItemListRequest> request) {
@@ -542,12 +497,7 @@ GetDataQualityAnalysisResponse Alibabacloud_EnergyExpertExternal20220923::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDataQualityAnalysisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDataQualityAnalysisResponse(execute(params, req, runtime));
-  }
+  return GetDataQualityAnalysisResponse(callApi(params, req, runtime));
 }
 
 GetDataQualityAnalysisResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDataQualityAnalysis(shared_ptr<GetDataQualityAnalysisRequest> request) {
@@ -583,12 +533,7 @@ GetDeviceInfoResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDevi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDeviceInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDeviceInfoResponse(execute(params, req, runtime));
-  }
+  return GetDeviceInfoResponse(callApi(params, req, runtime));
 }
 
 GetDeviceInfoResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDeviceInfo(shared_ptr<GetDeviceInfoRequest> request) {
@@ -618,18 +563,76 @@ GetDeviceListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDevi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDeviceListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDeviceListResponse(execute(params, req, runtime));
-  }
+  return GetDeviceListResponse(callApi(params, req, runtime));
 }
 
 GetDeviceListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDeviceList(shared_ptr<GetDeviceListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getDeviceListWithOptions(request, headers, runtime);
+}
+
+GetDocExtractionResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDocExtractionResultWithOptions(shared_ptr<GetDocExtractionResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDocExtractionResult"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/aidoc/document/getDocExtractionResult"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDocExtractionResultResponse(callApi(params, req, runtime));
+}
+
+GetDocExtractionResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDocExtractionResult(shared_ptr<GetDocExtractionResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getDocExtractionResultWithOptions(request, headers, runtime);
+}
+
+GetDocParsingResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDocParsingResultWithOptions(shared_ptr<GetDocParsingResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->returnFormat)) {
+    body->insert(pair<string, string>("returnFormat", *request->returnFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDocParsingResult"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/aidoc/document/getDocParsingResult"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDocParsingResultResponse(callApi(params, req, runtime));
+}
+
+GetDocParsingResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDocParsingResult(shared_ptr<GetDocParsingResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getDocParsingResultWithOptions(request, headers, runtime);
 }
 
 GetDocumentAnalyzeResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDocumentAnalyzeResultWithOptions(shared_ptr<GetDocumentAnalyzeResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -653,12 +656,7 @@ GetDocumentAnalyzeResultResponse Alibabacloud_EnergyExpertExternal20220923::Clie
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDocumentAnalyzeResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDocumentAnalyzeResultResponse(execute(params, req, runtime));
-  }
+  return GetDocumentAnalyzeResultResponse(callApi(params, req, runtime));
 }
 
 GetDocumentAnalyzeResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::getDocumentAnalyzeResult(shared_ptr<GetDocumentAnalyzeResultRequest> request) {
@@ -691,12 +689,7 @@ GetElecConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::get
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetElecConstituteResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetElecConstituteResponse(execute(params, req, runtime));
-  }
+  return GetElecConstituteResponse(callApi(params, req, runtime));
 }
 
 GetElecConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getElecConstitute(shared_ptr<GetElecConstituteRequest> request) {
@@ -729,12 +722,7 @@ GetElecTrendResponse Alibabacloud_EnergyExpertExternal20220923::Client::getElecT
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetElecTrendResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetElecTrendResponse(execute(params, req, runtime));
-  }
+  return GetElecTrendResponse(callApi(params, req, runtime));
 }
 
 GetElecTrendResponse Alibabacloud_EnergyExpertExternal20220923::Client::getElecTrend(shared_ptr<GetElecTrendRequest> request) {
@@ -773,12 +761,7 @@ GetEmissionSourceConstituteResponse Alibabacloud_EnergyExpertExternal20220923::C
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetEmissionSourceConstituteResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetEmissionSourceConstituteResponse(execute(params, req, runtime));
-  }
+  return GetEmissionSourceConstituteResponse(callApi(params, req, runtime));
 }
 
 GetEmissionSourceConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getEmissionSourceConstitute(shared_ptr<GetEmissionSourceConstituteRequest> request) {
@@ -817,12 +800,7 @@ GetEmissionSummaryResponse Alibabacloud_EnergyExpertExternal20220923::Client::ge
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetEmissionSummaryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetEmissionSummaryResponse(execute(params, req, runtime));
-  }
+  return GetEmissionSummaryResponse(callApi(params, req, runtime));
 }
 
 GetEmissionSummaryResponse Alibabacloud_EnergyExpertExternal20220923::Client::getEmissionSummary(shared_ptr<GetEmissionSummaryRequest> request) {
@@ -858,12 +836,7 @@ GetEpdInventoryConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Cli
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetEpdInventoryConstituteResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetEpdInventoryConstituteResponse(execute(params, req, runtime));
-  }
+  return GetEpdInventoryConstituteResponse(callApi(params, req, runtime));
 }
 
 GetEpdInventoryConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getEpdInventoryConstitute(shared_ptr<GetEpdInventoryConstituteRequest> request) {
@@ -899,12 +872,7 @@ GetEpdSummaryResponse Alibabacloud_EnergyExpertExternal20220923::Client::getEpdS
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetEpdSummaryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetEpdSummaryResponse(execute(params, req, runtime));
-  }
+  return GetEpdSummaryResponse(callApi(params, req, runtime));
 }
 
 GetEpdSummaryResponse Alibabacloud_EnergyExpertExternal20220923::Client::getEpdSummary(shared_ptr<GetEpdSummaryRequest> request) {
@@ -943,12 +911,7 @@ GetFootprintListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getF
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetFootprintListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetFootprintListResponse(execute(params, req, runtime));
-  }
+  return GetFootprintListResponse(callApi(params, req, runtime));
 }
 
 GetFootprintListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getFootprintList(shared_ptr<GetFootprintListRequest> request) {
@@ -987,12 +950,7 @@ GetGasConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getG
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetGasConstituteResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetGasConstituteResponse(execute(params, req, runtime));
-  }
+  return GetGasConstituteResponse(callApi(params, req, runtime));
 }
 
 GetGasConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getGasConstitute(shared_ptr<GetGasConstituteRequest> request) {
@@ -1028,12 +986,7 @@ GetGwpBenchmarkListResponse Alibabacloud_EnergyExpertExternal20220923::Client::g
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetGwpBenchmarkListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetGwpBenchmarkListResponse(execute(params, req, runtime));
-  }
+  return GetGwpBenchmarkListResponse(callApi(params, req, runtime));
 }
 
 GetGwpBenchmarkListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getGwpBenchmarkList(shared_ptr<GetGwpBenchmarkListRequest> request) {
@@ -1069,12 +1022,7 @@ GetGwpBenchmarkSummaryResponse Alibabacloud_EnergyExpertExternal20220923::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetGwpBenchmarkSummaryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetGwpBenchmarkSummaryResponse(execute(params, req, runtime));
-  }
+  return GetGwpBenchmarkSummaryResponse(callApi(params, req, runtime));
 }
 
 GetGwpBenchmarkSummaryResponse Alibabacloud_EnergyExpertExternal20220923::Client::getGwpBenchmarkSummary(shared_ptr<GetGwpBenchmarkSummaryRequest> request) {
@@ -1110,12 +1058,7 @@ GetGwpInventoryConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Cli
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetGwpInventoryConstituteResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetGwpInventoryConstituteResponse(execute(params, req, runtime));
-  }
+  return GetGwpInventoryConstituteResponse(callApi(params, req, runtime));
 }
 
 GetGwpInventoryConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getGwpInventoryConstitute(shared_ptr<GetGwpInventoryConstituteRequest> request) {
@@ -1151,12 +1094,7 @@ GetGwpInventorySummaryResponse Alibabacloud_EnergyExpertExternal20220923::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetGwpInventorySummaryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetGwpInventorySummaryResponse(execute(params, req, runtime));
-  }
+  return GetGwpInventorySummaryResponse(callApi(params, req, runtime));
 }
 
 GetGwpInventorySummaryResponse Alibabacloud_EnergyExpertExternal20220923::Client::getGwpInventorySummary(shared_ptr<GetGwpInventorySummaryRequest> request) {
@@ -1201,12 +1139,7 @@ GetInventoryListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getI
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetInventoryListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetInventoryListResponse(execute(params, req, runtime));
-  }
+  return GetInventoryListResponse(callApi(params, req, runtime));
 }
 
 GetInventoryListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getInventoryList(shared_ptr<GetInventoryListRequest> request) {
@@ -1230,12 +1163,7 @@ GetOrgAndFactoryResponse Alibabacloud_EnergyExpertExternal20220923::Client::getO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetOrgAndFactoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetOrgAndFactoryResponse(execute(params, req, runtime));
-  }
+  return GetOrgAndFactoryResponse(callApi(params, req, runtime));
 }
 
 GetOrgAndFactoryResponse Alibabacloud_EnergyExpertExternal20220923::Client::getOrgAndFactory() {
@@ -1274,12 +1202,7 @@ GetOrgConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetOrgConstituteResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetOrgConstituteResponse(execute(params, req, runtime));
-  }
+  return GetOrgConstituteResponse(callApi(params, req, runtime));
 }
 
 GetOrgConstituteResponse Alibabacloud_EnergyExpertExternal20220923::Client::getOrgConstitute(shared_ptr<GetOrgConstituteRequest> request) {
@@ -1315,12 +1238,7 @@ GetPcrInfoResponse Alibabacloud_EnergyExpertExternal20220923::Client::getPcrInfo
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetPcrInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetPcrInfoResponse(execute(params, req, runtime));
-  }
+  return GetPcrInfoResponse(callApi(params, req, runtime));
 }
 
 GetPcrInfoResponse Alibabacloud_EnergyExpertExternal20220923::Client::getPcrInfo(shared_ptr<GetPcrInfoRequest> request) {
@@ -1359,18 +1277,43 @@ GetReductionProposalResponse Alibabacloud_EnergyExpertExternal20220923::Client::
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetReductionProposalResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetReductionProposalResponse(execute(params, req, runtime));
-  }
+  return GetReductionProposalResponse(callApi(params, req, runtime));
 }
 
 GetReductionProposalResponse Alibabacloud_EnergyExpertExternal20220923::Client::getReductionProposal(shared_ptr<GetReductionProposalRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getReductionProposalWithOptions(request, headers, runtime);
+}
+
+GetVLExtractionResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::getVLExtractionResultWithOptions(shared_ptr<GetVLExtractionResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetVLExtractionResult"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/aidoc/document/getVLExtractionResult"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetVLExtractionResultResponse(callApi(params, req, runtime));
+}
+
+GetVLExtractionResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::getVLExtractionResult(shared_ptr<GetVLExtractionResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getVLExtractionResultWithOptions(request, headers, runtime);
 }
 
 IsCompletedResponse Alibabacloud_EnergyExpertExternal20220923::Client::isCompletedWithOptions(shared_ptr<IsCompletedRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1400,12 +1343,7 @@ IsCompletedResponse Alibabacloud_EnergyExpertExternal20220923::Client::isComplet
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return IsCompletedResponse(callApi(params, req, runtime));
-  }
-  else {
-    return IsCompletedResponse(execute(params, req, runtime));
-  }
+  return IsCompletedResponse(callApi(params, req, runtime));
 }
 
 IsCompletedResponse Alibabacloud_EnergyExpertExternal20220923::Client::isCompleted(shared_ptr<IsCompletedRequest> request) {
@@ -1438,12 +1376,7 @@ PushDeviceDataResponse Alibabacloud_EnergyExpertExternal20220923::Client::pushDe
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return PushDeviceDataResponse(callApi(params, req, runtime));
-  }
-  else {
-    return PushDeviceDataResponse(execute(params, req, runtime));
-  }
+  return PushDeviceDataResponse(callApi(params, req, runtime));
 }
 
 PushDeviceDataResponse Alibabacloud_EnergyExpertExternal20220923::Client::pushDeviceData(shared_ptr<PushDeviceDataRequest> request) {
@@ -1479,12 +1412,7 @@ PushItemDataResponse Alibabacloud_EnergyExpertExternal20220923::Client::pushItem
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return PushItemDataResponse(callApi(params, req, runtime));
-  }
-  else {
-    return PushItemDataResponse(execute(params, req, runtime));
-  }
+  return PushItemDataResponse(callApi(params, req, runtime));
 }
 
 PushItemDataResponse Alibabacloud_EnergyExpertExternal20220923::Client::pushItemData(shared_ptr<PushItemDataRequest> request) {
@@ -1517,12 +1445,7 @@ RecalculateCarbonEmissionResponse Alibabacloud_EnergyExpertExternal20220923::Cli
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RecalculateCarbonEmissionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RecalculateCarbonEmissionResponse(execute(params, req, runtime));
-  }
+  return RecalculateCarbonEmissionResponse(callApi(params, req, runtime));
 }
 
 RecalculateCarbonEmissionResponse Alibabacloud_EnergyExpertExternal20220923::Client::recalculateCarbonEmission(shared_ptr<RecalculateCarbonEmissionRequest> request) {
@@ -1558,12 +1481,7 @@ SendDocumentAskQuestionResponse Alibabacloud_EnergyExpertExternal20220923::Clien
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SendDocumentAskQuestionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SendDocumentAskQuestionResponse(execute(params, req, runtime));
-  }
+  return SendDocumentAskQuestionResponse(callApi(params, req, runtime));
 }
 
 SendDocumentAskQuestionResponse Alibabacloud_EnergyExpertExternal20220923::Client::sendDocumentAskQuestion(shared_ptr<SendDocumentAskQuestionRequest> request) {
@@ -1638,18 +1556,238 @@ SetRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::Client::setRun
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetRunningPlanResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetRunningPlanResponse(execute(params, req, runtime));
-  }
+  return SetRunningPlanResponse(callApi(params, req, runtime));
 }
 
 SetRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::Client::setRunningPlan(shared_ptr<SetRunningPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return setRunningPlanWithOptions(request, headers, runtime);
+}
+
+SubmitDocExtractionTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocExtractionTaskWithOptions(shared_ptr<SubmitDocExtractionTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->extractType)) {
+    query->insert(pair<string, string>("extractType", *request->extractType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("fileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
+    query->insert(pair<string, string>("fileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->folderId)) {
+    query->insert(pair<string, string>("folderId", *request->folderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("templateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitDocExtractionTask"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/aidoc/document/submitDocExtractionTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitDocExtractionTaskResponse(callApi(params, req, runtime));
+}
+
+SubmitDocExtractionTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocExtractionTask(shared_ptr<SubmitDocExtractionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitDocExtractionTaskWithOptions(request, headers, runtime);
+}
+
+SubmitDocExtractionTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocExtractionTaskAdvance(shared_ptr<SubmitDocExtractionTaskAdvanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_OpenApi::Config> authConfig = make_shared<Alibabacloud_OpenApi::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("energyExpertExternal"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<SubmitDocExtractionTaskRequest> submitDocExtractionTaskReq = make_shared<SubmitDocExtractionTaskRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, submitDocExtractionTaskReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->fileUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->body->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"content", !request->fileUrlObject ? boost::any() : boost::any(*request->fileUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
+      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
+      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
+      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    submitDocExtractionTaskReq->fileUrl = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
+  }
+  shared_ptr<SubmitDocExtractionTaskResponse> submitDocExtractionTaskResp = make_shared<SubmitDocExtractionTaskResponse>(submitDocExtractionTaskWithOptions(submitDocExtractionTaskReq, headers, runtime));
+  return *submitDocExtractionTaskResp;
+}
+
+SubmitDocParsingTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocParsingTaskWithOptions(shared_ptr<SubmitDocParsingTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("fileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
+    query->insert(pair<string, string>("fileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->folderId)) {
+    query->insert(pair<string, string>("folderId", *request->folderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needAnalyzeImg)) {
+    query->insert(pair<string, bool>("needAnalyzeImg", *request->needAnalyzeImg));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitDocParsingTask"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/aidoc/document/submitDocParsingTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitDocParsingTaskResponse(callApi(params, req, runtime));
+}
+
+SubmitDocParsingTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocParsingTask(shared_ptr<SubmitDocParsingTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitDocParsingTaskWithOptions(request, headers, runtime);
+}
+
+SubmitDocParsingTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocParsingTaskAdvance(shared_ptr<SubmitDocParsingTaskAdvanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_OpenApi::Config> authConfig = make_shared<Alibabacloud_OpenApi::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("energyExpertExternal"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<SubmitDocParsingTaskRequest> submitDocParsingTaskReq = make_shared<SubmitDocParsingTaskRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, submitDocParsingTaskReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->fileUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->body->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"content", !request->fileUrlObject ? boost::any() : boost::any(*request->fileUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
+      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
+      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
+      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    submitDocParsingTaskReq->fileUrl = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
+  }
+  shared_ptr<SubmitDocParsingTaskResponse> submitDocParsingTaskResp = make_shared<SubmitDocParsingTaskResponse>(submitDocParsingTaskWithOptions(submitDocParsingTaskReq, headers, runtime));
+  return *submitDocParsingTaskResp;
 }
 
 SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocumentAnalyzeJobWithOptions(shared_ptr<SubmitDocumentAnalyzeJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1685,12 +1823,7 @@ SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Clie
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitDocumentAnalyzeJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitDocumentAnalyzeJobResponse(execute(params, req, runtime));
-  }
+  return SubmitDocumentAnalyzeJobResponse(callApi(params, req, runtime));
 }
 
 SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocumentAnalyzeJob(shared_ptr<SubmitDocumentAnalyzeJobRequest> request) {
@@ -1769,5 +1902,116 @@ SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Clie
   }
   shared_ptr<SubmitDocumentAnalyzeJobResponse> submitDocumentAnalyzeJobResp = make_shared<SubmitDocumentAnalyzeJobResponse>(submitDocumentAnalyzeJobWithOptions(submitDocumentAnalyzeJobReq, headers, runtime));
   return *submitDocumentAnalyzeJobResp;
+}
+
+SubmitVLExtractionTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitVLExtractionTaskWithOptions(shared_ptr<SubmitVLExtractionTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("fileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
+    query->insert(pair<string, string>("fileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->folderId)) {
+    query->insert(pair<string, string>("folderId", *request->folderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("templateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitVLExtractionTask"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/aidoc/document/submitVLExtractionTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitVLExtractionTaskResponse(callApi(params, req, runtime));
+}
+
+SubmitVLExtractionTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitVLExtractionTask(shared_ptr<SubmitVLExtractionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitVLExtractionTaskWithOptions(request, headers, runtime);
+}
+
+SubmitVLExtractionTaskResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitVLExtractionTaskAdvance(shared_ptr<SubmitVLExtractionTaskAdvanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_OpenApi::Config> authConfig = make_shared<Alibabacloud_OpenApi::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("energyExpertExternal"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<SubmitVLExtractionTaskRequest> submitVLExtractionTaskReq = make_shared<SubmitVLExtractionTaskRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, submitVLExtractionTaskReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->fileUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->body->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"content", !request->fileUrlObject ? boost::any() : boost::any(*request->fileUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
+      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
+      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
+      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    submitVLExtractionTaskReq->fileUrl = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
+  }
+  shared_ptr<SubmitVLExtractionTaskResponse> submitVLExtractionTaskResp = make_shared<SubmitVLExtractionTaskResponse>(submitVLExtractionTaskWithOptions(submitVLExtractionTaskReq, headers, runtime));
+  return *submitVLExtractionTaskResp;
 }
 
