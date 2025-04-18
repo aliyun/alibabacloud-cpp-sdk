@@ -3471,7 +3471,28 @@ DescribeDiagnosisRecordsResponse Alibabacloud_Adb20211201::Client::describeDiagn
 
 DescribeDiagnosisSQLInfoResponse Alibabacloud_Adb20211201::Client::describeDiagnosisSQLInfoWithOptions(shared_ptr<DescribeDiagnosisSQLInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processId)) {
+    query->insert(pair<string, string>("ProcessId", *request->processId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processRcHost)) {
+    query->insert(pair<string, string>("ProcessRcHost", *request->processRcHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->processStartTime)) {
+    query->insert(pair<string, long>("ProcessStartTime", *request->processStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processState)) {
+    query->insert(pair<string, string>("ProcessState", *request->processState));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3480,7 +3501,7 @@ DescribeDiagnosisSQLInfoResponse Alibabacloud_Adb20211201::Client::describeDiagn
     {"version", boost::any(string("2021-12-01"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},

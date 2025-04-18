@@ -24223,6 +24223,7 @@ public:
 };
 class DescribeDiagnosisSQLInfoResponseBodyStageInfos : public Darabonba::Model {
 public:
+  shared_ptr<string> executionType{};
   shared_ptr<long> inputDataSize{};
   shared_ptr<long> inputRows{};
   shared_ptr<long> operatorCost{};
@@ -24243,6 +24244,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (executionType) {
+      res["ExecutionType"] = boost::any(*executionType);
+    }
     if (inputDataSize) {
       res["InputDataSize"] = boost::any(*inputDataSize);
     }
@@ -24274,6 +24278,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecutionType") != m.end() && !m["ExecutionType"].empty()) {
+      executionType = make_shared<string>(boost::any_cast<string>(m["ExecutionType"]));
+    }
     if (m.find("InputDataSize") != m.end() && !m["InputDataSize"].empty()) {
       inputDataSize = make_shared<long>(boost::any_cast<long>(m["InputDataSize"]));
     }
