@@ -12804,7 +12804,9 @@ public:
   shared_ptr<vector<boost::any>> allowedValues{};
   shared_ptr<string> behavior{};
   shared_ptr<string> behaviorReason{};
+  shared_ptr<string> propertiesData{};
   shared_ptr<string> propertyName{};
+  shared_ptr<string> requestInfo{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> resourceType{};
 
@@ -12827,8 +12829,14 @@ public:
     if (behaviorReason) {
       res["BehaviorReason"] = boost::any(*behaviorReason);
     }
+    if (propertiesData) {
+      res["PropertiesData"] = boost::any(*propertiesData);
+    }
     if (propertyName) {
       res["PropertyName"] = boost::any(*propertyName);
+    }
+    if (requestInfo) {
+      res["RequestInfo"] = boost::any(*requestInfo);
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
@@ -12856,8 +12864,14 @@ public:
     if (m.find("BehaviorReason") != m.end() && !m["BehaviorReason"].empty()) {
       behaviorReason = make_shared<string>(boost::any_cast<string>(m["BehaviorReason"]));
     }
+    if (m.find("PropertiesData") != m.end() && !m["PropertiesData"].empty()) {
+      propertiesData = make_shared<string>(boost::any_cast<string>(m["PropertiesData"]));
+    }
     if (m.find("PropertyName") != m.end() && !m["PropertyName"].empty()) {
       propertyName = make_shared<string>(boost::any_cast<string>(m["PropertyName"]));
+    }
+    if (m.find("RequestInfo") != m.end() && !m["RequestInfo"].empty()) {
+      requestInfo = make_shared<string>(boost::any_cast<string>(m["RequestInfo"]));
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
