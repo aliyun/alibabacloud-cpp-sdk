@@ -1690,9 +1690,11 @@ public:
   shared_ptr<string> abnormality{};
   shared_ptr<string> metadata{};
   shared_ptr<string> reason{};
+  shared_ptr<string> reasonCode{};
   shared_ptr<string> recommendationCode{};
   shared_ptr<string> riskLevel{};
   shared_ptr<string> suggestion{};
+  shared_ptr<string> suggestionCode{};
 
   DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList() {}
 
@@ -1713,6 +1715,9 @@ public:
     if (reason) {
       res["Reason"] = boost::any(*reason);
     }
+    if (reasonCode) {
+      res["ReasonCode"] = boost::any(*reasonCode);
+    }
     if (recommendationCode) {
       res["RecommendationCode"] = boost::any(*recommendationCode);
     }
@@ -1721,6 +1726,9 @@ public:
     }
     if (suggestion) {
       res["Suggestion"] = boost::any(*suggestion);
+    }
+    if (suggestionCode) {
+      res["SuggestionCode"] = boost::any(*suggestionCode);
     }
     return res;
   }
@@ -1735,6 +1743,9 @@ public:
     if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
       reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
+    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
+      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
+    }
     if (m.find("RecommendationCode") != m.end() && !m["RecommendationCode"].empty()) {
       recommendationCode = make_shared<string>(boost::any_cast<string>(m["RecommendationCode"]));
     }
@@ -1743,6 +1754,9 @@ public:
     }
     if (m.find("Suggestion") != m.end() && !m["Suggestion"].empty()) {
       suggestion = make_shared<string>(boost::any_cast<string>(m["Suggestion"]));
+    }
+    if (m.find("SuggestionCode") != m.end() && !m["SuggestionCode"].empty()) {
+      suggestionCode = make_shared<string>(boost::any_cast<string>(m["SuggestionCode"]));
     }
   }
 
