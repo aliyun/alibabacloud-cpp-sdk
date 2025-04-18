@@ -791,6 +791,7 @@ public:
   shared_ptr<bool> enableJumboFrame{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -820,6 +821,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -851,6 +855,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
@@ -5343,6 +5350,7 @@ public:
   shared_ptr<string> nodeId{};
   shared_ptr<vector<GetElasticNetworkInterfaceResponseBodyContentPrivateIpAddresses>> privateIpAddresses{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
@@ -5409,6 +5417,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -5493,6 +5504,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
@@ -7599,6 +7613,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> privateIpAddress{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
 
   GetLeniPrivateIpAddressResponseBodyContent() {}
@@ -7635,6 +7650,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -7665,6 +7683,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -7840,6 +7861,7 @@ public:
   shared_ptr<string> networkInterfaceId{};
   shared_ptr<string> privateIpAddress{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> subnetId{};
 
@@ -7877,6 +7899,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -7910,6 +7935,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -8255,6 +8283,7 @@ public:
   shared_ptr<vector<GetNetworkInterfaceResponseBodyContentPrivateIpAddressMacGroup>> privateIpAddressMacGroup{};
   shared_ptr<long> quota{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceMac{};
   shared_ptr<string> status{};
   shared_ptr<GetNetworkInterfaceResponseBodyContentSubnetBaseInfo> subnetBaseInfo{};
@@ -8308,6 +8337,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (serviceMac) {
       res["ServiceMac"] = boost::any(*serviceMac);
@@ -8380,6 +8412,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ServiceMac") != m.end() && !m["ServiceMac"].empty()) {
       serviceMac = make_shared<string>(boost::any_cast<string>(m["ServiceMac"]));
@@ -11969,6 +12004,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
   shared_ptr<string> vSwitchId{};
@@ -12005,6 +12041,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -12046,6 +12085,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
@@ -12079,6 +12121,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
@@ -12128,6 +12171,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -12183,6 +12229,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
@@ -14267,6 +14316,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> privateIpAddress{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
 
   ListLeniPrivateIpAddressesRequest() {}
@@ -14297,6 +14347,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -14321,6 +14374,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -14418,6 +14474,7 @@ public:
 class ListLeniPrivateIpAddressesResponseBodyContent : public Darabonba::Model {
 public:
   shared_ptr<vector<ListLeniPrivateIpAddressesResponseBodyContentData>> data{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> total{};
 
   ListLeniPrivateIpAddressesResponseBodyContent() {}
@@ -14436,6 +14493,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Data"] = boost::any(temp1);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (total) {
       res["Total"] = boost::any(*total);
@@ -14456,6 +14516,9 @@ public:
         }
         data = make_shared<vector<ListLeniPrivateIpAddressesResponseBodyContentData>>(expect1);
       }
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Total") != m.end() && !m["Total"].empty()) {
       total = make_shared<long>(boost::any_cast<long>(m["Total"]));
@@ -14588,6 +14651,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ListLniPrivateIpAddressRequest() {}
 
@@ -14623,6 +14687,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -14650,6 +14717,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -14744,6 +14814,7 @@ public:
 class ListLniPrivateIpAddressResponseBodyContent : public Darabonba::Model {
 public:
   shared_ptr<vector<ListLniPrivateIpAddressResponseBodyContentData>> data{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> total{};
 
   ListLniPrivateIpAddressResponseBodyContent() {}
@@ -14762,6 +14833,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Data"] = boost::any(temp1);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (total) {
       res["Total"] = boost::any(*total);
@@ -14782,6 +14856,9 @@ public:
         }
         data = make_shared<vector<ListLniPrivateIpAddressResponseBodyContentData>>(expect1);
       }
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Total") != m.end() && !m["Total"].empty()) {
       total = make_shared<long>(boost::any_cast<long>(m["Total"]));
@@ -14913,6 +14990,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subnetId{};
   shared_ptr<string> vpdId{};
 
@@ -14947,6 +15025,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subnetId) {
       res["SubnetId"] = boost::any(*subnetId);
     }
@@ -14977,6 +15058,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubnetId") != m.end() && !m["SubnetId"].empty()) {
       subnetId = make_shared<string>(boost::any_cast<string>(m["SubnetId"]));
@@ -15166,6 +15250,7 @@ public:
   shared_ptr<vector<ListNetworkInterfacesResponseBodyContentDataPrivateIpAddressMacGroup>> privateIpAddressMacGroup{};
   shared_ptr<long> quota{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceMac{};
   shared_ptr<string> status{};
   shared_ptr<ListNetworkInterfacesResponseBodyContentDataSubnetBaseInfo> subnetBaseInfo{};
@@ -15219,6 +15304,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (serviceMac) {
       res["ServiceMac"] = boost::any(*serviceMac);
@@ -15291,6 +15379,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ServiceMac") != m.end() && !m["ServiceMac"].empty()) {
       serviceMac = make_shared<string>(boost::any_cast<string>(m["ServiceMac"]));
