@@ -3528,6 +3528,289 @@ public:
 
   virtual ~CreateAxgGroupResponse() = default;
 };
+class CreateFixedNoAReportRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ANoWhiteGroupId{};
+  shared_ptr<string> custName{};
+  shared_ptr<string> custPhoneNo{};
+  shared_ptr<long> custType{};
+  shared_ptr<string> documentNumber{};
+  shared_ptr<long> documentType{};
+  shared_ptr<string> fixedLineWorkId{};
+  shared_ptr<string> fixedNoA{};
+  shared_ptr<string> idCardAlivePhoto{};
+  shared_ptr<string> idCardBackPhoto{};
+  shared_ptr<string> idCardFrontPhoto{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  CreateFixedNoAReportRequest() {}
+
+  explicit CreateFixedNoAReportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ANoWhiteGroupId) {
+      res["ANoWhiteGroupId"] = boost::any(*ANoWhiteGroupId);
+    }
+    if (custName) {
+      res["CustName"] = boost::any(*custName);
+    }
+    if (custPhoneNo) {
+      res["CustPhoneNo"] = boost::any(*custPhoneNo);
+    }
+    if (custType) {
+      res["CustType"] = boost::any(*custType);
+    }
+    if (documentNumber) {
+      res["DocumentNumber"] = boost::any(*documentNumber);
+    }
+    if (documentType) {
+      res["DocumentType"] = boost::any(*documentType);
+    }
+    if (fixedLineWorkId) {
+      res["FixedLineWorkId"] = boost::any(*fixedLineWorkId);
+    }
+    if (fixedNoA) {
+      res["FixedNoA"] = boost::any(*fixedNoA);
+    }
+    if (idCardAlivePhoto) {
+      res["IdCardAlivePhoto"] = boost::any(*idCardAlivePhoto);
+    }
+    if (idCardBackPhoto) {
+      res["IdCardBackPhoto"] = boost::any(*idCardBackPhoto);
+    }
+    if (idCardFrontPhoto) {
+      res["IdCardFrontPhoto"] = boost::any(*idCardFrontPhoto);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ANoWhiteGroupId") != m.end() && !m["ANoWhiteGroupId"].empty()) {
+      ANoWhiteGroupId = make_shared<long>(boost::any_cast<long>(m["ANoWhiteGroupId"]));
+    }
+    if (m.find("CustName") != m.end() && !m["CustName"].empty()) {
+      custName = make_shared<string>(boost::any_cast<string>(m["CustName"]));
+    }
+    if (m.find("CustPhoneNo") != m.end() && !m["CustPhoneNo"].empty()) {
+      custPhoneNo = make_shared<string>(boost::any_cast<string>(m["CustPhoneNo"]));
+    }
+    if (m.find("CustType") != m.end() && !m["CustType"].empty()) {
+      custType = make_shared<long>(boost::any_cast<long>(m["CustType"]));
+    }
+    if (m.find("DocumentNumber") != m.end() && !m["DocumentNumber"].empty()) {
+      documentNumber = make_shared<string>(boost::any_cast<string>(m["DocumentNumber"]));
+    }
+    if (m.find("DocumentType") != m.end() && !m["DocumentType"].empty()) {
+      documentType = make_shared<long>(boost::any_cast<long>(m["DocumentType"]));
+    }
+    if (m.find("FixedLineWorkId") != m.end() && !m["FixedLineWorkId"].empty()) {
+      fixedLineWorkId = make_shared<string>(boost::any_cast<string>(m["FixedLineWorkId"]));
+    }
+    if (m.find("FixedNoA") != m.end() && !m["FixedNoA"].empty()) {
+      fixedNoA = make_shared<string>(boost::any_cast<string>(m["FixedNoA"]));
+    }
+    if (m.find("IdCardAlivePhoto") != m.end() && !m["IdCardAlivePhoto"].empty()) {
+      idCardAlivePhoto = make_shared<string>(boost::any_cast<string>(m["IdCardAlivePhoto"]));
+    }
+    if (m.find("IdCardBackPhoto") != m.end() && !m["IdCardBackPhoto"].empty()) {
+      idCardBackPhoto = make_shared<string>(boost::any_cast<string>(m["IdCardBackPhoto"]));
+    }
+    if (m.find("IdCardFrontPhoto") != m.end() && !m["IdCardFrontPhoto"].empty()) {
+      idCardFrontPhoto = make_shared<string>(boost::any_cast<string>(m["IdCardFrontPhoto"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~CreateFixedNoAReportRequest() = default;
+};
+class CreateFixedNoAReportResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> createResult{};
+  shared_ptr<long> failType{};
+
+  CreateFixedNoAReportResponseBodyData() {}
+
+  explicit CreateFixedNoAReportResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createResult) {
+      res["CreateResult"] = boost::any(*createResult);
+    }
+    if (failType) {
+      res["FailType"] = boost::any(*failType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateResult") != m.end() && !m["CreateResult"].empty()) {
+      createResult = make_shared<bool>(boost::any_cast<bool>(m["CreateResult"]));
+    }
+    if (m.find("FailType") != m.end() && !m["FailType"].empty()) {
+      failType = make_shared<long>(boost::any_cast<long>(m["FailType"]));
+    }
+  }
+
+
+  virtual ~CreateFixedNoAReportResponseBodyData() = default;
+};
+class CreateFixedNoAReportResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<CreateFixedNoAReportResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateFixedNoAReportResponseBody() {}
+
+  explicit CreateFixedNoAReportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateFixedNoAReportResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateFixedNoAReportResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateFixedNoAReportResponseBody() = default;
+};
+class CreateFixedNoAReportResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateFixedNoAReportResponseBody> body{};
+
+  CreateFixedNoAReportResponse() {}
+
+  explicit CreateFixedNoAReportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateFixedNoAReportResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateFixedNoAReportResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateFixedNoAReportResponse() = default;
+};
 class CreatePhoneNoAReportRequest : public Darabonba::Model {
 public:
   shared_ptr<long> ANoWhiteGroupId{};
@@ -10887,6 +11170,8 @@ public:
   ConfigXResponse configX(shared_ptr<ConfigXRequest> request);
   CreateAxgGroupResponse createAxgGroupWithOptions(shared_ptr<CreateAxgGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAxgGroupResponse createAxgGroup(shared_ptr<CreateAxgGroupRequest> request);
+  CreateFixedNoAReportResponse createFixedNoAReportWithOptions(shared_ptr<CreateFixedNoAReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateFixedNoAReportResponse createFixedNoAReport(shared_ptr<CreateFixedNoAReportRequest> request);
   CreatePhoneNoAReportResponse createPhoneNoAReportWithOptions(shared_ptr<CreatePhoneNoAReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePhoneNoAReportResponse createPhoneNoAReport(shared_ptr<CreatePhoneNoAReportRequest> request);
   CreatePickUpWaybillResponse createPickUpWaybillWithOptions(shared_ptr<CreatePickUpWaybillRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
