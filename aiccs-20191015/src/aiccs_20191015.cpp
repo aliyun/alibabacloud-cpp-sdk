@@ -4218,6 +4218,9 @@ LlmSmartCallResponse Alibabacloud_Aiccs20191015::Client::llmSmartCallWithOptions
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<LlmSmartCallShrinkRequest> request = make_shared<LlmSmartCallShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->bizParam)) {
+    request->bizParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->bizParam, make_shared<string>("BizParam"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->promptParam)) {
     request->promptParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->promptParam, make_shared<string>("PromptParam"), make_shared<string>("json")));
   }
@@ -4227,6 +4230,9 @@ LlmSmartCallResponse Alibabacloud_Aiccs20191015::Client::llmSmartCallWithOptions
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationCode)) {
     query->insert(pair<string, string>("ApplicationCode", *request->applicationCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizParamShrink)) {
+    query->insert(pair<string, string>("BizParam", *request->bizParamShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->calledNumber)) {
     query->insert(pair<string, string>("CalledNumber", *request->calledNumber));

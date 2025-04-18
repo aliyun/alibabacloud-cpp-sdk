@@ -27704,6 +27704,7 @@ public:
 class LlmSmartCallRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationCode{};
+  shared_ptr<map<string, boost::any>> bizParam{};
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerNumber{};
   shared_ptr<string> outId{};
@@ -27722,6 +27723,9 @@ public:
     map<string, boost::any> res;
     if (applicationCode) {
       res["ApplicationCode"] = boost::any(*applicationCode);
+    }
+    if (bizParam) {
+      res["BizParam"] = boost::any(*bizParam);
     }
     if (calledNumber) {
       res["CalledNumber"] = boost::any(*calledNumber);
@@ -27744,6 +27748,14 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationCode") != m.end() && !m["ApplicationCode"].empty()) {
       applicationCode = make_shared<string>(boost::any_cast<string>(m["ApplicationCode"]));
+    }
+    if (m.find("BizParam") != m.end() && !m["BizParam"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["BizParam"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      bizParam = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
       calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
@@ -27778,6 +27790,7 @@ public:
 class LlmSmartCallShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationCode{};
+  shared_ptr<string> bizParamShrink{};
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerNumber{};
   shared_ptr<string> outId{};
@@ -27796,6 +27809,9 @@ public:
     map<string, boost::any> res;
     if (applicationCode) {
       res["ApplicationCode"] = boost::any(*applicationCode);
+    }
+    if (bizParamShrink) {
+      res["BizParam"] = boost::any(*bizParamShrink);
     }
     if (calledNumber) {
       res["CalledNumber"] = boost::any(*calledNumber);
@@ -27818,6 +27834,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationCode") != m.end() && !m["ApplicationCode"].empty()) {
       applicationCode = make_shared<string>(boost::any_cast<string>(m["ApplicationCode"]));
+    }
+    if (m.find("BizParam") != m.end() && !m["BizParam"].empty()) {
+      bizParamShrink = make_shared<string>(boost::any_cast<string>(m["BizParam"]));
     }
     if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
       calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
