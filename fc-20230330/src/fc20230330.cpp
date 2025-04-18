@@ -1206,6 +1206,9 @@ ListFunctionsResponse Alibabacloud_FC20230330::Client::listFunctionsWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->fcVersion)) {
     query->insert(pair<string, string>("fcVersion", *request->fcVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionName)) {
+    query->insert(pair<string, string>("functionName", *request->functionName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->gpuType)) {
     query->insert(pair<string, string>("gpuType", *request->gpuType));
   }

@@ -9893,6 +9893,7 @@ class ListFunctionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> fcVersion{};
+  shared_ptr<string> functionName{};
   shared_ptr<string> gpuType{};
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
@@ -9915,6 +9916,9 @@ public:
     }
     if (fcVersion) {
       res["fcVersion"] = boost::any(*fcVersion);
+    }
+    if (functionName) {
+      res["functionName"] = boost::any(*functionName);
     }
     if (gpuType) {
       res["gpuType"] = boost::any(*gpuType);
@@ -9947,6 +9951,9 @@ public:
     }
     if (m.find("fcVersion") != m.end() && !m["fcVersion"].empty()) {
       fcVersion = make_shared<string>(boost::any_cast<string>(m["fcVersion"]));
+    }
+    if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
+      functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
     }
     if (m.find("gpuType") != m.end() && !m["gpuType"].empty()) {
       gpuType = make_shared<string>(boost::any_cast<string>(m["gpuType"]));
@@ -9985,6 +9992,7 @@ class ListFunctionsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> fcVersion{};
+  shared_ptr<string> functionName{};
   shared_ptr<string> gpuType{};
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
@@ -10007,6 +10015,9 @@ public:
     }
     if (fcVersion) {
       res["fcVersion"] = boost::any(*fcVersion);
+    }
+    if (functionName) {
+      res["functionName"] = boost::any(*functionName);
     }
     if (gpuType) {
       res["gpuType"] = boost::any(*gpuType);
@@ -10035,6 +10046,9 @@ public:
     }
     if (m.find("fcVersion") != m.end() && !m["fcVersion"].empty()) {
       fcVersion = make_shared<string>(boost::any_cast<string>(m["fcVersion"]));
+    }
+    if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
+      functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
     }
     if (m.find("gpuType") != m.end() && !m["gpuType"].empty()) {
       gpuType = make_shared<string>(boost::any_cast<string>(m["gpuType"]));
