@@ -14,6 +14,70 @@
 using namespace std;
 
 namespace Alibabacloud_Pai-dsw20220101 {
+class BandwidthLimit : public Darabonba::Model {
+public:
+  shared_ptr<string> egressRate{};
+  shared_ptr<vector<string>> egressWhitelists{};
+  shared_ptr<string> ingressRate{};
+  shared_ptr<vector<string>> ingressWhitelists{};
+
+  BandwidthLimit() {}
+
+  explicit BandwidthLimit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (egressRate) {
+      res["EgressRate"] = boost::any(*egressRate);
+    }
+    if (egressWhitelists) {
+      res["EgressWhitelists"] = boost::any(*egressWhitelists);
+    }
+    if (ingressRate) {
+      res["IngressRate"] = boost::any(*ingressRate);
+    }
+    if (ingressWhitelists) {
+      res["IngressWhitelists"] = boost::any(*ingressWhitelists);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EgressRate") != m.end() && !m["EgressRate"].empty()) {
+      egressRate = make_shared<string>(boost::any_cast<string>(m["EgressRate"]));
+    }
+    if (m.find("EgressWhitelists") != m.end() && !m["EgressWhitelists"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EgressWhitelists"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EgressWhitelists"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      egressWhitelists = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IngressRate") != m.end() && !m["IngressRate"].empty()) {
+      ingressRate = make_shared<string>(boost::any_cast<string>(m["IngressRate"]));
+    }
+    if (m.find("IngressWhitelists") != m.end() && !m["IngressWhitelists"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IngressWhitelists"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IngressWhitelists"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ingressWhitelists = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~BandwidthLimit() = default;
+};
 class CredentialConfigConfigsRolesUserInfo : public Darabonba::Model {
 public:
   shared_ptr<string> accessKeyId{};
@@ -302,6 +366,92 @@ public:
 
 
   virtual ~DemoCategory() = default;
+};
+class DynamicMountPoint : public Darabonba::Model {
+public:
+  shared_ptr<string> options{};
+  shared_ptr<string> rootPath{};
+
+  DynamicMountPoint() {}
+
+  explicit DynamicMountPoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (rootPath) {
+      res["RootPath"] = boost::any(*rootPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("RootPath") != m.end() && !m["RootPath"].empty()) {
+      rootPath = make_shared<string>(boost::any_cast<string>(m["RootPath"]));
+    }
+  }
+
+
+  virtual ~DynamicMountPoint() = default;
+};
+class DynamicMount : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<vector<DynamicMountPoint>> mountPoints{};
+
+  DynamicMount() {}
+
+  explicit DynamicMount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (mountPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*mountPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MountPoints"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("MountPoints") != m.end() && !m["MountPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["MountPoints"].type()) {
+        vector<DynamicMountPoint> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MountPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DynamicMountPoint model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mountPoints = make_shared<vector<DynamicMountPoint>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DynamicMount() = default;
 };
 class ForwardInfo : public Darabonba::Model {
 public:
@@ -950,6 +1100,7 @@ class CreateInstanceRequestDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> datasetVersion{};
+  shared_ptr<bool> dynamic{};
   shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> optionType{};
@@ -971,6 +1122,9 @@ public:
     }
     if (datasetVersion) {
       res["DatasetVersion"] = boost::any(*datasetVersion);
+    }
+    if (dynamic) {
+      res["Dynamic"] = boost::any(*dynamic);
     }
     if (mountAccess) {
       res["MountAccess"] = boost::any(*mountAccess);
@@ -996,6 +1150,9 @@ public:
     }
     if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
       datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
+    }
+    if (m.find("Dynamic") != m.end() && !m["Dynamic"].empty()) {
+      dynamic = make_shared<bool>(boost::any_cast<bool>(m["Dynamic"]));
     }
     if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
       mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
@@ -1148,6 +1305,7 @@ public:
 };
 class CreateInstanceRequestUserVpc : public Darabonba::Model {
 public:
+  shared_ptr<BandwidthLimit> bandwidthLimit{};
   shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
   shared_ptr<vector<ForwardInfo>> forwardInfos{};
@@ -1165,6 +1323,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthLimit) {
+      res["BandwidthLimit"] = bandwidthLimit ? boost::any(bandwidthLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (defaultRoute) {
       res["DefaultRoute"] = boost::any(*defaultRoute);
     }
@@ -1191,6 +1352,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthLimit") != m.end() && !m["BandwidthLimit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BandwidthLimit"].type()) {
+        BandwidthLimit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BandwidthLimit"]));
+        bandwidthLimit = make_shared<BandwidthLimit>(model1);
+      }
+    }
     if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
       defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
     }
@@ -1239,6 +1407,7 @@ public:
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<CreateInstanceRequestDatasets>> datasets{};
   shared_ptr<string> driver{};
+  shared_ptr<DynamicMount> dynamicMount{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> imageAuth{};
@@ -1290,6 +1459,9 @@ public:
     }
     if (driver) {
       res["Driver"] = boost::any(*driver);
+    }
+    if (dynamicMount) {
+      res["DynamicMount"] = dynamicMount ? boost::any(dynamicMount->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
@@ -1393,6 +1565,13 @@ public:
     }
     if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
       driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
+    }
+    if (m.find("DynamicMount") != m.end() && !m["DynamicMount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DynamicMount"].type()) {
+        DynamicMount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DynamicMount"]));
+        dynamicMount = make_shared<DynamicMount>(model1);
+      }
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
@@ -2845,6 +3024,7 @@ class GetInstanceResponseBodyDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> datasetVersion{};
+  shared_ptr<bool> dynamic{};
   shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> optionType{};
@@ -2866,6 +3046,9 @@ public:
     }
     if (datasetVersion) {
       res["DatasetVersion"] = boost::any(*datasetVersion);
+    }
+    if (dynamic) {
+      res["Dynamic"] = boost::any(*dynamic);
     }
     if (mountAccess) {
       res["MountAccess"] = boost::any(*mountAccess);
@@ -2891,6 +3074,9 @@ public:
     }
     if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
       datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
+    }
+    if (m.find("Dynamic") != m.end() && !m["Dynamic"].empty()) {
+      dynamic = make_shared<bool>(boost::any_cast<bool>(m["Dynamic"]));
     }
     if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
       mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
@@ -3370,6 +3556,7 @@ public:
 };
 class GetInstanceResponseBodyUserVpc : public Darabonba::Model {
 public:
+  shared_ptr<BandwidthLimit> bandwidthLimit{};
   shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
   shared_ptr<vector<ForwardInfoResponse>> forwardInfos{};
@@ -3387,6 +3574,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthLimit) {
+      res["BandwidthLimit"] = bandwidthLimit ? boost::any(bandwidthLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (defaultRoute) {
       res["DefaultRoute"] = boost::any(*defaultRoute);
     }
@@ -3413,6 +3603,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthLimit") != m.end() && !m["BandwidthLimit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BandwidthLimit"].type()) {
+        BandwidthLimit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BandwidthLimit"]));
+        bandwidthLimit = make_shared<BandwidthLimit>(model1);
+      }
+    }
     if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
       defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
     }
@@ -3464,6 +3661,7 @@ public:
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<GetInstanceResponseBodyDatasets>> datasets{};
   shared_ptr<string> driver{};
+  shared_ptr<DynamicMount> dynamicMount{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> gmtCreateTime{};
@@ -3549,6 +3747,9 @@ public:
     }
     if (driver) {
       res["Driver"] = boost::any(*driver);
+    }
+    if (dynamicMount) {
+      res["DynamicMount"] = dynamicMount ? boost::any(dynamicMount->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
@@ -3740,6 +3941,13 @@ public:
     }
     if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
       driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
+    }
+    if (m.find("DynamicMount") != m.end() && !m["DynamicMount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DynamicMount"].type()) {
+        DynamicMount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DynamicMount"]));
+        dynamicMount = make_shared<DynamicMount>(model1);
+      }
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
@@ -6757,6 +6965,8 @@ public:
   shared_ptr<string> minGpuMemory{};
   shared_ptr<string> minMemory{};
   shared_ptr<string> order{};
+  shared_ptr<string> oversoldInfo{};
+  shared_ptr<string> oversoldType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> paymentType{};
@@ -6826,6 +7036,12 @@ public:
     }
     if (order) {
       res["Order"] = boost::any(*order);
+    }
+    if (oversoldInfo) {
+      res["OversoldInfo"] = boost::any(*oversoldInfo);
+    }
+    if (oversoldType) {
+      res["OversoldType"] = boost::any(*oversoldType);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -6915,6 +7131,12 @@ public:
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
     }
+    if (m.find("OversoldInfo") != m.end() && !m["OversoldInfo"].empty()) {
+      oversoldInfo = make_shared<string>(boost::any_cast<string>(m["OversoldInfo"]));
+    }
+    if (m.find("OversoldType") != m.end() && !m["OversoldType"].empty()) {
+      oversoldType = make_shared<string>(boost::any_cast<string>(m["OversoldType"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -6973,6 +7195,8 @@ public:
   shared_ptr<string> minGpuMemory{};
   shared_ptr<string> minMemory{};
   shared_ptr<string> order{};
+  shared_ptr<string> oversoldInfo{};
+  shared_ptr<string> oversoldType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> paymentType{};
@@ -7042,6 +7266,12 @@ public:
     }
     if (order) {
       res["Order"] = boost::any(*order);
+    }
+    if (oversoldInfo) {
+      res["OversoldInfo"] = boost::any(*oversoldInfo);
+    }
+    if (oversoldType) {
+      res["OversoldType"] = boost::any(*oversoldType);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -7121,6 +7351,12 @@ public:
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("OversoldInfo") != m.end() && !m["OversoldInfo"].empty()) {
+      oversoldInfo = make_shared<string>(boost::any_cast<string>(m["OversoldInfo"]));
+    }
+    if (m.find("OversoldType") != m.end() && !m["OversoldType"].empty()) {
+      oversoldType = make_shared<string>(boost::any_cast<string>(m["OversoldType"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -7267,6 +7503,7 @@ class ListInstancesResponseBodyInstancesDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> datasetVersion{};
+  shared_ptr<bool> dynamic{};
   shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> optionType{};
@@ -7288,6 +7525,9 @@ public:
     }
     if (datasetVersion) {
       res["DatasetVersion"] = boost::any(*datasetVersion);
+    }
+    if (dynamic) {
+      res["Dynamic"] = boost::any(*dynamic);
     }
     if (mountAccess) {
       res["MountAccess"] = boost::any(*mountAccess);
@@ -7313,6 +7553,9 @@ public:
     }
     if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
       datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
+    }
+    if (m.find("Dynamic") != m.end() && !m["Dynamic"].empty()) {
+      dynamic = make_shared<bool>(boost::any_cast<bool>(m["Dynamic"]));
     }
     if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
       mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
@@ -7749,6 +7992,7 @@ public:
 };
 class ListInstancesResponseBodyInstancesUserVpc : public Darabonba::Model {
 public:
+  shared_ptr<BandwidthLimit> bandwidthLimit{};
   shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
   shared_ptr<vector<ForwardInfoResponse>> forwardInfos{};
@@ -7766,6 +8010,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthLimit) {
+      res["BandwidthLimit"] = bandwidthLimit ? boost::any(bandwidthLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (defaultRoute) {
       res["DefaultRoute"] = boost::any(*defaultRoute);
     }
@@ -7792,6 +8039,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthLimit") != m.end() && !m["BandwidthLimit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BandwidthLimit"].type()) {
+        BandwidthLimit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BandwidthLimit"]));
+        bandwidthLimit = make_shared<BandwidthLimit>(model1);
+      }
+    }
     if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
       defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
     }
@@ -7842,6 +8096,7 @@ public:
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesDatasets>> datasets{};
   shared_ptr<string> driver{};
+  shared_ptr<DynamicMount> dynamicMount{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> gmtCreateTime{};
@@ -7859,6 +8114,8 @@ public:
   shared_ptr<string> jupyterlabUrl{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesLabels>> labels{};
   shared_ptr<ListInstancesResponseBodyInstancesLatestSnapshot> latestSnapshot{};
+  shared_ptr<string> oversoldInfo{};
+  shared_ptr<string> oversoldType{};
   shared_ptr<string> paymentType{};
   shared_ptr<long> priority{};
   shared_ptr<string> reasonCode{};
@@ -7919,6 +8176,9 @@ public:
     if (driver) {
       res["Driver"] = boost::any(*driver);
     }
+    if (dynamicMount) {
+      res["DynamicMount"] = dynamicMount ? boost::any(dynamicMount->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
     }
@@ -7977,6 +8237,12 @@ public:
     }
     if (latestSnapshot) {
       res["LatestSnapshot"] = latestSnapshot ? boost::any(latestSnapshot->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (oversoldInfo) {
+      res["OversoldInfo"] = boost::any(*oversoldInfo);
+    }
+    if (oversoldType) {
+      res["OversoldType"] = boost::any(*oversoldType);
     }
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
@@ -8089,6 +8355,13 @@ public:
     if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
       driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
     }
+    if (m.find("DynamicMount") != m.end() && !m["DynamicMount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DynamicMount"].type()) {
+        DynamicMount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DynamicMount"]));
+        dynamicMount = make_shared<DynamicMount>(model1);
+      }
+    }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
     }
@@ -8176,6 +8449,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LatestSnapshot"]));
         latestSnapshot = make_shared<ListInstancesResponseBodyInstancesLatestSnapshot>(model1);
       }
+    }
+    if (m.find("OversoldInfo") != m.end() && !m["OversoldInfo"].empty()) {
+      oversoldInfo = make_shared<string>(boost::any_cast<string>(m["OversoldInfo"]));
+    }
+    if (m.find("OversoldType") != m.end() && !m["OversoldType"].empty()) {
+      oversoldType = make_shared<string>(boost::any_cast<string>(m["OversoldType"]));
     }
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
@@ -8751,6 +9030,7 @@ class UpdateInstanceRequestDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> datasetVersion{};
+  shared_ptr<bool> dynamic{};
   shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> optionType{};
@@ -8772,6 +9052,9 @@ public:
     }
     if (datasetVersion) {
       res["DatasetVersion"] = boost::any(*datasetVersion);
+    }
+    if (dynamic) {
+      res["Dynamic"] = boost::any(*dynamic);
     }
     if (mountAccess) {
       res["MountAccess"] = boost::any(*mountAccess);
@@ -8797,6 +9080,9 @@ public:
     }
     if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
       datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
+    }
+    if (m.find("Dynamic") != m.end() && !m["Dynamic"].empty()) {
+      dynamic = make_shared<bool>(boost::any_cast<bool>(m["Dynamic"]));
     }
     if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
       mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
@@ -8877,6 +9163,7 @@ public:
 };
 class UpdateInstanceRequestUserVpc : public Darabonba::Model {
 public:
+  shared_ptr<BandwidthLimit> bandwidthLimit{};
   shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
   shared_ptr<vector<ForwardInfo>> forwardInfos{};
@@ -8894,6 +9181,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthLimit) {
+      res["BandwidthLimit"] = bandwidthLimit ? boost::any(bandwidthLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (defaultRoute) {
       res["DefaultRoute"] = boost::any(*defaultRoute);
     }
@@ -8920,6 +9210,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthLimit") != m.end() && !m["BandwidthLimit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BandwidthLimit"].type()) {
+        BandwidthLimit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BandwidthLimit"]));
+        bandwidthLimit = make_shared<BandwidthLimit>(model1);
+      }
+    }
     if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
       defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
     }
@@ -8973,6 +9270,7 @@ public:
   shared_ptr<bool> disassociateForwardInfos{};
   shared_ptr<bool> disassociateVpc{};
   shared_ptr<string> driver{};
+  shared_ptr<DynamicMount> dynamicMount{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<string> imageAuth{};
   shared_ptr<string> imageId{};
@@ -9034,6 +9332,9 @@ public:
     }
     if (driver) {
       res["Driver"] = boost::any(*driver);
+    }
+    if (dynamicMount) {
+      res["DynamicMount"] = dynamicMount ? boost::any(dynamicMount->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
@@ -9129,6 +9430,13 @@ public:
     }
     if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
       driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
+    }
+    if (m.find("DynamicMount") != m.end() && !m["DynamicMount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DynamicMount"].type()) {
+        DynamicMount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DynamicMount"]));
+        dynamicMount = make_shared<DynamicMount>(model1);
+      }
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
