@@ -7092,6 +7092,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> sessionToken{};
+  shared_ptr<string> uuid{};
 
   StopDesktopsRequest() {}
 
@@ -7133,6 +7134,9 @@ public:
     if (sessionToken) {
       res["SessionToken"] = boost::any(*sessionToken);
     }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
     return res;
   }
 
@@ -7173,6 +7177,9 @@ public:
     }
     if (m.find("SessionToken") != m.end() && !m["SessionToken"].empty()) {
       sessionToken = make_shared<string>(boost::any_cast<string>(m["SessionToken"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
     }
   }
 

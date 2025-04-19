@@ -79,12 +79,7 @@ ApproveFotaUpdateResponse Alibabacloud_Ecd20201002::Client::approveFotaUpdateWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ApproveFotaUpdateResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ApproveFotaUpdateResponse(execute(params, req, runtime));
-  }
+  return ApproveFotaUpdateResponse(callApi(params, req, runtime));
 }
 
 ApproveFotaUpdateResponse Alibabacloud_Ecd20201002::Client::approveFotaUpdate(shared_ptr<ApproveFotaUpdateRequest> request) {
@@ -133,12 +128,7 @@ ChangePasswordResponse Alibabacloud_Ecd20201002::Client::changePasswordWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ChangePasswordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ChangePasswordResponse(execute(params, req, runtime));
-  }
+  return ChangePasswordResponse(callApi(params, req, runtime));
 }
 
 ChangePasswordResponse Alibabacloud_Ecd20201002::Client::changePassword(shared_ptr<ChangePasswordRequest> request) {
@@ -181,12 +171,7 @@ DeleteFingerPrintTemplateResponse Alibabacloud_Ecd20201002::Client::deleteFinger
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteFingerPrintTemplateResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteFingerPrintTemplateResponse(execute(params, req, runtime));
-  }
+  return DeleteFingerPrintTemplateResponse(callApi(params, req, runtime));
 }
 
 DeleteFingerPrintTemplateResponse Alibabacloud_Ecd20201002::Client::deleteFingerPrintTemplate(shared_ptr<DeleteFingerPrintTemplateRequest> request) {
@@ -220,12 +205,7 @@ DescribeDirectoriesResponse Alibabacloud_Ecd20201002::Client::describeDirectorie
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDirectoriesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDirectoriesResponse(execute(params, req, runtime));
-  }
+  return DescribeDirectoriesResponse(callApi(params, req, runtime));
 }
 
 DescribeDirectoriesResponse Alibabacloud_Ecd20201002::Client::describeDirectories(shared_ptr<DescribeDirectoriesRequest> request) {
@@ -262,12 +242,7 @@ DescribeFingerPrintTemplatesResponse Alibabacloud_Ecd20201002::Client::describeF
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeFingerPrintTemplatesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeFingerPrintTemplatesResponse(execute(params, req, runtime));
-  }
+  return DescribeFingerPrintTemplatesResponse(callApi(params, req, runtime));
 }
 
 DescribeFingerPrintTemplatesResponse Alibabacloud_Ecd20201002::Client::describeFingerPrintTemplates(shared_ptr<DescribeFingerPrintTemplatesRequest> request) {
@@ -352,12 +327,7 @@ DescribeGlobalDesktopsResponse Alibabacloud_Ecd20201002::Client::describeGlobalD
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeGlobalDesktopsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeGlobalDesktopsResponse(execute(params, req, runtime));
-  }
+  return DescribeGlobalDesktopsResponse(callApi(params, req, runtime));
 }
 
 DescribeGlobalDesktopsResponse Alibabacloud_Ecd20201002::Client::describeGlobalDesktops(shared_ptr<DescribeGlobalDesktopsRequest> request) {
@@ -391,12 +361,7 @@ DescribeOfficeSitesResponse Alibabacloud_Ecd20201002::Client::describeOfficeSite
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeOfficeSitesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeOfficeSitesResponse(execute(params, req, runtime));
-  }
+  return DescribeOfficeSitesResponse(callApi(params, req, runtime));
 }
 
 DescribeOfficeSitesResponse Alibabacloud_Ecd20201002::Client::describeOfficeSites(shared_ptr<DescribeOfficeSitesRequest> request) {
@@ -427,12 +392,7 @@ DescribeRegionsResponse Alibabacloud_Ecd20201002::Client::describeRegionsWithOpt
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeRegionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeRegionsResponse(execute(params, req, runtime));
-  }
+  return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
 DescribeRegionsResponse Alibabacloud_Ecd20201002::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
@@ -481,12 +441,7 @@ DescribeSnapshotsResponse Alibabacloud_Ecd20201002::Client::describeSnapshotsWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeSnapshotsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeSnapshotsResponse(execute(params, req, runtime));
-  }
+  return DescribeSnapshotsResponse(callApi(params, req, runtime));
 }
 
 DescribeSnapshotsResponse Alibabacloud_Ecd20201002::Client::describeSnapshots(shared_ptr<DescribeSnapshotsRequest> request) {
@@ -589,12 +544,7 @@ DescribeUserResourcesResponse Alibabacloud_Ecd20201002::Client::describeUserReso
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeUserResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeUserResourcesResponse(execute(params, req, runtime));
-  }
+  return DescribeUserResourcesResponse(callApi(params, req, runtime));
 }
 
 DescribeUserResourcesResponse Alibabacloud_Ecd20201002::Client::describeUserResources(shared_ptr<DescribeUserResourcesRequest> request) {
@@ -640,12 +590,7 @@ EncryptPasswordResponse Alibabacloud_Ecd20201002::Client::encryptPasswordWithOpt
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return EncryptPasswordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return EncryptPasswordResponse(execute(params, req, runtime));
-  }
+  return EncryptPasswordResponse(callApi(params, req, runtime));
 }
 
 EncryptPasswordResponse Alibabacloud_Ecd20201002::Client::encryptPassword(shared_ptr<EncryptPasswordRequest> request) {
@@ -685,12 +630,7 @@ GetCloudDriveServiceMountTokenResponse Alibabacloud_Ecd20201002::Client::getClou
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetCloudDriveServiceMountTokenResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetCloudDriveServiceMountTokenResponse(execute(params, req, runtime));
-  }
+  return GetCloudDriveServiceMountTokenResponse(callApi(params, req, runtime));
 }
 
 GetCloudDriveServiceMountTokenResponse Alibabacloud_Ecd20201002::Client::getCloudDriveServiceMountToken(shared_ptr<GetCloudDriveServiceMountTokenRequest> request) {
@@ -760,12 +700,7 @@ GetConnectionTicketResponse Alibabacloud_Ecd20201002::Client::getConnectionTicke
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetConnectionTicketResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetConnectionTicketResponse(execute(params, req, runtime));
-  }
+  return GetConnectionTicketResponse(callApi(params, req, runtime));
 }
 
 GetConnectionTicketResponse Alibabacloud_Ecd20201002::Client::getConnectionTicket(shared_ptr<GetConnectionTicketRequest> request) {
@@ -844,12 +779,7 @@ GetLoginTokenResponse Alibabacloud_Ecd20201002::Client::getLoginTokenWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetLoginTokenResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetLoginTokenResponse(execute(params, req, runtime));
-  }
+  return GetLoginTokenResponse(callApi(params, req, runtime));
 }
 
 GetLoginTokenResponse Alibabacloud_Ecd20201002::Client::getLoginToken(shared_ptr<GetLoginTokenRequest> request) {
@@ -883,12 +813,7 @@ IsKeepAliveResponse Alibabacloud_Ecd20201002::Client::isKeepAliveWithOptions(sha
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return IsKeepAliveResponse(callApi(params, req, runtime));
-  }
-  else {
-    return IsKeepAliveResponse(execute(params, req, runtime));
-  }
+  return IsKeepAliveResponse(callApi(params, req, runtime));
 }
 
 IsKeepAliveResponse Alibabacloud_Ecd20201002::Client::isKeepAlive(shared_ptr<IsKeepAliveRequest> request) {
@@ -922,12 +847,7 @@ QueryEdsAgentReportConfigResponse Alibabacloud_Ecd20201002::Client::queryEdsAgen
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryEdsAgentReportConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryEdsAgentReportConfigResponse(execute(params, req, runtime));
-  }
+  return QueryEdsAgentReportConfigResponse(callApi(params, req, runtime));
 }
 
 QueryEdsAgentReportConfigResponse Alibabacloud_Ecd20201002::Client::queryEdsAgentReportConfig(shared_ptr<QueryEdsAgentReportConfigRequest> request) {
@@ -985,12 +905,7 @@ RebootDesktopsResponse Alibabacloud_Ecd20201002::Client::rebootDesktopsWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RebootDesktopsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RebootDesktopsResponse(execute(params, req, runtime));
-  }
+  return RebootDesktopsResponse(callApi(params, req, runtime));
 }
 
 RebootDesktopsResponse Alibabacloud_Ecd20201002::Client::rebootDesktops(shared_ptr<RebootDesktopsRequest> request) {
@@ -1036,12 +951,7 @@ RefreshLoginTokenResponse Alibabacloud_Ecd20201002::Client::refreshLoginTokenWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RefreshLoginTokenResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RefreshLoginTokenResponse(execute(params, req, runtime));
-  }
+  return RefreshLoginTokenResponse(callApi(params, req, runtime));
 }
 
 RefreshLoginTokenResponse Alibabacloud_Ecd20201002::Client::refreshLoginToken(shared_ptr<RefreshLoginTokenRequest> request) {
@@ -1078,12 +988,7 @@ ReportEdsAgentInfoResponse Alibabacloud_Ecd20201002::Client::reportEdsAgentInfoW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ReportEdsAgentInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ReportEdsAgentInfoResponse(execute(params, req, runtime));
-  }
+  return ReportEdsAgentInfoResponse(callApi(params, req, runtime));
 }
 
 ReportEdsAgentInfoResponse Alibabacloud_Ecd20201002::Client::reportEdsAgentInfo(shared_ptr<ReportEdsAgentInfoRequest> request) {
@@ -1126,12 +1031,7 @@ ReportSessionStatusResponse Alibabacloud_Ecd20201002::Client::reportSessionStatu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ReportSessionStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ReportSessionStatusResponse(execute(params, req, runtime));
-  }
+  return ReportSessionStatusResponse(callApi(params, req, runtime));
 }
 
 ReportSessionStatusResponse Alibabacloud_Ecd20201002::Client::reportSessionStatus(shared_ptr<ReportSessionStatusRequest> request) {
@@ -1177,12 +1077,7 @@ ResetPasswordResponse Alibabacloud_Ecd20201002::Client::resetPasswordWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ResetPasswordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ResetPasswordResponse(execute(params, req, runtime));
-  }
+  return ResetPasswordResponse(callApi(params, req, runtime));
 }
 
 ResetPasswordResponse Alibabacloud_Ecd20201002::Client::resetPassword(shared_ptr<ResetPasswordRequest> request) {
@@ -1228,12 +1123,7 @@ ResetSnapshotResponse Alibabacloud_Ecd20201002::Client::resetSnapshotWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ResetSnapshotResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ResetSnapshotResponse(execute(params, req, runtime));
-  }
+  return ResetSnapshotResponse(callApi(params, req, runtime));
 }
 
 ResetSnapshotResponse Alibabacloud_Ecd20201002::Client::resetSnapshot(shared_ptr<ResetSnapshotRequest> request) {
@@ -1282,12 +1172,7 @@ SendTokenCodeResponse Alibabacloud_Ecd20201002::Client::sendTokenCodeWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SendTokenCodeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SendTokenCodeResponse(execute(params, req, runtime));
-  }
+  return SendTokenCodeResponse(callApi(params, req, runtime));
 }
 
 SendTokenCodeResponse Alibabacloud_Ecd20201002::Client::sendTokenCode(shared_ptr<SendTokenCodeRequest> request) {
@@ -1342,12 +1227,7 @@ SetFingerPrintTemplateResponse Alibabacloud_Ecd20201002::Client::setFingerPrintT
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetFingerPrintTemplateResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetFingerPrintTemplateResponse(execute(params, req, runtime));
-  }
+  return SetFingerPrintTemplateResponse(callApi(params, req, runtime));
 }
 
 SetFingerPrintTemplateResponse Alibabacloud_Ecd20201002::Client::setFingerPrintTemplate(shared_ptr<SetFingerPrintTemplateRequest> request) {
@@ -1393,12 +1273,7 @@ SetFingerPrintTemplateDescriptionResponse Alibabacloud_Ecd20201002::Client::setF
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetFingerPrintTemplateDescriptionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetFingerPrintTemplateDescriptionResponse(execute(params, req, runtime));
-  }
+  return SetFingerPrintTemplateDescriptionResponse(callApi(params, req, runtime));
 }
 
 SetFingerPrintTemplateDescriptionResponse Alibabacloud_Ecd20201002::Client::setFingerPrintTemplateDescription(shared_ptr<SetFingerPrintTemplateDescriptionRequest> request) {
@@ -1450,12 +1325,7 @@ StartDesktopsResponse Alibabacloud_Ecd20201002::Client::startDesktopsWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StartDesktopsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StartDesktopsResponse(execute(params, req, runtime));
-  }
+  return StartDesktopsResponse(callApi(params, req, runtime));
 }
 
 StartDesktopsResponse Alibabacloud_Ecd20201002::Client::startDesktops(shared_ptr<StartDesktopsRequest> request) {
@@ -1504,12 +1374,7 @@ StartRecordContentResponse Alibabacloud_Ecd20201002::Client::startRecordContentW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StartRecordContentResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StartRecordContentResponse(execute(params, req, runtime));
-  }
+  return StartRecordContentResponse(callApi(params, req, runtime));
 }
 
 StartRecordContentResponse Alibabacloud_Ecd20201002::Client::startRecordContent(shared_ptr<StartRecordContentRequest> request) {
@@ -1550,6 +1415,9 @@ StopDesktopsResponse Alibabacloud_Ecd20201002::Client::stopDesktopsWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionToken)) {
     query->insert(pair<string, string>("SessionToken", *request->sessionToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1564,12 +1432,7 @@ StopDesktopsResponse Alibabacloud_Ecd20201002::Client::stopDesktopsWithOptions(s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StopDesktopsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StopDesktopsResponse(execute(params, req, runtime));
-  }
+  return StopDesktopsResponse(callApi(params, req, runtime));
 }
 
 StopDesktopsResponse Alibabacloud_Ecd20201002::Client::stopDesktops(shared_ptr<StopDesktopsRequest> request) {
@@ -1615,12 +1478,7 @@ StopRecordContentResponse Alibabacloud_Ecd20201002::Client::stopRecordContentWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StopRecordContentResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StopRecordContentResponse(execute(params, req, runtime));
-  }
+  return StopRecordContentResponse(callApi(params, req, runtime));
 }
 
 StopRecordContentResponse Alibabacloud_Ecd20201002::Client::stopRecordContent(shared_ptr<StopRecordContentRequest> request) {
@@ -1666,12 +1524,7 @@ UnbindUserDesktopResponse Alibabacloud_Ecd20201002::Client::unbindUserDesktopWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UnbindUserDesktopResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UnbindUserDesktopResponse(execute(params, req, runtime));
-  }
+  return UnbindUserDesktopResponse(callApi(params, req, runtime));
 }
 
 UnbindUserDesktopResponse Alibabacloud_Ecd20201002::Client::unbindUserDesktop(shared_ptr<UnbindUserDesktopRequest> request) {
@@ -1720,12 +1573,7 @@ VerifyCredentialResponse Alibabacloud_Ecd20201002::Client::verifyCredentialWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return VerifyCredentialResponse(callApi(params, req, runtime));
-  }
-  else {
-    return VerifyCredentialResponse(execute(params, req, runtime));
-  }
+  return VerifyCredentialResponse(callApi(params, req, runtime));
 }
 
 VerifyCredentialResponse Alibabacloud_Ecd20201002::Client::verifyCredential(shared_ptr<VerifyCredentialRequest> request) {
