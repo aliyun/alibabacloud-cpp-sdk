@@ -18190,6 +18190,8 @@ public:
   shared_ptr<string> endUserId{};
   shared_ptr<string> eventType{};
   shared_ptr<vector<string>> eventTypes{};
+  shared_ptr<bool> fillHardwareInfo{};
+  shared_ptr<string> language{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> officeSiteId{};
@@ -18230,6 +18232,12 @@ public:
     }
     if (eventTypes) {
       res["EventTypes"] = boost::any(*eventTypes);
+    }
+    if (fillHardwareInfo) {
+      res["FillHardwareInfo"] = boost::any(*fillHardwareInfo);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -18284,6 +18292,12 @@ public:
       }
       eventTypes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("FillHardwareInfo") != m.end() && !m["FillHardwareInfo"].empty()) {
+      fillHardwareInfo = make_shared<bool>(boost::any_cast<bool>(m["FillHardwareInfo"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -18306,6 +18320,49 @@ public:
 
 
   virtual ~DescribeClientEventsRequest() = default;
+};
+class DescribeClientEventsResponseBodyEventsTerminalInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> model{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> serialNumber{};
+
+  DescribeClientEventsResponseBodyEventsTerminalInfo() {}
+
+  explicit DescribeClientEventsResponseBodyEventsTerminalInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
+    }
+  }
+
+
+  virtual ~DescribeClientEventsResponseBodyEventsTerminalInfo() = default;
 };
 class DescribeClientEventsResponseBodyEvents : public Darabonba::Model {
 public:
@@ -18332,6 +18389,7 @@ public:
   shared_ptr<string> officeSiteType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeClientEventsResponseBodyEventsTerminalInfo> terminalInfo{};
 
   DescribeClientEventsResponseBodyEvents() {}
 
@@ -18412,6 +18470,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (terminalInfo) {
+      res["TerminalInfo"] = terminalInfo ? boost::any(terminalInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -18484,6 +18545,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TerminalInfo") != m.end() && !m["TerminalInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TerminalInfo"].type()) {
+        DescribeClientEventsResponseBodyEventsTerminalInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TerminalInfo"]));
+        terminalInfo = make_shared<DescribeClientEventsResponseBodyEventsTerminalInfo>(model1);
+      }
     }
   }
 
