@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -168,17 +167,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -474,17 +463,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -734,17 +713,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -922,17 +891,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1856,17 +1815,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1908,6 +1857,8 @@ public:
 };
 class SplitVideoPartsRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> maxTime{};
+  shared_ptr<long> minTime{};
   shared_ptr<string> template_{};
   shared_ptr<string> videoUrl{};
 
@@ -1921,6 +1872,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxTime) {
+      res["MaxTime"] = boost::any(*maxTime);
+    }
+    if (minTime) {
+      res["MinTime"] = boost::any(*minTime);
+    }
     if (template_) {
       res["Template"] = boost::any(*template_);
     }
@@ -1931,6 +1888,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxTime") != m.end() && !m["MaxTime"].empty()) {
+      maxTime = make_shared<long>(boost::any_cast<long>(m["MaxTime"]));
+    }
+    if (m.find("MinTime") != m.end() && !m["MinTime"].empty()) {
+      minTime = make_shared<long>(boost::any_cast<long>(m["MinTime"]));
+    }
     if (m.find("Template") != m.end() && !m["Template"].empty()) {
       template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
     }
@@ -1944,6 +1907,8 @@ public:
 };
 class SplitVideoPartsAdvanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> maxTime{};
+  shared_ptr<long> minTime{};
   shared_ptr<string> template_{};
   shared_ptr<Darabonba::Stream> videoUrlObject{};
 
@@ -1957,6 +1922,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxTime) {
+      res["MaxTime"] = boost::any(*maxTime);
+    }
+    if (minTime) {
+      res["MinTime"] = boost::any(*minTime);
+    }
     if (template_) {
       res["Template"] = boost::any(*template_);
     }
@@ -1967,6 +1938,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxTime") != m.end() && !m["MaxTime"].empty()) {
+      maxTime = make_shared<long>(boost::any_cast<long>(m["MaxTime"]));
+    }
+    if (m.find("MinTime") != m.end() && !m["MinTime"].empty()) {
+      minTime = make_shared<long>(boost::any_cast<long>(m["MinTime"]));
+    }
     if (m.find("Template") != m.end() && !m["Template"].empty()) {
       template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
     }
@@ -2201,17 +2178,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2463,17 +2430,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
