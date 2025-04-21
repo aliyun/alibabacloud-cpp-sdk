@@ -2223,11 +2223,14 @@ class LiveManifestConfig : public Darabonba::Model {
 public:
   shared_ptr<string> adMarkers{};
   shared_ptr<long> dateTimeInterval{};
+  shared_ptr<long> manifestDuration{};
   shared_ptr<long> maxVideoBitrate{};
   shared_ptr<long> minBufferTime{};
   shared_ptr<long> minUpdatePeriod{};
   shared_ptr<long> minVideoBitrate{};
+  shared_ptr<long> presentationDelay{};
   shared_ptr<long> segmentCount{};
+  shared_ptr<string> segmentTemplateFormat{};
   shared_ptr<string> streamOrder{};
 
   LiveManifestConfig() {}
@@ -2246,6 +2249,9 @@ public:
     if (dateTimeInterval) {
       res["DateTimeInterval"] = boost::any(*dateTimeInterval);
     }
+    if (manifestDuration) {
+      res["ManifestDuration"] = boost::any(*manifestDuration);
+    }
     if (maxVideoBitrate) {
       res["MaxVideoBitrate"] = boost::any(*maxVideoBitrate);
     }
@@ -2258,8 +2264,14 @@ public:
     if (minVideoBitrate) {
       res["MinVideoBitrate"] = boost::any(*minVideoBitrate);
     }
+    if (presentationDelay) {
+      res["PresentationDelay"] = boost::any(*presentationDelay);
+    }
     if (segmentCount) {
       res["SegmentCount"] = boost::any(*segmentCount);
+    }
+    if (segmentTemplateFormat) {
+      res["SegmentTemplateFormat"] = boost::any(*segmentTemplateFormat);
     }
     if (streamOrder) {
       res["StreamOrder"] = boost::any(*streamOrder);
@@ -2274,6 +2286,9 @@ public:
     if (m.find("DateTimeInterval") != m.end() && !m["DateTimeInterval"].empty()) {
       dateTimeInterval = make_shared<long>(boost::any_cast<long>(m["DateTimeInterval"]));
     }
+    if (m.find("ManifestDuration") != m.end() && !m["ManifestDuration"].empty()) {
+      manifestDuration = make_shared<long>(boost::any_cast<long>(m["ManifestDuration"]));
+    }
     if (m.find("MaxVideoBitrate") != m.end() && !m["MaxVideoBitrate"].empty()) {
       maxVideoBitrate = make_shared<long>(boost::any_cast<long>(m["MaxVideoBitrate"]));
     }
@@ -2286,8 +2301,14 @@ public:
     if (m.find("MinVideoBitrate") != m.end() && !m["MinVideoBitrate"].empty()) {
       minVideoBitrate = make_shared<long>(boost::any_cast<long>(m["MinVideoBitrate"]));
     }
+    if (m.find("PresentationDelay") != m.end() && !m["PresentationDelay"].empty()) {
+      presentationDelay = make_shared<long>(boost::any_cast<long>(m["PresentationDelay"]));
+    }
     if (m.find("SegmentCount") != m.end() && !m["SegmentCount"].empty()) {
       segmentCount = make_shared<long>(boost::any_cast<long>(m["SegmentCount"]));
+    }
+    if (m.find("SegmentTemplateFormat") != m.end() && !m["SegmentTemplateFormat"].empty()) {
+      segmentTemplateFormat = make_shared<string>(boost::any_cast<string>(m["SegmentTemplateFormat"]));
     }
     if (m.find("StreamOrder") != m.end() && !m["StreamOrder"].empty()) {
       streamOrder = make_shared<string>(boost::any_cast<string>(m["StreamOrder"]));
@@ -2299,6 +2320,7 @@ public:
 };
 class LivePackagingConfigDrmConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> contentId{};
   shared_ptr<string> encryptionMethod{};
   shared_ptr<string> IV{};
   shared_ptr<long> rotatePeriod{};
@@ -2315,6 +2337,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (contentId) {
+      res["ContentId"] = boost::any(*contentId);
+    }
     if (encryptionMethod) {
       res["EncryptionMethod"] = boost::any(*encryptionMethod);
     }
@@ -2334,6 +2359,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContentId") != m.end() && !m["ContentId"].empty()) {
+      contentId = make_shared<string>(boost::any_cast<string>(m["ContentId"]));
+    }
     if (m.find("EncryptionMethod") != m.end() && !m["EncryptionMethod"].empty()) {
       encryptionMethod = make_shared<string>(boost::any_cast<string>(m["EncryptionMethod"]));
     }
@@ -23038,6 +23066,7 @@ public:
 };
 class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList : public Darabonba::Model {
 public:
+  shared_ptr<double> duration{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> jobId{};
@@ -23056,6 +23085,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
     }
@@ -23081,6 +23113,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
+    }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
