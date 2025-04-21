@@ -9812,13 +9812,17 @@ public:
 class ListChatappTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> auditStatus{};
+  shared_ptr<string> category{};
   shared_ptr<string> code{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> language{};
   shared_ptr<string> name{};
+  shared_ptr<long> ownerId{};
   shared_ptr<ListChatappTemplateRequestPage> page{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> templateType{};
 
   ListChatappTemplateRequest() {}
@@ -9834,6 +9838,9 @@ public:
     if (auditStatus) {
       res["AuditStatus"] = boost::any(*auditStatus);
     }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -9852,8 +9859,17 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (page) {
       res["Page"] = page ? boost::any(page->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (templateType) {
       res["TemplateType"] = boost::any(*templateType);
@@ -9864,6 +9880,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuditStatus") != m.end() && !m["AuditStatus"].empty()) {
       auditStatus = make_shared<string>(boost::any_cast<string>(m["AuditStatus"]));
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
@@ -9883,12 +9902,21 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("Page") != m.end() && !m["Page"].empty()) {
       if (typeid(map<string, boost::any>) == m["Page"].type()) {
         ListChatappTemplateRequestPage model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Page"]));
         page = make_shared<ListChatappTemplateRequestPage>(model1);
       }
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
       templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
@@ -9901,13 +9929,17 @@ public:
 class ListChatappTemplateShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> auditStatus{};
+  shared_ptr<string> category{};
   shared_ptr<string> code{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> language{};
   shared_ptr<string> name{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> pageShrink{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> templateType{};
 
   ListChatappTemplateShrinkRequest() {}
@@ -9923,6 +9955,9 @@ public:
     if (auditStatus) {
       res["AuditStatus"] = boost::any(*auditStatus);
     }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -9941,8 +9976,17 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (pageShrink) {
       res["Page"] = boost::any(*pageShrink);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (templateType) {
       res["TemplateType"] = boost::any(*templateType);
@@ -9953,6 +9997,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuditStatus") != m.end() && !m["AuditStatus"].empty()) {
       auditStatus = make_shared<string>(boost::any_cast<string>(m["AuditStatus"]));
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
@@ -9972,8 +10019,17 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("Page") != m.end() && !m["Page"].empty()) {
       pageShrink = make_shared<string>(boost::any_cast<string>(m["Page"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
       templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
@@ -10068,6 +10124,7 @@ public:
   shared_ptr<vector<ListChatappTemplateResponseBodyListTemplate>> listTemplate{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
   shared_ptr<long> total{};
 
   ListChatappTemplateResponseBody() {}
@@ -10098,6 +10155,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
     }
     if (total) {
       res["Total"] = boost::any(*total);
@@ -10130,6 +10190,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("Total") != m.end() && !m["Total"].empty()) {
       total = make_shared<long>(boost::any_cast<long>(m["Total"]));
@@ -13993,7 +14056,7 @@ public:
 };
 class SendChatappMassMessageRequestSenderListFlowAction : public Darabonba::Model {
 public:
-  shared_ptr<map<string, string>> flowActionData{};
+  shared_ptr<map<string, boost::any>> flowActionData{};
   shared_ptr<string> flowToken{};
 
   SendChatappMassMessageRequestSenderListFlowAction() {}
@@ -14017,12 +14080,12 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FlowActionData") != m.end() && !m["FlowActionData"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["FlowActionData"]);
-      map<string, string> toMap1;
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["FlowActionData"]);
+      map<string, boost::any> toMap1;
       for (auto item:map1) {
          toMap1[item.first] = item.second;
       }
-      flowActionData = make_shared<map<string, string>>(toMap1);
+      flowActionData = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("FlowToken") != m.end() && !m["FlowToken"].empty()) {
       flowToken = make_shared<string>(boost::any_cast<string>(m["FlowToken"]));
@@ -14645,7 +14708,7 @@ public:
 };
 class SendChatappMessageRequestFlowAction : public Darabonba::Model {
 public:
-  shared_ptr<map<string, string>> flowActionData{};
+  shared_ptr<map<string, boost::any>> flowActionData{};
   shared_ptr<string> flowToken{};
 
   SendChatappMessageRequestFlowAction() {}
@@ -14669,12 +14732,12 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FlowActionData") != m.end() && !m["FlowActionData"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["FlowActionData"]);
-      map<string, string> toMap1;
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["FlowActionData"]);
+      map<string, boost::any> toMap1;
       for (auto item:map1) {
          toMap1[item.first] = item.second;
       }
-      flowActionData = make_shared<map<string, string>>(toMap1);
+      flowActionData = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("FlowToken") != m.end() && !m["FlowToken"].empty()) {
       flowToken = make_shared<string>(boost::any_cast<string>(m["FlowToken"]));
