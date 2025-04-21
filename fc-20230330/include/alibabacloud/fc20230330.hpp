@@ -1807,6 +1807,7 @@ public:
 };
 class LifecycleHook : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> command{};
   shared_ptr<string> handler{};
   shared_ptr<long> timeout{};
 
@@ -1820,6 +1821,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (command) {
+      res["command"] = boost::any(*command);
+    }
     if (handler) {
       res["handler"] = boost::any(*handler);
     }
@@ -1830,6 +1834,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("command") != m.end() && !m["command"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["command"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["command"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      command = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("handler") != m.end() && !m["handler"].empty()) {
       handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
     }
@@ -2300,6 +2314,7 @@ public:
   shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> runtime{};
+  shared_ptr<string> sessionAffinity{};
   shared_ptr<vector<Tag>> tags{};
   shared_ptr<long> timeout{};
   shared_ptr<TracingConfig> tracingConfig{};
@@ -2380,6 +2395,9 @@ public:
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
+    }
+    if (sessionAffinity) {
+      res["sessionAffinity"] = boost::any(*sessionAffinity);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -2514,6 +2532,9 @@ public:
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
+    }
+    if (m.find("sessionAffinity") != m.end() && !m["sessionAffinity"].empty()) {
+      sessionAffinity = make_shared<string>(boost::any_cast<string>(m["sessionAffinity"]));
     }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       if (typeid(vector<boost::any>) == m["tags"].type()) {
@@ -4013,6 +4034,7 @@ public:
   shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> runtime{};
+  shared_ptr<string> sessionAffinity{};
   shared_ptr<string> state{};
   shared_ptr<string> stateReason{};
   shared_ptr<string> stateReasonCode{};
@@ -4127,6 +4149,9 @@ public:
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
+    }
+    if (sessionAffinity) {
+      res["sessionAffinity"] = boost::any(*sessionAffinity);
     }
     if (state) {
       res["state"] = boost::any(*state);
@@ -4300,6 +4325,9 @@ public:
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
+    }
+    if (m.find("sessionAffinity") != m.end() && !m["sessionAffinity"].empty()) {
+      sessionAffinity = make_shared<string>(boost::any_cast<string>(m["sessionAffinity"]));
     }
     if (m.find("state") != m.end() && !m["state"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["state"]));
@@ -6902,6 +6930,7 @@ public:
   shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> runtime{};
+  shared_ptr<string> sessionAffinity{};
   shared_ptr<long> timeout{};
   shared_ptr<TracingConfig> tracingConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
@@ -6978,6 +7007,9 @@ public:
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
+    }
+    if (sessionAffinity) {
+      res["sessionAffinity"] = boost::any(*sessionAffinity);
     }
     if (timeout) {
       res["timeout"] = boost::any(*timeout);
@@ -7102,6 +7134,9 @@ public:
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
+    }
+    if (m.find("sessionAffinity") != m.end() && !m["sessionAffinity"].empty()) {
+      sessionAffinity = make_shared<string>(boost::any_cast<string>(m["sessionAffinity"]));
     }
     if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
       timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
