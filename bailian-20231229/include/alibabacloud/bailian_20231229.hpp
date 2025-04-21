@@ -1725,6 +1725,7 @@ public:
   shared_ptr<string> sinkType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> structureType{};
+  shared_ptr<string> chunkMode{};
   shared_ptr<bool> enableHeaders{};
   shared_ptr<vector<CreateIndexRequestMetaExtractColumns>> metaExtractColumns{};
 
@@ -1792,6 +1793,9 @@ public:
     }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
+    }
+    if (chunkMode) {
+      res["chunkMode"] = boost::any(*chunkMode);
     }
     if (enableHeaders) {
       res["enableHeaders"] = boost::any(*enableHeaders);
@@ -1886,6 +1890,9 @@ public:
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
     }
+    if (m.find("chunkMode") != m.end() && !m["chunkMode"].empty()) {
+      chunkMode = make_shared<string>(boost::any_cast<string>(m["chunkMode"]));
+    }
     if (m.find("enableHeaders") != m.end() && !m["enableHeaders"].empty()) {
       enableHeaders = make_shared<bool>(boost::any_cast<bool>(m["enableHeaders"]));
     }
@@ -1926,6 +1933,7 @@ public:
   shared_ptr<string> sinkType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> structureType{};
+  shared_ptr<string> chunkMode{};
   shared_ptr<bool> enableHeaders{};
   shared_ptr<string> metaExtractColumnsShrink{};
 
@@ -1990,6 +1998,9 @@ public:
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
+    if (chunkMode) {
+      res["chunkMode"] = boost::any(*chunkMode);
+    }
     if (enableHeaders) {
       res["enableHeaders"] = boost::any(*enableHeaders);
     }
@@ -2050,6 +2061,9 @@ public:
     }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
+    }
+    if (m.find("chunkMode") != m.end() && !m["chunkMode"].empty()) {
+      chunkMode = make_shared<string>(boost::any_cast<string>(m["chunkMode"]));
     }
     if (m.find("enableHeaders") != m.end() && !m["enableHeaders"].empty()) {
       enableHeaders = make_shared<bool>(boost::any_cast<bool>(m["enableHeaders"]));
