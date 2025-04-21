@@ -2253,9 +2253,6 @@ CreatePluginConfigResponse Alibabacloud_Mse20190531::Client::createPluginConfigW
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
-    query->insert(pair<string, string>("Config", *request->config));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->configLevel)) {
     query->insert(pair<string, long>("ConfigLevel", *request->configLevel));
   }
@@ -2271,8 +2268,13 @@ CreatePluginConfigResponse Alibabacloud_Mse20190531::Client::createPluginConfigW
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdListShrink)) {
     query->insert(pair<string, string>("ResourceIdList", *request->resourceIdListShrink));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
+    body->insert(pair<string, string>("Config", *request->config));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreatePluginConfig"))},
@@ -10494,9 +10496,6 @@ UpdatePluginConfigResponse Alibabacloud_Mse20190531::Client::updatePluginConfigW
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
-    query->insert(pair<string, string>("Config", *request->config));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->configLevel)) {
     query->insert(pair<string, long>("ConfigLevel", *request->configLevel));
   }
@@ -10524,8 +10523,13 @@ UpdatePluginConfigResponse Alibabacloud_Mse20190531::Client::updatePluginConfigW
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdListShrink)) {
     query->insert(pair<string, string>("ResourceIdList", *request->resourceIdListShrink));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
+    body->insert(pair<string, string>("Config", *request->config));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdatePluginConfig"))},
