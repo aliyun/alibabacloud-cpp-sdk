@@ -3050,6 +3050,7 @@ public:
   shared_ptr<vector<ProductProperty>> properties{};
   shared_ptr<long> quantity{};
   shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> servicePromises{};
   shared_ptr<string> shopId{};
   shared_ptr<vector<Sku>> skus{};
   shared_ptr<string> soldQuantity{};
@@ -3146,6 +3147,9 @@ public:
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
+    }
+    if (servicePromises) {
+      res["servicePromises"] = boost::any(*servicePromises);
     }
     if (shopId) {
       res["shopId"] = boost::any(*shopId);
@@ -3289,6 +3293,16 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("servicePromises") != m.end() && !m["servicePromises"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["servicePromises"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["servicePromises"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      servicePromises = make_shared<vector<string>>(toVec1);
     }
     if (m.find("shopId") != m.end() && !m["shopId"].empty()) {
       shopId = make_shared<string>(boost::any_cast<string>(m["shopId"]));

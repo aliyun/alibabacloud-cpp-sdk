@@ -109,12 +109,7 @@ CancelRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::cancelRefundO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelRefundOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelRefundOrderResponse(execute(params, req, runtime));
-  }
+  return CancelRefundOrderResponse(callApi(params, req, runtime));
 }
 
 CancelRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::cancelRefundOrder(shared_ptr<string> disputeId) {
@@ -140,12 +135,7 @@ ConfirmDisburseResponse Alibabacloud_Linkedmall20230930::Client::confirmDisburse
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ConfirmDisburseResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ConfirmDisburseResponse(execute(params, req, runtime));
-  }
+  return ConfirmDisburseResponse(callApi(params, req, runtime));
 }
 
 ConfirmDisburseResponse Alibabacloud_Linkedmall20230930::Client::confirmDisburse(shared_ptr<ConfirmDisburseRequest> request) {
@@ -171,12 +161,7 @@ CreateGoodsShippingNoticeResponse Alibabacloud_Linkedmall20230930::Client::creat
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateGoodsShippingNoticeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateGoodsShippingNoticeResponse(execute(params, req, runtime));
-  }
+  return CreateGoodsShippingNoticeResponse(callApi(params, req, runtime));
 }
 
 CreateGoodsShippingNoticeResponse Alibabacloud_Linkedmall20230930::Client::createGoodsShippingNotice(shared_ptr<CreateGoodsShippingNoticeRequest> request) {
@@ -202,12 +187,7 @@ CreatePurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::createPurch
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreatePurchaseOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreatePurchaseOrderResponse(execute(params, req, runtime));
-  }
+  return CreatePurchaseOrderResponse(callApi(params, req, runtime));
 }
 
 CreatePurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::createPurchaseOrder(shared_ptr<CreatePurchaseOrderRequest> request) {
@@ -233,12 +213,7 @@ CreateRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::createRefundO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRefundOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRefundOrderResponse(execute(params, req, runtime));
-  }
+  return CreateRefundOrderResponse(callApi(params, req, runtime));
 }
 
 CreateRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::createRefundOrder(shared_ptr<CreateRefundOrderRequest> request) {
@@ -262,12 +237,7 @@ GetOrderResponse Alibabacloud_Linkedmall20230930::Client::getOrderWithOptions(sh
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetOrderResponse(execute(params, req, runtime));
-  }
+  return GetOrderResponse(callApi(params, req, runtime));
 }
 
 GetOrderResponse Alibabacloud_Linkedmall20230930::Client::getOrder(shared_ptr<string> orderId) {
@@ -291,12 +261,7 @@ GetPurchaseOrderStatusResponse Alibabacloud_Linkedmall20230930::Client::getPurch
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetPurchaseOrderStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetPurchaseOrderStatusResponse(execute(params, req, runtime));
-  }
+  return GetPurchaseOrderStatusResponse(callApi(params, req, runtime));
 }
 
 GetPurchaseOrderStatusResponse Alibabacloud_Linkedmall20230930::Client::getPurchaseOrderStatus(shared_ptr<string> purchaseOrderId) {
@@ -320,12 +285,7 @@ GetPurchaserShopResponse Alibabacloud_Linkedmall20230930::Client::getPurchaserSh
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetPurchaserShopResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetPurchaserShopResponse(execute(params, req, runtime));
-  }
+  return GetPurchaserShopResponse(callApi(params, req, runtime));
 }
 
 GetPurchaserShopResponse Alibabacloud_Linkedmall20230930::Client::getPurchaserShop(shared_ptr<string> purchaserId) {
@@ -349,12 +309,7 @@ GetRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::getRefundOrderWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRefundOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRefundOrderResponse(execute(params, req, runtime));
-  }
+  return GetRefundOrderResponse(callApi(params, req, runtime));
 }
 
 GetRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::getRefundOrder(shared_ptr<string> disputeId) {
@@ -390,12 +345,7 @@ GetSelectionProductResponse Alibabacloud_Linkedmall20230930::Client::getSelectio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetSelectionProductResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetSelectionProductResponse(execute(params, req, runtime));
-  }
+  return GetSelectionProductResponse(callApi(params, req, runtime));
 }
 
 GetSelectionProductResponse Alibabacloud_Linkedmall20230930::Client::getSelectionProduct(shared_ptr<string> productId, shared_ptr<GetSelectionProductRequest> request) {
@@ -431,12 +381,7 @@ GetSelectionProductSaleInfoResponse Alibabacloud_Linkedmall20230930::Client::get
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetSelectionProductSaleInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetSelectionProductSaleInfoResponse(execute(params, req, runtime));
-  }
+  return GetSelectionProductSaleInfoResponse(callApi(params, req, runtime));
 }
 
 GetSelectionProductSaleInfoResponse Alibabacloud_Linkedmall20230930::Client::getSelectionProductSaleInfo(shared_ptr<string> productId, shared_ptr<GetSelectionProductSaleInfoRequest> request) {
@@ -462,12 +407,7 @@ ListCategoriesResponse Alibabacloud_Linkedmall20230930::Client::listCategoriesWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListCategoriesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListCategoriesResponse(execute(params, req, runtime));
-  }
+  return ListCategoriesResponse(callApi(params, req, runtime));
 }
 
 ListCategoriesResponse Alibabacloud_Linkedmall20230930::Client::listCategories(shared_ptr<ListCategoriesRequest> request) {
@@ -491,12 +431,7 @@ ListLogisticsOrdersResponse Alibabacloud_Linkedmall20230930::Client::listLogisti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListLogisticsOrdersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListLogisticsOrdersResponse(execute(params, req, runtime));
-  }
+  return ListLogisticsOrdersResponse(callApi(params, req, runtime));
 }
 
 ListLogisticsOrdersResponse Alibabacloud_Linkedmall20230930::Client::listLogisticsOrders(shared_ptr<string> orderId) {
@@ -529,12 +464,7 @@ ListPurchaserShopsResponse Alibabacloud_Linkedmall20230930::Client::listPurchase
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListPurchaserShopsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListPurchaserShopsResponse(execute(params, req, runtime));
-  }
+  return ListPurchaserShopsResponse(callApi(params, req, runtime));
 }
 
 ListPurchaserShopsResponse Alibabacloud_Linkedmall20230930::Client::listPurchaserShops(shared_ptr<ListPurchaserShopsRequest> request) {
@@ -560,12 +490,7 @@ ListSelectionProductSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::l
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListSelectionProductSaleInfosResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListSelectionProductSaleInfosResponse(execute(params, req, runtime));
-  }
+  return ListSelectionProductSaleInfosResponse(callApi(params, req, runtime));
 }
 
 ListSelectionProductSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSelectionProductSaleInfos(shared_ptr<ListSelectionProductSaleInfosRequest> request) {
@@ -601,12 +526,7 @@ ListSelectionProductsResponse Alibabacloud_Linkedmall20230930::Client::listSelec
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListSelectionProductsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListSelectionProductsResponse(execute(params, req, runtime));
-  }
+  return ListSelectionProductsResponse(callApi(params, req, runtime));
 }
 
 ListSelectionProductsResponse Alibabacloud_Linkedmall20230930::Client::listSelectionProducts(shared_ptr<ListSelectionProductsRequest> request) {
@@ -632,12 +552,7 @@ ListSelectionSkuSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listS
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListSelectionSkuSaleInfosResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListSelectionSkuSaleInfosResponse(execute(params, req, runtime));
-  }
+  return ListSelectionSkuSaleInfosResponse(callApi(params, req, runtime));
 }
 
 ListSelectionSkuSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSelectionSkuSaleInfos(shared_ptr<ListSelectionSkuSaleInfosRequest> request) {
@@ -663,12 +578,7 @@ QueryChildDivisionCodeResponse Alibabacloud_Linkedmall20230930::Client::queryChi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryChildDivisionCodeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryChildDivisionCodeResponse(execute(params, req, runtime));
-  }
+  return QueryChildDivisionCodeResponse(callApi(params, req, runtime));
 }
 
 QueryChildDivisionCodeResponse Alibabacloud_Linkedmall20230930::Client::queryChildDivisionCode(shared_ptr<QueryChildDivisionCodeRequest> request) {
@@ -694,12 +604,7 @@ QueryOrdersResponse Alibabacloud_Linkedmall20230930::Client::queryOrdersWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryOrdersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryOrdersResponse(execute(params, req, runtime));
-  }
+  return QueryOrdersResponse(callApi(params, req, runtime));
 }
 
 QueryOrdersResponse Alibabacloud_Linkedmall20230930::Client::queryOrders(shared_ptr<QueryOrdersRequest> request) {
@@ -725,12 +630,7 @@ RenderPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::renderPurch
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RenderPurchaseOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RenderPurchaseOrderResponse(execute(params, req, runtime));
-  }
+  return RenderPurchaseOrderResponse(callApi(params, req, runtime));
 }
 
 RenderPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::renderPurchaseOrder(shared_ptr<RenderPurchaseOrderRequest> request) {
@@ -756,12 +656,7 @@ RenderRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::renderRefundO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RenderRefundOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RenderRefundOrderResponse(execute(params, req, runtime));
-  }
+  return RenderRefundOrderResponse(callApi(params, req, runtime));
 }
 
 RenderRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::renderRefundOrder(shared_ptr<RenderRefundOrderRequest> request) {
@@ -878,12 +773,7 @@ SearchProductsResponse Alibabacloud_Linkedmall20230930::Client::searchProductsWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SearchProductsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SearchProductsResponse(execute(params, req, runtime));
-  }
+  return SearchProductsResponse(callApi(params, req, runtime));
 }
 
 SearchProductsResponse Alibabacloud_Linkedmall20230930::Client::searchProducts(shared_ptr<SearchProductsRequest> request) {
@@ -916,12 +806,7 @@ SelectionGroupAddProductResponse Alibabacloud_Linkedmall20230930::Client::select
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SelectionGroupAddProductResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SelectionGroupAddProductResponse(execute(params, req, runtime));
-  }
+  return SelectionGroupAddProductResponse(callApi(params, req, runtime));
 }
 
 SelectionGroupAddProductResponse Alibabacloud_Linkedmall20230930::Client::selectionGroupAddProduct(shared_ptr<SelectionGroupAddProductRequest> request) {
@@ -954,12 +839,7 @@ SelectionGroupRemoveProductResponse Alibabacloud_Linkedmall20230930::Client::sel
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SelectionGroupRemoveProductResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SelectionGroupRemoveProductResponse(execute(params, req, runtime));
-  }
+  return SelectionGroupRemoveProductResponse(callApi(params, req, runtime));
 }
 
 SelectionGroupRemoveProductResponse Alibabacloud_Linkedmall20230930::Client::selectionGroupRemoveProduct(shared_ptr<SelectionGroupRemoveProductRequest> request) {
@@ -985,12 +865,7 @@ SplitPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::splitPurchas
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SplitPurchaseOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SplitPurchaseOrderResponse(execute(params, req, runtime));
-  }
+  return SplitPurchaseOrderResponse(callApi(params, req, runtime));
 }
 
 SplitPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::splitPurchaseOrder(shared_ptr<SplitPurchaseOrderRequest> request) {
