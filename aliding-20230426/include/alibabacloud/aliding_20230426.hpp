@@ -101002,6 +101002,387 @@ public:
 
   virtual ~SubscribeEventResponse() = default;
 };
+class SwitchMainOrgHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  SwitchMainOrgHeadersAccountContext() {}
+
+  explicit SwitchMainOrgHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~SwitchMainOrgHeadersAccountContext() = default;
+};
+class SwitchMainOrgHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<SwitchMainOrgHeadersAccountContext> accountContext{};
+
+  SwitchMainOrgHeaders() {}
+
+  explicit SwitchMainOrgHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        SwitchMainOrgHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<SwitchMainOrgHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SwitchMainOrgHeaders() = default;
+};
+class SwitchMainOrgShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  SwitchMainOrgShrinkHeaders() {}
+
+  explicit SwitchMainOrgShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~SwitchMainOrgShrinkHeaders() = default;
+};
+class SwitchMainOrgRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  SwitchMainOrgRequestTenantContext() {}
+
+  explicit SwitchMainOrgRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~SwitchMainOrgRequestTenantContext() = default;
+};
+class SwitchMainOrgRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> targetOrgId{};
+  shared_ptr<SwitchMainOrgRequestTenantContext> tenantContext{};
+
+  SwitchMainOrgRequest() {}
+
+  explicit SwitchMainOrgRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (targetOrgId) {
+      res["TargetOrgId"] = boost::any(*targetOrgId);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TargetOrgId") != m.end() && !m["TargetOrgId"].empty()) {
+      targetOrgId = make_shared<long>(boost::any_cast<long>(m["TargetOrgId"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        SwitchMainOrgRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<SwitchMainOrgRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SwitchMainOrgRequest() = default;
+};
+class SwitchMainOrgShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> targetOrgId{};
+  shared_ptr<string> tenantContextShrink{};
+
+  SwitchMainOrgShrinkRequest() {}
+
+  explicit SwitchMainOrgShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (targetOrgId) {
+      res["TargetOrgId"] = boost::any(*targetOrgId);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TargetOrgId") != m.end() && !m["TargetOrgId"].empty()) {
+      targetOrgId = make_shared<long>(boost::any_cast<long>(m["TargetOrgId"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~SwitchMainOrgShrinkRequest() = default;
+};
+class SwitchMainOrgResponseBodyContent : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> data{};
+
+  SwitchMainOrgResponseBodyContent() {}
+
+  explicit SwitchMainOrgResponseBodyContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["data"]));
+    }
+  }
+
+
+  virtual ~SwitchMainOrgResponseBodyContent() = default;
+};
+class SwitchMainOrgResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SwitchMainOrgResponseBodyContent> content{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<map<string, boost::any>> errorCtx{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SwitchMainOrgResponseBody() {}
+
+  explicit SwitchMainOrgResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = content ? boost::any(content->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorCtx) {
+      res["errorCtx"] = boost::any(*errorCtx);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      if (typeid(map<string, boost::any>) == m["content"].type()) {
+        SwitchMainOrgResponseBodyContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["content"]));
+        content = make_shared<SwitchMainOrgResponseBodyContent>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorCtx") != m.end() && !m["errorCtx"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["errorCtx"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      errorCtx = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~SwitchMainOrgResponseBody() = default;
+};
+class SwitchMainOrgResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SwitchMainOrgResponseBody> body{};
+
+  SwitchMainOrgResponse() {}
+
+  explicit SwitchMainOrgResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SwitchMainOrgResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SwitchMainOrgResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SwitchMainOrgResponse() = default;
+};
 class SyncDingTypeHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -110642,6 +111023,8 @@ public:
   SubscribeCalendarResponse subscribeCalendar(shared_ptr<SubscribeCalendarRequest> request);
   SubscribeEventResponse subscribeEventWithOptions(shared_ptr<SubscribeEventRequest> tmpReq, shared_ptr<SubscribeEventHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubscribeEventResponse subscribeEvent(shared_ptr<SubscribeEventRequest> request);
+  SwitchMainOrgResponse switchMainOrgWithOptions(shared_ptr<SwitchMainOrgRequest> tmpReq, shared_ptr<SwitchMainOrgHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SwitchMainOrgResponse switchMainOrg(shared_ptr<SwitchMainOrgRequest> request);
   SyncDingTypeResponse syncDingTypeWithOptions(shared_ptr<SyncDingTypeRequest> tmpReq, shared_ptr<SyncDingTypeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SyncDingTypeResponse syncDingType(shared_ptr<SyncDingTypeRequest> request);
   TerminateInstanceResponse terminateInstanceWithOptions(shared_ptr<TerminateInstanceRequest> request, shared_ptr<TerminateInstanceHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
