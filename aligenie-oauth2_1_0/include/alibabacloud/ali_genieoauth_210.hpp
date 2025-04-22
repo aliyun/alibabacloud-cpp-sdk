@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_ALIGENIEOAUTH210_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -13,6 +14,350 @@
 using namespace std;
 
 namespace Alibabacloud_AliGenieoauth210 {
+class CreatePlayingListRequestDeviceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> encodeKey{};
+  shared_ptr<string> encodeType{};
+  shared_ptr<string> id{};
+  shared_ptr<string> idType{};
+  shared_ptr<string> organizationId{};
+
+  CreatePlayingListRequestDeviceInfo() {}
+
+  explicit CreatePlayingListRequestDeviceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encodeKey) {
+      res["EncodeKey"] = boost::any(*encodeKey);
+    }
+    if (encodeType) {
+      res["EncodeType"] = boost::any(*encodeType);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (idType) {
+      res["IdType"] = boost::any(*idType);
+    }
+    if (organizationId) {
+      res["OrganizationId"] = boost::any(*organizationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncodeKey") != m.end() && !m["EncodeKey"].empty()) {
+      encodeKey = make_shared<string>(boost::any_cast<string>(m["EncodeKey"]));
+    }
+    if (m.find("EncodeType") != m.end() && !m["EncodeType"].empty()) {
+      encodeType = make_shared<string>(boost::any_cast<string>(m["EncodeType"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("IdType") != m.end() && !m["IdType"].empty()) {
+      idType = make_shared<string>(boost::any_cast<string>(m["IdType"]));
+    }
+    if (m.find("OrganizationId") != m.end() && !m["OrganizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["OrganizationId"]));
+    }
+  }
+
+
+  virtual ~CreatePlayingListRequestDeviceInfo() = default;
+};
+class CreatePlayingListRequestOpenCreatePlayingListRequestContentList : public Darabonba::Model {
+public:
+  shared_ptr<string> rawId{};
+  shared_ptr<string> source{};
+
+  CreatePlayingListRequestOpenCreatePlayingListRequestContentList() {}
+
+  explicit CreatePlayingListRequestOpenCreatePlayingListRequestContentList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rawId) {
+      res["RawId"] = boost::any(*rawId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RawId") != m.end() && !m["RawId"].empty()) {
+      rawId = make_shared<string>(boost::any_cast<string>(m["RawId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~CreatePlayingListRequestOpenCreatePlayingListRequestContentList() = default;
+};
+class CreatePlayingListRequestOpenCreatePlayingListRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreatePlayingListRequestOpenCreatePlayingListRequestContentList>> contentList{};
+  shared_ptr<string> contentType{};
+  shared_ptr<map<string, boost::any>> extendInfo{};
+  shared_ptr<long> index{};
+  shared_ptr<bool> needAlbumContinued{};
+  shared_ptr<string> playFrom{};
+  shared_ptr<string> playMode{};
+
+  CreatePlayingListRequestOpenCreatePlayingListRequest() {}
+
+  explicit CreatePlayingListRequestOpenCreatePlayingListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contentList) {
+      vector<boost::any> temp1;
+      for(auto item1:*contentList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ContentList"] = boost::any(temp1);
+    }
+    if (contentType) {
+      res["ContentType"] = boost::any(*contentType);
+    }
+    if (extendInfo) {
+      res["ExtendInfo"] = boost::any(*extendInfo);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (needAlbumContinued) {
+      res["NeedAlbumContinued"] = boost::any(*needAlbumContinued);
+    }
+    if (playFrom) {
+      res["PlayFrom"] = boost::any(*playFrom);
+    }
+    if (playMode) {
+      res["PlayMode"] = boost::any(*playMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContentList") != m.end() && !m["ContentList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ContentList"].type()) {
+        vector<CreatePlayingListRequestOpenCreatePlayingListRequestContentList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ContentList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePlayingListRequestOpenCreatePlayingListRequestContentList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contentList = make_shared<vector<CreatePlayingListRequestOpenCreatePlayingListRequestContentList>>(expect1);
+      }
+    }
+    if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["ContentType"]));
+    }
+    if (m.find("ExtendInfo") != m.end() && !m["ExtendInfo"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ExtendInfo"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extendInfo = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("NeedAlbumContinued") != m.end() && !m["NeedAlbumContinued"].empty()) {
+      needAlbumContinued = make_shared<bool>(boost::any_cast<bool>(m["NeedAlbumContinued"]));
+    }
+    if (m.find("PlayFrom") != m.end() && !m["PlayFrom"].empty()) {
+      playFrom = make_shared<string>(boost::any_cast<string>(m["PlayFrom"]));
+    }
+    if (m.find("PlayMode") != m.end() && !m["PlayMode"].empty()) {
+      playMode = make_shared<string>(boost::any_cast<string>(m["PlayMode"]));
+    }
+  }
+
+
+  virtual ~CreatePlayingListRequestOpenCreatePlayingListRequest() = default;
+};
+class CreatePlayingListRequest : public Darabonba::Model {
+public:
+  shared_ptr<CreatePlayingListRequestDeviceInfo> deviceInfo{};
+  shared_ptr<CreatePlayingListRequestOpenCreatePlayingListRequest> openCreatePlayingListRequest{};
+
+  CreatePlayingListRequest() {}
+
+  explicit CreatePlayingListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceInfo) {
+      res["DeviceInfo"] = deviceInfo ? boost::any(deviceInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (openCreatePlayingListRequest) {
+      res["OpenCreatePlayingListRequest"] = openCreatePlayingListRequest ? boost::any(openCreatePlayingListRequest->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceInfo") != m.end() && !m["DeviceInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeviceInfo"].type()) {
+        CreatePlayingListRequestDeviceInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeviceInfo"]));
+        deviceInfo = make_shared<CreatePlayingListRequestDeviceInfo>(model1);
+      }
+    }
+    if (m.find("OpenCreatePlayingListRequest") != m.end() && !m["OpenCreatePlayingListRequest"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OpenCreatePlayingListRequest"].type()) {
+        CreatePlayingListRequestOpenCreatePlayingListRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OpenCreatePlayingListRequest"]));
+        openCreatePlayingListRequest = make_shared<CreatePlayingListRequestOpenCreatePlayingListRequest>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePlayingListRequest() = default;
+};
+class CreatePlayingListShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceInfoShrink{};
+  shared_ptr<string> openCreatePlayingListRequestShrink{};
+
+  CreatePlayingListShrinkRequest() {}
+
+  explicit CreatePlayingListShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceInfoShrink) {
+      res["DeviceInfo"] = boost::any(*deviceInfoShrink);
+    }
+    if (openCreatePlayingListRequestShrink) {
+      res["OpenCreatePlayingListRequest"] = boost::any(*openCreatePlayingListRequestShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceInfo") != m.end() && !m["DeviceInfo"].empty()) {
+      deviceInfoShrink = make_shared<string>(boost::any_cast<string>(m["DeviceInfo"]));
+    }
+    if (m.find("OpenCreatePlayingListRequest") != m.end() && !m["OpenCreatePlayingListRequest"].empty()) {
+      openCreatePlayingListRequestShrink = make_shared<string>(boost::any_cast<string>(m["OpenCreatePlayingListRequest"]));
+    }
+  }
+
+
+  virtual ~CreatePlayingListShrinkRequest() = default;
+};
+class CreatePlayingListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreatePlayingListResponseBody() {}
+
+  explicit CreatePlayingListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreatePlayingListResponseBody() = default;
+};
+class CreatePlayingListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePlayingListResponseBody> body{};
+
+  CreatePlayingListResponse() {}
+
+  explicit CreatePlayingListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePlayingListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePlayingListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePlayingListResponse() = default;
+};
 class ExecuteSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> sceneId{};
@@ -1426,6 +1771,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CreatePlayingListResponse createPlayingListWithOptions(shared_ptr<CreatePlayingListRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePlayingListResponse createPlayingList(shared_ptr<CreatePlayingListRequest> request);
   ExecuteSceneResponse executeSceneWithOptions(shared_ptr<ExecuteSceneRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteSceneResponse executeScene(shared_ptr<ExecuteSceneRequest> request);
   GetSceneListResponse getSceneListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

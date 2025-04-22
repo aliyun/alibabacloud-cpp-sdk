@@ -37,6 +37,49 @@ string Alibabacloud_AliGenieoauth210::Client::getEndpoint(shared_ptr<string> pro
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CreatePlayingListResponse Alibabacloud_AliGenieoauth210::Client::createPlayingListWithOptions(shared_ptr<CreatePlayingListRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePlayingListShrinkRequest> request = make_shared<CreatePlayingListShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreatePlayingListRequestDeviceInfo>(tmpReq->deviceInfo)) {
+    request->deviceInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->deviceInfo, make_shared<string>("DeviceInfo"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreatePlayingListRequestOpenCreatePlayingListRequest>(tmpReq->openCreatePlayingListRequest)) {
+    request->openCreatePlayingListRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->openCreatePlayingListRequest, make_shared<string>("OpenCreatePlayingListRequest"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceInfoShrink)) {
+    query->insert(pair<string, string>("DeviceInfo", *request->deviceInfoShrink));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->openCreatePlayingListRequestShrink)) {
+    body->insert(pair<string, string>("OpenCreatePlayingListRequest", *request->openCreatePlayingListRequestShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePlayingList"))},
+    {"version", boost::any(string("oauth2_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/oauth2/content/playing/create"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePlayingListResponse(callApi(params, req, runtime));
+}
+
+CreatePlayingListResponse Alibabacloud_AliGenieoauth210::Client::createPlayingList(shared_ptr<CreatePlayingListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createPlayingListWithOptions(request, headers, runtime);
+}
+
 ExecuteSceneResponse Alibabacloud_AliGenieoauth210::Client::executeSceneWithOptions(shared_ptr<ExecuteSceneRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -58,12 +101,7 @@ ExecuteSceneResponse Alibabacloud_AliGenieoauth210::Client::executeSceneWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ExecuteSceneResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ExecuteSceneResponse(execute(params, req, runtime));
-  }
+  return ExecuteSceneResponse(callApi(params, req, runtime));
 }
 
 ExecuteSceneResponse Alibabacloud_AliGenieoauth210::Client::executeScene(shared_ptr<ExecuteSceneRequest> request) {
@@ -87,12 +125,7 @@ GetSceneListResponse Alibabacloud_AliGenieoauth210::Client::getSceneListWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetSceneListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetSceneListResponse(execute(params, req, runtime));
-  }
+  return GetSceneListResponse(callApi(params, req, runtime));
 }
 
 GetSceneListResponse Alibabacloud_AliGenieoauth210::Client::getSceneList() {
@@ -116,12 +149,7 @@ GetUserBasicInfoResponse Alibabacloud_AliGenieoauth210::Client::getUserBasicInfo
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetUserBasicInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetUserBasicInfoResponse(execute(params, req, runtime));
-  }
+  return GetUserBasicInfoResponse(callApi(params, req, runtime));
 }
 
 GetUserBasicInfoResponse Alibabacloud_AliGenieoauth210::Client::getUserBasicInfo() {
@@ -145,12 +173,7 @@ GetUserPhoneResponse Alibabacloud_AliGenieoauth210::Client::getUserPhoneWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetUserPhoneResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetUserPhoneResponse(execute(params, req, runtime));
-  }
+  return GetUserPhoneResponse(callApi(params, req, runtime));
 }
 
 GetUserPhoneResponse Alibabacloud_AliGenieoauth210::Client::getUserPhone() {
@@ -193,12 +216,7 @@ OAuth2RevocationEndpointResponse Alibabacloud_AliGenieoauth210::Client::oAuth2Re
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OAuth2RevocationEndpointResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OAuth2RevocationEndpointResponse(execute(params, req, runtime));
-  }
+  return OAuth2RevocationEndpointResponse(callApi(params, req, runtime));
 }
 
 OAuth2RevocationEndpointResponse Alibabacloud_AliGenieoauth210::Client::oAuth2RevocationEndpoint(shared_ptr<OAuth2RevocationEndpointRequest> request) {
@@ -247,12 +265,7 @@ OAuth2TokenEndpointResponse Alibabacloud_AliGenieoauth210::Client::oAuth2TokenEn
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OAuth2TokenEndpointResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OAuth2TokenEndpointResponse(execute(params, req, runtime));
-  }
+  return OAuth2TokenEndpointResponse(callApi(params, req, runtime));
 }
 
 OAuth2TokenEndpointResponse Alibabacloud_AliGenieoauth210::Client::oAuth2TokenEndpoint(shared_ptr<OAuth2TokenEndpointRequest> request) {
@@ -293,12 +306,7 @@ PushDeviceNotificationResponse Alibabacloud_AliGenieoauth210::Client::pushDevice
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return PushDeviceNotificationResponse(callApi(params, req, runtime));
-  }
-  else {
-    return PushDeviceNotificationResponse(execute(params, req, runtime));
-  }
+  return PushDeviceNotificationResponse(callApi(params, req, runtime));
 }
 
 PushDeviceNotificationResponse Alibabacloud_AliGenieoauth210::Client::pushDeviceNotification(shared_ptr<PushDeviceNotificationRequest> request) {
@@ -322,12 +330,7 @@ QueryDeviceListResponse Alibabacloud_AliGenieoauth210::Client::queryDeviceListWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDeviceListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDeviceListResponse(execute(params, req, runtime));
-  }
+  return QueryDeviceListResponse(callApi(params, req, runtime));
 }
 
 QueryDeviceListResponse Alibabacloud_AliGenieoauth210::Client::queryDeviceList() {
