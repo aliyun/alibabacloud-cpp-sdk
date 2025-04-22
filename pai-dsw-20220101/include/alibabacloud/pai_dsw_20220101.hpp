@@ -6154,6 +6154,7 @@ public:
   shared_ptr<long> CPU{};
   shared_ptr<string> currency{};
   shared_ptr<long> GPU{};
+  shared_ptr<double> GPUMemorySize{};
   shared_ptr<string> GPUType{};
   shared_ptr<long> instanceBandwidthRx{};
   shared_ptr<string> instanceType{};
@@ -6161,6 +6162,7 @@ public:
   shared_ptr<vector<ListEcsSpecsResponseBodyEcsSpecsLabels>> labels{};
   shared_ptr<double> memory{};
   shared_ptr<double> price{};
+  shared_ptr<string> spotStockStatus{};
   shared_ptr<long> systemDiskCapacity{};
 
   ListEcsSpecsResponseBodyEcsSpecs() {}
@@ -6184,6 +6186,9 @@ public:
     }
     if (GPU) {
       res["GPU"] = boost::any(*GPU);
+    }
+    if (GPUMemorySize) {
+      res["GPUMemorySize"] = boost::any(*GPUMemorySize);
     }
     if (GPUType) {
       res["GPUType"] = boost::any(*GPUType);
@@ -6210,6 +6215,9 @@ public:
     if (price) {
       res["Price"] = boost::any(*price);
     }
+    if (spotStockStatus) {
+      res["SpotStockStatus"] = boost::any(*spotStockStatus);
+    }
     if (systemDiskCapacity) {
       res["SystemDiskCapacity"] = boost::any(*systemDiskCapacity);
     }
@@ -6228,6 +6236,9 @@ public:
     }
     if (m.find("GPU") != m.end() && !m["GPU"].empty()) {
       GPU = make_shared<long>(boost::any_cast<long>(m["GPU"]));
+    }
+    if (m.find("GPUMemorySize") != m.end() && !m["GPUMemorySize"].empty()) {
+      GPUMemorySize = make_shared<double>(boost::any_cast<double>(m["GPUMemorySize"]));
     }
     if (m.find("GPUType") != m.end() && !m["GPUType"].empty()) {
       GPUType = make_shared<string>(boost::any_cast<string>(m["GPUType"]));
@@ -6259,6 +6270,9 @@ public:
     }
     if (m.find("Price") != m.end() && !m["Price"].empty()) {
       price = make_shared<double>(boost::any_cast<double>(m["Price"]));
+    }
+    if (m.find("SpotStockStatus") != m.end() && !m["SpotStockStatus"].empty()) {
+      spotStockStatus = make_shared<string>(boost::any_cast<string>(m["SpotStockStatus"]));
     }
     if (m.find("SystemDiskCapacity") != m.end() && !m["SystemDiskCapacity"].empty()) {
       systemDiskCapacity = make_shared<long>(boost::any_cast<long>(m["SystemDiskCapacity"]));
