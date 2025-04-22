@@ -228,6 +228,49 @@ AddSmsTemplateResponse Alibabacloud_Dysmsapi20170525::Client::addSmsTemplate(sha
   return addSmsTemplateWithOptions(request, runtime);
 }
 
+ChangeSignatureQualificationResponse Alibabacloud_Dysmsapi20170525::Client::changeSignatureQualificationWithOptions(shared_ptr<ChangeSignatureQualificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->authorizationLetterId)) {
+    query->insert(pair<string, long>("AuthorizationLetterId", *request->authorizationLetterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->qualificationId)) {
+    query->insert(pair<string, long>("QualificationId", *request->qualificationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureName)) {
+    query->insert(pair<string, string>("SignatureName", *request->signatureName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeSignatureQualification"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChangeSignatureQualificationResponse(callApi(params, req, runtime));
+}
+
+ChangeSignatureQualificationResponse Alibabacloud_Dysmsapi20170525::Client::changeSignatureQualification(shared_ptr<ChangeSignatureQualificationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return changeSignatureQualificationWithOptions(request, runtime);
+}
+
 CheckMobilesCardSupportResponse Alibabacloud_Dysmsapi20170525::Client::checkMobilesCardSupportWithOptions(shared_ptr<CheckMobilesCardSupportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -384,6 +427,66 @@ CreateSmartShortUrlResponse Alibabacloud_Dysmsapi20170525::Client::createSmartSh
   return createSmartShortUrlWithOptions(request, runtime);
 }
 
+CreateSmsAuthorizationLetterResponse Alibabacloud_Dysmsapi20170525::Client::createSmsAuthorizationLetterWithOptions(shared_ptr<CreateSmsAuthorizationLetterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateSmsAuthorizationLetterShrinkRequest> request = make_shared<CreateSmsAuthorizationLetterShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->signList)) {
+    request->signListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->signList, make_shared<string>("SignList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorization)) {
+    query->insert(pair<string, string>("Authorization", *request->authorization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationLetterExpDate)) {
+    query->insert(pair<string, string>("AuthorizationLetterExpDate", *request->authorizationLetterExpDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationLetterName)) {
+    query->insert(pair<string, string>("AuthorizationLetterName", *request->authorizationLetterName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationLetterPic)) {
+    query->insert(pair<string, string>("AuthorizationLetterPic", *request->authorizationLetterPic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationCode)) {
+    query->insert(pair<string, string>("OrganizationCode", *request->organizationCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyAuthorization)) {
+    query->insert(pair<string, string>("ProxyAuthorization", *request->proxyAuthorization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signListShrink)) {
+    query->insert(pair<string, string>("SignList", *request->signListShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSmsAuthorizationLetter"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSmsAuthorizationLetterResponse(callApi(params, req, runtime));
+}
+
+CreateSmsAuthorizationLetterResponse Alibabacloud_Dysmsapi20170525::Client::createSmsAuthorizationLetter(shared_ptr<CreateSmsAuthorizationLetterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSmsAuthorizationLetterWithOptions(request, runtime);
+}
+
 CreateSmsSignResponse Alibabacloud_Dysmsapi20170525::Client::createSmsSignWithOptions(shared_ptr<CreateSmsSignRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateSmsSignShrinkRequest> request = make_shared<CreateSmsSignShrinkRequest>();
@@ -395,8 +498,8 @@ CreateSmsSignResponse Alibabacloud_Dysmsapi20170525::Client::createSmsSignWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->applySceneContent)) {
     query->insert(pair<string, string>("ApplySceneContent", *request->applySceneContent));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationLetterId)) {
-    query->insert(pair<string, string>("AuthorizationLetterId", *request->authorizationLetterId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->authorizationLetterId)) {
+    query->insert(pair<string, long>("AuthorizationLetterId", *request->authorizationLetterId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->moreDataShrink)) {
     query->insert(pair<string, string>("MoreData", *request->moreDataShrink));
@@ -872,6 +975,43 @@ GetOSSInfoForUploadFileResponse Alibabacloud_Dysmsapi20170525::Client::getOSSInf
 GetOSSInfoForUploadFileResponse Alibabacloud_Dysmsapi20170525::Client::getOSSInfoForUploadFile(shared_ptr<GetOSSInfoForUploadFileRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getOSSInfoForUploadFileWithOptions(request, runtime);
+}
+
+GetQualificationOssInfoResponse Alibabacloud_Dysmsapi20170525::Client::getQualificationOssInfoWithOptions(shared_ptr<GetQualificationOssInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetQualificationOssInfo"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetQualificationOssInfoResponse(callApi(params, req, runtime));
+}
+
+GetQualificationOssInfoResponse Alibabacloud_Dysmsapi20170525::Client::getQualificationOssInfo(shared_ptr<GetQualificationOssInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getQualificationOssInfoWithOptions(request, runtime);
 }
 
 GetSmsSignResponse Alibabacloud_Dysmsapi20170525::Client::getSmsSignWithOptions(shared_ptr<GetSmsSignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1440,6 +1580,60 @@ QueryShortUrlResponse Alibabacloud_Dysmsapi20170525::Client::queryShortUrlWithOp
 QueryShortUrlResponse Alibabacloud_Dysmsapi20170525::Client::queryShortUrl(shared_ptr<QueryShortUrlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryShortUrlWithOptions(request, runtime);
+}
+
+QuerySmsAuthorizationLetterResponse Alibabacloud_Dysmsapi20170525::Client::querySmsAuthorizationLetterWithOptions(shared_ptr<QuerySmsAuthorizationLetterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QuerySmsAuthorizationLetterShrinkRequest> request = make_shared<QuerySmsAuthorizationLetterShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->authorizationLetterIdList)) {
+    request->authorizationLetterIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->authorizationLetterIdList, make_shared<string>("AuthorizationLetterIdList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationLetterIdListShrink)) {
+    query->insert(pair<string, string>("AuthorizationLetterIdList", *request->authorizationLetterIdListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationCode)) {
+    query->insert(pair<string, string>("OrganizationCode", *request->organizationCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signName)) {
+    query->insert(pair<string, string>("SignName", *request->signName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
+    query->insert(pair<string, string>("State", *request->state));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QuerySmsAuthorizationLetter"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QuerySmsAuthorizationLetterResponse(callApi(params, req, runtime));
+}
+
+QuerySmsAuthorizationLetterResponse Alibabacloud_Dysmsapi20170525::Client::querySmsAuthorizationLetter(shared_ptr<QuerySmsAuthorizationLetterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return querySmsAuthorizationLetterWithOptions(request, runtime);
 }
 
 QuerySmsSignResponse Alibabacloud_Dysmsapi20170525::Client::querySmsSignWithOptions(shared_ptr<QuerySmsSignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2025,8 +2219,8 @@ UpdateSmsSignResponse Alibabacloud_Dysmsapi20170525::Client::updateSmsSignWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->applySceneContent)) {
     query->insert(pair<string, string>("ApplySceneContent", *request->applySceneContent));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationLetterId)) {
-    query->insert(pair<string, string>("AuthorizationLetterId", *request->authorizationLetterId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->authorizationLetterId)) {
+    query->insert(pair<string, long>("AuthorizationLetterId", *request->authorizationLetterId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->moreDataShrink)) {
     query->insert(pair<string, string>("MoreData", *request->moreDataShrink));
