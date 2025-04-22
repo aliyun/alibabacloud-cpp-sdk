@@ -1163,6 +1163,46 @@ DeleteAxgGroupResponse Alibabacloud_Dyplsapi20170525::Client::deleteAxgGroup(sha
   return deleteAxgGroupWithOptions(request, runtime);
 }
 
+DeleteSecretAPhoneNoToCustResponse Alibabacloud_Dyplsapi20170525::Client::deleteSecretAPhoneNoToCustWithOptions(shared_ptr<DeleteSecretAPhoneNoToCustRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ANoWhiteGroupId)) {
+    query->insert(pair<string, long>("ANoWhiteGroupId", *request->ANoWhiteGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNoA)) {
+    query->insert(pair<string, string>("PhoneNoA", *request->phoneNoA));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteSecretAPhoneNoToCust"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteSecretAPhoneNoToCustResponse(callApi(params, req, runtime));
+}
+
+DeleteSecretAPhoneNoToCustResponse Alibabacloud_Dyplsapi20170525::Client::deleteSecretAPhoneNoToCust(shared_ptr<DeleteSecretAPhoneNoToCustRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteSecretAPhoneNoToCustWithOptions(request, runtime);
+}
+
 DeleteSecretBlacklistResponse Alibabacloud_Dyplsapi20170525::Client::deleteSecretBlacklistWithOptions(shared_ptr<DeleteSecretBlacklistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1680,6 +1720,46 @@ QueryRecordFileDownloadUrlResponse Alibabacloud_Dyplsapi20170525::Client::queryR
 QueryRecordFileDownloadUrlResponse Alibabacloud_Dyplsapi20170525::Client::queryRecordFileDownloadUrl(shared_ptr<QueryRecordFileDownloadUrlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryRecordFileDownloadUrlWithOptions(request, runtime);
+}
+
+QuerySecretAPhoneNoToCustResponse Alibabacloud_Dyplsapi20170525::Client::querySecretAPhoneNoToCustWithOptions(shared_ptr<QuerySecretAPhoneNoToCustRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ANoWhiteGroupId)) {
+    query->insert(pair<string, long>("ANoWhiteGroupId", *request->ANoWhiteGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNoA)) {
+    query->insert(pair<string, string>("PhoneNoA", *request->phoneNoA));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QuerySecretAPhoneNoToCust"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QuerySecretAPhoneNoToCustResponse(callApi(params, req, runtime));
+}
+
+QuerySecretAPhoneNoToCustResponse Alibabacloud_Dyplsapi20170525::Client::querySecretAPhoneNoToCust(shared_ptr<QuerySecretAPhoneNoToCustRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return querySecretAPhoneNoToCustWithOptions(request, runtime);
 }
 
 QuerySecretNoDetailResponse Alibabacloud_Dyplsapi20170525::Client::querySecretNoDetailWithOptions(shared_ptr<QuerySecretNoDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

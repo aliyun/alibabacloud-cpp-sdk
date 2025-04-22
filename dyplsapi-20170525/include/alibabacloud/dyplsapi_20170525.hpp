@@ -5801,6 +5801,179 @@ public:
 
   virtual ~DeleteAxgGroupResponse() = default;
 };
+class DeleteSecretAPhoneNoToCustRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ANoWhiteGroupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> phoneNoA{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteSecretAPhoneNoToCustRequest() {}
+
+  explicit DeleteSecretAPhoneNoToCustRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ANoWhiteGroupId) {
+      res["ANoWhiteGroupId"] = boost::any(*ANoWhiteGroupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (phoneNoA) {
+      res["PhoneNoA"] = boost::any(*phoneNoA);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ANoWhiteGroupId") != m.end() && !m["ANoWhiteGroupId"].empty()) {
+      ANoWhiteGroupId = make_shared<long>(boost::any_cast<long>(m["ANoWhiteGroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PhoneNoA") != m.end() && !m["PhoneNoA"].empty()) {
+      phoneNoA = make_shared<string>(boost::any_cast<string>(m["PhoneNoA"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteSecretAPhoneNoToCustRequest() = default;
+};
+class DeleteSecretAPhoneNoToCustResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteSecretAPhoneNoToCustResponseBody() {}
+
+  explicit DeleteSecretAPhoneNoToCustResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteSecretAPhoneNoToCustResponseBody() = default;
+};
+class DeleteSecretAPhoneNoToCustResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteSecretAPhoneNoToCustResponseBody> body{};
+
+  DeleteSecretAPhoneNoToCustResponse() {}
+
+  explicit DeleteSecretAPhoneNoToCustResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSecretAPhoneNoToCustResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSecretAPhoneNoToCustResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSecretAPhoneNoToCustResponse() = default;
+};
 class DeleteSecretBlacklistRequest : public Darabonba::Model {
 public:
   shared_ptr<string> blackNo{};
@@ -8747,6 +8920,254 @@ public:
 
   virtual ~QueryRecordFileDownloadUrlResponse() = default;
 };
+class QuerySecretAPhoneNoToCustRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ANoWhiteGroupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> phoneNoA{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  QuerySecretAPhoneNoToCustRequest() {}
+
+  explicit QuerySecretAPhoneNoToCustRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ANoWhiteGroupId) {
+      res["ANoWhiteGroupId"] = boost::any(*ANoWhiteGroupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (phoneNoA) {
+      res["PhoneNoA"] = boost::any(*phoneNoA);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ANoWhiteGroupId") != m.end() && !m["ANoWhiteGroupId"].empty()) {
+      ANoWhiteGroupId = make_shared<long>(boost::any_cast<long>(m["ANoWhiteGroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PhoneNoA") != m.end() && !m["PhoneNoA"].empty()) {
+      phoneNoA = make_shared<string>(boost::any_cast<string>(m["PhoneNoA"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~QuerySecretAPhoneNoToCustRequest() = default;
+};
+class QuerySecretAPhoneNoToCustResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> ANoWhiteGroupId{};
+  shared_ptr<string> custPhoneNo{};
+  shared_ptr<string> noType{};
+  shared_ptr<string> phoneNoA{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> reportResult{};
+  shared_ptr<string> reportStatus{};
+
+  QuerySecretAPhoneNoToCustResponseBodyData() {}
+
+  explicit QuerySecretAPhoneNoToCustResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ANoWhiteGroupId) {
+      res["ANoWhiteGroupId"] = boost::any(*ANoWhiteGroupId);
+    }
+    if (custPhoneNo) {
+      res["CustPhoneNo"] = boost::any(*custPhoneNo);
+    }
+    if (noType) {
+      res["NoType"] = boost::any(*noType);
+    }
+    if (phoneNoA) {
+      res["PhoneNoA"] = boost::any(*phoneNoA);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (reportResult) {
+      res["ReportResult"] = boost::any(*reportResult);
+    }
+    if (reportStatus) {
+      res["ReportStatus"] = boost::any(*reportStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ANoWhiteGroupId") != m.end() && !m["ANoWhiteGroupId"].empty()) {
+      ANoWhiteGroupId = make_shared<string>(boost::any_cast<string>(m["ANoWhiteGroupId"]));
+    }
+    if (m.find("CustPhoneNo") != m.end() && !m["CustPhoneNo"].empty()) {
+      custPhoneNo = make_shared<string>(boost::any_cast<string>(m["CustPhoneNo"]));
+    }
+    if (m.find("NoType") != m.end() && !m["NoType"].empty()) {
+      noType = make_shared<string>(boost::any_cast<string>(m["NoType"]));
+    }
+    if (m.find("PhoneNoA") != m.end() && !m["PhoneNoA"].empty()) {
+      phoneNoA = make_shared<string>(boost::any_cast<string>(m["PhoneNoA"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ReportResult") != m.end() && !m["ReportResult"].empty()) {
+      reportResult = make_shared<string>(boost::any_cast<string>(m["ReportResult"]));
+    }
+    if (m.find("ReportStatus") != m.end() && !m["ReportStatus"].empty()) {
+      reportStatus = make_shared<string>(boost::any_cast<string>(m["ReportStatus"]));
+    }
+  }
+
+
+  virtual ~QuerySecretAPhoneNoToCustResponseBodyData() = default;
+};
+class QuerySecretAPhoneNoToCustResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<QuerySecretAPhoneNoToCustResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QuerySecretAPhoneNoToCustResponseBody() {}
+
+  explicit QuerySecretAPhoneNoToCustResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QuerySecretAPhoneNoToCustResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QuerySecretAPhoneNoToCustResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QuerySecretAPhoneNoToCustResponseBody() = default;
+};
+class QuerySecretAPhoneNoToCustResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QuerySecretAPhoneNoToCustResponseBody> body{};
+
+  QuerySecretAPhoneNoToCustResponse() {}
+
+  explicit QuerySecretAPhoneNoToCustResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QuerySecretAPhoneNoToCustResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QuerySecretAPhoneNoToCustResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySecretAPhoneNoToCustResponse() = default;
+};
 class QuerySecretNoDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<long> ownerId{};
@@ -11182,6 +11603,8 @@ public:
   CreateSmsSignResponse createSmsSign(shared_ptr<CreateSmsSignRequest> request);
   DeleteAxgGroupResponse deleteAxgGroupWithOptions(shared_ptr<DeleteAxgGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAxgGroupResponse deleteAxgGroup(shared_ptr<DeleteAxgGroupRequest> request);
+  DeleteSecretAPhoneNoToCustResponse deleteSecretAPhoneNoToCustWithOptions(shared_ptr<DeleteSecretAPhoneNoToCustRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSecretAPhoneNoToCustResponse deleteSecretAPhoneNoToCust(shared_ptr<DeleteSecretAPhoneNoToCustRequest> request);
   DeleteSecretBlacklistResponse deleteSecretBlacklistWithOptions(shared_ptr<DeleteSecretBlacklistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSecretBlacklistResponse deleteSecretBlacklist(shared_ptr<DeleteSecretBlacklistRequest> request);
   GetDyplsOSSInfoForUploadFileResponse getDyplsOSSInfoForUploadFileWithOptions(shared_ptr<GetDyplsOSSInfoForUploadFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11206,6 +11629,8 @@ public:
   QueryPhoneNoAByTrackNoResponse queryPhoneNoAByTrackNo(shared_ptr<QueryPhoneNoAByTrackNoRequest> request);
   QueryRecordFileDownloadUrlResponse queryRecordFileDownloadUrlWithOptions(shared_ptr<QueryRecordFileDownloadUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryRecordFileDownloadUrlResponse queryRecordFileDownloadUrl(shared_ptr<QueryRecordFileDownloadUrlRequest> request);
+  QuerySecretAPhoneNoToCustResponse querySecretAPhoneNoToCustWithOptions(shared_ptr<QuerySecretAPhoneNoToCustRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QuerySecretAPhoneNoToCustResponse querySecretAPhoneNoToCust(shared_ptr<QuerySecretAPhoneNoToCustRequest> request);
   QuerySecretNoDetailResponse querySecretNoDetailWithOptions(shared_ptr<QuerySecretNoDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySecretNoDetailResponse querySecretNoDetail(shared_ptr<QuerySecretNoDetailRequest> request);
   QuerySecretNoRemainResponse querySecretNoRemainWithOptions(shared_ptr<QuerySecretNoRemainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
