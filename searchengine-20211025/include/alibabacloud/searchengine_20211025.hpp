@@ -10846,6 +10846,7 @@ public:
   shared_ptr<string> updateTime{};
   shared_ptr<string> userName{};
   shared_ptr<string> version{};
+  shared_ptr<long> zoneCount{};
 
   GetInstanceResponseBodyResult() {}
 
@@ -10920,6 +10921,9 @@ public:
     }
     if (version) {
       res["version"] = boost::any(*version);
+    }
+    if (zoneCount) {
+      res["zoneCount"] = boost::any(*zoneCount);
     }
     return res;
   }
@@ -11002,6 +11006,9 @@ public:
     }
     if (m.find("version") != m.end() && !m["version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
+    if (m.find("zoneCount") != m.end() && !m["zoneCount"].empty()) {
+      zoneCount = make_shared<long>(boost::any_cast<long>(m["zoneCount"]));
     }
   }
 
@@ -23908,6 +23915,135 @@ public:
 
   virtual ~ModifyPublicUrlIpListResponse() = default;
 };
+class ModifySearcherReplicaRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> partition{};
+  shared_ptr<long> replica{};
+
+  ModifySearcherReplicaRequest() {}
+
+  explicit ModifySearcherReplicaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (partition) {
+      res["partition"] = boost::any(*partition);
+    }
+    if (replica) {
+      res["replica"] = boost::any(*replica);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("partition") != m.end() && !m["partition"].empty()) {
+      partition = make_shared<long>(boost::any_cast<long>(m["partition"]));
+    }
+    if (m.find("replica") != m.end() && !m["replica"].empty()) {
+      replica = make_shared<long>(boost::any_cast<long>(m["replica"]));
+    }
+  }
+
+
+  virtual ~ModifySearcherReplicaRequest() = default;
+};
+class ModifySearcherReplicaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<map<string, boost::any>> result{};
+
+  ModifySearcherReplicaResponseBody() {}
+
+  explicit ModifySearcherReplicaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["result"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      result = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~ModifySearcherReplicaResponseBody() = default;
+};
+class ModifySearcherReplicaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifySearcherReplicaResponseBody> body{};
+
+  ModifySearcherReplicaResponse() {}
+
+  explicit ModifySearcherReplicaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifySearcherReplicaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifySearcherReplicaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifySearcherReplicaResponse() = default;
+};
 class ModifyTableRequestDataProcessConfigParamsSrcFieldConfig : public Darabonba::Model {
 public:
   shared_ptr<string> ossBucket{};
@@ -27808,6 +27944,11 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPublicUrlIpListResponse modifyPublicUrlIpList(shared_ptr<string> instanceId, shared_ptr<ModifyPublicUrlIpListRequest> request);
+  ModifySearcherReplicaResponse modifySearcherReplicaWithOptions(shared_ptr<string> instanceId,
+                                                                 shared_ptr<ModifySearcherReplicaRequest> request,
+                                                                 shared_ptr<map<string, string>> headers,
+                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifySearcherReplicaResponse modifySearcherReplica(shared_ptr<string> instanceId, shared_ptr<ModifySearcherReplicaRequest> request);
   ModifyTableResponse modifyTableWithOptions(shared_ptr<string> instanceId,
                                              shared_ptr<string> tableName,
                                              shared_ptr<ModifyTableRequest> request,
