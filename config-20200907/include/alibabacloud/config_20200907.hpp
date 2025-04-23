@@ -24012,8 +24012,10 @@ public:
   shared_ptr<string> annotation{};
   shared_ptr<string> complianceType{};
   shared_ptr<long> configRuleInvokedTimestamp{};
+  shared_ptr<string> evaluationId{};
   shared_ptr<ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier> evaluationResultIdentifier{};
   shared_ptr<string> invokingEventMessageType{};
+  shared_ptr<long> lastNonCompliantRecordTimestamp{};
   shared_ptr<bool> remediationEnabled{};
   shared_ptr<long> resultRecordedTimestamp{};
   shared_ptr<long> riskLevel{};
@@ -24037,11 +24039,17 @@ public:
     if (configRuleInvokedTimestamp) {
       res["ConfigRuleInvokedTimestamp"] = boost::any(*configRuleInvokedTimestamp);
     }
+    if (evaluationId) {
+      res["EvaluationId"] = boost::any(*evaluationId);
+    }
     if (evaluationResultIdentifier) {
       res["EvaluationResultIdentifier"] = evaluationResultIdentifier ? boost::any(evaluationResultIdentifier->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (invokingEventMessageType) {
       res["InvokingEventMessageType"] = boost::any(*invokingEventMessageType);
+    }
+    if (lastNonCompliantRecordTimestamp) {
+      res["LastNonCompliantRecordTimestamp"] = boost::any(*lastNonCompliantRecordTimestamp);
     }
     if (remediationEnabled) {
       res["RemediationEnabled"] = boost::any(*remediationEnabled);
@@ -24065,6 +24073,9 @@ public:
     if (m.find("ConfigRuleInvokedTimestamp") != m.end() && !m["ConfigRuleInvokedTimestamp"].empty()) {
       configRuleInvokedTimestamp = make_shared<long>(boost::any_cast<long>(m["ConfigRuleInvokedTimestamp"]));
     }
+    if (m.find("EvaluationId") != m.end() && !m["EvaluationId"].empty()) {
+      evaluationId = make_shared<string>(boost::any_cast<string>(m["EvaluationId"]));
+    }
     if (m.find("EvaluationResultIdentifier") != m.end() && !m["EvaluationResultIdentifier"].empty()) {
       if (typeid(map<string, boost::any>) == m["EvaluationResultIdentifier"].type()) {
         ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier model1;
@@ -24074,6 +24085,9 @@ public:
     }
     if (m.find("InvokingEventMessageType") != m.end() && !m["InvokingEventMessageType"].empty()) {
       invokingEventMessageType = make_shared<string>(boost::any_cast<string>(m["InvokingEventMessageType"]));
+    }
+    if (m.find("LastNonCompliantRecordTimestamp") != m.end() && !m["LastNonCompliantRecordTimestamp"].empty()) {
+      lastNonCompliantRecordTimestamp = make_shared<long>(boost::any_cast<long>(m["LastNonCompliantRecordTimestamp"]));
     }
     if (m.find("RemediationEnabled") != m.end() && !m["RemediationEnabled"].empty()) {
       remediationEnabled = make_shared<bool>(boost::any_cast<bool>(m["RemediationEnabled"]));
@@ -26212,8 +26226,10 @@ public:
   shared_ptr<string> annotation{};
   shared_ptr<string> complianceType{};
   shared_ptr<long> configRuleInvokedTimestamp{};
+  shared_ptr<string> evaluationId{};
   shared_ptr<ListAggregateResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier> evaluationResultIdentifier{};
   shared_ptr<string> invokingEventMessageType{};
+  shared_ptr<long> lastNonCompliantRecordTimestamp{};
   shared_ptr<bool> remediationEnabled{};
   shared_ptr<long> resultRecordedTimestamp{};
   shared_ptr<long> riskLevel{};
@@ -26237,11 +26253,17 @@ public:
     if (configRuleInvokedTimestamp) {
       res["ConfigRuleInvokedTimestamp"] = boost::any(*configRuleInvokedTimestamp);
     }
+    if (evaluationId) {
+      res["EvaluationId"] = boost::any(*evaluationId);
+    }
     if (evaluationResultIdentifier) {
       res["EvaluationResultIdentifier"] = evaluationResultIdentifier ? boost::any(evaluationResultIdentifier->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (invokingEventMessageType) {
       res["InvokingEventMessageType"] = boost::any(*invokingEventMessageType);
+    }
+    if (lastNonCompliantRecordTimestamp) {
+      res["LastNonCompliantRecordTimestamp"] = boost::any(*lastNonCompliantRecordTimestamp);
     }
     if (remediationEnabled) {
       res["RemediationEnabled"] = boost::any(*remediationEnabled);
@@ -26265,6 +26287,9 @@ public:
     if (m.find("ConfigRuleInvokedTimestamp") != m.end() && !m["ConfigRuleInvokedTimestamp"].empty()) {
       configRuleInvokedTimestamp = make_shared<long>(boost::any_cast<long>(m["ConfigRuleInvokedTimestamp"]));
     }
+    if (m.find("EvaluationId") != m.end() && !m["EvaluationId"].empty()) {
+      evaluationId = make_shared<string>(boost::any_cast<string>(m["EvaluationId"]));
+    }
     if (m.find("EvaluationResultIdentifier") != m.end() && !m["EvaluationResultIdentifier"].empty()) {
       if (typeid(map<string, boost::any>) == m["EvaluationResultIdentifier"].type()) {
         ListAggregateResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier model1;
@@ -26274,6 +26299,9 @@ public:
     }
     if (m.find("InvokingEventMessageType") != m.end() && !m["InvokingEventMessageType"].empty()) {
       invokingEventMessageType = make_shared<string>(boost::any_cast<string>(m["InvokingEventMessageType"]));
+    }
+    if (m.find("LastNonCompliantRecordTimestamp") != m.end() && !m["LastNonCompliantRecordTimestamp"].empty()) {
+      lastNonCompliantRecordTimestamp = make_shared<long>(boost::any_cast<long>(m["LastNonCompliantRecordTimestamp"]));
     }
     if (m.find("RemediationEnabled") != m.end() && !m["RemediationEnabled"].empty()) {
       remediationEnabled = make_shared<bool>(boost::any_cast<bool>(m["RemediationEnabled"]));
@@ -28728,8 +28756,10 @@ public:
   shared_ptr<string> annotation{};
   shared_ptr<string> complianceType{};
   shared_ptr<long> configRuleInvokedTimestamp{};
+  shared_ptr<string> evaluationId{};
   shared_ptr<ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier> evaluationResultIdentifier{};
   shared_ptr<string> invokingEventMessageType{};
+  shared_ptr<long> lastNonCompliantRecordTimestamp{};
   shared_ptr<bool> remediationEnabled{};
   shared_ptr<long> resultRecordedTimestamp{};
   shared_ptr<long> riskLevel{};
@@ -28753,11 +28783,17 @@ public:
     if (configRuleInvokedTimestamp) {
       res["ConfigRuleInvokedTimestamp"] = boost::any(*configRuleInvokedTimestamp);
     }
+    if (evaluationId) {
+      res["EvaluationId"] = boost::any(*evaluationId);
+    }
     if (evaluationResultIdentifier) {
       res["EvaluationResultIdentifier"] = evaluationResultIdentifier ? boost::any(evaluationResultIdentifier->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (invokingEventMessageType) {
       res["InvokingEventMessageType"] = boost::any(*invokingEventMessageType);
+    }
+    if (lastNonCompliantRecordTimestamp) {
+      res["LastNonCompliantRecordTimestamp"] = boost::any(*lastNonCompliantRecordTimestamp);
     }
     if (remediationEnabled) {
       res["RemediationEnabled"] = boost::any(*remediationEnabled);
@@ -28781,6 +28817,9 @@ public:
     if (m.find("ConfigRuleInvokedTimestamp") != m.end() && !m["ConfigRuleInvokedTimestamp"].empty()) {
       configRuleInvokedTimestamp = make_shared<long>(boost::any_cast<long>(m["ConfigRuleInvokedTimestamp"]));
     }
+    if (m.find("EvaluationId") != m.end() && !m["EvaluationId"].empty()) {
+      evaluationId = make_shared<string>(boost::any_cast<string>(m["EvaluationId"]));
+    }
     if (m.find("EvaluationResultIdentifier") != m.end() && !m["EvaluationResultIdentifier"].empty()) {
       if (typeid(map<string, boost::any>) == m["EvaluationResultIdentifier"].type()) {
         ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier model1;
@@ -28790,6 +28829,9 @@ public:
     }
     if (m.find("InvokingEventMessageType") != m.end() && !m["InvokingEventMessageType"].empty()) {
       invokingEventMessageType = make_shared<string>(boost::any_cast<string>(m["InvokingEventMessageType"]));
+    }
+    if (m.find("LastNonCompliantRecordTimestamp") != m.end() && !m["LastNonCompliantRecordTimestamp"].empty()) {
+      lastNonCompliantRecordTimestamp = make_shared<long>(boost::any_cast<long>(m["LastNonCompliantRecordTimestamp"]));
     }
     if (m.find("RemediationEnabled") != m.end() && !m["RemediationEnabled"].empty()) {
       remediationEnabled = make_shared<bool>(boost::any_cast<bool>(m["RemediationEnabled"]));
@@ -31853,8 +31895,10 @@ public:
   shared_ptr<string> annotation{};
   shared_ptr<string> complianceType{};
   shared_ptr<long> configRuleInvokedTimestamp{};
+  shared_ptr<string> evaluationId{};
   shared_ptr<ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier> evaluationResultIdentifier{};
   shared_ptr<string> invokingEventMessageType{};
+  shared_ptr<long> lastNonCompliantRecordTimestamp{};
   shared_ptr<bool> remediationEnabled{};
   shared_ptr<long> resultRecordedTimestamp{};
   shared_ptr<long> riskLevel{};
@@ -31878,11 +31922,17 @@ public:
     if (configRuleInvokedTimestamp) {
       res["ConfigRuleInvokedTimestamp"] = boost::any(*configRuleInvokedTimestamp);
     }
+    if (evaluationId) {
+      res["EvaluationId"] = boost::any(*evaluationId);
+    }
     if (evaluationResultIdentifier) {
       res["EvaluationResultIdentifier"] = evaluationResultIdentifier ? boost::any(evaluationResultIdentifier->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (invokingEventMessageType) {
       res["InvokingEventMessageType"] = boost::any(*invokingEventMessageType);
+    }
+    if (lastNonCompliantRecordTimestamp) {
+      res["LastNonCompliantRecordTimestamp"] = boost::any(*lastNonCompliantRecordTimestamp);
     }
     if (remediationEnabled) {
       res["RemediationEnabled"] = boost::any(*remediationEnabled);
@@ -31906,6 +31956,9 @@ public:
     if (m.find("ConfigRuleInvokedTimestamp") != m.end() && !m["ConfigRuleInvokedTimestamp"].empty()) {
       configRuleInvokedTimestamp = make_shared<long>(boost::any_cast<long>(m["ConfigRuleInvokedTimestamp"]));
     }
+    if (m.find("EvaluationId") != m.end() && !m["EvaluationId"].empty()) {
+      evaluationId = make_shared<string>(boost::any_cast<string>(m["EvaluationId"]));
+    }
     if (m.find("EvaluationResultIdentifier") != m.end() && !m["EvaluationResultIdentifier"].empty()) {
       if (typeid(map<string, boost::any>) == m["EvaluationResultIdentifier"].type()) {
         ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier model1;
@@ -31915,6 +31968,9 @@ public:
     }
     if (m.find("InvokingEventMessageType") != m.end() && !m["InvokingEventMessageType"].empty()) {
       invokingEventMessageType = make_shared<string>(boost::any_cast<string>(m["InvokingEventMessageType"]));
+    }
+    if (m.find("LastNonCompliantRecordTimestamp") != m.end() && !m["LastNonCompliantRecordTimestamp"].empty()) {
+      lastNonCompliantRecordTimestamp = make_shared<long>(boost::any_cast<long>(m["LastNonCompliantRecordTimestamp"]));
     }
     if (m.find("RemediationEnabled") != m.end() && !m["RemediationEnabled"].empty()) {
       remediationEnabled = make_shared<bool>(boost::any_cast<bool>(m["RemediationEnabled"]));
