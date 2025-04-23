@@ -2989,6 +2989,7 @@ public:
   shared_ptr<long> ecsInstanceCount{};
   shared_ptr<string> ecsInstanceType{};
   shared_ptr<map<string, string>> labels{};
+  shared_ptr<string> resourceName{};
   shared_ptr<string> resourceType{};
   shared_ptr<CreateResourceRequestSelfManagedResourceOptions> selfManagedResourceOptions{};
   shared_ptr<long> systemDiskSize{};
@@ -3018,6 +3019,9 @@ public:
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -3054,6 +3058,9 @@ public:
          toMap1[item.first] = item.second;
       }
       labels = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));

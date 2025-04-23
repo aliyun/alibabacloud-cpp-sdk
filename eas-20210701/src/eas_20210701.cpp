@@ -438,6 +438,9 @@ CreateResourceResponse Alibabacloud_Eas20210701::Client::createResourceWithOptio
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->labels)) {
     body->insert(pair<string, map<string, string>>("Labels", *request->labels));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
+    body->insert(pair<string, string>("ResourceName", *request->resourceName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     body->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
