@@ -1073,6 +1073,7 @@ public:
   shared_ptr<long> lastTimestamp{};
   shared_ptr<GetConsumerProgressResponseBodyConsumerProgressTopicList> topicList{};
   shared_ptr<long> totalDiff{};
+  shared_ptr<string> state{};
 
   GetConsumerProgressResponseBodyConsumerProgress() {}
 
@@ -1093,6 +1094,9 @@ public:
     if (totalDiff) {
       res["TotalDiff"] = boost::any(*totalDiff);
     }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
     return res;
   }
 
@@ -1109,6 +1113,9 @@ public:
     }
     if (m.find("TotalDiff") != m.end() && !m["TotalDiff"].empty()) {
       totalDiff = make_shared<long>(boost::any_cast<long>(m["TotalDiff"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
     }
   }
 
