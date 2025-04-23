@@ -8104,6 +8104,77 @@ public:
 
   virtual ~GetQuotaResponseBodyDataSubQuotaInfoListBillingPolicy() = default;
 };
+class GetQuotaResponseBodyDataSubQuotaInfoListParameter : public Darabonba::Model {
+public:
+  shared_ptr<long> elasticReservedCU{};
+  shared_ptr<bool> enablePriority{};
+  shared_ptr<bool> forceReservedMin{};
+  shared_ptr<long> maxCU{};
+  shared_ptr<long> minCU{};
+  shared_ptr<string> schedulerType{};
+  shared_ptr<long> singleJobCULimit{};
+
+  GetQuotaResponseBodyDataSubQuotaInfoListParameter() {}
+
+  explicit GetQuotaResponseBodyDataSubQuotaInfoListParameter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elasticReservedCU) {
+      res["elasticReservedCU"] = boost::any(*elasticReservedCU);
+    }
+    if (enablePriority) {
+      res["enablePriority"] = boost::any(*enablePriority);
+    }
+    if (forceReservedMin) {
+      res["forceReservedMin"] = boost::any(*forceReservedMin);
+    }
+    if (maxCU) {
+      res["maxCU"] = boost::any(*maxCU);
+    }
+    if (minCU) {
+      res["minCU"] = boost::any(*minCU);
+    }
+    if (schedulerType) {
+      res["schedulerType"] = boost::any(*schedulerType);
+    }
+    if (singleJobCULimit) {
+      res["singleJobCULimit"] = boost::any(*singleJobCULimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("elasticReservedCU") != m.end() && !m["elasticReservedCU"].empty()) {
+      elasticReservedCU = make_shared<long>(boost::any_cast<long>(m["elasticReservedCU"]));
+    }
+    if (m.find("enablePriority") != m.end() && !m["enablePriority"].empty()) {
+      enablePriority = make_shared<bool>(boost::any_cast<bool>(m["enablePriority"]));
+    }
+    if (m.find("forceReservedMin") != m.end() && !m["forceReservedMin"].empty()) {
+      forceReservedMin = make_shared<bool>(boost::any_cast<bool>(m["forceReservedMin"]));
+    }
+    if (m.find("maxCU") != m.end() && !m["maxCU"].empty()) {
+      maxCU = make_shared<long>(boost::any_cast<long>(m["maxCU"]));
+    }
+    if (m.find("minCU") != m.end() && !m["minCU"].empty()) {
+      minCU = make_shared<long>(boost::any_cast<long>(m["minCU"]));
+    }
+    if (m.find("schedulerType") != m.end() && !m["schedulerType"].empty()) {
+      schedulerType = make_shared<string>(boost::any_cast<string>(m["schedulerType"]));
+    }
+    if (m.find("singleJobCULimit") != m.end() && !m["singleJobCULimit"].empty()) {
+      singleJobCULimit = make_shared<long>(boost::any_cast<long>(m["singleJobCULimit"]));
+    }
+  }
+
+
+  virtual ~GetQuotaResponseBodyDataSubQuotaInfoListParameter() = default;
+};
 class GetQuotaResponseBodyDataSubQuotaInfoListSaleTag : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> resourceIds{};
@@ -8234,7 +8305,7 @@ public:
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> nickName{};
-  shared_ptr<map<string, boost::any>> parameter{};
+  shared_ptr<GetQuotaResponseBodyDataSubQuotaInfoListParameter> parameter{};
   shared_ptr<string> parentId{};
   shared_ptr<string> regionId{};
   shared_ptr<GetQuotaResponseBodyDataSubQuotaInfoListSaleTag> saleTag{};
@@ -8277,7 +8348,7 @@ public:
       res["nickName"] = boost::any(*nickName);
     }
     if (parameter) {
-      res["parameter"] = boost::any(*parameter);
+      res["parameter"] = parameter ? boost::any(parameter->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (parentId) {
       res["parentId"] = boost::any(*parentId);
@@ -8336,12 +8407,11 @@ public:
       nickName = make_shared<string>(boost::any_cast<string>(m["nickName"]));
     }
     if (m.find("parameter") != m.end() && !m["parameter"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["parameter"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["parameter"].type()) {
+        GetQuotaResponseBodyDataSubQuotaInfoListParameter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameter"]));
+        parameter = make_shared<GetQuotaResponseBodyDataSubQuotaInfoListParameter>(model1);
       }
-      parameter = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("parentId") != m.end() && !m["parentId"].empty()) {
       parentId = make_shared<string>(boost::any_cast<string>(m["parentId"]));
@@ -8726,6 +8796,77 @@ public:
 
   virtual ~GetQuotaResponseBodySubQuotaInfoListBillingPolicy() = default;
 };
+class GetQuotaResponseBodySubQuotaInfoListParameter : public Darabonba::Model {
+public:
+  shared_ptr<long> elasticReservedCU{};
+  shared_ptr<bool> enablePriority{};
+  shared_ptr<bool> forceReservedMin{};
+  shared_ptr<long> maxCU{};
+  shared_ptr<long> minCU{};
+  shared_ptr<string> schedulerType{};
+  shared_ptr<long> singleJobCULimit{};
+
+  GetQuotaResponseBodySubQuotaInfoListParameter() {}
+
+  explicit GetQuotaResponseBodySubQuotaInfoListParameter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elasticReservedCU) {
+      res["elasticReservedCU"] = boost::any(*elasticReservedCU);
+    }
+    if (enablePriority) {
+      res["enablePriority"] = boost::any(*enablePriority);
+    }
+    if (forceReservedMin) {
+      res["forceReservedMin"] = boost::any(*forceReservedMin);
+    }
+    if (maxCU) {
+      res["maxCU"] = boost::any(*maxCU);
+    }
+    if (minCU) {
+      res["minCU"] = boost::any(*minCU);
+    }
+    if (schedulerType) {
+      res["schedulerType"] = boost::any(*schedulerType);
+    }
+    if (singleJobCULimit) {
+      res["singleJobCULimit"] = boost::any(*singleJobCULimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("elasticReservedCU") != m.end() && !m["elasticReservedCU"].empty()) {
+      elasticReservedCU = make_shared<long>(boost::any_cast<long>(m["elasticReservedCU"]));
+    }
+    if (m.find("enablePriority") != m.end() && !m["enablePriority"].empty()) {
+      enablePriority = make_shared<bool>(boost::any_cast<bool>(m["enablePriority"]));
+    }
+    if (m.find("forceReservedMin") != m.end() && !m["forceReservedMin"].empty()) {
+      forceReservedMin = make_shared<bool>(boost::any_cast<bool>(m["forceReservedMin"]));
+    }
+    if (m.find("maxCU") != m.end() && !m["maxCU"].empty()) {
+      maxCU = make_shared<long>(boost::any_cast<long>(m["maxCU"]));
+    }
+    if (m.find("minCU") != m.end() && !m["minCU"].empty()) {
+      minCU = make_shared<long>(boost::any_cast<long>(m["minCU"]));
+    }
+    if (m.find("schedulerType") != m.end() && !m["schedulerType"].empty()) {
+      schedulerType = make_shared<string>(boost::any_cast<string>(m["schedulerType"]));
+    }
+    if (m.find("singleJobCULimit") != m.end() && !m["singleJobCULimit"].empty()) {
+      singleJobCULimit = make_shared<long>(boost::any_cast<long>(m["singleJobCULimit"]));
+    }
+  }
+
+
+  virtual ~GetQuotaResponseBodySubQuotaInfoListParameter() = default;
+};
 class GetQuotaResponseBodySubQuotaInfoListSaleTag : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> resourceIds{};
@@ -8856,7 +8997,7 @@ public:
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> nickName{};
-  shared_ptr<map<string, boost::any>> parameter{};
+  shared_ptr<GetQuotaResponseBodySubQuotaInfoListParameter> parameter{};
   shared_ptr<string> parentId{};
   shared_ptr<string> regionId{};
   shared_ptr<GetQuotaResponseBodySubQuotaInfoListSaleTag> saleTag{};
@@ -8899,7 +9040,7 @@ public:
       res["nickName"] = boost::any(*nickName);
     }
     if (parameter) {
-      res["parameter"] = boost::any(*parameter);
+      res["parameter"] = parameter ? boost::any(parameter->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (parentId) {
       res["parentId"] = boost::any(*parentId);
@@ -8958,12 +9099,11 @@ public:
       nickName = make_shared<string>(boost::any_cast<string>(m["nickName"]));
     }
     if (m.find("parameter") != m.end() && !m["parameter"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["parameter"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["parameter"].type()) {
+        GetQuotaResponseBodySubQuotaInfoListParameter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameter"]));
+        parameter = make_shared<GetQuotaResponseBodySubQuotaInfoListParameter>(model1);
       }
-      parameter = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("parentId") != m.end() && !m["parentId"].empty()) {
       parentId = make_shared<string>(boost::any_cast<string>(m["parentId"]));
@@ -20740,6 +20880,77 @@ public:
 
   virtual ~ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListBillingPolicy() = default;
 };
+class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter : public Darabonba::Model {
+public:
+  shared_ptr<long> elasticReservedCU{};
+  shared_ptr<bool> enablePriority{};
+  shared_ptr<bool> forceReservedMin{};
+  shared_ptr<long> maxCU{};
+  shared_ptr<long> minCU{};
+  shared_ptr<string> schedulerType{};
+  shared_ptr<long> singleJobCULimit{};
+
+  ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter() {}
+
+  explicit ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elasticReservedCU) {
+      res["elasticReservedCU"] = boost::any(*elasticReservedCU);
+    }
+    if (enablePriority) {
+      res["enablePriority"] = boost::any(*enablePriority);
+    }
+    if (forceReservedMin) {
+      res["forceReservedMin"] = boost::any(*forceReservedMin);
+    }
+    if (maxCU) {
+      res["maxCU"] = boost::any(*maxCU);
+    }
+    if (minCU) {
+      res["minCU"] = boost::any(*minCU);
+    }
+    if (schedulerType) {
+      res["schedulerType"] = boost::any(*schedulerType);
+    }
+    if (singleJobCULimit) {
+      res["singleJobCULimit"] = boost::any(*singleJobCULimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("elasticReservedCU") != m.end() && !m["elasticReservedCU"].empty()) {
+      elasticReservedCU = make_shared<long>(boost::any_cast<long>(m["elasticReservedCU"]));
+    }
+    if (m.find("enablePriority") != m.end() && !m["enablePriority"].empty()) {
+      enablePriority = make_shared<bool>(boost::any_cast<bool>(m["enablePriority"]));
+    }
+    if (m.find("forceReservedMin") != m.end() && !m["forceReservedMin"].empty()) {
+      forceReservedMin = make_shared<bool>(boost::any_cast<bool>(m["forceReservedMin"]));
+    }
+    if (m.find("maxCU") != m.end() && !m["maxCU"].empty()) {
+      maxCU = make_shared<long>(boost::any_cast<long>(m["maxCU"]));
+    }
+    if (m.find("minCU") != m.end() && !m["minCU"].empty()) {
+      minCU = make_shared<long>(boost::any_cast<long>(m["minCU"]));
+    }
+    if (m.find("schedulerType") != m.end() && !m["schedulerType"].empty()) {
+      schedulerType = make_shared<string>(boost::any_cast<string>(m["schedulerType"]));
+    }
+    if (m.find("singleJobCULimit") != m.end() && !m["singleJobCULimit"].empty()) {
+      singleJobCULimit = make_shared<long>(boost::any_cast<long>(m["singleJobCULimit"]));
+    }
+  }
+
+
+  virtual ~ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter() = default;
+};
 class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListSaleTag : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> resourceIds{};
@@ -20870,7 +21081,7 @@ public:
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> nickName{};
-  shared_ptr<map<string, boost::any>> parameter{};
+  shared_ptr<ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter> parameter{};
   shared_ptr<string> parentId{};
   shared_ptr<string> regionId{};
   shared_ptr<ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListSaleTag> saleTag{};
@@ -20913,7 +21124,7 @@ public:
       res["nickName"] = boost::any(*nickName);
     }
     if (parameter) {
-      res["parameter"] = boost::any(*parameter);
+      res["parameter"] = parameter ? boost::any(parameter->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (parentId) {
       res["parentId"] = boost::any(*parentId);
@@ -20972,12 +21183,11 @@ public:
       nickName = make_shared<string>(boost::any_cast<string>(m["nickName"]));
     }
     if (m.find("parameter") != m.end() && !m["parameter"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["parameter"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["parameter"].type()) {
+        ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameter"]));
+        parameter = make_shared<ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter>(model1);
       }
-      parameter = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("parentId") != m.end() && !m["parentId"].empty()) {
       parentId = make_shared<string>(boost::any_cast<string>(m["parentId"]));
@@ -21526,6 +21736,77 @@ public:
 
   virtual ~ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListBillingPolicy() = default;
 };
+class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter : public Darabonba::Model {
+public:
+  shared_ptr<long> elasticReservedCU{};
+  shared_ptr<bool> enablePriority{};
+  shared_ptr<bool> forceReservedMin{};
+  shared_ptr<long> maxCU{};
+  shared_ptr<long> minCU{};
+  shared_ptr<string> schedulerType{};
+  shared_ptr<long> singleJobCULimit{};
+
+  ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter() {}
+
+  explicit ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elasticReservedCU) {
+      res["elasticReservedCU"] = boost::any(*elasticReservedCU);
+    }
+    if (enablePriority) {
+      res["enablePriority"] = boost::any(*enablePriority);
+    }
+    if (forceReservedMin) {
+      res["forceReservedMin"] = boost::any(*forceReservedMin);
+    }
+    if (maxCU) {
+      res["maxCU"] = boost::any(*maxCU);
+    }
+    if (minCU) {
+      res["minCU"] = boost::any(*minCU);
+    }
+    if (schedulerType) {
+      res["schedulerType"] = boost::any(*schedulerType);
+    }
+    if (singleJobCULimit) {
+      res["singleJobCULimit"] = boost::any(*singleJobCULimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("elasticReservedCU") != m.end() && !m["elasticReservedCU"].empty()) {
+      elasticReservedCU = make_shared<long>(boost::any_cast<long>(m["elasticReservedCU"]));
+    }
+    if (m.find("enablePriority") != m.end() && !m["enablePriority"].empty()) {
+      enablePriority = make_shared<bool>(boost::any_cast<bool>(m["enablePriority"]));
+    }
+    if (m.find("forceReservedMin") != m.end() && !m["forceReservedMin"].empty()) {
+      forceReservedMin = make_shared<bool>(boost::any_cast<bool>(m["forceReservedMin"]));
+    }
+    if (m.find("maxCU") != m.end() && !m["maxCU"].empty()) {
+      maxCU = make_shared<long>(boost::any_cast<long>(m["maxCU"]));
+    }
+    if (m.find("minCU") != m.end() && !m["minCU"].empty()) {
+      minCU = make_shared<long>(boost::any_cast<long>(m["minCU"]));
+    }
+    if (m.find("schedulerType") != m.end() && !m["schedulerType"].empty()) {
+      schedulerType = make_shared<string>(boost::any_cast<string>(m["schedulerType"]));
+    }
+    if (m.find("singleJobCULimit") != m.end() && !m["singleJobCULimit"].empty()) {
+      singleJobCULimit = make_shared<long>(boost::any_cast<long>(m["singleJobCULimit"]));
+    }
+  }
+
+
+  virtual ~ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter() = default;
+};
 class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListSaleTag : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> resourceIds{};
@@ -21656,7 +21937,7 @@ public:
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> nickName{};
-  shared_ptr<map<string, boost::any>> parameter{};
+  shared_ptr<ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter> parameter{};
   shared_ptr<string> parentId{};
   shared_ptr<string> regionId{};
   shared_ptr<ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListSaleTag> saleTag{};
@@ -21699,7 +21980,7 @@ public:
       res["nickName"] = boost::any(*nickName);
     }
     if (parameter) {
-      res["parameter"] = boost::any(*parameter);
+      res["parameter"] = parameter ? boost::any(parameter->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (parentId) {
       res["parentId"] = boost::any(*parentId);
@@ -21758,12 +22039,11 @@ public:
       nickName = make_shared<string>(boost::any_cast<string>(m["nickName"]));
     }
     if (m.find("parameter") != m.end() && !m["parameter"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["parameter"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["parameter"].type()) {
+        ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameter"]));
+        parameter = make_shared<ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter>(model1);
       }
-      parameter = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("parentId") != m.end() && !m["parentId"].empty()) {
       parentId = make_shared<string>(boost::any_cast<string>(m["parentId"]));
@@ -26619,6 +26899,680 @@ public:
 
   virtual ~QueryQuotaResponse() = default;
 };
+class QueryTunnelMetricRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> codeList{};
+  shared_ptr<vector<string>> groupList{};
+  shared_ptr<vector<string>> operationList{};
+  shared_ptr<string> project{};
+  shared_ptr<string> quotaNickname{};
+  shared_ptr<vector<string>> tableList{};
+  shared_ptr<long> topN{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> strategy{};
+
+  QueryTunnelMetricRequest() {}
+
+  explicit QueryTunnelMetricRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (codeList) {
+      res["codeList"] = boost::any(*codeList);
+    }
+    if (groupList) {
+      res["groupList"] = boost::any(*groupList);
+    }
+    if (operationList) {
+      res["operationList"] = boost::any(*operationList);
+    }
+    if (project) {
+      res["project"] = boost::any(*project);
+    }
+    if (quotaNickname) {
+      res["quotaNickname"] = boost::any(*quotaNickname);
+    }
+    if (tableList) {
+      res["tableList"] = boost::any(*tableList);
+    }
+    if (topN) {
+      res["topN"] = boost::any(*topN);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (strategy) {
+      res["strategy"] = boost::any(*strategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("codeList") != m.end() && !m["codeList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["codeList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["codeList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      codeList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("groupList") != m.end() && !m["groupList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["groupList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["groupList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("operationList") != m.end() && !m["operationList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["operationList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["operationList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      operationList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("project") != m.end() && !m["project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["project"]));
+    }
+    if (m.find("quotaNickname") != m.end() && !m["quotaNickname"].empty()) {
+      quotaNickname = make_shared<string>(boost::any_cast<string>(m["quotaNickname"]));
+    }
+    if (m.find("tableList") != m.end() && !m["tableList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["tableList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tableList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tableList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("topN") != m.end() && !m["topN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["topN"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("strategy") != m.end() && !m["strategy"].empty()) {
+      strategy = make_shared<string>(boost::any_cast<string>(m["strategy"]));
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricRequest() = default;
+};
+class QueryTunnelMetricResponseBodyDataMetrics : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> metric{};
+  shared_ptr<vector<vector<double>>> values{};
+
+  QueryTunnelMetricResponseBodyDataMetrics() {}
+
+  explicit QueryTunnelMetricResponseBodyDataMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metric) {
+      res["metric"] = boost::any(*metric);
+    }
+    if (values) {
+      res["values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("metric") != m.end() && !m["metric"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["metric"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metric = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("values") != m.end() && !m["values"].empty()) {
+      vector<vector<double>> toVec1;
+      if (typeid(vector<boost::any>) == m["values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["values"]);
+        for (auto item:vec1) {
+          vector<double> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<double>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      values = make_shared<vector<vector<double>>>(toVec1);
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricResponseBodyDataMetrics() = default;
+};
+class QueryTunnelMetricResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<vector<QueryTunnelMetricResponseBodyDataMetrics>> metrics{};
+  shared_ptr<string> name{};
+  shared_ptr<long> period{};
+
+  QueryTunnelMetricResponseBodyData() {}
+
+  explicit QueryTunnelMetricResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["category"] = boost::any(*category);
+    }
+    if (metrics) {
+      vector<boost::any> temp1;
+      for(auto item1:*metrics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["metrics"] = boost::any(temp1);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (period) {
+      res["period"] = boost::any(*period);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("category") != m.end() && !m["category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
+    if (m.find("metrics") != m.end() && !m["metrics"].empty()) {
+      if (typeid(vector<boost::any>) == m["metrics"].type()) {
+        vector<QueryTunnelMetricResponseBodyDataMetrics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["metrics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryTunnelMetricResponseBodyDataMetrics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metrics = make_shared<vector<QueryTunnelMetricResponseBodyDataMetrics>>(expect1);
+      }
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("period") != m.end() && !m["period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["period"]));
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricResponseBodyData() = default;
+};
+class QueryTunnelMetricResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<QueryTunnelMetricResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<string> requestId{};
+
+  QueryTunnelMetricResponseBody() {}
+
+  explicit QueryTunnelMetricResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        QueryTunnelMetricResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<QueryTunnelMetricResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricResponseBody() = default;
+};
+class QueryTunnelMetricResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryTunnelMetricResponseBody> body{};
+
+  QueryTunnelMetricResponse() {}
+
+  explicit QueryTunnelMetricResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryTunnelMetricResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryTunnelMetricResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricResponse() = default;
+};
+class QueryTunnelMetricDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> ascOrder{};
+  shared_ptr<vector<string>> groupList{};
+  shared_ptr<long> limit{};
+  shared_ptr<vector<string>> operationList{};
+  shared_ptr<string> orderColumn{};
+  shared_ptr<string> project{};
+  shared_ptr<string> quotaNickname{};
+  shared_ptr<vector<string>> tableList{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+
+  QueryTunnelMetricDetailRequest() {}
+
+  explicit QueryTunnelMetricDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ascOrder) {
+      res["ascOrder"] = boost::any(*ascOrder);
+    }
+    if (groupList) {
+      res["groupList"] = boost::any(*groupList);
+    }
+    if (limit) {
+      res["limit"] = boost::any(*limit);
+    }
+    if (operationList) {
+      res["operationList"] = boost::any(*operationList);
+    }
+    if (orderColumn) {
+      res["orderColumn"] = boost::any(*orderColumn);
+    }
+    if (project) {
+      res["project"] = boost::any(*project);
+    }
+    if (quotaNickname) {
+      res["quotaNickname"] = boost::any(*quotaNickname);
+    }
+    if (tableList) {
+      res["tableList"] = boost::any(*tableList);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ascOrder") != m.end() && !m["ascOrder"].empty()) {
+      ascOrder = make_shared<bool>(boost::any_cast<bool>(m["ascOrder"]));
+    }
+    if (m.find("groupList") != m.end() && !m["groupList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["groupList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["groupList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("limit") != m.end() && !m["limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
+    }
+    if (m.find("operationList") != m.end() && !m["operationList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["operationList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["operationList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      operationList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("orderColumn") != m.end() && !m["orderColumn"].empty()) {
+      orderColumn = make_shared<string>(boost::any_cast<string>(m["orderColumn"]));
+    }
+    if (m.find("project") != m.end() && !m["project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["project"]));
+    }
+    if (m.find("quotaNickname") != m.end() && !m["quotaNickname"].empty()) {
+      quotaNickname = make_shared<string>(boost::any_cast<string>(m["quotaNickname"]));
+    }
+    if (m.find("tableList") != m.end() && !m["tableList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["tableList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tableList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tableList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricDetailRequest() = default;
+};
+class QueryTunnelMetricDetailResponseBodyDataMetrics : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> metric{};
+  shared_ptr<map<string, boost::any>> value{};
+
+  QueryTunnelMetricDetailResponseBodyDataMetrics() {}
+
+  explicit QueryTunnelMetricDetailResponseBodyDataMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metric) {
+      res["metric"] = boost::any(*metric);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("metric") != m.end() && !m["metric"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["metric"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metric = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["value"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      value = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricDetailResponseBodyDataMetrics() = default;
+};
+class QueryTunnelMetricDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryTunnelMetricDetailResponseBodyDataMetrics>> metrics{};
+  shared_ptr<string> name{};
+
+  QueryTunnelMetricDetailResponseBodyData() {}
+
+  explicit QueryTunnelMetricDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metrics) {
+      vector<boost::any> temp1;
+      for(auto item1:*metrics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["metrics"] = boost::any(temp1);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("metrics") != m.end() && !m["metrics"].empty()) {
+      if (typeid(vector<boost::any>) == m["metrics"].type()) {
+        vector<QueryTunnelMetricDetailResponseBodyDataMetrics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["metrics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryTunnelMetricDetailResponseBodyDataMetrics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metrics = make_shared<vector<QueryTunnelMetricDetailResponseBodyDataMetrics>>(expect1);
+      }
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricDetailResponseBodyData() = default;
+};
+class QueryTunnelMetricDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<QueryTunnelMetricDetailResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<string> requestId{};
+
+  QueryTunnelMetricDetailResponseBody() {}
+
+  explicit QueryTunnelMetricDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        QueryTunnelMetricDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<QueryTunnelMetricDetailResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricDetailResponseBody() = default;
+};
+class QueryTunnelMetricDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryTunnelMetricDetailResponseBody> body{};
+
+  QueryTunnelMetricDetailResponse() {}
+
+  explicit QueryTunnelMetricDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryTunnelMetricDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryTunnelMetricDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryTunnelMetricDetailResponse() = default;
+};
 class RetryMmsJobResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> data{};
@@ -29346,6 +30300,16 @@ public:
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryQuotaResponse queryQuota(shared_ptr<string> nickname, shared_ptr<QueryQuotaRequest> request);
+  QueryTunnelMetricResponse queryTunnelMetricWithOptions(shared_ptr<string> metric,
+                                                         shared_ptr<QueryTunnelMetricRequest> request,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryTunnelMetricResponse queryTunnelMetric(shared_ptr<string> metric, shared_ptr<QueryTunnelMetricRequest> request);
+  QueryTunnelMetricDetailResponse queryTunnelMetricDetailWithOptions(shared_ptr<string> metric,
+                                                                     shared_ptr<QueryTunnelMetricDetailRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryTunnelMetricDetailResponse queryTunnelMetricDetail(shared_ptr<string> metric, shared_ptr<QueryTunnelMetricDetailRequest> request);
   RetryMmsJobResponse retryMmsJobWithOptions(shared_ptr<string> sourceId,
                                              shared_ptr<string> jobId,
                                              shared_ptr<map<string, string>> headers,
