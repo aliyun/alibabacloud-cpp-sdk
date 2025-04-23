@@ -59144,6 +59144,7 @@ public:
 class QueryConfigResponseBodyDataNacosRunningEnv : public Darabonba::Model {
 public:
   shared_ptr<bool> emptyProtect{};
+  shared_ptr<string> grayAuth{};
 
   QueryConfigResponseBodyDataNacosRunningEnv() {}
 
@@ -59158,12 +59159,18 @@ public:
     if (emptyProtect) {
       res["emptyProtect"] = boost::any(*emptyProtect);
     }
+    if (grayAuth) {
+      res["grayAuth"] = boost::any(*grayAuth);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("emptyProtect") != m.end() && !m["emptyProtect"].empty()) {
       emptyProtect = make_shared<bool>(boost::any_cast<bool>(m["emptyProtect"]));
+    }
+    if (m.find("grayAuth") != m.end() && !m["grayAuth"].empty()) {
+      grayAuth = make_shared<string>(boost::any_cast<string>(m["grayAuth"]));
     }
   }
 
