@@ -26658,6 +26658,7 @@ class DescribeConfigurationPriceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
   shared_ptr<long> memory{};
+  shared_ptr<string> newSaeVersion{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> workload{};
 
@@ -26677,6 +26678,9 @@ public:
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
+    if (newSaeVersion) {
+      res["NewSaeVersion"] = boost::any(*newSaeVersion);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -26692,6 +26696,9 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("NewSaeVersion") != m.end() && !m["NewSaeVersion"].empty()) {
+      newSaeVersion = make_shared<string>(boost::any_cast<string>(m["NewSaeVersion"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -43009,6 +43016,7 @@ public:
 class QueryResourceStaticsResponseBodyDataRealTimeRes : public Darabonba::Model {
 public:
   shared_ptr<double> cpu{};
+  shared_ptr<double> ephemeralStorage{};
   shared_ptr<double> memory{};
 
   QueryResourceStaticsResponseBodyDataRealTimeRes() {}
@@ -43024,6 +43032,9 @@ public:
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
+    if (ephemeralStorage) {
+      res["EphemeralStorage"] = boost::any(*ephemeralStorage);
+    }
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
@@ -43033,6 +43044,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("EphemeralStorage") != m.end() && !m["EphemeralStorage"].empty()) {
+      ephemeralStorage = make_shared<double>(boost::any_cast<double>(m["EphemeralStorage"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
@@ -43046,6 +43060,8 @@ class QueryResourceStaticsResponseBodyDataSummary : public Darabonba::Model {
 public:
   shared_ptr<double> activeCpu{};
   shared_ptr<double> cpu{};
+  shared_ptr<double> cu{};
+  shared_ptr<double> ephemeralStorage{};
   shared_ptr<double> idleCpu{};
   shared_ptr<double> memory{};
 
@@ -43065,6 +43081,12 @@ public:
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
+    if (cu) {
+      res["Cu"] = boost::any(*cu);
+    }
+    if (ephemeralStorage) {
+      res["EphemeralStorage"] = boost::any(*ephemeralStorage);
+    }
     if (idleCpu) {
       res["IdleCpu"] = boost::any(*idleCpu);
     }
@@ -43080,6 +43102,12 @@ public:
     }
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("Cu") != m.end() && !m["Cu"].empty()) {
+      cu = make_shared<double>(boost::any_cast<double>(m["Cu"]));
+    }
+    if (m.find("EphemeralStorage") != m.end() && !m["EphemeralStorage"].empty()) {
+      ephemeralStorage = make_shared<double>(boost::any_cast<double>(m["EphemeralStorage"]));
     }
     if (m.find("IdleCpu") != m.end() && !m["IdleCpu"].empty()) {
       idleCpu = make_shared<double>(boost::any_cast<double>(m["IdleCpu"]));

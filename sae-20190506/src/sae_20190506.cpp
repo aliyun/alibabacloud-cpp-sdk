@@ -2129,6 +2129,9 @@ DescribeConfigurationPriceResponse Alibabacloud_Sae20190506::Client::describeCon
   if (!Darabonba_Util::Client::isUnset<long>(request->memory)) {
     query->insert(pair<string, long>("Memory", *request->memory));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newSaeVersion)) {
+    query->insert(pair<string, string>("NewSaeVersion", *request->newSaeVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
