@@ -148,6 +148,24 @@ GetCommissionDetailFileListResponse Alibabacloud_Agency20250227::Client::getComm
   if (!Darabonba_Util::Client::isUnset<string>(request->billMonth)) {
     query->insert(pair<string, string>("BillMonth", *request->billMonth));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossAccessKeyId)) {
+    query->insert(pair<string, string>("OssAccessKeyId", *request->ossAccessKeyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossAccessKeySecret)) {
+    query->insert(pair<string, string>("OssAccessKeySecret", *request->ossAccessKeySecret));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossBucketName)) {
+    query->insert(pair<string, string>("OssBucketName", *request->ossBucketName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossEndpoint)) {
+    query->insert(pair<string, string>("OssEndpoint", *request->ossEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossRegion)) {
+    query->insert(pair<string, string>("OssRegion", *request->ossRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossSecurityToken)) {
+    query->insert(pair<string, string>("OssSecurityToken", *request->ossSecurityToken));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

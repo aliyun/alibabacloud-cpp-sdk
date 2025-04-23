@@ -274,6 +274,12 @@ public:
 class GetCommissionDetailFileListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> billMonth{};
+  shared_ptr<string> ossAccessKeyId{};
+  shared_ptr<string> ossAccessKeySecret{};
+  shared_ptr<string> ossBucketName{};
+  shared_ptr<string> ossEndpoint{};
+  shared_ptr<string> ossRegion{};
+  shared_ptr<string> ossSecurityToken{};
 
   GetCommissionDetailFileListRequest() {}
 
@@ -288,12 +294,48 @@ public:
     if (billMonth) {
       res["BillMonth"] = boost::any(*billMonth);
     }
+    if (ossAccessKeyId) {
+      res["OssAccessKeyId"] = boost::any(*ossAccessKeyId);
+    }
+    if (ossAccessKeySecret) {
+      res["OssAccessKeySecret"] = boost::any(*ossAccessKeySecret);
+    }
+    if (ossBucketName) {
+      res["OssBucketName"] = boost::any(*ossBucketName);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
+    if (ossRegion) {
+      res["OssRegion"] = boost::any(*ossRegion);
+    }
+    if (ossSecurityToken) {
+      res["OssSecurityToken"] = boost::any(*ossSecurityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BillMonth") != m.end() && !m["BillMonth"].empty()) {
       billMonth = make_shared<string>(boost::any_cast<string>(m["BillMonth"]));
+    }
+    if (m.find("OssAccessKeyId") != m.end() && !m["OssAccessKeyId"].empty()) {
+      ossAccessKeyId = make_shared<string>(boost::any_cast<string>(m["OssAccessKeyId"]));
+    }
+    if (m.find("OssAccessKeySecret") != m.end() && !m["OssAccessKeySecret"].empty()) {
+      ossAccessKeySecret = make_shared<string>(boost::any_cast<string>(m["OssAccessKeySecret"]));
+    }
+    if (m.find("OssBucketName") != m.end() && !m["OssBucketName"].empty()) {
+      ossBucketName = make_shared<string>(boost::any_cast<string>(m["OssBucketName"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
+    if (m.find("OssRegion") != m.end() && !m["OssRegion"].empty()) {
+      ossRegion = make_shared<string>(boost::any_cast<string>(m["OssRegion"]));
+    }
+    if (m.find("OssSecurityToken") != m.end() && !m["OssSecurityToken"].empty()) {
+      ossSecurityToken = make_shared<string>(boost::any_cast<string>(m["OssSecurityToken"]));
     }
   }
 
@@ -302,7 +344,9 @@ public:
 };
 class GetCommissionDetailFileListResponseBodyDataFileList : public Darabonba::Model {
 public:
+  shared_ptr<string> bucketSyncStatus{};
   shared_ptr<string> commissionPolicyName{};
+  shared_ptr<string> fileName{};
   shared_ptr<string> fileType{};
   shared_ptr<string> fileUrl{};
 
@@ -316,8 +360,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bucketSyncStatus) {
+      res["BucketSyncStatus"] = boost::any(*bucketSyncStatus);
+    }
     if (commissionPolicyName) {
       res["CommissionPolicyName"] = boost::any(*commissionPolicyName);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
     }
     if (fileType) {
       res["FileType"] = boost::any(*fileType);
@@ -329,8 +379,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BucketSyncStatus") != m.end() && !m["BucketSyncStatus"].empty()) {
+      bucketSyncStatus = make_shared<string>(boost::any_cast<string>(m["BucketSyncStatus"]));
+    }
     if (m.find("CommissionPolicyName") != m.end() && !m["CommissionPolicyName"].empty()) {
       commissionPolicyName = make_shared<string>(boost::any_cast<string>(m["CommissionPolicyName"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
     }
     if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
       fileType = make_shared<string>(boost::any_cast<string>(m["FileType"]));
