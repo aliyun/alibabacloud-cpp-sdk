@@ -2941,9 +2941,13 @@ public:
   shared_ptr<string> callbackToken{};
   shared_ptr<string> callbackUrl{};
   shared_ptr<string> crop{};
+  shared_ptr<string> dateOfBirth{};
+  shared_ptr<string> dateOfExpiry{};
+  shared_ptr<vector<string>> docPageConfig{};
   shared_ptr<string> docScanMode{};
   shared_ptr<string> docType{};
   shared_ptr<string> docVideo{};
+  shared_ptr<string> documentNumber{};
   shared_ptr<string> experienceCode{};
   shared_ptr<string> facePictureBase64{};
   shared_ptr<string> facePictureUrl{};
@@ -2951,6 +2955,7 @@ public:
   shared_ptr<string> idSpoof{};
   shared_ptr<string> idThreshold{};
   shared_ptr<string> languageConfig{};
+  shared_ptr<string> MRTDInput{};
   shared_ptr<string> merchantBizId{};
   shared_ptr<string> merchantUserId{};
   shared_ptr<string> metaInfo{};
@@ -2966,6 +2971,7 @@ public:
   shared_ptr<string> showGuidePage{};
   shared_ptr<string> showOcrResult{};
   shared_ptr<string> styleConfig{};
+  shared_ptr<string> useNFC{};
 
   InitializeRequest() {}
 
@@ -2992,6 +2998,15 @@ public:
     if (crop) {
       res["Crop"] = boost::any(*crop);
     }
+    if (dateOfBirth) {
+      res["DateOfBirth"] = boost::any(*dateOfBirth);
+    }
+    if (dateOfExpiry) {
+      res["DateOfExpiry"] = boost::any(*dateOfExpiry);
+    }
+    if (docPageConfig) {
+      res["DocPageConfig"] = boost::any(*docPageConfig);
+    }
     if (docScanMode) {
       res["DocScanMode"] = boost::any(*docScanMode);
     }
@@ -3000,6 +3015,9 @@ public:
     }
     if (docVideo) {
       res["DocVideo"] = boost::any(*docVideo);
+    }
+    if (documentNumber) {
+      res["DocumentNumber"] = boost::any(*documentNumber);
     }
     if (experienceCode) {
       res["ExperienceCode"] = boost::any(*experienceCode);
@@ -3021,6 +3039,9 @@ public:
     }
     if (languageConfig) {
       res["LanguageConfig"] = boost::any(*languageConfig);
+    }
+    if (MRTDInput) {
+      res["MRTDInput"] = boost::any(*MRTDInput);
     }
     if (merchantBizId) {
       res["MerchantBizId"] = boost::any(*merchantBizId);
@@ -3067,6 +3088,9 @@ public:
     if (styleConfig) {
       res["StyleConfig"] = boost::any(*styleConfig);
     }
+    if (useNFC) {
+      res["UseNFC"] = boost::any(*useNFC);
+    }
     return res;
   }
 
@@ -3086,6 +3110,22 @@ public:
     if (m.find("Crop") != m.end() && !m["Crop"].empty()) {
       crop = make_shared<string>(boost::any_cast<string>(m["Crop"]));
     }
+    if (m.find("DateOfBirth") != m.end() && !m["DateOfBirth"].empty()) {
+      dateOfBirth = make_shared<string>(boost::any_cast<string>(m["DateOfBirth"]));
+    }
+    if (m.find("DateOfExpiry") != m.end() && !m["DateOfExpiry"].empty()) {
+      dateOfExpiry = make_shared<string>(boost::any_cast<string>(m["DateOfExpiry"]));
+    }
+    if (m.find("DocPageConfig") != m.end() && !m["DocPageConfig"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DocPageConfig"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DocPageConfig"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      docPageConfig = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("DocScanMode") != m.end() && !m["DocScanMode"].empty()) {
       docScanMode = make_shared<string>(boost::any_cast<string>(m["DocScanMode"]));
     }
@@ -3094,6 +3134,9 @@ public:
     }
     if (m.find("DocVideo") != m.end() && !m["DocVideo"].empty()) {
       docVideo = make_shared<string>(boost::any_cast<string>(m["DocVideo"]));
+    }
+    if (m.find("DocumentNumber") != m.end() && !m["DocumentNumber"].empty()) {
+      documentNumber = make_shared<string>(boost::any_cast<string>(m["DocumentNumber"]));
     }
     if (m.find("ExperienceCode") != m.end() && !m["ExperienceCode"].empty()) {
       experienceCode = make_shared<string>(boost::any_cast<string>(m["ExperienceCode"]));
@@ -3115,6 +3158,9 @@ public:
     }
     if (m.find("LanguageConfig") != m.end() && !m["LanguageConfig"].empty()) {
       languageConfig = make_shared<string>(boost::any_cast<string>(m["LanguageConfig"]));
+    }
+    if (m.find("MRTDInput") != m.end() && !m["MRTDInput"].empty()) {
+      MRTDInput = make_shared<string>(boost::any_cast<string>(m["MRTDInput"]));
     }
     if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
       merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
@@ -3161,10 +3207,287 @@ public:
     if (m.find("StyleConfig") != m.end() && !m["StyleConfig"].empty()) {
       styleConfig = make_shared<string>(boost::any_cast<string>(m["StyleConfig"]));
     }
+    if (m.find("UseNFC") != m.end() && !m["UseNFC"].empty()) {
+      useNFC = make_shared<string>(boost::any_cast<string>(m["UseNFC"]));
+    }
   }
 
 
   virtual ~InitializeRequest() = default;
+};
+class InitializeShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appQualityCheck{};
+  shared_ptr<string> authorize{};
+  shared_ptr<string> callbackToken{};
+  shared_ptr<string> callbackUrl{};
+  shared_ptr<string> crop{};
+  shared_ptr<string> dateOfBirth{};
+  shared_ptr<string> dateOfExpiry{};
+  shared_ptr<string> docPageConfigShrink{};
+  shared_ptr<string> docScanMode{};
+  shared_ptr<string> docType{};
+  shared_ptr<string> docVideo{};
+  shared_ptr<string> documentNumber{};
+  shared_ptr<string> experienceCode{};
+  shared_ptr<string> facePictureBase64{};
+  shared_ptr<string> facePictureUrl{};
+  shared_ptr<string> idFaceQuality{};
+  shared_ptr<string> idSpoof{};
+  shared_ptr<string> idThreshold{};
+  shared_ptr<string> languageConfig{};
+  shared_ptr<string> MRTDInput{};
+  shared_ptr<string> merchantBizId{};
+  shared_ptr<string> merchantUserId{};
+  shared_ptr<string> metaInfo{};
+  shared_ptr<string> model{};
+  shared_ptr<string> ocr{};
+  shared_ptr<string> procedurePriority{};
+  shared_ptr<string> productCode{};
+  shared_ptr<string> productFlow{};
+  shared_ptr<string> returnUrl{};
+  shared_ptr<string> sceneCode{};
+  shared_ptr<string> securityLevel{};
+  shared_ptr<string> showAlbumIcon{};
+  shared_ptr<string> showGuidePage{};
+  shared_ptr<string> showOcrResult{};
+  shared_ptr<string> styleConfig{};
+  shared_ptr<string> useNFC{};
+
+  InitializeShrinkRequest() {}
+
+  explicit InitializeShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appQualityCheck) {
+      res["AppQualityCheck"] = boost::any(*appQualityCheck);
+    }
+    if (authorize) {
+      res["Authorize"] = boost::any(*authorize);
+    }
+    if (callbackToken) {
+      res["CallbackToken"] = boost::any(*callbackToken);
+    }
+    if (callbackUrl) {
+      res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (crop) {
+      res["Crop"] = boost::any(*crop);
+    }
+    if (dateOfBirth) {
+      res["DateOfBirth"] = boost::any(*dateOfBirth);
+    }
+    if (dateOfExpiry) {
+      res["DateOfExpiry"] = boost::any(*dateOfExpiry);
+    }
+    if (docPageConfigShrink) {
+      res["DocPageConfig"] = boost::any(*docPageConfigShrink);
+    }
+    if (docScanMode) {
+      res["DocScanMode"] = boost::any(*docScanMode);
+    }
+    if (docType) {
+      res["DocType"] = boost::any(*docType);
+    }
+    if (docVideo) {
+      res["DocVideo"] = boost::any(*docVideo);
+    }
+    if (documentNumber) {
+      res["DocumentNumber"] = boost::any(*documentNumber);
+    }
+    if (experienceCode) {
+      res["ExperienceCode"] = boost::any(*experienceCode);
+    }
+    if (facePictureBase64) {
+      res["FacePictureBase64"] = boost::any(*facePictureBase64);
+    }
+    if (facePictureUrl) {
+      res["FacePictureUrl"] = boost::any(*facePictureUrl);
+    }
+    if (idFaceQuality) {
+      res["IdFaceQuality"] = boost::any(*idFaceQuality);
+    }
+    if (idSpoof) {
+      res["IdSpoof"] = boost::any(*idSpoof);
+    }
+    if (idThreshold) {
+      res["IdThreshold"] = boost::any(*idThreshold);
+    }
+    if (languageConfig) {
+      res["LanguageConfig"] = boost::any(*languageConfig);
+    }
+    if (MRTDInput) {
+      res["MRTDInput"] = boost::any(*MRTDInput);
+    }
+    if (merchantBizId) {
+      res["MerchantBizId"] = boost::any(*merchantBizId);
+    }
+    if (merchantUserId) {
+      res["MerchantUserId"] = boost::any(*merchantUserId);
+    }
+    if (metaInfo) {
+      res["MetaInfo"] = boost::any(*metaInfo);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (ocr) {
+      res["Ocr"] = boost::any(*ocr);
+    }
+    if (procedurePriority) {
+      res["ProcedurePriority"] = boost::any(*procedurePriority);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    if (productFlow) {
+      res["ProductFlow"] = boost::any(*productFlow);
+    }
+    if (returnUrl) {
+      res["ReturnUrl"] = boost::any(*returnUrl);
+    }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
+    if (securityLevel) {
+      res["SecurityLevel"] = boost::any(*securityLevel);
+    }
+    if (showAlbumIcon) {
+      res["ShowAlbumIcon"] = boost::any(*showAlbumIcon);
+    }
+    if (showGuidePage) {
+      res["ShowGuidePage"] = boost::any(*showGuidePage);
+    }
+    if (showOcrResult) {
+      res["ShowOcrResult"] = boost::any(*showOcrResult);
+    }
+    if (styleConfig) {
+      res["StyleConfig"] = boost::any(*styleConfig);
+    }
+    if (useNFC) {
+      res["UseNFC"] = boost::any(*useNFC);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppQualityCheck") != m.end() && !m["AppQualityCheck"].empty()) {
+      appQualityCheck = make_shared<string>(boost::any_cast<string>(m["AppQualityCheck"]));
+    }
+    if (m.find("Authorize") != m.end() && !m["Authorize"].empty()) {
+      authorize = make_shared<string>(boost::any_cast<string>(m["Authorize"]));
+    }
+    if (m.find("CallbackToken") != m.end() && !m["CallbackToken"].empty()) {
+      callbackToken = make_shared<string>(boost::any_cast<string>(m["CallbackToken"]));
+    }
+    if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
+      callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("Crop") != m.end() && !m["Crop"].empty()) {
+      crop = make_shared<string>(boost::any_cast<string>(m["Crop"]));
+    }
+    if (m.find("DateOfBirth") != m.end() && !m["DateOfBirth"].empty()) {
+      dateOfBirth = make_shared<string>(boost::any_cast<string>(m["DateOfBirth"]));
+    }
+    if (m.find("DateOfExpiry") != m.end() && !m["DateOfExpiry"].empty()) {
+      dateOfExpiry = make_shared<string>(boost::any_cast<string>(m["DateOfExpiry"]));
+    }
+    if (m.find("DocPageConfig") != m.end() && !m["DocPageConfig"].empty()) {
+      docPageConfigShrink = make_shared<string>(boost::any_cast<string>(m["DocPageConfig"]));
+    }
+    if (m.find("DocScanMode") != m.end() && !m["DocScanMode"].empty()) {
+      docScanMode = make_shared<string>(boost::any_cast<string>(m["DocScanMode"]));
+    }
+    if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
+      docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
+    }
+    if (m.find("DocVideo") != m.end() && !m["DocVideo"].empty()) {
+      docVideo = make_shared<string>(boost::any_cast<string>(m["DocVideo"]));
+    }
+    if (m.find("DocumentNumber") != m.end() && !m["DocumentNumber"].empty()) {
+      documentNumber = make_shared<string>(boost::any_cast<string>(m["DocumentNumber"]));
+    }
+    if (m.find("ExperienceCode") != m.end() && !m["ExperienceCode"].empty()) {
+      experienceCode = make_shared<string>(boost::any_cast<string>(m["ExperienceCode"]));
+    }
+    if (m.find("FacePictureBase64") != m.end() && !m["FacePictureBase64"].empty()) {
+      facePictureBase64 = make_shared<string>(boost::any_cast<string>(m["FacePictureBase64"]));
+    }
+    if (m.find("FacePictureUrl") != m.end() && !m["FacePictureUrl"].empty()) {
+      facePictureUrl = make_shared<string>(boost::any_cast<string>(m["FacePictureUrl"]));
+    }
+    if (m.find("IdFaceQuality") != m.end() && !m["IdFaceQuality"].empty()) {
+      idFaceQuality = make_shared<string>(boost::any_cast<string>(m["IdFaceQuality"]));
+    }
+    if (m.find("IdSpoof") != m.end() && !m["IdSpoof"].empty()) {
+      idSpoof = make_shared<string>(boost::any_cast<string>(m["IdSpoof"]));
+    }
+    if (m.find("IdThreshold") != m.end() && !m["IdThreshold"].empty()) {
+      idThreshold = make_shared<string>(boost::any_cast<string>(m["IdThreshold"]));
+    }
+    if (m.find("LanguageConfig") != m.end() && !m["LanguageConfig"].empty()) {
+      languageConfig = make_shared<string>(boost::any_cast<string>(m["LanguageConfig"]));
+    }
+    if (m.find("MRTDInput") != m.end() && !m["MRTDInput"].empty()) {
+      MRTDInput = make_shared<string>(boost::any_cast<string>(m["MRTDInput"]));
+    }
+    if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
+      merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
+    }
+    if (m.find("MerchantUserId") != m.end() && !m["MerchantUserId"].empty()) {
+      merchantUserId = make_shared<string>(boost::any_cast<string>(m["MerchantUserId"]));
+    }
+    if (m.find("MetaInfo") != m.end() && !m["MetaInfo"].empty()) {
+      metaInfo = make_shared<string>(boost::any_cast<string>(m["MetaInfo"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("Ocr") != m.end() && !m["Ocr"].empty()) {
+      ocr = make_shared<string>(boost::any_cast<string>(m["Ocr"]));
+    }
+    if (m.find("ProcedurePriority") != m.end() && !m["ProcedurePriority"].empty()) {
+      procedurePriority = make_shared<string>(boost::any_cast<string>(m["ProcedurePriority"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("ProductFlow") != m.end() && !m["ProductFlow"].empty()) {
+      productFlow = make_shared<string>(boost::any_cast<string>(m["ProductFlow"]));
+    }
+    if (m.find("ReturnUrl") != m.end() && !m["ReturnUrl"].empty()) {
+      returnUrl = make_shared<string>(boost::any_cast<string>(m["ReturnUrl"]));
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+    if (m.find("SecurityLevel") != m.end() && !m["SecurityLevel"].empty()) {
+      securityLevel = make_shared<string>(boost::any_cast<string>(m["SecurityLevel"]));
+    }
+    if (m.find("ShowAlbumIcon") != m.end() && !m["ShowAlbumIcon"].empty()) {
+      showAlbumIcon = make_shared<string>(boost::any_cast<string>(m["ShowAlbumIcon"]));
+    }
+    if (m.find("ShowGuidePage") != m.end() && !m["ShowGuidePage"].empty()) {
+      showGuidePage = make_shared<string>(boost::any_cast<string>(m["ShowGuidePage"]));
+    }
+    if (m.find("ShowOcrResult") != m.end() && !m["ShowOcrResult"].empty()) {
+      showOcrResult = make_shared<string>(boost::any_cast<string>(m["ShowOcrResult"]));
+    }
+    if (m.find("StyleConfig") != m.end() && !m["StyleConfig"].empty()) {
+      styleConfig = make_shared<string>(boost::any_cast<string>(m["StyleConfig"]));
+    }
+    if (m.find("UseNFC") != m.end() && !m["UseNFC"].empty()) {
+      useNFC = make_shared<string>(boost::any_cast<string>(m["UseNFC"]));
+    }
+  }
+
+
+  virtual ~InitializeShrinkRequest() = default;
 };
 class InitializeResponseBodyResult : public Darabonba::Model {
 public:
@@ -3557,7 +3880,7 @@ public:
   Id2MetaPeriodVerifyIntlResponse id2MetaPeriodVerifyIntl(shared_ptr<Id2MetaPeriodVerifyIntlRequest> request);
   Id2MetaVerifyIntlResponse id2MetaVerifyIntlWithOptions(shared_ptr<Id2MetaVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Id2MetaVerifyIntlResponse id2MetaVerifyIntl(shared_ptr<Id2MetaVerifyIntlRequest> request);
-  InitializeResponse initializeWithOptions(shared_ptr<InitializeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InitializeResponse initializeWithOptions(shared_ptr<InitializeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InitializeResponse initialize(shared_ptr<InitializeRequest> request);
   Mobile3MetaVerifyIntlResponse mobile3MetaVerifyIntlWithOptions(shared_ptr<Mobile3MetaVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Mobile3MetaVerifyIntlResponse mobile3MetaVerifyIntl(shared_ptr<Mobile3MetaVerifyIntlRequest> request);

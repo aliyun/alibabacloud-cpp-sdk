@@ -623,8 +623,13 @@ Id2MetaVerifyIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::id2MetaVe
   return id2MetaVerifyIntlWithOptions(request, runtime);
 }
 
-InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOptions(shared_ptr<InitializeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOptions(shared_ptr<InitializeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<InitializeShrinkRequest> request = make_shared<InitializeShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->docPageConfig)) {
+    request->docPageConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->docPageConfig, make_shared<string>("DocPageConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appQualityCheck)) {
     query->insert(pair<string, string>("AppQualityCheck", *request->appQualityCheck));
@@ -641,6 +646,15 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->crop)) {
     query->insert(pair<string, string>("Crop", *request->crop));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dateOfBirth)) {
+    query->insert(pair<string, string>("DateOfBirth", *request->dateOfBirth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dateOfExpiry)) {
+    query->insert(pair<string, string>("DateOfExpiry", *request->dateOfExpiry));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docPageConfigShrink)) {
+    query->insert(pair<string, string>("DocPageConfig", *request->docPageConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->docScanMode)) {
     query->insert(pair<string, string>("DocScanMode", *request->docScanMode));
   }
@@ -649,6 +663,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->docVideo)) {
     query->insert(pair<string, string>("DocVideo", *request->docVideo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->documentNumber)) {
+    query->insert(pair<string, string>("DocumentNumber", *request->documentNumber));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->experienceCode)) {
     query->insert(pair<string, string>("ExperienceCode", *request->experienceCode));
@@ -667,6 +684,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->languageConfig)) {
     query->insert(pair<string, string>("LanguageConfig", *request->languageConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->MRTDInput)) {
+    query->insert(pair<string, string>("MRTDInput", *request->MRTDInput));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
     query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
@@ -712,6 +732,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->styleConfig)) {
     query->insert(pair<string, string>("StyleConfig", *request->styleConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->useNFC)) {
+    query->insert(pair<string, string>("UseNFC", *request->useNFC));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->facePictureBase64)) {
