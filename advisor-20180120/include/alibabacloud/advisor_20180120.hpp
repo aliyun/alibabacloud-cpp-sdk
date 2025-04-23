@@ -2406,10 +2406,13 @@ class DescribeCostCheckAdvicesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> assumeAliyunIdList{};
   shared_ptr<string> checkId{};
+  shared_ptr<long> checkPlanId{};
   shared_ptr<string> language{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<vector<string>> regionIds{};
+  shared_ptr<vector<string>> resourceGroupIdList{};
+  shared_ptr<string> resourceId{};
   shared_ptr<vector<string>> resourceIds{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> severity{};
@@ -2433,6 +2436,9 @@ public:
     if (checkId) {
       res["CheckId"] = boost::any(*checkId);
     }
+    if (checkPlanId) {
+      res["CheckPlanId"] = boost::any(*checkPlanId);
+    }
     if (language) {
       res["Language"] = boost::any(*language);
     }
@@ -2444,6 +2450,12 @@ public:
     }
     if (regionIds) {
       res["RegionIds"] = boost::any(*regionIds);
+    }
+    if (resourceGroupIdList) {
+      res["ResourceGroupIdList"] = boost::any(*resourceGroupIdList);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
     }
     if (resourceIds) {
       res["ResourceIds"] = boost::any(*resourceIds);
@@ -2484,6 +2496,9 @@ public:
     if (m.find("CheckId") != m.end() && !m["CheckId"].empty()) {
       checkId = make_shared<string>(boost::any_cast<string>(m["CheckId"]));
     }
+    if (m.find("CheckPlanId") != m.end() && !m["CheckPlanId"].empty()) {
+      checkPlanId = make_shared<long>(boost::any_cast<long>(m["CheckPlanId"]));
+    }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
@@ -2502,6 +2517,19 @@ public:
         }
       }
       regionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceGroupIdList") != m.end() && !m["ResourceGroupIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceGroupIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceGroupIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceGroupIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
     if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
       vector<string> toVec1;
@@ -2561,10 +2589,13 @@ class DescribeCostCheckAdvicesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> assumeAliyunIdListShrink{};
   shared_ptr<string> checkId{};
+  shared_ptr<long> checkPlanId{};
   shared_ptr<string> language{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionIdsShrink{};
+  shared_ptr<string> resourceGroupIdListShrink{};
+  shared_ptr<string> resourceId{};
   shared_ptr<string> resourceIdsShrink{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> severity{};
@@ -2588,6 +2619,9 @@ public:
     if (checkId) {
       res["CheckId"] = boost::any(*checkId);
     }
+    if (checkPlanId) {
+      res["CheckPlanId"] = boost::any(*checkPlanId);
+    }
     if (language) {
       res["Language"] = boost::any(*language);
     }
@@ -2599,6 +2633,12 @@ public:
     }
     if (regionIdsShrink) {
       res["RegionIds"] = boost::any(*regionIdsShrink);
+    }
+    if (resourceGroupIdListShrink) {
+      res["ResourceGroupIdList"] = boost::any(*resourceGroupIdListShrink);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
     }
     if (resourceIdsShrink) {
       res["ResourceIds"] = boost::any(*resourceIdsShrink);
@@ -2628,6 +2668,9 @@ public:
     if (m.find("CheckId") != m.end() && !m["CheckId"].empty()) {
       checkId = make_shared<string>(boost::any_cast<string>(m["CheckId"]));
     }
+    if (m.find("CheckPlanId") != m.end() && !m["CheckPlanId"].empty()) {
+      checkPlanId = make_shared<long>(boost::any_cast<long>(m["CheckPlanId"]));
+    }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
@@ -2639,6 +2682,12 @@ public:
     }
     if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
       regionIdsShrink = make_shared<string>(boost::any_cast<string>(m["RegionIds"]));
+    }
+    if (m.find("ResourceGroupIdList") != m.end() && !m["ResourceGroupIdList"].empty()) {
+      resourceGroupIdListShrink = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdList"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
     if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
       resourceIdsShrink = make_shared<string>(boost::any_cast<string>(m["ResourceIds"]));
@@ -3085,10 +3134,12 @@ class DescribeCostCheckResultsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> assumeAliyunIdList{};
   shared_ptr<vector<string>> checkIds{};
+  shared_ptr<long> checkPlanId{};
   shared_ptr<string> groupBy{};
   shared_ptr<string> product{};
   shared_ptr<vector<string>> regionIds{};
   shared_ptr<vector<string>> resourceGroupIdList{};
+  shared_ptr<string> resourceId{};
   shared_ptr<vector<string>> resourceIds{};
   shared_ptr<string> resourceName{};
   shared_ptr<long> severity{};
@@ -3112,6 +3163,9 @@ public:
     if (checkIds) {
       res["CheckIds"] = boost::any(*checkIds);
     }
+    if (checkPlanId) {
+      res["CheckPlanId"] = boost::any(*checkPlanId);
+    }
     if (groupBy) {
       res["GroupBy"] = boost::any(*groupBy);
     }
@@ -3123,6 +3177,9 @@ public:
     }
     if (resourceGroupIdList) {
       res["ResourceGroupIdList"] = boost::any(*resourceGroupIdList);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
     }
     if (resourceIds) {
       res["ResourceIds"] = boost::any(*resourceIds);
@@ -3170,6 +3227,9 @@ public:
       }
       checkIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("CheckPlanId") != m.end() && !m["CheckPlanId"].empty()) {
+      checkPlanId = make_shared<long>(boost::any_cast<long>(m["CheckPlanId"]));
+    }
     if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
       groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
     }
@@ -3195,6 +3255,9 @@ public:
         }
       }
       resourceGroupIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
     if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
       vector<string> toVec1;
@@ -3254,10 +3317,12 @@ class DescribeCostCheckResultsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> assumeAliyunIdListShrink{};
   shared_ptr<string> checkIdsShrink{};
+  shared_ptr<long> checkPlanId{};
   shared_ptr<string> groupBy{};
   shared_ptr<string> product{};
   shared_ptr<string> regionIdsShrink{};
   shared_ptr<string> resourceGroupIdListShrink{};
+  shared_ptr<string> resourceId{};
   shared_ptr<string> resourceIdsShrink{};
   shared_ptr<string> resourceName{};
   shared_ptr<long> severity{};
@@ -3281,6 +3346,9 @@ public:
     if (checkIdsShrink) {
       res["CheckIds"] = boost::any(*checkIdsShrink);
     }
+    if (checkPlanId) {
+      res["CheckPlanId"] = boost::any(*checkPlanId);
+    }
     if (groupBy) {
       res["GroupBy"] = boost::any(*groupBy);
     }
@@ -3292,6 +3360,9 @@ public:
     }
     if (resourceGroupIdListShrink) {
       res["ResourceGroupIdList"] = boost::any(*resourceGroupIdListShrink);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
     }
     if (resourceIdsShrink) {
       res["ResourceIds"] = boost::any(*resourceIdsShrink);
@@ -3321,6 +3392,9 @@ public:
     if (m.find("CheckIds") != m.end() && !m["CheckIds"].empty()) {
       checkIdsShrink = make_shared<string>(boost::any_cast<string>(m["CheckIds"]));
     }
+    if (m.find("CheckPlanId") != m.end() && !m["CheckPlanId"].empty()) {
+      checkPlanId = make_shared<long>(boost::any_cast<long>(m["CheckPlanId"]));
+    }
     if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
       groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
     }
@@ -3332,6 +3406,9 @@ public:
     }
     if (m.find("ResourceGroupIdList") != m.end() && !m["ResourceGroupIdList"].empty()) {
       resourceGroupIdListShrink = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdList"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
     if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
       resourceIdsShrink = make_shared<string>(boost::any_cast<string>(m["ResourceIds"]));
@@ -3742,6 +3819,7 @@ class DescribeCostOptimizationOverviewRequest : public Darabonba::Model {
 public:
   shared_ptr<long> assumeAliyunId{};
   shared_ptr<vector<long>> assumeAliyunIdList{};
+  shared_ptr<long> checkPlanId{};
   shared_ptr<string> token{};
 
   DescribeCostOptimizationOverviewRequest() {}
@@ -3759,6 +3837,9 @@ public:
     }
     if (assumeAliyunIdList) {
       res["AssumeAliyunIdList"] = boost::any(*assumeAliyunIdList);
+    }
+    if (checkPlanId) {
+      res["CheckPlanId"] = boost::any(*checkPlanId);
     }
     if (token) {
       res["Token"] = boost::any(*token);
@@ -3780,6 +3861,9 @@ public:
       }
       assumeAliyunIdList = make_shared<vector<long>>(toVec1);
     }
+    if (m.find("CheckPlanId") != m.end() && !m["CheckPlanId"].empty()) {
+      checkPlanId = make_shared<long>(boost::any_cast<long>(m["CheckPlanId"]));
+    }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
     }
@@ -3792,6 +3876,7 @@ class DescribeCostOptimizationOverviewShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<long> assumeAliyunId{};
   shared_ptr<string> assumeAliyunIdListShrink{};
+  shared_ptr<long> checkPlanId{};
   shared_ptr<string> token{};
 
   DescribeCostOptimizationOverviewShrinkRequest() {}
@@ -3810,6 +3895,9 @@ public:
     if (assumeAliyunIdListShrink) {
       res["AssumeAliyunIdList"] = boost::any(*assumeAliyunIdListShrink);
     }
+    if (checkPlanId) {
+      res["CheckPlanId"] = boost::any(*checkPlanId);
+    }
     if (token) {
       res["Token"] = boost::any(*token);
     }
@@ -3822,6 +3910,9 @@ public:
     }
     if (m.find("AssumeAliyunIdList") != m.end() && !m["AssumeAliyunIdList"].empty()) {
       assumeAliyunIdListShrink = make_shared<string>(boost::any_cast<string>(m["AssumeAliyunIdList"]));
+    }
+    if (m.find("CheckPlanId") != m.end() && !m["CheckPlanId"].empty()) {
+      checkPlanId = make_shared<long>(boost::any_cast<long>(m["CheckPlanId"]));
     }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
@@ -3910,7 +4001,10 @@ public:
   shared_ptr<long> gmtModified{};
   shared_ptr<string> optCheckItemNum{};
   shared_ptr<string> optResourceNum{};
+  shared_ptr<string> processedResourceCount{};
+  shared_ptr<string> processedSaveAmount{};
   shared_ptr<long> taskId{};
+  shared_ptr<string> waitProcessResourceCount{};
 
   DescribeCostOptimizationOverviewResponseBodyData() {}
 
@@ -3940,8 +4034,17 @@ public:
     if (optResourceNum) {
       res["OptResourceNum"] = boost::any(*optResourceNum);
     }
+    if (processedResourceCount) {
+      res["ProcessedResourceCount"] = boost::any(*processedResourceCount);
+    }
+    if (processedSaveAmount) {
+      res["ProcessedSaveAmount"] = boost::any(*processedSaveAmount);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
+    }
+    if (waitProcessResourceCount) {
+      res["WaitProcessResourceCount"] = boost::any(*waitProcessResourceCount);
     }
     return res;
   }
@@ -3965,8 +4068,17 @@ public:
     if (m.find("OptResourceNum") != m.end() && !m["OptResourceNum"].empty()) {
       optResourceNum = make_shared<string>(boost::any_cast<string>(m["OptResourceNum"]));
     }
+    if (m.find("ProcessedResourceCount") != m.end() && !m["ProcessedResourceCount"].empty()) {
+      processedResourceCount = make_shared<string>(boost::any_cast<string>(m["ProcessedResourceCount"]));
+    }
+    if (m.find("ProcessedSaveAmount") != m.end() && !m["ProcessedSaveAmount"].empty()) {
+      processedSaveAmount = make_shared<string>(boost::any_cast<string>(m["ProcessedSaveAmount"]));
+    }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
+    }
+    if (m.find("WaitProcessResourceCount") != m.end() && !m["WaitProcessResourceCount"].empty()) {
+      waitProcessResourceCount = make_shared<string>(boost::any_cast<string>(m["WaitProcessResourceCount"]));
     }
   }
 
@@ -5500,6 +5612,7 @@ class RefreshAdvisorCostCheckRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> assumeAliyunIdList{};
   shared_ptr<vector<string>> checkIds{};
+  shared_ptr<long> checkPlanId{};
   shared_ptr<string> product{};
   shared_ptr<bool> refreshResource{};
   shared_ptr<vector<string>> resourceIds{};
@@ -5519,6 +5632,9 @@ public:
     }
     if (checkIds) {
       res["CheckIds"] = boost::any(*checkIds);
+    }
+    if (checkPlanId) {
+      res["CheckPlanId"] = boost::any(*checkPlanId);
     }
     if (product) {
       res["Product"] = boost::any(*product);
@@ -5553,6 +5669,9 @@ public:
       }
       checkIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("CheckPlanId") != m.end() && !m["CheckPlanId"].empty()) {
+      checkPlanId = make_shared<long>(boost::any_cast<long>(m["CheckPlanId"]));
+    }
     if (m.find("Product") != m.end() && !m["Product"].empty()) {
       product = make_shared<string>(boost::any_cast<string>(m["Product"]));
     }
@@ -5578,6 +5697,7 @@ class RefreshAdvisorCostCheckShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> assumeAliyunIdListShrink{};
   shared_ptr<string> checkIdsShrink{};
+  shared_ptr<long> checkPlanId{};
   shared_ptr<string> product{};
   shared_ptr<bool> refreshResource{};
   shared_ptr<string> resourceIdsShrink{};
@@ -5598,6 +5718,9 @@ public:
     if (checkIdsShrink) {
       res["CheckIds"] = boost::any(*checkIdsShrink);
     }
+    if (checkPlanId) {
+      res["CheckPlanId"] = boost::any(*checkPlanId);
+    }
     if (product) {
       res["Product"] = boost::any(*product);
     }
@@ -5616,6 +5739,9 @@ public:
     }
     if (m.find("CheckIds") != m.end() && !m["CheckIds"].empty()) {
       checkIdsShrink = make_shared<string>(boost::any_cast<string>(m["CheckIds"]));
+    }
+    if (m.find("CheckPlanId") != m.end() && !m["CheckPlanId"].empty()) {
+      checkPlanId = make_shared<long>(boost::any_cast<long>(m["CheckPlanId"]));
     }
     if (m.find("Product") != m.end() && !m["Product"].empty()) {
       product = make_shared<string>(boost::any_cast<string>(m["Product"]));
