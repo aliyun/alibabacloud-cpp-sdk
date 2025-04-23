@@ -6944,6 +6944,7 @@ public:
 };
 class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> biz{};
   shared_ptr<string> businessType{};
   shared_ptr<string> category{};
   shared_ptr<string> coverURL{};
@@ -6973,6 +6974,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (biz) {
+      res["Biz"] = boost::any(*biz);
+    }
     if (businessType) {
       res["BusinessType"] = boost::any(*businessType);
     }
@@ -7031,6 +7035,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Biz") != m.end() && !m["Biz"].empty()) {
+      biz = make_shared<string>(boost::any_cast<string>(m["Biz"]));
+    }
     if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["BusinessType"]));
     }
