@@ -11038,10 +11038,47 @@ public:
 
   virtual ~DescribeCustomLinesRequest() = default;
 };
+class DescribeCustomLinesResponseBodyCustomLinesIpSegmentList : public Darabonba::Model {
+public:
+  shared_ptr<string> endIp{};
+  shared_ptr<string> startIp{};
+
+  DescribeCustomLinesResponseBodyCustomLinesIpSegmentList() {}
+
+  explicit DescribeCustomLinesResponseBodyCustomLinesIpSegmentList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endIp) {
+      res["EndIp"] = boost::any(*endIp);
+    }
+    if (startIp) {
+      res["StartIp"] = boost::any(*startIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndIp") != m.end() && !m["EndIp"].empty()) {
+      endIp = make_shared<string>(boost::any_cast<string>(m["EndIp"]));
+    }
+    if (m.find("StartIp") != m.end() && !m["StartIp"].empty()) {
+      startIp = make_shared<string>(boost::any_cast<string>(m["StartIp"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomLinesResponseBodyCustomLinesIpSegmentList() = default;
+};
 class DescribeCustomLinesResponseBodyCustomLines : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<long> id{};
+  shared_ptr<vector<DescribeCustomLinesResponseBodyCustomLinesIpSegmentList>> ipSegmentList{};
   shared_ptr<string> name{};
 
   DescribeCustomLinesResponseBodyCustomLines() {}
@@ -11060,6 +11097,13 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (ipSegmentList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipSegmentList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpSegmentList"] = boost::any(temp1);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -11072,6 +11116,19 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IpSegmentList") != m.end() && !m["IpSegmentList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpSegmentList"].type()) {
+        vector<DescribeCustomLinesResponseBodyCustomLinesIpSegmentList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpSegmentList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomLinesResponseBodyCustomLinesIpSegmentList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipSegmentList = make_shared<vector<DescribeCustomLinesResponseBodyCustomLinesIpSegmentList>>(expect1);
+      }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
