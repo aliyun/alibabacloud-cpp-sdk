@@ -2213,6 +2213,7 @@ public:
   shared_ptr<string> origin{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> provider{};
+  shared_ptr<vector<Label>> tags{};
   shared_ptr<string> task{};
   shared_ptr<string> userId{};
   shared_ptr<string> workspaceId{};
@@ -2278,6 +2279,13 @@ public:
     }
     if (provider) {
       res["Provider"] = boost::any(*provider);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (task) {
       res["Task"] = boost::any(*task);
@@ -2358,6 +2366,19 @@ public:
     }
     if (m.find("Provider") != m.end() && !m["Provider"].empty()) {
       provider = make_shared<string>(boost::any_cast<string>(m["Provider"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<Label> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Label model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<Label>>(expect1);
+      }
     }
     if (m.find("Task") != m.end() && !m["Task"].empty()) {
       task = make_shared<string>(boost::any_cast<string>(m["Task"]));
@@ -5188,6 +5209,7 @@ public:
   shared_ptr<string> modelType{};
   shared_ptr<long> orderNumber{};
   shared_ptr<string> origin{};
+  shared_ptr<vector<Label>> tag{};
   shared_ptr<string> task{};
   shared_ptr<string> workspaceId{};
 
@@ -5234,6 +5256,13 @@ public:
     }
     if (origin) {
       res["Origin"] = boost::any(*origin);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (task) {
       res["Task"] = boost::any(*task);
@@ -5289,6 +5318,19 @@ public:
     }
     if (m.find("Origin") != m.end() && !m["Origin"].empty()) {
       origin = make_shared<string>(boost::any_cast<string>(m["Origin"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<Label> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Label model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<Label>>(expect1);
+      }
     }
     if (m.find("Task") != m.end() && !m["Task"].empty()) {
       task = make_shared<string>(boost::any_cast<string>(m["Task"]));
@@ -9501,6 +9543,165 @@ public:
 
 
   virtual ~GetDatasetFileMetaResponse() = default;
+};
+class GetDatasetFileMetasStatisticsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregateBy{};
+  shared_ptr<string> datasetVersion{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> workspaceId{};
+
+  GetDatasetFileMetasStatisticsRequest() {}
+
+  explicit GetDatasetFileMetasStatisticsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregateBy) {
+      res["AggregateBy"] = boost::any(*aggregateBy);
+    }
+    if (datasetVersion) {
+      res["DatasetVersion"] = boost::any(*datasetVersion);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregateBy") != m.end() && !m["AggregateBy"].empty()) {
+      aggregateBy = make_shared<string>(boost::any_cast<string>(m["AggregateBy"]));
+    }
+    if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
+      datasetVersion = make_shared<string>(boost::any_cast<string>(m["DatasetVersion"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~GetDatasetFileMetasStatisticsRequest() = default;
+};
+class GetDatasetFileMetasStatisticsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DatasetFileMetasStat>> datasetFileMetasStats{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<string> requestId{};
+
+  GetDatasetFileMetasStatisticsResponseBody() {}
+
+  explicit GetDatasetFileMetasStatisticsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetFileMetasStats) {
+      vector<boost::any> temp1;
+      for(auto item1:*datasetFileMetasStats){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DatasetFileMetasStats"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetFileMetasStats") != m.end() && !m["DatasetFileMetasStats"].empty()) {
+      if (typeid(vector<boost::any>) == m["DatasetFileMetasStats"].type()) {
+        vector<DatasetFileMetasStat> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DatasetFileMetasStats"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DatasetFileMetasStat model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        datasetFileMetasStats = make_shared<vector<DatasetFileMetasStat>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetDatasetFileMetasStatisticsResponseBody() = default;
+};
+class GetDatasetFileMetasStatisticsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDatasetFileMetasStatisticsResponseBody> body{};
+
+  GetDatasetFileMetasStatisticsResponse() {}
+
+  explicit GetDatasetFileMetasStatisticsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDatasetFileMetasStatisticsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDatasetFileMetasStatisticsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDatasetFileMetasStatisticsResponse() = default;
 };
 class GetDatasetJobRequest : public Darabonba::Model {
 public:
@@ -14845,6 +15046,42 @@ public:
 
   virtual ~ListModelVersionsResponse() = default;
 };
+class ListModelsRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListModelsRequestTag() {}
+
+  explicit ListModelsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListModelsRequestTag() = default;
+};
 class ListModelsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collections{};
@@ -14859,6 +15096,7 @@ public:
   shared_ptr<string> provider{};
   shared_ptr<string> query{};
   shared_ptr<string> sortBy{};
+  shared_ptr<vector<ListModelsRequestTag>> tag{};
   shared_ptr<string> task{};
   shared_ptr<string> workspaceId{};
 
@@ -14908,6 +15146,13 @@ public:
     if (sortBy) {
       res["SortBy"] = boost::any(*sortBy);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     if (task) {
       res["Task"] = boost::any(*task);
     }
@@ -14954,6 +15199,19 @@ public:
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListModelsRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListModelsRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListModelsRequestTag>>(expect1);
+      }
+    }
     if (m.find("Task") != m.end() && !m["Task"].empty()) {
       task = make_shared<string>(boost::any_cast<string>(m["Task"]));
     }
@@ -14964,6 +15222,133 @@ public:
 
 
   virtual ~ListModelsRequest() = default;
+};
+class ListModelsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collections{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> label{};
+  shared_ptr<string> modelName{};
+  shared_ptr<string> modelType{};
+  shared_ptr<string> order{};
+  shared_ptr<string> origin{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> provider{};
+  shared_ptr<string> query{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> tagShrink{};
+  shared_ptr<string> task{};
+  shared_ptr<string> workspaceId{};
+
+  ListModelsShrinkRequest() {}
+
+  explicit ListModelsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collections) {
+      res["Collections"] = boost::any(*collections);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
+    if (modelType) {
+      res["ModelType"] = boost::any(*modelType);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (origin) {
+      res["Origin"] = boost::any(*origin);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (provider) {
+      res["Provider"] = boost::any(*provider);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    if (task) {
+      res["Task"] = boost::any(*task);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collections") != m.end() && !m["Collections"].empty()) {
+      collections = make_shared<string>(boost::any_cast<string>(m["Collections"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
+    }
+    if (m.find("ModelType") != m.end() && !m["ModelType"].empty()) {
+      modelType = make_shared<string>(boost::any_cast<string>(m["ModelType"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("Origin") != m.end() && !m["Origin"].empty()) {
+      origin = make_shared<string>(boost::any_cast<string>(m["Origin"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Provider") != m.end() && !m["Provider"].empty()) {
+      provider = make_shared<string>(boost::any_cast<string>(m["Provider"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+    if (m.find("Task") != m.end() && !m["Task"].empty()) {
+      task = make_shared<string>(boost::any_cast<string>(m["Task"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~ListModelsShrinkRequest() = default;
 };
 class ListModelsResponseBody : public Darabonba::Model {
 public:
@@ -20729,6 +21114,11 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDatasetFileMetaResponse getDatasetFileMeta(shared_ptr<string> DatasetId, shared_ptr<string> DatasetFileMetaId, shared_ptr<GetDatasetFileMetaRequest> request);
+  GetDatasetFileMetasStatisticsResponse getDatasetFileMetasStatisticsWithOptions(shared_ptr<string> DatasetId,
+                                                                                 shared_ptr<GetDatasetFileMetasStatisticsRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDatasetFileMetasStatisticsResponse getDatasetFileMetasStatistics(shared_ptr<string> DatasetId, shared_ptr<GetDatasetFileMetasStatisticsRequest> request);
   GetDatasetJobResponse getDatasetJobWithOptions(shared_ptr<string> DatasetId,
                                                  shared_ptr<string> DatasetJobId,
                                                  shared_ptr<GetDatasetJobRequest> request,
@@ -20826,7 +21216,7 @@ public:
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListModelVersionsResponse listModelVersions(shared_ptr<string> ModelId, shared_ptr<ListModelVersionsRequest> request);
-  ListModelsResponse listModelsWithOptions(shared_ptr<ListModelsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListModelsResponse listModelsWithOptions(shared_ptr<ListModelsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListModelsResponse listModels(shared_ptr<ListModelsRequest> request);
   ListPermissionsResponse listPermissionsWithOptions(shared_ptr<string> WorkspaceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPermissionsResponse listPermissions(shared_ptr<string> WorkspaceId);

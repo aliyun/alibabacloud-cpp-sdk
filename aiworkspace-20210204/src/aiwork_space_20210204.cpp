@@ -741,6 +741,9 @@ CreateModelResponse Alibabacloud_AIWorkSpace20210204::Client::createModelWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->origin)) {
     body->insert(pair<string, string>("Origin", *request->origin));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<Label>>(request->tag)) {
+    body->insert(pair<string, vector<Label>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->task)) {
     body->insert(pair<string, string>("Task", *request->task));
   }
@@ -1755,6 +1758,48 @@ GetDatasetFileMetaResponse Alibabacloud_AIWorkSpace20210204::Client::getDatasetF
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getDatasetFileMetaWithOptions(DatasetId, DatasetFileMetaId, request, headers, runtime);
+}
+
+GetDatasetFileMetasStatisticsResponse Alibabacloud_AIWorkSpace20210204::Client::getDatasetFileMetasStatisticsWithOptions(shared_ptr<string> DatasetId,
+                                                                                                                         shared_ptr<GetDatasetFileMetasStatisticsRequest> request,
+                                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aggregateBy)) {
+    query->insert(pair<string, string>("AggregateBy", *request->aggregateBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->datasetVersion)) {
+    query->insert(pair<string, string>("DatasetVersion", *request->datasetVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDatasetFileMetasStatistics"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/statistics/datasets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(DatasetId)) + string("/datasetfilemetas"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDatasetFileMetasStatisticsResponse(callApi(params, req, runtime));
+}
+
+GetDatasetFileMetasStatisticsResponse Alibabacloud_AIWorkSpace20210204::Client::getDatasetFileMetasStatistics(shared_ptr<string> DatasetId, shared_ptr<GetDatasetFileMetasStatisticsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getDatasetFileMetasStatisticsWithOptions(DatasetId, request, headers, runtime);
 }
 
 GetDatasetJobResponse Alibabacloud_AIWorkSpace20210204::Client::getDatasetJobWithOptions(shared_ptr<string> DatasetId,
@@ -2801,8 +2846,13 @@ ListModelVersionsResponse Alibabacloud_AIWorkSpace20210204::Client::listModelVer
   return listModelVersionsWithOptions(ModelId, request, headers, runtime);
 }
 
-ListModelsResponse Alibabacloud_AIWorkSpace20210204::Client::listModelsWithOptions(shared_ptr<ListModelsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListModelsResponse Alibabacloud_AIWorkSpace20210204::Client::listModelsWithOptions(shared_ptr<ListModelsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListModelsShrinkRequest> request = make_shared<ListModelsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListModelsRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->collections)) {
     query->insert(pair<string, string>("Collections", *request->collections));
@@ -2839,6 +2889,9 @@ ListModelsResponse Alibabacloud_AIWorkSpace20210204::Client::listModelsWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
     query->insert(pair<string, string>("SortBy", *request->sortBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->task)) {
     query->insert(pair<string, string>("Task", *request->task));
