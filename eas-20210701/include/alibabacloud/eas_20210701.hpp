@@ -2503,6 +2503,7 @@ public:
 };
 class CreateGatewayIntranetLinkedVpcRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountId{};
   shared_ptr<bool> enableAuthoritativeDns{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -2517,6 +2518,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
     if (enableAuthoritativeDns) {
       res["EnableAuthoritativeDns"] = boost::any(*enableAuthoritativeDns);
     }
@@ -2530,6 +2534,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
     if (m.find("EnableAuthoritativeDns") != m.end() && !m["EnableAuthoritativeDns"].empty()) {
       enableAuthoritativeDns = make_shared<bool>(boost::any_cast<bool>(m["EnableAuthoritativeDns"]));
     }
@@ -11684,6 +11691,7 @@ public:
 };
 class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList : public Darabonba::Model {
 public:
+  shared_ptr<string> accountId{};
   shared_ptr<bool> authoritativeDnsEnabled{};
   shared_ptr<string> ip{};
   shared_ptr<string> securityGroupId{};
@@ -11701,6 +11709,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
     if (authoritativeDnsEnabled) {
       res["AuthoritativeDnsEnabled"] = boost::any(*authoritativeDnsEnabled);
     }
@@ -11723,6 +11734,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
     if (m.find("AuthoritativeDnsEnabled") != m.end() && !m["AuthoritativeDnsEnabled"].empty()) {
       authoritativeDnsEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuthoritativeDnsEnabled"]));
     }
