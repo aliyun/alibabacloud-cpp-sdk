@@ -10797,6 +10797,7 @@ public:
   shared_ptr<string> srcIP{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> username{};
+  shared_ptr<string> workshop{};
 
   GetUserDeviceResponseBodyDevice() {}
 
@@ -10899,6 +10900,9 @@ public:
     }
     if (username) {
       res["Username"] = boost::any(*username);
+    }
+    if (workshop) {
+      res["Workshop"] = boost::any(*workshop);
     }
     return res;
   }
@@ -11007,6 +11011,9 @@ public:
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("Workshop") != m.end() && !m["Workshop"].empty()) {
+      workshop = make_shared<string>(boost::any_cast<string>(m["Workshop"]));
     }
   }
 
@@ -22162,6 +22169,7 @@ public:
   shared_ptr<bool> sharingStatus{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> username{};
+  shared_ptr<string> workshop{};
 
   ListUserDevicesRequest() {}
 
@@ -22232,6 +22240,9 @@ public:
     }
     if (username) {
       res["Username"] = boost::any(*username);
+    }
+    if (workshop) {
+      res["Workshop"] = boost::any(*workshop);
     }
     return res;
   }
@@ -22360,6 +22371,9 @@ public:
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
     }
+    if (m.find("Workshop") != m.end() && !m["Workshop"].empty()) {
+      workshop = make_shared<string>(boost::any_cast<string>(m["Workshop"]));
+    }
   }
 
 
@@ -22430,6 +22444,7 @@ public:
   shared_ptr<string> srcIP{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> username{};
+  shared_ptr<string> workshop{};
 
   ListUserDevicesResponseBodyDevices() {}
 
@@ -22526,6 +22541,9 @@ public:
     if (username) {
       res["Username"] = boost::any(*username);
     }
+    if (workshop) {
+      res["Workshop"] = boost::any(*workshop);
+    }
     return res;
   }
 
@@ -22620,6 +22638,9 @@ public:
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("Workshop") != m.end() && !m["Workshop"].empty()) {
+      workshop = make_shared<string>(boost::any_cast<string>(m["Workshop"]));
     }
   }
 
