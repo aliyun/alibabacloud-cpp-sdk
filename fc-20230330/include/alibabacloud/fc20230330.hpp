@@ -2300,6 +2300,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> disableOndemand{};
   shared_ptr<long> diskSize{};
+  shared_ptr<bool> enableLongLiving{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionName{};
   shared_ptr<GPUConfig> gpuConfig{};
@@ -2353,6 +2354,9 @@ public:
     }
     if (diskSize) {
       res["diskSize"] = boost::any(*diskSize);
+    }
+    if (enableLongLiving) {
+      res["enableLongLiving"] = boost::any(*enableLongLiving);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -2458,6 +2462,9 @@ public:
     }
     if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
+    }
+    if (m.find("enableLongLiving") != m.end() && !m["enableLongLiving"].empty()) {
+      enableLongLiving = make_shared<bool>(boost::any_cast<bool>(m["enableLongLiving"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
@@ -4013,6 +4020,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> disableOndemand{};
   shared_ptr<long> diskSize{};
+  shared_ptr<bool> enableLongLiving{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionArn{};
   shared_ptr<string> functionId{};
@@ -4082,6 +4090,9 @@ public:
     }
     if (diskSize) {
       res["diskSize"] = boost::any(*diskSize);
+    }
+    if (enableLongLiving) {
+      res["enableLongLiving"] = boost::any(*enableLongLiving);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -4223,6 +4234,9 @@ public:
     }
     if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
+    }
+    if (m.find("enableLongLiving") != m.end() && !m["enableLongLiving"].empty()) {
+      enableLongLiving = make_shared<bool>(boost::any_cast<bool>(m["enableLongLiving"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
@@ -6917,6 +6931,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> disableOndemand{};
   shared_ptr<long> diskSize{};
+  shared_ptr<bool> enableLongLiving{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<GPUConfig> gpuConfig{};
   shared_ptr<string> handler{};
@@ -6968,6 +6983,9 @@ public:
     }
     if (diskSize) {
       res["diskSize"] = boost::any(*diskSize);
+    }
+    if (enableLongLiving) {
+      res["enableLongLiving"] = boost::any(*enableLongLiving);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -7063,6 +7081,9 @@ public:
     }
     if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
+    }
+    if (m.find("enableLongLiving") != m.end() && !m["enableLongLiving"].empty()) {
+      enableLongLiving = make_shared<bool>(boost::any_cast<bool>(m["enableLongLiving"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
