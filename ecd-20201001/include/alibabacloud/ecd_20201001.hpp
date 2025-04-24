@@ -1449,8 +1449,66 @@ public:
 
   virtual ~GetMcpResourceRequest() = default;
 };
+class GetMcpResourceResponseBodyDataDesktopInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> authCode{};
+  shared_ptr<string> connectionProperties{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+
+  GetMcpResourceResponseBodyDataDesktopInfo() {}
+
+  explicit GetMcpResourceResponseBodyDataDesktopInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (authCode) {
+      res["AuthCode"] = boost::any(*authCode);
+    }
+    if (connectionProperties) {
+      res["ConnectionProperties"] = boost::any(*connectionProperties);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
+      authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
+    }
+    if (m.find("ConnectionProperties") != m.end() && !m["ConnectionProperties"].empty()) {
+      connectionProperties = make_shared<string>(boost::any_cast<string>(m["ConnectionProperties"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetMcpResourceResponseBodyDataDesktopInfo() = default;
+};
 class GetMcpResourceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<GetMcpResourceResponseBodyDataDesktopInfo> desktopInfo{};
   shared_ptr<string> resourceUrl{};
   shared_ptr<string> sessionId{};
 
@@ -1464,6 +1522,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (desktopInfo) {
+      res["DesktopInfo"] = desktopInfo ? boost::any(desktopInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (resourceUrl) {
       res["ResourceUrl"] = boost::any(*resourceUrl);
     }
@@ -1474,6 +1535,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopInfo") != m.end() && !m["DesktopInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DesktopInfo"].type()) {
+        GetMcpResourceResponseBodyDataDesktopInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DesktopInfo"]));
+        desktopInfo = make_shared<GetMcpResourceResponseBodyDataDesktopInfo>(model1);
+      }
+    }
     if (m.find("ResourceUrl") != m.end() && !m["ResourceUrl"].empty()) {
       resourceUrl = make_shared<string>(boost::any_cast<string>(m["ResourceUrl"]));
     }
