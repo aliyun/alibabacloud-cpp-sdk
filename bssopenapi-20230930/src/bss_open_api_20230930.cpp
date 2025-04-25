@@ -135,12 +135,7 @@ AddCouponDeductTagResponse Alibabacloud_BssOpenApi20230930::Client::addCouponDed
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddCouponDeductTagResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddCouponDeductTagResponse(execute(params, req, runtime));
-  }
+  return AddCouponDeductTagResponse(callApi(params, req, runtime));
 }
 
 AddCouponDeductTagResponse Alibabacloud_BssOpenApi20230930::Client::addCouponDeductTag(shared_ptr<AddCouponDeductTagRequest> request) {
@@ -168,12 +163,7 @@ CancelFundAccountLowAvailableAmountAlarmResponse Alibabacloud_BssOpenApi20230930
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelFundAccountLowAvailableAmountAlarmResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelFundAccountLowAvailableAmountAlarmResponse(execute(params, req, runtime));
-  }
+  return CancelFundAccountLowAvailableAmountAlarmResponse(callApi(params, req, runtime));
 }
 
 CancelFundAccountLowAvailableAmountAlarmResponse Alibabacloud_BssOpenApi20230930::Client::cancelFundAccountLowAvailableAmountAlarm(shared_ptr<CancelFundAccountLowAvailableAmountAlarmRequest> request) {
@@ -219,12 +209,7 @@ CreateFundAccountTransferResponse Alibabacloud_BssOpenApi20230930::Client::creat
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateFundAccountTransferResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateFundAccountTransferResponse(execute(params, req, runtime));
-  }
+  return CreateFundAccountTransferResponse(callApi(params, req, runtime));
 }
 
 CreateFundAccountTransferResponse Alibabacloud_BssOpenApi20230930::Client::createFundAccountTransfer(shared_ptr<CreateFundAccountTransferRequest> request) {
@@ -269,12 +254,7 @@ DeleteCouponDeductTagResponse Alibabacloud_BssOpenApi20230930::Client::deleteCou
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteCouponDeductTagResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteCouponDeductTagResponse(execute(params, req, runtime));
-  }
+  return DeleteCouponDeductTagResponse(callApi(params, req, runtime));
 }
 
 DeleteCouponDeductTagResponse Alibabacloud_BssOpenApi20230930::Client::deleteCouponDeductTag(shared_ptr<DeleteCouponDeductTagRequest> request) {
@@ -304,12 +284,7 @@ DescribeCouponResponse Alibabacloud_BssOpenApi20230930::Client::describeCouponWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeCouponResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeCouponResponse(execute(params, req, runtime));
-  }
+  return DescribeCouponResponse(callApi(params, req, runtime));
 }
 
 DescribeCouponResponse Alibabacloud_BssOpenApi20230930::Client::describeCoupon(shared_ptr<DescribeCouponRequest> request) {
@@ -339,17 +314,48 @@ DescribeCouponItemListResponse Alibabacloud_BssOpenApi20230930::Client::describe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeCouponItemListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeCouponItemListResponse(execute(params, req, runtime));
-  }
+  return DescribeCouponItemListResponse(callApi(params, req, runtime));
 }
 
 DescribeCouponItemListResponse Alibabacloud_BssOpenApi20230930::Client::describeCouponItemList(shared_ptr<DescribeCouponItemListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeCouponItemListWithOptions(request, runtime);
+}
+
+DescribeUserSpnSummaryInfoResponse Alibabacloud_BssOpenApi20230930::Client::describeUserSpnSummaryInfoWithOptions(shared_ptr<DescribeUserSpnSummaryInfoRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeUserSpnSummaryInfoShrinkRequest> request = make_shared<DescribeUserSpnSummaryInfoShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeUserSpnSummaryInfoRequestEcIdAccountIds>>(tmpReq->ecIdAccountIds)) {
+    request->ecIdAccountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ecIdAccountIds, make_shared<string>("EcIdAccountIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecIdAccountIdsShrink)) {
+    query->insert(pair<string, string>("EcIdAccountIds", *request->ecIdAccountIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nbid)) {
+    query->insert(pair<string, string>("Nbid", *request->nbid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeUserSpnSummaryInfo"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeUserSpnSummaryInfoResponse(callApi(params, req, runtime));
+}
+
+DescribeUserSpnSummaryInfoResponse Alibabacloud_BssOpenApi20230930::Client::describeUserSpnSummaryInfo(shared_ptr<DescribeUserSpnSummaryInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeUserSpnSummaryInfoWithOptions(request, runtime);
 }
 
 GetFundAccountAvailableAmountResponse Alibabacloud_BssOpenApi20230930::Client::getFundAccountAvailableAmountWithOptions(shared_ptr<GetFundAccountAvailableAmountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -372,12 +378,7 @@ GetFundAccountAvailableAmountResponse Alibabacloud_BssOpenApi20230930::Client::g
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetFundAccountAvailableAmountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetFundAccountAvailableAmountResponse(execute(params, req, runtime));
-  }
+  return GetFundAccountAvailableAmountResponse(callApi(params, req, runtime));
 }
 
 GetFundAccountAvailableAmountResponse Alibabacloud_BssOpenApi20230930::Client::getFundAccountAvailableAmount(shared_ptr<GetFundAccountAvailableAmountRequest> request) {
@@ -405,12 +406,7 @@ GetFundAccountCanAllocateCreditAmountResponse Alibabacloud_BssOpenApi20230930::C
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetFundAccountCanAllocateCreditAmountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetFundAccountCanAllocateCreditAmountResponse(execute(params, req, runtime));
-  }
+  return GetFundAccountCanAllocateCreditAmountResponse(callApi(params, req, runtime));
 }
 
 GetFundAccountCanAllocateCreditAmountResponse Alibabacloud_BssOpenApi20230930::Client::getFundAccountCanAllocateCreditAmount(shared_ptr<GetFundAccountCanAllocateCreditAmountRequest> request) {
@@ -441,12 +437,7 @@ GetFundAccountCanRecycleAmountResponse Alibabacloud_BssOpenApi20230930::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetFundAccountCanRecycleAmountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetFundAccountCanRecycleAmountResponse(execute(params, req, runtime));
-  }
+  return GetFundAccountCanRecycleAmountResponse(callApi(params, req, runtime));
 }
 
 GetFundAccountCanRecycleAmountResponse Alibabacloud_BssOpenApi20230930::Client::getFundAccountCanRecycleAmount(shared_ptr<GetFundAccountCanRecycleAmountRequest> request) {
@@ -477,12 +468,7 @@ GetFundAccountCanTransferAmountResponse Alibabacloud_BssOpenApi20230930::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetFundAccountCanTransferAmountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetFundAccountCanTransferAmountResponse(execute(params, req, runtime));
-  }
+  return GetFundAccountCanTransferAmountResponse(callApi(params, req, runtime));
 }
 
 GetFundAccountCanTransferAmountResponse Alibabacloud_BssOpenApi20230930::Client::getFundAccountCanTransferAmount(shared_ptr<GetFundAccountCanTransferAmountRequest> request) {
@@ -510,12 +496,7 @@ GetFundAccountCanWithdrawAmountResponse Alibabacloud_BssOpenApi20230930::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetFundAccountCanWithdrawAmountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetFundAccountCanWithdrawAmountResponse(execute(params, req, runtime));
-  }
+  return GetFundAccountCanWithdrawAmountResponse(callApi(params, req, runtime));
 }
 
 GetFundAccountCanWithdrawAmountResponse Alibabacloud_BssOpenApi20230930::Client::getFundAccountCanWithdrawAmount(shared_ptr<GetFundAccountCanWithdrawAmountRequest> request) {
@@ -543,12 +524,7 @@ GetFundAccountLowAvailableAmountAlarmResponse Alibabacloud_BssOpenApi20230930::C
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetFundAccountLowAvailableAmountAlarmResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetFundAccountLowAvailableAmountAlarmResponse(execute(params, req, runtime));
-  }
+  return GetFundAccountLowAvailableAmountAlarmResponse(callApi(params, req, runtime));
 }
 
 GetFundAccountLowAvailableAmountAlarmResponse Alibabacloud_BssOpenApi20230930::Client::getFundAccountLowAvailableAmountAlarm(shared_ptr<GetFundAccountLowAvailableAmountAlarmRequest> request) {
@@ -619,17 +595,138 @@ GetFundAccountTransactionDetailsResponse Alibabacloud_BssOpenApi20230930::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetFundAccountTransactionDetailsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetFundAccountTransactionDetailsResponse(execute(params, req, runtime));
-  }
+  return GetFundAccountTransactionDetailsResponse(callApi(params, req, runtime));
 }
 
 GetFundAccountTransactionDetailsResponse Alibabacloud_BssOpenApi20230930::Client::getFundAccountTransactionDetails(shared_ptr<GetFundAccountTransactionDetailsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getFundAccountTransactionDetailsWithOptions(request, runtime);
+}
+
+GetSavingPlanDeductableCommodityResponse Alibabacloud_BssOpenApi20230930::Client::getSavingPlanDeductableCommodityWithOptions(shared_ptr<GetSavingPlanDeductableCommodityRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetSavingPlanDeductableCommodityShrinkRequest> request = make_shared<GetSavingPlanDeductableCommodityShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetSavingPlanDeductableCommodityRequestEcIdAccountIds>>(tmpReq->ecIdAccountIds)) {
+    request->ecIdAccountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ecIdAccountIds, make_shared<string>("EcIdAccountIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecIdAccountIdsShrink)) {
+    query->insert(pair<string, string>("EcIdAccountIds", *request->ecIdAccountIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nbid)) {
+    query->insert(pair<string, string>("Nbid", *request->nbid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSavingPlanDeductableCommodity"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSavingPlanDeductableCommodityResponse(callApi(params, req, runtime));
+}
+
+GetSavingPlanDeductableCommodityResponse Alibabacloud_BssOpenApi20230930::Client::getSavingPlanDeductableCommodity(shared_ptr<GetSavingPlanDeductableCommodityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSavingPlanDeductableCommodityWithOptions(request, runtime);
+}
+
+GetSavingPlanShareAccountsResponse Alibabacloud_BssOpenApi20230930::Client::getSavingPlanShareAccountsWithOptions(shared_ptr<GetSavingPlanShareAccountsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetSavingPlanShareAccountsShrinkRequest> request = make_shared<GetSavingPlanShareAccountsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetSavingPlanShareAccountsRequestEcIdAccountIds>>(tmpReq->ecIdAccountIds)) {
+    request->ecIdAccountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ecIdAccountIds, make_shared<string>("EcIdAccountIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecIdAccountIdsShrink)) {
+    query->insert(pair<string, string>("EcIdAccountIds", *request->ecIdAccountIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nbid)) {
+    query->insert(pair<string, string>("Nbid", *request->nbid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spnInstanceCode)) {
+    query->insert(pair<string, string>("SpnInstanceCode", *request->spnInstanceCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSavingPlanShareAccounts"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSavingPlanShareAccountsResponse(callApi(params, req, runtime));
+}
+
+GetSavingPlanShareAccountsResponse Alibabacloud_BssOpenApi20230930::Client::getSavingPlanShareAccounts(shared_ptr<GetSavingPlanShareAccountsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSavingPlanShareAccountsWithOptions(request, runtime);
+}
+
+GetSavingPlanUserDeductRuleResponse Alibabacloud_BssOpenApi20230930::Client::getSavingPlanUserDeductRuleWithOptions(shared_ptr<GetSavingPlanUserDeductRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetSavingPlanUserDeductRuleShrinkRequest> request = make_shared<GetSavingPlanUserDeductRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetSavingPlanUserDeductRuleRequestEcIdAccountIds>>(tmpReq->ecIdAccountIds)) {
+    request->ecIdAccountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ecIdAccountIds, make_shared<string>("EcIdAccountIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecIdAccountIdsShrink)) {
+    query->insert(pair<string, string>("EcIdAccountIds", *request->ecIdAccountIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nbid)) {
+    query->insert(pair<string, string>("Nbid", *request->nbid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spnInstanceCode)) {
+    query->insert(pair<string, string>("SpnInstanceCode", *request->spnInstanceCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSavingPlanUserDeductRule"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSavingPlanUserDeductRuleResponse(callApi(params, req, runtime));
+}
+
+GetSavingPlanUserDeductRuleResponse Alibabacloud_BssOpenApi20230930::Client::getSavingPlanUserDeductRule(shared_ptr<GetSavingPlanUserDeductRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSavingPlanUserDeductRuleWithOptions(request, runtime);
 }
 
 ListCouponDeductTagResponse Alibabacloud_BssOpenApi20230930::Client::listCouponDeductTagWithOptions(shared_ptr<ListCouponDeductTagRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -663,12 +760,7 @@ ListCouponDeductTagResponse Alibabacloud_BssOpenApi20230930::Client::listCouponD
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListCouponDeductTagResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListCouponDeductTagResponse(execute(params, req, runtime));
-  }
+  return ListCouponDeductTagResponse(callApi(params, req, runtime));
 }
 
 ListCouponDeductTagResponse Alibabacloud_BssOpenApi20230930::Client::listCouponDeductTag(shared_ptr<ListCouponDeductTagRequest> request) {
@@ -704,12 +796,7 @@ ListFundAccountResponse Alibabacloud_BssOpenApi20230930::Client::listFundAccount
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListFundAccountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListFundAccountResponse(execute(params, req, runtime));
-  }
+  return ListFundAccountResponse(callApi(params, req, runtime));
 }
 
 ListFundAccountResponse Alibabacloud_BssOpenApi20230930::Client::listFundAccount(shared_ptr<ListFundAccountRequest> request) {
@@ -751,12 +838,7 @@ ListFundAccountPayRelationResponse Alibabacloud_BssOpenApi20230930::Client::list
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListFundAccountPayRelationResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListFundAccountPayRelationResponse(execute(params, req, runtime));
-  }
+  return ListFundAccountPayRelationResponse(callApi(params, req, runtime));
 }
 
 ListFundAccountPayRelationResponse Alibabacloud_BssOpenApi20230930::Client::listFundAccountPayRelation(shared_ptr<ListFundAccountPayRelationRequest> request) {
@@ -790,12 +872,7 @@ SetFundAccountCreditAmountResponse Alibabacloud_BssOpenApi20230930::Client::setF
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetFundAccountCreditAmountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetFundAccountCreditAmountResponse(execute(params, req, runtime));
-  }
+  return SetFundAccountCreditAmountResponse(callApi(params, req, runtime));
 }
 
 SetFundAccountCreditAmountResponse Alibabacloud_BssOpenApi20230930::Client::setFundAccountCreditAmount(shared_ptr<SetFundAccountCreditAmountRequest> request) {
@@ -826,12 +903,7 @@ SetFundAccountLowAvailableAmountAlarmResponse Alibabacloud_BssOpenApi20230930::C
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetFundAccountLowAvailableAmountAlarmResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetFundAccountLowAvailableAmountAlarmResponse(execute(params, req, runtime));
-  }
+  return SetFundAccountLowAvailableAmountAlarmResponse(callApi(params, req, runtime));
 }
 
 SetFundAccountLowAvailableAmountAlarmResponse Alibabacloud_BssOpenApi20230930::Client::setFundAccountLowAvailableAmountAlarm(shared_ptr<SetFundAccountLowAvailableAmountAlarmRequest> request) {
@@ -878,12 +950,7 @@ SetSavingPlanUserDeductRuleResponse Alibabacloud_BssOpenApi20230930::Client::set
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetSavingPlanUserDeductRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetSavingPlanUserDeductRuleResponse(execute(params, req, runtime));
-  }
+  return SetSavingPlanUserDeductRuleResponse(callApi(params, req, runtime));
 }
 
 SetSavingPlanUserDeductRuleResponse Alibabacloud_BssOpenApi20230930::Client::setSavingPlanUserDeductRule(shared_ptr<SetSavingPlanUserDeductRuleRequest> request) {
