@@ -7921,6 +7921,70 @@ public:
 
   virtual ~HttpApiRoute() = default;
 };
+class InitContainerConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> command{};
+  shared_ptr<string> commandArgs{};
+  shared_ptr<string> configMapMountDesc{};
+  shared_ptr<string> envs{};
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> name{};
+
+  InitContainerConfig() {}
+
+  explicit InitContainerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    if (commandArgs) {
+      res["CommandArgs"] = boost::any(*commandArgs);
+    }
+    if (configMapMountDesc) {
+      res["ConfigMapMountDesc"] = boost::any(*configMapMountDesc);
+    }
+    if (envs) {
+      res["Envs"] = boost::any(*envs);
+    }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      command = make_shared<string>(boost::any_cast<string>(m["Command"]));
+    }
+    if (m.find("CommandArgs") != m.end() && !m["CommandArgs"].empty()) {
+      commandArgs = make_shared<string>(boost::any_cast<string>(m["CommandArgs"]));
+    }
+    if (m.find("ConfigMapMountDesc") != m.end() && !m["ConfigMapMountDesc"].empty()) {
+      configMapMountDesc = make_shared<string>(boost::any_cast<string>(m["ConfigMapMountDesc"]));
+    }
+    if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
+      envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~InitContainerConfig() = default;
+};
 class InstanceExecAuthorizationInputOptions : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> command{};
@@ -13762,6 +13826,7 @@ public:
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
+  shared_ptr<vector<InitContainerConfig>> initContainersConfig{};
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
@@ -13895,6 +13960,13 @@ public:
     }
     if (imageUrl) {
       res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (initContainersConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*initContainersConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InitContainersConfig"] = boost::any(temp1);
     }
     if (jarStartArgs) {
       res["JarStartArgs"] = boost::any(*jarStartArgs);
@@ -14123,6 +14195,19 @@ public:
     if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
       imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
     }
+    if (m.find("InitContainersConfig") != m.end() && !m["InitContainersConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["InitContainersConfig"].type()) {
+        vector<InitContainerConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InitContainersConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InitContainerConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        initContainersConfig = make_shared<vector<InitContainerConfig>>(expect1);
+      }
+    }
     if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
       jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));
     }
@@ -14309,6 +14394,7 @@ public:
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
+  shared_ptr<string> initContainersConfigShrink{};
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
@@ -14442,6 +14528,9 @@ public:
     }
     if (imageUrl) {
       res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (initContainersConfigShrink) {
+      res["InitContainersConfig"] = boost::any(*initContainersConfigShrink);
     }
     if (jarStartArgs) {
       res["JarStartArgs"] = boost::any(*jarStartArgs);
@@ -14665,6 +14754,9 @@ public:
     }
     if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
       imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("InitContainersConfig") != m.end() && !m["InitContainersConfig"].empty()) {
+      initContainersConfigShrink = make_shared<string>(boost::any_cast<string>(m["InitContainersConfig"]));
     }
     if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
       jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));
@@ -19383,6 +19475,7 @@ public:
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
+  shared_ptr<vector<InitContainerConfig>> initContainersConfig{};
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
@@ -19512,6 +19605,13 @@ public:
     }
     if (imageUrl) {
       res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (initContainersConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*initContainersConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InitContainersConfig"] = boost::any(temp1);
     }
     if (jarStartArgs) {
       res["JarStartArgs"] = boost::any(*jarStartArgs);
@@ -19734,6 +19834,19 @@ public:
     if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
       imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
     }
+    if (m.find("InitContainersConfig") != m.end() && !m["InitContainersConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["InitContainersConfig"].type()) {
+        vector<InitContainerConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InitContainersConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InitContainerConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        initContainersConfig = make_shared<vector<InitContainerConfig>>(expect1);
+      }
+    }
     if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
       jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));
     }
@@ -19916,6 +20029,7 @@ public:
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
+  shared_ptr<string> initContainersConfigShrink{};
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
@@ -20045,6 +20159,9 @@ public:
     }
     if (imageUrl) {
       res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (initContainersConfigShrink) {
+      res["InitContainersConfig"] = boost::any(*initContainersConfigShrink);
     }
     if (jarStartArgs) {
       res["JarStartArgs"] = boost::any(*jarStartArgs);
@@ -20262,6 +20379,9 @@ public:
     }
     if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
       imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("InitContainersConfig") != m.end() && !m["InitContainersConfig"].empty()) {
+      initContainersConfigShrink = make_shared<string>(boost::any_cast<string>(m["InitContainersConfig"]));
     }
     if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
       jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));
@@ -21179,6 +21299,134 @@ public:
 
   virtual ~DescribeApplicationConfigResponseBodyDataConfigMapMountDesc() = default;
 };
+class DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc : public Darabonba::Model {
+public:
+  shared_ptr<long> configMapId{};
+  shared_ptr<string> configMapName{};
+  shared_ptr<string> key{};
+  shared_ptr<string> mountPath{};
+
+  DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc() {}
+
+  explicit DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configMapId) {
+      res["ConfigMapId"] = boost::any(*configMapId);
+    }
+    if (configMapName) {
+      res["ConfigMapName"] = boost::any(*configMapName);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (mountPath) {
+      res["MountPath"] = boost::any(*mountPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigMapId") != m.end() && !m["ConfigMapId"].empty()) {
+      configMapId = make_shared<long>(boost::any_cast<long>(m["ConfigMapId"]));
+    }
+    if (m.find("ConfigMapName") != m.end() && !m["ConfigMapName"].empty()) {
+      configMapName = make_shared<string>(boost::any_cast<string>(m["ConfigMapName"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
+      mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+  }
+
+
+  virtual ~DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc() = default;
+};
+class DescribeApplicationConfigResponseBodyDataInitContainersConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> command{};
+  shared_ptr<string> commandArgs{};
+  shared_ptr<vector<DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc>> configMapMountDesc{};
+  shared_ptr<string> envs{};
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> name{};
+
+  DescribeApplicationConfigResponseBodyDataInitContainersConfig() {}
+
+  explicit DescribeApplicationConfigResponseBodyDataInitContainersConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    if (commandArgs) {
+      res["CommandArgs"] = boost::any(*commandArgs);
+    }
+    if (configMapMountDesc) {
+      vector<boost::any> temp1;
+      for(auto item1:*configMapMountDesc){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConfigMapMountDesc"] = boost::any(temp1);
+    }
+    if (envs) {
+      res["Envs"] = boost::any(*envs);
+    }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      command = make_shared<string>(boost::any_cast<string>(m["Command"]));
+    }
+    if (m.find("CommandArgs") != m.end() && !m["CommandArgs"].empty()) {
+      commandArgs = make_shared<string>(boost::any_cast<string>(m["CommandArgs"]));
+    }
+    if (m.find("ConfigMapMountDesc") != m.end() && !m["ConfigMapMountDesc"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConfigMapMountDesc"].type()) {
+        vector<DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConfigMapMountDesc"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        configMapMountDesc = make_shared<vector<DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc>>(expect1);
+      }
+    }
+    if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
+      envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DescribeApplicationConfigResponseBodyDataInitContainersConfig() = default;
+};
 class DescribeApplicationConfigResponseBodyDataMountDesc : public Darabonba::Model {
 public:
   shared_ptr<string> mountPath{};
@@ -21586,6 +21834,7 @@ public:
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
+  shared_ptr<vector<DescribeApplicationConfigResponseBodyDataInitContainersConfig>> initContainersConfig{};
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
@@ -21736,6 +21985,13 @@ public:
     }
     if (imageUrl) {
       res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (initContainersConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*initContainersConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InitContainersConfig"] = boost::any(temp1);
     }
     if (jarStartArgs) {
       res["JarStartArgs"] = boost::any(*jarStartArgs);
@@ -22016,6 +22272,19 @@ public:
     }
     if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
       imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("InitContainersConfig") != m.end() && !m["InitContainersConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["InitContainersConfig"].type()) {
+        vector<DescribeApplicationConfigResponseBodyDataInitContainersConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InitContainersConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeApplicationConfigResponseBodyDataInitContainersConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        initContainersConfig = make_shared<vector<DescribeApplicationConfigResponseBodyDataInitContainersConfig>>(expect1);
+      }
     }
     if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
       jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));

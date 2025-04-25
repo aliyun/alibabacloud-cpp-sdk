@@ -254,6 +254,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateApplicationShrinkRequest> request = make_shared<CreateApplicationShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<InitContainerConfig>>(tmpReq->initContainersConfig)) {
+    request->initContainersConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->initContainersConfig, make_shared<string>("InitContainersConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<SidecarContainerConfig>>(tmpReq->sidecarContainersConfig)) {
     request->sidecarContainersConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sidecarContainersConfig, make_shared<string>("SidecarContainersConfig"), make_shared<string>("json")));
   }
@@ -453,6 +456,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableSidecarResourceIsolated)) {
     body->insert(pair<string, bool>("EnableSidecarResourceIsolated", *request->enableSidecarResourceIsolated));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->initContainersConfigShrink)) {
+    body->insert(pair<string, string>("InitContainersConfig", *request->initContainersConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->microRegistrationConfig)) {
     body->insert(pair<string, string>("MicroRegistrationConfig", *request->microRegistrationConfig));
@@ -1463,6 +1469,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DeployApplicationShrinkRequest> request = make_shared<DeployApplicationShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<InitContainerConfig>>(tmpReq->initContainersConfig)) {
+    request->initContainersConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->initContainersConfig, make_shared<string>("InitContainersConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<SidecarContainerConfig>>(tmpReq->sidecarContainersConfig)) {
     request->sidecarContainersConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sidecarContainersConfig, make_shared<string>("SidecarContainersConfig"), make_shared<string>("json")));
   }
@@ -1653,6 +1662,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableSidecarResourceIsolated)) {
     body->insert(pair<string, bool>("EnableSidecarResourceIsolated", *request->enableSidecarResourceIsolated));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->initContainersConfigShrink)) {
+    body->insert(pair<string, string>("InitContainersConfig", *request->initContainersConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->microRegistrationConfig)) {
     body->insert(pair<string, string>("MicroRegistrationConfig", *request->microRegistrationConfig));
