@@ -3100,6 +3100,77 @@ public:
 
   virtual ~CreatePolicyGroupRequestNetRedirectPolicy() = default;
 };
+class CreatePolicyGroupRequestWatermark : public Darabonba::Model {
+public:
+  shared_ptr<long> watermarkColor{};
+  shared_ptr<string> watermarkCustomText{};
+  shared_ptr<long> watermarkFontSize{};
+  shared_ptr<string> watermarkSwitch{};
+  shared_ptr<long> watermarkTransparencyValue{};
+  shared_ptr<vector<string>> watermarkTypes{};
+
+  CreatePolicyGroupRequestWatermark() {}
+
+  explicit CreatePolicyGroupRequestWatermark(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (watermarkColor) {
+      res["WatermarkColor"] = boost::any(*watermarkColor);
+    }
+    if (watermarkCustomText) {
+      res["WatermarkCustomText"] = boost::any(*watermarkCustomText);
+    }
+    if (watermarkFontSize) {
+      res["WatermarkFontSize"] = boost::any(*watermarkFontSize);
+    }
+    if (watermarkSwitch) {
+      res["WatermarkSwitch"] = boost::any(*watermarkSwitch);
+    }
+    if (watermarkTransparencyValue) {
+      res["WatermarkTransparencyValue"] = boost::any(*watermarkTransparencyValue);
+    }
+    if (watermarkTypes) {
+      res["WatermarkTypes"] = boost::any(*watermarkTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WatermarkColor") != m.end() && !m["WatermarkColor"].empty()) {
+      watermarkColor = make_shared<long>(boost::any_cast<long>(m["WatermarkColor"]));
+    }
+    if (m.find("WatermarkCustomText") != m.end() && !m["WatermarkCustomText"].empty()) {
+      watermarkCustomText = make_shared<string>(boost::any_cast<string>(m["WatermarkCustomText"]));
+    }
+    if (m.find("WatermarkFontSize") != m.end() && !m["WatermarkFontSize"].empty()) {
+      watermarkFontSize = make_shared<long>(boost::any_cast<long>(m["WatermarkFontSize"]));
+    }
+    if (m.find("WatermarkSwitch") != m.end() && !m["WatermarkSwitch"].empty()) {
+      watermarkSwitch = make_shared<string>(boost::any_cast<string>(m["WatermarkSwitch"]));
+    }
+    if (m.find("WatermarkTransparencyValue") != m.end() && !m["WatermarkTransparencyValue"].empty()) {
+      watermarkTransparencyValue = make_shared<long>(boost::any_cast<long>(m["WatermarkTransparencyValue"]));
+    }
+    if (m.find("WatermarkTypes") != m.end() && !m["WatermarkTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WatermarkTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WatermarkTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      watermarkTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreatePolicyGroupRequestWatermark() = default;
+};
 class CreatePolicyGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cameraRedirect{};
@@ -3112,6 +3183,7 @@ public:
   shared_ptr<string> policyType{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
+  shared_ptr<CreatePolicyGroupRequestWatermark> watermark{};
 
   CreatePolicyGroupRequest() {}
 
@@ -3153,6 +3225,9 @@ public:
     if (resolutionWidth) {
       res["ResolutionWidth"] = boost::any(*resolutionWidth);
     }
+    if (watermark) {
+      res["Watermark"] = watermark ? boost::any(watermark->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -3191,6 +3266,13 @@ public:
     if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
       resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
     }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Watermark"].type()) {
+        CreatePolicyGroupRequestWatermark model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Watermark"]));
+        watermark = make_shared<CreatePolicyGroupRequestWatermark>(model1);
+      }
+    }
   }
 
 
@@ -3208,6 +3290,7 @@ public:
   shared_ptr<string> policyType{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
+  shared_ptr<string> watermarkShrink{};
 
   CreatePolicyGroupShrinkRequest() {}
 
@@ -3249,6 +3332,9 @@ public:
     if (resolutionWidth) {
       res["ResolutionWidth"] = boost::any(*resolutionWidth);
     }
+    if (watermarkShrink) {
+      res["Watermark"] = boost::any(*watermarkShrink);
+    }
     return res;
   }
 
@@ -3282,6 +3368,9 @@ public:
     }
     if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
       resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      watermarkShrink = make_shared<string>(boost::any_cast<string>(m["Watermark"]));
     }
   }
 
@@ -10124,6 +10213,77 @@ public:
 
   virtual ~ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources() = default;
 };
+class ListPolicyGroupsResponseBodyPolicyGroupModelWatermark : public Darabonba::Model {
+public:
+  shared_ptr<long> watermarkColor{};
+  shared_ptr<string> watermarkCustomText{};
+  shared_ptr<long> watermarkFontSize{};
+  shared_ptr<string> watermarkSwitch{};
+  shared_ptr<long> watermarkTransparencyValue{};
+  shared_ptr<vector<string>> watermarkTypes{};
+
+  ListPolicyGroupsResponseBodyPolicyGroupModelWatermark() {}
+
+  explicit ListPolicyGroupsResponseBodyPolicyGroupModelWatermark(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (watermarkColor) {
+      res["WatermarkColor"] = boost::any(*watermarkColor);
+    }
+    if (watermarkCustomText) {
+      res["WatermarkCustomText"] = boost::any(*watermarkCustomText);
+    }
+    if (watermarkFontSize) {
+      res["WatermarkFontSize"] = boost::any(*watermarkFontSize);
+    }
+    if (watermarkSwitch) {
+      res["WatermarkSwitch"] = boost::any(*watermarkSwitch);
+    }
+    if (watermarkTransparencyValue) {
+      res["WatermarkTransparencyValue"] = boost::any(*watermarkTransparencyValue);
+    }
+    if (watermarkTypes) {
+      res["WatermarkTypes"] = boost::any(*watermarkTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WatermarkColor") != m.end() && !m["WatermarkColor"].empty()) {
+      watermarkColor = make_shared<long>(boost::any_cast<long>(m["WatermarkColor"]));
+    }
+    if (m.find("WatermarkCustomText") != m.end() && !m["WatermarkCustomText"].empty()) {
+      watermarkCustomText = make_shared<string>(boost::any_cast<string>(m["WatermarkCustomText"]));
+    }
+    if (m.find("WatermarkFontSize") != m.end() && !m["WatermarkFontSize"].empty()) {
+      watermarkFontSize = make_shared<long>(boost::any_cast<long>(m["WatermarkFontSize"]));
+    }
+    if (m.find("WatermarkSwitch") != m.end() && !m["WatermarkSwitch"].empty()) {
+      watermarkSwitch = make_shared<string>(boost::any_cast<string>(m["WatermarkSwitch"]));
+    }
+    if (m.find("WatermarkTransparencyValue") != m.end() && !m["WatermarkTransparencyValue"].empty()) {
+      watermarkTransparencyValue = make_shared<long>(boost::any_cast<long>(m["WatermarkTransparencyValue"]));
+    }
+    if (m.find("WatermarkTypes") != m.end() && !m["WatermarkTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WatermarkTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WatermarkTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      watermarkTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListPolicyGroupsResponseBodyPolicyGroupModelWatermark() = default;
+};
 class ListPolicyGroupsResponseBodyPolicyGroupModel : public Darabonba::Model {
 public:
   shared_ptr<string> cameraRedirect{};
@@ -10138,6 +10298,7 @@ public:
   shared_ptr<ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources> policyRelatedResources{};
   shared_ptr<long> sessionResolutionHeight{};
   shared_ptr<long> sessionResolutionWidth{};
+  shared_ptr<ListPolicyGroupsResponseBodyPolicyGroupModelWatermark> watermark{};
 
   ListPolicyGroupsResponseBodyPolicyGroupModel() {}
 
@@ -10184,6 +10345,9 @@ public:
     }
     if (sessionResolutionWidth) {
       res["SessionResolutionWidth"] = boost::any(*sessionResolutionWidth);
+    }
+    if (watermark) {
+      res["Watermark"] = watermark ? boost::any(watermark->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -10232,6 +10396,13 @@ public:
     }
     if (m.find("SessionResolutionWidth") != m.end() && !m["SessionResolutionWidth"].empty()) {
       sessionResolutionWidth = make_shared<long>(boost::any_cast<long>(m["SessionResolutionWidth"]));
+    }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Watermark"].type()) {
+        ListPolicyGroupsResponseBodyPolicyGroupModelWatermark model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Watermark"]));
+        watermark = make_shared<ListPolicyGroupsResponseBodyPolicyGroupModelWatermark>(model1);
+      }
     }
   }
 
@@ -11261,6 +11432,77 @@ public:
 
   virtual ~ModifyPolicyGroupRequestNetRedirectPolicy() = default;
 };
+class ModifyPolicyGroupRequestWatermark : public Darabonba::Model {
+public:
+  shared_ptr<long> watermarkColor{};
+  shared_ptr<string> watermarkCustomText{};
+  shared_ptr<long> watermarkFontSize{};
+  shared_ptr<string> watermarkSwitch{};
+  shared_ptr<long> watermarkTransparencyValue{};
+  shared_ptr<vector<string>> watermarkTypes{};
+
+  ModifyPolicyGroupRequestWatermark() {}
+
+  explicit ModifyPolicyGroupRequestWatermark(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (watermarkColor) {
+      res["WatermarkColor"] = boost::any(*watermarkColor);
+    }
+    if (watermarkCustomText) {
+      res["WatermarkCustomText"] = boost::any(*watermarkCustomText);
+    }
+    if (watermarkFontSize) {
+      res["WatermarkFontSize"] = boost::any(*watermarkFontSize);
+    }
+    if (watermarkSwitch) {
+      res["WatermarkSwitch"] = boost::any(*watermarkSwitch);
+    }
+    if (watermarkTransparencyValue) {
+      res["WatermarkTransparencyValue"] = boost::any(*watermarkTransparencyValue);
+    }
+    if (watermarkTypes) {
+      res["WatermarkTypes"] = boost::any(*watermarkTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WatermarkColor") != m.end() && !m["WatermarkColor"].empty()) {
+      watermarkColor = make_shared<long>(boost::any_cast<long>(m["WatermarkColor"]));
+    }
+    if (m.find("WatermarkCustomText") != m.end() && !m["WatermarkCustomText"].empty()) {
+      watermarkCustomText = make_shared<string>(boost::any_cast<string>(m["WatermarkCustomText"]));
+    }
+    if (m.find("WatermarkFontSize") != m.end() && !m["WatermarkFontSize"].empty()) {
+      watermarkFontSize = make_shared<long>(boost::any_cast<long>(m["WatermarkFontSize"]));
+    }
+    if (m.find("WatermarkSwitch") != m.end() && !m["WatermarkSwitch"].empty()) {
+      watermarkSwitch = make_shared<string>(boost::any_cast<string>(m["WatermarkSwitch"]));
+    }
+    if (m.find("WatermarkTransparencyValue") != m.end() && !m["WatermarkTransparencyValue"].empty()) {
+      watermarkTransparencyValue = make_shared<long>(boost::any_cast<long>(m["WatermarkTransparencyValue"]));
+    }
+    if (m.find("WatermarkTypes") != m.end() && !m["WatermarkTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WatermarkTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WatermarkTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      watermarkTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ModifyPolicyGroupRequestWatermark() = default;
+};
 class ModifyPolicyGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cameraRedirect{};
@@ -11273,6 +11515,7 @@ public:
   shared_ptr<string> policyGroupName{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
+  shared_ptr<ModifyPolicyGroupRequestWatermark> watermark{};
 
   ModifyPolicyGroupRequest() {}
 
@@ -11314,6 +11557,9 @@ public:
     if (resolutionWidth) {
       res["ResolutionWidth"] = boost::any(*resolutionWidth);
     }
+    if (watermark) {
+      res["Watermark"] = watermark ? boost::any(watermark->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -11352,6 +11598,13 @@ public:
     if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
       resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
     }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Watermark"].type()) {
+        ModifyPolicyGroupRequestWatermark model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Watermark"]));
+        watermark = make_shared<ModifyPolicyGroupRequestWatermark>(model1);
+      }
+    }
   }
 
 
@@ -11369,6 +11622,7 @@ public:
   shared_ptr<string> policyGroupName{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
+  shared_ptr<string> watermarkShrink{};
 
   ModifyPolicyGroupShrinkRequest() {}
 
@@ -11410,6 +11664,9 @@ public:
     if (resolutionWidth) {
       res["ResolutionWidth"] = boost::any(*resolutionWidth);
     }
+    if (watermarkShrink) {
+      res["Watermark"] = boost::any(*watermarkShrink);
+    }
     return res;
   }
 
@@ -11443,6 +11700,9 @@ public:
     }
     if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
       resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      watermarkShrink = make_shared<string>(boost::any_cast<string>(m["Watermark"]));
     }
   }
 
@@ -12169,6 +12429,7 @@ public:
 };
 class RenewCloudPhoneNodesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<vector<string>> nodeIds{};
   shared_ptr<long> period{};
@@ -12184,6 +12445,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -12200,6 +12464,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
@@ -13630,6 +13897,137 @@ public:
 
   virtual ~UpdateInstanceGroupImageResponse() = default;
 };
+class UpdateInstanceImageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<vector<string>> instanceIdList{};
+
+  UpdateInstanceImageRequest() {}
+
+  explicit UpdateInstanceImageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (instanceIdList) {
+      res["InstanceIdList"] = boost::any(*instanceIdList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("InstanceIdList") != m.end() && !m["InstanceIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIdList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateInstanceImageRequest() = default;
+};
+class UpdateInstanceImageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  UpdateInstanceImageResponseBody() {}
+
+  explicit UpdateInstanceImageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceImageResponseBody() = default;
+};
+class UpdateInstanceImageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateInstanceImageResponseBody> body{};
+
+  UpdateInstanceImageResponse() {}
+
+  explicit UpdateInstanceImageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateInstanceImageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateInstanceImageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateInstanceImageResponse() = default;
+};
 class UpgradeAndroidInstanceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -13902,6 +14300,8 @@ public:
   UpdateCustomImageNameResponse updateCustomImageName(shared_ptr<UpdateCustomImageNameRequest> request);
   UpdateInstanceGroupImageResponse updateInstanceGroupImageWithOptions(shared_ptr<UpdateInstanceGroupImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateInstanceGroupImageResponse updateInstanceGroupImage(shared_ptr<UpdateInstanceGroupImageRequest> request);
+  UpdateInstanceImageResponse updateInstanceImageWithOptions(shared_ptr<UpdateInstanceImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateInstanceImageResponse updateInstanceImage(shared_ptr<UpdateInstanceImageRequest> request);
   UpgradeAndroidInstanceGroupResponse upgradeAndroidInstanceGroupWithOptions(shared_ptr<UpgradeAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradeAndroidInstanceGroupResponse upgradeAndroidInstanceGroup(shared_ptr<UpgradeAndroidInstanceGroupRequest> request);
 
