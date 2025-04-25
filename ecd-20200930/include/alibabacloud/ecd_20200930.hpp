@@ -6283,6 +6283,7 @@ public:
   shared_ptr<string> deviceType{};
   shared_ptr<string> deviceVid{};
   shared_ptr<string> optCommand{};
+  shared_ptr<string> platforms{};
   shared_ptr<string> redirectType{};
 
   CreateCenterPolicyRequestDeviceRules() {}
@@ -6310,6 +6311,9 @@ public:
     if (optCommand) {
       res["OptCommand"] = boost::any(*optCommand);
     }
+    if (platforms) {
+      res["Platforms"] = boost::any(*platforms);
+    }
     if (redirectType) {
       res["RedirectType"] = boost::any(*redirectType);
     }
@@ -6331,6 +6335,9 @@ public:
     }
     if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
       optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
+      platforms = make_shared<string>(boost::any_cast<string>(m["Platforms"]));
     }
     if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
       redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
@@ -6515,6 +6522,7 @@ public:
   shared_ptr<string> gpuAcceleration{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
+  shared_ptr<string> internetPrinter{};
   shared_ptr<string> localDrive{};
   shared_ptr<long> maxReconnectTime{};
   shared_ptr<long> memoryDownGradeDuration{};
@@ -6552,6 +6560,7 @@ public:
   shared_ptr<string> resolutionModel{};
   shared_ptr<long> resolutionWidth{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> safeMenu{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
   shared_ptr<long> sessionMaxRateKbps{};
@@ -6709,6 +6718,9 @@ public:
     if (internetCommunicationProtocol) {
       res["InternetCommunicationProtocol"] = boost::any(*internetCommunicationProtocol);
     }
+    if (internetPrinter) {
+      res["InternetPrinter"] = boost::any(*internetPrinter);
+    }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
     }
@@ -6823,6 +6835,9 @@ public:
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (safeMenu) {
+      res["SafeMenu"] = boost::any(*safeMenu);
     }
     if (scope) {
       res["Scope"] = boost::any(*scope);
@@ -7085,6 +7100,9 @@ public:
     if (m.find("InternetCommunicationProtocol") != m.end() && !m["InternetCommunicationProtocol"].empty()) {
       internetCommunicationProtocol = make_shared<string>(boost::any_cast<string>(m["InternetCommunicationProtocol"]));
     }
+    if (m.find("InternetPrinter") != m.end() && !m["InternetPrinter"].empty()) {
+      internetPrinter = make_shared<string>(boost::any_cast<string>(m["InternetPrinter"]));
+    }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
     }
@@ -7233,6 +7251,9 @@ public:
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("SafeMenu") != m.end() && !m["SafeMenu"].empty()) {
+      safeMenu = make_shared<string>(boost::any_cast<string>(m["SafeMenu"]));
     }
     if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
@@ -11396,6 +11417,7 @@ public:
   shared_ptr<string> deviceType{};
   shared_ptr<string> deviceVid{};
   shared_ptr<string> optCommand{};
+  shared_ptr<string> platforms{};
   shared_ptr<string> redirectType{};
 
   CreatePolicyGroupRequestDeviceRules() {}
@@ -11423,6 +11445,9 @@ public:
     if (optCommand) {
       res["OptCommand"] = boost::any(*optCommand);
     }
+    if (platforms) {
+      res["Platforms"] = boost::any(*platforms);
+    }
     if (redirectType) {
       res["RedirectType"] = boost::any(*redirectType);
     }
@@ -11444,6 +11469,9 @@ public:
     }
     if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
       optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
+      platforms = make_shared<string>(boost::any_cast<string>(m["Platforms"]));
     }
     if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
       redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
@@ -17016,6 +17044,7 @@ public:
   shared_ptr<string> deviceType{};
   shared_ptr<string> deviceVid{};
   shared_ptr<string> optCommand{};
+  shared_ptr<string> platforms{};
   shared_ptr<string> redirectType{};
 
   DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules() {}
@@ -17043,6 +17072,9 @@ public:
     if (optCommand) {
       res["OptCommand"] = boost::any(*optCommand);
     }
+    if (platforms) {
+      res["Platforms"] = boost::any(*platforms);
+    }
     if (redirectType) {
       res["RedirectType"] = boost::any(*redirectType);
     }
@@ -17064,6 +17096,9 @@ public:
     }
     if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
       optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
+      platforms = make_shared<string>(boost::any_cast<string>(m["Platforms"]));
     }
     if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
       redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
@@ -17248,6 +17283,7 @@ public:
   shared_ptr<string> html5Access{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
+  shared_ptr<string> internetPrinter{};
   shared_ptr<string> localDrive{};
   shared_ptr<long> maxReconnectTime{};
   shared_ptr<long> memoryDownGradeDuration{};
@@ -17287,6 +17323,7 @@ public:
   shared_ptr<string> resolutionModel{};
   shared_ptr<long> resolutionWidth{};
   shared_ptr<long> resourceGroupCount{};
+  shared_ptr<string> safeMenu{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
   shared_ptr<string> smoothEnhancement{};
@@ -17441,6 +17478,9 @@ public:
     if (internetCommunicationProtocol) {
       res["InternetCommunicationProtocol"] = boost::any(*internetCommunicationProtocol);
     }
+    if (internetPrinter) {
+      res["InternetPrinter"] = boost::any(*internetPrinter);
+    }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
     }
@@ -17561,6 +17601,9 @@ public:
     }
     if (resourceGroupCount) {
       res["ResourceGroupCount"] = boost::any(*resourceGroupCount);
+    }
+    if (safeMenu) {
+      res["SafeMenu"] = boost::any(*safeMenu);
     }
     if (scope) {
       res["Scope"] = boost::any(*scope);
@@ -17814,6 +17857,9 @@ public:
     if (m.find("InternetCommunicationProtocol") != m.end() && !m["InternetCommunicationProtocol"].empty()) {
       internetCommunicationProtocol = make_shared<string>(boost::any_cast<string>(m["InternetCommunicationProtocol"]));
     }
+    if (m.find("InternetPrinter") != m.end() && !m["InternetPrinter"].empty()) {
+      internetPrinter = make_shared<string>(boost::any_cast<string>(m["InternetPrinter"]));
+    }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
     }
@@ -17961,6 +18007,9 @@ public:
     }
     if (m.find("ResourceGroupCount") != m.end() && !m["ResourceGroupCount"].empty()) {
       resourceGroupCount = make_shared<long>(boost::any_cast<long>(m["ResourceGroupCount"]));
+    }
+    if (m.find("SafeMenu") != m.end() && !m["SafeMenu"].empty()) {
+      safeMenu = make_shared<string>(boost::any_cast<string>(m["SafeMenu"]));
     }
     if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
@@ -27405,6 +27454,7 @@ public:
   shared_ptr<string> imageName{};
   shared_ptr<string> newImageId{};
   shared_ptr<string> newImageName{};
+  shared_ptr<string> reason{};
   shared_ptr<long> status{};
   shared_ptr<string> updateTime{};
 
@@ -27430,6 +27480,9 @@ public:
     if (newImageName) {
       res["NewImageName"] = boost::any(*newImageName);
     }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -27451,6 +27504,9 @@ public:
     }
     if (m.find("NewImageName") != m.end() && !m["NewImageName"].empty()) {
       newImageName = make_shared<string>(boost::any_cast<string>(m["NewImageName"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
@@ -31105,6 +31161,7 @@ public:
   shared_ptr<string> deviceType{};
   shared_ptr<string> deviceVid{};
   shared_ptr<string> optCommand{};
+  shared_ptr<string> platforms{};
   shared_ptr<string> redirectType{};
 
   DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules() {}
@@ -31132,6 +31189,9 @@ public:
     if (optCommand) {
       res["OptCommand"] = boost::any(*optCommand);
     }
+    if (platforms) {
+      res["Platforms"] = boost::any(*platforms);
+    }
     if (redirectType) {
       res["RedirectType"] = boost::any(*redirectType);
     }
@@ -31153,6 +31213,9 @@ public:
     }
     if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
       optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
+      platforms = make_shared<string>(boost::any_cast<string>(m["Platforms"]));
     }
     if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
       redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
@@ -31353,6 +31416,7 @@ public:
   shared_ptr<string> html5Access{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
+  shared_ptr<string> internetPrinter{};
   shared_ptr<string> localDrive{};
   shared_ptr<long> maxReconnectTime{};
   shared_ptr<long> memoryDownGradeDuration{};
@@ -31394,6 +31458,7 @@ public:
   shared_ptr<long> resolutionWidth{};
   shared_ptr<long> resourceGroupCount{};
   shared_ptr<string> resourceRegionId{};
+  shared_ptr<string> safeMenu{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
   shared_ptr<string> smoothEnhancement{};
@@ -31555,6 +31620,9 @@ public:
     if (internetCommunicationProtocol) {
       res["InternetCommunicationProtocol"] = boost::any(*internetCommunicationProtocol);
     }
+    if (internetPrinter) {
+      res["InternetPrinter"] = boost::any(*internetPrinter);
+    }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
     }
@@ -31681,6 +31749,9 @@ public:
     }
     if (resourceRegionId) {
       res["ResourceRegionId"] = boost::any(*resourceRegionId);
+    }
+    if (safeMenu) {
+      res["SafeMenu"] = boost::any(*safeMenu);
     }
     if (scope) {
       res["Scope"] = boost::any(*scope);
@@ -31943,6 +32014,9 @@ public:
     if (m.find("InternetCommunicationProtocol") != m.end() && !m["InternetCommunicationProtocol"].empty()) {
       internetCommunicationProtocol = make_shared<string>(boost::any_cast<string>(m["InternetCommunicationProtocol"]));
     }
+    if (m.find("InternetPrinter") != m.end() && !m["InternetPrinter"].empty()) {
+      internetPrinter = make_shared<string>(boost::any_cast<string>(m["InternetPrinter"]));
+    }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
     }
@@ -32103,6 +32177,9 @@ public:
     }
     if (m.find("ResourceRegionId") != m.end() && !m["ResourceRegionId"].empty()) {
       resourceRegionId = make_shared<string>(boost::any_cast<string>(m["ResourceRegionId"]));
+    }
+    if (m.find("SafeMenu") != m.end() && !m["SafeMenu"].empty()) {
+      safeMenu = make_shared<string>(boost::any_cast<string>(m["SafeMenu"]));
     }
     if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
@@ -44877,6 +44954,7 @@ public:
   shared_ptr<string> deviceType{};
   shared_ptr<string> deviceVid{};
   shared_ptr<string> optCommand{};
+  shared_ptr<string> platforms{};
   shared_ptr<string> redirectType{};
 
   ModifyCenterPolicyRequestDeviceRules() {}
@@ -44904,6 +44982,9 @@ public:
     if (optCommand) {
       res["OptCommand"] = boost::any(*optCommand);
     }
+    if (platforms) {
+      res["Platforms"] = boost::any(*platforms);
+    }
     if (redirectType) {
       res["RedirectType"] = boost::any(*redirectType);
     }
@@ -44925,6 +45006,9 @@ public:
     }
     if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
       optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
+      platforms = make_shared<string>(boost::any_cast<string>(m["Platforms"]));
     }
     if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
       redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
@@ -45216,6 +45300,7 @@ public:
   shared_ptr<string> gpuAcceleration{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
+  shared_ptr<string> internetPrinter{};
   shared_ptr<string> localDrive{};
   shared_ptr<long> maxReconnectTime{};
   shared_ptr<long> memoryDownGradeDuration{};
@@ -45256,6 +45341,7 @@ public:
   shared_ptr<string> resourceType{};
   shared_ptr<vector<ModifyCenterPolicyRequestRevokeAccessPolicyRule>> revokeAccessPolicyRule{};
   shared_ptr<vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule>> revokeSecurityPolicyRule{};
+  shared_ptr<string> safeMenu{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
   shared_ptr<long> sessionMaxRateKbps{};
@@ -45413,6 +45499,9 @@ public:
     if (internetCommunicationProtocol) {
       res["InternetCommunicationProtocol"] = boost::any(*internetCommunicationProtocol);
     }
+    if (internetPrinter) {
+      res["InternetPrinter"] = boost::any(*internetPrinter);
+    }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
     }
@@ -45544,6 +45633,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["RevokeSecurityPolicyRule"] = boost::any(temp1);
+    }
+    if (safeMenu) {
+      res["SafeMenu"] = boost::any(*safeMenu);
     }
     if (scope) {
       res["Scope"] = boost::any(*scope);
@@ -45806,6 +45898,9 @@ public:
     if (m.find("InternetCommunicationProtocol") != m.end() && !m["InternetCommunicationProtocol"].empty()) {
       internetCommunicationProtocol = make_shared<string>(boost::any_cast<string>(m["InternetCommunicationProtocol"]));
     }
+    if (m.find("InternetPrinter") != m.end() && !m["InternetPrinter"].empty()) {
+      internetPrinter = make_shared<string>(boost::any_cast<string>(m["InternetPrinter"]));
+    }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
     }
@@ -45983,6 +46078,9 @@ public:
         }
         revokeSecurityPolicyRule = make_shared<vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule>>(expect1);
       }
+    }
+    if (m.find("SafeMenu") != m.end() && !m["SafeMenu"].empty()) {
+      safeMenu = make_shared<string>(boost::any_cast<string>(m["SafeMenu"]));
     }
     if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
@@ -50641,6 +50739,7 @@ public:
   shared_ptr<string> deviceType{};
   shared_ptr<string> deviceVid{};
   shared_ptr<string> optCommand{};
+  shared_ptr<string> platforms{};
   shared_ptr<string> redirectType{};
 
   ModifyPolicyGroupRequestDeviceRules() {}
@@ -50668,6 +50767,9 @@ public:
     if (optCommand) {
       res["OptCommand"] = boost::any(*optCommand);
     }
+    if (platforms) {
+      res["Platforms"] = boost::any(*platforms);
+    }
     if (redirectType) {
       res["RedirectType"] = boost::any(*redirectType);
     }
@@ -50689,6 +50791,9 @@ public:
     }
     if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
       optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
+      platforms = make_shared<string>(boost::any_cast<string>(m["Platforms"]));
     }
     if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
       redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));

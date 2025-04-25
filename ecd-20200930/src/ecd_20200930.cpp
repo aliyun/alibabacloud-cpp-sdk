@@ -1555,6 +1555,9 @@ CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicyW
   if (!Darabonba_Util::Client::isUnset<string>(request->internetCommunicationProtocol)) {
     query->insert(pair<string, string>("InternetCommunicationProtocol", *request->internetCommunicationProtocol));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetPrinter)) {
+    query->insert(pair<string, string>("InternetPrinter", *request->internetPrinter));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
     query->insert(pair<string, string>("LocalDrive", *request->localDrive));
   }
@@ -1665,6 +1668,9 @@ CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->safeMenu)) {
+    query->insert(pair<string, string>("SafeMenu", *request->safeMenu));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
     query->insert(pair<string, string>("Scope", *request->scope));
@@ -7828,6 +7834,9 @@ ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicyW
   if (!Darabonba_Util::Client::isUnset<string>(request->internetCommunicationProtocol)) {
     query->insert(pair<string, string>("InternetCommunicationProtocol", *request->internetCommunicationProtocol));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetPrinter)) {
+    query->insert(pair<string, string>("InternetPrinter", *request->internetPrinter));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
     query->insert(pair<string, string>("LocalDrive", *request->localDrive));
   }
@@ -7947,6 +7956,9 @@ ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule>>(request->revokeSecurityPolicyRule)) {
     query->insert(pair<string, vector<ModifyCenterPolicyRequestRevokeSecurityPolicyRule>>("RevokeSecurityPolicyRule", *request->revokeSecurityPolicyRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->safeMenu)) {
+    query->insert(pair<string, string>("SafeMenu", *request->safeMenu));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
     query->insert(pair<string, string>("Scope", *request->scope));
