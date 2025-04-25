@@ -6010,6 +6010,42 @@ public:
 
   virtual ~ListAccessPagesResponse() = default;
 };
+class ListAppInstanceGroupRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListAppInstanceGroupRequestTag() {}
+
+  explicit ListAppInstanceGroupRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListAppInstanceGroupRequestTag() = default;
+};
 class ListAppInstanceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appCenterImageId{};
@@ -6023,6 +6059,7 @@ public:
   shared_ptr<string> productType{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> status{};
+  shared_ptr<vector<ListAppInstanceGroupRequestTag>> tag{};
 
   ListAppInstanceGroupRequest() {}
 
@@ -6067,6 +6104,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -6110,6 +6154,19 @@ public:
         }
       }
       status = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListAppInstanceGroupRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAppInstanceGroupRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListAppInstanceGroupRequestTag>>(expect1);
+      }
     }
   }
 
@@ -6535,6 +6592,49 @@ public:
 
   virtual ~ListAppInstanceGroupResponseBodyAppInstanceGroupModelsResourceTags() = default;
 };
+class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> scope{};
+  shared_ptr<string> value{};
+
+  ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags() {}
+
+  explicit ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags() = default;
+};
 class ListAppInstanceGroupResponseBodyAppInstanceGroupModels : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
@@ -6570,6 +6670,7 @@ public:
   shared_ptr<bool> skipUserAuthCheck{};
   shared_ptr<string> specId{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags>> tags{};
 
   ListAppInstanceGroupResponseBodyAppInstanceGroupModels() {}
 
@@ -6691,6 +6792,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -6828,6 +6936,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags>>(expect1);
+      }
     }
   }
 
