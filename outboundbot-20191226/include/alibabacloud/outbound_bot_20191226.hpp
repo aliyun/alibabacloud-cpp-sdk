@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_OUTBOUNDBOT20191226_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2347,6 +2348,753 @@ public:
 
 
   virtual ~CreateBatchRepeatJobResponse() = default;
+};
+class CreateBeebotIntentRequestIntentDefinition : public Darabonba::Model {
+public:
+  shared_ptr<string> aliasName{};
+  shared_ptr<string> intentName{};
+
+  CreateBeebotIntentRequestIntentDefinition() {}
+
+  explicit CreateBeebotIntentRequestIntentDefinition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasName) {
+      res["AliasName"] = boost::any(*aliasName);
+    }
+    if (intentName) {
+      res["IntentName"] = boost::any(*intentName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
+      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
+      intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentRequestIntentDefinition() = default;
+};
+class CreateBeebotIntentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<CreateBeebotIntentRequestIntentDefinition> intentDefinition{};
+  shared_ptr<string> scriptId{};
+
+  CreateBeebotIntentRequest() {}
+
+  explicit CreateBeebotIntentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentDefinition) {
+      res["IntentDefinition"] = intentDefinition ? boost::any(intentDefinition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentDefinition") != m.end() && !m["IntentDefinition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IntentDefinition"].type()) {
+        CreateBeebotIntentRequestIntentDefinition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IntentDefinition"]));
+        intentDefinition = make_shared<CreateBeebotIntentRequestIntentDefinition>(model1);
+      }
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentRequest() = default;
+};
+class CreateBeebotIntentShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> intentDefinitionShrink{};
+  shared_ptr<string> scriptId{};
+
+  CreateBeebotIntentShrinkRequest() {}
+
+  explicit CreateBeebotIntentShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentDefinitionShrink) {
+      res["IntentDefinition"] = boost::any(*intentDefinitionShrink);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentDefinition") != m.end() && !m["IntentDefinition"].empty()) {
+      intentDefinitionShrink = make_shared<string>(boost::any_cast<string>(m["IntentDefinition"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentShrinkRequest() = default;
+};
+class CreateBeebotIntentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateBeebotIntentResponseBody() {}
+
+  explicit CreateBeebotIntentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentResponseBody() = default;
+};
+class CreateBeebotIntentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateBeebotIntentResponseBody> body{};
+
+  CreateBeebotIntentResponse() {}
+
+  explicit CreateBeebotIntentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateBeebotIntentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateBeebotIntentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentResponse() = default;
+};
+class CreateBeebotIntentLgfRequestLgfDefinition : public Darabonba::Model {
+public:
+  shared_ptr<long> intentId{};
+  shared_ptr<string> ruleText{};
+
+  CreateBeebotIntentLgfRequestLgfDefinition() {}
+
+  explicit CreateBeebotIntentLgfRequestLgfDefinition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (ruleText) {
+      res["RuleText"] = boost::any(*ruleText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("RuleText") != m.end() && !m["RuleText"].empty()) {
+      ruleText = make_shared<string>(boost::any_cast<string>(m["RuleText"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentLgfRequestLgfDefinition() = default;
+};
+class CreateBeebotIntentLgfRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<CreateBeebotIntentLgfRequestLgfDefinition> lgfDefinition{};
+  shared_ptr<string> scriptId{};
+
+  CreateBeebotIntentLgfRequest() {}
+
+  explicit CreateBeebotIntentLgfRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lgfDefinition) {
+      res["LgfDefinition"] = lgfDefinition ? boost::any(lgfDefinition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LgfDefinition") != m.end() && !m["LgfDefinition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LgfDefinition"].type()) {
+        CreateBeebotIntentLgfRequestLgfDefinition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LgfDefinition"]));
+        lgfDefinition = make_shared<CreateBeebotIntentLgfRequestLgfDefinition>(model1);
+      }
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentLgfRequest() = default;
+};
+class CreateBeebotIntentLgfShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> lgfDefinitionShrink{};
+  shared_ptr<string> scriptId{};
+
+  CreateBeebotIntentLgfShrinkRequest() {}
+
+  explicit CreateBeebotIntentLgfShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lgfDefinitionShrink) {
+      res["LgfDefinition"] = boost::any(*lgfDefinitionShrink);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LgfDefinition") != m.end() && !m["LgfDefinition"].empty()) {
+      lgfDefinitionShrink = make_shared<string>(boost::any_cast<string>(m["LgfDefinition"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentLgfShrinkRequest() = default;
+};
+class CreateBeebotIntentLgfResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> lgfId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateBeebotIntentLgfResponseBody() {}
+
+  explicit CreateBeebotIntentLgfResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (lgfId) {
+      res["LgfId"] = boost::any(*lgfId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("LgfId") != m.end() && !m["LgfId"].empty()) {
+      lgfId = make_shared<long>(boost::any_cast<long>(m["LgfId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentLgfResponseBody() = default;
+};
+class CreateBeebotIntentLgfResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateBeebotIntentLgfResponseBody> body{};
+
+  CreateBeebotIntentLgfResponse() {}
+
+  explicit CreateBeebotIntentLgfResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateBeebotIntentLgfResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateBeebotIntentLgfResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentLgfResponse() = default;
+};
+class CreateBeebotIntentUserSayRequestUserSayDefinition : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<long> intentId{};
+
+  CreateBeebotIntentUserSayRequestUserSayDefinition() {}
+
+  explicit CreateBeebotIntentUserSayRequestUserSayDefinition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentUserSayRequestUserSayDefinition() = default;
+};
+class CreateBeebotIntentUserSayRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> scriptId{};
+  shared_ptr<CreateBeebotIntentUserSayRequestUserSayDefinition> userSayDefinition{};
+
+  CreateBeebotIntentUserSayRequest() {}
+
+  explicit CreateBeebotIntentUserSayRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    if (userSayDefinition) {
+      res["UserSayDefinition"] = userSayDefinition ? boost::any(userSayDefinition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+    if (m.find("UserSayDefinition") != m.end() && !m["UserSayDefinition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserSayDefinition"].type()) {
+        CreateBeebotIntentUserSayRequestUserSayDefinition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserSayDefinition"]));
+        userSayDefinition = make_shared<CreateBeebotIntentUserSayRequestUserSayDefinition>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentUserSayRequest() = default;
+};
+class CreateBeebotIntentUserSayShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> scriptId{};
+  shared_ptr<string> userSayDefinitionShrink{};
+
+  CreateBeebotIntentUserSayShrinkRequest() {}
+
+  explicit CreateBeebotIntentUserSayShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    if (userSayDefinitionShrink) {
+      res["UserSayDefinition"] = boost::any(*userSayDefinitionShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+    if (m.find("UserSayDefinition") != m.end() && !m["UserSayDefinition"].empty()) {
+      userSayDefinitionShrink = make_shared<string>(boost::any_cast<string>(m["UserSayDefinition"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentUserSayShrinkRequest() = default;
+};
+class CreateBeebotIntentUserSayResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> userSayId{};
+
+  CreateBeebotIntentUserSayResponseBody() {}
+
+  explicit CreateBeebotIntentUserSayResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (userSayId) {
+      res["UserSayId"] = boost::any(*userSayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("UserSayId") != m.end() && !m["UserSayId"].empty()) {
+      userSayId = make_shared<long>(boost::any_cast<long>(m["UserSayId"]));
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentUserSayResponseBody() = default;
+};
+class CreateBeebotIntentUserSayResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateBeebotIntentUserSayResponseBody> body{};
+
+  CreateBeebotIntentUserSayResponse() {}
+
+  explicit CreateBeebotIntentUserSayResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateBeebotIntentUserSayResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateBeebotIntentUserSayResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateBeebotIntentUserSayResponse() = default;
 };
 class CreateDialogueFlowRequest : public Darabonba::Model {
 public:
@@ -5028,6 +5776,7 @@ public:
   shared_ptr<vector<string>> scriptContent{};
   shared_ptr<string> scriptDescription{};
   shared_ptr<string> scriptName{};
+  shared_ptr<string> scriptNluProfileJsonString{};
   shared_ptr<vector<string>> scriptWaveform{};
   shared_ptr<string> ttsConfig{};
 
@@ -5091,6 +5840,9 @@ public:
     }
     if (scriptName) {
       res["ScriptName"] = boost::any(*scriptName);
+    }
+    if (scriptNluProfileJsonString) {
+      res["ScriptNluProfileJsonString"] = boost::any(*scriptNluProfileJsonString);
     }
     if (scriptWaveform) {
       res["ScriptWaveform"] = boost::any(*scriptWaveform);
@@ -5159,6 +5911,9 @@ public:
     }
     if (m.find("ScriptName") != m.end() && !m["ScriptName"].empty()) {
       scriptName = make_shared<string>(boost::any_cast<string>(m["ScriptName"]));
+    }
+    if (m.find("ScriptNluProfileJsonString") != m.end() && !m["ScriptNluProfileJsonString"].empty()) {
+      scriptNluProfileJsonString = make_shared<string>(boost::any_cast<string>(m["ScriptNluProfileJsonString"]));
     }
     if (m.find("ScriptWaveform") != m.end() && !m["ScriptWaveform"].empty()) {
       vector<string> toVec1;
@@ -6366,6 +7121,518 @@ public:
 
 
   virtual ~DeleteAllNumberDistrictInfoResponse() = default;
+};
+class DeleteBeebotIntentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> scriptId{};
+
+  DeleteBeebotIntentRequest() {}
+
+  explicit DeleteBeebotIntentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentRequest() = default;
+};
+class DeleteBeebotIntentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteBeebotIntentResponseBody() {}
+
+  explicit DeleteBeebotIntentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentResponseBody() = default;
+};
+class DeleteBeebotIntentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteBeebotIntentResponseBody> body{};
+
+  DeleteBeebotIntentResponse() {}
+
+  explicit DeleteBeebotIntentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteBeebotIntentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteBeebotIntentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentResponse() = default;
+};
+class DeleteBeebotIntentLgfRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> intentId{};
+  shared_ptr<long> lgfId{};
+  shared_ptr<string> scriptId{};
+
+  DeleteBeebotIntentLgfRequest() {}
+
+  explicit DeleteBeebotIntentLgfRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (lgfId) {
+      res["LgfId"] = boost::any(*lgfId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("LgfId") != m.end() && !m["LgfId"].empty()) {
+      lgfId = make_shared<long>(boost::any_cast<long>(m["LgfId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentLgfRequest() = default;
+};
+class DeleteBeebotIntentLgfResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> lgfId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteBeebotIntentLgfResponseBody() {}
+
+  explicit DeleteBeebotIntentLgfResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (lgfId) {
+      res["LgfId"] = boost::any(*lgfId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("LgfId") != m.end() && !m["LgfId"].empty()) {
+      lgfId = make_shared<long>(boost::any_cast<long>(m["LgfId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentLgfResponseBody() = default;
+};
+class DeleteBeebotIntentLgfResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteBeebotIntentLgfResponseBody> body{};
+
+  DeleteBeebotIntentLgfResponse() {}
+
+  explicit DeleteBeebotIntentLgfResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteBeebotIntentLgfResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteBeebotIntentLgfResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentLgfResponse() = default;
+};
+class DeleteBeebotIntentUserSayRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> intentId{};
+  shared_ptr<string> scriptId{};
+  shared_ptr<string> userSayId{};
+
+  DeleteBeebotIntentUserSayRequest() {}
+
+  explicit DeleteBeebotIntentUserSayRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    if (userSayId) {
+      res["UserSayId"] = boost::any(*userSayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<string>(boost::any_cast<string>(m["IntentId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+    if (m.find("UserSayId") != m.end() && !m["UserSayId"].empty()) {
+      userSayId = make_shared<string>(boost::any_cast<string>(m["UserSayId"]));
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentUserSayRequest() = default;
+};
+class DeleteBeebotIntentUserSayResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> userSayId{};
+
+  DeleteBeebotIntentUserSayResponseBody() {}
+
+  explicit DeleteBeebotIntentUserSayResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (userSayId) {
+      res["UserSayId"] = boost::any(*userSayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("UserSayId") != m.end() && !m["UserSayId"].empty()) {
+      userSayId = make_shared<long>(boost::any_cast<long>(m["UserSayId"]));
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentUserSayResponseBody() = default;
+};
+class DeleteBeebotIntentUserSayResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteBeebotIntentUserSayResponseBody> body{};
+
+  DeleteBeebotIntentUserSayResponse() {}
+
+  explicit DeleteBeebotIntentUserSayResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteBeebotIntentUserSayResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteBeebotIntentUserSayResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteBeebotIntentUserSayResponse() = default;
 };
 class DeleteContactBlockListRequest : public Darabonba::Model {
 public:
@@ -8017,6 +9284,268 @@ public:
 
 
   virtual ~DeleteScriptWaveformResponse() = default;
+};
+class DescribeBeebotIntentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> scriptId{};
+
+  DescribeBeebotIntentRequest() {}
+
+  explicit DescribeBeebotIntentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~DescribeBeebotIntentRequest() = default;
+};
+class DescribeBeebotIntentResponseBodyIntent : public Darabonba::Model {
+public:
+  shared_ptr<string> aliasName{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> createUserId{};
+  shared_ptr<string> createUserName{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> intentName{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<string> modifyUserId{};
+  shared_ptr<string> modifyUserName{};
+
+  DescribeBeebotIntentResponseBodyIntent() {}
+
+  explicit DescribeBeebotIntentResponseBodyIntent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasName) {
+      res["AliasName"] = boost::any(*aliasName);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (createUserId) {
+      res["CreateUserId"] = boost::any(*createUserId);
+    }
+    if (createUserName) {
+      res["CreateUserName"] = boost::any(*createUserName);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (intentName) {
+      res["IntentName"] = boost::any(*intentName);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (modifyUserId) {
+      res["ModifyUserId"] = boost::any(*modifyUserId);
+    }
+    if (modifyUserName) {
+      res["ModifyUserName"] = boost::any(*modifyUserName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
+      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
+      createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
+    }
+    if (m.find("CreateUserName") != m.end() && !m["CreateUserName"].empty()) {
+      createUserName = make_shared<string>(boost::any_cast<string>(m["CreateUserName"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
+      intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("ModifyUserId") != m.end() && !m["ModifyUserId"].empty()) {
+      modifyUserId = make_shared<string>(boost::any_cast<string>(m["ModifyUserId"]));
+    }
+    if (m.find("ModifyUserName") != m.end() && !m["ModifyUserName"].empty()) {
+      modifyUserName = make_shared<string>(boost::any_cast<string>(m["ModifyUserName"]));
+    }
+  }
+
+
+  virtual ~DescribeBeebotIntentResponseBodyIntent() = default;
+};
+class DescribeBeebotIntentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<DescribeBeebotIntentResponseBodyIntent> intent{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeBeebotIntentResponseBody() {}
+
+  explicit DescribeBeebotIntentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (intent) {
+      res["Intent"] = intent ? boost::any(intent->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Intent") != m.end() && !m["Intent"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Intent"].type()) {
+        DescribeBeebotIntentResponseBodyIntent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Intent"]));
+        intent = make_shared<DescribeBeebotIntentResponseBodyIntent>(model1);
+      }
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeBeebotIntentResponseBody() = default;
+};
+class DescribeBeebotIntentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeBeebotIntentResponseBody> body{};
+
+  DescribeBeebotIntentResponse() {}
+
+  explicit DescribeBeebotIntentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeBeebotIntentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeBeebotIntentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeBeebotIntentResponse() = default;
 };
 class DescribeDialogueNodeStatisticsRequest : public Darabonba::Model {
 public:
@@ -12704,6 +14233,49 @@ public:
 
   virtual ~DescribeScriptRequest() = default;
 };
+class DescribeScriptResponseBodyScriptNluProfile : public Darabonba::Model {
+public:
+  shared_ptr<string> fcFunction{};
+  shared_ptr<string> fcHttpTriggerUrl{};
+  shared_ptr<string> fcRegion{};
+
+  DescribeScriptResponseBodyScriptNluProfile() {}
+
+  explicit DescribeScriptResponseBodyScriptNluProfile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fcFunction) {
+      res["FcFunction"] = boost::any(*fcFunction);
+    }
+    if (fcHttpTriggerUrl) {
+      res["FcHttpTriggerUrl"] = boost::any(*fcHttpTriggerUrl);
+    }
+    if (fcRegion) {
+      res["FcRegion"] = boost::any(*fcRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FcFunction") != m.end() && !m["FcFunction"].empty()) {
+      fcFunction = make_shared<string>(boost::any_cast<string>(m["FcFunction"]));
+    }
+    if (m.find("FcHttpTriggerUrl") != m.end() && !m["FcHttpTriggerUrl"].empty()) {
+      fcHttpTriggerUrl = make_shared<string>(boost::any_cast<string>(m["FcHttpTriggerUrl"]));
+    }
+    if (m.find("FcRegion") != m.end() && !m["FcRegion"].empty()) {
+      fcRegion = make_shared<string>(boost::any_cast<string>(m["FcRegion"]));
+    }
+  }
+
+
+  virtual ~DescribeScriptResponseBodyScriptNluProfile() = default;
+};
 class DescribeScriptResponseBodyScript : public Darabonba::Model {
 public:
   shared_ptr<long> agentId{};
@@ -12720,6 +14292,8 @@ public:
   shared_ptr<bool> longWaitEnable{};
   shared_ptr<bool> miniPlaybackEnable{};
   shared_ptr<bool> newBargeInEnable{};
+  shared_ptr<string> nluEngine{};
+  shared_ptr<DescribeScriptResponseBodyScriptNluProfile> nluProfile{};
   shared_ptr<string> scene{};
   shared_ptr<string> scriptDescription{};
   shared_ptr<string> scriptId{};
@@ -12779,6 +14353,12 @@ public:
     }
     if (newBargeInEnable) {
       res["NewBargeInEnable"] = boost::any(*newBargeInEnable);
+    }
+    if (nluEngine) {
+      res["NluEngine"] = boost::any(*nluEngine);
+    }
+    if (nluProfile) {
+      res["NluProfile"] = nluProfile ? boost::any(nluProfile->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (scene) {
       res["Scene"] = boost::any(*scene);
@@ -12846,6 +14426,16 @@ public:
     }
     if (m.find("NewBargeInEnable") != m.end() && !m["NewBargeInEnable"].empty()) {
       newBargeInEnable = make_shared<bool>(boost::any_cast<bool>(m["NewBargeInEnable"]));
+    }
+    if (m.find("NluEngine") != m.end() && !m["NluEngine"].empty()) {
+      nluEngine = make_shared<string>(boost::any_cast<string>(m["NluEngine"]));
+    }
+    if (m.find("NluProfile") != m.end() && !m["NluProfile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NluProfile"].type()) {
+        DescribeScriptResponseBodyScriptNluProfile model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NluProfile"]));
+        nluProfile = make_shared<DescribeScriptResponseBodyScriptNluProfile>(model1);
+      }
     }
     if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
       scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
@@ -22791,6 +24381,864 @@ public:
 
   virtual ~ListApiPluginsResponse() = default;
 };
+class ListBeebotIntentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> intentName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> scriptId{};
+
+  ListBeebotIntentRequest() {}
+
+  explicit ListBeebotIntentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentName) {
+      res["IntentName"] = boost::any(*intentName);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
+      intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~ListBeebotIntentRequest() = default;
+};
+class ListBeebotIntentResponseBodyIntents : public Darabonba::Model {
+public:
+  shared_ptr<string> aliasName{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> createUserId{};
+  shared_ptr<string> createUserName{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> intentName{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<string> modifyUserId{};
+  shared_ptr<string> modifyUserName{};
+
+  ListBeebotIntentResponseBodyIntents() {}
+
+  explicit ListBeebotIntentResponseBodyIntents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasName) {
+      res["AliasName"] = boost::any(*aliasName);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (createUserId) {
+      res["CreateUserId"] = boost::any(*createUserId);
+    }
+    if (createUserName) {
+      res["CreateUserName"] = boost::any(*createUserName);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (intentName) {
+      res["IntentName"] = boost::any(*intentName);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (modifyUserId) {
+      res["ModifyUserId"] = boost::any(*modifyUserId);
+    }
+    if (modifyUserName) {
+      res["ModifyUserName"] = boost::any(*modifyUserName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
+      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
+      createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
+    }
+    if (m.find("CreateUserName") != m.end() && !m["CreateUserName"].empty()) {
+      createUserName = make_shared<string>(boost::any_cast<string>(m["CreateUserName"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
+      intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("ModifyUserId") != m.end() && !m["ModifyUserId"].empty()) {
+      modifyUserId = make_shared<string>(boost::any_cast<string>(m["ModifyUserId"]));
+    }
+    if (m.find("ModifyUserName") != m.end() && !m["ModifyUserName"].empty()) {
+      modifyUserName = make_shared<string>(boost::any_cast<string>(m["ModifyUserName"]));
+    }
+  }
+
+
+  virtual ~ListBeebotIntentResponseBodyIntents() = default;
+};
+class ListBeebotIntentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<vector<ListBeebotIntentResponseBodyIntents>> intents{};
+  shared_ptr<string> message{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  ListBeebotIntentResponseBody() {}
+
+  explicit ListBeebotIntentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (intents) {
+      vector<boost::any> temp1;
+      for(auto item1:*intents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Intents"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Intents") != m.end() && !m["Intents"].empty()) {
+      if (typeid(vector<boost::any>) == m["Intents"].type()) {
+        vector<ListBeebotIntentResponseBodyIntents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Intents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListBeebotIntentResponseBodyIntents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        intents = make_shared<vector<ListBeebotIntentResponseBodyIntents>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListBeebotIntentResponseBody() = default;
+};
+class ListBeebotIntentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListBeebotIntentResponseBody> body{};
+
+  ListBeebotIntentResponse() {}
+
+  explicit ListBeebotIntentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListBeebotIntentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListBeebotIntentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListBeebotIntentResponse() = default;
+};
+class ListBeebotIntentLgfRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> intentId{};
+  shared_ptr<string> lgfText{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> scriptId{};
+
+  ListBeebotIntentLgfRequest() {}
+
+  explicit ListBeebotIntentLgfRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (lgfText) {
+      res["LgfText"] = boost::any(*lgfText);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<string>(boost::any_cast<string>(m["IntentId"]));
+    }
+    if (m.find("LgfText") != m.end() && !m["LgfText"].empty()) {
+      lgfText = make_shared<string>(boost::any_cast<string>(m["LgfText"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~ListBeebotIntentLgfRequest() = default;
+};
+class ListBeebotIntentLgfResponseBodyLgfs : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<long> intentId{};
+  shared_ptr<long> lgfId{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<string> ruleText{};
+
+  ListBeebotIntentLgfResponseBodyLgfs() {}
+
+  explicit ListBeebotIntentLgfResponseBodyLgfs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (lgfId) {
+      res["LgfId"] = boost::any(*lgfId);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (ruleText) {
+      res["RuleText"] = boost::any(*ruleText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("LgfId") != m.end() && !m["LgfId"].empty()) {
+      lgfId = make_shared<long>(boost::any_cast<long>(m["LgfId"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("RuleText") != m.end() && !m["RuleText"].empty()) {
+      ruleText = make_shared<string>(boost::any_cast<string>(m["RuleText"]));
+    }
+  }
+
+
+  virtual ~ListBeebotIntentLgfResponseBodyLgfs() = default;
+};
+class ListBeebotIntentLgfResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<vector<ListBeebotIntentLgfResponseBodyLgfs>> lgfs{};
+  shared_ptr<string> message{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  ListBeebotIntentLgfResponseBody() {}
+
+  explicit ListBeebotIntentLgfResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (lgfs) {
+      vector<boost::any> temp1;
+      for(auto item1:*lgfs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Lgfs"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Lgfs") != m.end() && !m["Lgfs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Lgfs"].type()) {
+        vector<ListBeebotIntentLgfResponseBodyLgfs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Lgfs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListBeebotIntentLgfResponseBodyLgfs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        lgfs = make_shared<vector<ListBeebotIntentLgfResponseBodyLgfs>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListBeebotIntentLgfResponseBody() = default;
+};
+class ListBeebotIntentLgfResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListBeebotIntentLgfResponseBody> body{};
+
+  ListBeebotIntentLgfResponse() {}
+
+  explicit ListBeebotIntentLgfResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListBeebotIntentLgfResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListBeebotIntentLgfResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListBeebotIntentLgfResponse() = default;
+};
+class ListBeebotIntentUserSayRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> intentId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> scriptId{};
+
+  ListBeebotIntentUserSayRequest() {}
+
+  explicit ListBeebotIntentUserSayRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<string>(boost::any_cast<string>(m["IntentId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~ListBeebotIntentUserSayRequest() = default;
+};
+class ListBeebotIntentUserSayResponseBodyUserSays : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> createTime{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<string> userSayId{};
+
+  ListBeebotIntentUserSayResponseBodyUserSays() {}
+
+  explicit ListBeebotIntentUserSayResponseBodyUserSays(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (userSayId) {
+      res["UserSayId"] = boost::any(*userSayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("UserSayId") != m.end() && !m["UserSayId"].empty()) {
+      userSayId = make_shared<string>(boost::any_cast<string>(m["UserSayId"]));
+    }
+  }
+
+
+  virtual ~ListBeebotIntentUserSayResponseBodyUserSays() = default;
+};
+class ListBeebotIntentUserSayResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<vector<ListBeebotIntentUserSayResponseBodyUserSays>> userSays{};
+
+  ListBeebotIntentUserSayResponseBody() {}
+
+  explicit ListBeebotIntentUserSayResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (userSays) {
+      vector<boost::any> temp1;
+      for(auto item1:*userSays){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UserSays"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("UserSays") != m.end() && !m["UserSays"].empty()) {
+      if (typeid(vector<boost::any>) == m["UserSays"].type()) {
+        vector<ListBeebotIntentUserSayResponseBodyUserSays> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UserSays"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListBeebotIntentUserSayResponseBodyUserSays model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userSays = make_shared<vector<ListBeebotIntentUserSayResponseBodyUserSays>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListBeebotIntentUserSayResponseBody() = default;
+};
+class ListBeebotIntentUserSayResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListBeebotIntentUserSayResponseBody> body{};
+
+  ListBeebotIntentUserSayResponse() {}
+
+  explicit ListBeebotIntentUserSayResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListBeebotIntentUserSayResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListBeebotIntentUserSayResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListBeebotIntentUserSayResponse() = default;
+};
 class ListChatbotInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -24554,6 +27002,939 @@ public:
 
 
   virtual ~ListInstancesResponse() = default;
+};
+class ListIntentionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> annotationMissionDataSourceType{};
+  shared_ptr<string> botId{};
+  shared_ptr<long> environment{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> intentId{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> scriptId{};
+  shared_ptr<string> userNick{};
+
+  ListIntentionsRequest() {}
+
+  explicit ListIntentionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (annotationMissionDataSourceType) {
+      res["AnnotationMissionDataSourceType"] = boost::any(*annotationMissionDataSourceType);
+    }
+    if (botId) {
+      res["BotId"] = boost::any(*botId);
+    }
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    if (userNick) {
+      res["UserNick"] = boost::any(*userNick);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnnotationMissionDataSourceType") != m.end() && !m["AnnotationMissionDataSourceType"].empty()) {
+      annotationMissionDataSourceType = make_shared<long>(boost::any_cast<long>(m["AnnotationMissionDataSourceType"]));
+    }
+    if (m.find("BotId") != m.end() && !m["BotId"].empty()) {
+      botId = make_shared<string>(boost::any_cast<string>(m["BotId"]));
+    }
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<long>(boost::any_cast<long>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+    if (m.find("UserNick") != m.end() && !m["UserNick"].empty()) {
+      userNick = make_shared<string>(boost::any_cast<string>(m["UserNick"]));
+    }
+  }
+
+
+  virtual ~ListIntentionsRequest() = default;
+};
+class ListIntentionsResponseBodyDataIntentListRuleCheck : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> error{};
+  shared_ptr<bool> strict{};
+  shared_ptr<string> text{};
+  shared_ptr<vector<string>> warning{};
+
+  ListIntentionsResponseBodyDataIntentListRuleCheck() {}
+
+  explicit ListIntentionsResponseBodyDataIntentListRuleCheck(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (error) {
+      res["Error"] = boost::any(*error);
+    }
+    if (strict) {
+      res["Strict"] = boost::any(*strict);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    if (warning) {
+      res["Warning"] = boost::any(*warning);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Error"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Error"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      error = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Strict") != m.end() && !m["Strict"].empty()) {
+      strict = make_shared<bool>(boost::any_cast<bool>(m["Strict"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("Warning") != m.end() && !m["Warning"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Warning"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Warning"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      warning = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyDataIntentListRuleCheck() = default;
+};
+class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> label{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch() {}
+
+  explicit ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch() = default;
+};
+class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunFunction{};
+  shared_ptr<string> aliyunService{};
+  shared_ptr<string> code{};
+  shared_ptr<string> description{};
+  shared_ptr<string> endPoint{};
+  shared_ptr<string> function{};
+  shared_ptr<string> name{};
+  shared_ptr<map<string, boost::any>> params{};
+  shared_ptr<vector<ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch>> switch_{};
+  shared_ptr<string> type{};
+
+  ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions() {}
+
+  explicit ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunFunction) {
+      res["AliyunFunction"] = boost::any(*aliyunFunction);
+    }
+    if (aliyunService) {
+      res["AliyunService"] = boost::any(*aliyunService);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endPoint) {
+      res["EndPoint"] = boost::any(*endPoint);
+    }
+    if (function) {
+      res["Function"] = boost::any(*function);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
+    if (switch_) {
+      vector<boost::any> temp1;
+      for(auto item1:*switch_){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Switch"] = boost::any(temp1);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunFunction") != m.end() && !m["AliyunFunction"].empty()) {
+      aliyunFunction = make_shared<string>(boost::any_cast<string>(m["AliyunFunction"]));
+    }
+    if (m.find("AliyunService") != m.end() && !m["AliyunService"].empty()) {
+      aliyunService = make_shared<string>(boost::any_cast<string>(m["AliyunService"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndPoint") != m.end() && !m["EndPoint"].empty()) {
+      endPoint = make_shared<string>(boost::any_cast<string>(m["EndPoint"]));
+    }
+    if (m.find("Function") != m.end() && !m["Function"].empty()) {
+      function = make_shared<string>(boost::any_cast<string>(m["Function"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Params"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      params = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Switch") != m.end() && !m["Switch"].empty()) {
+      if (typeid(vector<boost::any>) == m["Switch"].type()) {
+        vector<ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Switch"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        switch_ = make_shared<vector<ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch>>(expect1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions() = default;
+};
+class ListIntentionsResponseBodyDataIntentListSlotTags : public Darabonba::Model {
+public:
+  shared_ptr<string> userSayId{};
+  shared_ptr<string> value{};
+
+  ListIntentionsResponseBodyDataIntentListSlotTags() {}
+
+  explicit ListIntentionsResponseBodyDataIntentListSlotTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userSayId) {
+      res["UserSayId"] = boost::any(*userSayId);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserSayId") != m.end() && !m["UserSayId"].empty()) {
+      userSayId = make_shared<string>(boost::any_cast<string>(m["UserSayId"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyDataIntentListSlotTags() = default;
+};
+class ListIntentionsResponseBodyDataIntentListSlot : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions>> feedbackFunctions{};
+  shared_ptr<string> feedbackType{};
+  shared_ptr<string> id{};
+  shared_ptr<bool> isArray{};
+  shared_ptr<bool> isEncrypt{};
+  shared_ptr<bool> isInteractive{};
+  shared_ptr<bool> isNecessary{};
+  shared_ptr<long> lifeSpan{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> question{};
+  shared_ptr<vector<ListIntentionsResponseBodyDataIntentListSlotTags>> tags{};
+  shared_ptr<string> value{};
+
+  ListIntentionsResponseBodyDataIntentListSlot() {}
+
+  explicit ListIntentionsResponseBodyDataIntentListSlot(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (feedbackFunctions) {
+      vector<boost::any> temp1;
+      for(auto item1:*feedbackFunctions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FeedbackFunctions"] = boost::any(temp1);
+    }
+    if (feedbackType) {
+      res["FeedbackType"] = boost::any(*feedbackType);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (isArray) {
+      res["IsArray"] = boost::any(*isArray);
+    }
+    if (isEncrypt) {
+      res["IsEncrypt"] = boost::any(*isEncrypt);
+    }
+    if (isInteractive) {
+      res["IsInteractive"] = boost::any(*isInteractive);
+    }
+    if (isNecessary) {
+      res["IsNecessary"] = boost::any(*isNecessary);
+    }
+    if (lifeSpan) {
+      res["LifeSpan"] = boost::any(*lifeSpan);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (question) {
+      res["Question"] = boost::any(*question);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeedbackFunctions") != m.end() && !m["FeedbackFunctions"].empty()) {
+      if (typeid(vector<boost::any>) == m["FeedbackFunctions"].type()) {
+        vector<ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FeedbackFunctions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        feedbackFunctions = make_shared<vector<ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions>>(expect1);
+      }
+    }
+    if (m.find("FeedbackType") != m.end() && !m["FeedbackType"].empty()) {
+      feedbackType = make_shared<string>(boost::any_cast<string>(m["FeedbackType"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("IsArray") != m.end() && !m["IsArray"].empty()) {
+      isArray = make_shared<bool>(boost::any_cast<bool>(m["IsArray"]));
+    }
+    if (m.find("IsEncrypt") != m.end() && !m["IsEncrypt"].empty()) {
+      isEncrypt = make_shared<bool>(boost::any_cast<bool>(m["IsEncrypt"]));
+    }
+    if (m.find("IsInteractive") != m.end() && !m["IsInteractive"].empty()) {
+      isInteractive = make_shared<bool>(boost::any_cast<bool>(m["IsInteractive"]));
+    }
+    if (m.find("IsNecessary") != m.end() && !m["IsNecessary"].empty()) {
+      isNecessary = make_shared<bool>(boost::any_cast<bool>(m["IsNecessary"]));
+    }
+    if (m.find("LifeSpan") != m.end() && !m["LifeSpan"].empty()) {
+      lifeSpan = make_shared<long>(boost::any_cast<long>(m["LifeSpan"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Question") != m.end() && !m["Question"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Question"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Question"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      question = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListIntentionsResponseBodyDataIntentListSlotTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntentionsResponseBodyDataIntentListSlotTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListIntentionsResponseBodyDataIntentListSlotTags>>(expect1);
+      }
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyDataIntentListSlot() = default;
+};
+class ListIntentionsResponseBodyDataIntentListUserSayUserSayData : public Darabonba::Model {
+public:
+  shared_ptr<string> slotId{};
+  shared_ptr<string> text{};
+
+  ListIntentionsResponseBodyDataIntentListUserSayUserSayData() {}
+
+  explicit ListIntentionsResponseBodyDataIntentListUserSayUserSayData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (slotId) {
+      res["SlotId"] = boost::any(*slotId);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SlotId") != m.end() && !m["SlotId"].empty()) {
+      slotId = make_shared<string>(boost::any_cast<string>(m["SlotId"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyDataIntentListUserSayUserSayData() = default;
+};
+class ListIntentionsResponseBodyDataIntentListUserSay : public Darabonba::Model {
+public:
+  shared_ptr<string> fromId{};
+  shared_ptr<string> id{};
+  shared_ptr<bool> strict{};
+  shared_ptr<vector<ListIntentionsResponseBodyDataIntentListUserSayUserSayData>> userSayData{};
+
+  ListIntentionsResponseBodyDataIntentListUserSay() {}
+
+  explicit ListIntentionsResponseBodyDataIntentListUserSay(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromId) {
+      res["FromId"] = boost::any(*fromId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (strict) {
+      res["Strict"] = boost::any(*strict);
+    }
+    if (userSayData) {
+      vector<boost::any> temp1;
+      for(auto item1:*userSayData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UserSayData"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromId") != m.end() && !m["FromId"].empty()) {
+      fromId = make_shared<string>(boost::any_cast<string>(m["FromId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Strict") != m.end() && !m["Strict"].empty()) {
+      strict = make_shared<bool>(boost::any_cast<bool>(m["Strict"]));
+    }
+    if (m.find("UserSayData") != m.end() && !m["UserSayData"].empty()) {
+      if (typeid(vector<boost::any>) == m["UserSayData"].type()) {
+        vector<ListIntentionsResponseBodyDataIntentListUserSayUserSayData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UserSayData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntentionsResponseBodyDataIntentListUserSayUserSayData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userSayData = make_shared<vector<ListIntentionsResponseBodyDataIntentListUserSayUserSayData>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyDataIntentListUserSay() = default;
+};
+class ListIntentionsResponseBodyDataIntentList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> alias{};
+  shared_ptr<long> botId{};
+  shared_ptr<string> botName{};
+  shared_ptr<string> dialogId{};
+  shared_ptr<long> id{};
+  shared_ptr<string> language{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<ListIntentionsResponseBodyDataIntentListRuleCheck>> ruleCheck{};
+  shared_ptr<vector<ListIntentionsResponseBodyDataIntentListSlot>> slot{};
+  shared_ptr<long> tableId{};
+  shared_ptr<long> type{};
+  shared_ptr<vector<ListIntentionsResponseBodyDataIntentListUserSay>> userSay{};
+
+  ListIntentionsResponseBodyDataIntentList() {}
+
+  explicit ListIntentionsResponseBodyDataIntentList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (botId) {
+      res["BotId"] = boost::any(*botId);
+    }
+    if (botName) {
+      res["BotName"] = boost::any(*botName);
+    }
+    if (dialogId) {
+      res["DialogId"] = boost::any(*dialogId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (ruleCheck) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleCheck){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleCheck"] = boost::any(temp1);
+    }
+    if (slot) {
+      vector<boost::any> temp1;
+      for(auto item1:*slot){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Slot"] = boost::any(temp1);
+    }
+    if (tableId) {
+      res["TableId"] = boost::any(*tableId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (userSay) {
+      vector<boost::any> temp1;
+      for(auto item1:*userSay){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UserSay"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Alias"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Alias"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      alias = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BotId") != m.end() && !m["BotId"].empty()) {
+      botId = make_shared<long>(boost::any_cast<long>(m["BotId"]));
+    }
+    if (m.find("BotName") != m.end() && !m["BotName"].empty()) {
+      botName = make_shared<string>(boost::any_cast<string>(m["BotName"]));
+    }
+    if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
+      dialogId = make_shared<string>(boost::any_cast<string>(m["DialogId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RuleCheck") != m.end() && !m["RuleCheck"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleCheck"].type()) {
+        vector<ListIntentionsResponseBodyDataIntentListRuleCheck> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleCheck"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntentionsResponseBodyDataIntentListRuleCheck model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleCheck = make_shared<vector<ListIntentionsResponseBodyDataIntentListRuleCheck>>(expect1);
+      }
+    }
+    if (m.find("Slot") != m.end() && !m["Slot"].empty()) {
+      if (typeid(vector<boost::any>) == m["Slot"].type()) {
+        vector<ListIntentionsResponseBodyDataIntentListSlot> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Slot"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntentionsResponseBodyDataIntentListSlot model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        slot = make_shared<vector<ListIntentionsResponseBodyDataIntentListSlot>>(expect1);
+      }
+    }
+    if (m.find("TableId") != m.end() && !m["TableId"].empty()) {
+      tableId = make_shared<long>(boost::any_cast<long>(m["TableId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+    if (m.find("UserSay") != m.end() && !m["UserSay"].empty()) {
+      if (typeid(vector<boost::any>) == m["UserSay"].type()) {
+        vector<ListIntentionsResponseBodyDataIntentListUserSay> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UserSay"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntentionsResponseBodyDataIntentListUserSay model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userSay = make_shared<vector<ListIntentionsResponseBodyDataIntentListUserSay>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyDataIntentList() = default;
+};
+class ListIntentionsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> botId{};
+  shared_ptr<vector<ListIntentionsResponseBodyDataIntentList>> intentList{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> success{};
+
+  ListIntentionsResponseBodyData() {}
+
+  explicit ListIntentionsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (botId) {
+      res["BotId"] = boost::any(*botId);
+    }
+    if (intentList) {
+      vector<boost::any> temp1;
+      for(auto item1:*intentList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IntentList"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BotId") != m.end() && !m["BotId"].empty()) {
+      botId = make_shared<string>(boost::any_cast<string>(m["BotId"]));
+    }
+    if (m.find("IntentList") != m.end() && !m["IntentList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IntentList"].type()) {
+        vector<ListIntentionsResponseBodyDataIntentList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IntentList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntentionsResponseBodyDataIntentList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        intentList = make_shared<vector<ListIntentionsResponseBodyDataIntentList>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBodyData() = default;
+};
+class ListIntentionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListIntentionsResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListIntentionsResponseBody() {}
+
+  explicit ListIntentionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListIntentionsResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListIntentionsResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListIntentionsResponseBody() = default;
+};
+class ListIntentionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListIntentionsResponseBody> body{};
+
+  ListIntentionsResponse() {}
+
+  explicit ListIntentionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListIntentionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListIntentionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListIntentionsResponse() = default;
 };
 class ListIntentsRequest : public Darabonba::Model {
 public:
@@ -29174,6 +32555,49 @@ public:
 
   virtual ~ListScriptsRequest() = default;
 };
+class ListScriptsResponseBodyScriptsListNluProfile : public Darabonba::Model {
+public:
+  shared_ptr<string> fcFunction{};
+  shared_ptr<string> fcHttpTriggerUrl{};
+  shared_ptr<string> fcRegion{};
+
+  ListScriptsResponseBodyScriptsListNluProfile() {}
+
+  explicit ListScriptsResponseBodyScriptsListNluProfile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fcFunction) {
+      res["FcFunction"] = boost::any(*fcFunction);
+    }
+    if (fcHttpTriggerUrl) {
+      res["FcHttpTriggerUrl"] = boost::any(*fcHttpTriggerUrl);
+    }
+    if (fcRegion) {
+      res["FcRegion"] = boost::any(*fcRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FcFunction") != m.end() && !m["FcFunction"].empty()) {
+      fcFunction = make_shared<string>(boost::any_cast<string>(m["FcFunction"]));
+    }
+    if (m.find("FcHttpTriggerUrl") != m.end() && !m["FcHttpTriggerUrl"].empty()) {
+      fcHttpTriggerUrl = make_shared<string>(boost::any_cast<string>(m["FcHttpTriggerUrl"]));
+    }
+    if (m.find("FcRegion") != m.end() && !m["FcRegion"].empty()) {
+      fcRegion = make_shared<string>(boost::any_cast<string>(m["FcRegion"]));
+    }
+  }
+
+
+  virtual ~ListScriptsResponseBodyScriptsListNluProfile() = default;
+};
 class ListScriptsResponseBodyScriptsList : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -29190,6 +32614,7 @@ public:
   shared_ptr<bool> newBargeInEnable{};
   shared_ptr<string> nluAccessType{};
   shared_ptr<string> nluEngine{};
+  shared_ptr<ListScriptsResponseBodyScriptsListNluProfile> nluProfile{};
   shared_ptr<string> rejectReason{};
   shared_ptr<string> scene{};
   shared_ptr<string> scriptDescription{};
@@ -29250,6 +32675,9 @@ public:
     }
     if (nluEngine) {
       res["NluEngine"] = boost::any(*nluEngine);
+    }
+    if (nluProfile) {
+      res["NluProfile"] = nluProfile ? boost::any(nluProfile->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (rejectReason) {
       res["RejectReason"] = boost::any(*rejectReason);
@@ -29320,6 +32748,13 @@ public:
     }
     if (m.find("NluEngine") != m.end() && !m["NluEngine"].empty()) {
       nluEngine = make_shared<string>(boost::any_cast<string>(m["NluEngine"]));
+    }
+    if (m.find("NluProfile") != m.end() && !m["NluProfile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NluProfile"].type()) {
+        ListScriptsResponseBodyScriptsListNluProfile model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NluProfile"]));
+        nluProfile = make_shared<ListScriptsResponseBodyScriptsListNluProfile>(model1);
+      }
     }
     if (m.find("RejectReason") != m.end() && !m["RejectReason"].empty()) {
       rejectReason = make_shared<string>(boost::any_cast<string>(m["RejectReason"]));
@@ -31334,6 +34769,795 @@ public:
 
 
   virtual ~ModifyBatchJobsResponse() = default;
+};
+class ModifyBeebotIntentRequestIntentDefinition : public Darabonba::Model {
+public:
+  shared_ptr<string> aliasName{};
+  shared_ptr<string> intentName{};
+
+  ModifyBeebotIntentRequestIntentDefinition() {}
+
+  explicit ModifyBeebotIntentRequestIntentDefinition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasName) {
+      res["AliasName"] = boost::any(*aliasName);
+    }
+    if (intentName) {
+      res["IntentName"] = boost::any(*intentName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
+      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
+      intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentRequestIntentDefinition() = default;
+};
+class ModifyBeebotIntentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<ModifyBeebotIntentRequestIntentDefinition> intentDefinition{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> scriptId{};
+
+  ModifyBeebotIntentRequest() {}
+
+  explicit ModifyBeebotIntentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentDefinition) {
+      res["IntentDefinition"] = intentDefinition ? boost::any(intentDefinition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentDefinition") != m.end() && !m["IntentDefinition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IntentDefinition"].type()) {
+        ModifyBeebotIntentRequestIntentDefinition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IntentDefinition"]));
+        intentDefinition = make_shared<ModifyBeebotIntentRequestIntentDefinition>(model1);
+      }
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentRequest() = default;
+};
+class ModifyBeebotIntentShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> intentDefinitionShrink{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> scriptId{};
+
+  ModifyBeebotIntentShrinkRequest() {}
+
+  explicit ModifyBeebotIntentShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intentDefinitionShrink) {
+      res["IntentDefinition"] = boost::any(*intentDefinitionShrink);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntentDefinition") != m.end() && !m["IntentDefinition"].empty()) {
+      intentDefinitionShrink = make_shared<string>(boost::any_cast<string>(m["IntentDefinition"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentShrinkRequest() = default;
+};
+class ModifyBeebotIntentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> intentId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ModifyBeebotIntentResponseBody() {}
+
+  explicit ModifyBeebotIntentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentResponseBody() = default;
+};
+class ModifyBeebotIntentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyBeebotIntentResponseBody> body{};
+
+  ModifyBeebotIntentResponse() {}
+
+  explicit ModifyBeebotIntentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyBeebotIntentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyBeebotIntentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentResponse() = default;
+};
+class ModifyBeebotIntentLgfRequestLgfDefinition : public Darabonba::Model {
+public:
+  shared_ptr<long> intentId{};
+  shared_ptr<string> ruleText{};
+
+  ModifyBeebotIntentLgfRequestLgfDefinition() {}
+
+  explicit ModifyBeebotIntentLgfRequestLgfDefinition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    if (ruleText) {
+      res["RuleText"] = boost::any(*ruleText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+    if (m.find("RuleText") != m.end() && !m["RuleText"].empty()) {
+      ruleText = make_shared<string>(boost::any_cast<string>(m["RuleText"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentLgfRequestLgfDefinition() = default;
+};
+class ModifyBeebotIntentLgfRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<ModifyBeebotIntentLgfRequestLgfDefinition> lgfDefinition{};
+  shared_ptr<long> lgfId{};
+  shared_ptr<string> scriptId{};
+
+  ModifyBeebotIntentLgfRequest() {}
+
+  explicit ModifyBeebotIntentLgfRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lgfDefinition) {
+      res["LgfDefinition"] = lgfDefinition ? boost::any(lgfDefinition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (lgfId) {
+      res["LgfId"] = boost::any(*lgfId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LgfDefinition") != m.end() && !m["LgfDefinition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LgfDefinition"].type()) {
+        ModifyBeebotIntentLgfRequestLgfDefinition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LgfDefinition"]));
+        lgfDefinition = make_shared<ModifyBeebotIntentLgfRequestLgfDefinition>(model1);
+      }
+    }
+    if (m.find("LgfId") != m.end() && !m["LgfId"].empty()) {
+      lgfId = make_shared<long>(boost::any_cast<long>(m["LgfId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentLgfRequest() = default;
+};
+class ModifyBeebotIntentLgfShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> lgfDefinitionShrink{};
+  shared_ptr<long> lgfId{};
+  shared_ptr<string> scriptId{};
+
+  ModifyBeebotIntentLgfShrinkRequest() {}
+
+  explicit ModifyBeebotIntentLgfShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lgfDefinitionShrink) {
+      res["LgfDefinition"] = boost::any(*lgfDefinitionShrink);
+    }
+    if (lgfId) {
+      res["LgfId"] = boost::any(*lgfId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LgfDefinition") != m.end() && !m["LgfDefinition"].empty()) {
+      lgfDefinitionShrink = make_shared<string>(boost::any_cast<string>(m["LgfDefinition"]));
+    }
+    if (m.find("LgfId") != m.end() && !m["LgfId"].empty()) {
+      lgfId = make_shared<long>(boost::any_cast<long>(m["LgfId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentLgfShrinkRequest() = default;
+};
+class ModifyBeebotIntentLgfResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> lgfId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ModifyBeebotIntentLgfResponseBody() {}
+
+  explicit ModifyBeebotIntentLgfResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (lgfId) {
+      res["LgfId"] = boost::any(*lgfId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("LgfId") != m.end() && !m["LgfId"].empty()) {
+      lgfId = make_shared<long>(boost::any_cast<long>(m["LgfId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentLgfResponseBody() = default;
+};
+class ModifyBeebotIntentLgfResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyBeebotIntentLgfResponseBody> body{};
+
+  ModifyBeebotIntentLgfResponse() {}
+
+  explicit ModifyBeebotIntentLgfResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyBeebotIntentLgfResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyBeebotIntentLgfResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentLgfResponse() = default;
+};
+class ModifyBeebotIntentUserSayRequestUserSayDefinition : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<long> intentId{};
+
+  ModifyBeebotIntentUserSayRequestUserSayDefinition() {}
+
+  explicit ModifyBeebotIntentUserSayRequestUserSayDefinition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (intentId) {
+      res["IntentId"] = boost::any(*intentId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
+      intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentUserSayRequestUserSayDefinition() = default;
+};
+class ModifyBeebotIntentUserSayRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> scriptId{};
+  shared_ptr<ModifyBeebotIntentUserSayRequestUserSayDefinition> userSayDefinition{};
+  shared_ptr<string> userSayId{};
+
+  ModifyBeebotIntentUserSayRequest() {}
+
+  explicit ModifyBeebotIntentUserSayRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    if (userSayDefinition) {
+      res["UserSayDefinition"] = userSayDefinition ? boost::any(userSayDefinition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userSayId) {
+      res["UserSayId"] = boost::any(*userSayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+    if (m.find("UserSayDefinition") != m.end() && !m["UserSayDefinition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserSayDefinition"].type()) {
+        ModifyBeebotIntentUserSayRequestUserSayDefinition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserSayDefinition"]));
+        userSayDefinition = make_shared<ModifyBeebotIntentUserSayRequestUserSayDefinition>(model1);
+      }
+    }
+    if (m.find("UserSayId") != m.end() && !m["UserSayId"].empty()) {
+      userSayId = make_shared<string>(boost::any_cast<string>(m["UserSayId"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentUserSayRequest() = default;
+};
+class ModifyBeebotIntentUserSayShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> scriptId{};
+  shared_ptr<string> userSayDefinitionShrink{};
+  shared_ptr<string> userSayId{};
+
+  ModifyBeebotIntentUserSayShrinkRequest() {}
+
+  explicit ModifyBeebotIntentUserSayShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    if (userSayDefinitionShrink) {
+      res["UserSayDefinition"] = boost::any(*userSayDefinitionShrink);
+    }
+    if (userSayId) {
+      res["UserSayId"] = boost::any(*userSayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+    if (m.find("UserSayDefinition") != m.end() && !m["UserSayDefinition"].empty()) {
+      userSayDefinitionShrink = make_shared<string>(boost::any_cast<string>(m["UserSayDefinition"]));
+    }
+    if (m.find("UserSayId") != m.end() && !m["UserSayId"].empty()) {
+      userSayId = make_shared<string>(boost::any_cast<string>(m["UserSayId"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentUserSayShrinkRequest() = default;
+};
+class ModifyBeebotIntentUserSayResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> beebotRequestId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> userSayId{};
+
+  ModifyBeebotIntentUserSayResponseBody() {}
+
+  explicit ModifyBeebotIntentUserSayResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beebotRequestId) {
+      res["BeebotRequestId"] = boost::any(*beebotRequestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (userSayId) {
+      res["UserSayId"] = boost::any(*userSayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeebotRequestId") != m.end() && !m["BeebotRequestId"].empty()) {
+      beebotRequestId = make_shared<string>(boost::any_cast<string>(m["BeebotRequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("UserSayId") != m.end() && !m["UserSayId"].empty()) {
+      userSayId = make_shared<long>(boost::any_cast<long>(m["UserSayId"]));
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentUserSayResponseBody() = default;
+};
+class ModifyBeebotIntentUserSayResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyBeebotIntentUserSayResponseBody> body{};
+
+  ModifyBeebotIntentUserSayResponse() {}
+
+  explicit ModifyBeebotIntentUserSayResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyBeebotIntentUserSayResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyBeebotIntentUserSayResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyBeebotIntentUserSayResponse() = default;
 };
 class ModifyDialogueFlowRequest : public Darabonba::Model {
 public:
@@ -42815,6 +47039,12 @@ public:
   CreateBatchJobsResponse createBatchJobs(shared_ptr<CreateBatchJobsRequest> request);
   CreateBatchRepeatJobResponse createBatchRepeatJobWithOptions(shared_ptr<CreateBatchRepeatJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBatchRepeatJobResponse createBatchRepeatJob(shared_ptr<CreateBatchRepeatJobRequest> request);
+  CreateBeebotIntentResponse createBeebotIntentWithOptions(shared_ptr<CreateBeebotIntentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateBeebotIntentResponse createBeebotIntent(shared_ptr<CreateBeebotIntentRequest> request);
+  CreateBeebotIntentLgfResponse createBeebotIntentLgfWithOptions(shared_ptr<CreateBeebotIntentLgfRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateBeebotIntentLgfResponse createBeebotIntentLgf(shared_ptr<CreateBeebotIntentLgfRequest> request);
+  CreateBeebotIntentUserSayResponse createBeebotIntentUserSayWithOptions(shared_ptr<CreateBeebotIntentUserSayRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateBeebotIntentUserSayResponse createBeebotIntentUserSay(shared_ptr<CreateBeebotIntentUserSayRequest> request);
   CreateDialogueFlowResponse createDialogueFlowWithOptions(shared_ptr<CreateDialogueFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDialogueFlowResponse createDialogueFlow(shared_ptr<CreateDialogueFlowRequest> request);
   CreateDownloadUrlResponse createDownloadUrlWithOptions(shared_ptr<CreateDownloadUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -42851,6 +47081,12 @@ public:
   DeleteAgentProfilesResponse deleteAgentProfiles(shared_ptr<DeleteAgentProfilesRequest> request);
   DeleteAllNumberDistrictInfoResponse deleteAllNumberDistrictInfoWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAllNumberDistrictInfoResponse deleteAllNumberDistrictInfo();
+  DeleteBeebotIntentResponse deleteBeebotIntentWithOptions(shared_ptr<DeleteBeebotIntentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteBeebotIntentResponse deleteBeebotIntent(shared_ptr<DeleteBeebotIntentRequest> request);
+  DeleteBeebotIntentLgfResponse deleteBeebotIntentLgfWithOptions(shared_ptr<DeleteBeebotIntentLgfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteBeebotIntentLgfResponse deleteBeebotIntentLgf(shared_ptr<DeleteBeebotIntentLgfRequest> request);
+  DeleteBeebotIntentUserSayResponse deleteBeebotIntentUserSayWithOptions(shared_ptr<DeleteBeebotIntentUserSayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteBeebotIntentUserSayResponse deleteBeebotIntentUserSay(shared_ptr<DeleteBeebotIntentUserSayRequest> request);
   DeleteContactBlockListResponse deleteContactBlockListWithOptions(shared_ptr<DeleteContactBlockListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteContactBlockListResponse deleteContactBlockList(shared_ptr<DeleteContactBlockListRequest> request);
   DeleteContactWhiteListResponse deleteContactWhiteListWithOptions(shared_ptr<DeleteContactWhiteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -42873,6 +47109,8 @@ public:
   DeleteScriptRecordingResponse deleteScriptRecording(shared_ptr<DeleteScriptRecordingRequest> request);
   DeleteScriptWaveformResponse deleteScriptWaveformWithOptions(shared_ptr<DeleteScriptWaveformRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteScriptWaveformResponse deleteScriptWaveform(shared_ptr<DeleteScriptWaveformRequest> request);
+  DescribeBeebotIntentResponse describeBeebotIntentWithOptions(shared_ptr<DescribeBeebotIntentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeBeebotIntentResponse describeBeebotIntent(shared_ptr<DescribeBeebotIntentRequest> request);
   DescribeDialogueNodeStatisticsResponse describeDialogueNodeStatisticsWithOptions(shared_ptr<DescribeDialogueNodeStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDialogueNodeStatisticsResponse describeDialogueNodeStatistics(shared_ptr<DescribeDialogueNodeStatisticsRequest> request);
   DescribeDsReportsResponse describeDsReportsWithOptions(shared_ptr<DescribeDsReportsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -42977,6 +47215,12 @@ public:
   ListAnnotationMissionSessionResponse listAnnotationMissionSession(shared_ptr<ListAnnotationMissionSessionRequest> request);
   ListApiPluginsResponse listApiPluginsWithOptions(shared_ptr<ListApiPluginsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListApiPluginsResponse listApiPlugins(shared_ptr<ListApiPluginsRequest> request);
+  ListBeebotIntentResponse listBeebotIntentWithOptions(shared_ptr<ListBeebotIntentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListBeebotIntentResponse listBeebotIntent(shared_ptr<ListBeebotIntentRequest> request);
+  ListBeebotIntentLgfResponse listBeebotIntentLgfWithOptions(shared_ptr<ListBeebotIntentLgfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListBeebotIntentLgfResponse listBeebotIntentLgf(shared_ptr<ListBeebotIntentLgfRequest> request);
+  ListBeebotIntentUserSayResponse listBeebotIntentUserSayWithOptions(shared_ptr<ListBeebotIntentUserSayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListBeebotIntentUserSayResponse listBeebotIntentUserSay(shared_ptr<ListBeebotIntentUserSayRequest> request);
   ListChatbotInstancesResponse listChatbotInstancesWithOptions(shared_ptr<ListChatbotInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListChatbotInstancesResponse listChatbotInstances(shared_ptr<ListChatbotInstancesRequest> request);
   ListDialogueFlowsResponse listDialogueFlowsWithOptions(shared_ptr<ListDialogueFlowsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -42989,6 +47233,8 @@ public:
   ListGlobalQuestionsResponse listGlobalQuestions(shared_ptr<ListGlobalQuestionsRequest> request);
   ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancesResponse listInstances(shared_ptr<ListInstancesRequest> request);
+  ListIntentionsResponse listIntentionsWithOptions(shared_ptr<ListIntentionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListIntentionsResponse listIntentions(shared_ptr<ListIntentionsRequest> request);
   ListIntentsResponse listIntentsWithOptions(shared_ptr<ListIntentsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIntentsResponse listIntents(shared_ptr<ListIntentsRequest> request);
   ListJobGroupsResponse listJobGroupsWithOptions(shared_ptr<ListJobGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -43023,6 +47269,12 @@ public:
   ModifyAnnotationMissionResponse modifyAnnotationMission(shared_ptr<ModifyAnnotationMissionRequest> request);
   ModifyBatchJobsResponse modifyBatchJobsWithOptions(shared_ptr<ModifyBatchJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyBatchJobsResponse modifyBatchJobs(shared_ptr<ModifyBatchJobsRequest> request);
+  ModifyBeebotIntentResponse modifyBeebotIntentWithOptions(shared_ptr<ModifyBeebotIntentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyBeebotIntentResponse modifyBeebotIntent(shared_ptr<ModifyBeebotIntentRequest> request);
+  ModifyBeebotIntentLgfResponse modifyBeebotIntentLgfWithOptions(shared_ptr<ModifyBeebotIntentLgfRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyBeebotIntentLgfResponse modifyBeebotIntentLgf(shared_ptr<ModifyBeebotIntentLgfRequest> request);
+  ModifyBeebotIntentUserSayResponse modifyBeebotIntentUserSayWithOptions(shared_ptr<ModifyBeebotIntentUserSayRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyBeebotIntentUserSayResponse modifyBeebotIntentUserSay(shared_ptr<ModifyBeebotIntentUserSayRequest> request);
   ModifyDialogueFlowResponse modifyDialogueFlowWithOptions(shared_ptr<ModifyDialogueFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDialogueFlowResponse modifyDialogueFlow(shared_ptr<ModifyDialogueFlowRequest> request);
   ModifyEmptyNumberNoMoreCallsInfoResponse modifyEmptyNumberNoMoreCallsInfoWithOptions(shared_ptr<ModifyEmptyNumberNoMoreCallsInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
