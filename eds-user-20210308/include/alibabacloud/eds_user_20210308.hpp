@@ -1701,6 +1701,7 @@ public:
 };
 class CreateUsersResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<bool> allSucceed{};
   shared_ptr<CreateUsersResponseBodyCreateResult> createResult{};
   shared_ptr<string> requestId{};
 
@@ -1714,6 +1715,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allSucceed) {
+      res["AllSucceed"] = boost::any(*allSucceed);
+    }
     if (createResult) {
       res["CreateResult"] = createResult ? boost::any(createResult->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1724,6 +1728,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllSucceed") != m.end() && !m["AllSucceed"].empty()) {
+      allSucceed = make_shared<bool>(boost::any_cast<bool>(m["AllSucceed"]));
+    }
     if (m.find("CreateResult") != m.end() && !m["CreateResult"].empty()) {
       if (typeid(map<string, boost::any>) == m["CreateResult"].type()) {
         CreateUsersResponseBodyCreateResult model1;
