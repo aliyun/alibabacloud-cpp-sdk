@@ -1,3 +1,8 @@
+2025-04-25 Version: 1.0.9
+- Update API ListSubscriptionByTopic: add request parameters EndpointType.
+- Update API ListSubscriptionByTopic: add request parameters EndpointValue.
+
+
 2025-03-18 Version: 1.0.8
 - Generated cpp 2022-01-19 for Mns-open.
 

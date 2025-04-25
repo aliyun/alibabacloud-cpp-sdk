@@ -3887,6 +3887,8 @@ public:
 };
 class ListSubscriptionByTopicRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endpointType{};
+  shared_ptr<string> endpointValue{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> subscriptionName{};
@@ -3902,6 +3904,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endpointType) {
+      res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (endpointValue) {
+      res["EndpointValue"] = boost::any(*endpointValue);
+    }
     if (pageNum) {
       res["PageNum"] = boost::any(*pageNum);
     }
@@ -3918,6 +3926,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
+      endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("EndpointValue") != m.end() && !m["EndpointValue"].empty()) {
+      endpointValue = make_shared<string>(boost::any_cast<string>(m["EndpointValue"]));
+    }
     if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
       pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
     }
