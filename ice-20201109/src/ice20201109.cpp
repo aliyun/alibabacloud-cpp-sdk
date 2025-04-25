@@ -2450,6 +2450,9 @@ DeleteMediaConnectFlowInputResponse Alibabacloud_ICE20201109::Client::deleteMedi
   if (!Darabonba_Util::Client::isUnset<string>(request->flowId)) {
     query->insert(pair<string, string>("FlowId", *request->flowId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputName)) {
+    query->insert(pair<string, string>("InputName", *request->inputName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -11617,6 +11620,9 @@ UpdateMediaConnectFlowInputResponse Alibabacloud_ICE20201109::Client::updateMedi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputFromUrl)) {
     query->insert(pair<string, string>("InputFromUrl", *request->inputFromUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputName)) {
+    query->insert(pair<string, string>("InputName", *request->inputName));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxBitrate)) {
     query->insert(pair<string, long>("MaxBitrate", *request->maxBitrate));

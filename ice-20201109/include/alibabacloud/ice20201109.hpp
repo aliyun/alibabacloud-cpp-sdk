@@ -17103,6 +17103,7 @@ public:
 class DeleteMediaConnectFlowInputRequest : public Darabonba::Model {
 public:
   shared_ptr<string> flowId{};
+  shared_ptr<string> inputName{};
 
   DeleteMediaConnectFlowInputRequest() {}
 
@@ -17117,12 +17118,18 @@ public:
     if (flowId) {
       res["FlowId"] = boost::any(*flowId);
     }
+    if (inputName) {
+      res["InputName"] = boost::any(*inputName);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FlowId") != m.end() && !m["FlowId"].empty()) {
       flowId = make_shared<string>(boost::any_cast<string>(m["FlowId"]));
+    }
+    if (m.find("InputName") != m.end() && !m["InputName"].empty()) {
+      inputName = make_shared<string>(boost::any_cast<string>(m["InputName"]));
     }
   }
 
@@ -29459,6 +29466,7 @@ public:
 class GetMediaConnectFlowResponseBodyContent : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<string> flowFailover{};
   shared_ptr<string> flowId{};
   shared_ptr<string> flowName{};
   shared_ptr<string> flowStatus{};
@@ -29476,6 +29484,9 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (flowFailover) {
+      res["FlowFailover"] = boost::any(*flowFailover);
     }
     if (flowId) {
       res["FlowId"] = boost::any(*flowId);
@@ -29495,6 +29506,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FlowFailover") != m.end() && !m["FlowFailover"].empty()) {
+      flowFailover = make_shared<string>(boost::any_cast<string>(m["FlowFailover"]));
     }
     if (m.find("FlowId") != m.end() && !m["FlowId"].empty()) {
       flowId = make_shared<string>(boost::any_cast<string>(m["FlowId"]));
@@ -29650,10 +29664,20 @@ public:
 };
 class GetMediaConnectFlowInputResponseBodyContent : public Darabonba::Model {
 public:
+  shared_ptr<string> backupCidrs{};
+  shared_ptr<string> backupCreateTime{};
+  shared_ptr<string> backupInputName{};
+  shared_ptr<string> backupInputStatus{};
+  shared_ptr<string> backupInputUrl{};
+  shared_ptr<long> backupMaxBitrate{};
+  shared_ptr<long> backupSrtLatency{};
+  shared_ptr<string> backupSrtPassphrase{};
+  shared_ptr<long> backupSrtPbkeyLen{};
   shared_ptr<string> cidrs{};
   shared_ptr<string> createTime{};
   shared_ptr<string> inputName{};
   shared_ptr<string> inputProtocol{};
+  shared_ptr<string> inputStatus{};
   shared_ptr<string> inputUrl{};
   shared_ptr<long> maxBitrate{};
   shared_ptr<string> pairFlowId{};
@@ -29672,6 +29696,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (backupCidrs) {
+      res["BackupCidrs"] = boost::any(*backupCidrs);
+    }
+    if (backupCreateTime) {
+      res["BackupCreateTime"] = boost::any(*backupCreateTime);
+    }
+    if (backupInputName) {
+      res["BackupInputName"] = boost::any(*backupInputName);
+    }
+    if (backupInputStatus) {
+      res["BackupInputStatus"] = boost::any(*backupInputStatus);
+    }
+    if (backupInputUrl) {
+      res["BackupInputUrl"] = boost::any(*backupInputUrl);
+    }
+    if (backupMaxBitrate) {
+      res["BackupMaxBitrate"] = boost::any(*backupMaxBitrate);
+    }
+    if (backupSrtLatency) {
+      res["BackupSrtLatency"] = boost::any(*backupSrtLatency);
+    }
+    if (backupSrtPassphrase) {
+      res["BackupSrtPassphrase"] = boost::any(*backupSrtPassphrase);
+    }
+    if (backupSrtPbkeyLen) {
+      res["BackupSrtPbkeyLen"] = boost::any(*backupSrtPbkeyLen);
+    }
     if (cidrs) {
       res["Cidrs"] = boost::any(*cidrs);
     }
@@ -29683,6 +29734,9 @@ public:
     }
     if (inputProtocol) {
       res["InputProtocol"] = boost::any(*inputProtocol);
+    }
+    if (inputStatus) {
+      res["InputStatus"] = boost::any(*inputStatus);
     }
     if (inputUrl) {
       res["InputUrl"] = boost::any(*inputUrl);
@@ -29709,6 +29763,33 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackupCidrs") != m.end() && !m["BackupCidrs"].empty()) {
+      backupCidrs = make_shared<string>(boost::any_cast<string>(m["BackupCidrs"]));
+    }
+    if (m.find("BackupCreateTime") != m.end() && !m["BackupCreateTime"].empty()) {
+      backupCreateTime = make_shared<string>(boost::any_cast<string>(m["BackupCreateTime"]));
+    }
+    if (m.find("BackupInputName") != m.end() && !m["BackupInputName"].empty()) {
+      backupInputName = make_shared<string>(boost::any_cast<string>(m["BackupInputName"]));
+    }
+    if (m.find("BackupInputStatus") != m.end() && !m["BackupInputStatus"].empty()) {
+      backupInputStatus = make_shared<string>(boost::any_cast<string>(m["BackupInputStatus"]));
+    }
+    if (m.find("BackupInputUrl") != m.end() && !m["BackupInputUrl"].empty()) {
+      backupInputUrl = make_shared<string>(boost::any_cast<string>(m["BackupInputUrl"]));
+    }
+    if (m.find("BackupMaxBitrate") != m.end() && !m["BackupMaxBitrate"].empty()) {
+      backupMaxBitrate = make_shared<long>(boost::any_cast<long>(m["BackupMaxBitrate"]));
+    }
+    if (m.find("BackupSrtLatency") != m.end() && !m["BackupSrtLatency"].empty()) {
+      backupSrtLatency = make_shared<long>(boost::any_cast<long>(m["BackupSrtLatency"]));
+    }
+    if (m.find("BackupSrtPassphrase") != m.end() && !m["BackupSrtPassphrase"].empty()) {
+      backupSrtPassphrase = make_shared<string>(boost::any_cast<string>(m["BackupSrtPassphrase"]));
+    }
+    if (m.find("BackupSrtPbkeyLen") != m.end() && !m["BackupSrtPbkeyLen"].empty()) {
+      backupSrtPbkeyLen = make_shared<long>(boost::any_cast<long>(m["BackupSrtPbkeyLen"]));
+    }
     if (m.find("Cidrs") != m.end() && !m["Cidrs"].empty()) {
       cidrs = make_shared<string>(boost::any_cast<string>(m["Cidrs"]));
     }
@@ -29720,6 +29801,9 @@ public:
     }
     if (m.find("InputProtocol") != m.end() && !m["InputProtocol"].empty()) {
       inputProtocol = make_shared<string>(boost::any_cast<string>(m["InputProtocol"]));
+    }
+    if (m.find("InputStatus") != m.end() && !m["InputStatus"].empty()) {
+      inputStatus = make_shared<string>(boost::any_cast<string>(m["InputStatus"]));
     }
     if (m.find("InputUrl") != m.end() && !m["InputUrl"].empty()) {
       inputUrl = make_shared<string>(boost::any_cast<string>(m["InputUrl"]));
@@ -29893,6 +29977,7 @@ class GetMediaConnectFlowOutputResponseBodyContent : public Darabonba::Model {
 public:
   shared_ptr<string> cidrs{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> forbid{};
   shared_ptr<string> outputName{};
   shared_ptr<string> outputProtocol{};
   shared_ptr<string> outputUrl{};
@@ -29918,6 +30003,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (forbid) {
+      res["Forbid"] = boost::any(*forbid);
     }
     if (outputName) {
       res["OutputName"] = boost::any(*outputName);
@@ -29955,6 +30043,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Forbid") != m.end() && !m["Forbid"].empty()) {
+      forbid = make_shared<string>(boost::any_cast<string>(m["Forbid"]));
     }
     if (m.find("OutputName") != m.end() && !m["OutputName"].empty()) {
       outputName = make_shared<string>(boost::any_cast<string>(m["OutputName"]));
@@ -94632,6 +94723,7 @@ public:
   shared_ptr<string> cidrs{};
   shared_ptr<string> flowId{};
   shared_ptr<string> inputFromUrl{};
+  shared_ptr<string> inputName{};
   shared_ptr<long> maxBitrate{};
   shared_ptr<long> srtLatency{};
   shared_ptr<string> srtPassphrase{};
@@ -94655,6 +94747,9 @@ public:
     }
     if (inputFromUrl) {
       res["InputFromUrl"] = boost::any(*inputFromUrl);
+    }
+    if (inputName) {
+      res["InputName"] = boost::any(*inputName);
     }
     if (maxBitrate) {
       res["MaxBitrate"] = boost::any(*maxBitrate);
@@ -94680,6 +94775,9 @@ public:
     }
     if (m.find("InputFromUrl") != m.end() && !m["InputFromUrl"].empty()) {
       inputFromUrl = make_shared<string>(boost::any_cast<string>(m["InputFromUrl"]));
+    }
+    if (m.find("InputName") != m.end() && !m["InputName"].empty()) {
+      inputName = make_shared<string>(boost::any_cast<string>(m["InputName"]));
     }
     if (m.find("MaxBitrate") != m.end() && !m["MaxBitrate"].empty()) {
       maxBitrate = make_shared<long>(boost::any_cast<long>(m["MaxBitrate"]));
