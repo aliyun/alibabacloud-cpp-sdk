@@ -7857,6 +7857,9 @@ ModifyInstanceChargeTypeResponse Alibabacloud_Ens20171110::Client::modifyInstanc
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->billingCycle)) {
+    query->insert(pair<string, string>("BillingCycle", *request->billingCycle));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeDataDisks)) {
     query->insert(pair<string, bool>("IncludeDataDisks", *request->includeDataDisks));
   }

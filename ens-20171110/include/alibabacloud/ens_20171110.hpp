@@ -56454,6 +56454,7 @@ class ModifyInstanceChargeTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<string> billingCycle{};
   shared_ptr<bool> includeDataDisks{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<vector<string>> instanceIds{};
@@ -56475,6 +56476,9 @@ public:
     }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (billingCycle) {
+      res["BillingCycle"] = boost::any(*billingCycle);
     }
     if (includeDataDisks) {
       res["IncludeDataDisks"] = boost::any(*includeDataDisks);
@@ -56500,6 +56504,9 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("BillingCycle") != m.end() && !m["BillingCycle"].empty()) {
+      billingCycle = make_shared<string>(boost::any_cast<string>(m["BillingCycle"]));
     }
     if (m.find("IncludeDataDisks") != m.end() && !m["IncludeDataDisks"].empty()) {
       includeDataDisks = make_shared<bool>(boost::any_cast<bool>(m["IncludeDataDisks"]));
@@ -56532,6 +56539,7 @@ class ModifyInstanceChargeTypeShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<string> billingCycle{};
   shared_ptr<bool> includeDataDisks{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> instanceIdsShrink{};
@@ -56553,6 +56561,9 @@ public:
     }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (billingCycle) {
+      res["BillingCycle"] = boost::any(*billingCycle);
     }
     if (includeDataDisks) {
       res["IncludeDataDisks"] = boost::any(*includeDataDisks);
@@ -56578,6 +56589,9 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("BillingCycle") != m.end() && !m["BillingCycle"].empty()) {
+      billingCycle = make_shared<string>(boost::any_cast<string>(m["BillingCycle"]));
     }
     if (m.find("IncludeDataDisks") != m.end() && !m["IncludeDataDisks"].empty()) {
       includeDataDisks = make_shared<bool>(boost::any_cast<bool>(m["IncludeDataDisks"]));
