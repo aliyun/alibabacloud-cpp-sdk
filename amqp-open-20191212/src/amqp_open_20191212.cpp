@@ -187,6 +187,9 @@ CreateInstanceResponse Alibabacloud_Amqp-open20191212::Client::createInstanceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->edition)) {
+    query->insert(pair<string, string>("Edition", *request->edition));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->encryptedInstance)) {
     query->insert(pair<string, bool>("EncryptedInstance", *request->encryptedInstance));
   }
@@ -216,6 +219,9 @@ CreateInstanceResponse Alibabacloud_Amqp-open20191212::Client::createInstanceWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodCycle)) {
     query->insert(pair<string, string>("PeriodCycle", *request->periodCycle));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->provisionedCapacity)) {
+    query->insert(pair<string, long>("ProvisionedCapacity", *request->provisionedCapacity));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->queueCapacity)) {
     query->insert(pair<string, long>("QueueCapacity", *request->queueCapacity));

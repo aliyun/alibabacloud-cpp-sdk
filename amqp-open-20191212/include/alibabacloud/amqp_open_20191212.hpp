@@ -642,6 +642,7 @@ public:
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> edition{};
   shared_ptr<bool> encryptedInstance{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceType{};
@@ -652,6 +653,7 @@ public:
   shared_ptr<string> paymentType{};
   shared_ptr<long> period{};
   shared_ptr<string> periodCycle{};
+  shared_ptr<long> provisionedCapacity{};
   shared_ptr<long> queueCapacity{};
   shared_ptr<string> renewStatus{};
   shared_ptr<string> renewalDurationUnit{};
@@ -680,6 +682,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
     }
     if (encryptedInstance) {
       res["EncryptedInstance"] = boost::any(*encryptedInstance);
@@ -710,6 +715,9 @@ public:
     }
     if (periodCycle) {
       res["PeriodCycle"] = boost::any(*periodCycle);
+    }
+    if (provisionedCapacity) {
+      res["ProvisionedCapacity"] = boost::any(*provisionedCapacity);
     }
     if (queueCapacity) {
       res["QueueCapacity"] = boost::any(*queueCapacity);
@@ -751,6 +759,9 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
+    }
     if (m.find("EncryptedInstance") != m.end() && !m["EncryptedInstance"].empty()) {
       encryptedInstance = make_shared<bool>(boost::any_cast<bool>(m["EncryptedInstance"]));
     }
@@ -780,6 +791,9 @@ public:
     }
     if (m.find("PeriodCycle") != m.end() && !m["PeriodCycle"].empty()) {
       periodCycle = make_shared<string>(boost::any_cast<string>(m["PeriodCycle"]));
+    }
+    if (m.find("ProvisionedCapacity") != m.end() && !m["ProvisionedCapacity"].empty()) {
+      provisionedCapacity = make_shared<long>(boost::any_cast<long>(m["ProvisionedCapacity"]));
     }
     if (m.find("QueueCapacity") != m.end() && !m["QueueCapacity"].empty()) {
       queueCapacity = make_shared<long>(boost::any_cast<long>(m["QueueCapacity"]));
