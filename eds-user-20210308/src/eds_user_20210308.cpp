@@ -221,6 +221,40 @@ CreatePropertyResponse Alibabacloud_Eds-user20210308::Client::createProperty(sha
   return createPropertyWithOptions(request, runtime);
 }
 
+CreateResourceGroupResponse Alibabacloud_Eds-user20210308::Client::createResourceGroupWithOptions(shared_ptr<CreateResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->isResourceGroupWithOfficeSite)) {
+    query->insert(pair<string, long>("IsResourceGroupWithOfficeSite", *request->isResourceGroupWithOfficeSite));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->platform)) {
+    query->insert(pair<string, string>("Platform", *request->platform));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupName)) {
+    query->insert(pair<string, string>("ResourceGroupName", *request->resourceGroupName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateResourceGroup"))},
+    {"version", boost::any(string("2021-03-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateResourceGroupResponse(callApi(params, req, runtime));
+}
+
+CreateResourceGroupResponse Alibabacloud_Eds-user20210308::Client::createResourceGroup(shared_ptr<CreateResourceGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createResourceGroupWithOptions(request, runtime);
+}
+
 CreateUsersResponse Alibabacloud_Eds-user20210308::Client::createUsersWithOptions(shared_ptr<CreateUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -261,6 +295,37 @@ CreateUsersResponse Alibabacloud_Eds-user20210308::Client::createUsersWithOption
 CreateUsersResponse Alibabacloud_Eds-user20210308::Client::createUsers(shared_ptr<CreateUsersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createUsersWithOptions(request, runtime);
+}
+
+DeleteResourceGroupResponse Alibabacloud_Eds-user20210308::Client::deleteResourceGroupWithOptions(shared_ptr<DeleteResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceGroupIds)) {
+    query->insert(pair<string, vector<string>>("ResourceGroupIds", *request->resourceGroupIds));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteResourceGroup"))},
+    {"version", boost::any(string("2021-03-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteResourceGroupResponse(callApi(params, req, runtime));
+}
+
+DeleteResourceGroupResponse Alibabacloud_Eds-user20210308::Client::deleteResourceGroup(shared_ptr<DeleteResourceGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteResourceGroupWithOptions(request, runtime);
 }
 
 DeleteUserPropertyValueResponse Alibabacloud_Eds-user20210308::Client::deleteUserPropertyValueWithOptions(shared_ptr<DeleteUserPropertyValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -403,6 +468,49 @@ DescribeOrgsResponse Alibabacloud_Eds-user20210308::Client::describeOrgsWithOpti
 DescribeOrgsResponse Alibabacloud_Eds-user20210308::Client::describeOrgs(shared_ptr<DescribeOrgsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeOrgsWithOptions(request, runtime);
+}
+
+DescribeResourceGroupsResponse Alibabacloud_Eds-user20210308::Client::describeResourceGroupsWithOptions(shared_ptr<DescribeResourceGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->needContainResourceGroupWithOfficeSite)) {
+    query->insert(pair<string, long>("NeedContainResourceGroupWithOfficeSite", *request->needContainResourceGroupWithOfficeSite));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->platform)) {
+    query->insert(pair<string, string>("Platform", *request->platform));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceGroupIds)) {
+    query->insert(pair<string, vector<string>>("ResourceGroupIds", *request->resourceGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupName)) {
+    query->insert(pair<string, string>("ResourceGroupName", *request->resourceGroupName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeResourceGroups"))},
+    {"version", boost::any(string("2021-03-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeResourceGroupsResponse(callApi(params, req, runtime));
+}
+
+DescribeResourceGroupsResponse Alibabacloud_Eds-user20210308::Client::describeResourceGroups(shared_ptr<DescribeResourceGroupsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeResourceGroupsWithOptions(request, runtime);
 }
 
 DescribeUsersResponse Alibabacloud_Eds-user20210308::Client::describeUsersWithOptions(shared_ptr<DescribeUsersRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
