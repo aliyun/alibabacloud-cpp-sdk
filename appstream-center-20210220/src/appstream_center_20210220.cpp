@@ -114,6 +114,9 @@ GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginTok
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     query->insert(pair<string, string>("ClientId", *request->clientId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientName)) {
+    query->insert(pair<string, string>("ClientName", *request->clientName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientOS)) {
     query->insert(pair<string, string>("ClientOS", *request->clientOS));
   }
@@ -185,6 +188,9 @@ GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginTok
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->phoneVerifyCode)) {
     query->insert(pair<string, string>("PhoneVerifyCode", *request->phoneVerifyCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->profileRegion)) {
+    query->insert(pair<string, string>("ProfileRegion", *request->profileRegion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

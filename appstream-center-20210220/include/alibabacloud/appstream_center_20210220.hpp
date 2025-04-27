@@ -528,6 +528,7 @@ public:
   shared_ptr<string> authenticationCode{};
   shared_ptr<map<string, string>> availableFeatures{};
   shared_ptr<string> clientId{};
+  shared_ptr<string> clientName{};
   shared_ptr<string> clientOS{};
   shared_ptr<string> clientType{};
   shared_ptr<string> clientVersion{};
@@ -552,6 +553,7 @@ public:
   shared_ptr<string> password{};
   shared_ptr<string> phone{};
   shared_ptr<string> phoneVerifyCode{};
+  shared_ptr<string> profileRegion{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> ssoExtendsCookies{};
@@ -578,6 +580,9 @@ public:
     }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
+    }
+    if (clientName) {
+      res["ClientName"] = boost::any(*clientName);
     }
     if (clientOS) {
       res["ClientOS"] = boost::any(*clientOS);
@@ -650,6 +655,9 @@ public:
     }
     if (phoneVerifyCode) {
       res["PhoneVerifyCode"] = boost::any(*phoneVerifyCode);
+    }
+    if (profileRegion) {
+      res["ProfileRegion"] = boost::any(*profileRegion);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -690,6 +698,9 @@ public:
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
     }
+    if (m.find("ClientName") != m.end() && !m["ClientName"].empty()) {
+      clientName = make_shared<string>(boost::any_cast<string>(m["ClientName"]));
+    }
     if (m.find("ClientOS") != m.end() && !m["ClientOS"].empty()) {
       clientOS = make_shared<string>(boost::any_cast<string>(m["ClientOS"]));
     }
@@ -762,6 +773,9 @@ public:
     if (m.find("PhoneVerifyCode") != m.end() && !m["PhoneVerifyCode"].empty()) {
       phoneVerifyCode = make_shared<string>(boost::any_cast<string>(m["PhoneVerifyCode"]));
     }
+    if (m.find("ProfileRegion") != m.end() && !m["ProfileRegion"].empty()) {
+      profileRegion = make_shared<string>(boost::any_cast<string>(m["ProfileRegion"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -793,6 +807,7 @@ public:
   shared_ptr<string> authenticationCode{};
   shared_ptr<string> availableFeaturesShrink{};
   shared_ptr<string> clientId{};
+  shared_ptr<string> clientName{};
   shared_ptr<string> clientOS{};
   shared_ptr<string> clientType{};
   shared_ptr<string> clientVersion{};
@@ -817,6 +832,7 @@ public:
   shared_ptr<string> password{};
   shared_ptr<string> phone{};
   shared_ptr<string> phoneVerifyCode{};
+  shared_ptr<string> profileRegion{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> ssoExtendsCookies{};
@@ -843,6 +859,9 @@ public:
     }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
+    }
+    if (clientName) {
+      res["ClientName"] = boost::any(*clientName);
     }
     if (clientOS) {
       res["ClientOS"] = boost::any(*clientOS);
@@ -916,6 +935,9 @@ public:
     if (phoneVerifyCode) {
       res["PhoneVerifyCode"] = boost::any(*phoneVerifyCode);
     }
+    if (profileRegion) {
+      res["ProfileRegion"] = boost::any(*profileRegion);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -949,6 +971,9 @@ public:
     }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("ClientName") != m.end() && !m["ClientName"].empty()) {
+      clientName = make_shared<string>(boost::any_cast<string>(m["ClientName"]));
     }
     if (m.find("ClientOS") != m.end() && !m["ClientOS"].empty()) {
       clientOS = make_shared<string>(boost::any_cast<string>(m["ClientOS"]));
@@ -1021,6 +1046,9 @@ public:
     }
     if (m.find("PhoneVerifyCode") != m.end() && !m["PhoneVerifyCode"].empty()) {
       phoneVerifyCode = make_shared<string>(boost::any_cast<string>(m["PhoneVerifyCode"]));
+    }
+    if (m.find("ProfileRegion") != m.end() && !m["ProfileRegion"].empty()) {
+      profileRegion = make_shared<string>(boost::any_cast<string>(m["ProfileRegion"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -1227,6 +1255,7 @@ public:
   shared_ptr<string> loginToken{};
   shared_ptr<vector<GetLoginTokenResponseBodyMfaTypeList>> mfaTypeList{};
   shared_ptr<string> nextStage{};
+  shared_ptr<string> nickName{};
   shared_ptr<vector<string>> officeSites{};
   shared_ptr<GetLoginTokenResponseBodyPasswordStrategy> passwordStrategy{};
   shared_ptr<string> phone{};
@@ -1293,6 +1322,9 @@ public:
     }
     if (nextStage) {
       res["NextStage"] = boost::any(*nextStage);
+    }
+    if (nickName) {
+      res["NickName"] = boost::any(*nickName);
     }
     if (officeSites) {
       res["OfficeSites"] = boost::any(*officeSites);
@@ -1395,6 +1427,9 @@ public:
     }
     if (m.find("NextStage") != m.end() && !m["NextStage"].empty()) {
       nextStage = make_shared<string>(boost::any_cast<string>(m["NextStage"]));
+    }
+    if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
+      nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
     }
     if (m.find("OfficeSites") != m.end() && !m["OfficeSites"].empty()) {
       vector<string> toVec1;
