@@ -6530,6 +6530,248 @@ public:
 
   virtual ~Id2MetaVerifyResponse() = default;
 };
+class Id2MetaVerifyWithOCRRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> certFile{};
+  shared_ptr<string> certNationalFile{};
+  shared_ptr<string> certNationalUrl{};
+  shared_ptr<string> certUrl{};
+
+  Id2MetaVerifyWithOCRRequest() {}
+
+  explicit Id2MetaVerifyWithOCRRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certFile) {
+      res["CertFile"] = boost::any(*certFile);
+    }
+    if (certNationalFile) {
+      res["CertNationalFile"] = boost::any(*certNationalFile);
+    }
+    if (certNationalUrl) {
+      res["CertNationalUrl"] = boost::any(*certNationalUrl);
+    }
+    if (certUrl) {
+      res["CertUrl"] = boost::any(*certUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertFile") != m.end() && !m["CertFile"].empty()) {
+      certFile = make_shared<string>(boost::any_cast<string>(m["CertFile"]));
+    }
+    if (m.find("CertNationalFile") != m.end() && !m["CertNationalFile"].empty()) {
+      certNationalFile = make_shared<string>(boost::any_cast<string>(m["CertNationalFile"]));
+    }
+    if (m.find("CertNationalUrl") != m.end() && !m["CertNationalUrl"].empty()) {
+      certNationalUrl = make_shared<string>(boost::any_cast<string>(m["CertNationalUrl"]));
+    }
+    if (m.find("CertUrl") != m.end() && !m["CertUrl"].empty()) {
+      certUrl = make_shared<string>(boost::any_cast<string>(m["CertUrl"]));
+    }
+  }
+
+
+  virtual ~Id2MetaVerifyWithOCRRequest() = default;
+};
+class Id2MetaVerifyWithOCRAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> certFileObject{};
+  shared_ptr<Darabonba::Stream> certNationalFileObject{};
+  shared_ptr<string> certNationalUrl{};
+  shared_ptr<string> certUrl{};
+
+  Id2MetaVerifyWithOCRAdvanceRequest() {}
+
+  explicit Id2MetaVerifyWithOCRAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certFileObject) {
+      res["CertFile"] = boost::any(*certFileObject);
+    }
+    if (certNationalFileObject) {
+      res["CertNationalFile"] = boost::any(*certNationalFileObject);
+    }
+    if (certNationalUrl) {
+      res["CertNationalUrl"] = boost::any(*certNationalUrl);
+    }
+    if (certUrl) {
+      res["CertUrl"] = boost::any(*certUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertFile") != m.end() && !m["CertFile"].empty()) {
+      certFileObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["CertFile"]));
+    }
+    if (m.find("CertNationalFile") != m.end() && !m["CertNationalFile"].empty()) {
+      certNationalFileObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["CertNationalFile"]));
+    }
+    if (m.find("CertNationalUrl") != m.end() && !m["CertNationalUrl"].empty()) {
+      certNationalUrl = make_shared<string>(boost::any_cast<string>(m["CertNationalUrl"]));
+    }
+    if (m.find("CertUrl") != m.end() && !m["CertUrl"].empty()) {
+      certUrl = make_shared<string>(boost::any_cast<string>(m["CertUrl"]));
+    }
+  }
+
+
+  virtual ~Id2MetaVerifyWithOCRAdvanceRequest() = default;
+};
+class Id2MetaVerifyWithOCRResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> cardInfo{};
+
+  Id2MetaVerifyWithOCRResponseBodyResultObject() {}
+
+  explicit Id2MetaVerifyWithOCRResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (cardInfo) {
+      res["CardInfo"] = boost::any(*cardInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("CardInfo") != m.end() && !m["CardInfo"].empty()) {
+      cardInfo = make_shared<string>(boost::any_cast<string>(m["CardInfo"]));
+    }
+  }
+
+
+  virtual ~Id2MetaVerifyWithOCRResponseBodyResultObject() = default;
+};
+class Id2MetaVerifyWithOCRResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<Id2MetaVerifyWithOCRResponseBodyResultObject> resultObject{};
+
+  Id2MetaVerifyWithOCRResponseBody() {}
+
+  explicit Id2MetaVerifyWithOCRResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        Id2MetaVerifyWithOCRResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<Id2MetaVerifyWithOCRResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Id2MetaVerifyWithOCRResponseBody() = default;
+};
+class Id2MetaVerifyWithOCRResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<Id2MetaVerifyWithOCRResponseBody> body{};
+
+  Id2MetaVerifyWithOCRResponse() {}
+
+  explicit Id2MetaVerifyWithOCRResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Id2MetaVerifyWithOCRResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Id2MetaVerifyWithOCRResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Id2MetaVerifyWithOCRResponse() = default;
+};
 class InitFaceVerifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appQualityCheck{};
@@ -10891,6 +11133,9 @@ public:
   Id2MetaStandardVerifyResponse id2MetaStandardVerify(shared_ptr<Id2MetaStandardVerifyRequest> request);
   Id2MetaVerifyResponse id2MetaVerifyWithOptions(shared_ptr<Id2MetaVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Id2MetaVerifyResponse id2MetaVerify(shared_ptr<Id2MetaVerifyRequest> request);
+  Id2MetaVerifyWithOCRResponse id2MetaVerifyWithOCRWithOptions(shared_ptr<Id2MetaVerifyWithOCRRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  Id2MetaVerifyWithOCRResponse id2MetaVerifyWithOCR(shared_ptr<Id2MetaVerifyWithOCRRequest> request);
+  Id2MetaVerifyWithOCRResponse id2MetaVerifyWithOCRAdvance(shared_ptr<Id2MetaVerifyWithOCRAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InitFaceVerifyResponse initFaceVerifyWithOptions(shared_ptr<InitFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InitFaceVerifyResponse initFaceVerify(shared_ptr<InitFaceVerifyRequest> request);
   InsertWhiteListSettingResponse insertWhiteListSettingWithOptions(shared_ptr<InsertWhiteListSettingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
