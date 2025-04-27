@@ -14,6 +14,130 @@
 using namespace std;
 
 namespace Alibabacloud_Rds20140815 {
+class AcceptRCInquiredSystemEventRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eventId{};
+  shared_ptr<string> regionId{};
+
+  AcceptRCInquiredSystemEventRequest() {}
+
+  explicit AcceptRCInquiredSystemEventRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~AcceptRCInquiredSystemEventRequest() = default;
+};
+class AcceptRCInquiredSystemEventResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  AcceptRCInquiredSystemEventResponseBody() {}
+
+  explicit AcceptRCInquiredSystemEventResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AcceptRCInquiredSystemEventResponseBody() = default;
+};
+class AcceptRCInquiredSystemEventResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AcceptRCInquiredSystemEventResponseBody> body{};
+
+  AcceptRCInquiredSystemEventResponse() {}
+
+  explicit AcceptRCInquiredSystemEventResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AcceptRCInquiredSystemEventResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AcceptRCInquiredSystemEventResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AcceptRCInquiredSystemEventResponse() = default;
+};
 class ActivateMigrationTargetInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceName{};
@@ -53681,6 +53805,1358 @@ public:
 
   virtual ~DescribeRCInstanceAttributeResponse() = default;
 };
+class DescribeRCInstanceDdosCountRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ddosRegionId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> regionId{};
+
+  DescribeRCInstanceDdosCountRequest() {}
+
+  explicit DescribeRCInstanceDdosCountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ddosRegionId) {
+      res["DdosRegionId"] = boost::any(*ddosRegionId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DdosRegionId") != m.end() && !m["DdosRegionId"].empty()) {
+      ddosRegionId = make_shared<string>(boost::any_cast<string>(m["DdosRegionId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceDdosCountRequest() = default;
+};
+class DescribeRCInstanceDdosCountResponseBodyDdosCount : public Darabonba::Model {
+public:
+  shared_ptr<string> blackholeCount{};
+  shared_ptr<string> defenseCount{};
+  shared_ptr<string> instacenCount{};
+
+  DescribeRCInstanceDdosCountResponseBodyDdosCount() {}
+
+  explicit DescribeRCInstanceDdosCountResponseBodyDdosCount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blackholeCount) {
+      res["BlackholeCount"] = boost::any(*blackholeCount);
+    }
+    if (defenseCount) {
+      res["DefenseCount"] = boost::any(*defenseCount);
+    }
+    if (instacenCount) {
+      res["InstacenCount"] = boost::any(*instacenCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlackholeCount") != m.end() && !m["BlackholeCount"].empty()) {
+      blackholeCount = make_shared<string>(boost::any_cast<string>(m["BlackholeCount"]));
+    }
+    if (m.find("DefenseCount") != m.end() && !m["DefenseCount"].empty()) {
+      defenseCount = make_shared<string>(boost::any_cast<string>(m["DefenseCount"]));
+    }
+    if (m.find("InstacenCount") != m.end() && !m["InstacenCount"].empty()) {
+      instacenCount = make_shared<string>(boost::any_cast<string>(m["InstacenCount"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceDdosCountResponseBodyDdosCount() = default;
+};
+class DescribeRCInstanceDdosCountResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeRCInstanceDdosCountResponseBodyDdosCount> ddosCount{};
+  shared_ptr<string> requestId{};
+
+  DescribeRCInstanceDdosCountResponseBody() {}
+
+  explicit DescribeRCInstanceDdosCountResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ddosCount) {
+      res["DdosCount"] = ddosCount ? boost::any(ddosCount->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DdosCount") != m.end() && !m["DdosCount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DdosCount"].type()) {
+        DescribeRCInstanceDdosCountResponseBodyDdosCount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DdosCount"]));
+        ddosCount = make_shared<DescribeRCInstanceDdosCountResponseBodyDdosCount>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceDdosCountResponseBody() = default;
+};
+class DescribeRCInstanceDdosCountResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeRCInstanceDdosCountResponseBody> body{};
+
+  DescribeRCInstanceDdosCountResponse() {}
+
+  explicit DescribeRCInstanceDdosCountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRCInstanceDdosCountResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRCInstanceDdosCountResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceDdosCountResponse() = default;
+};
+class DescribeRCInstanceHistoryEventsRequestEventPublishTime : public Darabonba::Model {
+public:
+  shared_ptr<string> end{};
+  shared_ptr<string> start{};
+
+  DescribeRCInstanceHistoryEventsRequestEventPublishTime() {}
+
+  explicit DescribeRCInstanceHistoryEventsRequestEventPublishTime(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (end) {
+      res["End"] = boost::any(*end);
+    }
+    if (start) {
+      res["Start"] = boost::any(*start);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("End") != m.end() && !m["End"].empty()) {
+      end = make_shared<string>(boost::any_cast<string>(m["End"]));
+    }
+    if (m.find("Start") != m.end() && !m["Start"].empty()) {
+      start = make_shared<string>(boost::any_cast<string>(m["Start"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsRequestEventPublishTime() = default;
+};
+class DescribeRCInstanceHistoryEventsRequestNotBefore : public Darabonba::Model {
+public:
+  shared_ptr<string> end{};
+  shared_ptr<string> start{};
+
+  DescribeRCInstanceHistoryEventsRequestNotBefore() {}
+
+  explicit DescribeRCInstanceHistoryEventsRequestNotBefore(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (end) {
+      res["End"] = boost::any(*end);
+    }
+    if (start) {
+      res["Start"] = boost::any(*start);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("End") != m.end() && !m["End"].empty()) {
+      end = make_shared<string>(boost::any_cast<string>(m["End"]));
+    }
+    if (m.find("Start") != m.end() && !m["Start"].empty()) {
+      start = make_shared<string>(boost::any_cast<string>(m["Start"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsRequestNotBefore() = default;
+};
+class DescribeRCInstanceHistoryEventsRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeRCInstanceHistoryEventsRequestTag() {}
+
+  explicit DescribeRCInstanceHistoryEventsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsRequestTag() = default;
+};
+class DescribeRCInstanceHistoryEventsRequest : public Darabonba::Model {
+public:
+  shared_ptr<DescribeRCInstanceHistoryEventsRequestEventPublishTime> eventPublishTime{};
+  shared_ptr<DescribeRCInstanceHistoryEventsRequestNotBefore> notBefore{};
+  shared_ptr<string> eventCycleStatus{};
+  shared_ptr<vector<string>> eventId{};
+  shared_ptr<string> eventType{};
+  shared_ptr<string> impactLevel{};
+  shared_ptr<vector<string>> instanceEventCycleStatus{};
+  shared_ptr<vector<string>> instanceEventType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> maxResults{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<string>> resourceId{};
+  shared_ptr<vector<DescribeRCInstanceHistoryEventsRequestTag>> tag{};
+
+  DescribeRCInstanceHistoryEventsRequest() {}
+
+  explicit DescribeRCInstanceHistoryEventsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventPublishTime) {
+      res["EventPublishTime"] = eventPublishTime ? boost::any(eventPublishTime->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (notBefore) {
+      res["NotBefore"] = notBefore ? boost::any(notBefore->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (eventCycleStatus) {
+      res["EventCycleStatus"] = boost::any(*eventCycleStatus);
+    }
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
+    }
+    if (impactLevel) {
+      res["ImpactLevel"] = boost::any(*impactLevel);
+    }
+    if (instanceEventCycleStatus) {
+      res["InstanceEventCycleStatus"] = boost::any(*instanceEventCycleStatus);
+    }
+    if (instanceEventType) {
+      res["InstanceEventType"] = boost::any(*instanceEventType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventPublishTime") != m.end() && !m["EventPublishTime"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EventPublishTime"].type()) {
+        DescribeRCInstanceHistoryEventsRequestEventPublishTime model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EventPublishTime"]));
+        eventPublishTime = make_shared<DescribeRCInstanceHistoryEventsRequestEventPublishTime>(model1);
+      }
+    }
+    if (m.find("NotBefore") != m.end() && !m["NotBefore"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NotBefore"].type()) {
+        DescribeRCInstanceHistoryEventsRequestNotBefore model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NotBefore"]));
+        notBefore = make_shared<DescribeRCInstanceHistoryEventsRequestNotBefore>(model1);
+      }
+    }
+    if (m.find("EventCycleStatus") != m.end() && !m["EventCycleStatus"].empty()) {
+      eventCycleStatus = make_shared<string>(boost::any_cast<string>(m["EventCycleStatus"]));
+    }
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EventId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EventId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      eventId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
+    }
+    if (m.find("ImpactLevel") != m.end() && !m["ImpactLevel"].empty()) {
+      impactLevel = make_shared<string>(boost::any_cast<string>(m["ImpactLevel"]));
+    }
+    if (m.find("InstanceEventCycleStatus") != m.end() && !m["InstanceEventCycleStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceEventCycleStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceEventCycleStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceEventCycleStatus = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceEventType") != m.end() && !m["InstanceEventType"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceEventType"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceEventType"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceEventType = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<string>(boost::any_cast<string>(m["MaxResults"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeRCInstanceHistoryEventsRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRCInstanceHistoryEventsRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeRCInstanceHistoryEventsRequestTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsRequest() = default;
+};
+class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> name{};
+
+  DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus() {}
+
+  explicit DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus() = default;
+};
+class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> name{};
+
+  DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType() {}
+
+  explicit DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType() = default;
+};
+class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks : public Darabonba::Model {
+public:
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> deviceCategory{};
+  shared_ptr<string> deviceSize{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> releaseTime{};
+
+  DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks() {}
+
+  explicit DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (deviceCategory) {
+      res["DeviceCategory"] = boost::any(*deviceCategory);
+    }
+    if (deviceSize) {
+      res["DeviceSize"] = boost::any(*deviceSize);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (releaseTime) {
+      res["ReleaseTime"] = boost::any(*releaseTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("DeviceCategory") != m.end() && !m["DeviceCategory"].empty()) {
+      deviceCategory = make_shared<string>(boost::any_cast<string>(m["DeviceCategory"]));
+    }
+    if (m.find("DeviceSize") != m.end() && !m["DeviceSize"].empty()) {
+      deviceSize = make_shared<string>(boost::any_cast<string>(m["DeviceSize"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("ReleaseTime") != m.end() && !m["ReleaseTime"].empty()) {
+      releaseTime = make_shared<string>(boost::any_cast<string>(m["ReleaseTime"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks() = default;
+};
+class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute : public Darabonba::Model {
+public:
+  shared_ptr<string> canAccept{};
+  shared_ptr<string> code{};
+  shared_ptr<string> device{};
+  shared_ptr<string> diskId{};
+  shared_ptr<string> hostId{};
+  shared_ptr<string> hostType{};
+  shared_ptr<vector<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks>> inactiveDisks{};
+  shared_ptr<vector<string>> migrationOptions{};
+  shared_ptr<string> onlineRepairPolicy{};
+  shared_ptr<string> punishDomain{};
+  shared_ptr<string> punishType{};
+  shared_ptr<string> punishUrl{};
+  shared_ptr<string> rack{};
+  shared_ptr<string> responseResult{};
+
+  DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute() {}
+
+  explicit DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (canAccept) {
+      res["CanAccept"] = boost::any(*canAccept);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (device) {
+      res["Device"] = boost::any(*device);
+    }
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (hostId) {
+      res["HostId"] = boost::any(*hostId);
+    }
+    if (hostType) {
+      res["HostType"] = boost::any(*hostType);
+    }
+    if (inactiveDisks) {
+      vector<boost::any> temp1;
+      for(auto item1:*inactiveDisks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InactiveDisks"] = boost::any(temp1);
+    }
+    if (migrationOptions) {
+      res["MigrationOptions"] = boost::any(*migrationOptions);
+    }
+    if (onlineRepairPolicy) {
+      res["OnlineRepairPolicy"] = boost::any(*onlineRepairPolicy);
+    }
+    if (punishDomain) {
+      res["PunishDomain"] = boost::any(*punishDomain);
+    }
+    if (punishType) {
+      res["PunishType"] = boost::any(*punishType);
+    }
+    if (punishUrl) {
+      res["PunishUrl"] = boost::any(*punishUrl);
+    }
+    if (rack) {
+      res["Rack"] = boost::any(*rack);
+    }
+    if (responseResult) {
+      res["ResponseResult"] = boost::any(*responseResult);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CanAccept") != m.end() && !m["CanAccept"].empty()) {
+      canAccept = make_shared<string>(boost::any_cast<string>(m["CanAccept"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Device") != m.end() && !m["Device"].empty()) {
+      device = make_shared<string>(boost::any_cast<string>(m["Device"]));
+    }
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("HostId") != m.end() && !m["HostId"].empty()) {
+      hostId = make_shared<string>(boost::any_cast<string>(m["HostId"]));
+    }
+    if (m.find("HostType") != m.end() && !m["HostType"].empty()) {
+      hostType = make_shared<string>(boost::any_cast<string>(m["HostType"]));
+    }
+    if (m.find("InactiveDisks") != m.end() && !m["InactiveDisks"].empty()) {
+      if (typeid(vector<boost::any>) == m["InactiveDisks"].type()) {
+        vector<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InactiveDisks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inactiveDisks = make_shared<vector<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks>>(expect1);
+      }
+    }
+    if (m.find("MigrationOptions") != m.end() && !m["MigrationOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MigrationOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MigrationOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      migrationOptions = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OnlineRepairPolicy") != m.end() && !m["OnlineRepairPolicy"].empty()) {
+      onlineRepairPolicy = make_shared<string>(boost::any_cast<string>(m["OnlineRepairPolicy"]));
+    }
+    if (m.find("PunishDomain") != m.end() && !m["PunishDomain"].empty()) {
+      punishDomain = make_shared<string>(boost::any_cast<string>(m["PunishDomain"]));
+    }
+    if (m.find("PunishType") != m.end() && !m["PunishType"].empty()) {
+      punishType = make_shared<string>(boost::any_cast<string>(m["PunishType"]));
+    }
+    if (m.find("PunishUrl") != m.end() && !m["PunishUrl"].empty()) {
+      punishUrl = make_shared<string>(boost::any_cast<string>(m["PunishUrl"]));
+    }
+    if (m.find("Rack") != m.end() && !m["Rack"].empty()) {
+      rack = make_shared<string>(boost::any_cast<string>(m["Rack"]));
+    }
+    if (m.find("ResponseResult") != m.end() && !m["ResponseResult"].empty()) {
+      responseResult = make_shared<string>(boost::any_cast<string>(m["ResponseResult"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute() = default;
+};
+class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet : public Darabonba::Model {
+public:
+  shared_ptr<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus> eventCycleStatus{};
+  shared_ptr<string> eventFinishTime{};
+  shared_ptr<string> eventId{};
+  shared_ptr<string> eventPublishTime{};
+  shared_ptr<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType> eventType{};
+  shared_ptr<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute> extendedAttribute{};
+  shared_ptr<string> impactLevel{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> notBefore{};
+  shared_ptr<string> reason{};
+  shared_ptr<string> reasonCode{};
+  shared_ptr<string> resourceType{};
+
+  DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet() {}
+
+  explicit DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventCycleStatus) {
+      res["EventCycleStatus"] = eventCycleStatus ? boost::any(eventCycleStatus->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (eventFinishTime) {
+      res["EventFinishTime"] = boost::any(*eventFinishTime);
+    }
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (eventPublishTime) {
+      res["EventPublishTime"] = boost::any(*eventPublishTime);
+    }
+    if (eventType) {
+      res["EventType"] = eventType ? boost::any(eventType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (extendedAttribute) {
+      res["ExtendedAttribute"] = extendedAttribute ? boost::any(extendedAttribute->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (impactLevel) {
+      res["ImpactLevel"] = boost::any(*impactLevel);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (notBefore) {
+      res["NotBefore"] = boost::any(*notBefore);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (reasonCode) {
+      res["ReasonCode"] = boost::any(*reasonCode);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventCycleStatus") != m.end() && !m["EventCycleStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EventCycleStatus"].type()) {
+        DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EventCycleStatus"]));
+        eventCycleStatus = make_shared<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus>(model1);
+      }
+    }
+    if (m.find("EventFinishTime") != m.end() && !m["EventFinishTime"].empty()) {
+      eventFinishTime = make_shared<string>(boost::any_cast<string>(m["EventFinishTime"]));
+    }
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("EventPublishTime") != m.end() && !m["EventPublishTime"].empty()) {
+      eventPublishTime = make_shared<string>(boost::any_cast<string>(m["EventPublishTime"]));
+    }
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EventType"].type()) {
+        DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EventType"]));
+        eventType = make_shared<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType>(model1);
+      }
+    }
+    if (m.find("ExtendedAttribute") != m.end() && !m["ExtendedAttribute"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ExtendedAttribute"].type()) {
+        DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExtendedAttribute"]));
+        extendedAttribute = make_shared<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute>(model1);
+      }
+    }
+    if (m.find("ImpactLevel") != m.end() && !m["ImpactLevel"].empty()) {
+      impactLevel = make_shared<string>(boost::any_cast<string>(m["ImpactLevel"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NotBefore") != m.end() && !m["NotBefore"].empty()) {
+      notBefore = make_shared<string>(boost::any_cast<string>(m["NotBefore"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
+      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet() = default;
+};
+class DescribeRCInstanceHistoryEventsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet>> instanceSystemEventSet{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeRCInstanceHistoryEventsResponseBody() {}
+
+  explicit DescribeRCInstanceHistoryEventsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceSystemEventSet) {
+      vector<boost::any> temp1;
+      for(auto item1:*instanceSystemEventSet){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InstanceSystemEventSet"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceSystemEventSet") != m.end() && !m["InstanceSystemEventSet"].empty()) {
+      if (typeid(vector<boost::any>) == m["InstanceSystemEventSet"].type()) {
+        vector<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InstanceSystemEventSet"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instanceSystemEventSet = make_shared<vector<DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsResponseBody() = default;
+};
+class DescribeRCInstanceHistoryEventsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeRCInstanceHistoryEventsResponseBody> body{};
+
+  DescribeRCInstanceHistoryEventsResponse() {}
+
+  explicit DescribeRCInstanceHistoryEventsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRCInstanceHistoryEventsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRCInstanceHistoryEventsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceHistoryEventsResponse() = default;
+};
+class DescribeRCInstanceIpAddressRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> ddosRegionId{};
+  shared_ptr<string> ddosStatus{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceIp{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceType{};
+
+  DescribeRCInstanceIpAddressRequest() {}
+
+  explicit DescribeRCInstanceIpAddressRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (ddosRegionId) {
+      res["DdosRegionId"] = boost::any(*ddosRegionId);
+    }
+    if (ddosStatus) {
+      res["DdosStatus"] = boost::any(*ddosStatus);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceIp) {
+      res["InstanceIp"] = boost::any(*instanceIp);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("DdosRegionId") != m.end() && !m["DdosRegionId"].empty()) {
+      ddosRegionId = make_shared<string>(boost::any_cast<string>(m["DdosRegionId"]));
+    }
+    if (m.find("DdosStatus") != m.end() && !m["DdosStatus"].empty()) {
+      ddosStatus = make_shared<string>(boost::any_cast<string>(m["DdosStatus"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceIp") != m.end() && !m["InstanceIp"].empty()) {
+      instanceIp = make_shared<string>(boost::any_cast<string>(m["InstanceIp"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceIpAddressRequest() = default;
+};
+class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> blackholeThreshold{};
+  shared_ptr<long> defenseBpsThreshold{};
+  shared_ptr<long> defensePpsThreshold{};
+  shared_ptr<long> elasticThreshold{};
+  shared_ptr<string> instanceIp{};
+  shared_ptr<string> ipStatus{};
+  shared_ptr<string> ipVersion{};
+  shared_ptr<bool> isBgppack{};
+  shared_ptr<long> isFullProtection{};
+  shared_ptr<string> regionId{};
+
+  DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig() {}
+
+  explicit DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blackholeThreshold) {
+      res["BlackholeThreshold"] = boost::any(*blackholeThreshold);
+    }
+    if (defenseBpsThreshold) {
+      res["DefenseBpsThreshold"] = boost::any(*defenseBpsThreshold);
+    }
+    if (defensePpsThreshold) {
+      res["DefensePpsThreshold"] = boost::any(*defensePpsThreshold);
+    }
+    if (elasticThreshold) {
+      res["ElasticThreshold"] = boost::any(*elasticThreshold);
+    }
+    if (instanceIp) {
+      res["InstanceIp"] = boost::any(*instanceIp);
+    }
+    if (ipStatus) {
+      res["IpStatus"] = boost::any(*ipStatus);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
+    }
+    if (isBgppack) {
+      res["IsBgppack"] = boost::any(*isBgppack);
+    }
+    if (isFullProtection) {
+      res["IsFullProtection"] = boost::any(*isFullProtection);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlackholeThreshold") != m.end() && !m["BlackholeThreshold"].empty()) {
+      blackholeThreshold = make_shared<long>(boost::any_cast<long>(m["BlackholeThreshold"]));
+    }
+    if (m.find("DefenseBpsThreshold") != m.end() && !m["DefenseBpsThreshold"].empty()) {
+      defenseBpsThreshold = make_shared<long>(boost::any_cast<long>(m["DefenseBpsThreshold"]));
+    }
+    if (m.find("DefensePpsThreshold") != m.end() && !m["DefensePpsThreshold"].empty()) {
+      defensePpsThreshold = make_shared<long>(boost::any_cast<long>(m["DefensePpsThreshold"]));
+    }
+    if (m.find("ElasticThreshold") != m.end() && !m["ElasticThreshold"].empty()) {
+      elasticThreshold = make_shared<long>(boost::any_cast<long>(m["ElasticThreshold"]));
+    }
+    if (m.find("InstanceIp") != m.end() && !m["InstanceIp"].empty()) {
+      instanceIp = make_shared<string>(boost::any_cast<string>(m["InstanceIp"]));
+    }
+    if (m.find("IpStatus") != m.end() && !m["IpStatus"].empty()) {
+      ipStatus = make_shared<string>(boost::any_cast<string>(m["IpStatus"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
+    if (m.find("IsBgppack") != m.end() && !m["IsBgppack"].empty()) {
+      isBgppack = make_shared<bool>(boost::any_cast<bool>(m["IsBgppack"]));
+    }
+    if (m.find("IsFullProtection") != m.end() && !m["IsFullProtection"].empty()) {
+      isFullProtection = make_shared<long>(boost::any_cast<long>(m["IsFullProtection"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig() = default;
+};
+class DescribeRCInstanceIpAddressResponseBodyRCInstanceList : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> instanceStatus{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<vector<DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig>> ipAddressConfig{};
+
+  DescribeRCInstanceIpAddressResponseBodyRCInstanceList() {}
+
+  explicit DescribeRCInstanceIpAddressResponseBodyRCInstanceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceStatus) {
+      res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (ipAddressConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipAddressConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpAddressConfig"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
+      instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("IpAddressConfig") != m.end() && !m["IpAddressConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpAddressConfig"].type()) {
+        vector<DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpAddressConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipAddressConfig = make_shared<vector<DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceIpAddressResponseBodyRCInstanceList() = default;
+};
+class DescribeRCInstanceIpAddressResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeRCInstanceIpAddressResponseBodyRCInstanceList>> RCInstanceList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> total{};
+
+  DescribeRCInstanceIpAddressResponseBody() {}
+
+  explicit DescribeRCInstanceIpAddressResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (RCInstanceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*RCInstanceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RCInstanceList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RCInstanceList") != m.end() && !m["RCInstanceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RCInstanceList"].type()) {
+        vector<DescribeRCInstanceIpAddressResponseBodyRCInstanceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RCInstanceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRCInstanceIpAddressResponseBodyRCInstanceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        RCInstanceList = make_shared<vector<DescribeRCInstanceIpAddressResponseBodyRCInstanceList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<string>(boost::any_cast<string>(m["Total"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceIpAddressResponseBody() = default;
+};
+class DescribeRCInstanceIpAddressResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeRCInstanceIpAddressResponseBody> body{};
+
+  DescribeRCInstanceIpAddressResponse() {}
+
+  explicit DescribeRCInstanceIpAddressResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRCInstanceIpAddressResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRCInstanceIpAddressResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceIpAddressResponse() = default;
+};
 class DescribeRCInstanceTypeFamiliesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -91800,6 +93276,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AcceptRCInquiredSystemEventResponse acceptRCInquiredSystemEventWithOptions(shared_ptr<AcceptRCInquiredSystemEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AcceptRCInquiredSystemEventResponse acceptRCInquiredSystemEvent(shared_ptr<AcceptRCInquiredSystemEventRequest> request);
   ActivateMigrationTargetInstanceResponse activateMigrationTargetInstanceWithOptions(shared_ptr<ActivateMigrationTargetInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ActivateMigrationTargetInstanceResponse activateMigrationTargetInstance(shared_ptr<ActivateMigrationTargetInstanceRequest> request);
   AddTagsToResourceResponse addTagsToResourceWithOptions(shared_ptr<AddTagsToResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -92166,6 +93644,12 @@ public:
   DescribeRCImageListResponse describeRCImageList(shared_ptr<DescribeRCImageListRequest> request);
   DescribeRCInstanceAttributeResponse describeRCInstanceAttributeWithOptions(shared_ptr<DescribeRCInstanceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRCInstanceAttributeResponse describeRCInstanceAttribute(shared_ptr<DescribeRCInstanceAttributeRequest> request);
+  DescribeRCInstanceDdosCountResponse describeRCInstanceDdosCountWithOptions(shared_ptr<DescribeRCInstanceDdosCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRCInstanceDdosCountResponse describeRCInstanceDdosCount(shared_ptr<DescribeRCInstanceDdosCountRequest> request);
+  DescribeRCInstanceHistoryEventsResponse describeRCInstanceHistoryEventsWithOptions(shared_ptr<DescribeRCInstanceHistoryEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRCInstanceHistoryEventsResponse describeRCInstanceHistoryEvents(shared_ptr<DescribeRCInstanceHistoryEventsRequest> request);
+  DescribeRCInstanceIpAddressResponse describeRCInstanceIpAddressWithOptions(shared_ptr<DescribeRCInstanceIpAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRCInstanceIpAddressResponse describeRCInstanceIpAddress(shared_ptr<DescribeRCInstanceIpAddressRequest> request);
   DescribeRCInstanceTypeFamiliesResponse describeRCInstanceTypeFamiliesWithOptions(shared_ptr<DescribeRCInstanceTypeFamiliesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRCInstanceTypeFamiliesResponse describeRCInstanceTypeFamilies(shared_ptr<DescribeRCInstanceTypeFamiliesRequest> request);
   DescribeRCInstanceTypesResponse describeRCInstanceTypesWithOptions(shared_ptr<DescribeRCInstanceTypesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
