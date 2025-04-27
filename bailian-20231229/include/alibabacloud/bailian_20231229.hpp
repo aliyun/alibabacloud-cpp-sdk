@@ -8550,8 +8550,12 @@ public:
 class SubmitIndexAddDocumentsJobRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> categoryIds{};
+  shared_ptr<string> chunkMode{};
+  shared_ptr<long> chunkSize{};
   shared_ptr<vector<string>> documentIds{};
   shared_ptr<string> indexId{};
+  shared_ptr<long> overlapSize{};
+  shared_ptr<string> separator{};
   shared_ptr<string> sourceType{};
 
   SubmitIndexAddDocumentsJobRequest() {}
@@ -8567,11 +8571,23 @@ public:
     if (categoryIds) {
       res["CategoryIds"] = boost::any(*categoryIds);
     }
+    if (chunkMode) {
+      res["ChunkMode"] = boost::any(*chunkMode);
+    }
+    if (chunkSize) {
+      res["ChunkSize"] = boost::any(*chunkSize);
+    }
     if (documentIds) {
       res["DocumentIds"] = boost::any(*documentIds);
     }
     if (indexId) {
       res["IndexId"] = boost::any(*indexId);
+    }
+    if (overlapSize) {
+      res["OverlapSize"] = boost::any(*overlapSize);
+    }
+    if (separator) {
+      res["Separator"] = boost::any(*separator);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
@@ -8590,6 +8606,12 @@ public:
       }
       categoryIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ChunkMode") != m.end() && !m["ChunkMode"].empty()) {
+      chunkMode = make_shared<string>(boost::any_cast<string>(m["ChunkMode"]));
+    }
+    if (m.find("ChunkSize") != m.end() && !m["ChunkSize"].empty()) {
+      chunkSize = make_shared<long>(boost::any_cast<long>(m["ChunkSize"]));
+    }
     if (m.find("DocumentIds") != m.end() && !m["DocumentIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["DocumentIds"].type()) {
@@ -8603,6 +8625,12 @@ public:
     if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
       indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));
     }
+    if (m.find("OverlapSize") != m.end() && !m["OverlapSize"].empty()) {
+      overlapSize = make_shared<long>(boost::any_cast<long>(m["OverlapSize"]));
+    }
+    if (m.find("Separator") != m.end() && !m["Separator"].empty()) {
+      separator = make_shared<string>(boost::any_cast<string>(m["Separator"]));
+    }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
@@ -8614,8 +8642,12 @@ public:
 class SubmitIndexAddDocumentsJobShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> categoryIdsShrink{};
+  shared_ptr<string> chunkMode{};
+  shared_ptr<long> chunkSize{};
   shared_ptr<string> documentIdsShrink{};
   shared_ptr<string> indexId{};
+  shared_ptr<long> overlapSize{};
+  shared_ptr<string> separator{};
   shared_ptr<string> sourceType{};
 
   SubmitIndexAddDocumentsJobShrinkRequest() {}
@@ -8631,11 +8663,23 @@ public:
     if (categoryIdsShrink) {
       res["CategoryIds"] = boost::any(*categoryIdsShrink);
     }
+    if (chunkMode) {
+      res["ChunkMode"] = boost::any(*chunkMode);
+    }
+    if (chunkSize) {
+      res["ChunkSize"] = boost::any(*chunkSize);
+    }
     if (documentIdsShrink) {
       res["DocumentIds"] = boost::any(*documentIdsShrink);
     }
     if (indexId) {
       res["IndexId"] = boost::any(*indexId);
+    }
+    if (overlapSize) {
+      res["OverlapSize"] = boost::any(*overlapSize);
+    }
+    if (separator) {
+      res["Separator"] = boost::any(*separator);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
@@ -8647,11 +8691,23 @@ public:
     if (m.find("CategoryIds") != m.end() && !m["CategoryIds"].empty()) {
       categoryIdsShrink = make_shared<string>(boost::any_cast<string>(m["CategoryIds"]));
     }
+    if (m.find("ChunkMode") != m.end() && !m["ChunkMode"].empty()) {
+      chunkMode = make_shared<string>(boost::any_cast<string>(m["ChunkMode"]));
+    }
+    if (m.find("ChunkSize") != m.end() && !m["ChunkSize"].empty()) {
+      chunkSize = make_shared<long>(boost::any_cast<long>(m["ChunkSize"]));
+    }
     if (m.find("DocumentIds") != m.end() && !m["DocumentIds"].empty()) {
       documentIdsShrink = make_shared<string>(boost::any_cast<string>(m["DocumentIds"]));
     }
     if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
       indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));
+    }
+    if (m.find("OverlapSize") != m.end() && !m["OverlapSize"].empty()) {
+      overlapSize = make_shared<long>(boost::any_cast<long>(m["OverlapSize"]));
+    }
+    if (m.find("Separator") != m.end() && !m["Separator"].empty()) {
+      separator = make_shared<string>(boost::any_cast<string>(m["Separator"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));

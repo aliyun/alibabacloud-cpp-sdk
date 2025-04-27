@@ -1323,11 +1323,23 @@ SubmitIndexAddDocumentsJobResponse Alibabacloud_Bailian20231229::Client::submitI
   if (!Darabonba_Util::Client::isUnset<string>(request->categoryIdsShrink)) {
     query->insert(pair<string, string>("CategoryIds", *request->categoryIdsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chunkMode)) {
+    query->insert(pair<string, string>("ChunkMode", *request->chunkMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->chunkSize)) {
+    query->insert(pair<string, long>("ChunkSize", *request->chunkSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->documentIdsShrink)) {
     query->insert(pair<string, string>("DocumentIds", *request->documentIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->indexId)) {
     query->insert(pair<string, string>("IndexId", *request->indexId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->overlapSize)) {
+    query->insert(pair<string, long>("OverlapSize", *request->overlapSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->separator)) {
+    query->insert(pair<string, string>("Separator", *request->separator));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
