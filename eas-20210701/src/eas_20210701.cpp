@@ -2714,6 +2714,12 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->quotaId)) {
     query->insert(pair<string, string>("QuotaId", *request->quotaId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceAliasName)) {
+    query->insert(pair<string, string>("ResourceAliasName", *request->resourceAliasName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    query->insert(pair<string, string>("ResourceId", *request->resourceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
     query->insert(pair<string, string>("ResourceName", *request->resourceName));
   }

@@ -13800,6 +13800,8 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> parentServiceUid{};
   shared_ptr<string> quotaId{};
+  shared_ptr<string> resourceAliasName{};
+  shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> role{};
@@ -13849,6 +13851,12 @@ public:
     }
     if (quotaId) {
       res["QuotaId"] = boost::any(*quotaId);
+    }
+    if (resourceAliasName) {
+      res["ResourceAliasName"] = boost::any(*resourceAliasName);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
@@ -13916,6 +13924,12 @@ public:
     if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
       quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
     }
+    if (m.find("ResourceAliasName") != m.end() && !m["ResourceAliasName"].empty()) {
+      resourceAliasName = make_shared<string>(boost::any_cast<string>(m["ResourceAliasName"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }
@@ -13960,6 +13974,8 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> parentServiceUid{};
   shared_ptr<string> quotaId{};
+  shared_ptr<string> resourceAliasName{};
+  shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> role{};
@@ -14009,6 +14025,12 @@ public:
     }
     if (quotaId) {
       res["QuotaId"] = boost::any(*quotaId);
+    }
+    if (resourceAliasName) {
+      res["ResourceAliasName"] = boost::any(*resourceAliasName);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
@@ -14070,6 +14092,12 @@ public:
     }
     if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
       quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
+    }
+    if (m.find("ResourceAliasName") != m.end() && !m["ResourceAliasName"].empty()) {
+      resourceAliasName = make_shared<string>(boost::any_cast<string>(m["ResourceAliasName"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
