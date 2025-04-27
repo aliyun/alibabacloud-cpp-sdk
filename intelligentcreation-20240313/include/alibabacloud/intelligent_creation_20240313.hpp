@@ -7571,6 +7571,42 @@ public:
 
   virtual ~GetAICoachScriptResponseBodySampleDialogueList() = default;
 };
+class GetAICoachScriptResponseBodyScoreConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> passScore{};
+
+  GetAICoachScriptResponseBodyScoreConfig() {}
+
+  explicit GetAICoachScriptResponseBodyScoreConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (passScore) {
+      res["passScore"] = boost::any(*passScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("passScore") != m.end() && !m["passScore"].empty()) {
+      passScore = make_shared<string>(boost::any_cast<string>(m["passScore"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyScoreConfig() = default;
+};
 class GetAICoachScriptResponseBodyWeights : public Darabonba::Model {
 public:
   shared_ptr<long> abilityEvaluation{};
@@ -7693,6 +7729,7 @@ public:
   shared_ptr<vector<GetAICoachScriptResponseBodyPoints>> points{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<GetAICoachScriptResponseBodySampleDialogueList>> sampleDialogueList{};
+  shared_ptr<GetAICoachScriptResponseBodyScoreConfig> scoreConfig{};
   shared_ptr<string> scriptRecordId{};
   shared_ptr<string> sparringTipContent{};
   shared_ptr<string> sparringTipTitle{};
@@ -7811,6 +7848,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["sampleDialogueList"] = boost::any(temp1);
+    }
+    if (scoreConfig) {
+      res["scoreConfig"] = scoreConfig ? boost::any(scoreConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (scriptRecordId) {
       res["scriptRecordId"] = boost::any(*scriptRecordId);
@@ -7982,6 +8022,13 @@ public:
           }
         }
         sampleDialogueList = make_shared<vector<GetAICoachScriptResponseBodySampleDialogueList>>(expect1);
+      }
+    }
+    if (m.find("scoreConfig") != m.end() && !m["scoreConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["scoreConfig"].type()) {
+        GetAICoachScriptResponseBodyScoreConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["scoreConfig"]));
+        scoreConfig = make_shared<GetAICoachScriptResponseBodyScoreConfig>(model1);
       }
     }
     if (m.find("scriptRecordId") != m.end() && !m["scriptRecordId"].empty()) {
