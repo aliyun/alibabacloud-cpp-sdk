@@ -506,40 +506,6 @@ CreateDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::createDataS
   return createDataStreamWithOptions(InstanceId, request, headers, runtime);
 }
 
-CreateDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::createDataTasksWithOptions(shared_ptr<string> InstanceId,
-                                                                                               shared_ptr<CreateDataTasksRequest> request,
-                                                                                               shared_ptr<map<string, string>> headers,
-                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
-    query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toArray<vector<CreateDataTasksRequestBody>>(request->body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateDataTasks"))},
-    {"version", boost::any(string("2017-06-13"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/openapi/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/data-task"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateDataTasksResponse(callApi(params, req, runtime));
-}
-
-CreateDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::createDataTasks(shared_ptr<string> InstanceId, shared_ptr<CreateDataTasksRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createDataTasksWithOptions(InstanceId, request, headers, runtime);
-}
-
 CreateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::createILMPolicyWithOptions(shared_ptr<string> InstanceId,
                                                                                                shared_ptr<CreateILMPolicyRequest> request,
                                                                                                shared_ptr<map<string, string>> headers,
@@ -6084,6 +6050,9 @@ UpdateInstanceSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updat
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->updateStrategy)) {
+    query->insert(pair<string, string>("updateStrategy", *request->updateStrategy));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -6387,6 +6356,9 @@ UpdatePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Clien
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->endpoints)) {
     body->insert(pair<string, vector<string>>("endpoints", *request->endpoints));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->esInstanceId)) {
+    body->insert(pair<string, string>("esInstanceId", *request->esInstanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     body->insert(pair<string, string>("password", *request->password));
@@ -6805,7 +6777,13 @@ UpgradeEngineVersionResponse Alibabacloud_Elasticsearch20170613::Client::upgrade
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("dryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->updateStrategy)) {
+    query->insert(pair<string, string>("updateStrategy", *request->updateStrategy));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpgradeEngineVersionRequestPlugins>>(request->plugins)) {
+    body->insert(pair<string, vector<UpgradeEngineVersionRequestPlugins>>("plugins", *request->plugins));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("type", *request->type));
   }
