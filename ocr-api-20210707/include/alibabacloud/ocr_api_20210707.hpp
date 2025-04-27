@@ -812,6 +812,7 @@ public:
 };
 class RecognizeAllTextRequestIdCardConfig : public Darabonba::Model {
 public:
+  shared_ptr<bool> llmRec{};
   shared_ptr<bool> outputIdCardQuality{};
 
   RecognizeAllTextRequestIdCardConfig() {}
@@ -824,6 +825,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (llmRec) {
+      res["Llm_rec"] = boost::any(*llmRec);
+    }
     if (outputIdCardQuality) {
       res["OutputIdCardQuality"] = boost::any(*outputIdCardQuality);
     }
@@ -831,6 +835,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Llm_rec") != m.end() && !m["Llm_rec"].empty()) {
+      llmRec = make_shared<bool>(boost::any_cast<bool>(m["Llm_rec"]));
+    }
     if (m.find("OutputIdCardQuality") != m.end() && !m["OutputIdCardQuality"].empty()) {
       outputIdCardQuality = make_shared<bool>(boost::any_cast<bool>(m["OutputIdCardQuality"]));
     }
@@ -9177,6 +9184,7 @@ public:
 };
 class RecognizeIdcardRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> llmRec{};
   shared_ptr<bool> outputFigure{};
   shared_ptr<bool> outputQualityInfo{};
   shared_ptr<string> url{};
@@ -9192,6 +9200,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (llmRec) {
+      res["Llm_rec"] = boost::any(*llmRec);
+    }
     if (outputFigure) {
       res["OutputFigure"] = boost::any(*outputFigure);
     }
@@ -9208,6 +9219,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Llm_rec") != m.end() && !m["Llm_rec"].empty()) {
+      llmRec = make_shared<bool>(boost::any_cast<bool>(m["Llm_rec"]));
+    }
     if (m.find("OutputFigure") != m.end() && !m["OutputFigure"].empty()) {
       outputFigure = make_shared<bool>(boost::any_cast<bool>(m["OutputFigure"]));
     }

@@ -1406,6 +1406,9 @@ RecognizeHouseholdResponse Alibabacloud_Ocr-api20210707::Client::recognizeHouseh
 RecognizeIdcardResponse Alibabacloud_Ocr-api20210707::Client::recognizeIdcardWithOptions(shared_ptr<RecognizeIdcardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->llmRec)) {
+    query->insert(pair<string, bool>("Llm_rec", *request->llmRec));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->outputFigure)) {
     query->insert(pair<string, bool>("OutputFigure", *request->outputFigure));
   }
