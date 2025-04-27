@@ -1256,8 +1256,10 @@ public:
   shared_ptr<string> dlpSendSchemaId{};
   shared_ptr<string> domainBlacklistSchemaId{};
   shared_ptr<string> domainWhitelistSchemaId{};
+  shared_ptr<string> endpointHardeningSchemaId{};
   shared_ptr<string> peripheralBlockSchemaId{};
   shared_ptr<string> softwareBlockSchemaId{};
+  shared_ptr<string> softwareHardeningSchemaId{};
 
   CreateApprovalProcessRequestMatchSchemas() {}
 
@@ -1284,11 +1286,17 @@ public:
     if (domainWhitelistSchemaId) {
       res["DomainWhitelistSchemaId"] = boost::any(*domainWhitelistSchemaId);
     }
+    if (endpointHardeningSchemaId) {
+      res["EndpointHardeningSchemaId"] = boost::any(*endpointHardeningSchemaId);
+    }
     if (peripheralBlockSchemaId) {
       res["PeripheralBlockSchemaId"] = boost::any(*peripheralBlockSchemaId);
     }
     if (softwareBlockSchemaId) {
       res["SoftwareBlockSchemaId"] = boost::any(*softwareBlockSchemaId);
+    }
+    if (softwareHardeningSchemaId) {
+      res["SoftwareHardeningSchemaId"] = boost::any(*softwareHardeningSchemaId);
     }
     return res;
   }
@@ -1309,11 +1317,17 @@ public:
     if (m.find("DomainWhitelistSchemaId") != m.end() && !m["DomainWhitelistSchemaId"].empty()) {
       domainWhitelistSchemaId = make_shared<string>(boost::any_cast<string>(m["DomainWhitelistSchemaId"]));
     }
+    if (m.find("EndpointHardeningSchemaId") != m.end() && !m["EndpointHardeningSchemaId"].empty()) {
+      endpointHardeningSchemaId = make_shared<string>(boost::any_cast<string>(m["EndpointHardeningSchemaId"]));
+    }
     if (m.find("PeripheralBlockSchemaId") != m.end() && !m["PeripheralBlockSchemaId"].empty()) {
       peripheralBlockSchemaId = make_shared<string>(boost::any_cast<string>(m["PeripheralBlockSchemaId"]));
     }
     if (m.find("SoftwareBlockSchemaId") != m.end() && !m["SoftwareBlockSchemaId"].empty()) {
       softwareBlockSchemaId = make_shared<string>(boost::any_cast<string>(m["SoftwareBlockSchemaId"]));
+    }
+    if (m.find("SoftwareHardeningSchemaId") != m.end() && !m["SoftwareHardeningSchemaId"].empty()) {
+      softwareHardeningSchemaId = make_shared<string>(boost::any_cast<string>(m["SoftwareHardeningSchemaId"]));
     }
   }
 
@@ -1667,6 +1681,49 @@ public:
 
   virtual ~CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies() = default;
 };
+class CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> schemaId{};
+
+  CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies() {}
+
+  explicit CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (schemaId) {
+      res["SchemaId"] = boost::any(*schemaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SchemaId") != m.end() && !m["SchemaId"].empty()) {
+      schemaId = make_shared<string>(boost::any_cast<string>(m["SchemaId"]));
+    }
+  }
+
+
+  virtual ~CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies() = default;
+};
 class CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> policyIds{};
@@ -1789,6 +1846,49 @@ public:
 
   virtual ~CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies() = default;
 };
+class CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> schemaId{};
+
+  CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies() {}
+
+  explicit CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (schemaId) {
+      res["SchemaId"] = boost::any(*schemaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SchemaId") != m.end() && !m["SchemaId"].empty()) {
+      schemaId = make_shared<string>(boost::any_cast<string>(m["SchemaId"]));
+    }
+  }
+
+
+  virtual ~CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies() = default;
+};
 class CreateApprovalProcessResponseBodyProcess : public Darabonba::Model {
 public:
   shared_ptr<CreateApprovalProcessResponseBodyProcessAppUninstallPolicies> appUninstallPolicies{};
@@ -1798,11 +1898,13 @@ public:
   shared_ptr<CreateApprovalProcessResponseBodyProcessDlpSendPolicies> dlpSendPolicies{};
   shared_ptr<CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies> domainBlacklistPolicies{};
   shared_ptr<CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies> domainWhitelistPolicies{};
+  shared_ptr<CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies> endpointHardeningPolicies{};
   shared_ptr<CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies> peripheralBlockPolicies{};
   shared_ptr<string> processId{};
   shared_ptr<string> processName{};
   shared_ptr<vector<vector<undefined>>> processNodes{};
   shared_ptr<CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies> softwareBlockPolicies{};
+  shared_ptr<CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies> softwareHardeningPolicies{};
 
   CreateApprovalProcessResponseBodyProcess() {}
 
@@ -1835,6 +1937,9 @@ public:
     if (domainWhitelistPolicies) {
       res["DomainWhitelistPolicies"] = domainWhitelistPolicies ? boost::any(domainWhitelistPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (endpointHardeningPolicies) {
+      res["EndpointHardeningPolicies"] = endpointHardeningPolicies ? boost::any(endpointHardeningPolicies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (peripheralBlockPolicies) {
       res["PeripheralBlockPolicies"] = peripheralBlockPolicies ? boost::any(peripheralBlockPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1857,6 +1962,9 @@ public:
     }
     if (softwareBlockPolicies) {
       res["SoftwareBlockPolicies"] = softwareBlockPolicies ? boost::any(softwareBlockPolicies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (softwareHardeningPolicies) {
+      res["SoftwareHardeningPolicies"] = softwareHardeningPolicies ? boost::any(softwareHardeningPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -1903,6 +2011,13 @@ public:
         domainWhitelistPolicies = make_shared<CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies>(model1);
       }
     }
+    if (m.find("EndpointHardeningPolicies") != m.end() && !m["EndpointHardeningPolicies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EndpointHardeningPolicies"].type()) {
+        CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EndpointHardeningPolicies"]));
+        endpointHardeningPolicies = make_shared<CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies>(model1);
+      }
+    }
     if (m.find("PeripheralBlockPolicies") != m.end() && !m["PeripheralBlockPolicies"].empty()) {
       if (typeid(map<string, boost::any>) == m["PeripheralBlockPolicies"].type()) {
         CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies model1;
@@ -1940,6 +2055,13 @@ public:
         CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SoftwareBlockPolicies"]));
         softwareBlockPolicies = make_shared<CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies>(model1);
+      }
+    }
+    if (m.find("SoftwareHardeningPolicies") != m.end() && !m["SoftwareHardeningPolicies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SoftwareHardeningPolicies"].type()) {
+        CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SoftwareHardeningPolicies"]));
+        softwareHardeningPolicies = make_shared<CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies>(model1);
       }
     }
   }
@@ -8004,6 +8126,49 @@ public:
 
   virtual ~GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies() = default;
 };
+class GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> schemaId{};
+
+  GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies() {}
+
+  explicit GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (schemaId) {
+      res["SchemaId"] = boost::any(*schemaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SchemaId") != m.end() && !m["SchemaId"].empty()) {
+      schemaId = make_shared<string>(boost::any_cast<string>(m["SchemaId"]));
+    }
+  }
+
+
+  virtual ~GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies() = default;
+};
 class GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> policyIds{};
@@ -8126,6 +8291,49 @@ public:
 
   virtual ~GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies() = default;
 };
+class GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> schemaId{};
+
+  GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies() {}
+
+  explicit GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (schemaId) {
+      res["SchemaId"] = boost::any(*schemaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SchemaId") != m.end() && !m["SchemaId"].empty()) {
+      schemaId = make_shared<string>(boost::any_cast<string>(m["SchemaId"]));
+    }
+  }
+
+
+  virtual ~GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies() = default;
+};
 class GetApprovalProcessResponseBodyProcess : public Darabonba::Model {
 public:
   shared_ptr<GetApprovalProcessResponseBodyProcessAppUninstallPolicies> appUninstallPolicies{};
@@ -8135,11 +8343,13 @@ public:
   shared_ptr<GetApprovalProcessResponseBodyProcessDlpSendPolicies> dlpSendPolicies{};
   shared_ptr<GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies> domainBlacklistPolicies{};
   shared_ptr<GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies> domainWhitelistPolicies{};
+  shared_ptr<GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies> endpointHardeningPolicies{};
   shared_ptr<GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies> peripheralBlockPolicies{};
   shared_ptr<string> processId{};
   shared_ptr<string> processName{};
   shared_ptr<vector<vector<undefined>>> processNodes{};
   shared_ptr<GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies> softwareBlockPolicies{};
+  shared_ptr<GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies> softwareHardeningPolicies{};
 
   GetApprovalProcessResponseBodyProcess() {}
 
@@ -8172,6 +8382,9 @@ public:
     if (domainWhitelistPolicies) {
       res["DomainWhitelistPolicies"] = domainWhitelistPolicies ? boost::any(domainWhitelistPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (endpointHardeningPolicies) {
+      res["EndpointHardeningPolicies"] = endpointHardeningPolicies ? boost::any(endpointHardeningPolicies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (peripheralBlockPolicies) {
       res["PeripheralBlockPolicies"] = peripheralBlockPolicies ? boost::any(peripheralBlockPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -8194,6 +8407,9 @@ public:
     }
     if (softwareBlockPolicies) {
       res["SoftwareBlockPolicies"] = softwareBlockPolicies ? boost::any(softwareBlockPolicies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (softwareHardeningPolicies) {
+      res["SoftwareHardeningPolicies"] = softwareHardeningPolicies ? boost::any(softwareHardeningPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -8240,6 +8456,13 @@ public:
         domainWhitelistPolicies = make_shared<GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies>(model1);
       }
     }
+    if (m.find("EndpointHardeningPolicies") != m.end() && !m["EndpointHardeningPolicies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EndpointHardeningPolicies"].type()) {
+        GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EndpointHardeningPolicies"]));
+        endpointHardeningPolicies = make_shared<GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies>(model1);
+      }
+    }
     if (m.find("PeripheralBlockPolicies") != m.end() && !m["PeripheralBlockPolicies"].empty()) {
       if (typeid(map<string, boost::any>) == m["PeripheralBlockPolicies"].type()) {
         GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies model1;
@@ -8277,6 +8500,13 @@ public:
         GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SoftwareBlockPolicies"]));
         softwareBlockPolicies = make_shared<GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies>(model1);
+      }
+    }
+    if (m.find("SoftwareHardeningPolicies") != m.end() && !m["SoftwareHardeningPolicies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SoftwareHardeningPolicies"].type()) {
+        GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SoftwareHardeningPolicies"]));
+        softwareHardeningPolicies = make_shared<GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies>(model1);
       }
     }
   }
@@ -12691,6 +12921,49 @@ public:
 
   virtual ~ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies() = default;
 };
+class ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> schemaId{};
+
+  ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies() {}
+
+  explicit ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (schemaId) {
+      res["SchemaId"] = boost::any(*schemaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SchemaId") != m.end() && !m["SchemaId"].empty()) {
+      schemaId = make_shared<string>(boost::any_cast<string>(m["SchemaId"]));
+    }
+  }
+
+
+  virtual ~ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies() = default;
+};
 class ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> policyIds{};
@@ -12813,6 +13086,49 @@ public:
 
   virtual ~ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies() = default;
 };
+class ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> schemaId{};
+
+  ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies() {}
+
+  explicit ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (schemaId) {
+      res["SchemaId"] = boost::any(*schemaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SchemaId") != m.end() && !m["SchemaId"].empty()) {
+      schemaId = make_shared<string>(boost::any_cast<string>(m["SchemaId"]));
+    }
+  }
+
+
+  virtual ~ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies() = default;
+};
 class ListApprovalProcessesResponseBodyProcesses : public Darabonba::Model {
 public:
   shared_ptr<ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies> appUninstallPolicies{};
@@ -12822,11 +13138,13 @@ public:
   shared_ptr<ListApprovalProcessesResponseBodyProcessesDlpSendPolicies> dlpSendPolicies{};
   shared_ptr<ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies> domainBlacklistPolicies{};
   shared_ptr<ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies> domainWhitelistPolicies{};
+  shared_ptr<ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies> endpointHardeningPolicies{};
   shared_ptr<ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies> peripheralBlockPolicies{};
   shared_ptr<string> processId{};
   shared_ptr<string> processName{};
   shared_ptr<vector<vector<undefined>>> processNodes{};
   shared_ptr<ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies> softwareBlockPolicies{};
+  shared_ptr<ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies> softwareHardeningPolicies{};
 
   ListApprovalProcessesResponseBodyProcesses() {}
 
@@ -12859,6 +13177,9 @@ public:
     if (domainWhitelistPolicies) {
       res["DomainWhitelistPolicies"] = domainWhitelistPolicies ? boost::any(domainWhitelistPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (endpointHardeningPolicies) {
+      res["EndpointHardeningPolicies"] = endpointHardeningPolicies ? boost::any(endpointHardeningPolicies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (peripheralBlockPolicies) {
       res["PeripheralBlockPolicies"] = peripheralBlockPolicies ? boost::any(peripheralBlockPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -12881,6 +13202,9 @@ public:
     }
     if (softwareBlockPolicies) {
       res["SoftwareBlockPolicies"] = softwareBlockPolicies ? boost::any(softwareBlockPolicies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (softwareHardeningPolicies) {
+      res["SoftwareHardeningPolicies"] = softwareHardeningPolicies ? boost::any(softwareHardeningPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -12927,6 +13251,13 @@ public:
         domainWhitelistPolicies = make_shared<ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies>(model1);
       }
     }
+    if (m.find("EndpointHardeningPolicies") != m.end() && !m["EndpointHardeningPolicies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EndpointHardeningPolicies"].type()) {
+        ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EndpointHardeningPolicies"]));
+        endpointHardeningPolicies = make_shared<ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies>(model1);
+      }
+    }
     if (m.find("PeripheralBlockPolicies") != m.end() && !m["PeripheralBlockPolicies"].empty()) {
       if (typeid(map<string, boost::any>) == m["PeripheralBlockPolicies"].type()) {
         ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies model1;
@@ -12964,6 +13295,13 @@ public:
         ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SoftwareBlockPolicies"]));
         softwareBlockPolicies = make_shared<ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies>(model1);
+      }
+    }
+    if (m.find("SoftwareHardeningPolicies") != m.end() && !m["SoftwareHardeningPolicies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SoftwareHardeningPolicies"].type()) {
+        ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SoftwareHardeningPolicies"]));
+        softwareHardeningPolicies = make_shared<ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies>(model1);
       }
     }
   }
@@ -24522,8 +24860,10 @@ public:
   shared_ptr<string> dlpSendSchemaId{};
   shared_ptr<string> domainBlacklistSchemaId{};
   shared_ptr<string> domainWhitelistSchemaId{};
+  shared_ptr<string> endpointHardeningSchemaId{};
   shared_ptr<string> peripheralBlockSchemaId{};
   shared_ptr<string> softwareBlockSchemaId{};
+  shared_ptr<string> softwareHardeningSchemaId{};
 
   UpdateApprovalProcessRequestMatchSchemas() {}
 
@@ -24550,11 +24890,17 @@ public:
     if (domainWhitelistSchemaId) {
       res["DomainWhitelistSchemaId"] = boost::any(*domainWhitelistSchemaId);
     }
+    if (endpointHardeningSchemaId) {
+      res["EndpointHardeningSchemaId"] = boost::any(*endpointHardeningSchemaId);
+    }
     if (peripheralBlockSchemaId) {
       res["PeripheralBlockSchemaId"] = boost::any(*peripheralBlockSchemaId);
     }
     if (softwareBlockSchemaId) {
       res["SoftwareBlockSchemaId"] = boost::any(*softwareBlockSchemaId);
+    }
+    if (softwareHardeningSchemaId) {
+      res["SoftwareHardeningSchemaId"] = boost::any(*softwareHardeningSchemaId);
     }
     return res;
   }
@@ -24575,11 +24921,17 @@ public:
     if (m.find("DomainWhitelistSchemaId") != m.end() && !m["DomainWhitelistSchemaId"].empty()) {
       domainWhitelistSchemaId = make_shared<string>(boost::any_cast<string>(m["DomainWhitelistSchemaId"]));
     }
+    if (m.find("EndpointHardeningSchemaId") != m.end() && !m["EndpointHardeningSchemaId"].empty()) {
+      endpointHardeningSchemaId = make_shared<string>(boost::any_cast<string>(m["EndpointHardeningSchemaId"]));
+    }
     if (m.find("PeripheralBlockSchemaId") != m.end() && !m["PeripheralBlockSchemaId"].empty()) {
       peripheralBlockSchemaId = make_shared<string>(boost::any_cast<string>(m["PeripheralBlockSchemaId"]));
     }
     if (m.find("SoftwareBlockSchemaId") != m.end() && !m["SoftwareBlockSchemaId"].empty()) {
       softwareBlockSchemaId = make_shared<string>(boost::any_cast<string>(m["SoftwareBlockSchemaId"]));
+    }
+    if (m.find("SoftwareHardeningSchemaId") != m.end() && !m["SoftwareHardeningSchemaId"].empty()) {
+      softwareHardeningSchemaId = make_shared<string>(boost::any_cast<string>(m["SoftwareHardeningSchemaId"]));
     }
   }
 
@@ -24947,6 +25299,49 @@ public:
 
   virtual ~UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies() = default;
 };
+class UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> schemaId{};
+
+  UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies() {}
+
+  explicit UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (schemaId) {
+      res["SchemaId"] = boost::any(*schemaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SchemaId") != m.end() && !m["SchemaId"].empty()) {
+      schemaId = make_shared<string>(boost::any_cast<string>(m["SchemaId"]));
+    }
+  }
+
+
+  virtual ~UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies() = default;
+};
 class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> policyIds{};
@@ -25069,6 +25464,49 @@ public:
 
   virtual ~UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies() = default;
 };
+class UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> schemaId{};
+
+  UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies() {}
+
+  explicit UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (schemaId) {
+      res["SchemaId"] = boost::any(*schemaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SchemaId") != m.end() && !m["SchemaId"].empty()) {
+      schemaId = make_shared<string>(boost::any_cast<string>(m["SchemaId"]));
+    }
+  }
+
+
+  virtual ~UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies() = default;
+};
 class UpdateApprovalProcessResponseBodyProcess : public Darabonba::Model {
 public:
   shared_ptr<UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies> appUninstallPolicies{};
@@ -25078,11 +25516,13 @@ public:
   shared_ptr<UpdateApprovalProcessResponseBodyProcessDlpSendPolicies> dlpSendPolicies{};
   shared_ptr<UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies> domainBlacklistPolicies{};
   shared_ptr<UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies> domainWhitelistPolicies{};
+  shared_ptr<UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies> endpointHardeningPolicies{};
   shared_ptr<UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies> peripheraBlockPolicies{};
   shared_ptr<string> processId{};
   shared_ptr<string> processName{};
   shared_ptr<vector<vector<undefined>>> processNodes{};
   shared_ptr<UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies> softwareBlockPolicies{};
+  shared_ptr<UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies> softwareHardeningPolicies{};
 
   UpdateApprovalProcessResponseBodyProcess() {}
 
@@ -25115,6 +25555,9 @@ public:
     if (domainWhitelistPolicies) {
       res["DomainWhitelistPolicies"] = domainWhitelistPolicies ? boost::any(domainWhitelistPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (endpointHardeningPolicies) {
+      res["EndpointHardeningPolicies"] = endpointHardeningPolicies ? boost::any(endpointHardeningPolicies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (peripheraBlockPolicies) {
       res["PeripheraBlockPolicies"] = peripheraBlockPolicies ? boost::any(peripheraBlockPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -25137,6 +25580,9 @@ public:
     }
     if (softwareBlockPolicies) {
       res["SoftwareBlockPolicies"] = softwareBlockPolicies ? boost::any(softwareBlockPolicies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (softwareHardeningPolicies) {
+      res["SoftwareHardeningPolicies"] = softwareHardeningPolicies ? boost::any(softwareHardeningPolicies->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -25183,6 +25629,13 @@ public:
         domainWhitelistPolicies = make_shared<UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies>(model1);
       }
     }
+    if (m.find("EndpointHardeningPolicies") != m.end() && !m["EndpointHardeningPolicies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EndpointHardeningPolicies"].type()) {
+        UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EndpointHardeningPolicies"]));
+        endpointHardeningPolicies = make_shared<UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies>(model1);
+      }
+    }
     if (m.find("PeripheraBlockPolicies") != m.end() && !m["PeripheraBlockPolicies"].empty()) {
       if (typeid(map<string, boost::any>) == m["PeripheraBlockPolicies"].type()) {
         UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies model1;
@@ -25220,6 +25673,13 @@ public:
         UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SoftwareBlockPolicies"]));
         softwareBlockPolicies = make_shared<UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies>(model1);
+      }
+    }
+    if (m.find("SoftwareHardeningPolicies") != m.end() && !m["SoftwareHardeningPolicies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SoftwareHardeningPolicies"].type()) {
+        UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SoftwareHardeningPolicies"]));
+        softwareHardeningPolicies = make_shared<UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies>(model1);
       }
     }
   }
