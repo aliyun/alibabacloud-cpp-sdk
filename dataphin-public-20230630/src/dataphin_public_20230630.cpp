@@ -448,6 +448,44 @@ CreateDataDomainResponse Alibabacloud_Dataphin-public20230630::Client::createDat
   return createDataDomainWithOptions(request, runtime);
 }
 
+CreateDataServiceApiResponse Alibabacloud_Dataphin-public20230630::Client::createDataServiceApiWithOptions(shared_ptr<CreateDataServiceApiRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDataServiceApiShrinkRequest> request = make_shared<CreateDataServiceApiShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateDataServiceApiRequestCreateCommand>(tmpReq->createCommand)) {
+    request->createCommandShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->createCommand, make_shared<string>("CreateCommand"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->createCommandShrink)) {
+    body->insert(pair<string, string>("CreateCommand", *request->createCommandShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDataServiceApi"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDataServiceApiResponse(callApi(params, req, runtime));
+}
+
+CreateDataServiceApiResponse Alibabacloud_Dataphin-public20230630::Client::createDataServiceApi(shared_ptr<CreateDataServiceApiRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDataServiceApiWithOptions(request, runtime);
+}
+
 CreateDataSourceResponse Alibabacloud_Dataphin-public20230630::Client::createDataSourceWithOptions(shared_ptr<CreateDataSourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDataSourceShrinkRequest> request = make_shared<CreateDataSourceShrinkRequest>();
@@ -601,6 +639,44 @@ CreatePipelineNodeResponse Alibabacloud_Dataphin-public20230630::Client::createP
 CreatePipelineNodeResponse Alibabacloud_Dataphin-public20230630::Client::createPipelineNode(shared_ptr<CreatePipelineNodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createPipelineNodeWithOptions(request, runtime);
+}
+
+CreateRowPermissionResponse Alibabacloud_Dataphin-public20230630::Client::createRowPermissionWithOptions(shared_ptr<CreateRowPermissionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateRowPermissionShrinkRequest> request = make_shared<CreateRowPermissionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateRowPermissionRequestCreateRowPermissionCommand>(tmpReq->createRowPermissionCommand)) {
+    request->createRowPermissionCommandShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->createRowPermissionCommand, make_shared<string>("CreateRowPermissionCommand"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->createRowPermissionCommandShrink)) {
+    body->insert(pair<string, string>("CreateRowPermissionCommand", *request->createRowPermissionCommandShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateRowPermission"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateRowPermissionResponse(callApi(params, req, runtime));
+}
+
+CreateRowPermissionResponse Alibabacloud_Dataphin-public20230630::Client::createRowPermission(shared_ptr<CreateRowPermissionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createRowPermissionWithOptions(request, runtime);
 }
 
 CreateStreamBatchJobMappingResponse Alibabacloud_Dataphin-public20230630::Client::createStreamBatchJobMappingWithOptions(shared_ptr<CreateStreamBatchJobMappingRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -925,6 +1001,44 @@ DeleteDirectoryResponse Alibabacloud_Dataphin-public20230630::Client::deleteDire
   return deleteDirectoryWithOptions(request, runtime);
 }
 
+DeleteRowPermissionResponse Alibabacloud_Dataphin-public20230630::Client::deleteRowPermissionWithOptions(shared_ptr<DeleteRowPermissionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteRowPermissionShrinkRequest> request = make_shared<DeleteRowPermissionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<DeleteRowPermissionRequestDeleteRowPermissionCommand>(tmpReq->deleteRowPermissionCommand)) {
+    request->deleteRowPermissionCommandShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->deleteRowPermissionCommand, make_shared<string>("DeleteRowPermissionCommand"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deleteRowPermissionCommandShrink)) {
+    body->insert(pair<string, string>("DeleteRowPermissionCommand", *request->deleteRowPermissionCommandShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteRowPermission"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteRowPermissionResponse(callApi(params, req, runtime));
+}
+
+DeleteRowPermissionResponse Alibabacloud_Dataphin-public20230630::Client::deleteRowPermission(shared_ptr<DeleteRowPermissionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteRowPermissionWithOptions(request, runtime);
+}
+
 DeleteUserGroupResponse Alibabacloud_Dataphin-public20230630::Client::deleteUserGroupWithOptions(shared_ptr<DeleteUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1074,6 +1188,44 @@ FixDataResponse Alibabacloud_Dataphin-public20230630::Client::fixDataWithOptions
 FixDataResponse Alibabacloud_Dataphin-public20230630::Client::fixData(shared_ptr<FixDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return fixDataWithOptions(request, runtime);
+}
+
+GetAccountByRowPermissionIdResponse Alibabacloud_Dataphin-public20230630::Client::getAccountByRowPermissionIdWithOptions(shared_ptr<GetAccountByRowPermissionIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetAccountByRowPermissionIdShrinkRequest> request = make_shared<GetAccountByRowPermissionIdShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<GetAccountByRowPermissionIdRequestGetAccountByRowPermissionIdQuery>(tmpReq->getAccountByRowPermissionIdQuery)) {
+    request->getAccountByRowPermissionIdQueryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->getAccountByRowPermissionIdQuery, make_shared<string>("GetAccountByRowPermissionIdQuery"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->getAccountByRowPermissionIdQueryShrink)) {
+    body->insert(pair<string, string>("GetAccountByRowPermissionIdQuery", *request->getAccountByRowPermissionIdQueryShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAccountByRowPermissionId"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAccountByRowPermissionIdResponse(callApi(params, req, runtime));
+}
+
+GetAccountByRowPermissionIdResponse Alibabacloud_Dataphin-public20230630::Client::getAccountByRowPermissionId(shared_ptr<GetAccountByRowPermissionIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAccountByRowPermissionIdWithOptions(request, runtime);
 }
 
 GetAdHocFileResponse Alibabacloud_Dataphin-public20230630::Client::getAdHocFileWithOptions(shared_ptr<GetAdHocFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2278,6 +2430,82 @@ GetSupplementDagrunInstanceResponse Alibabacloud_Dataphin-public20230630::Client
   return getSupplementDagrunInstanceWithOptions(request, runtime);
 }
 
+GetTableColumnLineageByTaskIdResponse Alibabacloud_Dataphin-public20230630::Client::getTableColumnLineageByTaskIdWithOptions(shared_ptr<GetTableColumnLineageByTaskIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetTableColumnLineageByTaskIdShrinkRequest> request = make_shared<GetTableColumnLineageByTaskIdShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<GetTableColumnLineageByTaskIdRequestTableColumnLineageByTaskIdQuery>(tmpReq->tableColumnLineageByTaskIdQuery)) {
+    request->tableColumnLineageByTaskIdQueryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tableColumnLineageByTaskIdQuery, make_shared<string>("TableColumnLineageByTaskIdQuery"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableColumnLineageByTaskIdQueryShrink)) {
+    body->insert(pair<string, string>("TableColumnLineageByTaskIdQuery", *request->tableColumnLineageByTaskIdQueryShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTableColumnLineageByTaskId"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTableColumnLineageByTaskIdResponse(callApi(params, req, runtime));
+}
+
+GetTableColumnLineageByTaskIdResponse Alibabacloud_Dataphin-public20230630::Client::getTableColumnLineageByTaskId(shared_ptr<GetTableColumnLineageByTaskIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTableColumnLineageByTaskIdWithOptions(request, runtime);
+}
+
+GetTableLineageByTaskIdResponse Alibabacloud_Dataphin-public20230630::Client::getTableLineageByTaskIdWithOptions(shared_ptr<GetTableLineageByTaskIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetTableLineageByTaskIdShrinkRequest> request = make_shared<GetTableLineageByTaskIdShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<GetTableLineageByTaskIdRequestTableLineageByTaskIdQuery>(tmpReq->tableLineageByTaskIdQuery)) {
+    request->tableLineageByTaskIdQueryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tableLineageByTaskIdQuery, make_shared<string>("TableLineageByTaskIdQuery"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableLineageByTaskIdQueryShrink)) {
+    body->insert(pair<string, string>("TableLineageByTaskIdQuery", *request->tableLineageByTaskIdQueryShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTableLineageByTaskId"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTableLineageByTaskIdResponse(callApi(params, req, runtime));
+}
+
+GetTableLineageByTaskIdResponse Alibabacloud_Dataphin-public20230630::Client::getTableLineageByTaskId(shared_ptr<GetTableLineageByTaskIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTableLineageByTaskIdWithOptions(request, runtime);
+}
+
 GetUserBySourceIdResponse Alibabacloud_Dataphin-public20230630::Client::getUserBySourceIdWithOptions(shared_ptr<GetUserBySourceIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3051,6 +3279,82 @@ ListResourcePermissionsResponse Alibabacloud_Dataphin-public20230630::Client::li
   return listResourcePermissionsWithOptions(request, runtime);
 }
 
+ListRowPermissionResponse Alibabacloud_Dataphin-public20230630::Client::listRowPermissionWithOptions(shared_ptr<ListRowPermissionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListRowPermissionShrinkRequest> request = make_shared<ListRowPermissionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ListRowPermissionRequestPageRowPermissionQuery>(tmpReq->pageRowPermissionQuery)) {
+    request->pageRowPermissionQueryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pageRowPermissionQuery, make_shared<string>("PageRowPermissionQuery"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageRowPermissionQueryShrink)) {
+    body->insert(pair<string, string>("PageRowPermissionQuery", *request->pageRowPermissionQueryShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListRowPermission"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListRowPermissionResponse(callApi(params, req, runtime));
+}
+
+ListRowPermissionResponse Alibabacloud_Dataphin-public20230630::Client::listRowPermission(shared_ptr<ListRowPermissionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listRowPermissionWithOptions(request, runtime);
+}
+
+ListRowPermissionByUserIdResponse Alibabacloud_Dataphin-public20230630::Client::listRowPermissionByUserIdWithOptions(shared_ptr<ListRowPermissionByUserIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListRowPermissionByUserIdShrinkRequest> request = make_shared<ListRowPermissionByUserIdShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ListRowPermissionByUserIdRequestListRowPermissionByUserIdQuery>(tmpReq->listRowPermissionByUserIdQuery)) {
+    request->listRowPermissionByUserIdQueryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->listRowPermissionByUserIdQuery, make_shared<string>("ListRowPermissionByUserIdQuery"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->listRowPermissionByUserIdQueryShrink)) {
+    body->insert(pair<string, string>("ListRowPermissionByUserIdQuery", *request->listRowPermissionByUserIdQueryShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListRowPermissionByUserId"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListRowPermissionByUserIdResponse(callApi(params, req, runtime));
+}
+
+ListRowPermissionByUserIdResponse Alibabacloud_Dataphin-public20230630::Client::listRowPermissionByUserId(shared_ptr<ListRowPermissionByUserIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listRowPermissionByUserIdWithOptions(request, runtime);
+}
+
 ListSubmitRecordsResponse Alibabacloud_Dataphin-public20230630::Client::listSubmitRecordsWithOptions(shared_ptr<ListSubmitRecordsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ListSubmitRecordsShrinkRequest> request = make_shared<ListSubmitRecordsShrinkRequest>();
@@ -3701,6 +4005,82 @@ SubmitBatchTaskResponse Alibabacloud_Dataphin-public20230630::Client::submitBatc
   return submitBatchTaskWithOptions(request, runtime);
 }
 
+SyncDepartmentResponse Alibabacloud_Dataphin-public20230630::Client::syncDepartmentWithOptions(shared_ptr<SyncDepartmentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SyncDepartmentShrinkRequest> request = make_shared<SyncDepartmentShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SyncDepartmentRequestSyncDepartmentCommand>(tmpReq->syncDepartmentCommand)) {
+    request->syncDepartmentCommandShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->syncDepartmentCommand, make_shared<string>("SyncDepartmentCommand"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->syncDepartmentCommandShrink)) {
+    body->insert(pair<string, string>("SyncDepartmentCommand", *request->syncDepartmentCommandShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SyncDepartment"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SyncDepartmentResponse(callApi(params, req, runtime));
+}
+
+SyncDepartmentResponse Alibabacloud_Dataphin-public20230630::Client::syncDepartment(shared_ptr<SyncDepartmentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return syncDepartmentWithOptions(request, runtime);
+}
+
+SyncDepartmentUserResponse Alibabacloud_Dataphin-public20230630::Client::syncDepartmentUserWithOptions(shared_ptr<SyncDepartmentUserRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SyncDepartmentUserShrinkRequest> request = make_shared<SyncDepartmentUserShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SyncDepartmentUserRequestSyncDepartmentUserCommand>(tmpReq->syncDepartmentUserCommand)) {
+    request->syncDepartmentUserCommandShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->syncDepartmentUserCommand, make_shared<string>("SyncDepartmentUserCommand"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->syncDepartmentUserCommandShrink)) {
+    body->insert(pair<string, string>("SyncDepartmentUserCommand", *request->syncDepartmentUserCommandShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SyncDepartmentUser"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SyncDepartmentUserResponse(callApi(params, req, runtime));
+}
+
+SyncDepartmentUserResponse Alibabacloud_Dataphin-public20230630::Client::syncDepartmentUser(shared_ptr<SyncDepartmentUserRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return syncDepartmentUserWithOptions(request, runtime);
+}
+
 UpdateAdHocFileResponse Alibabacloud_Dataphin-public20230630::Client::updateAdHocFileWithOptions(shared_ptr<UpdateAdHocFileRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateAdHocFileShrinkRequest> request = make_shared<UpdateAdHocFileShrinkRequest>();
@@ -4077,6 +4457,44 @@ UpdateFileNameResponse Alibabacloud_Dataphin-public20230630::Client::updateFileN
 UpdateFileNameResponse Alibabacloud_Dataphin-public20230630::Client::updateFileName(shared_ptr<UpdateFileNameRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateFileNameWithOptions(request, runtime);
+}
+
+UpdateRowPermissionResponse Alibabacloud_Dataphin-public20230630::Client::updateRowPermissionWithOptions(shared_ptr<UpdateRowPermissionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateRowPermissionShrinkRequest> request = make_shared<UpdateRowPermissionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateRowPermissionRequestUpdateRowPermissionCommand>(tmpReq->updateRowPermissionCommand)) {
+    request->updateRowPermissionCommandShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->updateRowPermissionCommand, make_shared<string>("UpdateRowPermissionCommand"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->opTenantId)) {
+    query->insert(pair<string, long>("OpTenantId", *request->opTenantId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->updateRowPermissionCommandShrink)) {
+    body->insert(pair<string, string>("UpdateRowPermissionCommand", *request->updateRowPermissionCommandShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateRowPermission"))},
+    {"version", boost::any(string("2023-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateRowPermissionResponse(callApi(params, req, runtime));
+}
+
+UpdateRowPermissionResponse Alibabacloud_Dataphin-public20230630::Client::updateRowPermission(shared_ptr<UpdateRowPermissionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateRowPermissionWithOptions(request, runtime);
 }
 
 UpdateTenantMemberResponse Alibabacloud_Dataphin-public20230630::Client::updateTenantMemberWithOptions(shared_ptr<UpdateTenantMemberRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
