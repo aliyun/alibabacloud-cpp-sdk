@@ -419,6 +419,64 @@ DocOcrResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcr(shared_ptr<Do
   return docOcrWithOptions(request, runtime);
 }
 
+DocOcrMaxResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrMaxWithOptions(shared_ptr<DocOcrMaxRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->docType)) {
+    body->insert(pair<string, string>("DocType", *request->docType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureBase64)) {
+    body->insert(pair<string, string>("IdOcrPictureBase64", *request->idOcrPictureBase64));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureUrl)) {
+    body->insert(pair<string, string>("IdOcrPictureUrl", *request->idOcrPictureUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idThreshold)) {
+    body->insert(pair<string, string>("IdThreshold", *request->idThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
+    body->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantUserId)) {
+    body->insert(pair<string, string>("MerchantUserId", *request->merchantUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ocrModel)) {
+    body->insert(pair<string, string>("OcrModel", *request->ocrModel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    body->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneCode)) {
+    body->insert(pair<string, string>("SceneCode", *request->sceneCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spoof)) {
+    body->insert(pair<string, string>("Spoof", *request->spoof));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DocOcrMax"))},
+    {"version", boost::any(string("2022-08-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DocOcrMaxResponse(callApi(params, req, runtime));
+}
+
+DocOcrMaxResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrMax(shared_ptr<DocOcrMaxRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return docOcrMaxWithOptions(request, runtime);
+}
+
 EkycVerifyResponse Alibabacloud_Cloudauth-intl20220809::Client::ekycVerifyWithOptions(shared_ptr<EkycVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

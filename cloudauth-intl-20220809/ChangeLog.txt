@@ -1,3 +1,7 @@
+2025-04-28 Version: 2.4.0
+- Support API DocOcrMax.
+
+
 2025-04-24 Version: 2.3.0
 - Support API CredentialVerifyIntl.
 

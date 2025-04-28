@@ -1662,6 +1662,261 @@ public:
 
   virtual ~DocOcrResponse() = default;
 };
+class DocOcrMaxRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> docType{};
+  shared_ptr<string> idOcrPictureBase64{};
+  shared_ptr<string> idOcrPictureUrl{};
+  shared_ptr<string> idThreshold{};
+  shared_ptr<string> merchantBizId{};
+  shared_ptr<string> merchantUserId{};
+  shared_ptr<string> ocrModel{};
+  shared_ptr<string> productCode{};
+  shared_ptr<string> prompt{};
+  shared_ptr<string> sceneCode{};
+  shared_ptr<string> spoof{};
+
+  DocOcrMaxRequest() {}
+
+  explicit DocOcrMaxRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (docType) {
+      res["DocType"] = boost::any(*docType);
+    }
+    if (idOcrPictureBase64) {
+      res["IdOcrPictureBase64"] = boost::any(*idOcrPictureBase64);
+    }
+    if (idOcrPictureUrl) {
+      res["IdOcrPictureUrl"] = boost::any(*idOcrPictureUrl);
+    }
+    if (idThreshold) {
+      res["IdThreshold"] = boost::any(*idThreshold);
+    }
+    if (merchantBizId) {
+      res["MerchantBizId"] = boost::any(*merchantBizId);
+    }
+    if (merchantUserId) {
+      res["MerchantUserId"] = boost::any(*merchantUserId);
+    }
+    if (ocrModel) {
+      res["OcrModel"] = boost::any(*ocrModel);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
+    if (spoof) {
+      res["Spoof"] = boost::any(*spoof);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
+      docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
+    }
+    if (m.find("IdOcrPictureBase64") != m.end() && !m["IdOcrPictureBase64"].empty()) {
+      idOcrPictureBase64 = make_shared<string>(boost::any_cast<string>(m["IdOcrPictureBase64"]));
+    }
+    if (m.find("IdOcrPictureUrl") != m.end() && !m["IdOcrPictureUrl"].empty()) {
+      idOcrPictureUrl = make_shared<string>(boost::any_cast<string>(m["IdOcrPictureUrl"]));
+    }
+    if (m.find("IdThreshold") != m.end() && !m["IdThreshold"].empty()) {
+      idThreshold = make_shared<string>(boost::any_cast<string>(m["IdThreshold"]));
+    }
+    if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
+      merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
+    }
+    if (m.find("MerchantUserId") != m.end() && !m["MerchantUserId"].empty()) {
+      merchantUserId = make_shared<string>(boost::any_cast<string>(m["MerchantUserId"]));
+    }
+    if (m.find("OcrModel") != m.end() && !m["OcrModel"].empty()) {
+      ocrModel = make_shared<string>(boost::any_cast<string>(m["OcrModel"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+    if (m.find("Spoof") != m.end() && !m["Spoof"].empty()) {
+      spoof = make_shared<string>(boost::any_cast<string>(m["Spoof"]));
+    }
+  }
+
+
+  virtual ~DocOcrMaxRequest() = default;
+};
+class DocOcrMaxResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> extIdInfo{};
+  shared_ptr<string> passed{};
+  shared_ptr<string> subCode{};
+  shared_ptr<string> transactionId{};
+
+  DocOcrMaxResponseBodyResult() {}
+
+  explicit DocOcrMaxResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extIdInfo) {
+      res["ExtIdInfo"] = boost::any(*extIdInfo);
+    }
+    if (passed) {
+      res["Passed"] = boost::any(*passed);
+    }
+    if (subCode) {
+      res["SubCode"] = boost::any(*subCode);
+    }
+    if (transactionId) {
+      res["TransactionId"] = boost::any(*transactionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtIdInfo") != m.end() && !m["ExtIdInfo"].empty()) {
+      extIdInfo = make_shared<string>(boost::any_cast<string>(m["ExtIdInfo"]));
+    }
+    if (m.find("Passed") != m.end() && !m["Passed"].empty()) {
+      passed = make_shared<string>(boost::any_cast<string>(m["Passed"]));
+    }
+    if (m.find("SubCode") != m.end() && !m["SubCode"].empty()) {
+      subCode = make_shared<string>(boost::any_cast<string>(m["SubCode"]));
+    }
+    if (m.find("TransactionId") != m.end() && !m["TransactionId"].empty()) {
+      transactionId = make_shared<string>(boost::any_cast<string>(m["TransactionId"]));
+    }
+  }
+
+
+  virtual ~DocOcrMaxResponseBodyResult() = default;
+};
+class DocOcrMaxResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DocOcrMaxResponseBodyResult> result{};
+
+  DocOcrMaxResponseBody() {}
+
+  explicit DocOcrMaxResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        DocOcrMaxResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<DocOcrMaxResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DocOcrMaxResponseBody() = default;
+};
+class DocOcrMaxResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DocOcrMaxResponseBody> body{};
+
+  DocOcrMaxResponse() {}
+
+  explicit DocOcrMaxResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DocOcrMaxResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DocOcrMaxResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DocOcrMaxResponse() = default;
+};
 class EkycVerifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authorize{};
@@ -4144,6 +4399,8 @@ public:
   DeleteVerifyResultResponse deleteVerifyResult(shared_ptr<DeleteVerifyResultRequest> request);
   DocOcrResponse docOcrWithOptions(shared_ptr<DocOcrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DocOcrResponse docOcr(shared_ptr<DocOcrRequest> request);
+  DocOcrMaxResponse docOcrMaxWithOptions(shared_ptr<DocOcrMaxRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DocOcrMaxResponse docOcrMax(shared_ptr<DocOcrMaxRequest> request);
   EkycVerifyResponse ekycVerifyWithOptions(shared_ptr<EkycVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EkycVerifyResponse ekycVerify(shared_ptr<EkycVerifyRequest> request);
   FaceCompareResponse faceCompareWithOptions(shared_ptr<FaceCompareRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
