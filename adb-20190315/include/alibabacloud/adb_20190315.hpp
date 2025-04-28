@@ -10627,9 +10627,12 @@ public:
   shared_ptr<string> mode{};
   shared_ptr<string> payType{};
   shared_ptr<long> port{};
+  shared_ptr<string> productForm{};
   shared_ptr<string> productVersion{};
   shared_ptr<string> rdsInstanceId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> reservedNodeCount{};
+  shared_ptr<string> reservedNodeSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> secondaryVSwitchId{};
   shared_ptr<string> secondaryZoneId{};
@@ -10760,6 +10763,9 @@ public:
     if (port) {
       res["Port"] = boost::any(*port);
     }
+    if (productForm) {
+      res["ProductForm"] = boost::any(*productForm);
+    }
     if (productVersion) {
       res["ProductVersion"] = boost::any(*productVersion);
     }
@@ -10768,6 +10774,12 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (reservedNodeCount) {
+      res["ReservedNodeCount"] = boost::any(*reservedNodeCount);
+    }
+    if (reservedNodeSize) {
+      res["ReservedNodeSize"] = boost::any(*reservedNodeSize);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -10914,6 +10926,9 @@ public:
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<long>(boost::any_cast<long>(m["Port"]));
     }
+    if (m.find("ProductForm") != m.end() && !m["ProductForm"].empty()) {
+      productForm = make_shared<string>(boost::any_cast<string>(m["ProductForm"]));
+    }
     if (m.find("ProductVersion") != m.end() && !m["ProductVersion"].empty()) {
       productVersion = make_shared<string>(boost::any_cast<string>(m["ProductVersion"]));
     }
@@ -10922,6 +10937,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReservedNodeCount") != m.end() && !m["ReservedNodeCount"].empty()) {
+      reservedNodeCount = make_shared<long>(boost::any_cast<long>(m["ReservedNodeCount"]));
+    }
+    if (m.find("ReservedNodeSize") != m.end() && !m["ReservedNodeSize"].empty()) {
+      reservedNodeSize = make_shared<string>(boost::any_cast<string>(m["ReservedNodeSize"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
