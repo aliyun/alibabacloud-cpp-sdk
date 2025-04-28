@@ -1803,6 +1803,9 @@ DeleteAIAgentDialogueResponse Alibabacloud_ICE20201109::Client::deleteAIAgentDia
   if (!Darabonba_Util::Client::isUnset<string>(request->dialogueId)) {
     query->insert(pair<string, string>("DialogueId", *request->dialogueId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
+    query->insert(pair<string, string>("NodeId", *request->nodeId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));
   }
@@ -5344,6 +5347,9 @@ ListAIAgentDialoguesResponse Alibabacloud_ICE20201109::Client::listAIAgentDialog
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roundLimit)) {
+    query->insert(pair<string, string>("RoundLimit", *request->roundLimit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));

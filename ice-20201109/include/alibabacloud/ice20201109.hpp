@@ -14393,6 +14393,7 @@ public:
 class DeleteAIAgentDialogueRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dialogueId{};
+  shared_ptr<string> nodeId{};
   shared_ptr<string> sessionId{};
 
   DeleteAIAgentDialogueRequest() {}
@@ -14408,6 +14409,9 @@ public:
     if (dialogueId) {
       res["DialogueId"] = boost::any(*dialogueId);
     }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -14417,6 +14421,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DialogueId") != m.end() && !m["DialogueId"].empty()) {
       dialogueId = make_shared<string>(boost::any_cast<string>(m["DialogueId"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
@@ -44359,6 +44366,7 @@ public:
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> roundLimit{};
   shared_ptr<string> sessionId{};
   shared_ptr<long> startTime{};
 
@@ -44384,6 +44392,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (roundLimit) {
+      res["RoundLimit"] = boost::any(*roundLimit);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -44405,6 +44416,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RoundLimit") != m.end() && !m["RoundLimit"].empty()) {
+      roundLimit = make_shared<string>(boost::any_cast<string>(m["RoundLimit"]));
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
@@ -44478,6 +44492,8 @@ class ListAIAgentDialoguesResponseBodyDialogues : public Darabonba::Model {
 public:
   shared_ptr<vector<ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList>> attachedFileList{};
   shared_ptr<string> dialogueId{};
+  shared_ptr<string> extend{};
+  shared_ptr<string> nodeId{};
   shared_ptr<string> producer{};
   shared_ptr<string> reasoningText{};
   shared_ptr<string> roundId{};
@@ -44505,6 +44521,12 @@ public:
     }
     if (dialogueId) {
       res["DialogueId"] = boost::any(*dialogueId);
+    }
+    if (extend) {
+      res["Extend"] = boost::any(*extend);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
     }
     if (producer) {
       res["Producer"] = boost::any(*producer);
@@ -44546,6 +44568,12 @@ public:
     }
     if (m.find("DialogueId") != m.end() && !m["DialogueId"].empty()) {
       dialogueId = make_shared<string>(boost::any_cast<string>(m["DialogueId"]));
+    }
+    if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
+      extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
     if (m.find("Producer") != m.end() && !m["Producer"].empty()) {
       producer = make_shared<string>(boost::any_cast<string>(m["Producer"]));
