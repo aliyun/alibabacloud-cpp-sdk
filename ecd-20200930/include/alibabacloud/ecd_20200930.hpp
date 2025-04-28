@@ -7477,6 +7477,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> solutionId{};
   shared_ptr<long> userCount{};
   shared_ptr<long> userMaxSize{};
@@ -7532,6 +7533,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (solutionId) {
       res["SolutionId"] = boost::any(*solutionId);
@@ -7594,6 +7598,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("SolutionId") != m.end() && !m["SolutionId"].empty()) {
       solutionId = make_shared<string>(boost::any_cast<string>(m["SolutionId"]));
@@ -8391,6 +8398,7 @@ public:
   shared_ptr<string> promotionId{};
   shared_ptr<double> ratioThreshold{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<long> resetType{};
   shared_ptr<string> scaleStrategyId{};
   shared_ptr<string> sessionType{};
@@ -8544,6 +8552,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (resetType) {
       res["ResetType"] = boost::any(*resetType);
@@ -8730,6 +8741,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("ResetType") != m.end() && !m["ResetType"].empty()) {
       resetType = make_shared<long>(boost::any_cast<long>(m["ResetType"]));
@@ -9547,6 +9561,7 @@ public:
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> savingPlanId{};
   shared_ptr<string> snapshotPolicyId{};
@@ -9645,6 +9660,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -9794,6 +9812,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -10149,6 +10170,7 @@ public:
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> savingPlanId{};
   shared_ptr<string> snapshotPolicyId{};
@@ -10247,6 +10269,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -10392,6 +10417,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -11056,6 +11084,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
 
   CreateNetworkPackageRequest() {}
 
@@ -11097,6 +11126,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     return res;
   }
 
@@ -11130,6 +11162,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
   }
 
@@ -13705,6 +13740,7 @@ class DeleteDesktopGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> desktopGroupId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
 
   DeleteDesktopGroupRequest() {}
 
@@ -13722,6 +13758,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     return res;
   }
 
@@ -13731,6 +13770,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
   }
 
@@ -13822,6 +13864,7 @@ class DeleteDesktopsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
 
   DeleteDesktopsRequest() {}
 
@@ -13839,6 +13882,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     return res;
   }
 
@@ -13855,6 +13901,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
   }
 
@@ -14580,6 +14629,7 @@ class DeleteNetworkPackagesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> networkPackageId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
 
   DeleteNetworkPackagesRequest() {}
 
@@ -14597,6 +14647,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     return res;
   }
 
@@ -14613,6 +14666,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
   }
 
@@ -28827,6 +28883,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceType{};
   shared_ptr<long> rootDiskSizeGib{};
   shared_ptr<long> userDiskSizeGib{};
@@ -28853,6 +28910,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -28877,6 +28937,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -32436,6 +32499,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> rootDiskCategory{};
   shared_ptr<long> rootDiskSizeGib{};
@@ -32484,6 +32548,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -32536,6 +32603,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -33732,6 +33802,7 @@ public:
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> refundType{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
 
   DescribeRefundPriceRequest() {}
 
@@ -33752,6 +33823,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     return res;
   }
 
@@ -33771,6 +33845,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
   }
 
@@ -34093,6 +34170,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceType{};
 
   DescribeRenewalPriceRequest() {}
@@ -34119,6 +34197,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -34148,6 +34229,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -47079,6 +47163,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<long> useDuration{};
 
   ModifyDesktopChargeTypeRequest() {}
@@ -47111,6 +47196,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (useDuration) {
       res["UseDuration"] = boost::any(*useDuration);
@@ -47146,6 +47234,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("UseDuration") != m.end() && !m["UseDuration"].empty()) {
       useDuration = make_shared<long>(boost::any_cast<long>(m["UseDuration"]));
@@ -48416,6 +48507,7 @@ public:
   shared_ptr<string> desktopType{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<vector<ModifyDesktopSpecRequestResourceSpecs>> resourceSpecs{};
   shared_ptr<string> resourceType{};
   shared_ptr<long> rootDiskSizeGib{};
@@ -48446,6 +48538,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (resourceSpecs) {
       vector<boost::any> temp1;
@@ -48484,6 +48579,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("ResourceSpecs") != m.end() && !m["ResourceSpecs"].empty()) {
       if (typeid(vector<boost::any>) == m["ResourceSpecs"].type()) {
@@ -49760,6 +49858,7 @@ public:
   shared_ptr<string> networkPackageId{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
 
   ModifyNetworkPackageBandwidthRequest() {}
 
@@ -49786,6 +49885,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     return res;
   }
 
@@ -49804,6 +49906,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
   }
 
@@ -53622,6 +53727,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
 
   RenewDesktopGroupRequest() {}
 
@@ -53651,6 +53757,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     return res;
   }
 
@@ -53672,6 +53781,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
   }
 
@@ -53953,6 +54065,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceType{};
 
   RenewDesktopsRequest() {}
@@ -53985,6 +54098,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -54020,6 +54136,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -54126,6 +54245,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resellerOwnerUid{};
 
   RenewNetworkPackagesRequest() {}
 
@@ -54158,6 +54278,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resellerOwnerUid) {
+      res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
+    }
     return res;
   }
 
@@ -54189,6 +54312,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
+      resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
     }
   }
 
