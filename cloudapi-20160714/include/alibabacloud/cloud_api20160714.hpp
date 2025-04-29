@@ -10460,6 +10460,7 @@ public:
   shared_ptr<string> contentTypeValue{};
   shared_ptr<string> fcBaseUrl{};
   shared_ptr<string> fcType{};
+  shared_ptr<string> fcVersion{};
   shared_ptr<string> functionName{};
   shared_ptr<string> method{};
   shared_ptr<bool> onlyBusinessPath{};
@@ -10491,6 +10492,9 @@ public:
     }
     if (fcType) {
       res["FcType"] = boost::any(*fcType);
+    }
+    if (fcVersion) {
+      res["FcVersion"] = boost::any(*fcVersion);
     }
     if (functionName) {
       res["FunctionName"] = boost::any(*functionName);
@@ -10534,6 +10538,9 @@ public:
     }
     if (m.find("FcType") != m.end() && !m["FcType"].empty()) {
       fcType = make_shared<string>(boost::any_cast<string>(m["FcType"]));
+    }
+    if (m.find("FcVersion") != m.end() && !m["FcVersion"].empty()) {
+      fcVersion = make_shared<string>(boost::any_cast<string>(m["FcVersion"]));
     }
     if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
       functionName = make_shared<string>(boost::any_cast<string>(m["FunctionName"]));
