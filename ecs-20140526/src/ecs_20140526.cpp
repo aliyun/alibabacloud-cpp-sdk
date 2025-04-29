@@ -1536,6 +1536,9 @@ ConvertNatPublicIpToEipResponse Alibabacloud_Ecs20140526::Client::convertNatPubl
 CopyImageResponse Alibabacloud_Ecs20140526::Client::copyImageWithOptions(shared_ptr<CopyImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationDescription)) {
     query->insert(pair<string, string>("DestinationDescription", *request->destinationDescription));
   }
@@ -1544,6 +1547,9 @@ CopyImageResponse Alibabacloud_Ecs20140526::Client::copyImageWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationRegionId)) {
     query->insert(pair<string, string>("DestinationRegionId", *request->destinationRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->encryptAlgorithm)) {
     query->insert(pair<string, string>("EncryptAlgorithm", *request->encryptAlgorithm));
@@ -2672,6 +2678,9 @@ CreateImageResponse Alibabacloud_Ecs20140526::Client::createImageWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateImageRequestDiskDeviceMapping>>(request->diskDeviceMapping)) {
     query->insert(pair<string, vector<CreateImageRequestDiskDeviceMapping>>("DiskDeviceMapping", *request->diskDeviceMapping));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<CreateImageRequestFeatures>(request->features)) {
     query->insert(pair<string, CreateImageRequestFeatures>("Features", *request->features));
@@ -5315,6 +5324,9 @@ DeleteHpcClusterResponse Alibabacloud_Ecs20140526::Client::deleteHpcCluster(shar
 DeleteImageResponse Alibabacloud_Ecs20140526::Client::deleteImageWithOptions(shared_ptr<DeleteImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
     query->insert(pair<string, bool>("Force", *request->force));
   }
@@ -14056,6 +14068,9 @@ EndTerminalSessionResponse Alibabacloud_Ecs20140526::Client::endTerminalSession(
 ExportImageResponse Alibabacloud_Ecs20140526::Client::exportImageWithOptions(shared_ptr<ExportImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageFormat)) {
     query->insert(pair<string, string>("ImageFormat", *request->imageFormat));
   }
@@ -16125,6 +16140,9 @@ ModifyImageAttributeResponse Alibabacloud_Ecs20140526::Client::modifyImageAttrib
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<ModifyImageAttributeRequestFeatures>(request->features)) {
     query->insert(pair<string, ModifyImageAttributeRequestFeatures>("Features", *request->features));
   }
@@ -16234,6 +16252,9 @@ ModifyImageSharePermissionResponse Alibabacloud_Ecs20140526::Client::modifyImage
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->addAccount)) {
     query->insert(pair<string, vector<string>>("AddAccount", *request->addAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
