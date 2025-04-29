@@ -4207,6 +4207,9 @@ RunSearchGenerationResponse Alibabacloud_AiMiaoBi20230801::Client::runSearchGene
   if (!Darabonba_Util::Client::isUnset<string>(request->chatConfigShrink)) {
     body->insert(pair<string, string>("ChatConfig", *request->chatConfigShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("ModelId", *request->modelId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->originalSessionId)) {
     body->insert(pair<string, string>("OriginalSessionId", *request->originalSessionId));
   }
@@ -4785,6 +4788,60 @@ SaveMaterialDocumentResponse Alibabacloud_AiMiaoBi20230801::Client::saveMaterial
 SaveMaterialDocumentResponse Alibabacloud_AiMiaoBi20230801::Client::saveMaterialDocument(shared_ptr<SaveMaterialDocumentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return saveMaterialDocumentWithOptions(request, runtime);
+}
+
+SaveStyleLearningResultResponse Alibabacloud_AiMiaoBi20230801::Client::saveStyleLearningResultWithOptions(shared_ptr<SaveStyleLearningResultRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SaveStyleLearningResultShrinkRequest> request = make_shared<SaveStyleLearningResultShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->customTextIdList)) {
+    request->customTextIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->customTextIdList, make_shared<string>("CustomTextIdList"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->materialIdList)) {
+    request->materialIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->materialIdList, make_shared<string>("MaterialIdList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    body->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->aigcResult)) {
+    body->insert(pair<string, string>("AigcResult", *request->aigcResult));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customTextIdListShrink)) {
+    body->insert(pair<string, string>("CustomTextIdList", *request->customTextIdListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->materialIdListShrink)) {
+    body->insert(pair<string, string>("MaterialIdList", *request->materialIdListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rewriteResult)) {
+    body->insert(pair<string, string>("RewriteResult", *request->rewriteResult));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->styleName)) {
+    body->insert(pair<string, string>("StyleName", *request->styleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SaveStyleLearningResult"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SaveStyleLearningResultResponse(callApi(params, req, runtime));
+}
+
+SaveStyleLearningResultResponse Alibabacloud_AiMiaoBi20230801::Client::saveStyleLearningResult(shared_ptr<SaveStyleLearningResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return saveStyleLearningResultWithOptions(request, runtime);
 }
 
 SearchDatasetDocumentsResponse Alibabacloud_AiMiaoBi20230801::Client::searchDatasetDocumentsWithOptions(shared_ptr<SearchDatasetDocumentsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

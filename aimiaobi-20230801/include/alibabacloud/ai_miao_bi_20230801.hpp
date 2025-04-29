@@ -36299,6 +36299,7 @@ class RunSearchGenerationRequest : public Darabonba::Model {
 public:
   shared_ptr<RunSearchGenerationRequestAgentContext> agentContext{};
   shared_ptr<RunSearchGenerationRequestChatConfig> chatConfig{};
+  shared_ptr<string> modelId{};
   shared_ptr<string> originalSessionId{};
   shared_ptr<string> prompt{};
   shared_ptr<string> taskId{};
@@ -36319,6 +36320,9 @@ public:
     }
     if (chatConfig) {
       res["ChatConfig"] = chatConfig ? boost::any(chatConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
     }
     if (originalSessionId) {
       res["OriginalSessionId"] = boost::any(*originalSessionId);
@@ -36350,6 +36354,9 @@ public:
         chatConfig = make_shared<RunSearchGenerationRequestChatConfig>(model1);
       }
     }
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
+    }
     if (m.find("OriginalSessionId") != m.end() && !m["OriginalSessionId"].empty()) {
       originalSessionId = make_shared<string>(boost::any_cast<string>(m["OriginalSessionId"]));
     }
@@ -36371,6 +36378,7 @@ class RunSearchGenerationShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentContextShrink{};
   shared_ptr<string> chatConfigShrink{};
+  shared_ptr<string> modelId{};
   shared_ptr<string> originalSessionId{};
   shared_ptr<string> prompt{};
   shared_ptr<string> taskId{};
@@ -36391,6 +36399,9 @@ public:
     }
     if (chatConfigShrink) {
       res["ChatConfig"] = boost::any(*chatConfigShrink);
+    }
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
     }
     if (originalSessionId) {
       res["OriginalSessionId"] = boost::any(*originalSessionId);
@@ -36413,6 +36424,9 @@ public:
     }
     if (m.find("ChatConfig") != m.end() && !m["ChatConfig"].empty()) {
       chatConfigShrink = make_shared<string>(boost::any_cast<string>(m["ChatConfig"]));
+    }
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
     }
     if (m.find("OriginalSessionId") != m.end() && !m["OriginalSessionId"].empty()) {
       originalSessionId = make_shared<string>(boost::any_cast<string>(m["OriginalSessionId"]));
@@ -37674,6 +37688,7 @@ class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGenerate
 public:
   shared_ptr<bool> generateFinished{};
   shared_ptr<string> generateLevel{};
+  shared_ptr<string> reasonTextGenerate{};
   shared_ptr<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResult>> searchResult{};
   shared_ptr<string> textGenerate{};
 
@@ -37692,6 +37707,9 @@ public:
     }
     if (generateLevel) {
       res["GenerateLevel"] = boost::any(*generateLevel);
+    }
+    if (reasonTextGenerate) {
+      res["ReasonTextGenerate"] = boost::any(*reasonTextGenerate);
     }
     if (searchResult) {
       vector<boost::any> temp1;
@@ -37712,6 +37730,9 @@ public:
     }
     if (m.find("GenerateLevel") != m.end() && !m["GenerateLevel"].empty()) {
       generateLevel = make_shared<string>(boost::any_cast<string>(m["GenerateLevel"]));
+    }
+    if (m.find("ReasonTextGenerate") != m.end() && !m["ReasonTextGenerate"].empty()) {
+      reasonTextGenerate = make_shared<string>(boost::any_cast<string>(m["ReasonTextGenerate"]));
     }
     if (m.find("SearchResult") != m.end() && !m["SearchResult"].empty()) {
       if (typeid(vector<boost::any>) == m["SearchResult"].type()) {
@@ -39006,6 +39027,7 @@ public:
   shared_ptr<string> generateLevel{};
   shared_ptr<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceability> generateTraceability{};
   shared_ptr<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultList>> multimodalSearchResultList{};
+  shared_ptr<string> reasonTextGenerate{};
   shared_ptr<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultReferenceList>> referenceList{};
   shared_ptr<string> textGenerate{};
   shared_ptr<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaList>> textGenerateMultimodalMediaList{};
@@ -39035,6 +39057,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["MultimodalSearchResultList"] = boost::any(temp1);
+    }
+    if (reasonTextGenerate) {
+      res["ReasonTextGenerate"] = boost::any(*reasonTextGenerate);
     }
     if (referenceList) {
       vector<boost::any> temp1;
@@ -39082,6 +39107,9 @@ public:
         }
         multimodalSearchResultList = make_shared<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultList>>(expect1);
       }
+    }
+    if (m.find("ReasonTextGenerate") != m.end() && !m["ReasonTextGenerate"].empty()) {
+      reasonTextGenerate = make_shared<string>(boost::any_cast<string>(m["ReasonTextGenerate"]));
     }
     if (m.find("ReferenceList") != m.end() && !m["ReferenceList"].empty()) {
       if (typeid(vector<boost::any>) == m["ReferenceList"].type()) {
@@ -40013,6 +40041,7 @@ public:
   shared_ptr<bool> generateFinished{};
   shared_ptr<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceability> generateTraceability{};
   shared_ptr<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultList>> multimodalSearchResultList{};
+  shared_ptr<string> reasonTextGenerate{};
   shared_ptr<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultReferenceList>> referenceList{};
   shared_ptr<string> textGenerate{};
   shared_ptr<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaList>> textGenerateMultimodalMediaList{};
@@ -40039,6 +40068,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["MultimodalSearchResultList"] = boost::any(temp1);
+    }
+    if (reasonTextGenerate) {
+      res["ReasonTextGenerate"] = boost::any(*reasonTextGenerate);
     }
     if (referenceList) {
       vector<boost::any> temp1;
@@ -40083,6 +40115,9 @@ public:
         }
         multimodalSearchResultList = make_shared<vector<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultList>>(expect1);
       }
+    }
+    if (m.find("ReasonTextGenerate") != m.end() && !m["ReasonTextGenerate"].empty()) {
+      reasonTextGenerate = make_shared<string>(boost::any_cast<string>(m["ReasonTextGenerate"]));
     }
     if (m.find("ReferenceList") != m.end() && !m["ReferenceList"].empty()) {
       if (typeid(vector<boost::any>) == m["ReferenceList"].type()) {
@@ -40460,16 +40495,75 @@ public:
 
   virtual ~RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent() = default;
 };
+class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate : public Darabonba::Model {
+public:
+  shared_ptr<double> firstTokenTime{};
+  shared_ptr<double> outputAvgTime{};
+  shared_ptr<double> searchTime{};
+  shared_ptr<double> time{};
+  shared_ptr<long> totalTokens{};
+
+  RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate() {}
+
+  explicit RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (firstTokenTime) {
+      res["FirstTokenTime"] = boost::any(*firstTokenTime);
+    }
+    if (outputAvgTime) {
+      res["OutputAvgTime"] = boost::any(*outputAvgTime);
+    }
+    if (searchTime) {
+      res["SearchTime"] = boost::any(*searchTime);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    if (totalTokens) {
+      res["TotalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FirstTokenTime") != m.end() && !m["FirstTokenTime"].empty()) {
+      firstTokenTime = make_shared<double>(boost::any_cast<double>(m["FirstTokenTime"]));
+    }
+    if (m.find("OutputAvgTime") != m.end() && !m["OutputAvgTime"].empty()) {
+      outputAvgTime = make_shared<double>(boost::any_cast<double>(m["OutputAvgTime"]));
+    }
+    if (m.find("SearchTime") != m.end() && !m["SearchTime"].empty()) {
+      searchTime = make_shared<double>(boost::any_cast<double>(m["SearchTime"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<double>(boost::any_cast<double>(m["Time"]));
+    }
+    if (m.find("TotalTokens") != m.end() && !m["TotalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["TotalTokens"]));
+    }
+  }
+
+
+  virtual ~RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate() = default;
+};
 class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext : public Darabonba::Model {
 public:
   shared_ptr<string> currentStep{};
   shared_ptr<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent> generatedContent{};
+  shared_ptr<string> modelId{};
   shared_ptr<string> nextStep{};
   shared_ptr<vector<string>> recommendSearchQueryList{};
   shared_ptr<vector<string>> searchKeywords{};
   shared_ptr<vector<string>> searchQueryList{};
   shared_ptr<string> supplementDataType{};
   shared_ptr<bool> supplementEnable{};
+  shared_ptr<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate> tokenCalculate{};
 
   RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext() {}
 
@@ -40486,6 +40580,9 @@ public:
     }
     if (generatedContent) {
       res["GeneratedContent"] = generatedContent ? boost::any(generatedContent->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
     }
     if (nextStep) {
       res["NextStep"] = boost::any(*nextStep);
@@ -40505,6 +40602,9 @@ public:
     if (supplementEnable) {
       res["SupplementEnable"] = boost::any(*supplementEnable);
     }
+    if (tokenCalculate) {
+      res["TokenCalculate"] = tokenCalculate ? boost::any(tokenCalculate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -40518,6 +40618,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GeneratedContent"]));
         generatedContent = make_shared<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent>(model1);
       }
+    }
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
     }
     if (m.find("NextStep") != m.end() && !m["NextStep"].empty()) {
       nextStep = make_shared<string>(boost::any_cast<string>(m["NextStep"]));
@@ -40557,6 +40660,13 @@ public:
     }
     if (m.find("SupplementEnable") != m.end() && !m["SupplementEnable"].empty()) {
       supplementEnable = make_shared<bool>(boost::any_cast<bool>(m["SupplementEnable"]));
+    }
+    if (m.find("TokenCalculate") != m.end() && !m["TokenCalculate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TokenCalculate"].type()) {
+        RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TokenCalculate"]));
+        tokenCalculate = make_shared<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate>(model1);
+      }
     }
   }
 
@@ -46603,6 +46713,278 @@ public:
 
 
   virtual ~SaveMaterialDocumentResponse() = default;
+};
+class SaveStyleLearningResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> aigcResult{};
+  shared_ptr<vector<long>> customTextIdList{};
+  shared_ptr<vector<long>> materialIdList{};
+  shared_ptr<string> rewriteResult{};
+  shared_ptr<string> styleName{};
+  shared_ptr<string> taskId{};
+
+  SaveStyleLearningResultRequest() {}
+
+  explicit SaveStyleLearningResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (aigcResult) {
+      res["AigcResult"] = boost::any(*aigcResult);
+    }
+    if (customTextIdList) {
+      res["CustomTextIdList"] = boost::any(*customTextIdList);
+    }
+    if (materialIdList) {
+      res["MaterialIdList"] = boost::any(*materialIdList);
+    }
+    if (rewriteResult) {
+      res["RewriteResult"] = boost::any(*rewriteResult);
+    }
+    if (styleName) {
+      res["StyleName"] = boost::any(*styleName);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("AigcResult") != m.end() && !m["AigcResult"].empty()) {
+      aigcResult = make_shared<string>(boost::any_cast<string>(m["AigcResult"]));
+    }
+    if (m.find("CustomTextIdList") != m.end() && !m["CustomTextIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["CustomTextIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CustomTextIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      customTextIdList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaterialIdList") != m.end() && !m["MaterialIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaterialIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaterialIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      materialIdList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RewriteResult") != m.end() && !m["RewriteResult"].empty()) {
+      rewriteResult = make_shared<string>(boost::any_cast<string>(m["RewriteResult"]));
+    }
+    if (m.find("StyleName") != m.end() && !m["StyleName"].empty()) {
+      styleName = make_shared<string>(boost::any_cast<string>(m["StyleName"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~SaveStyleLearningResultRequest() = default;
+};
+class SaveStyleLearningResultShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> aigcResult{};
+  shared_ptr<string> customTextIdListShrink{};
+  shared_ptr<string> materialIdListShrink{};
+  shared_ptr<string> rewriteResult{};
+  shared_ptr<string> styleName{};
+  shared_ptr<string> taskId{};
+
+  SaveStyleLearningResultShrinkRequest() {}
+
+  explicit SaveStyleLearningResultShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (aigcResult) {
+      res["AigcResult"] = boost::any(*aigcResult);
+    }
+    if (customTextIdListShrink) {
+      res["CustomTextIdList"] = boost::any(*customTextIdListShrink);
+    }
+    if (materialIdListShrink) {
+      res["MaterialIdList"] = boost::any(*materialIdListShrink);
+    }
+    if (rewriteResult) {
+      res["RewriteResult"] = boost::any(*rewriteResult);
+    }
+    if (styleName) {
+      res["StyleName"] = boost::any(*styleName);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("AigcResult") != m.end() && !m["AigcResult"].empty()) {
+      aigcResult = make_shared<string>(boost::any_cast<string>(m["AigcResult"]));
+    }
+    if (m.find("CustomTextIdList") != m.end() && !m["CustomTextIdList"].empty()) {
+      customTextIdListShrink = make_shared<string>(boost::any_cast<string>(m["CustomTextIdList"]));
+    }
+    if (m.find("MaterialIdList") != m.end() && !m["MaterialIdList"].empty()) {
+      materialIdListShrink = make_shared<string>(boost::any_cast<string>(m["MaterialIdList"]));
+    }
+    if (m.find("RewriteResult") != m.end() && !m["RewriteResult"].empty()) {
+      rewriteResult = make_shared<string>(boost::any_cast<string>(m["RewriteResult"]));
+    }
+    if (m.find("StyleName") != m.end() && !m["StyleName"].empty()) {
+      styleName = make_shared<string>(boost::any_cast<string>(m["StyleName"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~SaveStyleLearningResultShrinkRequest() = default;
+};
+class SaveStyleLearningResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SaveStyleLearningResultResponseBody() {}
+
+  explicit SaveStyleLearningResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SaveStyleLearningResultResponseBody() = default;
+};
+class SaveStyleLearningResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SaveStyleLearningResultResponseBody> body{};
+
+  SaveStyleLearningResultResponse() {}
+
+  explicit SaveStyleLearningResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SaveStyleLearningResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SaveStyleLearningResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SaveStyleLearningResultResponse() = default;
 };
 class SearchDatasetDocumentsRequest : public Darabonba::Model {
 public:
@@ -53716,6 +54098,8 @@ public:
   SaveDataSourceOrderConfigResponse saveDataSourceOrderConfig(shared_ptr<SaveDataSourceOrderConfigRequest> request);
   SaveMaterialDocumentResponse saveMaterialDocumentWithOptions(shared_ptr<SaveMaterialDocumentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SaveMaterialDocumentResponse saveMaterialDocument(shared_ptr<SaveMaterialDocumentRequest> request);
+  SaveStyleLearningResultResponse saveStyleLearningResultWithOptions(shared_ptr<SaveStyleLearningResultRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SaveStyleLearningResultResponse saveStyleLearningResult(shared_ptr<SaveStyleLearningResultRequest> request);
   SearchDatasetDocumentsResponse searchDatasetDocumentsWithOptions(shared_ptr<SearchDatasetDocumentsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchDatasetDocumentsResponse searchDatasetDocuments(shared_ptr<SearchDatasetDocumentsRequest> request);
   SearchNewsResponse searchNewsWithOptions(shared_ptr<SearchNewsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
