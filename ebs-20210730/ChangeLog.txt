@@ -1,3 +1,9 @@
+2025-04-29 Version: 3.0.3
+- Update API DescribeLensMonitorDisks: add response parameters Body.DiskInfos.$.SharingEnabled.
+- Update API DescribeMetricData: add request parameters AggreOverLineOps.
+- Update API DescribeMetricData: add response parameters Body.Warnings.
+
+
 2025-02-21 Version: 3.0.2
 - Generated cpp 2021-07-30 for ebs.
 

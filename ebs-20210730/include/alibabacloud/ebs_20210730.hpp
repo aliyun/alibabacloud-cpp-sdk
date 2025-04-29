@@ -6949,6 +6949,7 @@ public:
   shared_ptr<string> performanceLevel{};
   shared_ptr<long> provisionedIops{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> sharingEnabled{};
   shared_ptr<long> size{};
   shared_ptr<vector<DescribeLensMonitorDisksResponseBodyDiskInfosTags>> tags{};
   shared_ptr<string> zoneId{};
@@ -6998,6 +6999,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (sharingEnabled) {
+      res["SharingEnabled"] = boost::any(*sharingEnabled);
     }
     if (size) {
       res["Size"] = boost::any(*size);
@@ -7058,6 +7062,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SharingEnabled") != m.end() && !m["SharingEnabled"].empty()) {
+      sharingEnabled = make_shared<string>(boost::any_cast<string>(m["SharingEnabled"]));
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
@@ -7290,6 +7297,7 @@ public:
 class DescribeMetricDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggreOps{};
+  shared_ptr<string> aggreOverLineOps{};
   shared_ptr<string> dimensions{};
   shared_ptr<string> endTime{};
   shared_ptr<string> metricName{};
@@ -7309,6 +7317,9 @@ public:
     map<string, boost::any> res;
     if (aggreOps) {
       res["AggreOps"] = boost::any(*aggreOps);
+    }
+    if (aggreOverLineOps) {
+      res["AggreOverLineOps"] = boost::any(*aggreOverLineOps);
     }
     if (dimensions) {
       res["Dimensions"] = boost::any(*dimensions);
@@ -7334,6 +7345,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggreOps") != m.end() && !m["AggreOps"].empty()) {
       aggreOps = make_shared<string>(boost::any_cast<string>(m["AggreOps"]));
+    }
+    if (m.find("AggreOverLineOps") != m.end() && !m["AggreOverLineOps"].empty()) {
+      aggreOverLineOps = make_shared<string>(boost::any_cast<string>(m["AggreOverLineOps"]));
     }
     if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
       dimensions = make_shared<string>(boost::any_cast<string>(m["Dimensions"]));
@@ -7399,6 +7413,7 @@ public:
   shared_ptr<vector<DescribeMetricDataResponseBodyDataList>> dataList{};
   shared_ptr<string> requestId{};
   shared_ptr<long> totalCount{};
+  shared_ptr<vector<string>> warnings{};
 
   DescribeMetricDataResponseBody() {}
 
@@ -7423,6 +7438,9 @@ public:
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
     }
+    if (warnings) {
+      res["Warnings"] = boost::any(*warnings);
+    }
     return res;
   }
 
@@ -7445,6 +7463,16 @@ public:
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("Warnings") != m.end() && !m["Warnings"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Warnings"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Warnings"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      warnings = make_shared<vector<string>>(toVec1);
     }
   }
 
