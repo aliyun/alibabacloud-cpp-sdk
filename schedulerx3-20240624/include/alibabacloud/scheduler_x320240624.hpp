@@ -1875,6 +1875,7 @@ public:
   shared_ptr<long> spm{};
   shared_ptr<long> status{};
   shared_ptr<vector<GetClusterResponseBodyDataVSwitches>> vSwitches{};
+  shared_ptr<string> versionLifecycle{};
   shared_ptr<string> vpcId{};
   shared_ptr<long> workerNum{};
   shared_ptr<vector<string>> zones{};
@@ -1943,6 +1944,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["VSwitches"] = boost::any(temp1);
+    }
+    if (versionLifecycle) {
+      res["VersionLifecycle"] = boost::any(*versionLifecycle);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -2017,6 +2021,9 @@ public:
         }
         vSwitches = make_shared<vector<GetClusterResponseBodyDataVSwitches>>(expect1);
       }
+    }
+    if (m.find("VersionLifecycle") != m.end() && !m["VersionLifecycle"].empty()) {
+      versionLifecycle = make_shared<string>(boost::any_cast<string>(m["VersionLifecycle"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -4634,6 +4641,7 @@ public:
   shared_ptr<string> spInstanceId{};
   shared_ptr<long> status{};
   shared_ptr<vector<ListClustersResponseBodyDataRecordsVSwitches>> vSwitches{};
+  shared_ptr<string> versionLifecycle{};
   shared_ptr<string> vpcId{};
 
   ListClustersResponseBodyDataRecords() {}
@@ -4691,6 +4699,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["VSwitches"] = boost::any(temp1);
+    }
+    if (versionLifecycle) {
+      res["VersionLifecycle"] = boost::any(*versionLifecycle);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -4750,6 +4761,9 @@ public:
         }
         vSwitches = make_shared<vector<ListClustersResponseBodyDataRecordsVSwitches>>(expect1);
       }
+    }
+    if (m.find("VersionLifecycle") != m.end() && !m["VersionLifecycle"].empty()) {
+      versionLifecycle = make_shared<string>(boost::any_cast<string>(m["VersionLifecycle"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));

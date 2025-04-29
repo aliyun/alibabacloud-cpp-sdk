@@ -72,12 +72,7 @@ CreateAppResponse Alibabacloud_SchedulerX320240624::Client::createAppWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateAppResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateAppResponse(execute(params, req, runtime));
-  }
+  return CreateAppResponse(callApi(params, req, runtime));
 }
 
 CreateAppResponse Alibabacloud_SchedulerX320240624::Client::createApp(shared_ptr<CreateAppRequest> request) {
@@ -122,12 +117,7 @@ CreateClusterResponse Alibabacloud_SchedulerX320240624::Client::createClusterWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateClusterResponse(execute(params, req, runtime));
-  }
+  return CreateClusterResponse(callApi(params, req, runtime));
 }
 
 CreateClusterResponse Alibabacloud_SchedulerX320240624::Client::createCluster(shared_ptr<CreateClusterRequest> request) {
@@ -226,12 +216,7 @@ CreateJobResponse Alibabacloud_SchedulerX320240624::Client::createJobWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateJobResponse(execute(params, req, runtime));
-  }
+  return CreateJobResponse(callApi(params, req, runtime));
 }
 
 CreateJobResponse Alibabacloud_SchedulerX320240624::Client::createJob(shared_ptr<CreateJobRequest> request) {
@@ -262,12 +247,7 @@ DeleteAppResponse Alibabacloud_SchedulerX320240624::Client::deleteAppWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteAppResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteAppResponse(execute(params, req, runtime));
-  }
+  return DeleteAppResponse(callApi(params, req, runtime));
 }
 
 DeleteAppResponse Alibabacloud_SchedulerX320240624::Client::deleteApp(shared_ptr<DeleteAppRequest> request) {
@@ -295,12 +275,7 @@ DeleteClusterResponse Alibabacloud_SchedulerX320240624::Client::deleteClusterWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteClusterResponse(execute(params, req, runtime));
-  }
+  return DeleteClusterResponse(callApi(params, req, runtime));
 }
 
 DeleteClusterResponse Alibabacloud_SchedulerX320240624::Client::deleteCluster(shared_ptr<DeleteClusterRequest> request) {
@@ -339,12 +314,7 @@ DeleteJobsResponse Alibabacloud_SchedulerX320240624::Client::deleteJobsWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteJobsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteJobsResponse(execute(params, req, runtime));
-  }
+  return DeleteJobsResponse(callApi(params, req, runtime));
 }
 
 DeleteJobsResponse Alibabacloud_SchedulerX320240624::Client::deleteJobs(shared_ptr<DeleteJobsRequest> request) {
@@ -386,12 +356,7 @@ ExportJobsResponse Alibabacloud_SchedulerX320240624::Client::exportJobsWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("byte"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ExportJobsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ExportJobsResponse(execute(params, req, runtime));
-  }
+  return ExportJobsResponse(callApi(params, req, runtime));
 }
 
 ExportJobsResponse Alibabacloud_SchedulerX320240624::Client::exportJobs(shared_ptr<ExportJobsRequest> request) {
@@ -416,12 +381,7 @@ GetClusterResponse Alibabacloud_SchedulerX320240624::Client::getClusterWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetClusterResponse(execute(params, req, runtime));
-  }
+  return GetClusterResponse(callApi(params, req, runtime));
 }
 
 GetClusterResponse Alibabacloud_SchedulerX320240624::Client::getCluster(shared_ptr<GetClusterRequest> request) {
@@ -446,12 +406,7 @@ GetDesigateInfoResponse Alibabacloud_SchedulerX320240624::Client::getDesigateInf
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDesigateInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDesigateInfoResponse(execute(params, req, runtime));
-  }
+  return GetDesigateInfoResponse(callApi(params, req, runtime));
 }
 
 GetDesigateInfoResponse Alibabacloud_SchedulerX320240624::Client::getDesigateInfo(shared_ptr<GetDesigateInfoRequest> request) {
@@ -476,12 +431,7 @@ GetJobExecutionProgressResponse Alibabacloud_SchedulerX320240624::Client::getJob
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetJobExecutionProgressResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetJobExecutionProgressResponse(execute(params, req, runtime));
-  }
+  return GetJobExecutionProgressResponse(callApi(params, req, runtime));
 }
 
 GetJobExecutionProgressResponse Alibabacloud_SchedulerX320240624::Client::getJobExecutionProgress(shared_ptr<GetJobExecutionProgressRequest> request) {
@@ -506,12 +456,7 @@ GetLogResponse Alibabacloud_SchedulerX320240624::Client::getLogWithOptions(share
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetLogResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetLogResponse(execute(params, req, runtime));
-  }
+  return GetLogResponse(callApi(params, req, runtime));
 }
 
 GetLogResponse Alibabacloud_SchedulerX320240624::Client::getLog(shared_ptr<GetLogRequest> request) {
@@ -548,12 +493,7 @@ ImportCalendarResponse Alibabacloud_SchedulerX320240624::Client::importCalendarW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ImportCalendarResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ImportCalendarResponse(execute(params, req, runtime));
-  }
+  return ImportCalendarResponse(callApi(params, req, runtime));
 }
 
 ImportCalendarResponse Alibabacloud_SchedulerX320240624::Client::importCalendar(shared_ptr<ImportCalendarRequest> request) {
@@ -590,12 +530,7 @@ ImportJobsResponse Alibabacloud_SchedulerX320240624::Client::importJobsWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ImportJobsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ImportJobsResponse(execute(params, req, runtime));
-  }
+  return ImportJobsResponse(callApi(params, req, runtime));
 }
 
 ImportJobsResponse Alibabacloud_SchedulerX320240624::Client::importJobs(shared_ptr<ImportJobsRequest> request) {
@@ -620,12 +555,7 @@ ListAlarmEventResponse Alibabacloud_SchedulerX320240624::Client::listAlarmEventW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAlarmEventResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAlarmEventResponse(execute(params, req, runtime));
-  }
+  return ListAlarmEventResponse(callApi(params, req, runtime));
 }
 
 ListAlarmEventResponse Alibabacloud_SchedulerX320240624::Client::listAlarmEvent(shared_ptr<ListAlarmEventRequest> request) {
@@ -650,12 +580,7 @@ ListAppNamesResponse Alibabacloud_SchedulerX320240624::Client::listAppNamesWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAppNamesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAppNamesResponse(execute(params, req, runtime));
-  }
+  return ListAppNamesResponse(callApi(params, req, runtime));
 }
 
 ListAppNamesResponse Alibabacloud_SchedulerX320240624::Client::listAppNames(shared_ptr<ListAppNamesRequest> request) {
@@ -680,12 +605,7 @@ ListAppsResponse Alibabacloud_SchedulerX320240624::Client::listAppsWithOptions(s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAppsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAppsResponse(execute(params, req, runtime));
-  }
+  return ListAppsResponse(callApi(params, req, runtime));
 }
 
 ListAppsResponse Alibabacloud_SchedulerX320240624::Client::listApps(shared_ptr<ListAppsRequest> request) {
@@ -710,12 +630,7 @@ ListCalendarNamesResponse Alibabacloud_SchedulerX320240624::Client::listCalendar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListCalendarNamesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListCalendarNamesResponse(execute(params, req, runtime));
-  }
+  return ListCalendarNamesResponse(callApi(params, req, runtime));
 }
 
 ListCalendarNamesResponse Alibabacloud_SchedulerX320240624::Client::listCalendarNames(shared_ptr<ListCalendarNamesRequest> request) {
@@ -740,12 +655,7 @@ ListClustersResponse Alibabacloud_SchedulerX320240624::Client::listClustersWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListClustersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListClustersResponse(execute(params, req, runtime));
-  }
+  return ListClustersResponse(callApi(params, req, runtime));
 }
 
 ListClustersResponse Alibabacloud_SchedulerX320240624::Client::listClusters(shared_ptr<ListClustersRequest> request) {
@@ -770,12 +680,7 @@ ListExecutorsResponse Alibabacloud_SchedulerX320240624::Client::listExecutorsWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListExecutorsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListExecutorsResponse(execute(params, req, runtime));
-  }
+  return ListExecutorsResponse(callApi(params, req, runtime));
 }
 
 ListExecutorsResponse Alibabacloud_SchedulerX320240624::Client::listExecutors(shared_ptr<ListExecutorsRequest> request) {
@@ -800,12 +705,7 @@ ListJobExecutionsResponse Alibabacloud_SchedulerX320240624::Client::listJobExecu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListJobExecutionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListJobExecutionsResponse(execute(params, req, runtime));
-  }
+  return ListJobExecutionsResponse(callApi(params, req, runtime));
 }
 
 ListJobExecutionsResponse Alibabacloud_SchedulerX320240624::Client::listJobExecutions(shared_ptr<ListJobExecutionsRequest> request) {
@@ -830,12 +730,7 @@ ListJobsResponse Alibabacloud_SchedulerX320240624::Client::listJobsWithOptions(s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListJobsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListJobsResponse(execute(params, req, runtime));
-  }
+  return ListJobsResponse(callApi(params, req, runtime));
 }
 
 ListJobsResponse Alibabacloud_SchedulerX320240624::Client::listJobs(shared_ptr<ListJobsRequest> request) {
@@ -860,12 +755,7 @@ ListLablesResponse Alibabacloud_SchedulerX320240624::Client::listLablesWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListLablesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListLablesResponse(execute(params, req, runtime));
-  }
+  return ListLablesResponse(callApi(params, req, runtime));
 }
 
 ListLablesResponse Alibabacloud_SchedulerX320240624::Client::listLables(shared_ptr<ListLablesRequest> request) {
@@ -886,12 +776,7 @@ ListRegionZoneResponse Alibabacloud_SchedulerX320240624::Client::listRegionZoneW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRegionZoneResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRegionZoneResponse(execute(params, req, runtime));
-  }
+  return ListRegionZoneResponse(callApi(params, req, runtime));
 }
 
 ListRegionZoneResponse Alibabacloud_SchedulerX320240624::Client::listRegionZone() {
@@ -912,12 +797,7 @@ ListRegionsResponse Alibabacloud_SchedulerX320240624::Client::listRegionsWithOpt
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRegionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRegionsResponse(execute(params, req, runtime));
-  }
+  return ListRegionsResponse(callApi(params, req, runtime));
 }
 
 ListRegionsResponse Alibabacloud_SchedulerX320240624::Client::listRegions() {
@@ -942,12 +822,7 @@ ListScheduleEventResponse Alibabacloud_SchedulerX320240624::Client::listSchedule
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListScheduleEventResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListScheduleEventResponse(execute(params, req, runtime));
-  }
+  return ListScheduleEventResponse(callApi(params, req, runtime));
 }
 
 ListScheduleEventResponse Alibabacloud_SchedulerX320240624::Client::listScheduleEvent(shared_ptr<ListScheduleEventRequest> request) {
@@ -972,12 +847,7 @@ ListScheduleTimesResponse Alibabacloud_SchedulerX320240624::Client::listSchedule
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListScheduleTimesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListScheduleTimesResponse(execute(params, req, runtime));
-  }
+  return ListScheduleTimesResponse(callApi(params, req, runtime));
 }
 
 ListScheduleTimesResponse Alibabacloud_SchedulerX320240624::Client::listScheduleTimes(shared_ptr<ListScheduleTimesRequest> request) {
@@ -1025,12 +895,7 @@ OperateDesignateExecutorsResponse Alibabacloud_SchedulerX320240624::Client::oper
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OperateDesignateExecutorsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OperateDesignateExecutorsResponse(execute(params, req, runtime));
-  }
+  return OperateDesignateExecutorsResponse(callApi(params, req, runtime));
 }
 
 OperateDesignateExecutorsResponse Alibabacloud_SchedulerX320240624::Client::operateDesignateExecutors(shared_ptr<OperateDesignateExecutorsRequest> request) {
@@ -1069,12 +934,7 @@ OperateDisableJobsResponse Alibabacloud_SchedulerX320240624::Client::operateDisa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OperateDisableJobsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OperateDisableJobsResponse(execute(params, req, runtime));
-  }
+  return OperateDisableJobsResponse(callApi(params, req, runtime));
 }
 
 OperateDisableJobsResponse Alibabacloud_SchedulerX320240624::Client::operateDisableJobs(shared_ptr<OperateDisableJobsRequest> request) {
@@ -1113,12 +973,7 @@ OperateEnableJobsResponse Alibabacloud_SchedulerX320240624::Client::operateEnabl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OperateEnableJobsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OperateEnableJobsResponse(execute(params, req, runtime));
-  }
+  return OperateEnableJobsResponse(callApi(params, req, runtime));
 }
 
 OperateEnableJobsResponse Alibabacloud_SchedulerX320240624::Client::operateEnableJobs(shared_ptr<OperateEnableJobsRequest> request) {
@@ -1161,12 +1016,7 @@ OperateExecuteJobResponse Alibabacloud_SchedulerX320240624::Client::operateExecu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OperateExecuteJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OperateExecuteJobResponse(execute(params, req, runtime));
-  }
+  return OperateExecuteJobResponse(callApi(params, req, runtime));
 }
 
 OperateExecuteJobResponse Alibabacloud_SchedulerX320240624::Client::operateExecuteJob(shared_ptr<OperateExecuteJobRequest> request) {
@@ -1209,12 +1059,7 @@ OperateRerunJobResponse Alibabacloud_SchedulerX320240624::Client::operateRerunJo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OperateRerunJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OperateRerunJobResponse(execute(params, req, runtime));
-  }
+  return OperateRerunJobResponse(callApi(params, req, runtime));
 }
 
 OperateRerunJobResponse Alibabacloud_SchedulerX320240624::Client::operateRerunJob(shared_ptr<OperateRerunJobRequest> request) {
@@ -1256,12 +1101,7 @@ OperateRetryJobExecutionResponse Alibabacloud_SchedulerX320240624::Client::opera
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OperateRetryJobExecutionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OperateRetryJobExecutionResponse(execute(params, req, runtime));
-  }
+  return OperateRetryJobExecutionResponse(callApi(params, req, runtime));
 }
 
 OperateRetryJobExecutionResponse Alibabacloud_SchedulerX320240624::Client::operateRetryJobExecution(shared_ptr<OperateRetryJobExecutionRequest> request) {
@@ -1303,12 +1143,7 @@ OperateStopJobExecutionResponse Alibabacloud_SchedulerX320240624::Client::operat
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return OperateStopJobExecutionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return OperateStopJobExecutionResponse(execute(params, req, runtime));
-  }
+  return OperateStopJobExecutionResponse(callApi(params, req, runtime));
 }
 
 OperateStopJobExecutionResponse Alibabacloud_SchedulerX320240624::Client::operateStopJobExecution(shared_ptr<OperateStopJobExecutionRequest> request) {
@@ -1351,12 +1186,7 @@ UpdateAppResponse Alibabacloud_SchedulerX320240624::Client::updateAppWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateAppResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateAppResponse(execute(params, req, runtime));
-  }
+  return UpdateAppResponse(callApi(params, req, runtime));
 }
 
 UpdateAppResponse Alibabacloud_SchedulerX320240624::Client::updateApp(shared_ptr<UpdateAppRequest> request) {
@@ -1387,12 +1217,7 @@ UpdateClusterResponse Alibabacloud_SchedulerX320240624::Client::updateClusterWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateClusterResponse(execute(params, req, runtime));
-  }
+  return UpdateClusterResponse(callApi(params, req, runtime));
 }
 
 UpdateClusterResponse Alibabacloud_SchedulerX320240624::Client::updateCluster(shared_ptr<UpdateClusterRequest> request) {
@@ -1488,12 +1313,7 @@ UpdateJobResponse Alibabacloud_SchedulerX320240624::Client::updateJobWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateJobResponse(execute(params, req, runtime));
-  }
+  return UpdateJobResponse(callApi(params, req, runtime));
 }
 
 UpdateJobResponse Alibabacloud_SchedulerX320240624::Client::updateJob(shared_ptr<UpdateJobRequest> request) {
