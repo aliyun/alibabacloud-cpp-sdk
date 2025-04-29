@@ -1364,6 +1364,9 @@ CreateScalingRuleResponse Alibabacloud_Ess20220222::Client::createScalingRuleWit
   if (!Darabonba_Util::Client::isUnset<vector<CreateScalingRuleRequestAlarmDimensions>>(request->alarmDimensions)) {
     query->insert(pair<string, vector<CreateScalingRuleRequestAlarmDimensions>>("AlarmDimensions", *request->alarmDimensions));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateScalingRuleRequestAlarmOptions>(request->alarmOptions)) {
+    query->insert(pair<string, CreateScalingRuleRequestAlarmOptions>("AlarmOptions", *request->alarmOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->cooldown)) {
     query->insert(pair<string, long>("Cooldown", *request->cooldown));
   }
@@ -4471,6 +4474,9 @@ ModifyScalingRuleResponse Alibabacloud_Ess20220222::Client::modifyScalingRuleWit
   }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyScalingRuleRequestAlarmDimensions>>(request->alarmDimensions)) {
     query->insert(pair<string, vector<ModifyScalingRuleRequestAlarmDimensions>>("AlarmDimensions", *request->alarmDimensions));
+  }
+  if (!Darabonba_Util::Client::isUnset<ModifyScalingRuleRequestAlarmOptions>(request->alarmOptions)) {
+    query->insert(pair<string, ModifyScalingRuleRequestAlarmOptions>("AlarmOptions", *request->alarmOptions));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->cooldown)) {
     query->insert(pair<string, long>("Cooldown", *request->cooldown));

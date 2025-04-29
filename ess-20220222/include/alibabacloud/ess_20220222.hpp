@@ -9276,6 +9276,35 @@ public:
 
   virtual ~CreateScalingRuleRequestAlarmDimensions() = default;
 };
+class CreateScalingRuleRequestAlarmOptions : public Darabonba::Model {
+public:
+  shared_ptr<long> period{};
+
+  CreateScalingRuleRequestAlarmOptions() {}
+
+  explicit CreateScalingRuleRequestAlarmOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+  }
+
+
+  virtual ~CreateScalingRuleRequestAlarmOptions() = default;
+};
 class CreateScalingRuleRequestHybridMetricsDimensions : public Darabonba::Model {
 public:
   shared_ptr<string> dimensionKey{};
@@ -9431,6 +9460,7 @@ public:
   shared_ptr<string> adjustmentType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<vector<CreateScalingRuleRequestAlarmDimensions>> alarmDimensions{};
+  shared_ptr<CreateScalingRuleRequestAlarmOptions> alarmOptions{};
   shared_ptr<long> cooldown{};
   shared_ptr<bool> disableScaleIn{};
   shared_ptr<long> estimatedInstanceWarmup{};
@@ -9478,6 +9508,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["AlarmDimensions"] = boost::any(temp1);
+    }
+    if (alarmOptions) {
+      res["AlarmOptions"] = alarmOptions ? boost::any(alarmOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (cooldown) {
       res["Cooldown"] = boost::any(*cooldown);
@@ -9580,6 +9613,13 @@ public:
           }
         }
         alarmDimensions = make_shared<vector<CreateScalingRuleRequestAlarmDimensions>>(expect1);
+      }
+    }
+    if (m.find("AlarmOptions") != m.end() && !m["AlarmOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AlarmOptions"].type()) {
+        CreateScalingRuleRequestAlarmOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AlarmOptions"]));
+        alarmOptions = make_shared<CreateScalingRuleRequestAlarmOptions>(model1);
       }
     }
     if (m.find("Cooldown") != m.end() && !m["Cooldown"].empty()) {
@@ -24859,6 +24899,7 @@ public:
   shared_ptr<long> evaluationCount{};
   shared_ptr<string> metricName{};
   shared_ptr<string> metricType{};
+  shared_ptr<long> period{};
   shared_ptr<string> statistics{};
   shared_ptr<double> threshold{};
 
@@ -24896,6 +24937,9 @@ public:
     }
     if (metricType) {
       res["MetricType"] = boost::any(*metricType);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
     }
     if (statistics) {
       res["Statistics"] = boost::any(*statistics);
@@ -24937,6 +24981,9 @@ public:
     }
     if (m.find("MetricType") != m.end() && !m["MetricType"].empty()) {
       metricType = make_shared<string>(boost::any_cast<string>(m["MetricType"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
     }
     if (m.find("Statistics") != m.end() && !m["Statistics"].empty()) {
       statistics = make_shared<string>(boost::any_cast<string>(m["Statistics"]));
@@ -35792,6 +35839,35 @@ public:
 
   virtual ~ModifyScalingRuleRequestAlarmDimensions() = default;
 };
+class ModifyScalingRuleRequestAlarmOptions : public Darabonba::Model {
+public:
+  shared_ptr<long> period{};
+
+  ModifyScalingRuleRequestAlarmOptions() {}
+
+  explicit ModifyScalingRuleRequestAlarmOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+  }
+
+
+  virtual ~ModifyScalingRuleRequestAlarmOptions() = default;
+};
 class ModifyScalingRuleRequestHybridMetricsDimensions : public Darabonba::Model {
 public:
   shared_ptr<string> dimensionKey{};
@@ -35947,6 +36023,7 @@ public:
   shared_ptr<string> adjustmentType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<vector<ModifyScalingRuleRequestAlarmDimensions>> alarmDimensions{};
+  shared_ptr<ModifyScalingRuleRequestAlarmOptions> alarmOptions{};
   shared_ptr<long> cooldown{};
   shared_ptr<bool> disableScaleIn{};
   shared_ptr<long> estimatedInstanceWarmup{};
@@ -35993,6 +36070,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["AlarmDimensions"] = boost::any(temp1);
+    }
+    if (alarmOptions) {
+      res["AlarmOptions"] = alarmOptions ? boost::any(alarmOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (cooldown) {
       res["Cooldown"] = boost::any(*cooldown);
@@ -36092,6 +36172,13 @@ public:
           }
         }
         alarmDimensions = make_shared<vector<ModifyScalingRuleRequestAlarmDimensions>>(expect1);
+      }
+    }
+    if (m.find("AlarmOptions") != m.end() && !m["AlarmOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AlarmOptions"].type()) {
+        ModifyScalingRuleRequestAlarmOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AlarmOptions"]));
+        alarmOptions = make_shared<ModifyScalingRuleRequestAlarmOptions>(model1);
       }
     }
     if (m.find("Cooldown") != m.end() && !m["Cooldown"].empty()) {
