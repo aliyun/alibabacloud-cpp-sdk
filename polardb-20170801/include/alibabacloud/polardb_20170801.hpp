@@ -33794,8 +33794,10 @@ public:
 class ModifyMaskingRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> defaultAlgo{};
   shared_ptr<string> enable{};
   shared_ptr<string> interfaceVersion{};
+  shared_ptr<string> maskingAlgo{};
   shared_ptr<string> ruleConfig{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> ruleNameList{};
@@ -33814,11 +33816,17 @@ public:
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
+    if (defaultAlgo) {
+      res["DefaultAlgo"] = boost::any(*defaultAlgo);
+    }
     if (enable) {
       res["Enable"] = boost::any(*enable);
     }
     if (interfaceVersion) {
       res["InterfaceVersion"] = boost::any(*interfaceVersion);
+    }
+    if (maskingAlgo) {
+      res["MaskingAlgo"] = boost::any(*maskingAlgo);
     }
     if (ruleConfig) {
       res["RuleConfig"] = boost::any(*ruleConfig);
@@ -33839,11 +33847,17 @@ public:
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
+    if (m.find("DefaultAlgo") != m.end() && !m["DefaultAlgo"].empty()) {
+      defaultAlgo = make_shared<string>(boost::any_cast<string>(m["DefaultAlgo"]));
+    }
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
     }
     if (m.find("InterfaceVersion") != m.end() && !m["InterfaceVersion"].empty()) {
       interfaceVersion = make_shared<string>(boost::any_cast<string>(m["InterfaceVersion"]));
+    }
+    if (m.find("MaskingAlgo") != m.end() && !m["MaskingAlgo"].empty()) {
+      maskingAlgo = make_shared<string>(boost::any_cast<string>(m["MaskingAlgo"]));
     }
     if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
       ruleConfig = make_shared<string>(boost::any_cast<string>(m["RuleConfig"]));
