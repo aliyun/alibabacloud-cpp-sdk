@@ -2004,6 +2004,7 @@ public:
   shared_ptr<RunSearchCaseFullTextRequestPageParam> pageParam{};
   shared_ptr<string> query{};
   shared_ptr<vector<string>> queryKeywords{};
+  shared_ptr<string> referLevel{};
   shared_ptr<map<string, string>> sortKeyAndDirection{};
   shared_ptr<RunSearchCaseFullTextRequestThread> thread{};
 
@@ -2031,6 +2032,9 @@ public:
     }
     if (queryKeywords) {
       res["queryKeywords"] = boost::any(*queryKeywords);
+    }
+    if (referLevel) {
+      res["referLevel"] = boost::any(*referLevel);
     }
     if (sortKeyAndDirection) {
       res["sortKeyAndDirection"] = boost::any(*sortKeyAndDirection);
@@ -2072,6 +2076,9 @@ public:
       }
       queryKeywords = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("referLevel") != m.end() && !m["referLevel"].empty()) {
+      referLevel = make_shared<string>(boost::any_cast<string>(m["referLevel"]));
+    }
     if (m.find("sortKeyAndDirection") != m.end() && !m["sortKeyAndDirection"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["sortKeyAndDirection"]);
       map<string, string> toMap1;
@@ -2099,6 +2106,7 @@ public:
   shared_ptr<string> pageParamShrink{};
   shared_ptr<string> query{};
   shared_ptr<string> queryKeywordsShrink{};
+  shared_ptr<string> referLevel{};
   shared_ptr<string> sortKeyAndDirectionShrink{};
   shared_ptr<string> threadShrink{};
 
@@ -2127,6 +2135,9 @@ public:
     if (queryKeywordsShrink) {
       res["queryKeywords"] = boost::any(*queryKeywordsShrink);
     }
+    if (referLevel) {
+      res["referLevel"] = boost::any(*referLevel);
+    }
     if (sortKeyAndDirectionShrink) {
       res["sortKeyAndDirection"] = boost::any(*sortKeyAndDirectionShrink);
     }
@@ -2151,6 +2162,9 @@ public:
     }
     if (m.find("queryKeywords") != m.end() && !m["queryKeywords"].empty()) {
       queryKeywordsShrink = make_shared<string>(boost::any_cast<string>(m["queryKeywords"]));
+    }
+    if (m.find("referLevel") != m.end() && !m["referLevel"].empty()) {
+      referLevel = make_shared<string>(boost::any_cast<string>(m["referLevel"]));
     }
     if (m.find("sortKeyAndDirection") != m.end() && !m["sortKeyAndDirection"].empty()) {
       sortKeyAndDirectionShrink = make_shared<string>(boost::any_cast<string>(m["sortKeyAndDirection"]));
@@ -2245,7 +2259,9 @@ class RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomain : public Darabon
 public:
   shared_ptr<string> abstractObj{};
   shared_ptr<string> appliedLaws{};
+  shared_ptr<string> basicCase{};
   shared_ptr<string> caseBasic{};
+  shared_ptr<string> caseCause{};
   shared_ptr<string> caseFeature{};
   shared_ptr<string> caseId{};
   shared_ptr<string> caseNo{};
@@ -2260,6 +2276,7 @@ public:
   shared_ptr<vector<string>> disputeFocusTag{};
   shared_ptr<string> disputedpoints{};
   shared_ptr<string> documentType{};
+  shared_ptr<string> judgReason{};
   shared_ptr<string> keyfacts{};
   shared_ptr<string> legalBasis{};
   shared_ptr<string> litigants{};
@@ -2267,6 +2284,7 @@ public:
   shared_ptr<string> openCaseCause{};
   shared_ptr<string> preTrialProcess{};
   shared_ptr<string> referLevel{};
+  shared_ptr<string> refereeGist{};
   shared_ptr<string> sourceContent{};
   shared_ptr<RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomainTrialCourt> trialCourt{};
   shared_ptr<string> trialDate{};
@@ -2291,8 +2309,14 @@ public:
     if (appliedLaws) {
       res["appliedLaws"] = boost::any(*appliedLaws);
     }
+    if (basicCase) {
+      res["basicCase"] = boost::any(*basicCase);
+    }
     if (caseBasic) {
       res["caseBasic"] = boost::any(*caseBasic);
+    }
+    if (caseCause) {
+      res["caseCause"] = boost::any(*caseCause);
     }
     if (caseFeature) {
       res["caseFeature"] = boost::any(*caseFeature);
@@ -2336,6 +2360,9 @@ public:
     if (documentType) {
       res["documentType"] = boost::any(*documentType);
     }
+    if (judgReason) {
+      res["judgReason"] = boost::any(*judgReason);
+    }
     if (keyfacts) {
       res["keyfacts"] = boost::any(*keyfacts);
     }
@@ -2356,6 +2383,9 @@ public:
     }
     if (referLevel) {
       res["referLevel"] = boost::any(*referLevel);
+    }
+    if (refereeGist) {
+      res["refereeGist"] = boost::any(*refereeGist);
     }
     if (sourceContent) {
       res["sourceContent"] = boost::any(*sourceContent);
@@ -2388,8 +2418,14 @@ public:
     if (m.find("appliedLaws") != m.end() && !m["appliedLaws"].empty()) {
       appliedLaws = make_shared<string>(boost::any_cast<string>(m["appliedLaws"]));
     }
+    if (m.find("basicCase") != m.end() && !m["basicCase"].empty()) {
+      basicCase = make_shared<string>(boost::any_cast<string>(m["basicCase"]));
+    }
     if (m.find("caseBasic") != m.end() && !m["caseBasic"].empty()) {
       caseBasic = make_shared<string>(boost::any_cast<string>(m["caseBasic"]));
+    }
+    if (m.find("caseCause") != m.end() && !m["caseCause"].empty()) {
+      caseCause = make_shared<string>(boost::any_cast<string>(m["caseCause"]));
     }
     if (m.find("caseFeature") != m.end() && !m["caseFeature"].empty()) {
       caseFeature = make_shared<string>(boost::any_cast<string>(m["caseFeature"]));
@@ -2440,6 +2476,9 @@ public:
     if (m.find("documentType") != m.end() && !m["documentType"].empty()) {
       documentType = make_shared<string>(boost::any_cast<string>(m["documentType"]));
     }
+    if (m.find("judgReason") != m.end() && !m["judgReason"].empty()) {
+      judgReason = make_shared<string>(boost::any_cast<string>(m["judgReason"]));
+    }
     if (m.find("keyfacts") != m.end() && !m["keyfacts"].empty()) {
       keyfacts = make_shared<string>(boost::any_cast<string>(m["keyfacts"]));
     }
@@ -2460,6 +2499,9 @@ public:
     }
     if (m.find("referLevel") != m.end() && !m["referLevel"].empty()) {
       referLevel = make_shared<string>(boost::any_cast<string>(m["referLevel"]));
+    }
+    if (m.find("refereeGist") != m.end() && !m["refereeGist"].empty()) {
+      refereeGist = make_shared<string>(boost::any_cast<string>(m["refereeGist"]));
     }
     if (m.find("sourceContent") != m.end() && !m["sourceContent"].empty()) {
       sourceContent = make_shared<string>(boost::any_cast<string>(m["sourceContent"]));
@@ -2494,6 +2536,7 @@ public:
 class RunSearchCaseFullTextResponseBodyDataCaseResult : public Darabonba::Model {
 public:
   shared_ptr<RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomain> caseDomain{};
+  shared_ptr<string> mode{};
   shared_ptr<string> similarity{};
 
   RunSearchCaseFullTextResponseBodyDataCaseResult() {}
@@ -2509,6 +2552,9 @@ public:
     if (caseDomain) {
       res["caseDomain"] = caseDomain ? boost::any(caseDomain->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (mode) {
+      res["mode"] = boost::any(*mode);
+    }
     if (similarity) {
       res["similarity"] = boost::any(*similarity);
     }
@@ -2523,6 +2569,9 @@ public:
         caseDomain = make_shared<RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomain>(model1);
       }
     }
+    if (m.find("mode") != m.end() && !m["mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["mode"]));
+    }
     if (m.find("similarity") != m.end() && !m["similarity"].empty()) {
       similarity = make_shared<string>(boost::any_cast<string>(m["similarity"]));
     }
@@ -2533,6 +2582,7 @@ public:
 };
 class RunSearchCaseFullTextResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> caseLevel{};
   shared_ptr<vector<RunSearchCaseFullTextResponseBodyDataCaseResult>> caseResult{};
   shared_ptr<long> currentPage{};
   shared_ptr<long> pageSize{};
@@ -2550,6 +2600,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (caseLevel) {
+      res["caseLevel"] = boost::any(*caseLevel);
+    }
     if (caseResult) {
       vector<boost::any> temp1;
       for(auto item1:*caseResult){
@@ -2576,6 +2629,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("caseLevel") != m.end() && !m["caseLevel"].empty()) {
+      caseLevel = make_shared<string>(boost::any_cast<string>(m["caseLevel"]));
+    }
     if (m.find("caseResult") != m.end() && !m["caseResult"].empty()) {
       if (typeid(vector<boost::any>) == m["caseResult"].type()) {
         vector<RunSearchCaseFullTextResponseBodyDataCaseResult> expect1;

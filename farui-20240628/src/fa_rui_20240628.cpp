@@ -334,6 +334,9 @@ RunSearchCaseFullTextResponse Alibabacloud_FaRui20240628::Client::runSearchCaseF
   if (!Darabonba_Util::Client::isUnset<string>(request->queryKeywordsShrink)) {
     body->insert(pair<string, string>("queryKeywords", *request->queryKeywordsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->referLevel)) {
+    body->insert(pair<string, string>("referLevel", *request->referLevel));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortKeyAndDirectionShrink)) {
     body->insert(pair<string, string>("sortKeyAndDirection", *request->sortKeyAndDirectionShrink));
   }
