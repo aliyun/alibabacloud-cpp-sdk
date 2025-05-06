@@ -8982,6 +8982,7 @@ public:
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> compliancePackId{};
+  shared_ptr<bool> multiFiles{};
 
   GenerateAggregateCompliancePackReportRequest() {}
 
@@ -9002,6 +9003,9 @@ public:
     if (compliancePackId) {
       res["CompliancePackId"] = boost::any(*compliancePackId);
     }
+    if (multiFiles) {
+      res["MultiFiles"] = boost::any(*multiFiles);
+    }
     return res;
   }
 
@@ -9014,6 +9018,9 @@ public:
     }
     if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
       compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
+    }
+    if (m.find("MultiFiles") != m.end() && !m["MultiFiles"].empty()) {
+      multiFiles = make_shared<bool>(boost::any_cast<bool>(m["MultiFiles"]));
     }
   }
 

@@ -1548,6 +1548,9 @@ GenerateAggregateCompliancePackReportResponse Alibabacloud_Config20200907::Clien
   if (!Darabonba_Util::Client::isUnset<string>(request->compliancePackId)) {
     body->insert(pair<string, string>("CompliancePackId", *request->compliancePackId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->multiFiles)) {
+    body->insert(pair<string, bool>("MultiFiles", *request->multiFiles));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
