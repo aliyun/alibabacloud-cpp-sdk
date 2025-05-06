@@ -13,6 +13,144 @@
 using namespace std;
 
 namespace Alibabacloud_DashDeviceConsole20250408 {
+class DeletePromptRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+
+  DeletePromptRequest() {}
+
+  explicit DeletePromptRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["groupId"] = boost::any(*groupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("groupId") != m.end() && !m["groupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["groupId"]));
+    }
+  }
+
+
+  virtual ~DeletePromptRequest() = default;
+};
+class DeletePromptResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> statusCode{};
+
+  DeletePromptResponseBody() {}
+
+  explicit DeletePromptResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["data"]));
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~DeletePromptResponseBody() = default;
+};
+class DeletePromptResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeletePromptResponseBody> body{};
+
+  DeletePromptResponse() {}
+
+  explicit DeletePromptResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeletePromptResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeletePromptResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeletePromptResponse() = default;
+};
 class GetPromptRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
@@ -306,6 +444,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  DeletePromptResponse deletePromptWithOptions(shared_ptr<DeletePromptRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeletePromptResponse deletePrompt(shared_ptr<DeletePromptRequest> request);
   GetPromptResponse getPromptWithOptions(shared_ptr<GetPromptRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPromptResponse getPrompt(shared_ptr<GetPromptRequest> request);
   PushPromptResponse pushPromptWithOptions(shared_ptr<PushPromptRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

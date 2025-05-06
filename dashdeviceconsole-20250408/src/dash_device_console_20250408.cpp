@@ -36,6 +36,36 @@ string Alibabacloud_DashDeviceConsole20250408::Client::getEndpoint(shared_ptr<st
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+DeletePromptResponse Alibabacloud_DashDeviceConsole20250408::Client::deletePromptWithOptions(shared_ptr<DeletePromptRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("groupId", *request->groupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeletePrompt"))},
+    {"version", boost::any(string("2025-04-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/prompt/delete"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeletePromptResponse(callApi(params, req, runtime));
+}
+
+DeletePromptResponse Alibabacloud_DashDeviceConsole20250408::Client::deletePrompt(shared_ptr<DeletePromptRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deletePromptWithOptions(request, headers, runtime);
+}
+
 GetPromptResponse Alibabacloud_DashDeviceConsole20250408::Client::getPromptWithOptions(shared_ptr<GetPromptRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -57,12 +87,7 @@ GetPromptResponse Alibabacloud_DashDeviceConsole20250408::Client::getPromptWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetPromptResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetPromptResponse(execute(params, req, runtime));
-  }
+  return GetPromptResponse(callApi(params, req, runtime));
 }
 
 GetPromptResponse Alibabacloud_DashDeviceConsole20250408::Client::getPrompt(shared_ptr<GetPromptRequest> request) {
@@ -97,12 +122,7 @@ PushPromptResponse Alibabacloud_DashDeviceConsole20250408::Client::pushPromptWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return PushPromptResponse(callApi(params, req, runtime));
-  }
-  else {
-    return PushPromptResponse(execute(params, req, runtime));
-  }
+  return PushPromptResponse(callApi(params, req, runtime));
 }
 
 PushPromptResponse Alibabacloud_DashDeviceConsole20250408::Client::pushPrompt(shared_ptr<PushPromptRequest> request) {
