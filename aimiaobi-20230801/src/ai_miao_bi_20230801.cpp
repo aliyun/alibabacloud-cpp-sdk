@@ -166,6 +166,9 @@ CreateDatasetResponse Alibabacloud_AiMiaoBi20230801::Client::createDatasetWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->documentHandleConfigShrink)) {
     body->insert(pair<string, string>("DocumentHandleConfig", *request->documentHandleConfigShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->invokeType)) {
+    body->insert(pair<string, string>("InvokeType", *request->invokeType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->searchDatasetEnable)) {
     body->insert(pair<string, long>("SearchDatasetEnable", *request->searchDatasetEnable));
   }

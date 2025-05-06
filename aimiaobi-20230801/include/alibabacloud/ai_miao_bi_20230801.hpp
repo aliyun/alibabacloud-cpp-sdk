@@ -1380,6 +1380,7 @@ public:
   shared_ptr<string> datasetName{};
   shared_ptr<string> datasetType{};
   shared_ptr<CreateDatasetRequestDocumentHandleConfig> documentHandleConfig{};
+  shared_ptr<string> invokeType{};
   shared_ptr<long> searchDatasetEnable{};
   shared_ptr<string> workspaceId{};
 
@@ -1407,6 +1408,9 @@ public:
     }
     if (documentHandleConfig) {
       res["DocumentHandleConfig"] = documentHandleConfig ? boost::any(documentHandleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (invokeType) {
+      res["InvokeType"] = boost::any(*invokeType);
     }
     if (searchDatasetEnable) {
       res["SearchDatasetEnable"] = boost::any(*searchDatasetEnable);
@@ -1441,6 +1445,9 @@ public:
         documentHandleConfig = make_shared<CreateDatasetRequestDocumentHandleConfig>(model1);
       }
     }
+    if (m.find("InvokeType") != m.end() && !m["InvokeType"].empty()) {
+      invokeType = make_shared<string>(boost::any_cast<string>(m["InvokeType"]));
+    }
     if (m.find("SearchDatasetEnable") != m.end() && !m["SearchDatasetEnable"].empty()) {
       searchDatasetEnable = make_shared<long>(boost::any_cast<long>(m["SearchDatasetEnable"]));
     }
@@ -1459,6 +1466,7 @@ public:
   shared_ptr<string> datasetName{};
   shared_ptr<string> datasetType{};
   shared_ptr<string> documentHandleConfigShrink{};
+  shared_ptr<string> invokeType{};
   shared_ptr<long> searchDatasetEnable{};
   shared_ptr<string> workspaceId{};
 
@@ -1487,6 +1495,9 @@ public:
     if (documentHandleConfigShrink) {
       res["DocumentHandleConfig"] = boost::any(*documentHandleConfigShrink);
     }
+    if (invokeType) {
+      res["InvokeType"] = boost::any(*invokeType);
+    }
     if (searchDatasetEnable) {
       res["SearchDatasetEnable"] = boost::any(*searchDatasetEnable);
     }
@@ -1511,6 +1522,9 @@ public:
     }
     if (m.find("DocumentHandleConfig") != m.end() && !m["DocumentHandleConfig"].empty()) {
       documentHandleConfigShrink = make_shared<string>(boost::any_cast<string>(m["DocumentHandleConfig"]));
+    }
+    if (m.find("InvokeType") != m.end() && !m["InvokeType"].empty()) {
+      invokeType = make_shared<string>(boost::any_cast<string>(m["InvokeType"]));
     }
     if (m.find("SearchDatasetEnable") != m.end() && !m["SearchDatasetEnable"].empty()) {
       searchDatasetEnable = make_shared<long>(boost::any_cast<long>(m["SearchDatasetEnable"]));
