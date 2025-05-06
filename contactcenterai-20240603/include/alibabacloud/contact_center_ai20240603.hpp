@@ -2030,6 +2030,7 @@ public:
   shared_ptr<long> clientChannel{};
   shared_ptr<string> fileName{};
   shared_ptr<string> level{};
+  shared_ptr<bool> roleIdentification{};
   shared_ptr<long> serviceChannel{};
   shared_ptr<vector<string>> serviceChannelKeywords{};
   shared_ptr<string> vocabularyId{};
@@ -2059,6 +2060,9 @@ public:
     }
     if (level) {
       res["level"] = boost::any(*level);
+    }
+    if (roleIdentification) {
+      res["roleIdentification"] = boost::any(*roleIdentification);
     }
     if (serviceChannel) {
       res["serviceChannel"] = boost::any(*serviceChannel);
@@ -2090,6 +2094,9 @@ public:
     }
     if (m.find("level") != m.end() && !m["level"].empty()) {
       level = make_shared<string>(boost::any_cast<string>(m["level"]));
+    }
+    if (m.find("roleIdentification") != m.end() && !m["roleIdentification"].empty()) {
+      roleIdentification = make_shared<bool>(boost::any_cast<bool>(m["roleIdentification"]));
     }
     if (m.find("serviceChannel") != m.end() && !m["serviceChannel"].empty()) {
       serviceChannel = make_shared<long>(boost::any_cast<long>(m["serviceChannel"]));
