@@ -2908,6 +2908,8 @@ public:
   shared_ptr<bool> fullyManaged{};
   shared_ptr<string> orderState{};
   shared_ptr<DescribeInstancesResponseBodyInstancesStorageOss> oss{};
+  shared_ptr<bool> supportCreateFullyManagedStorage{};
+  shared_ptr<bool> supportMigrationProgressDetection{};
 
   DescribeInstancesResponseBodyInstancesStorage() {}
 
@@ -2928,6 +2930,12 @@ public:
     if (oss) {
       res["Oss"] = oss ? boost::any(oss->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (supportCreateFullyManagedStorage) {
+      res["SupportCreateFullyManagedStorage"] = boost::any(*supportCreateFullyManagedStorage);
+    }
+    if (supportMigrationProgressDetection) {
+      res["SupportMigrationProgressDetection"] = boost::any(*supportMigrationProgressDetection);
+    }
     return res;
   }
 
@@ -2944,6 +2952,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Oss"]));
         oss = make_shared<DescribeInstancesResponseBodyInstancesStorageOss>(model1);
       }
+    }
+    if (m.find("SupportCreateFullyManagedStorage") != m.end() && !m["SupportCreateFullyManagedStorage"].empty()) {
+      supportCreateFullyManagedStorage = make_shared<bool>(boost::any_cast<bool>(m["SupportCreateFullyManagedStorage"]));
+    }
+    if (m.find("SupportMigrationProgressDetection") != m.end() && !m["SupportMigrationProgressDetection"].empty()) {
+      supportMigrationProgressDetection = make_shared<bool>(boost::any_cast<bool>(m["SupportMigrationProgressDetection"]));
     }
   }
 
