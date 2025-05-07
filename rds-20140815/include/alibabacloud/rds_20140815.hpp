@@ -26847,6 +26847,8 @@ public:
   shared_ptr<string> autoUpgradeMinorVersion{};
   shared_ptr<string> availabilityValue{};
   shared_ptr<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig> babelfishConfig{};
+  shared_ptr<string> blueGreenDeploymentName{};
+  shared_ptr<string> blueInstanceName{};
   shared_ptr<string> bpeEnabled{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<bool> canTempUpgrade{};
@@ -26855,6 +26857,7 @@ public:
   shared_ptr<string> collation{};
   shared_ptr<string> compressionMode{};
   shared_ptr<string> compressionRatio{};
+  shared_ptr<bool> computeBurstEnabled{};
   shared_ptr<string> connectionMode{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> consoleVersion{};
@@ -26883,6 +26886,7 @@ public:
   shared_ptr<string> expireTime{};
   shared_ptr<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra> extra{};
   shared_ptr<string> generalGroupName{};
+  shared_ptr<string> greenInstanceName{};
   shared_ptr<string> guardDBInstanceId{};
   shared_ptr<string> IPType{};
   shared_ptr<string> incrementSourceDBInstanceId{};
@@ -26952,6 +26956,12 @@ public:
     if (babelfishConfig) {
       res["BabelfishConfig"] = babelfishConfig ? boost::any(babelfishConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (blueGreenDeploymentName) {
+      res["BlueGreenDeploymentName"] = boost::any(*blueGreenDeploymentName);
+    }
+    if (blueInstanceName) {
+      res["BlueInstanceName"] = boost::any(*blueInstanceName);
+    }
     if (bpeEnabled) {
       res["BpeEnabled"] = boost::any(*bpeEnabled);
     }
@@ -26975,6 +26985,9 @@ public:
     }
     if (compressionRatio) {
       res["CompressionRatio"] = boost::any(*compressionRatio);
+    }
+    if (computeBurstEnabled) {
+      res["ComputeBurstEnabled"] = boost::any(*computeBurstEnabled);
     }
     if (connectionMode) {
       res["ConnectionMode"] = boost::any(*connectionMode);
@@ -27059,6 +27072,9 @@ public:
     }
     if (generalGroupName) {
       res["GeneralGroupName"] = boost::any(*generalGroupName);
+    }
+    if (greenInstanceName) {
+      res["GreenInstanceName"] = boost::any(*greenInstanceName);
     }
     if (guardDBInstanceId) {
       res["GuardDBInstanceId"] = boost::any(*guardDBInstanceId);
@@ -27212,6 +27228,12 @@ public:
         babelfishConfig = make_shared<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig>(model1);
       }
     }
+    if (m.find("BlueGreenDeploymentName") != m.end() && !m["BlueGreenDeploymentName"].empty()) {
+      blueGreenDeploymentName = make_shared<string>(boost::any_cast<string>(m["BlueGreenDeploymentName"]));
+    }
+    if (m.find("BlueInstanceName") != m.end() && !m["BlueInstanceName"].empty()) {
+      blueInstanceName = make_shared<string>(boost::any_cast<string>(m["BlueInstanceName"]));
+    }
     if (m.find("BpeEnabled") != m.end() && !m["BpeEnabled"].empty()) {
       bpeEnabled = make_shared<string>(boost::any_cast<string>(m["BpeEnabled"]));
     }
@@ -27235,6 +27257,9 @@ public:
     }
     if (m.find("CompressionRatio") != m.end() && !m["CompressionRatio"].empty()) {
       compressionRatio = make_shared<string>(boost::any_cast<string>(m["CompressionRatio"]));
+    }
+    if (m.find("ComputeBurstEnabled") != m.end() && !m["ComputeBurstEnabled"].empty()) {
+      computeBurstEnabled = make_shared<bool>(boost::any_cast<bool>(m["ComputeBurstEnabled"]));
     }
     if (m.find("ConnectionMode") != m.end() && !m["ConnectionMode"].empty()) {
       connectionMode = make_shared<string>(boost::any_cast<string>(m["ConnectionMode"]));
@@ -27327,6 +27352,9 @@ public:
     }
     if (m.find("GeneralGroupName") != m.end() && !m["GeneralGroupName"].empty()) {
       generalGroupName = make_shared<string>(boost::any_cast<string>(m["GeneralGroupName"]));
+    }
+    if (m.find("GreenInstanceName") != m.end() && !m["GreenInstanceName"].empty()) {
+      greenInstanceName = make_shared<string>(boost::any_cast<string>(m["GreenInstanceName"]));
     }
     if (m.find("GuardDBInstanceId") != m.end() && !m["GuardDBInstanceId"].empty()) {
       guardDBInstanceId = make_shared<string>(boost::any_cast<string>(m["GuardDBInstanceId"]));
@@ -33188,6 +33216,8 @@ public:
 };
 class DescribeDBInstancesResponseBodyItemsDBInstance : public Darabonba::Model {
 public:
+  shared_ptr<string> blueGreenDeploymentName{};
+  shared_ptr<string> blueInstanceName{};
   shared_ptr<string> bpeEnabled{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
@@ -33221,6 +33251,7 @@ public:
   shared_ptr<string> engineVersion{};
   shared_ptr<string> expireTime{};
   shared_ptr<string> generalGroupName{};
+  shared_ptr<string> greenInstanceName{};
   shared_ptr<string> guardDBInstanceId{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<string> ioAccelerationEnabled{};
@@ -33252,6 +33283,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (blueGreenDeploymentName) {
+      res["BlueGreenDeploymentName"] = boost::any(*blueGreenDeploymentName);
+    }
+    if (blueInstanceName) {
+      res["BlueInstanceName"] = boost::any(*blueInstanceName);
+    }
     if (bpeEnabled) {
       res["BpeEnabled"] = boost::any(*bpeEnabled);
     }
@@ -33351,6 +33388,9 @@ public:
     if (generalGroupName) {
       res["GeneralGroupName"] = boost::any(*generalGroupName);
     }
+    if (greenInstanceName) {
+      res["GreenInstanceName"] = boost::any(*greenInstanceName);
+    }
     if (guardDBInstanceId) {
       res["GuardDBInstanceId"] = boost::any(*guardDBInstanceId);
     }
@@ -33415,6 +33455,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlueGreenDeploymentName") != m.end() && !m["BlueGreenDeploymentName"].empty()) {
+      blueGreenDeploymentName = make_shared<string>(boost::any_cast<string>(m["BlueGreenDeploymentName"]));
+    }
+    if (m.find("BlueInstanceName") != m.end() && !m["BlueInstanceName"].empty()) {
+      blueInstanceName = make_shared<string>(boost::any_cast<string>(m["BlueInstanceName"]));
+    }
     if (m.find("BpeEnabled") != m.end() && !m["BpeEnabled"].empty()) {
       bpeEnabled = make_shared<string>(boost::any_cast<string>(m["BpeEnabled"]));
     }
@@ -33513,6 +33559,9 @@ public:
     }
     if (m.find("GeneralGroupName") != m.end() && !m["GeneralGroupName"].empty()) {
       generalGroupName = make_shared<string>(boost::any_cast<string>(m["GeneralGroupName"]));
+    }
+    if (m.find("GreenInstanceName") != m.end() && !m["GreenInstanceName"].empty()) {
+      greenInstanceName = make_shared<string>(boost::any_cast<string>(m["GreenInstanceName"]));
     }
     if (m.find("GuardDBInstanceId") != m.end() && !m["GuardDBInstanceId"].empty()) {
       guardDBInstanceId = make_shared<string>(boost::any_cast<string>(m["GuardDBInstanceId"]));
@@ -55803,6 +55852,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> publicIp{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> status{};
   shared_ptr<string> tag{};
   shared_ptr<string> vpcId{};
 
@@ -55837,6 +55887,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (tag) {
       res["Tag"] = boost::any(*tag);
     }
@@ -55867,6 +55920,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));

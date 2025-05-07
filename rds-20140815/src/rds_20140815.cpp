@@ -9709,6 +9709,9 @@ DescribeRCInstancesResponse Alibabacloud_Rds20140815::Client::describeRCInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
     query->insert(pair<string, string>("Tag", *request->tag));
   }
