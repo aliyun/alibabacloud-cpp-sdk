@@ -7605,6 +7605,7 @@ public:
 class GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<bool> enable{};
   shared_ptr<string> name{};
   shared_ptr<long> number{};
   shared_ptr<string> type{};
@@ -7622,6 +7623,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -7637,6 +7641,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
