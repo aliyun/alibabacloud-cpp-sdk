@@ -853,6 +853,9 @@ ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
     query->insert(pair<string, string>("JobId", *request->jobId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobIds)) {
+    query->insert(pair<string, string>("JobIds", *request->jobIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
     query->insert(pair<string, string>("JobType", *request->jobType));
   }

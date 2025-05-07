@@ -8224,6 +8224,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<bool> fromAllWorkspaces{};
   shared_ptr<string> jobId{};
+  shared_ptr<string> jobIds{};
   shared_ptr<string> jobType{};
   shared_ptr<string> order{};
   shared_ptr<string> oversoldInfo{};
@@ -8272,6 +8273,9 @@ public:
     }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
+    }
+    if (jobIds) {
+      res["JobIds"] = boost::any(*jobIds);
     }
     if (jobType) {
       res["JobType"] = boost::any(*jobType);
@@ -8349,6 +8353,9 @@ public:
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
+    if (m.find("JobIds") != m.end() && !m["JobIds"].empty()) {
+      jobIds = make_shared<string>(boost::any_cast<string>(m["JobIds"]));
+    }
     if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
       jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
     }
@@ -8419,6 +8426,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<bool> fromAllWorkspaces{};
   shared_ptr<string> jobId{};
+  shared_ptr<string> jobIds{};
   shared_ptr<string> jobType{};
   shared_ptr<string> order{};
   shared_ptr<string> oversoldInfo{};
@@ -8467,6 +8475,9 @@ public:
     }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
+    }
+    if (jobIds) {
+      res["JobIds"] = boost::any(*jobIds);
     }
     if (jobType) {
       res["JobType"] = boost::any(*jobType);
@@ -8543,6 +8554,9 @@ public:
     }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("JobIds") != m.end() && !m["JobIds"].empty()) {
+      jobIds = make_shared<string>(boost::any_cast<string>(m["JobIds"]));
     }
     if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
       jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
