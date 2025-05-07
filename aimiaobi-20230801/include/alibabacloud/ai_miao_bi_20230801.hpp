@@ -36084,8 +36084,16 @@ public:
 };
 class RunSearchGenerationRequestAgentContextBizContext : public Darabonba::Model {
 public:
+  shared_ptr<string> askUser{};
+  shared_ptr<vector<string>> askUserKeywords{};
+  shared_ptr<string> currentStep{};
   shared_ptr<RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection> multimodalMediaSelection{};
+  shared_ptr<string> nextStep{};
   shared_ptr<bool> skipCurrentSupplement{};
+  shared_ptr<string> supplementDataType{};
+  shared_ptr<bool> supplementEnable{};
+  shared_ptr<string> userBack{};
+  shared_ptr<vector<string>> userBackKeywords{};
 
   RunSearchGenerationRequestAgentContextBizContext() {}
 
@@ -36097,16 +36105,56 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (askUser) {
+      res["AskUser"] = boost::any(*askUser);
+    }
+    if (askUserKeywords) {
+      res["AskUserKeywords"] = boost::any(*askUserKeywords);
+    }
+    if (currentStep) {
+      res["CurrentStep"] = boost::any(*currentStep);
+    }
     if (multimodalMediaSelection) {
       res["MultimodalMediaSelection"] = multimodalMediaSelection ? boost::any(multimodalMediaSelection->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (nextStep) {
+      res["NextStep"] = boost::any(*nextStep);
+    }
     if (skipCurrentSupplement) {
       res["SkipCurrentSupplement"] = boost::any(*skipCurrentSupplement);
+    }
+    if (supplementDataType) {
+      res["SupplementDataType"] = boost::any(*supplementDataType);
+    }
+    if (supplementEnable) {
+      res["SupplementEnable"] = boost::any(*supplementEnable);
+    }
+    if (userBack) {
+      res["UserBack"] = boost::any(*userBack);
+    }
+    if (userBackKeywords) {
+      res["UserBackKeywords"] = boost::any(*userBackKeywords);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AskUser") != m.end() && !m["AskUser"].empty()) {
+      askUser = make_shared<string>(boost::any_cast<string>(m["AskUser"]));
+    }
+    if (m.find("AskUserKeywords") != m.end() && !m["AskUserKeywords"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AskUserKeywords"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AskUserKeywords"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      askUserKeywords = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CurrentStep") != m.end() && !m["CurrentStep"].empty()) {
+      currentStep = make_shared<string>(boost::any_cast<string>(m["CurrentStep"]));
+    }
     if (m.find("MultimodalMediaSelection") != m.end() && !m["MultimodalMediaSelection"].empty()) {
       if (typeid(map<string, boost::any>) == m["MultimodalMediaSelection"].type()) {
         RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection model1;
@@ -36114,8 +36162,30 @@ public:
         multimodalMediaSelection = make_shared<RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection>(model1);
       }
     }
+    if (m.find("NextStep") != m.end() && !m["NextStep"].empty()) {
+      nextStep = make_shared<string>(boost::any_cast<string>(m["NextStep"]));
+    }
     if (m.find("SkipCurrentSupplement") != m.end() && !m["SkipCurrentSupplement"].empty()) {
       skipCurrentSupplement = make_shared<bool>(boost::any_cast<bool>(m["SkipCurrentSupplement"]));
+    }
+    if (m.find("SupplementDataType") != m.end() && !m["SupplementDataType"].empty()) {
+      supplementDataType = make_shared<string>(boost::any_cast<string>(m["SupplementDataType"]));
+    }
+    if (m.find("SupplementEnable") != m.end() && !m["SupplementEnable"].empty()) {
+      supplementEnable = make_shared<bool>(boost::any_cast<bool>(m["SupplementEnable"]));
+    }
+    if (m.find("UserBack") != m.end() && !m["UserBack"].empty()) {
+      userBack = make_shared<string>(boost::any_cast<string>(m["UserBack"]));
+    }
+    if (m.find("UserBackKeywords") != m.end() && !m["UserBackKeywords"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UserBackKeywords"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UserBackKeywords"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userBackKeywords = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -40582,6 +40652,8 @@ public:
 };
 class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext : public Darabonba::Model {
 public:
+  shared_ptr<string> askUser{};
+  shared_ptr<vector<string>> askUserKeywords{};
   shared_ptr<string> currentStep{};
   shared_ptr<RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent> generatedContent{};
   shared_ptr<string> modelId{};
@@ -40603,6 +40675,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (askUser) {
+      res["AskUser"] = boost::any(*askUser);
+    }
+    if (askUserKeywords) {
+      res["AskUserKeywords"] = boost::any(*askUserKeywords);
+    }
     if (currentStep) {
       res["CurrentStep"] = boost::any(*currentStep);
     }
@@ -40637,6 +40715,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AskUser") != m.end() && !m["AskUser"].empty()) {
+      askUser = make_shared<string>(boost::any_cast<string>(m["AskUser"]));
+    }
+    if (m.find("AskUserKeywords") != m.end() && !m["AskUserKeywords"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AskUserKeywords"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AskUserKeywords"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      askUserKeywords = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("CurrentStep") != m.end() && !m["CurrentStep"].empty()) {
       currentStep = make_shared<string>(boost::any_cast<string>(m["CurrentStep"]));
     }
