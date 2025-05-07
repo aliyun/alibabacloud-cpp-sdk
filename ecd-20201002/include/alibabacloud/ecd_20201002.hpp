@@ -3268,6 +3268,7 @@ public:
 };
 class DescribeUserResourcesResponseBodyResourcesSessions : public Darabonba::Model {
 public:
+  shared_ptr<string> nickName{};
   shared_ptr<string> resourceSessionStartTime{};
   shared_ptr<string> userId{};
   shared_ptr<string> userPrincipalName{};
@@ -3282,6 +3283,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (nickName) {
+      res["NickName"] = boost::any(*nickName);
+    }
     if (resourceSessionStartTime) {
       res["ResourceSessionStartTime"] = boost::any(*resourceSessionStartTime);
     }
@@ -3295,6 +3299,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
+      nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
+    }
     if (m.find("ResourceSessionStartTime") != m.end() && !m["ResourceSessionStartTime"].empty()) {
       resourceSessionStartTime = make_shared<string>(boost::any_cast<string>(m["ResourceSessionStartTime"]));
     }
