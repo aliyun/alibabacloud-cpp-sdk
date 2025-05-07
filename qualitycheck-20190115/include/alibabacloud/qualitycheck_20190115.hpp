@@ -31969,6 +31969,709 @@ public:
 
   virtual ~UploadDataSyncResponse() = default;
 };
+class UploadDataSyncForLLMRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> baseMeAgentId{};
+  shared_ptr<string> jsonStr{};
+
+  UploadDataSyncForLLMRequest() {}
+
+  explicit UploadDataSyncForLLMRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseMeAgentId) {
+      res["BaseMeAgentId"] = boost::any(*baseMeAgentId);
+    }
+    if (jsonStr) {
+      res["JsonStr"] = boost::any(*jsonStr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseMeAgentId") != m.end() && !m["BaseMeAgentId"].empty()) {
+      baseMeAgentId = make_shared<long>(boost::any_cast<long>(m["BaseMeAgentId"]));
+    }
+    if (m.find("JsonStr") != m.end() && !m["JsonStr"].empty()) {
+      jsonStr = make_shared<string>(boost::any_cast<string>(m["JsonStr"]));
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMRequest() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionInfoCid{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionInfoCid) {
+      res["ConditionInfoCid"] = boost::any(*conditionInfoCid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionInfoCid") != m.end() && !m["ConditionInfoCid"].empty()) {
+      conditionInfoCid = make_shared<string>(boost::any_cast<string>(m["ConditionInfoCid"]));
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo>> conditionBasicInfo{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionBasicInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditionBasicInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConditionBasicInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionBasicInfo") != m.end() && !m["ConditionBasicInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConditionBasicInfo"].type()) {
+        vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConditionBasicInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditionBasicInfo = make_shared<vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitCids : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> cidItem{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitCids() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitCids(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidItem) {
+      res["CidItem"] = boost::any(*cidItem);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidItem") != m.end() && !m["CidItem"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CidItem"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CidItem"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cidItem = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitCids() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord : public Darabonba::Model {
+public:
+  shared_ptr<long> from{};
+  shared_ptr<long> pid{};
+  shared_ptr<string> tid{};
+  shared_ptr<long> to{};
+  shared_ptr<string> val{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (from) {
+      res["From"] = boost::any(*from);
+    }
+    if (pid) {
+      res["Pid"] = boost::any(*pid);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    if (to) {
+      res["To"] = boost::any(*to);
+    }
+    if (val) {
+      res["Val"] = boost::any(*val);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("From") != m.end() && !m["From"].empty()) {
+      from = make_shared<long>(boost::any_cast<long>(m["From"]));
+    }
+    if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
+      pid = make_shared<long>(boost::any_cast<long>(m["Pid"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<string>(boost::any_cast<string>(m["Tid"]));
+    }
+    if (m.find("To") != m.end() && !m["To"].empty()) {
+      to = make_shared<long>(boost::any_cast<long>(m["To"]));
+    }
+    if (m.find("Val") != m.end() && !m["Val"].empty()) {
+      val = make_shared<string>(boost::any_cast<string>(m["Val"]));
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWords : public Darabonba::Model {
+public:
+  shared_ptr<vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord>> hitKeyWord{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWords() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hitKeyWord) {
+      vector<boost::any> temp1;
+      for(auto item1:*hitKeyWord){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HitKeyWord"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HitKeyWord") != m.end() && !m["HitKeyWord"].empty()) {
+      if (typeid(vector<boost::any>) == m["HitKeyWord"].type()) {
+        vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HitKeyWord"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hitKeyWord = make_shared<vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWords() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoPhrase : public Darabonba::Model {
+public:
+  shared_ptr<long> begin{};
+  shared_ptr<string> beginTime{};
+  shared_ptr<long> end{};
+  shared_ptr<string> identity{};
+  shared_ptr<string> role{};
+  shared_ptr<string> words{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoPhrase() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoPhrase(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (begin) {
+      res["Begin"] = boost::any(*begin);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (end) {
+      res["End"] = boost::any(*end);
+    }
+    if (identity) {
+      res["Identity"] = boost::any(*identity);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
+    if (words) {
+      res["Words"] = boost::any(*words);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Begin") != m.end() && !m["Begin"].empty()) {
+      begin = make_shared<long>(boost::any_cast<long>(m["Begin"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<string>(boost::any_cast<string>(m["BeginTime"]));
+    }
+    if (m.find("End") != m.end() && !m["End"].empty()) {
+      end = make_shared<long>(boost::any_cast<long>(m["End"]));
+    }
+    if (m.find("Identity") != m.end() && !m["Identity"].empty()) {
+      identity = make_shared<string>(boost::any_cast<string>(m["Identity"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+    if (m.find("Words") != m.end() && !m["Words"].empty()) {
+      words = make_shared<string>(boost::any_cast<string>(m["Words"]));
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoPhrase() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfo : public Darabonba::Model {
+public:
+  shared_ptr<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitCids> hitCids{};
+  shared_ptr<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWords> hitKeyWords{};
+  shared_ptr<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoPhrase> phrase{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfo() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hitCids) {
+      res["HitCids"] = hitCids ? boost::any(hitCids->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (hitKeyWords) {
+      res["HitKeyWords"] = hitKeyWords ? boost::any(hitKeyWords->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (phrase) {
+      res["Phrase"] = phrase ? boost::any(phrase->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HitCids") != m.end() && !m["HitCids"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HitCids"].type()) {
+        UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitCids model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HitCids"]));
+        hitCids = make_shared<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitCids>(model1);
+      }
+    }
+    if (m.find("HitKeyWords") != m.end() && !m["HitKeyWords"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HitKeyWords"].type()) {
+        UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWords model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HitKeyWords"]));
+        hitKeyWords = make_shared<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWords>(model1);
+      }
+    }
+    if (m.find("Phrase") != m.end() && !m["Phrase"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Phrase"].type()) {
+        UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoPhrase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Phrase"]));
+        phrase = make_shared<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoPhrase>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfo() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit : public Darabonba::Model {
+public:
+  shared_ptr<vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfo>> conditionHitInfo{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionHitInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditionHitInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConditionHitInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionHitInfo") != m.end() && !m["ConditionHitInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConditionHitInfo"].type()) {
+        vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConditionHitInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditionHitInfo = make_shared<vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo : public Darabonba::Model {
+public:
+  shared_ptr<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo> conditionInfo{};
+  shared_ptr<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit> hit{};
+  shared_ptr<string> rid{};
+  shared_ptr<string> tid{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionInfo) {
+      res["ConditionInfo"] = conditionInfo ? boost::any(conditionInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (hit) {
+      res["Hit"] = hit ? boost::any(hit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rid) {
+      res["Rid"] = boost::any(*rid);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionInfo") != m.end() && !m["ConditionInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConditionInfo"].type()) {
+        UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConditionInfo"]));
+        conditionInfo = make_shared<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo>(model1);
+      }
+    }
+    if (m.find("Hit") != m.end() && !m["Hit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Hit"].type()) {
+        UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Hit"]));
+        hit = make_shared<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit>(model1);
+      }
+    }
+    if (m.find("Rid") != m.end() && !m["Rid"].empty()) {
+      rid = make_shared<string>(boost::any_cast<string>(m["Rid"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<string>(boost::any_cast<string>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfoRules : public Darabonba::Model {
+public:
+  shared_ptr<vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo>> ruleHitInfo{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfoRules() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfoRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleHitInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleHitInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleHitInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleHitInfo") != m.end() && !m["RuleHitInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleHitInfo"].type()) {
+        vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleHitInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleHitInfo = make_shared<vector<UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfoRules() = default;
+};
+class UploadDataSyncForLLMResponseBodyDataResultInfo : public Darabonba::Model {
+public:
+  shared_ptr<UploadDataSyncForLLMResponseBodyDataResultInfoRules> rules{};
+  shared_ptr<long> score{};
+
+  UploadDataSyncForLLMResponseBodyDataResultInfo() {}
+
+  explicit UploadDataSyncForLLMResponseBodyDataResultInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rules) {
+      res["Rules"] = rules ? boost::any(rules->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rules"].type()) {
+        UploadDataSyncForLLMResponseBodyDataResultInfoRules model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rules"]));
+        rules = make_shared<UploadDataSyncForLLMResponseBodyDataResultInfoRules>(model1);
+      }
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<long>(boost::any_cast<long>(m["Score"]));
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyDataResultInfo() = default;
+};
+class UploadDataSyncForLLMResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<UploadDataSyncForLLMResponseBodyDataResultInfo>> resultInfo{};
+
+  UploadDataSyncForLLMResponseBodyData() {}
+
+  explicit UploadDataSyncForLLMResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resultInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*resultInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResultInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResultInfo") != m.end() && !m["ResultInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResultInfo"].type()) {
+        vector<UploadDataSyncForLLMResponseBodyDataResultInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResultInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadDataSyncForLLMResponseBodyDataResultInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resultInfo = make_shared<vector<UploadDataSyncForLLMResponseBodyDataResultInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBodyData() = default;
+};
+class UploadDataSyncForLLMResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<UploadDataSyncForLLMResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UploadDataSyncForLLMResponseBody() {}
+
+  explicit UploadDataSyncForLLMResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        UploadDataSyncForLLMResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<UploadDataSyncForLLMResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponseBody() = default;
+};
+class UploadDataSyncForLLMResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UploadDataSyncForLLMResponseBody> body{};
+
+  UploadDataSyncForLLMResponse() {}
+
+  explicit UploadDataSyncForLLMResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UploadDataSyncForLLMResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UploadDataSyncForLLMResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UploadDataSyncForLLMResponse() = default;
+};
 class UploadDataV4Request : public Darabonba::Model {
 public:
   shared_ptr<long> baseMeAgentId{};
@@ -33050,6 +33753,8 @@ public:
   UploadDataResponse uploadData(shared_ptr<UploadDataRequest> request);
   UploadDataSyncResponse uploadDataSyncWithOptions(shared_ptr<UploadDataSyncRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UploadDataSyncResponse uploadDataSync(shared_ptr<UploadDataSyncRequest> request);
+  UploadDataSyncForLLMResponse uploadDataSyncForLLMWithOptions(shared_ptr<UploadDataSyncForLLMRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UploadDataSyncForLLMResponse uploadDataSyncForLLM(shared_ptr<UploadDataSyncForLLMRequest> request);
   UploadDataV4Response uploadDataV4WithOptions(shared_ptr<UploadDataV4Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UploadDataV4Response uploadDataV4(shared_ptr<UploadDataV4Request> request);
   UploadRuleResponse uploadRuleWithOptions(shared_ptr<UploadRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
