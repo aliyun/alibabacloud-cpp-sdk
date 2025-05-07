@@ -7661,6 +7661,7 @@ public:
 };
 class GetDataSourceOrderConfigResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> totalDocSize{};
   shared_ptr<vector<GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList>> userConfigDataSourceList{};
 
   GetDataSourceOrderConfigResponseBodyData() {}
@@ -7673,6 +7674,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (totalDocSize) {
+      res["TotalDocSize"] = boost::any(*totalDocSize);
+    }
     if (userConfigDataSourceList) {
       vector<boost::any> temp1;
       for(auto item1:*userConfigDataSourceList){
@@ -7684,6 +7688,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("TotalDocSize") != m.end() && !m["TotalDocSize"].empty()) {
+      totalDocSize = make_shared<long>(boost::any_cast<long>(m["TotalDocSize"]));
+    }
     if (m.find("UserConfigDataSourceList") != m.end() && !m["UserConfigDataSourceList"].empty()) {
       if (typeid(vector<boost::any>) == m["UserConfigDataSourceList"].type()) {
         vector<GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList> expect1;
