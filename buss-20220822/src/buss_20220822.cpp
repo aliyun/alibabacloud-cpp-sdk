@@ -147,6 +147,31 @@ FindUserAvailbleResourcesResponse Alibabacloud_Buss20220822::Client::findUserAva
   return findUserAvailbleResourcesWithOptions(request, runtime);
 }
 
+GetSecurityEventDetailResponse Alibabacloud_Buss20220822::Client::getSecurityEventDetailWithOptions(shared_ptr<GetSecurityEventDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSecurityEventDetail"))},
+    {"version", boost::any(string("2022-08-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSecurityEventDetailResponse(callApi(params, req, runtime));
+}
+
+GetSecurityEventDetailResponse Alibabacloud_Buss20220822::Client::getSecurityEventDetail(shared_ptr<GetSecurityEventDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSecurityEventDetailWithOptions(request, runtime);
+}
+
 PunishResourceSearchResponse Alibabacloud_Buss20220822::Client::punishResourceSearchWithOptions(shared_ptr<PunishResourceSearchRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<PunishResourceSearchShrinkRequest> request = make_shared<PunishResourceSearchShrinkRequest>();
@@ -184,6 +209,34 @@ PunishResourceSearchResponse Alibabacloud_Buss20220822::Client::punishResourceSe
 PunishResourceSearchResponse Alibabacloud_Buss20220822::Client::punishResourceSearch(shared_ptr<PunishResourceSearchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return punishResourceSearchWithOptions(request, runtime);
+}
+
+RecordClickLinkActionResponse Alibabacloud_Buss20220822::Client::recordClickLinkActionWithOptions(shared_ptr<RecordClickLinkActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
+    body->insert(pair<string, string>("Tag", *request->tag));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecordClickLinkAction"))},
+    {"version", boost::any(string("2022-08-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecordClickLinkActionResponse(callApi(params, req, runtime));
+}
+
+RecordClickLinkActionResponse Alibabacloud_Buss20220822::Client::recordClickLinkAction(shared_ptr<RecordClickLinkActionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recordClickLinkActionWithOptions(request, runtime);
 }
 
 RiskEventSyncResponse Alibabacloud_Buss20220822::Client::riskEventSyncWithOptions(shared_ptr<RiskEventSyncRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -428,5 +481,30 @@ SearchPunishRequestResponse Alibabacloud_Buss20220822::Client::searchPunishReque
 SearchPunishRequestResponse Alibabacloud_Buss20220822::Client::searchPunishRequest(shared_ptr<SearchPunishRequestRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return searchPunishRequestWithOptions(request, runtime);
+}
+
+UpdateSecurityEventStatusResponse Alibabacloud_Buss20220822::Client::updateSecurityEventStatusWithOptions(shared_ptr<UpdateSecurityEventStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateSecurityEventStatus"))},
+    {"version", boost::any(string("2022-08-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateSecurityEventStatusResponse(callApi(params, req, runtime));
+}
+
+UpdateSecurityEventStatusResponse Alibabacloud_Buss20220822::Client::updateSecurityEventStatus(shared_ptr<UpdateSecurityEventStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateSecurityEventStatusWithOptions(request, runtime);
 }
 
