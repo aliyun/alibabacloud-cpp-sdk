@@ -36017,7 +36017,9 @@ public:
 };
 class GetWebshellTokenResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> httpUrl{};
   shared_ptr<string> token{};
+  shared_ptr<string> webSocketUrl{};
 
   GetWebshellTokenResponseBodyData() {}
 
@@ -36029,15 +36031,27 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (httpUrl) {
+      res["HttpUrl"] = boost::any(*httpUrl);
+    }
     if (token) {
       res["Token"] = boost::any(*token);
+    }
+    if (webSocketUrl) {
+      res["WebSocketUrl"] = boost::any(*webSocketUrl);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpUrl") != m.end() && !m["HttpUrl"].empty()) {
+      httpUrl = make_shared<string>(boost::any_cast<string>(m["HttpUrl"]));
+    }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+    if (m.find("WebSocketUrl") != m.end() && !m["WebSocketUrl"].empty()) {
+      webSocketUrl = make_shared<string>(boost::any_cast<string>(m["WebSocketUrl"]));
     }
   }
 
