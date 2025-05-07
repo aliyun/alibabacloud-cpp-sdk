@@ -869,6 +869,491 @@ public:
 
   virtual ~BindAxbResponse() = default;
 };
+class BindAxbFixedLineRequestExtra : public Darabonba::Model {
+public:
+  shared_ptr<string> callrecording{};
+
+  BindAxbFixedLineRequestExtra() {}
+
+  explicit BindAxbFixedLineRequestExtra(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~BindAxbFixedLineRequestExtra() = default;
+};
+class BindAxbFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> bindType{};
+  shared_ptr<string> expiration{};
+  shared_ptr<BindAxbFixedLineRequestExtra> extra{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> ts{};
+
+  BindAxbFixedLineRequest() {}
+
+  explicit BindAxbFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (bindType) {
+      res["BindType"] = boost::any(*bindType);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extra) {
+      res["Extra"] = extra ? boost::any(extra->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("BindType") != m.end() && !m["BindType"].empty()) {
+      bindType = make_shared<string>(boost::any_cast<string>(m["BindType"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extra"].type()) {
+        BindAxbFixedLineRequestExtra model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extra"]));
+        extra = make_shared<BindAxbFixedLineRequestExtra>(model1);
+      }
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~BindAxbFixedLineRequest() = default;
+};
+class BindAxbFixedLineShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> bindType{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> extraShrink{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> ts{};
+
+  BindAxbFixedLineShrinkRequest() {}
+
+  explicit BindAxbFixedLineShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (bindType) {
+      res["BindType"] = boost::any(*bindType);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraShrink) {
+      res["Extra"] = boost::any(*extraShrink);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("BindType") != m.end() && !m["BindType"].empty()) {
+      bindType = make_shared<string>(boost::any_cast<string>(m["BindType"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extraShrink = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~BindAxbFixedLineShrinkRequest() = default;
+};
+class BindAxbFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> subid{};
+  shared_ptr<string> telX{};
+
+  BindAxbFixedLineResponseBodyData() {}
+
+  explicit BindAxbFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (subid) {
+      res["Subid"] = boost::any(*subid);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Subid") != m.end() && !m["Subid"].empty()) {
+      subid = make_shared<string>(boost::any_cast<string>(m["Subid"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+  }
+
+
+  virtual ~BindAxbFixedLineResponseBodyData() = default;
+};
+class BindAxbFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<BindAxbFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  BindAxbFixedLineResponseBody() {}
+
+  explicit BindAxbFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        BindAxbFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<BindAxbFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BindAxbFixedLineResponseBody() = default;
+};
+class BindAxbFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BindAxbFixedLineResponseBody> body{};
+
+  BindAxbFixedLineResponse() {}
+
+  explicit BindAxbFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindAxbFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindAxbFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindAxbFixedLineResponse() = default;
+};
 class BindAxgRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ASRModelId{};
@@ -1780,6 +2265,997 @@ public:
 
 
   virtual ~BindAxnExtensionResponse() = default;
+};
+class BindAxnExtensionFixedLineRequestExtraaxx : public Darabonba::Model {
+public:
+  shared_ptr<string> callback{};
+  shared_ptr<string> callrecording{};
+
+  BindAxnExtensionFixedLineRequestExtraaxx() {}
+
+  explicit BindAxnExtensionFixedLineRequestExtraaxx(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
+    }
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~BindAxnExtensionFixedLineRequestExtraaxx() = default;
+};
+class BindAxnExtensionFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> bindType{};
+  shared_ptr<string> expiration{};
+  shared_ptr<BindAxnExtensionFixedLineRequestExtraaxx> extraaxx{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> telXext{};
+  shared_ptr<string> ts{};
+
+  BindAxnExtensionFixedLineRequest() {}
+
+  explicit BindAxnExtensionFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (bindType) {
+      res["BindType"] = boost::any(*bindType);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraaxx) {
+      res["Extraaxx"] = extraaxx ? boost::any(extraaxx->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (telXext) {
+      res["TelXext"] = boost::any(*telXext);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("BindType") != m.end() && !m["BindType"].empty()) {
+      bindType = make_shared<string>(boost::any_cast<string>(m["BindType"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extraaxx") != m.end() && !m["Extraaxx"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extraaxx"].type()) {
+        BindAxnExtensionFixedLineRequestExtraaxx model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extraaxx"]));
+        extraaxx = make_shared<BindAxnExtensionFixedLineRequestExtraaxx>(model1);
+      }
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("TelXext") != m.end() && !m["TelXext"].empty()) {
+      telXext = make_shared<string>(boost::any_cast<string>(m["TelXext"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~BindAxnExtensionFixedLineRequest() = default;
+};
+class BindAxnExtensionFixedLineShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> bindType{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> extraaxxShrink{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> telXext{};
+  shared_ptr<string> ts{};
+
+  BindAxnExtensionFixedLineShrinkRequest() {}
+
+  explicit BindAxnExtensionFixedLineShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (bindType) {
+      res["BindType"] = boost::any(*bindType);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraaxxShrink) {
+      res["Extraaxx"] = boost::any(*extraaxxShrink);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (telXext) {
+      res["TelXext"] = boost::any(*telXext);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("BindType") != m.end() && !m["BindType"].empty()) {
+      bindType = make_shared<string>(boost::any_cast<string>(m["BindType"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extraaxx") != m.end() && !m["Extraaxx"].empty()) {
+      extraaxxShrink = make_shared<string>(boost::any_cast<string>(m["Extraaxx"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("TelXext") != m.end() && !m["TelXext"].empty()) {
+      telXext = make_shared<string>(boost::any_cast<string>(m["TelXext"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~BindAxnExtensionFixedLineShrinkRequest() = default;
+};
+class BindAxnExtensionFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> subid{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> telXext{};
+
+  BindAxnExtensionFixedLineResponseBodyData() {}
+
+  explicit BindAxnExtensionFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (subid) {
+      res["Subid"] = boost::any(*subid);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (telXext) {
+      res["TelXext"] = boost::any(*telXext);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Subid") != m.end() && !m["Subid"].empty()) {
+      subid = make_shared<string>(boost::any_cast<string>(m["Subid"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("TelXext") != m.end() && !m["TelXext"].empty()) {
+      telXext = make_shared<string>(boost::any_cast<string>(m["TelXext"]));
+    }
+  }
+
+
+  virtual ~BindAxnExtensionFixedLineResponseBodyData() = default;
+};
+class BindAxnExtensionFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<BindAxnExtensionFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  BindAxnExtensionFixedLineResponseBody() {}
+
+  explicit BindAxnExtensionFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        BindAxnExtensionFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<BindAxnExtensionFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BindAxnExtensionFixedLineResponseBody() = default;
+};
+class BindAxnExtensionFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BindAxnExtensionFixedLineResponseBody> body{};
+
+  BindAxnExtensionFixedLineResponse() {}
+
+  explicit BindAxnExtensionFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindAxnExtensionFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindAxnExtensionFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindAxnExtensionFixedLineResponse() = default;
+};
+class BindAxnFixedLineRequestExtra : public Darabonba::Model {
+public:
+  shared_ptr<string> callback{};
+  shared_ptr<string> callrecording{};
+
+  BindAxnFixedLineRequestExtra() {}
+
+  explicit BindAxnFixedLineRequestExtra(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
+    }
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~BindAxnFixedLineRequestExtra() = default;
+};
+class BindAxnFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> bindType{};
+  shared_ptr<string> expiration{};
+  shared_ptr<BindAxnFixedLineRequestExtra> extra{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> ts{};
+
+  BindAxnFixedLineRequest() {}
+
+  explicit BindAxnFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (bindType) {
+      res["BindType"] = boost::any(*bindType);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extra) {
+      res["Extra"] = extra ? boost::any(extra->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("BindType") != m.end() && !m["BindType"].empty()) {
+      bindType = make_shared<string>(boost::any_cast<string>(m["BindType"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extra"].type()) {
+        BindAxnFixedLineRequestExtra model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extra"]));
+        extra = make_shared<BindAxnFixedLineRequestExtra>(model1);
+      }
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~BindAxnFixedLineRequest() = default;
+};
+class BindAxnFixedLineShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> bindType{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> extraShrink{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> ts{};
+
+  BindAxnFixedLineShrinkRequest() {}
+
+  explicit BindAxnFixedLineShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (bindType) {
+      res["BindType"] = boost::any(*bindType);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraShrink) {
+      res["Extra"] = boost::any(*extraShrink);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("BindType") != m.end() && !m["BindType"].empty()) {
+      bindType = make_shared<string>(boost::any_cast<string>(m["BindType"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extraShrink = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~BindAxnFixedLineShrinkRequest() = default;
+};
+class BindAxnFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> subid{};
+  shared_ptr<string> telX{};
+
+  BindAxnFixedLineResponseBodyData() {}
+
+  explicit BindAxnFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (subid) {
+      res["Subid"] = boost::any(*subid);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Subid") != m.end() && !m["Subid"].empty()) {
+      subid = make_shared<string>(boost::any_cast<string>(m["Subid"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+  }
+
+
+  virtual ~BindAxnFixedLineResponseBodyData() = default;
+};
+class BindAxnFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<BindAxnFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  BindAxnFixedLineResponseBody() {}
+
+  explicit BindAxnFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        BindAxnFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<BindAxnFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BindAxnFixedLineResponseBody() = default;
+};
+class BindAxnFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BindAxnFixedLineResponseBody> body{};
+
+  BindAxnFixedLineResponse() {}
+
+  explicit BindAxnFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindAxnFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindAxnFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindAxnFixedLineResponse() = default;
 };
 class BindBatchAxgRequestAxgBindList : public Darabonba::Model {
 public:
@@ -5649,6 +7125,240 @@ public:
 
   virtual ~CreateSmsSignResponse() = default;
 };
+class DeleteAxbBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> ts{};
+
+  DeleteAxbBindFixedLineRequest() {}
+
+  explicit DeleteAxbBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~DeleteAxbBindFixedLineRequest() = default;
+};
+class DeleteAxbBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> success{};
+
+  DeleteAxbBindFixedLineResponseBodyData() {}
+
+  explicit DeleteAxbBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteAxbBindFixedLineResponseBodyData() = default;
+};
+class DeleteAxbBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<DeleteAxbBindFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteAxbBindFixedLineResponseBody() {}
+
+  explicit DeleteAxbBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DeleteAxbBindFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DeleteAxbBindFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteAxbBindFixedLineResponseBody() = default;
+};
+class DeleteAxbBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAxbBindFixedLineResponseBody> body{};
+
+  DeleteAxbBindFixedLineResponse() {}
+
+  explicit DeleteAxbBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAxbBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAxbBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAxbBindFixedLineResponse() = default;
+};
 class DeleteAxgGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<long> groupId{};
@@ -5800,6 +7510,474 @@ public:
 
 
   virtual ~DeleteAxgGroupResponse() = default;
+};
+class DeleteAxnBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> ts{};
+
+  DeleteAxnBindFixedLineRequest() {}
+
+  explicit DeleteAxnBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~DeleteAxnBindFixedLineRequest() = default;
+};
+class DeleteAxnBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> success{};
+
+  DeleteAxnBindFixedLineResponseBodyData() {}
+
+  explicit DeleteAxnBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteAxnBindFixedLineResponseBodyData() = default;
+};
+class DeleteAxnBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<DeleteAxnBindFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteAxnBindFixedLineResponseBody() {}
+
+  explicit DeleteAxnBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DeleteAxnBindFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DeleteAxnBindFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteAxnBindFixedLineResponseBody() = default;
+};
+class DeleteAxnBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAxnBindFixedLineResponseBody> body{};
+
+  DeleteAxnBindFixedLineResponse() {}
+
+  explicit DeleteAxnBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAxnBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAxnBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAxnBindFixedLineResponse() = default;
+};
+class DeleteAxnExtensionBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> ts{};
+
+  DeleteAxnExtensionBindFixedLineRequest() {}
+
+  explicit DeleteAxnExtensionBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~DeleteAxnExtensionBindFixedLineRequest() = default;
+};
+class DeleteAxnExtensionBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> success{};
+
+  DeleteAxnExtensionBindFixedLineResponseBodyData() {}
+
+  explicit DeleteAxnExtensionBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteAxnExtensionBindFixedLineResponseBodyData() = default;
+};
+class DeleteAxnExtensionBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<DeleteAxnExtensionBindFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteAxnExtensionBindFixedLineResponseBody() {}
+
+  explicit DeleteAxnExtensionBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DeleteAxnExtensionBindFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DeleteAxnExtensionBindFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteAxnExtensionBindFixedLineResponseBody() = default;
+};
+class DeleteAxnExtensionBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAxnExtensionBindFixedLineResponseBody> body{};
+
+  DeleteAxnExtensionBindFixedLineResponse() {}
+
+  explicit DeleteAxnExtensionBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAxnExtensionBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAxnExtensionBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAxnExtensionBindFixedLineResponse() = default;
 };
 class DeleteSecretAPhoneNoToCustRequest : public Darabonba::Model {
 public:
@@ -8523,6 +10701,1086 @@ public:
 
 
   virtual ~OperateBlackNoResponse() = default;
+};
+class QueryAxbBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> phone{};
+  shared_ptr<string> queryType{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> ts{};
+
+  QueryAxbBindFixedLineRequest() {}
+
+  explicit QueryAxbBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (phone) {
+      res["Phone"] = boost::any(*phone);
+    }
+    if (queryType) {
+      res["QueryType"] = boost::any(*queryType);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
+      phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("QueryType") != m.end() && !m["QueryType"].empty()) {
+      queryType = make_shared<string>(boost::any_cast<string>(m["QueryType"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~QueryAxbBindFixedLineRequest() = default;
+};
+class QueryAxbBindFixedLineResponseBodyDataExtra : public Darabonba::Model {
+public:
+  shared_ptr<string> callrecording{};
+
+  QueryAxbBindFixedLineResponseBodyDataExtra() {}
+
+  explicit QueryAxbBindFixedLineResponseBodyDataExtra(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~QueryAxbBindFixedLineResponseBodyDataExtra() = default;
+};
+class QueryAxbBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> expiration{};
+  shared_ptr<QueryAxbBindFixedLineResponseBodyDataExtra> extra{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> subid{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> telX{};
+
+  QueryAxbBindFixedLineResponseBodyData() {}
+
+  explicit QueryAxbBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extra) {
+      res["Extra"] = extra ? boost::any(extra->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (subid) {
+      res["Subid"] = boost::any(*subid);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extra"].type()) {
+        QueryAxbBindFixedLineResponseBodyDataExtra model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extra"]));
+        extra = make_shared<QueryAxbBindFixedLineResponseBodyDataExtra>(model1);
+      }
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("Subid") != m.end() && !m["Subid"].empty()) {
+      subid = make_shared<string>(boost::any_cast<string>(m["Subid"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+  }
+
+
+  virtual ~QueryAxbBindFixedLineResponseBodyData() = default;
+};
+class QueryAxbBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<QueryAxbBindFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryAxbBindFixedLineResponseBody() {}
+
+  explicit QueryAxbBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryAxbBindFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryAxbBindFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryAxbBindFixedLineResponseBody() = default;
+};
+class QueryAxbBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryAxbBindFixedLineResponseBody> body{};
+
+  QueryAxbBindFixedLineResponse() {}
+
+  explicit QueryAxbBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryAxbBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryAxbBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryAxbBindFixedLineResponse() = default;
+};
+class QueryAxnBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> phone{};
+  shared_ptr<string> queryType{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> ts{};
+
+  QueryAxnBindFixedLineRequest() {}
+
+  explicit QueryAxnBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (phone) {
+      res["Phone"] = boost::any(*phone);
+    }
+    if (queryType) {
+      res["QueryType"] = boost::any(*queryType);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
+      phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("QueryType") != m.end() && !m["QueryType"].empty()) {
+      queryType = make_shared<string>(boost::any_cast<string>(m["QueryType"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~QueryAxnBindFixedLineRequest() = default;
+};
+class QueryAxnBindFixedLineResponseBodyDataExtra : public Darabonba::Model {
+public:
+  shared_ptr<string> callback{};
+  shared_ptr<string> callrecording{};
+
+  QueryAxnBindFixedLineResponseBodyDataExtra() {}
+
+  explicit QueryAxnBindFixedLineResponseBodyDataExtra(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
+    }
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~QueryAxnBindFixedLineResponseBodyDataExtra() = default;
+};
+class QueryAxnBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> expiration{};
+  shared_ptr<QueryAxnBindFixedLineResponseBodyDataExtra> extra{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> subid{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> telX{};
+
+  QueryAxnBindFixedLineResponseBodyData() {}
+
+  explicit QueryAxnBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extra) {
+      res["Extra"] = extra ? boost::any(extra->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (subid) {
+      res["Subid"] = boost::any(*subid);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extra"].type()) {
+        QueryAxnBindFixedLineResponseBodyDataExtra model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extra"]));
+        extra = make_shared<QueryAxnBindFixedLineResponseBodyDataExtra>(model1);
+      }
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("Subid") != m.end() && !m["Subid"].empty()) {
+      subid = make_shared<string>(boost::any_cast<string>(m["Subid"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+  }
+
+
+  virtual ~QueryAxnBindFixedLineResponseBodyData() = default;
+};
+class QueryAxnBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<vector<QueryAxnBindFixedLineResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryAxnBindFixedLineResponseBody() {}
+
+  explicit QueryAxnBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<QueryAxnBindFixedLineResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryAxnBindFixedLineResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<QueryAxnBindFixedLineResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryAxnBindFixedLineResponseBody() = default;
+};
+class QueryAxnBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryAxnBindFixedLineResponseBody> body{};
+
+  QueryAxnBindFixedLineResponse() {}
+
+  explicit QueryAxnBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryAxnBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryAxnBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryAxnBindFixedLineResponse() = default;
+};
+class QueryAxnExtensionBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> queryType{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> ts{};
+
+  QueryAxnExtensionBindFixedLineRequest() {}
+
+  explicit QueryAxnExtensionBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (queryType) {
+      res["QueryType"] = boost::any(*queryType);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QueryType") != m.end() && !m["QueryType"].empty()) {
+      queryType = make_shared<string>(boost::any_cast<string>(m["QueryType"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~QueryAxnExtensionBindFixedLineRequest() = default;
+};
+class QueryAxnExtensionBindFixedLineResponseBodyDataExtraaxx : public Darabonba::Model {
+public:
+  shared_ptr<string> callback{};
+  shared_ptr<string> callrecording{};
+
+  QueryAxnExtensionBindFixedLineResponseBodyDataExtraaxx() {}
+
+  explicit QueryAxnExtensionBindFixedLineResponseBodyDataExtraaxx(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
+    }
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~QueryAxnExtensionBindFixedLineResponseBodyDataExtraaxx() = default;
+};
+class QueryAxnExtensionBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> areacode{};
+  shared_ptr<string> expiration{};
+  shared_ptr<QueryAxnExtensionBindFixedLineResponseBodyDataExtraaxx> extraaxx{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> subid{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telX{};
+  shared_ptr<string> telXext{};
+
+  QueryAxnExtensionBindFixedLineResponseBodyData() {}
+
+  explicit QueryAxnExtensionBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (areacode) {
+      res["Areacode"] = boost::any(*areacode);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraaxx) {
+      res["Extraaxx"] = extraaxx ? boost::any(extraaxx->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (subid) {
+      res["Subid"] = boost::any(*subid);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telX) {
+      res["TelX"] = boost::any(*telX);
+    }
+    if (telXext) {
+      res["TelXext"] = boost::any(*telXext);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("Areacode") != m.end() && !m["Areacode"].empty()) {
+      areacode = make_shared<string>(boost::any_cast<string>(m["Areacode"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extraaxx") != m.end() && !m["Extraaxx"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extraaxx"].type()) {
+        QueryAxnExtensionBindFixedLineResponseBodyDataExtraaxx model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extraaxx"]));
+        extraaxx = make_shared<QueryAxnExtensionBindFixedLineResponseBodyDataExtraaxx>(model1);
+      }
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("Subid") != m.end() && !m["Subid"].empty()) {
+      subid = make_shared<string>(boost::any_cast<string>(m["Subid"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelX") != m.end() && !m["TelX"].empty()) {
+      telX = make_shared<string>(boost::any_cast<string>(m["TelX"]));
+    }
+    if (m.find("TelXext") != m.end() && !m["TelXext"].empty()) {
+      telXext = make_shared<string>(boost::any_cast<string>(m["TelXext"]));
+    }
+  }
+
+
+  virtual ~QueryAxnExtensionBindFixedLineResponseBodyData() = default;
+};
+class QueryAxnExtensionBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<vector<QueryAxnExtensionBindFixedLineResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryAxnExtensionBindFixedLineResponseBody() {}
+
+  explicit QueryAxnExtensionBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<QueryAxnExtensionBindFixedLineResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryAxnExtensionBindFixedLineResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<QueryAxnExtensionBindFixedLineResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryAxnExtensionBindFixedLineResponseBody() = default;
+};
+class QueryAxnExtensionBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryAxnExtensionBindFixedLineResponseBody> body{};
+
+  QueryAxnExtensionBindFixedLineResponse() {}
+
+  explicit QueryAxnExtensionBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryAxnExtensionBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryAxnExtensionBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryAxnExtensionBindFixedLineResponse() = default;
 };
 class QueryPhoneNoAByTrackNoRequest : public Darabonba::Model {
 public:
@@ -11305,6 +14563,1398 @@ public:
 
   virtual ~UnlockSecretNoResponse() = default;
 };
+class UpdateAxbBindFixedLineRequestExtra : public Darabonba::Model {
+public:
+  shared_ptr<string> callrecording{};
+
+  UpdateAxbBindFixedLineRequestExtra() {}
+
+  explicit UpdateAxbBindFixedLineRequestExtra(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~UpdateAxbBindFixedLineRequestExtra() = default;
+};
+class UpdateAxbBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> expiration{};
+  shared_ptr<UpdateAxbBindFixedLineRequestExtra> extra{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> ts{};
+
+  UpdateAxbBindFixedLineRequest() {}
+
+  explicit UpdateAxbBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extra) {
+      res["Extra"] = extra ? boost::any(extra->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extra"].type()) {
+        UpdateAxbBindFixedLineRequestExtra model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extra"]));
+        extra = make_shared<UpdateAxbBindFixedLineRequestExtra>(model1);
+      }
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~UpdateAxbBindFixedLineRequest() = default;
+};
+class UpdateAxbBindFixedLineShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> extraShrink{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> ts{};
+
+  UpdateAxbBindFixedLineShrinkRequest() {}
+
+  explicit UpdateAxbBindFixedLineShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraShrink) {
+      res["Extra"] = boost::any(*extraShrink);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extraShrink = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~UpdateAxbBindFixedLineShrinkRequest() = default;
+};
+class UpdateAxbBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> success{};
+
+  UpdateAxbBindFixedLineResponseBodyData() {}
+
+  explicit UpdateAxbBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateAxbBindFixedLineResponseBodyData() = default;
+};
+class UpdateAxbBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<UpdateAxbBindFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateAxbBindFixedLineResponseBody() {}
+
+  explicit UpdateAxbBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        UpdateAxbBindFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<UpdateAxbBindFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateAxbBindFixedLineResponseBody() = default;
+};
+class UpdateAxbBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAxbBindFixedLineResponseBody> body{};
+
+  UpdateAxbBindFixedLineResponse() {}
+
+  explicit UpdateAxbBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAxbBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAxbBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAxbBindFixedLineResponse() = default;
+};
+class UpdateAxnBindFixedLineRequestExtra : public Darabonba::Model {
+public:
+  shared_ptr<string> callback{};
+  shared_ptr<string> callrecording{};
+
+  UpdateAxnBindFixedLineRequestExtra() {}
+
+  explicit UpdateAxnBindFixedLineRequestExtra(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
+    }
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnBindFixedLineRequestExtra() = default;
+};
+class UpdateAxnBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> expiration{};
+  shared_ptr<UpdateAxnBindFixedLineRequestExtra> extra{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> ts{};
+
+  UpdateAxnBindFixedLineRequest() {}
+
+  explicit UpdateAxnBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extra) {
+      res["Extra"] = extra ? boost::any(extra->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extra"].type()) {
+        UpdateAxnBindFixedLineRequestExtra model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extra"]));
+        extra = make_shared<UpdateAxnBindFixedLineRequestExtra>(model1);
+      }
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnBindFixedLineRequest() = default;
+};
+class UpdateAxnBindFixedLineShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> extraShrink{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> telB{};
+  shared_ptr<string> ts{};
+
+  UpdateAxnBindFixedLineShrinkRequest() {}
+
+  explicit UpdateAxnBindFixedLineShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraShrink) {
+      res["Extra"] = boost::any(*extraShrink);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (telB) {
+      res["TelB"] = boost::any(*telB);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extraShrink = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("TelB") != m.end() && !m["TelB"].empty()) {
+      telB = make_shared<string>(boost::any_cast<string>(m["TelB"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnBindFixedLineShrinkRequest() = default;
+};
+class UpdateAxnBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> success{};
+
+  UpdateAxnBindFixedLineResponseBodyData() {}
+
+  explicit UpdateAxnBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnBindFixedLineResponseBodyData() = default;
+};
+class UpdateAxnBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<UpdateAxnBindFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateAxnBindFixedLineResponseBody() {}
+
+  explicit UpdateAxnBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        UpdateAxnBindFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<UpdateAxnBindFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnBindFixedLineResponseBody() = default;
+};
+class UpdateAxnBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAxnBindFixedLineResponseBody> body{};
+
+  UpdateAxnBindFixedLineResponse() {}
+
+  explicit UpdateAxnBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAxnBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAxnBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAxnBindFixedLineResponse() = default;
+};
+class UpdateAxnExtensionBindFixedLineRequestExtraaxx : public Darabonba::Model {
+public:
+  shared_ptr<string> callback{};
+  shared_ptr<string> callrecording{};
+
+  UpdateAxnExtensionBindFixedLineRequestExtraaxx() {}
+
+  explicit UpdateAxnExtensionBindFixedLineRequestExtraaxx(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (callrecording) {
+      res["Callrecording"] = boost::any(*callrecording);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
+    }
+    if (m.find("Callrecording") != m.end() && !m["Callrecording"].empty()) {
+      callrecording = make_shared<string>(boost::any_cast<string>(m["Callrecording"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnExtensionBindFixedLineRequestExtraaxx() = default;
+};
+class UpdateAxnExtensionBindFixedLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> expiration{};
+  shared_ptr<UpdateAxnExtensionBindFixedLineRequestExtraaxx> extraaxx{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> ts{};
+
+  UpdateAxnExtensionBindFixedLineRequest() {}
+
+  explicit UpdateAxnExtensionBindFixedLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraaxx) {
+      res["Extraaxx"] = extraaxx ? boost::any(extraaxx->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extraaxx") != m.end() && !m["Extraaxx"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extraaxx"].type()) {
+        UpdateAxnExtensionBindFixedLineRequestExtraaxx model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extraaxx"]));
+        extraaxx = make_shared<UpdateAxnExtensionBindFixedLineRequestExtraaxx>(model1);
+      }
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnExtensionBindFixedLineRequest() = default;
+};
+class UpdateAxnExtensionBindFixedLineShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> anucode{};
+  shared_ptr<string> anucodecalled{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> extraaxxShrink{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subId{};
+  shared_ptr<string> subts{};
+  shared_ptr<string> TAnucodeConnect{};
+  shared_ptr<string> telA{};
+  shared_ptr<string> ts{};
+
+  UpdateAxnExtensionBindFixedLineShrinkRequest() {}
+
+  explicit UpdateAxnExtensionBindFixedLineShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anucode) {
+      res["Anucode"] = boost::any(*anucode);
+    }
+    if (anucodecalled) {
+      res["Anucodecalled"] = boost::any(*anucodecalled);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (extraaxxShrink) {
+      res["Extraaxx"] = boost::any(*extraaxxShrink);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subId) {
+      res["SubId"] = boost::any(*subId);
+    }
+    if (subts) {
+      res["Subts"] = boost::any(*subts);
+    }
+    if (TAnucodeConnect) {
+      res["TAnucodeConnect"] = boost::any(*TAnucodeConnect);
+    }
+    if (telA) {
+      res["TelA"] = boost::any(*telA);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Anucode") != m.end() && !m["Anucode"].empty()) {
+      anucode = make_shared<string>(boost::any_cast<string>(m["Anucode"]));
+    }
+    if (m.find("Anucodecalled") != m.end() && !m["Anucodecalled"].empty()) {
+      anucodecalled = make_shared<string>(boost::any_cast<string>(m["Anucodecalled"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("Extraaxx") != m.end() && !m["Extraaxx"].empty()) {
+      extraaxxShrink = make_shared<string>(boost::any_cast<string>(m["Extraaxx"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubId") != m.end() && !m["SubId"].empty()) {
+      subId = make_shared<string>(boost::any_cast<string>(m["SubId"]));
+    }
+    if (m.find("Subts") != m.end() && !m["Subts"].empty()) {
+      subts = make_shared<string>(boost::any_cast<string>(m["Subts"]));
+    }
+    if (m.find("TAnucodeConnect") != m.end() && !m["TAnucodeConnect"].empty()) {
+      TAnucodeConnect = make_shared<string>(boost::any_cast<string>(m["TAnucodeConnect"]));
+    }
+    if (m.find("TelA") != m.end() && !m["TelA"].empty()) {
+      telA = make_shared<string>(boost::any_cast<string>(m["TelA"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      ts = make_shared<string>(boost::any_cast<string>(m["Ts"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnExtensionBindFixedLineShrinkRequest() = default;
+};
+class UpdateAxnExtensionBindFixedLineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> success{};
+
+  UpdateAxnExtensionBindFixedLineResponseBodyData() {}
+
+  explicit UpdateAxnExtensionBindFixedLineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnExtensionBindFixedLineResponseBodyData() = default;
+};
+class UpdateAxnExtensionBindFixedLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<UpdateAxnExtensionBindFixedLineResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateAxnExtensionBindFixedLineResponseBody() {}
+
+  explicit UpdateAxnExtensionBindFixedLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        UpdateAxnExtensionBindFixedLineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<UpdateAxnExtensionBindFixedLineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateAxnExtensionBindFixedLineResponseBody() = default;
+};
+class UpdateAxnExtensionBindFixedLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAxnExtensionBindFixedLineResponseBody> body{};
+
+  UpdateAxnExtensionBindFixedLineResponse() {}
+
+  explicit UpdateAxnExtensionBindFixedLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAxnExtensionBindFixedLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAxnExtensionBindFixedLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAxnExtensionBindFixedLineResponse() = default;
+};
 class UpdateSubscriptionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ASRModelId{};
@@ -11573,12 +16223,18 @@ public:
   BindAXBCallResponse bindAXBCall(shared_ptr<BindAXBCallRequest> request);
   BindAxbResponse bindAxbWithOptions(shared_ptr<BindAxbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindAxbResponse bindAxb(shared_ptr<BindAxbRequest> request);
+  BindAxbFixedLineResponse bindAxbFixedLineWithOptions(shared_ptr<BindAxbFixedLineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindAxbFixedLineResponse bindAxbFixedLine(shared_ptr<BindAxbFixedLineRequest> request);
   BindAxgResponse bindAxgWithOptions(shared_ptr<BindAxgRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindAxgResponse bindAxg(shared_ptr<BindAxgRequest> request);
   BindAxnResponse bindAxnWithOptions(shared_ptr<BindAxnRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindAxnResponse bindAxn(shared_ptr<BindAxnRequest> request);
   BindAxnExtensionResponse bindAxnExtensionWithOptions(shared_ptr<BindAxnExtensionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindAxnExtensionResponse bindAxnExtension(shared_ptr<BindAxnExtensionRequest> request);
+  BindAxnExtensionFixedLineResponse bindAxnExtensionFixedLineWithOptions(shared_ptr<BindAxnExtensionFixedLineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindAxnExtensionFixedLineResponse bindAxnExtensionFixedLine(shared_ptr<BindAxnExtensionFixedLineRequest> request);
+  BindAxnFixedLineResponse bindAxnFixedLineWithOptions(shared_ptr<BindAxnFixedLineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindAxnFixedLineResponse bindAxnFixedLine(shared_ptr<BindAxnFixedLineRequest> request);
   BindBatchAxgResponse bindBatchAxgWithOptions(shared_ptr<BindBatchAxgRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindBatchAxgResponse bindBatchAxg(shared_ptr<BindBatchAxgRequest> request);
   BindXBResponse bindXBWithOptions(shared_ptr<BindXBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11601,8 +16257,14 @@ public:
   CreatePickUpWaybillPreQueryResponse createPickUpWaybillPreQuery(shared_ptr<CreatePickUpWaybillPreQueryRequest> request);
   CreateSmsSignResponse createSmsSignWithOptions(shared_ptr<CreateSmsSignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSmsSignResponse createSmsSign(shared_ptr<CreateSmsSignRequest> request);
+  DeleteAxbBindFixedLineResponse deleteAxbBindFixedLineWithOptions(shared_ptr<DeleteAxbBindFixedLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAxbBindFixedLineResponse deleteAxbBindFixedLine(shared_ptr<DeleteAxbBindFixedLineRequest> request);
   DeleteAxgGroupResponse deleteAxgGroupWithOptions(shared_ptr<DeleteAxgGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAxgGroupResponse deleteAxgGroup(shared_ptr<DeleteAxgGroupRequest> request);
+  DeleteAxnBindFixedLineResponse deleteAxnBindFixedLineWithOptions(shared_ptr<DeleteAxnBindFixedLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAxnBindFixedLineResponse deleteAxnBindFixedLine(shared_ptr<DeleteAxnBindFixedLineRequest> request);
+  DeleteAxnExtensionBindFixedLineResponse deleteAxnExtensionBindFixedLineWithOptions(shared_ptr<DeleteAxnExtensionBindFixedLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAxnExtensionBindFixedLineResponse deleteAxnExtensionBindFixedLine(shared_ptr<DeleteAxnExtensionBindFixedLineRequest> request);
   DeleteSecretAPhoneNoToCustResponse deleteSecretAPhoneNoToCustWithOptions(shared_ptr<DeleteSecretAPhoneNoToCustRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSecretAPhoneNoToCustResponse deleteSecretAPhoneNoToCust(shared_ptr<DeleteSecretAPhoneNoToCustRequest> request);
   DeleteSecretBlacklistResponse deleteSecretBlacklistWithOptions(shared_ptr<DeleteSecretBlacklistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11625,6 +16287,12 @@ public:
   OperateAxgGroupResponse operateAxgGroup(shared_ptr<OperateAxgGroupRequest> request);
   OperateBlackNoResponse operateBlackNoWithOptions(shared_ptr<OperateBlackNoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OperateBlackNoResponse operateBlackNo(shared_ptr<OperateBlackNoRequest> request);
+  QueryAxbBindFixedLineResponse queryAxbBindFixedLineWithOptions(shared_ptr<QueryAxbBindFixedLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryAxbBindFixedLineResponse queryAxbBindFixedLine(shared_ptr<QueryAxbBindFixedLineRequest> request);
+  QueryAxnBindFixedLineResponse queryAxnBindFixedLineWithOptions(shared_ptr<QueryAxnBindFixedLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryAxnBindFixedLineResponse queryAxnBindFixedLine(shared_ptr<QueryAxnBindFixedLineRequest> request);
+  QueryAxnExtensionBindFixedLineResponse queryAxnExtensionBindFixedLineWithOptions(shared_ptr<QueryAxnExtensionBindFixedLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryAxnExtensionBindFixedLineResponse queryAxnExtensionBindFixedLine(shared_ptr<QueryAxnExtensionBindFixedLineRequest> request);
   QueryPhoneNoAByTrackNoResponse queryPhoneNoAByTrackNoWithOptions(shared_ptr<QueryPhoneNoAByTrackNoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryPhoneNoAByTrackNoResponse queryPhoneNoAByTrackNo(shared_ptr<QueryPhoneNoAByTrackNoRequest> request);
   QueryRecordFileDownloadUrlResponse queryRecordFileDownloadUrlWithOptions(shared_ptr<QueryRecordFileDownloadUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11651,6 +16319,12 @@ public:
   UnbindSubscriptionResponse unbindSubscription(shared_ptr<UnbindSubscriptionRequest> request);
   UnlockSecretNoResponse unlockSecretNoWithOptions(shared_ptr<UnlockSecretNoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnlockSecretNoResponse unlockSecretNo(shared_ptr<UnlockSecretNoRequest> request);
+  UpdateAxbBindFixedLineResponse updateAxbBindFixedLineWithOptions(shared_ptr<UpdateAxbBindFixedLineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAxbBindFixedLineResponse updateAxbBindFixedLine(shared_ptr<UpdateAxbBindFixedLineRequest> request);
+  UpdateAxnBindFixedLineResponse updateAxnBindFixedLineWithOptions(shared_ptr<UpdateAxnBindFixedLineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAxnBindFixedLineResponse updateAxnBindFixedLine(shared_ptr<UpdateAxnBindFixedLineRequest> request);
+  UpdateAxnExtensionBindFixedLineResponse updateAxnExtensionBindFixedLineWithOptions(shared_ptr<UpdateAxnExtensionBindFixedLineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAxnExtensionBindFixedLineResponse updateAxnExtensionBindFixedLine(shared_ptr<UpdateAxnExtensionBindFixedLineRequest> request);
   UpdateSubscriptionResponse updateSubscriptionWithOptions(shared_ptr<UpdateSubscriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSubscriptionResponse updateSubscription(shared_ptr<UpdateSubscriptionRequest> request);
 
