@@ -53036,6 +53036,222 @@ public:
 
   virtual ~ListRoutineCanaryAreasResponse() = default;
 };
+class ListRoutineCodeVersionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> searchKeyWord{};
+
+  ListRoutineCodeVersionsRequest() {}
+
+  explicit ListRoutineCodeVersionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (searchKeyWord) {
+      res["SearchKeyWord"] = boost::any(*searchKeyWord);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchKeyWord") != m.end() && !m["SearchKeyWord"].empty()) {
+      searchKeyWord = make_shared<string>(boost::any_cast<string>(m["SearchKeyWord"]));
+    }
+  }
+
+
+  virtual ~ListRoutineCodeVersionsRequest() = default;
+};
+class ListRoutineCodeVersionsResponseBodyCodeVersions : public Darabonba::Model {
+public:
+  shared_ptr<string> codeDescription{};
+  shared_ptr<string> codeVersion{};
+  shared_ptr<string> createTime{};
+
+  ListRoutineCodeVersionsResponseBodyCodeVersions() {}
+
+  explicit ListRoutineCodeVersionsResponseBodyCodeVersions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (codeDescription) {
+      res["CodeDescription"] = boost::any(*codeDescription);
+    }
+    if (codeVersion) {
+      res["CodeVersion"] = boost::any(*codeVersion);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CodeDescription") != m.end() && !m["CodeDescription"].empty()) {
+      codeDescription = make_shared<string>(boost::any_cast<string>(m["CodeDescription"]));
+    }
+    if (m.find("CodeVersion") != m.end() && !m["CodeVersion"].empty()) {
+      codeVersion = make_shared<string>(boost::any_cast<string>(m["CodeVersion"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+  }
+
+
+  virtual ~ListRoutineCodeVersionsResponseBodyCodeVersions() = default;
+};
+class ListRoutineCodeVersionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListRoutineCodeVersionsResponseBodyCodeVersions>> codeVersions{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListRoutineCodeVersionsResponseBody() {}
+
+  explicit ListRoutineCodeVersionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (codeVersions) {
+      vector<boost::any> temp1;
+      for(auto item1:*codeVersions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CodeVersions"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CodeVersions") != m.end() && !m["CodeVersions"].empty()) {
+      if (typeid(vector<boost::any>) == m["CodeVersions"].type()) {
+        vector<ListRoutineCodeVersionsResponseBodyCodeVersions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CodeVersions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRoutineCodeVersionsResponseBodyCodeVersions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        codeVersions = make_shared<vector<ListRoutineCodeVersionsResponseBodyCodeVersions>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListRoutineCodeVersionsResponseBody() = default;
+};
+class ListRoutineCodeVersionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListRoutineCodeVersionsResponseBody> body{};
+
+  ListRoutineCodeVersionsResponse() {}
+
+  explicit ListRoutineCodeVersionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListRoutineCodeVersionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListRoutineCodeVersionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListRoutineCodeVersionsResponse() = default;
+};
 class ListRoutineRelatedRecordsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -73756,6 +73972,8 @@ public:
   ListRewriteUrlRulesResponse listRewriteUrlRules(shared_ptr<ListRewriteUrlRulesRequest> request);
   ListRoutineCanaryAreasResponse listRoutineCanaryAreasWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRoutineCanaryAreasResponse listRoutineCanaryAreas();
+  ListRoutineCodeVersionsResponse listRoutineCodeVersionsWithOptions(shared_ptr<ListRoutineCodeVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRoutineCodeVersionsResponse listRoutineCodeVersions(shared_ptr<ListRoutineCodeVersionsRequest> request);
   ListRoutineRelatedRecordsResponse listRoutineRelatedRecordsWithOptions(shared_ptr<ListRoutineRelatedRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRoutineRelatedRecordsResponse listRoutineRelatedRecords(shared_ptr<ListRoutineRelatedRecordsRequest> request);
   ListRoutineRoutesResponse listRoutineRoutesWithOptions(shared_ptr<ListRoutineRoutesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
