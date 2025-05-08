@@ -7569,6 +7569,7 @@ public:
 class GetDataSourceOrderConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
+  shared_ptr<string> generateTechnology{};
   shared_ptr<string> productCode{};
 
   GetDataSourceOrderConfigRequest() {}
@@ -7584,6 +7585,9 @@ public:
     if (agentKey) {
       res["AgentKey"] = boost::any(*agentKey);
     }
+    if (generateTechnology) {
+      res["GenerateTechnology"] = boost::any(*generateTechnology);
+    }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
     }
@@ -7593,6 +7597,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
       agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("GenerateTechnology") != m.end() && !m["GenerateTechnology"].empty()) {
+      generateTechnology = make_shared<string>(boost::any_cast<string>(m["GenerateTechnology"]));
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
@@ -46471,6 +46478,7 @@ public:
 class SaveDataSourceOrderConfigRequestUserConfigDataSourceList : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<bool> enable{};
   shared_ptr<string> name{};
   shared_ptr<long> number{};
   shared_ptr<string> type{};
@@ -46488,6 +46496,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -46503,6 +46514,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -46521,6 +46535,7 @@ public:
 class SaveDataSourceOrderConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
+  shared_ptr<string> generateTechnology{};
   shared_ptr<string> productCode{};
   shared_ptr<vector<SaveDataSourceOrderConfigRequestUserConfigDataSourceList>> userConfigDataSourceList{};
 
@@ -46536,6 +46551,9 @@ public:
     map<string, boost::any> res;
     if (agentKey) {
       res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (generateTechnology) {
+      res["GenerateTechnology"] = boost::any(*generateTechnology);
     }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
@@ -46553,6 +46571,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
       agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("GenerateTechnology") != m.end() && !m["GenerateTechnology"].empty()) {
+      generateTechnology = make_shared<string>(boost::any_cast<string>(m["GenerateTechnology"]));
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
@@ -46578,6 +46599,7 @@ public:
 class SaveDataSourceOrderConfigShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
+  shared_ptr<string> generateTechnology{};
   shared_ptr<string> productCode{};
   shared_ptr<string> userConfigDataSourceListShrink{};
 
@@ -46594,6 +46616,9 @@ public:
     if (agentKey) {
       res["AgentKey"] = boost::any(*agentKey);
     }
+    if (generateTechnology) {
+      res["GenerateTechnology"] = boost::any(*generateTechnology);
+    }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
     }
@@ -46606,6 +46631,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
       agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("GenerateTechnology") != m.end() && !m["GenerateTechnology"].empty()) {
+      generateTechnology = make_shared<string>(boost::any_cast<string>(m["GenerateTechnology"]));
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));

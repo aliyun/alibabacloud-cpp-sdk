@@ -1181,6 +1181,9 @@ GetDataSourceOrderConfigResponse Alibabacloud_AiMiaoBi20230801::Client::getDataS
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->generateTechnology)) {
+    body->insert(pair<string, string>("GenerateTechnology", *request->generateTechnology));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     body->insert(pair<string, string>("ProductCode", *request->productCode));
   }
@@ -4690,6 +4693,9 @@ SaveDataSourceOrderConfigResponse Alibabacloud_AiMiaoBi20230801::Client::saveDat
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->generateTechnology)) {
+    body->insert(pair<string, string>("GenerateTechnology", *request->generateTechnology));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     body->insert(pair<string, string>("ProductCode", *request->productCode));
   }
