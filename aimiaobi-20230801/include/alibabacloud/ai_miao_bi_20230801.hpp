@@ -25461,8 +25461,198 @@ public:
 
   virtual ~ListSearchTaskDialoguesRequest() = default;
 };
+class ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> name{};
+
+  ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources() {}
+
+  explicit ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources() = default;
+};
+class ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<vector<string>> multimodalSearchTypes{};
+  shared_ptr<vector<ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources>> searchSources{};
+  shared_ptr<string> startTime{};
+
+  ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam() {}
+
+  explicit ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (multimodalSearchTypes) {
+      res["MultimodalSearchTypes"] = boost::any(*multimodalSearchTypes);
+    }
+    if (searchSources) {
+      vector<boost::any> temp1;
+      for(auto item1:*searchSources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SearchSources"] = boost::any(temp1);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("MultimodalSearchTypes") != m.end() && !m["MultimodalSearchTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MultimodalSearchTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MultimodalSearchTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      multimodalSearchTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SearchSources") != m.end() && !m["SearchSources"].empty()) {
+      if (typeid(vector<boost::any>) == m["SearchSources"].type()) {
+        vector<ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SearchSources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        searchSources = make_shared<vector<ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources>>(expect1);
+      }
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam() = default;
+};
+class ListSearchTaskDialoguesResponseBodyDataChatConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> dialogueType{};
+  shared_ptr<bool> endToEnd{};
+  shared_ptr<string> generateLevel{};
+  shared_ptr<string> generateTechnology{};
+  shared_ptr<vector<string>> searchModels{};
+  shared_ptr<ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam> searchParam{};
+
+  ListSearchTaskDialoguesResponseBodyDataChatConfig() {}
+
+  explicit ListSearchTaskDialoguesResponseBodyDataChatConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dialogueType) {
+      res["DialogueType"] = boost::any(*dialogueType);
+    }
+    if (endToEnd) {
+      res["EndToEnd"] = boost::any(*endToEnd);
+    }
+    if (generateLevel) {
+      res["GenerateLevel"] = boost::any(*generateLevel);
+    }
+    if (generateTechnology) {
+      res["GenerateTechnology"] = boost::any(*generateTechnology);
+    }
+    if (searchModels) {
+      res["SearchModels"] = boost::any(*searchModels);
+    }
+    if (searchParam) {
+      res["SearchParam"] = searchParam ? boost::any(searchParam->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DialogueType") != m.end() && !m["DialogueType"].empty()) {
+      dialogueType = make_shared<long>(boost::any_cast<long>(m["DialogueType"]));
+    }
+    if (m.find("EndToEnd") != m.end() && !m["EndToEnd"].empty()) {
+      endToEnd = make_shared<bool>(boost::any_cast<bool>(m["EndToEnd"]));
+    }
+    if (m.find("GenerateLevel") != m.end() && !m["GenerateLevel"].empty()) {
+      generateLevel = make_shared<string>(boost::any_cast<string>(m["GenerateLevel"]));
+    }
+    if (m.find("GenerateTechnology") != m.end() && !m["GenerateTechnology"].empty()) {
+      generateTechnology = make_shared<string>(boost::any_cast<string>(m["GenerateTechnology"]));
+    }
+    if (m.find("SearchModels") != m.end() && !m["SearchModels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SearchModels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SearchModels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      searchModels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SearchParam") != m.end() && !m["SearchParam"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SearchParam"].type()) {
+        ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SearchParam"]));
+        searchParam = make_shared<ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSearchTaskDialoguesResponseBodyDataChatConfig() = default;
+};
 class ListSearchTaskDialoguesResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<ListSearchTaskDialoguesResponseBodyDataChatConfig> chatConfig{};
   shared_ptr<string> createTime{};
   shared_ptr<long> dialogueType{};
   shared_ptr<string> goodText{};
@@ -25485,6 +25675,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (chatConfig) {
+      res["ChatConfig"] = chatConfig ? boost::any(chatConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -25522,6 +25715,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChatConfig") != m.end() && !m["ChatConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ChatConfig"].type()) {
+        ListSearchTaskDialoguesResponseBodyDataChatConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ChatConfig"]));
+        chatConfig = make_shared<ListSearchTaskDialoguesResponseBodyDataChatConfig>(model1);
+      }
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
