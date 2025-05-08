@@ -218,6 +218,7 @@ public:
   shared_ptr<string> categoryId{};
   shared_ptr<string> categoryType{};
   shared_ptr<string> leaseId{};
+  shared_ptr<string> originalFileUrl{};
   shared_ptr<string> parser{};
   shared_ptr<vector<string>> tags{};
 
@@ -240,6 +241,9 @@ public:
     if (leaseId) {
       res["LeaseId"] = boost::any(*leaseId);
     }
+    if (originalFileUrl) {
+      res["OriginalFileUrl"] = boost::any(*originalFileUrl);
+    }
     if (parser) {
       res["Parser"] = boost::any(*parser);
     }
@@ -258,6 +262,9 @@ public:
     }
     if (m.find("LeaseId") != m.end() && !m["LeaseId"].empty()) {
       leaseId = make_shared<string>(boost::any_cast<string>(m["LeaseId"]));
+    }
+    if (m.find("OriginalFileUrl") != m.end() && !m["OriginalFileUrl"].empty()) {
+      originalFileUrl = make_shared<string>(boost::any_cast<string>(m["OriginalFileUrl"]));
     }
     if (m.find("Parser") != m.end() && !m["Parser"].empty()) {
       parser = make_shared<string>(boost::any_cast<string>(m["Parser"]));
@@ -282,6 +289,7 @@ public:
   shared_ptr<string> categoryId{};
   shared_ptr<string> categoryType{};
   shared_ptr<string> leaseId{};
+  shared_ptr<string> originalFileUrl{};
   shared_ptr<string> parser{};
   shared_ptr<string> tagsShrink{};
 
@@ -304,6 +312,9 @@ public:
     if (leaseId) {
       res["LeaseId"] = boost::any(*leaseId);
     }
+    if (originalFileUrl) {
+      res["OriginalFileUrl"] = boost::any(*originalFileUrl);
+    }
     if (parser) {
       res["Parser"] = boost::any(*parser);
     }
@@ -322,6 +333,9 @@ public:
     }
     if (m.find("LeaseId") != m.end() && !m["LeaseId"].empty()) {
       leaseId = make_shared<string>(boost::any_cast<string>(m["LeaseId"]));
+    }
+    if (m.find("OriginalFileUrl") != m.end() && !m["OriginalFileUrl"].empty()) {
+      originalFileUrl = make_shared<string>(boost::any_cast<string>(m["OriginalFileUrl"]));
     }
     if (m.find("Parser") != m.end() && !m["Parser"].empty()) {
       parser = make_shared<string>(boost::any_cast<string>(m["Parser"]));

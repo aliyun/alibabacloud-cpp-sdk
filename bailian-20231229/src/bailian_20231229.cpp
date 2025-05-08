@@ -96,6 +96,9 @@ AddFileResponse Alibabacloud_Bailian20231229::Client::addFileWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->leaseId)) {
     body->insert(pair<string, string>("LeaseId", *request->leaseId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originalFileUrl)) {
+    body->insert(pair<string, string>("OriginalFileUrl", *request->originalFileUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->parser)) {
     body->insert(pair<string, string>("Parser", *request->parser));
   }
