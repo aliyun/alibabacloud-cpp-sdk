@@ -12671,6 +12671,49 @@ public:
 
   virtual ~GetPropertiesResponseBodyDataConsoleConfig() = default;
 };
+class GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> name{};
+
+  GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources() {}
+
+  explicit GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources() = default;
+};
 class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticles : public Darabonba::Model {
 public:
   shared_ptr<bool> select{};
@@ -12823,6 +12866,7 @@ public:
 };
 class GetPropertiesResponseBodyDataIntelligentSearchConfig : public Darabonba::Model {
 public:
+  shared_ptr<vector<GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources>> copilotPreciseSearchSources{};
   shared_ptr<string> productDescription{};
   shared_ptr<vector<GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples>> searchSamples{};
   shared_ptr<vector<GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources>> searchSources{};
@@ -12837,6 +12881,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (copilotPreciseSearchSources) {
+      vector<boost::any> temp1;
+      for(auto item1:*copilotPreciseSearchSources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CopilotPreciseSearchSources"] = boost::any(temp1);
+    }
     if (productDescription) {
       res["ProductDescription"] = boost::any(*productDescription);
     }
@@ -12858,6 +12909,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CopilotPreciseSearchSources") != m.end() && !m["CopilotPreciseSearchSources"].empty()) {
+      if (typeid(vector<boost::any>) == m["CopilotPreciseSearchSources"].type()) {
+        vector<GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CopilotPreciseSearchSources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        copilotPreciseSearchSources = make_shared<vector<GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources>>(expect1);
+      }
+    }
     if (m.find("ProductDescription") != m.end() && !m["ProductDescription"].empty()) {
       productDescription = make_shared<string>(boost::any_cast<string>(m["ProductDescription"]));
     }
