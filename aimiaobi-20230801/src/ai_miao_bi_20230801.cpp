@@ -2255,6 +2255,9 @@ ListDatasetsResponse Alibabacloud_AiMiaoBi20230801::Client::listDatasetsWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     body->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeConfig)) {
+    body->insert(pair<string, bool>("IncludeConfig", *request->includeConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     body->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }

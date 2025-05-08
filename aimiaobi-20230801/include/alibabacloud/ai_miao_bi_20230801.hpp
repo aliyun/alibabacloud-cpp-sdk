@@ -19021,6 +19021,7 @@ class ListDatasetDocumentsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> categoryUuid{};
   shared_ptr<string> content{};
+  shared_ptr<string> createTime{};
   shared_ptr<bool> disableHandleMultimodalMedia{};
   shared_ptr<string> docId{};
   shared_ptr<string> docType{};
@@ -19034,6 +19035,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> summary{};
   shared_ptr<string> title{};
+  shared_ptr<string> updateTime{};
   shared_ptr<string> url{};
 
   ListDatasetDocumentsResponseBodyData() {}
@@ -19051,6 +19053,9 @@ public:
     }
     if (content) {
       res["Content"] = boost::any(*content);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
     }
     if (disableHandleMultimodalMedia) {
       res["DisableHandleMultimodalMedia"] = boost::any(*disableHandleMultimodalMedia);
@@ -19095,6 +19100,9 @@ public:
     if (title) {
       res["Title"] = boost::any(*title);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -19107,6 +19115,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
     if (m.find("DisableHandleMultimodalMedia") != m.end() && !m["DisableHandleMultimodalMedia"].empty()) {
       disableHandleMultimodalMedia = make_shared<bool>(boost::any_cast<bool>(m["DisableHandleMultimodalMedia"]));
@@ -19156,6 +19167,9 @@ public:
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -19322,6 +19336,7 @@ public:
   shared_ptr<string> datasetName{};
   shared_ptr<string> datasetType{};
   shared_ptr<string> endTime{};
+  shared_ptr<bool> includeConfig{};
   shared_ptr<long> pageNumber{};
   shared_ptr<string> pageSize{};
   shared_ptr<long> searchDatasetEnable{};
@@ -19349,6 +19364,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (includeConfig) {
+      res["IncludeConfig"] = boost::any(*includeConfig);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -19381,6 +19399,9 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("IncludeConfig") != m.end() && !m["IncludeConfig"].empty()) {
+      includeConfig = make_shared<bool>(boost::any_cast<bool>(m["IncludeConfig"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -19401,6 +19422,56 @@ public:
 
   virtual ~ListDatasetsRequest() = default;
 };
+class ListDatasetsResponseBodyCustomSemanticSearchConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> datasetQuota{};
+  shared_ptr<long> datasetUsedQuota{};
+  shared_ptr<long> docQuota{};
+  shared_ptr<long> docUsedQuota{};
+
+  ListDatasetsResponseBodyCustomSemanticSearchConfig() {}
+
+  explicit ListDatasetsResponseBodyCustomSemanticSearchConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetQuota) {
+      res["DatasetQuota"] = boost::any(*datasetQuota);
+    }
+    if (datasetUsedQuota) {
+      res["DatasetUsedQuota"] = boost::any(*datasetUsedQuota);
+    }
+    if (docQuota) {
+      res["DocQuota"] = boost::any(*docQuota);
+    }
+    if (docUsedQuota) {
+      res["DocUsedQuota"] = boost::any(*docUsedQuota);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetQuota") != m.end() && !m["DatasetQuota"].empty()) {
+      datasetQuota = make_shared<long>(boost::any_cast<long>(m["DatasetQuota"]));
+    }
+    if (m.find("DatasetUsedQuota") != m.end() && !m["DatasetUsedQuota"].empty()) {
+      datasetUsedQuota = make_shared<long>(boost::any_cast<long>(m["DatasetUsedQuota"]));
+    }
+    if (m.find("DocQuota") != m.end() && !m["DocQuota"].empty()) {
+      docQuota = make_shared<long>(boost::any_cast<long>(m["DocQuota"]));
+    }
+    if (m.find("DocUsedQuota") != m.end() && !m["DocUsedQuota"].empty()) {
+      docUsedQuota = make_shared<long>(boost::any_cast<long>(m["DocUsedQuota"]));
+    }
+  }
+
+
+  virtual ~ListDatasetsResponseBodyCustomSemanticSearchConfig() = default;
+};
 class ListDatasetsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
@@ -19409,6 +19480,7 @@ public:
   shared_ptr<long> datasetId{};
   shared_ptr<string> datasetName{};
   shared_ptr<string> datasetType{};
+  shared_ptr<long> docUsedQuota{};
   shared_ptr<long> searchDatasetEnable{};
 
   ListDatasetsResponseBodyData() {}
@@ -19439,6 +19511,9 @@ public:
     if (datasetType) {
       res["DatasetType"] = boost::any(*datasetType);
     }
+    if (docUsedQuota) {
+      res["DocUsedQuota"] = boost::any(*docUsedQuota);
+    }
     if (searchDatasetEnable) {
       res["SearchDatasetEnable"] = boost::any(*searchDatasetEnable);
     }
@@ -19464,6 +19539,9 @@ public:
     if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
       datasetType = make_shared<string>(boost::any_cast<string>(m["DatasetType"]));
     }
+    if (m.find("DocUsedQuota") != m.end() && !m["DocUsedQuota"].empty()) {
+      docUsedQuota = make_shared<long>(boost::any_cast<long>(m["DocUsedQuota"]));
+    }
     if (m.find("SearchDatasetEnable") != m.end() && !m["SearchDatasetEnable"].empty()) {
       searchDatasetEnable = make_shared<long>(boost::any_cast<long>(m["SearchDatasetEnable"]));
     }
@@ -19472,9 +19550,46 @@ public:
 
   virtual ~ListDatasetsResponseBodyData() = default;
 };
+class ListDatasetsResponseBodyThirdSearchConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> datasetQuota{};
+  shared_ptr<long> datasetUsedQuota{};
+
+  ListDatasetsResponseBodyThirdSearchConfig() {}
+
+  explicit ListDatasetsResponseBodyThirdSearchConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetQuota) {
+      res["DatasetQuota"] = boost::any(*datasetQuota);
+    }
+    if (datasetUsedQuota) {
+      res["DatasetUsedQuota"] = boost::any(*datasetUsedQuota);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetQuota") != m.end() && !m["DatasetQuota"].empty()) {
+      datasetQuota = make_shared<long>(boost::any_cast<long>(m["DatasetQuota"]));
+    }
+    if (m.find("DatasetUsedQuota") != m.end() && !m["DatasetUsedQuota"].empty()) {
+      datasetUsedQuota = make_shared<long>(boost::any_cast<long>(m["DatasetUsedQuota"]));
+    }
+  }
+
+
+  virtual ~ListDatasetsResponseBodyThirdSearchConfig() = default;
+};
 class ListDatasetsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<ListDatasetsResponseBodyCustomSemanticSearchConfig> customSemanticSearchConfig{};
   shared_ptr<vector<ListDatasetsResponseBodyData>> data{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
@@ -19482,6 +19597,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
+  shared_ptr<ListDatasetsResponseBodyThirdSearchConfig> thirdSearchConfig{};
   shared_ptr<long> totalCount{};
 
   ListDatasetsResponseBody() {}
@@ -19496,6 +19612,9 @@ public:
     map<string, boost::any> res;
     if (code) {
       res["Code"] = boost::any(*code);
+    }
+    if (customSemanticSearchConfig) {
+      res["CustomSemanticSearchConfig"] = customSemanticSearchConfig ? boost::any(customSemanticSearchConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (data) {
       vector<boost::any> temp1;
@@ -19522,6 +19641,9 @@ public:
     if (success) {
       res["Success"] = boost::any(*success);
     }
+    if (thirdSearchConfig) {
+      res["ThirdSearchConfig"] = thirdSearchConfig ? boost::any(thirdSearchConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
     }
@@ -19531,6 +19653,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CustomSemanticSearchConfig") != m.end() && !m["CustomSemanticSearchConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomSemanticSearchConfig"].type()) {
+        ListDatasetsResponseBodyCustomSemanticSearchConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomSemanticSearchConfig"]));
+        customSemanticSearchConfig = make_shared<ListDatasetsResponseBodyCustomSemanticSearchConfig>(model1);
+      }
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(vector<boost::any>) == m["Data"].type()) {
@@ -19562,6 +19691,13 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("ThirdSearchConfig") != m.end() && !m["ThirdSearchConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ThirdSearchConfig"].type()) {
+        ListDatasetsResponseBodyThirdSearchConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ThirdSearchConfig"]));
+        thirdSearchConfig = make_shared<ListDatasetsResponseBodyThirdSearchConfig>(model1);
+      }
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
