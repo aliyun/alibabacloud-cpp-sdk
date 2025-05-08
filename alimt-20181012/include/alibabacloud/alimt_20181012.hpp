@@ -1300,6 +1300,130 @@ public:
 
   virtual ~GetDetectLanguageResponse() = default;
 };
+class GetDetectLanguageVpcRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sourceText{};
+
+  GetDetectLanguageVpcRequest() {}
+
+  explicit GetDetectLanguageVpcRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceText) {
+      res["SourceText"] = boost::any(*sourceText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceText") != m.end() && !m["SourceText"].empty()) {
+      sourceText = make_shared<string>(boost::any_cast<string>(m["SourceText"]));
+    }
+  }
+
+
+  virtual ~GetDetectLanguageVpcRequest() = default;
+};
+class GetDetectLanguageVpcResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> detectedLanguage{};
+  shared_ptr<string> languageProbabilities{};
+  shared_ptr<string> requestId{};
+
+  GetDetectLanguageVpcResponseBody() {}
+
+  explicit GetDetectLanguageVpcResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detectedLanguage) {
+      res["DetectedLanguage"] = boost::any(*detectedLanguage);
+    }
+    if (languageProbabilities) {
+      res["LanguageProbabilities"] = boost::any(*languageProbabilities);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetectedLanguage") != m.end() && !m["DetectedLanguage"].empty()) {
+      detectedLanguage = make_shared<string>(boost::any_cast<string>(m["DetectedLanguage"]));
+    }
+    if (m.find("LanguageProbabilities") != m.end() && !m["LanguageProbabilities"].empty()) {
+      languageProbabilities = make_shared<string>(boost::any_cast<string>(m["LanguageProbabilities"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetDetectLanguageVpcResponseBody() = default;
+};
+class GetDetectLanguageVpcResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDetectLanguageVpcResponseBody> body{};
+
+  GetDetectLanguageVpcResponse() {}
+
+  explicit GetDetectLanguageVpcResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDetectLanguageVpcResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDetectLanguageVpcResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDetectLanguageVpcResponse() = default;
+};
 class GetDocTranslateTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> taskId{};
@@ -4734,6 +4858,198 @@ public:
 
   virtual ~TranslateImageBatchResponse() = default;
 };
+class TranslateSearchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> formatType{};
+  shared_ptr<string> scene{};
+  shared_ptr<string> sourceLanguage{};
+  shared_ptr<string> sourceText{};
+  shared_ptr<string> targetLanguage{};
+
+  TranslateSearchRequest() {}
+
+  explicit TranslateSearchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (formatType) {
+      res["FormatType"] = boost::any(*formatType);
+    }
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
+    }
+    if (sourceLanguage) {
+      res["SourceLanguage"] = boost::any(*sourceLanguage);
+    }
+    if (sourceText) {
+      res["SourceText"] = boost::any(*sourceText);
+    }
+    if (targetLanguage) {
+      res["TargetLanguage"] = boost::any(*targetLanguage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FormatType") != m.end() && !m["FormatType"].empty()) {
+      formatType = make_shared<string>(boost::any_cast<string>(m["FormatType"]));
+    }
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("SourceLanguage") != m.end() && !m["SourceLanguage"].empty()) {
+      sourceLanguage = make_shared<string>(boost::any_cast<string>(m["SourceLanguage"]));
+    }
+    if (m.find("SourceText") != m.end() && !m["SourceText"].empty()) {
+      sourceText = make_shared<string>(boost::any_cast<string>(m["SourceText"]));
+    }
+    if (m.find("TargetLanguage") != m.end() && !m["TargetLanguage"].empty()) {
+      targetLanguage = make_shared<string>(boost::any_cast<string>(m["TargetLanguage"]));
+    }
+  }
+
+
+  virtual ~TranslateSearchRequest() = default;
+};
+class TranslateSearchResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> translated{};
+
+  TranslateSearchResponseBodyData() {}
+
+  explicit TranslateSearchResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (translated) {
+      res["Translated"] = boost::any(*translated);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Translated") != m.end() && !m["Translated"].empty()) {
+      translated = make_shared<string>(boost::any_cast<string>(m["Translated"]));
+    }
+  }
+
+
+  virtual ~TranslateSearchResponseBodyData() = default;
+};
+class TranslateSearchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<TranslateSearchResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  TranslateSearchResponseBody() {}
+
+  explicit TranslateSearchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        TranslateSearchResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<TranslateSearchResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~TranslateSearchResponseBody() = default;
+};
+class TranslateSearchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<TranslateSearchResponseBody> body{};
+
+  TranslateSearchResponse() {}
+
+  explicit TranslateSearchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        TranslateSearchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<TranslateSearchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TranslateSearchResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -4759,6 +5075,8 @@ public:
   GetBatchTranslateByVPCResponse getBatchTranslateByVPC(shared_ptr<GetBatchTranslateByVPCRequest> request);
   GetDetectLanguageResponse getDetectLanguageWithOptions(shared_ptr<GetDetectLanguageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDetectLanguageResponse getDetectLanguage(shared_ptr<GetDetectLanguageRequest> request);
+  GetDetectLanguageVpcResponse getDetectLanguageVpcWithOptions(shared_ptr<GetDetectLanguageVpcRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDetectLanguageVpcResponse getDetectLanguageVpc(shared_ptr<GetDetectLanguageVpcRequest> request);
   GetDocTranslateTaskResponse getDocTranslateTaskWithOptions(shared_ptr<GetDocTranslateTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDocTranslateTaskResponse getDocTranslateTask(shared_ptr<GetDocTranslateTaskRequest> request);
   GetImageDiagnoseResponse getImageDiagnoseWithOptions(shared_ptr<GetImageDiagnoseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4794,6 +5112,8 @@ public:
   TranslateImageResponse translateImage(shared_ptr<TranslateImageRequest> request);
   TranslateImageBatchResponse translateImageBatchWithOptions(shared_ptr<TranslateImageBatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TranslateImageBatchResponse translateImageBatch(shared_ptr<TranslateImageBatchRequest> request);
+  TranslateSearchResponse translateSearchWithOptions(shared_ptr<TranslateSearchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TranslateSearchResponse translateSearch(shared_ptr<TranslateSearchRequest> request);
 
   virtual ~Client() = default;
 };

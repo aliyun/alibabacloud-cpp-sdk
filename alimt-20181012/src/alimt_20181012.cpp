@@ -439,6 +439,34 @@ GetDetectLanguageResponse Alibabacloud_Alimt20181012::Client::getDetectLanguage(
   return getDetectLanguageWithOptions(request, runtime);
 }
 
+GetDetectLanguageVpcResponse Alibabacloud_Alimt20181012::Client::getDetectLanguageVpcWithOptions(shared_ptr<GetDetectLanguageVpcRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceText)) {
+    body->insert(pair<string, string>("SourceText", *request->sourceText));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDetectLanguageVpc"))},
+    {"version", boost::any(string("2018-10-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDetectLanguageVpcResponse(callApi(params, req, runtime));
+}
+
+GetDetectLanguageVpcResponse Alibabacloud_Alimt20181012::Client::getDetectLanguageVpc(shared_ptr<GetDetectLanguageVpcRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDetectLanguageVpcWithOptions(request, runtime);
+}
+
 GetDocTranslateTaskResponse Alibabacloud_Alimt20181012::Client::getDocTranslateTaskWithOptions(shared_ptr<GetDocTranslateTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -1158,5 +1186,45 @@ TranslateImageBatchResponse Alibabacloud_Alimt20181012::Client::translateImageBa
 TranslateImageBatchResponse Alibabacloud_Alimt20181012::Client::translateImageBatch(shared_ptr<TranslateImageBatchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return translateImageBatchWithOptions(request, runtime);
+}
+
+TranslateSearchResponse Alibabacloud_Alimt20181012::Client::translateSearchWithOptions(shared_ptr<TranslateSearchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->formatType)) {
+    body->insert(pair<string, string>("FormatType", *request->formatType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scene)) {
+    body->insert(pair<string, string>("Scene", *request->scene));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceLanguage)) {
+    body->insert(pair<string, string>("SourceLanguage", *request->sourceLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceText)) {
+    body->insert(pair<string, string>("SourceText", *request->sourceText));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetLanguage)) {
+    body->insert(pair<string, string>("TargetLanguage", *request->targetLanguage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TranslateSearch"))},
+    {"version", boost::any(string("2018-10-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TranslateSearchResponse(callApi(params, req, runtime));
+}
+
+TranslateSearchResponse Alibabacloud_Alimt20181012::Client::translateSearch(shared_ptr<TranslateSearchRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return translateSearchWithOptions(request, runtime);
 }
 
