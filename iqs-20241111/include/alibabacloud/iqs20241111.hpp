@@ -979,6 +979,624 @@ public:
 
   virtual ~GlobalSearchResult() = default;
 };
+class RequestContents : public Darabonba::Model {
+public:
+  shared_ptr<bool> mainText{};
+  shared_ptr<bool> markdownText{};
+  shared_ptr<bool> rerankScore{};
+  shared_ptr<bool> summary{};
+
+  RequestContents() {}
+
+  explicit RequestContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mainText) {
+      res["mainText"] = boost::any(*mainText);
+    }
+    if (markdownText) {
+      res["markdownText"] = boost::any(*markdownText);
+    }
+    if (rerankScore) {
+      res["rerankScore"] = boost::any(*rerankScore);
+    }
+    if (summary) {
+      res["summary"] = boost::any(*summary);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("mainText") != m.end() && !m["mainText"].empty()) {
+      mainText = make_shared<bool>(boost::any_cast<bool>(m["mainText"]));
+    }
+    if (m.find("markdownText") != m.end() && !m["markdownText"].empty()) {
+      markdownText = make_shared<bool>(boost::any_cast<bool>(m["markdownText"]));
+    }
+    if (m.find("rerankScore") != m.end() && !m["rerankScore"].empty()) {
+      rerankScore = make_shared<bool>(boost::any_cast<bool>(m["rerankScore"]));
+    }
+    if (m.find("summary") != m.end() && !m["summary"].empty()) {
+      summary = make_shared<bool>(boost::any_cast<bool>(m["summary"]));
+    }
+  }
+
+
+  virtual ~RequestContents() = default;
+};
+class SearchCredits : public Darabonba::Model {
+public:
+  shared_ptr<long> genericTextSearch{};
+
+  SearchCredits() {}
+
+  explicit SearchCredits(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (genericTextSearch) {
+      res["genericTextSearch"] = boost::any(*genericTextSearch);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("genericTextSearch") != m.end() && !m["genericTextSearch"].empty()) {
+      genericTextSearch = make_shared<long>(boost::any_cast<long>(m["genericTextSearch"]));
+    }
+  }
+
+
+  virtual ~SearchCredits() = default;
+};
+class ValueAddedCredits : public Darabonba::Model {
+public:
+  shared_ptr<long> advanced{};
+  shared_ptr<long> summary{};
+
+  ValueAddedCredits() {}
+
+  explicit ValueAddedCredits(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advanced) {
+      res["advanced"] = boost::any(*advanced);
+    }
+    if (summary) {
+      res["summary"] = boost::any(*summary);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("advanced") != m.end() && !m["advanced"].empty()) {
+      advanced = make_shared<long>(boost::any_cast<long>(m["advanced"]));
+    }
+    if (m.find("summary") != m.end() && !m["summary"].empty()) {
+      summary = make_shared<long>(boost::any_cast<long>(m["summary"]));
+    }
+  }
+
+
+  virtual ~ValueAddedCredits() = default;
+};
+class UnifiedCostCredits : public Darabonba::Model {
+public:
+  shared_ptr<SearchCredits> search{};
+  shared_ptr<ValueAddedCredits> valueAdded{};
+
+  UnifiedCostCredits() {}
+
+  explicit UnifiedCostCredits(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (search) {
+      res["search"] = search ? boost::any(search->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (valueAdded) {
+      res["valueAdded"] = valueAdded ? boost::any(valueAdded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("search") != m.end() && !m["search"].empty()) {
+      if (typeid(map<string, boost::any>) == m["search"].type()) {
+        SearchCredits model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["search"]));
+        search = make_shared<SearchCredits>(model1);
+      }
+    }
+    if (m.find("valueAdded") != m.end() && !m["valueAdded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["valueAdded"].type()) {
+        ValueAddedCredits model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["valueAdded"]));
+        valueAdded = make_shared<ValueAddedCredits>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnifiedCostCredits() = default;
+};
+class UnifiedOriginalQuery : public Darabonba::Model {
+public:
+  shared_ptr<string> query{};
+  shared_ptr<string> timeRange{};
+
+  UnifiedOriginalQuery() {}
+
+  explicit UnifiedOriginalQuery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (query) {
+      res["query"] = boost::any(*query);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("query") != m.end() && !m["query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~UnifiedOriginalQuery() = default;
+};
+class UnifiedPageItem : public Darabonba::Model {
+public:
+  shared_ptr<string> hostLogo{};
+  shared_ptr<string> hostname{};
+  shared_ptr<vector<string>> images{};
+  shared_ptr<string> link{};
+  shared_ptr<string> mainText{};
+  shared_ptr<string> markdownText{};
+  shared_ptr<string> publishedTime{};
+  shared_ptr<double> rerankScore{};
+  shared_ptr<string> snippet{};
+  shared_ptr<string> summary{};
+  shared_ptr<string> title{};
+
+  UnifiedPageItem() {}
+
+  explicit UnifiedPageItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostLogo) {
+      res["hostLogo"] = boost::any(*hostLogo);
+    }
+    if (hostname) {
+      res["hostname"] = boost::any(*hostname);
+    }
+    if (images) {
+      res["images"] = boost::any(*images);
+    }
+    if (link) {
+      res["link"] = boost::any(*link);
+    }
+    if (mainText) {
+      res["mainText"] = boost::any(*mainText);
+    }
+    if (markdownText) {
+      res["markdownText"] = boost::any(*markdownText);
+    }
+    if (publishedTime) {
+      res["publishedTime"] = boost::any(*publishedTime);
+    }
+    if (rerankScore) {
+      res["rerankScore"] = boost::any(*rerankScore);
+    }
+    if (snippet) {
+      res["snippet"] = boost::any(*snippet);
+    }
+    if (summary) {
+      res["summary"] = boost::any(*summary);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hostLogo") != m.end() && !m["hostLogo"].empty()) {
+      hostLogo = make_shared<string>(boost::any_cast<string>(m["hostLogo"]));
+    }
+    if (m.find("hostname") != m.end() && !m["hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["hostname"]));
+    }
+    if (m.find("images") != m.end() && !m["images"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["images"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["images"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      images = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("link") != m.end() && !m["link"].empty()) {
+      link = make_shared<string>(boost::any_cast<string>(m["link"]));
+    }
+    if (m.find("mainText") != m.end() && !m["mainText"].empty()) {
+      mainText = make_shared<string>(boost::any_cast<string>(m["mainText"]));
+    }
+    if (m.find("markdownText") != m.end() && !m["markdownText"].empty()) {
+      markdownText = make_shared<string>(boost::any_cast<string>(m["markdownText"]));
+    }
+    if (m.find("publishedTime") != m.end() && !m["publishedTime"].empty()) {
+      publishedTime = make_shared<string>(boost::any_cast<string>(m["publishedTime"]));
+    }
+    if (m.find("rerankScore") != m.end() && !m["rerankScore"].empty()) {
+      rerankScore = make_shared<double>(boost::any_cast<double>(m["rerankScore"]));
+    }
+    if (m.find("snippet") != m.end() && !m["snippet"].empty()) {
+      snippet = make_shared<string>(boost::any_cast<string>(m["snippet"]));
+    }
+    if (m.find("summary") != m.end() && !m["summary"].empty()) {
+      summary = make_shared<string>(boost::any_cast<string>(m["summary"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~UnifiedPageItem() = default;
+};
+class UnifiedRewrite : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> timeRange{};
+
+  UnifiedRewrite() {}
+
+  explicit UnifiedRewrite(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~UnifiedRewrite() = default;
+};
+class UnifiedQueryContext : public Darabonba::Model {
+public:
+  shared_ptr<string> engineType{};
+  shared_ptr<UnifiedOriginalQuery> originalQuery{};
+  shared_ptr<UnifiedRewrite> rewrite{};
+
+  UnifiedQueryContext() {}
+
+  explicit UnifiedQueryContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (engineType) {
+      res["engineType"] = boost::any(*engineType);
+    }
+    if (originalQuery) {
+      res["originalQuery"] = originalQuery ? boost::any(originalQuery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rewrite) {
+      res["rewrite"] = rewrite ? boost::any(rewrite->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("engineType") != m.end() && !m["engineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["engineType"]));
+    }
+    if (m.find("originalQuery") != m.end() && !m["originalQuery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["originalQuery"].type()) {
+        UnifiedOriginalQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["originalQuery"]));
+        originalQuery = make_shared<UnifiedOriginalQuery>(model1);
+      }
+    }
+    if (m.find("rewrite") != m.end() && !m["rewrite"].empty()) {
+      if (typeid(map<string, boost::any>) == m["rewrite"].type()) {
+        UnifiedRewrite model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["rewrite"]));
+        rewrite = make_shared<UnifiedRewrite>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnifiedQueryContext() = default;
+};
+class UnifiedSceneItem : public Darabonba::Model {
+public:
+  shared_ptr<string> detail{};
+  shared_ptr<string> type{};
+
+  UnifiedSceneItem() {}
+
+  explicit UnifiedSceneItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detail) {
+      res["detail"] = boost::any(*detail);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("detail") != m.end() && !m["detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["detail"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~UnifiedSceneItem() = default;
+};
+class UnifiedSearchInformation : public Darabonba::Model {
+public:
+  shared_ptr<long> searchTime{};
+
+  UnifiedSearchInformation() {}
+
+  explicit UnifiedSearchInformation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (searchTime) {
+      res["searchTime"] = boost::any(*searchTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("searchTime") != m.end() && !m["searchTime"].empty()) {
+      searchTime = make_shared<long>(boost::any_cast<long>(m["searchTime"]));
+    }
+  }
+
+
+  virtual ~UnifiedSearchInformation() = default;
+};
+class UnifiedSearchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<RequestContents> contents{};
+  shared_ptr<string> engineType{};
+  shared_ptr<string> query{};
+  shared_ptr<string> timeRange{};
+
+  UnifiedSearchRequest() {}
+
+  explicit UnifiedSearchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["category"] = boost::any(*category);
+    }
+    if (contents) {
+      res["contents"] = contents ? boost::any(contents->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (engineType) {
+      res["engineType"] = boost::any(*engineType);
+    }
+    if (query) {
+      res["query"] = boost::any(*query);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("category") != m.end() && !m["category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
+    if (m.find("contents") != m.end() && !m["contents"].empty()) {
+      if (typeid(map<string, boost::any>) == m["contents"].type()) {
+        RequestContents model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["contents"]));
+        contents = make_shared<RequestContents>(model1);
+      }
+    }
+    if (m.find("engineType") != m.end() && !m["engineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["engineType"]));
+    }
+    if (m.find("query") != m.end() && !m["query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~UnifiedSearchRequest() = default;
+};
+class UnifiedSearchResponse : public Darabonba::Model {
+public:
+  shared_ptr<UnifiedCostCredits> costCredits{};
+  shared_ptr<vector<UnifiedPageItem>> pageItems{};
+  shared_ptr<UnifiedQueryContext> queryContext{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<UnifiedSceneItem>> sceneItems{};
+  shared_ptr<UnifiedSearchInformation> searchInformation{};
+
+  UnifiedSearchResponse() {}
+
+  explicit UnifiedSearchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (costCredits) {
+      res["costCredits"] = costCredits ? boost::any(costCredits->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*pageItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["pageItems"] = boost::any(temp1);
+    }
+    if (queryContext) {
+      res["queryContext"] = queryContext ? boost::any(queryContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sceneItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*sceneItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sceneItems"] = boost::any(temp1);
+    }
+    if (searchInformation) {
+      res["searchInformation"] = searchInformation ? boost::any(searchInformation->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("costCredits") != m.end() && !m["costCredits"].empty()) {
+      if (typeid(map<string, boost::any>) == m["costCredits"].type()) {
+        UnifiedCostCredits model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["costCredits"]));
+        costCredits = make_shared<UnifiedCostCredits>(model1);
+      }
+    }
+    if (m.find("pageItems") != m.end() && !m["pageItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["pageItems"].type()) {
+        vector<UnifiedPageItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["pageItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UnifiedPageItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pageItems = make_shared<vector<UnifiedPageItem>>(expect1);
+      }
+    }
+    if (m.find("queryContext") != m.end() && !m["queryContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["queryContext"].type()) {
+        UnifiedQueryContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["queryContext"]));
+        queryContext = make_shared<UnifiedQueryContext>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sceneItems") != m.end() && !m["sceneItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["sceneItems"].type()) {
+        vector<UnifiedSceneItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sceneItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UnifiedSceneItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sceneItems = make_shared<vector<UnifiedSceneItem>>(expect1);
+      }
+    }
+    if (m.find("searchInformation") != m.end() && !m["searchInformation"].empty()) {
+      if (typeid(map<string, boost::any>) == m["searchInformation"].type()) {
+        UnifiedSearchInformation model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["searchInformation"]));
+        searchInformation = make_shared<UnifiedSearchInformation>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnifiedSearchResponse() = default;
+};
 class AiSearchRequest : public Darabonba::Model {
 public:
   shared_ptr<string> industry{};

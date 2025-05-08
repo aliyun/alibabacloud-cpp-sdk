@@ -70,12 +70,7 @@ AiSearchResponse Alibabacloud_IQS20241111::Client::aiSearchWithOptions(shared_pt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AiSearchResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AiSearchResponse(execute(params, req, runtime));
-  }
+  return AiSearchResponse(callApi(params, req, runtime));
 }
 
 AiSearchResponse Alibabacloud_IQS20241111::Client::aiSearch(shared_ptr<AiSearchRequest> request) {
@@ -114,12 +109,7 @@ GenericAdvancedSearchResponse Alibabacloud_IQS20241111::Client::genericAdvancedS
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GenericAdvancedSearchResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GenericAdvancedSearchResponse(execute(params, req, runtime));
-  }
+  return GenericAdvancedSearchResponse(callApi(params, req, runtime));
 }
 
 GenericAdvancedSearchResponse Alibabacloud_IQS20241111::Client::genericAdvancedSearch(shared_ptr<GenericAdvancedSearchRequest> request) {
@@ -173,12 +163,7 @@ GenericSearchResponse Alibabacloud_IQS20241111::Client::genericSearchWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GenericSearchResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GenericSearchResponse(execute(params, req, runtime));
-  }
+  return GenericSearchResponse(callApi(params, req, runtime));
 }
 
 GenericSearchResponse Alibabacloud_IQS20241111::Client::genericSearch(shared_ptr<GenericSearchRequest> request) {
@@ -217,12 +202,7 @@ GlobalSearchResponse Alibabacloud_IQS20241111::Client::globalSearchWithOptions(s
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GlobalSearchResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GlobalSearchResponse(execute(params, req, runtime));
-  }
+  return GlobalSearchResponse(callApi(params, req, runtime));
 }
 
 GlobalSearchResponse Alibabacloud_IQS20241111::Client::globalSearch(shared_ptr<GlobalSearchRequest> request) {
