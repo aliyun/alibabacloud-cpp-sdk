@@ -658,6 +658,9 @@ CreateARMServerInstancesResponse Alibabacloud_Ens20171110::Client::createARMServ
   if (!Darabonba_Util::Client::isUnset<string>(request->serverType)) {
     query->insert(pair<string, string>("ServerType", *request->serverType));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateARMServerInstancesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateARMServerInstancesRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -793,6 +796,9 @@ CreateDiskResponse Alibabacloud_Ens20171110::Client::createDiskWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ensRegionId)) {
     query->insert(pair<string, string>("EnsRegionId", *request->ensRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceBillingCycle)) {
+    query->insert(pair<string, string>("InstanceBillingCycle", *request->instanceBillingCycle));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceChargeType)) {
     query->insert(pair<string, string>("InstanceChargeType", *request->instanceChargeType));
@@ -2053,6 +2059,9 @@ CreateSnapshotResponse Alibabacloud_Ens20171110::Client::createSnapshotWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ensRegionId)) {
     query->insert(pair<string, string>("EnsRegionId", *request->ensRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceBillingCycle)) {
+    query->insert(pair<string, string>("InstanceBillingCycle", *request->instanceBillingCycle));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotName)) {
     query->insert(pair<string, string>("SnapshotName", *request->snapshotName));
@@ -9426,6 +9435,9 @@ RunInstancesResponse Alibabacloud_Ens20171110::Client::runInstancesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipType)) {
     query->insert(pair<string, string>("IpType", *request->ipType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ipv6AddressCount)) {
+    query->insert(pair<string, long>("Ipv6AddressCount", *request->ipv6AddressCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPairName)) {
     query->insert(pair<string, string>("KeyPairName", *request->keyPairName));

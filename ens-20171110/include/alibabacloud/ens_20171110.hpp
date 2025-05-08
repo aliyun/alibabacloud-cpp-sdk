@@ -3647,6 +3647,42 @@ public:
 
   virtual ~CopySnapshotResponse() = default;
 };
+class CreateARMServerInstancesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateARMServerInstancesRequestTag() {}
+
+  explicit CreateARMServerInstancesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateARMServerInstancesRequestTag() = default;
+};
 class CreateARMServerInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
@@ -3666,6 +3702,7 @@ public:
   shared_ptr<string> resolution{};
   shared_ptr<string> serverName{};
   shared_ptr<string> serverType{};
+  shared_ptr<vector<CreateARMServerInstancesRequestTag>> tag{};
 
   CreateARMServerInstancesRequest() {}
 
@@ -3728,6 +3765,13 @@ public:
     if (serverType) {
       res["ServerType"] = boost::any(*serverType);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -3782,6 +3826,19 @@ public:
     }
     if (m.find("ServerType") != m.end() && !m["ServerType"].empty()) {
       serverType = make_shared<string>(boost::any_cast<string>(m["ServerType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateARMServerInstancesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateARMServerInstancesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateARMServerInstancesRequestTag>>(expect1);
+      }
     }
   }
 
@@ -4318,6 +4375,7 @@ public:
   shared_ptr<string> diskName{};
   shared_ptr<bool> encrypted{};
   shared_ptr<string> ensRegionId{};
+  shared_ptr<string> instanceBillingCycle{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> KMSKeyId{};
   shared_ptr<string> size{};
@@ -4345,6 +4403,9 @@ public:
     }
     if (ensRegionId) {
       res["EnsRegionId"] = boost::any(*ensRegionId);
+    }
+    if (instanceBillingCycle) {
+      res["InstanceBillingCycle"] = boost::any(*instanceBillingCycle);
     }
     if (instanceChargeType) {
       res["InstanceChargeType"] = boost::any(*instanceChargeType);
@@ -4380,6 +4441,9 @@ public:
     }
     if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
       ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
+    }
+    if (m.find("InstanceBillingCycle") != m.end() && !m["InstanceBillingCycle"].empty()) {
+      instanceBillingCycle = make_shared<string>(boost::any_cast<string>(m["InstanceBillingCycle"]));
     }
     if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));
@@ -9533,6 +9597,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> diskId{};
   shared_ptr<string> ensRegionId{};
+  shared_ptr<string> instanceBillingCycle{};
   shared_ptr<string> snapshotName{};
 
   CreateSnapshotRequest() {}
@@ -9554,6 +9619,9 @@ public:
     if (ensRegionId) {
       res["EnsRegionId"] = boost::any(*ensRegionId);
     }
+    if (instanceBillingCycle) {
+      res["InstanceBillingCycle"] = boost::any(*instanceBillingCycle);
+    }
     if (snapshotName) {
       res["SnapshotName"] = boost::any(*snapshotName);
     }
@@ -9569,6 +9637,9 @@ public:
     }
     if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
       ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
+    }
+    if (m.find("InstanceBillingCycle") != m.end() && !m["InstanceBillingCycle"].empty()) {
+      instanceBillingCycle = make_shared<string>(boost::any_cast<string>(m["InstanceBillingCycle"]));
     }
     if (m.find("SnapshotName") != m.end() && !m["SnapshotName"].empty()) {
       snapshotName = make_shared<string>(boost::any_cast<string>(m["SnapshotName"]));
@@ -15931,6 +16002,42 @@ public:
 
   virtual ~DescribeARMServerInstancesResponseBodyServersAICInstances() = default;
 };
+class DescribeARMServerInstancesResponseBodyServersTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeARMServerInstancesResponseBodyServersTags() {}
+
+  explicit DescribeARMServerInstancesResponseBodyServersTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeARMServerInstancesResponseBodyServersTags() = default;
+};
 class DescribeARMServerInstancesResponseBodyServers : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeARMServerInstancesResponseBodyServersAICInstances>> AICInstances{};
@@ -15945,6 +16052,7 @@ public:
   shared_ptr<string> specName{};
   shared_ptr<string> state{};
   shared_ptr<string> status{};
+  shared_ptr<vector<DescribeARMServerInstancesResponseBodyServersTags>> tags{};
 
   DescribeARMServerInstancesResponseBodyServers() {}
 
@@ -15996,6 +16104,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -16045,6 +16160,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeARMServerInstancesResponseBodyServersTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeARMServerInstancesResponseBodyServersTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeARMServerInstancesResponseBodyServersTags>>(expect1);
+      }
     }
   }
 
@@ -63475,6 +63603,7 @@ public:
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
   shared_ptr<string> ipType{};
+  shared_ptr<long> ipv6AddressCount{};
   shared_ptr<string> keyPairName{};
   shared_ptr<string> netDistrictCode{};
   shared_ptr<string> netWorkId{};
@@ -63560,6 +63689,9 @@ public:
     }
     if (ipType) {
       res["IpType"] = boost::any(*ipType);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
     }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
@@ -63689,6 +63821,9 @@ public:
     }
     if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
       ipType = make_shared<string>(boost::any_cast<string>(m["IpType"]));
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
     }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
@@ -63824,6 +63959,7 @@ public:
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
   shared_ptr<string> ipType{};
+  shared_ptr<long> ipv6AddressCount{};
   shared_ptr<string> keyPairName{};
   shared_ptr<string> netDistrictCode{};
   shared_ptr<string> netWorkId{};
@@ -63905,6 +64041,9 @@ public:
     }
     if (ipType) {
       res["IpType"] = boost::any(*ipType);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
     }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
@@ -64024,6 +64163,9 @@ public:
     }
     if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
       ipType = make_shared<string>(boost::any_cast<string>(m["IpType"]));
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
     }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
