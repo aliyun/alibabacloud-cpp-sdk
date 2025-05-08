@@ -12080,6 +12080,369 @@ public:
 
   virtual ~ListResellersResponse() = default;
 };
+class ListServiceInstanceBillRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> billingCycle{};
+  shared_ptr<string> billingDate{};
+  shared_ptr<string> granularity{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceInstanceId{};
+  shared_ptr<string> serviceVersion{};
+
+  ListServiceInstanceBillRequest() {}
+
+  explicit ListServiceInstanceBillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (billingCycle) {
+      res["BillingCycle"] = boost::any(*billingCycle);
+    }
+    if (billingDate) {
+      res["BillingDate"] = boost::any(*billingDate);
+    }
+    if (granularity) {
+      res["Granularity"] = boost::any(*granularity);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceInstanceId) {
+      res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
+    }
+    if (serviceVersion) {
+      res["ServiceVersion"] = boost::any(*serviceVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BillingCycle") != m.end() && !m["BillingCycle"].empty()) {
+      billingCycle = make_shared<string>(boost::any_cast<string>(m["BillingCycle"]));
+    }
+    if (m.find("BillingDate") != m.end() && !m["BillingDate"].empty()) {
+      billingDate = make_shared<string>(boost::any_cast<string>(m["BillingDate"]));
+    }
+    if (m.find("Granularity") != m.end() && !m["Granularity"].empty()) {
+      granularity = make_shared<string>(boost::any_cast<string>(m["Granularity"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
+      serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
+    }
+    if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
+      serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+  }
+
+
+  virtual ~ListServiceInstanceBillRequest() = default;
+};
+class ListServiceInstanceBillResponseBodyItem : public Darabonba::Model {
+public:
+  shared_ptr<string> billingCycle{};
+  shared_ptr<string> billingDate{};
+  shared_ptr<string> billingItem{};
+  shared_ptr<string> billingItemCode{};
+  shared_ptr<string> currency{};
+  shared_ptr<string> deductedByResourcePackage{};
+  shared_ptr<string> instanceID{};
+  shared_ptr<string> invoiceDiscount{};
+  shared_ptr<string> listPrice{};
+  shared_ptr<string> listPriceUnit{};
+  shared_ptr<string> pretaxAmount{};
+  shared_ptr<string> pretaxGrossAmount{};
+  shared_ptr<string> productCode{};
+  shared_ptr<string> productDetail{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> serviceInstanceId{};
+  shared_ptr<string> splitBillingCycle{};
+  shared_ptr<string> subscriptionType{};
+  shared_ptr<string> usage{};
+  shared_ptr<string> usageUnit{};
+
+  ListServiceInstanceBillResponseBodyItem() {}
+
+  explicit ListServiceInstanceBillResponseBodyItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (billingCycle) {
+      res["BillingCycle"] = boost::any(*billingCycle);
+    }
+    if (billingDate) {
+      res["BillingDate"] = boost::any(*billingDate);
+    }
+    if (billingItem) {
+      res["BillingItem"] = boost::any(*billingItem);
+    }
+    if (billingItemCode) {
+      res["BillingItemCode"] = boost::any(*billingItemCode);
+    }
+    if (currency) {
+      res["Currency"] = boost::any(*currency);
+    }
+    if (deductedByResourcePackage) {
+      res["DeductedByResourcePackage"] = boost::any(*deductedByResourcePackage);
+    }
+    if (instanceID) {
+      res["InstanceID"] = boost::any(*instanceID);
+    }
+    if (invoiceDiscount) {
+      res["InvoiceDiscount"] = boost::any(*invoiceDiscount);
+    }
+    if (listPrice) {
+      res["ListPrice"] = boost::any(*listPrice);
+    }
+    if (listPriceUnit) {
+      res["ListPriceUnit"] = boost::any(*listPriceUnit);
+    }
+    if (pretaxAmount) {
+      res["PretaxAmount"] = boost::any(*pretaxAmount);
+    }
+    if (pretaxGrossAmount) {
+      res["PretaxGrossAmount"] = boost::any(*pretaxGrossAmount);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    if (productDetail) {
+      res["ProductDetail"] = boost::any(*productDetail);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (serviceInstanceId) {
+      res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
+    }
+    if (splitBillingCycle) {
+      res["SplitBillingCycle"] = boost::any(*splitBillingCycle);
+    }
+    if (subscriptionType) {
+      res["SubscriptionType"] = boost::any(*subscriptionType);
+    }
+    if (usage) {
+      res["Usage"] = boost::any(*usage);
+    }
+    if (usageUnit) {
+      res["UsageUnit"] = boost::any(*usageUnit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BillingCycle") != m.end() && !m["BillingCycle"].empty()) {
+      billingCycle = make_shared<string>(boost::any_cast<string>(m["BillingCycle"]));
+    }
+    if (m.find("BillingDate") != m.end() && !m["BillingDate"].empty()) {
+      billingDate = make_shared<string>(boost::any_cast<string>(m["BillingDate"]));
+    }
+    if (m.find("BillingItem") != m.end() && !m["BillingItem"].empty()) {
+      billingItem = make_shared<string>(boost::any_cast<string>(m["BillingItem"]));
+    }
+    if (m.find("BillingItemCode") != m.end() && !m["BillingItemCode"].empty()) {
+      billingItemCode = make_shared<string>(boost::any_cast<string>(m["BillingItemCode"]));
+    }
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("DeductedByResourcePackage") != m.end() && !m["DeductedByResourcePackage"].empty()) {
+      deductedByResourcePackage = make_shared<string>(boost::any_cast<string>(m["DeductedByResourcePackage"]));
+    }
+    if (m.find("InstanceID") != m.end() && !m["InstanceID"].empty()) {
+      instanceID = make_shared<string>(boost::any_cast<string>(m["InstanceID"]));
+    }
+    if (m.find("InvoiceDiscount") != m.end() && !m["InvoiceDiscount"].empty()) {
+      invoiceDiscount = make_shared<string>(boost::any_cast<string>(m["InvoiceDiscount"]));
+    }
+    if (m.find("ListPrice") != m.end() && !m["ListPrice"].empty()) {
+      listPrice = make_shared<string>(boost::any_cast<string>(m["ListPrice"]));
+    }
+    if (m.find("ListPriceUnit") != m.end() && !m["ListPriceUnit"].empty()) {
+      listPriceUnit = make_shared<string>(boost::any_cast<string>(m["ListPriceUnit"]));
+    }
+    if (m.find("PretaxAmount") != m.end() && !m["PretaxAmount"].empty()) {
+      pretaxAmount = make_shared<string>(boost::any_cast<string>(m["PretaxAmount"]));
+    }
+    if (m.find("PretaxGrossAmount") != m.end() && !m["PretaxGrossAmount"].empty()) {
+      pretaxGrossAmount = make_shared<string>(boost::any_cast<string>(m["PretaxGrossAmount"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("ProductDetail") != m.end() && !m["ProductDetail"].empty()) {
+      productDetail = make_shared<string>(boost::any_cast<string>(m["ProductDetail"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
+      serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
+    }
+    if (m.find("SplitBillingCycle") != m.end() && !m["SplitBillingCycle"].empty()) {
+      splitBillingCycle = make_shared<string>(boost::any_cast<string>(m["SplitBillingCycle"]));
+    }
+    if (m.find("SubscriptionType") != m.end() && !m["SubscriptionType"].empty()) {
+      subscriptionType = make_shared<string>(boost::any_cast<string>(m["SubscriptionType"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      usage = make_shared<string>(boost::any_cast<string>(m["Usage"]));
+    }
+    if (m.find("UsageUnit") != m.end() && !m["UsageUnit"].empty()) {
+      usageUnit = make_shared<string>(boost::any_cast<string>(m["UsageUnit"]));
+    }
+  }
+
+
+  virtual ~ListServiceInstanceBillResponseBodyItem() = default;
+};
+class ListServiceInstanceBillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListServiceInstanceBillResponseBodyItem>> item{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListServiceInstanceBillResponseBody() {}
+
+  explicit ListServiceInstanceBillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (item) {
+      vector<boost::any> temp1;
+      for(auto item1:*item){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Item"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Item") != m.end() && !m["Item"].empty()) {
+      if (typeid(vector<boost::any>) == m["Item"].type()) {
+        vector<ListServiceInstanceBillResponseBodyItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Item"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListServiceInstanceBillResponseBodyItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        item = make_shared<vector<ListServiceInstanceBillResponseBodyItem>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListServiceInstanceBillResponseBody() = default;
+};
+class ListServiceInstanceBillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListServiceInstanceBillResponseBody> body{};
+
+  ListServiceInstanceBillResponse() {}
+
+  explicit ListServiceInstanceBillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListServiceInstanceBillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListServiceInstanceBillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListServiceInstanceBillResponse() = default;
+};
 class ListServiceInstanceDeployDetailsRequestFilter : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -20582,6 +20945,7 @@ class UpdateServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alarmMetadata{};
   shared_ptr<string> approvalType{};
+  shared_ptr<string> buildParameters{};
   shared_ptr<string> clientToken{};
   shared_ptr<UpdateServiceRequestCommodity> commodity{};
   shared_ptr<UpdateServiceRequestComplianceMetadata> complianceMetadata{};
@@ -20622,6 +20986,9 @@ public:
     }
     if (approvalType) {
       res["ApprovalType"] = boost::any(*approvalType);
+    }
+    if (buildParameters) {
+      res["BuildParameters"] = boost::any(*buildParameters);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -20708,6 +21075,9 @@ public:
     }
     if (m.find("ApprovalType") != m.end() && !m["ApprovalType"].empty()) {
       approvalType = make_shared<string>(boost::any_cast<string>(m["ApprovalType"]));
+    }
+    if (m.find("BuildParameters") != m.end() && !m["BuildParameters"].empty()) {
+      buildParameters = make_shared<string>(boost::any_cast<string>(m["BuildParameters"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -20983,6 +21353,7 @@ class UpdateServiceShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alarmMetadata{};
   shared_ptr<string> approvalType{};
+  shared_ptr<string> buildParameters{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> commodityShrink{};
   shared_ptr<string> complianceMetadataShrink{};
@@ -21023,6 +21394,9 @@ public:
     }
     if (approvalType) {
       res["ApprovalType"] = boost::any(*approvalType);
+    }
+    if (buildParameters) {
+      res["BuildParameters"] = boost::any(*buildParameters);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -21109,6 +21483,9 @@ public:
     }
     if (m.find("ApprovalType") != m.end() && !m["ApprovalType"].empty()) {
       approvalType = make_shared<string>(boost::any_cast<string>(m["ApprovalType"]));
+    }
+    if (m.find("BuildParameters") != m.end() && !m["BuildParameters"].empty()) {
+      buildParameters = make_shared<string>(boost::any_cast<string>(m["BuildParameters"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -22886,6 +23263,8 @@ public:
   ListArtifactsResponse listArtifacts(shared_ptr<ListArtifactsRequest> request);
   ListResellersResponse listResellersWithOptions(shared_ptr<ListResellersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListResellersResponse listResellers(shared_ptr<ListResellersRequest> request);
+  ListServiceInstanceBillResponse listServiceInstanceBillWithOptions(shared_ptr<ListServiceInstanceBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListServiceInstanceBillResponse listServiceInstanceBill(shared_ptr<ListServiceInstanceBillRequest> request);
   ListServiceInstanceDeployDetailsResponse listServiceInstanceDeployDetailsWithOptions(shared_ptr<ListServiceInstanceDeployDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServiceInstanceDeployDetailsResponse listServiceInstanceDeployDetails(shared_ptr<ListServiceInstanceDeployDetailsRequest> request);
   ListServiceInstanceLogsResponse listServiceInstanceLogsWithOptions(shared_ptr<ListServiceInstanceLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
