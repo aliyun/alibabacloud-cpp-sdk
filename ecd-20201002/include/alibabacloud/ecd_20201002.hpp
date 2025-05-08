@@ -4818,6 +4818,7 @@ public:
   shared_ptr<string> label{};
   shared_ptr<string> loginToken{};
   shared_ptr<string> nextStage{};
+  shared_ptr<string> nickName{};
   shared_ptr<GetLoginTokenResponseBodyPasswordStrategy> passwordStrategy{};
   shared_ptr<string> phone{};
   shared_ptr<map<string, string>> props{};
@@ -4860,6 +4861,9 @@ public:
     }
     if (nextStage) {
       res["NextStage"] = boost::any(*nextStage);
+    }
+    if (nickName) {
+      res["NickName"] = boost::any(*nickName);
     }
     if (passwordStrategy) {
       res["PasswordStrategy"] = passwordStrategy ? boost::any(passwordStrategy->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4918,6 +4922,9 @@ public:
     }
     if (m.find("NextStage") != m.end() && !m["NextStage"].empty()) {
       nextStage = make_shared<string>(boost::any_cast<string>(m["NextStage"]));
+    }
+    if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
+      nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
     }
     if (m.find("PasswordStrategy") != m.end() && !m["PasswordStrategy"].empty()) {
       if (typeid(map<string, boost::any>) == m["PasswordStrategy"].type()) {
