@@ -4967,6 +4967,9 @@ ScaleWithAdjustmentResponse Alibabacloud_Ess20220222::Client::scaleWithAdjustmen
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->parallelTask)) {
+    query->insert(pair<string, bool>("ParallelTask", *request->parallelTask));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }

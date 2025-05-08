@@ -37937,6 +37937,7 @@ public:
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<ScaleWithAdjustmentRequestOverrides> overrides{};
   shared_ptr<long> ownerId{};
+  shared_ptr<bool> parallelTask{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scalingGroupId{};
   shared_ptr<bool> syncActivity{};
@@ -37974,6 +37975,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (parallelTask) {
+      res["ParallelTask"] = boost::any(*parallelTask);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -38020,6 +38024,9 @@ public:
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
+    if (m.find("ParallelTask") != m.end() && !m["ParallelTask"].empty()) {
+      parallelTask = make_shared<bool>(boost::any_cast<bool>(m["ParallelTask"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -38044,6 +38051,7 @@ public:
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<string> overridesShrink{};
   shared_ptr<long> ownerId{};
+  shared_ptr<bool> parallelTask{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scalingGroupId{};
   shared_ptr<bool> syncActivity{};
@@ -38082,6 +38090,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (parallelTask) {
+      res["ParallelTask"] = boost::any(*parallelTask);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -38118,6 +38129,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ParallelTask") != m.end() && !m["ParallelTask"].empty()) {
+      parallelTask = make_shared<bool>(boost::any_cast<bool>(m["ParallelTask"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
