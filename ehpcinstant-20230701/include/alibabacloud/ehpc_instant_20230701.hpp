@@ -3807,6 +3807,7 @@ public:
 };
 class GetJobResponseBodyJobInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> appExtraInfo{};
   shared_ptr<string> createTime{};
   shared_ptr<GetJobResponseBodyJobInfoDeploymentPolicy> deploymentPolicy{};
   shared_ptr<string> endTime{};
@@ -3828,6 +3829,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appExtraInfo) {
+      res["AppExtraInfo"] = boost::any(*appExtraInfo);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -3866,6 +3870,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppExtraInfo") != m.end() && !m["AppExtraInfo"].empty()) {
+      appExtraInfo = make_shared<string>(boost::any_cast<string>(m["AppExtraInfo"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -5918,6 +5925,7 @@ public:
 };
 class ListJobsResponseBodyJobList : public Darabonba::Model {
 public:
+  shared_ptr<string> appExtraInfo{};
   shared_ptr<string> appName{};
   shared_ptr<string> createTime{};
   shared_ptr<string> endTime{};
@@ -5942,6 +5950,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appExtraInfo) {
+      res["AppExtraInfo"] = boost::any(*appExtraInfo);
+    }
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
@@ -5989,6 +6000,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppExtraInfo") != m.end() && !m["AppExtraInfo"].empty()) {
+      appExtraInfo = make_shared<string>(boost::any_cast<string>(m["AppExtraInfo"]));
+    }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
