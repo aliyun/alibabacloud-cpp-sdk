@@ -2019,6 +2019,27 @@ DescribeInvadeEventListResponse Alibabacloud_Cloudfw20171207::Client::describeIn
   return describeInvadeEventListWithOptions(request, runtime);
 }
 
+DescribeLogStoreInfoResponse Alibabacloud_Cloudfw20171207::Client::describeLogStoreInfoWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeLogStoreInfo"))},
+    {"version", boost::any(string("2017-12-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeLogStoreInfoResponse(callApi(params, req, runtime));
+}
+
+DescribeLogStoreInfoResponse Alibabacloud_Cloudfw20171207::Client::describeLogStoreInfo() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeLogStoreInfoWithOptions(runtime);
+}
+
 DescribeNatAclPageStatusResponse Alibabacloud_Cloudfw20171207::Client::describeNatAclPageStatusWithOptions(shared_ptr<DescribeNatAclPageStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2204,6 +2225,31 @@ DescribeNatFirewallPolicyPriorUsedResponse Alibabacloud_Cloudfw20171207::Client:
 DescribeNatFirewallPolicyPriorUsedResponse Alibabacloud_Cloudfw20171207::Client::describeNatFirewallPolicyPriorUsed(shared_ptr<DescribeNatFirewallPolicyPriorUsedRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeNatFirewallPolicyPriorUsedWithOptions(request, runtime);
+}
+
+DescribeNatFirewallTrafficTrendResponse Alibabacloud_Cloudfw20171207::Client::describeNatFirewallTrafficTrendWithOptions(shared_ptr<DescribeNatFirewallTrafficTrendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeNatFirewallTrafficTrend"))},
+    {"version", boost::any(string("2017-12-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeNatFirewallTrafficTrendResponse(callApi(params, req, runtime));
+}
+
+DescribeNatFirewallTrafficTrendResponse Alibabacloud_Cloudfw20171207::Client::describeNatFirewallTrafficTrend(shared_ptr<DescribeNatFirewallTrafficTrendRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeNatFirewallTrafficTrendWithOptions(request, runtime);
 }
 
 DescribeOutgoingDestinationIPResponse Alibabacloud_Cloudfw20171207::Client::describeOutgoingDestinationIPWithOptions(shared_ptr<DescribeOutgoingDestinationIPRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

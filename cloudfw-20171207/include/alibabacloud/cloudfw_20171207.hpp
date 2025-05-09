@@ -8237,6 +8237,9 @@ public:
   shared_ptr<string> assetsType{};
   shared_ptr<long> detailNum{};
   shared_ptr<bool> hasAclRecommend{};
+  shared_ptr<long> inBytes{};
+  shared_ptr<long> memberUid{};
+  shared_ptr<long> outBytes{};
   shared_ptr<vector<string>> portList{};
   shared_ptr<string> publicIp{};
   shared_ptr<string> regionNo{};
@@ -8244,10 +8247,12 @@ public:
   shared_ptr<string> riskReason{};
   shared_ptr<vector<string>> serviceNameList{};
   shared_ptr<long> srcIpCnt{};
+  shared_ptr<long> totalBytes{};
   shared_ptr<long> totalReplyBytes{};
   shared_ptr<string> trafficPercent1Day{};
   shared_ptr<string> trafficPercent30Day{};
   shared_ptr<string> trafficPercent7Day{};
+  shared_ptr<vector<string>> unknownReason{};
 
   DescribeInternetOpenIpResponseBodyDataList() {}
 
@@ -8277,6 +8282,15 @@ public:
     if (hasAclRecommend) {
       res["HasAclRecommend"] = boost::any(*hasAclRecommend);
     }
+    if (inBytes) {
+      res["InBytes"] = boost::any(*inBytes);
+    }
+    if (memberUid) {
+      res["MemberUid"] = boost::any(*memberUid);
+    }
+    if (outBytes) {
+      res["OutBytes"] = boost::any(*outBytes);
+    }
     if (portList) {
       res["PortList"] = boost::any(*portList);
     }
@@ -8298,6 +8312,9 @@ public:
     if (srcIpCnt) {
       res["SrcIpCnt"] = boost::any(*srcIpCnt);
     }
+    if (totalBytes) {
+      res["TotalBytes"] = boost::any(*totalBytes);
+    }
     if (totalReplyBytes) {
       res["TotalReplyBytes"] = boost::any(*totalReplyBytes);
     }
@@ -8309,6 +8326,9 @@ public:
     }
     if (trafficPercent7Day) {
       res["TrafficPercent7Day"] = boost::any(*trafficPercent7Day);
+    }
+    if (unknownReason) {
+      res["UnknownReason"] = boost::any(*unknownReason);
     }
     return res;
   }
@@ -8331,6 +8351,15 @@ public:
     }
     if (m.find("HasAclRecommend") != m.end() && !m["HasAclRecommend"].empty()) {
       hasAclRecommend = make_shared<bool>(boost::any_cast<bool>(m["HasAclRecommend"]));
+    }
+    if (m.find("InBytes") != m.end() && !m["InBytes"].empty()) {
+      inBytes = make_shared<long>(boost::any_cast<long>(m["InBytes"]));
+    }
+    if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
+      memberUid = make_shared<long>(boost::any_cast<long>(m["MemberUid"]));
+    }
+    if (m.find("OutBytes") != m.end() && !m["OutBytes"].empty()) {
+      outBytes = make_shared<long>(boost::any_cast<long>(m["OutBytes"]));
     }
     if (m.find("PortList") != m.end() && !m["PortList"].empty()) {
       vector<string> toVec1;
@@ -8367,6 +8396,9 @@ public:
     if (m.find("SrcIpCnt") != m.end() && !m["SrcIpCnt"].empty()) {
       srcIpCnt = make_shared<long>(boost::any_cast<long>(m["SrcIpCnt"]));
     }
+    if (m.find("TotalBytes") != m.end() && !m["TotalBytes"].empty()) {
+      totalBytes = make_shared<long>(boost::any_cast<long>(m["TotalBytes"]));
+    }
     if (m.find("TotalReplyBytes") != m.end() && !m["TotalReplyBytes"].empty()) {
       totalReplyBytes = make_shared<long>(boost::any_cast<long>(m["TotalReplyBytes"]));
     }
@@ -8378,6 +8410,16 @@ public:
     }
     if (m.find("TrafficPercent7Day") != m.end() && !m["TrafficPercent7Day"].empty()) {
       trafficPercent7Day = make_shared<string>(boost::any_cast<string>(m["TrafficPercent7Day"]));
+    }
+    if (m.find("UnknownReason") != m.end() && !m["UnknownReason"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UnknownReason"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UnknownReason"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      unknownReason = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -9382,6 +9424,122 @@ public:
 
 
   virtual ~DescribeInvadeEventListResponse() = default;
+};
+class DescribeLogStoreInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> logStoreName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<long> quota{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> ttl{};
+  shared_ptr<long> used{};
+
+  DescribeLogStoreInfoResponseBody() {}
+
+  explicit DescribeLogStoreInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logStoreName) {
+      res["LogStoreName"] = boost::any(*logStoreName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (quota) {
+      res["Quota"] = boost::any(*quota);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
+    }
+    if (used) {
+      res["Used"] = boost::any(*used);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
+      logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Quota") != m.end() && !m["Quota"].empty()) {
+      quota = make_shared<long>(boost::any_cast<long>(m["Quota"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
+    }
+    if (m.find("Used") != m.end() && !m["Used"].empty()) {
+      used = make_shared<long>(boost::any_cast<long>(m["Used"]));
+    }
+  }
+
+
+  virtual ~DescribeLogStoreInfoResponseBody() = default;
+};
+class DescribeLogStoreInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeLogStoreInfoResponseBody> body{};
+
+  DescribeLogStoreInfoResponse() {}
+
+  explicit DescribeLogStoreInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeLogStoreInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeLogStoreInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeLogStoreInfoResponse() = default;
 };
 class DescribeNatAclPageStatusRequest : public Darabonba::Model {
 public:
@@ -10547,6 +10705,243 @@ public:
 
   virtual ~DescribeNatFirewallPolicyPriorUsedResponse() = default;
 };
+class DescribeNatFirewallTrafficTrendRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> natGatewayId{};
+  shared_ptr<string> srcPrivateIP{};
+  shared_ptr<string> srcPublicIP{};
+  shared_ptr<long> startTime{};
+
+  DescribeNatFirewallTrafficTrendRequest() {}
+
+  explicit DescribeNatFirewallTrafficTrendRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (srcPrivateIP) {
+      res["SrcPrivateIP"] = boost::any(*srcPrivateIP);
+    }
+    if (srcPublicIP) {
+      res["SrcPublicIP"] = boost::any(*srcPublicIP);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("SrcPrivateIP") != m.end() && !m["SrcPrivateIP"].empty()) {
+      srcPrivateIP = make_shared<string>(boost::any_cast<string>(m["SrcPrivateIP"]));
+    }
+    if (m.find("SrcPublicIP") != m.end() && !m["SrcPublicIP"].empty()) {
+      srcPublicIP = make_shared<string>(boost::any_cast<string>(m["SrcPublicIP"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallTrafficTrendRequest() = default;
+};
+class DescribeNatFirewallTrafficTrendResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<long> maxInBps{};
+  shared_ptr<long> maxOutBps{};
+  shared_ptr<long> maxTotalBps{};
+  shared_ptr<long> trafficTime{};
+
+  DescribeNatFirewallTrafficTrendResponseBodyDataList() {}
+
+  explicit DescribeNatFirewallTrafficTrendResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxInBps) {
+      res["MaxInBps"] = boost::any(*maxInBps);
+    }
+    if (maxOutBps) {
+      res["MaxOutBps"] = boost::any(*maxOutBps);
+    }
+    if (maxTotalBps) {
+      res["MaxTotalBps"] = boost::any(*maxTotalBps);
+    }
+    if (trafficTime) {
+      res["TrafficTime"] = boost::any(*trafficTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxInBps") != m.end() && !m["MaxInBps"].empty()) {
+      maxInBps = make_shared<long>(boost::any_cast<long>(m["MaxInBps"]));
+    }
+    if (m.find("MaxOutBps") != m.end() && !m["MaxOutBps"].empty()) {
+      maxOutBps = make_shared<long>(boost::any_cast<long>(m["MaxOutBps"]));
+    }
+    if (m.find("MaxTotalBps") != m.end() && !m["MaxTotalBps"].empty()) {
+      maxTotalBps = make_shared<long>(boost::any_cast<long>(m["MaxTotalBps"]));
+    }
+    if (m.find("TrafficTime") != m.end() && !m["TrafficTime"].empty()) {
+      trafficTime = make_shared<long>(boost::any_cast<long>(m["TrafficTime"]));
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallTrafficTrendResponseBodyDataList() = default;
+};
+class DescribeNatFirewallTrafficTrendResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNatFirewallTrafficTrendResponseBodyDataList>> dataList{};
+  shared_ptr<long> maxInBps{};
+  shared_ptr<long> maxOutBps{};
+  shared_ptr<long> maxTotalBps{};
+  shared_ptr<string> requestId{};
+
+  DescribeNatFirewallTrafficTrendResponseBody() {}
+
+  explicit DescribeNatFirewallTrafficTrendResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DataList"] = boost::any(temp1);
+    }
+    if (maxInBps) {
+      res["MaxInBps"] = boost::any(*maxInBps);
+    }
+    if (maxOutBps) {
+      res["MaxOutBps"] = boost::any(*maxOutBps);
+    }
+    if (maxTotalBps) {
+      res["MaxTotalBps"] = boost::any(*maxTotalBps);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataList") != m.end() && !m["DataList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DataList"].type()) {
+        vector<DescribeNatFirewallTrafficTrendResponseBodyDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DataList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNatFirewallTrafficTrendResponseBodyDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataList = make_shared<vector<DescribeNatFirewallTrafficTrendResponseBodyDataList>>(expect1);
+      }
+    }
+    if (m.find("MaxInBps") != m.end() && !m["MaxInBps"].empty()) {
+      maxInBps = make_shared<long>(boost::any_cast<long>(m["MaxInBps"]));
+    }
+    if (m.find("MaxOutBps") != m.end() && !m["MaxOutBps"].empty()) {
+      maxOutBps = make_shared<long>(boost::any_cast<long>(m["MaxOutBps"]));
+    }
+    if (m.find("MaxTotalBps") != m.end() && !m["MaxTotalBps"].empty()) {
+      maxTotalBps = make_shared<long>(boost::any_cast<long>(m["MaxTotalBps"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallTrafficTrendResponseBody() = default;
+};
+class DescribeNatFirewallTrafficTrendResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNatFirewallTrafficTrendResponseBody> body{};
+
+  DescribeNatFirewallTrafficTrendResponse() {}
+
+  explicit DescribeNatFirewallTrafficTrendResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNatFirewallTrafficTrendResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNatFirewallTrafficTrendResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallTrafficTrendResponse() = default;
+};
 class DescribeOutgoingDestinationIPRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationName{};
@@ -10707,6 +11102,7 @@ class DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList : pu
 public:
   shared_ptr<string> applicationName{};
   shared_ptr<long> port{};
+  shared_ptr<vector<string>> unknownReason{};
 
   DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList() {}
 
@@ -10724,6 +11120,9 @@ public:
     if (port) {
       res["Port"] = boost::any(*port);
     }
+    if (unknownReason) {
+      res["UnknownReason"] = boost::any(*unknownReason);
+    }
     return res;
   }
 
@@ -10733,6 +11132,16 @@ public:
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("UnknownReason") != m.end() && !m["UnknownReason"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UnknownReason"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UnknownReason"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      unknownReason = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -25711,6 +26120,8 @@ public:
   DescribeInternetTrafficTrendResponse describeInternetTrafficTrend(shared_ptr<DescribeInternetTrafficTrendRequest> request);
   DescribeInvadeEventListResponse describeInvadeEventListWithOptions(shared_ptr<DescribeInvadeEventListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInvadeEventListResponse describeInvadeEventList(shared_ptr<DescribeInvadeEventListRequest> request);
+  DescribeLogStoreInfoResponse describeLogStoreInfoWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeLogStoreInfoResponse describeLogStoreInfo();
   DescribeNatAclPageStatusResponse describeNatAclPageStatusWithOptions(shared_ptr<DescribeNatAclPageStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNatAclPageStatusResponse describeNatAclPageStatus(shared_ptr<DescribeNatAclPageStatusRequest> request);
   DescribeNatFirewallControlPolicyResponse describeNatFirewallControlPolicyWithOptions(shared_ptr<DescribeNatFirewallControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -25719,6 +26130,8 @@ public:
   DescribeNatFirewallListResponse describeNatFirewallList(shared_ptr<DescribeNatFirewallListRequest> request);
   DescribeNatFirewallPolicyPriorUsedResponse describeNatFirewallPolicyPriorUsedWithOptions(shared_ptr<DescribeNatFirewallPolicyPriorUsedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNatFirewallPolicyPriorUsedResponse describeNatFirewallPolicyPriorUsed(shared_ptr<DescribeNatFirewallPolicyPriorUsedRequest> request);
+  DescribeNatFirewallTrafficTrendResponse describeNatFirewallTrafficTrendWithOptions(shared_ptr<DescribeNatFirewallTrafficTrendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNatFirewallTrafficTrendResponse describeNatFirewallTrafficTrend(shared_ptr<DescribeNatFirewallTrafficTrendRequest> request);
   DescribeOutgoingDestinationIPResponse describeOutgoingDestinationIPWithOptions(shared_ptr<DescribeOutgoingDestinationIPRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeOutgoingDestinationIPResponse describeOutgoingDestinationIP(shared_ptr<DescribeOutgoingDestinationIPRequest> request);
   DescribeOutgoingDomainResponse describeOutgoingDomainWithOptions(shared_ptr<DescribeOutgoingDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
