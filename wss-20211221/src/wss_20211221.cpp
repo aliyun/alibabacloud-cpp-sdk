@@ -54,6 +54,9 @@ CreateMultiOrderResponse Alibabacloud_Wss20211221::Client::createMultiOrderWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->propertiesShrink)) {
     query->insert(pair<string, string>("Properties", *request->propertiesShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resellerOwnerUid)) {
+    query->insert(pair<string, long>("ResellerOwnerUid", *request->resellerOwnerUid));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -68,12 +71,7 @@ CreateMultiOrderResponse Alibabacloud_Wss20211221::Client::createMultiOrderWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateMultiOrderResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateMultiOrderResponse(execute(params, req, runtime));
-  }
+  return CreateMultiOrderResponse(callApi(params, req, runtime));
 }
 
 CreateMultiOrderResponse Alibabacloud_Wss20211221::Client::createMultiOrder(shared_ptr<CreateMultiOrderRequest> request) {
@@ -94,17 +92,49 @@ DescribeDeliveryAddressResponse Alibabacloud_Wss20211221::Client::describeDelive
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDeliveryAddressResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDeliveryAddressResponse(execute(params, req, runtime));
-  }
+  return DescribeDeliveryAddressResponse(callApi(params, req, runtime));
 }
 
 DescribeDeliveryAddressResponse Alibabacloud_Wss20211221::Client::describeDeliveryAddress() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeDeliveryAddressWithOptions(runtime);
+}
+
+DescribeMultiPriceResponse Alibabacloud_Wss20211221::Client::describeMultiPriceWithOptions(shared_ptr<DescribeMultiPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeMultiPriceRequestOrderItems>>(request->orderItems)) {
+    query->insert(pair<string, vector<DescribeMultiPriceRequestOrderItems>>("OrderItems", *request->orderItems));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderType)) {
+    query->insert(pair<string, string>("OrderType", *request->orderType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->packageCode)) {
+    query->insert(pair<string, string>("PackageCode", *request->packageCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resellerOwnerUid)) {
+    query->insert(pair<string, long>("ResellerOwnerUid", *request->resellerOwnerUid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeMultiPrice"))},
+    {"version", boost::any(string("2021-12-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeMultiPriceResponse(callApi(params, req, runtime));
+}
+
+DescribeMultiPriceResponse Alibabacloud_Wss20211221::Client::describeMultiPrice(shared_ptr<DescribeMultiPriceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeMultiPriceWithOptions(request, runtime);
 }
 
 DescribePackageDeductionsResponse Alibabacloud_Wss20211221::Client::describePackageDeductionsWithOptions(shared_ptr<DescribePackageDeductionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -145,12 +175,7 @@ DescribePackageDeductionsResponse Alibabacloud_Wss20211221::Client::describePack
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribePackageDeductionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribePackageDeductionsResponse(execute(params, req, runtime));
-  }
+  return DescribePackageDeductionsResponse(callApi(params, req, runtime));
 }
 
 DescribePackageDeductionsResponse Alibabacloud_Wss20211221::Client::describePackageDeductions(shared_ptr<DescribePackageDeductionsRequest> request) {
@@ -190,12 +215,7 @@ ModifyInstancePropertiesResponse Alibabacloud_Wss20211221::Client::modifyInstanc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyInstancePropertiesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyInstancePropertiesResponse(execute(params, req, runtime));
-  }
+  return ModifyInstancePropertiesResponse(callApi(params, req, runtime));
 }
 
 ModifyInstancePropertiesResponse Alibabacloud_Wss20211221::Client::modifyInstanceProperties(shared_ptr<ModifyInstancePropertiesRequest> request) {
