@@ -218,6 +218,9 @@ CreateElasticNetworkInterfaceResponse Alibabacloud_Eflo20220530::Client::createE
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     body->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateElasticNetworkInterfaceRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<CreateElasticNetworkInterfaceRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     body->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
@@ -1731,6 +1734,9 @@ ListElasticNetworkInterfacesResponse Alibabacloud_Eflo20220530::Client::listElas
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     body->insert(pair<string, string>("Status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListElasticNetworkInterfacesRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<ListElasticNetworkInterfacesRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("Type", *request->type));
   }
@@ -2188,6 +2194,9 @@ ListNetworkInterfacesResponse Alibabacloud_Eflo20220530::Client::listNetworkInte
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subnetId)) {
     body->insert(pair<string, string>("SubnetId", *request->subnetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListNetworkInterfacesRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<ListNetworkInterfacesRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpdId)) {
     body->insert(pair<string, string>("VpdId", *request->vpdId));
