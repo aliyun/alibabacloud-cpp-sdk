@@ -20736,6 +20736,7 @@ public:
   shared_ptr<string> agentKey{};
   shared_ptr<string> contentDomain{};
   shared_ptr<long> current{};
+  shared_ptr<string> dataType{};
   shared_ptr<string> endTime{};
   shared_ptr<string> query{};
   shared_ptr<long> size{};
@@ -20761,6 +20762,9 @@ public:
     }
     if (current) {
       res["Current"] = boost::any(*current);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -20793,6 +20797,9 @@ public:
     if (m.find("Current") != m.end() && !m["Current"].empty()) {
       current = make_shared<long>(boost::any_cast<long>(m["Current"]));
     }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -20816,6 +20823,56 @@ public:
 
   virtual ~ListGeneratedContentsRequest() = default;
 };
+class ListGeneratedContentsResponseBodyDataFileAttr : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<long> height{};
+  shared_ptr<string> tmpUrl{};
+  shared_ptr<long> width{};
+
+  ListGeneratedContentsResponseBodyDataFileAttr() {}
+
+  explicit ListGeneratedContentsResponseBodyDataFileAttr(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (tmpUrl) {
+      res["TmpUrl"] = boost::any(*tmpUrl);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("TmpUrl") != m.end() && !m["TmpUrl"].empty()) {
+      tmpUrl = make_shared<string>(boost::any_cast<string>(m["TmpUrl"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~ListGeneratedContentsResponseBodyDataFileAttr() = default;
+};
 class ListGeneratedContentsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -20824,6 +20881,8 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> createUser{};
   shared_ptr<string> deviceId{};
+  shared_ptr<ListGeneratedContentsResponseBodyDataFileAttr> fileAttr{};
+  shared_ptr<string> fileKey{};
   shared_ptr<long> id{};
   shared_ptr<vector<string>> keywordList{};
   shared_ptr<string> keywords{};
@@ -20861,6 +20920,12 @@ public:
     }
     if (deviceId) {
       res["DeviceId"] = boost::any(*deviceId);
+    }
+    if (fileAttr) {
+      res["FileAttr"] = fileAttr ? boost::any(fileAttr->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fileKey) {
+      res["FileKey"] = boost::any(*fileKey);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -20910,6 +20975,16 @@ public:
     }
     if (m.find("DeviceId") != m.end() && !m["DeviceId"].empty()) {
       deviceId = make_shared<string>(boost::any_cast<string>(m["DeviceId"]));
+    }
+    if (m.find("FileAttr") != m.end() && !m["FileAttr"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FileAttr"].type()) {
+        ListGeneratedContentsResponseBodyDataFileAttr model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FileAttr"]));
+        fileAttr = make_shared<ListGeneratedContentsResponseBodyDataFileAttr>(model1);
+      }
+    }
+    if (m.find("FileKey") != m.end() && !m["FileKey"].empty()) {
+      fileKey = make_shared<string>(boost::any_cast<string>(m["FileKey"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
@@ -24273,6 +24348,70 @@ public:
 
   virtual ~ListMaterialDocumentsShrinkRequest() = default;
 };
+class ListMaterialDocumentsResponseBodyDataFileAttr : public Darabonba::Model {
+public:
+  shared_ptr<double> duration{};
+  shared_ptr<long> fileLength{};
+  shared_ptr<string> fileName{};
+  shared_ptr<long> height{};
+  shared_ptr<string> mimeType{};
+  shared_ptr<long> width{};
+
+  ListMaterialDocumentsResponseBodyDataFileAttr() {}
+
+  explicit ListMaterialDocumentsResponseBodyDataFileAttr(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (fileLength) {
+      res["FileLength"] = boost::any(*fileLength);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (mimeType) {
+      res["MimeType"] = boost::any(*mimeType);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
+    }
+    if (m.find("FileLength") != m.end() && !m["FileLength"].empty()) {
+      fileLength = make_shared<long>(boost::any_cast<long>(m["FileLength"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("MimeType") != m.end() && !m["MimeType"].empty()) {
+      mimeType = make_shared<string>(boost::any_cast<string>(m["MimeType"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~ListMaterialDocumentsResponseBodyDataFileAttr() = default;
+};
 class ListMaterialDocumentsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> author{};
@@ -24282,6 +24421,8 @@ public:
   shared_ptr<vector<string>> docKeywords{};
   shared_ptr<string> docType{};
   shared_ptr<string> externalUrl{};
+  shared_ptr<ListMaterialDocumentsResponseBodyDataFileAttr> fileAttr{};
+  shared_ptr<string> fileKey{};
   shared_ptr<string> htmlContent{};
   shared_ptr<long> id{};
   shared_ptr<string> pubTime{};
@@ -24327,6 +24468,12 @@ public:
     }
     if (externalUrl) {
       res["ExternalUrl"] = boost::any(*externalUrl);
+    }
+    if (fileAttr) {
+      res["FileAttr"] = fileAttr ? boost::any(fileAttr->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fileKey) {
+      res["FileKey"] = boost::any(*fileKey);
     }
     if (htmlContent) {
       res["HtmlContent"] = boost::any(*htmlContent);
@@ -24401,6 +24548,16 @@ public:
     }
     if (m.find("ExternalUrl") != m.end() && !m["ExternalUrl"].empty()) {
       externalUrl = make_shared<string>(boost::any_cast<string>(m["ExternalUrl"]));
+    }
+    if (m.find("FileAttr") != m.end() && !m["FileAttr"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FileAttr"].type()) {
+        ListMaterialDocumentsResponseBodyDataFileAttr model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FileAttr"]));
+        fileAttr = make_shared<ListMaterialDocumentsResponseBodyDataFileAttr>(model1);
+      }
+    }
+    if (m.find("FileKey") != m.end() && !m["FileKey"].empty()) {
+      fileKey = make_shared<string>(boost::any_cast<string>(m["FileKey"]));
     }
     if (m.find("HtmlContent") != m.end() && !m["HtmlContent"].empty()) {
       htmlContent = make_shared<string>(boost::any_cast<string>(m["HtmlContent"]));

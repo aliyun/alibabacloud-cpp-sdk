@@ -2452,6 +2452,9 @@ ListGeneratedContentsResponse Alibabacloud_AiMiaoBi20230801::Client::listGenerat
   if (!Darabonba_Util::Client::isUnset<long>(request->current)) {
     body->insert(pair<string, long>("Current", *request->current));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataType)) {
+    body->insert(pair<string, string>("DataType", *request->dataType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     body->insert(pair<string, string>("EndTime", *request->endTime));
   }
