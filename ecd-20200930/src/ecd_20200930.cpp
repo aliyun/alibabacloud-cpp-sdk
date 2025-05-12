@@ -5261,6 +5261,9 @@ DescribeModificationPriceResponse Alibabacloud_Ecd20200930::Client::describeModi
   if (!Darabonba_Util::Client::isUnset<long>(request->resellerOwnerUid)) {
     query->insert(pair<string, long>("ResellerOwnerUid", *request->resellerOwnerUid));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeModificationPriceRequestResourceSpecs>>(request->resourceSpecs)) {
+    query->insert(pair<string, vector<DescribeModificationPriceRequestResourceSpecs>>("ResourceSpecs", *request->resourceSpecs));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }

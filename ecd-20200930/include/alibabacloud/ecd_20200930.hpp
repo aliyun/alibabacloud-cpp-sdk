@@ -28877,6 +28877,49 @@ public:
 
   virtual ~DescribeKmsKeysResponse() = default;
 };
+class DescribeModificationPriceRequestResourceSpecs : public Darabonba::Model {
+public:
+  shared_ptr<string> desktopId{};
+  shared_ptr<long> rootDiskSizeGib{};
+  shared_ptr<long> userDiskSizeGib{};
+
+  DescribeModificationPriceRequestResourceSpecs() {}
+
+  explicit DescribeModificationPriceRequestResourceSpecs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desktopId) {
+      res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (rootDiskSizeGib) {
+      res["RootDiskSizeGib"] = boost::any(*rootDiskSizeGib);
+    }
+    if (userDiskSizeGib) {
+      res["UserDiskSizeGib"] = boost::any(*userDiskSizeGib);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
+      desktopId = make_shared<string>(boost::any_cast<string>(m["DesktopId"]));
+    }
+    if (m.find("RootDiskSizeGib") != m.end() && !m["RootDiskSizeGib"].empty()) {
+      rootDiskSizeGib = make_shared<long>(boost::any_cast<long>(m["RootDiskSizeGib"]));
+    }
+    if (m.find("UserDiskSizeGib") != m.end() && !m["UserDiskSizeGib"].empty()) {
+      userDiskSizeGib = make_shared<long>(boost::any_cast<long>(m["UserDiskSizeGib"]));
+    }
+  }
+
+
+  virtual ~DescribeModificationPriceRequestResourceSpecs() = default;
+};
 class DescribeModificationPriceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -28884,6 +28927,7 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resellerOwnerUid{};
+  shared_ptr<vector<DescribeModificationPriceRequestResourceSpecs>> resourceSpecs{};
   shared_ptr<string> resourceType{};
   shared_ptr<long> rootDiskSizeGib{};
   shared_ptr<long> userDiskSizeGib{};
@@ -28913,6 +28957,13 @@ public:
     if (resellerOwnerUid) {
       res["ResellerOwnerUid"] = boost::any(*resellerOwnerUid);
     }
+    if (resourceSpecs) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceSpecs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceSpecs"] = boost::any(temp1);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -28940,6 +28991,19 @@ public:
     }
     if (m.find("ResellerOwnerUid") != m.end() && !m["ResellerOwnerUid"].empty()) {
       resellerOwnerUid = make_shared<long>(boost::any_cast<long>(m["ResellerOwnerUid"]));
+    }
+    if (m.find("ResourceSpecs") != m.end() && !m["ResourceSpecs"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceSpecs"].type()) {
+        vector<DescribeModificationPriceRequestResourceSpecs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceSpecs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeModificationPriceRequestResourceSpecs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceSpecs = make_shared<vector<DescribeModificationPriceRequestResourceSpecs>>(expect1);
+      }
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
