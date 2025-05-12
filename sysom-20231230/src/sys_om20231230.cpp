@@ -64,18 +64,46 @@ AuthDiagnosisResponse Alibabacloud_SysOM20231230::Client::authDiagnosisWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AuthDiagnosisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AuthDiagnosisResponse(execute(params, req, runtime));
-  }
+  return AuthDiagnosisResponse(callApi(params, req, runtime));
 }
 
 AuthDiagnosisResponse Alibabacloud_SysOM20231230::Client::authDiagnosis(shared_ptr<AuthDiagnosisRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return authDiagnosisWithOptions(request, headers, runtime);
+}
+
+CheckInstanceSupportResponse Alibabacloud_SysOM20231230::Client::checkInstanceSupportWithOptions(shared_ptr<CheckInstanceSupportRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instances)) {
+    body->insert(pair<string, vector<string>>("instances", *request->instances));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    body->insert(pair<string, string>("region", *request->region));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckInstanceSupport"))},
+    {"version", boost::any(string("2023-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/am/supportInstanceList/checkInstanceSupport"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckInstanceSupportResponse(callApi(params, req, runtime));
+}
+
+CheckInstanceSupportResponse Alibabacloud_SysOM20231230::Client::checkInstanceSupport(shared_ptr<CheckInstanceSupportRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return checkInstanceSupportWithOptions(request, headers, runtime);
 }
 
 GenerateCopilotResponseResponse Alibabacloud_SysOM20231230::Client::generateCopilotResponseWithOptions(shared_ptr<GenerateCopilotResponseRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -99,12 +127,7 @@ GenerateCopilotResponseResponse Alibabacloud_SysOM20231230::Client::generateCopi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GenerateCopilotResponseResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GenerateCopilotResponseResponse(execute(params, req, runtime));
-  }
+  return GenerateCopilotResponseResponse(callApi(params, req, runtime));
 }
 
 GenerateCopilotResponseResponse Alibabacloud_SysOM20231230::Client::generateCopilotResponse(shared_ptr<GenerateCopilotResponseRequest> request) {
@@ -134,12 +157,7 @@ GenerateCopilotStreamResponseResponse Alibabacloud_SysOM20231230::Client::genera
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GenerateCopilotStreamResponseResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GenerateCopilotStreamResponseResponse(execute(params, req, runtime));
-  }
+  return GenerateCopilotStreamResponseResponse(callApi(params, req, runtime));
 }
 
 GenerateCopilotStreamResponseResponse Alibabacloud_SysOM20231230::Client::generateCopilotStreamResponse(shared_ptr<GenerateCopilotStreamResponseRequest> request) {
@@ -169,12 +187,7 @@ GetAIQueryResultResponse Alibabacloud_SysOM20231230::Client::getAIQueryResultWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAIQueryResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAIQueryResultResponse(execute(params, req, runtime));
-  }
+  return GetAIQueryResultResponse(callApi(params, req, runtime));
 }
 
 GetAIQueryResultResponse Alibabacloud_SysOM20231230::Client::getAIQueryResult(shared_ptr<GetAIQueryResultRequest> request) {
@@ -222,12 +235,7 @@ GetAbnormalEventsCountResponse Alibabacloud_SysOM20231230::Client::getAbnormalEv
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAbnormalEventsCountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAbnormalEventsCountResponse(execute(params, req, runtime));
-  }
+  return GetAbnormalEventsCountResponse(callApi(params, req, runtime));
 }
 
 GetAbnormalEventsCountResponse Alibabacloud_SysOM20231230::Client::getAbnormalEventsCount(shared_ptr<GetAbnormalEventsCountRequest> request) {
@@ -257,12 +265,7 @@ GetAgentResponse Alibabacloud_SysOM20231230::Client::getAgentWithOptions(shared_
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAgentResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAgentResponse(execute(params, req, runtime));
-  }
+  return GetAgentResponse(callApi(params, req, runtime));
 }
 
 GetAgentResponse Alibabacloud_SysOM20231230::Client::getAgent(shared_ptr<GetAgentRequest> request) {
@@ -292,12 +295,7 @@ GetAgentTaskResponse Alibabacloud_SysOM20231230::Client::getAgentTaskWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAgentTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAgentTaskResponse(execute(params, req, runtime));
-  }
+  return GetAgentTaskResponse(callApi(params, req, runtime));
 }
 
 GetAgentTaskResponse Alibabacloud_SysOM20231230::Client::getAgentTask(shared_ptr<GetAgentTaskRequest> request) {
@@ -327,12 +325,7 @@ GetCopilotHistoryResponse Alibabacloud_SysOM20231230::Client::getCopilotHistoryW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetCopilotHistoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetCopilotHistoryResponse(execute(params, req, runtime));
-  }
+  return GetCopilotHistoryResponse(callApi(params, req, runtime));
 }
 
 GetCopilotHistoryResponse Alibabacloud_SysOM20231230::Client::getCopilotHistory(shared_ptr<GetCopilotHistoryRequest> request) {
@@ -362,12 +355,7 @@ GetDiagnosisResultResponse Alibabacloud_SysOM20231230::Client::getDiagnosisResul
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDiagnosisResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDiagnosisResultResponse(execute(params, req, runtime));
-  }
+  return GetDiagnosisResultResponse(callApi(params, req, runtime));
 }
 
 GetDiagnosisResultResponse Alibabacloud_SysOM20231230::Client::getDiagnosisResult(shared_ptr<GetDiagnosisResultRequest> request) {
@@ -406,12 +394,7 @@ GetHealthPercentageResponse Alibabacloud_SysOM20231230::Client::getHealthPercent
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetHealthPercentageResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetHealthPercentageResponse(execute(params, req, runtime));
-  }
+  return GetHealthPercentageResponse(callApi(params, req, runtime));
 }
 
 GetHealthPercentageResponse Alibabacloud_SysOM20231230::Client::getHealthPercentage(shared_ptr<GetHealthPercentageRequest> request) {
@@ -450,12 +433,7 @@ GetHostCountResponse Alibabacloud_SysOM20231230::Client::getHostCountWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetHostCountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetHostCountResponse(execute(params, req, runtime));
-  }
+  return GetHostCountResponse(callApi(params, req, runtime));
 }
 
 GetHostCountResponse Alibabacloud_SysOM20231230::Client::getHostCount(shared_ptr<GetHostCountRequest> request) {
@@ -500,12 +478,7 @@ GetHotSpotUniqListResponse Alibabacloud_SysOM20231230::Client::getHotSpotUniqLis
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetHotSpotUniqListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetHotSpotUniqListResponse(execute(params, req, runtime));
-  }
+  return GetHotSpotUniqListResponse(callApi(params, req, runtime));
 }
 
 GetHotSpotUniqListResponse Alibabacloud_SysOM20231230::Client::getHotSpotUniqList(shared_ptr<GetHotSpotUniqListRequest> request) {
@@ -550,12 +523,7 @@ GetHotspotAnalysisResponse Alibabacloud_SysOM20231230::Client::getHotspotAnalysi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetHotspotAnalysisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetHotspotAnalysisResponse(execute(params, req, runtime));
-  }
+  return GetHotspotAnalysisResponse(callApi(params, req, runtime));
 }
 
 GetHotspotAnalysisResponse Alibabacloud_SysOM20231230::Client::getHotspotAnalysis(shared_ptr<GetHotspotAnalysisRequest> request) {
@@ -612,12 +580,7 @@ GetHotspotCompareResponse Alibabacloud_SysOM20231230::Client::getHotspotCompareW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetHotspotCompareResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetHotspotCompareResponse(execute(params, req, runtime));
-  }
+  return GetHotspotCompareResponse(callApi(params, req, runtime));
 }
 
 GetHotspotCompareResponse Alibabacloud_SysOM20231230::Client::getHotspotCompare(shared_ptr<GetHotspotCompareRequest> request) {
@@ -653,12 +616,7 @@ GetHotspotInstanceListResponse Alibabacloud_SysOM20231230::Client::getHotspotIns
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetHotspotInstanceListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetHotspotInstanceListResponse(execute(params, req, runtime));
-  }
+  return GetHotspotInstanceListResponse(callApi(params, req, runtime));
 }
 
 GetHotspotInstanceListResponse Alibabacloud_SysOM20231230::Client::getHotspotInstanceList(shared_ptr<GetHotspotInstanceListRequest> request) {
@@ -697,12 +655,7 @@ GetHotspotPidListResponse Alibabacloud_SysOM20231230::Client::getHotspotPidListW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetHotspotPidListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetHotspotPidListResponse(execute(params, req, runtime));
-  }
+  return GetHotspotPidListResponse(callApi(params, req, runtime));
 }
 
 GetHotspotPidListResponse Alibabacloud_SysOM20231230::Client::getHotspotPidList(shared_ptr<GetHotspotPidListRequest> request) {
@@ -747,12 +700,7 @@ GetHotspotTrackingResponse Alibabacloud_SysOM20231230::Client::getHotspotTrackin
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetHotspotTrackingResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetHotspotTrackingResponse(execute(params, req, runtime));
-  }
+  return GetHotspotTrackingResponse(callApi(params, req, runtime));
 }
 
 GetHotspotTrackingResponse Alibabacloud_SysOM20231230::Client::getHotspotTracking(shared_ptr<GetHotspotTrackingRequest> request) {
@@ -785,12 +733,7 @@ GetInstantScoreResponse Alibabacloud_SysOM20231230::Client::getInstantScoreWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetInstantScoreResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetInstantScoreResponse(execute(params, req, runtime));
-  }
+  return GetInstantScoreResponse(callApi(params, req, runtime));
 }
 
 GetInstantScoreResponse Alibabacloud_SysOM20231230::Client::getInstantScore(shared_ptr<GetInstantScoreRequest> request) {
@@ -823,12 +766,7 @@ GetListRecordResponse Alibabacloud_SysOM20231230::Client::getListRecordWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetListRecordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetListRecordResponse(execute(params, req, runtime));
-  }
+  return GetListRecordResponse(callApi(params, req, runtime));
 }
 
 GetListRecordResponse Alibabacloud_SysOM20231230::Client::getListRecord(shared_ptr<GetListRecordRequest> request) {
@@ -867,12 +805,7 @@ GetProblemPercentageResponse Alibabacloud_SysOM20231230::Client::getProblemPerce
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetProblemPercentageResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetProblemPercentageResponse(execute(params, req, runtime));
-  }
+  return GetProblemPercentageResponse(callApi(params, req, runtime));
 }
 
 GetProblemPercentageResponse Alibabacloud_SysOM20231230::Client::getProblemPercentage(shared_ptr<GetProblemPercentageRequest> request) {
@@ -911,12 +844,7 @@ GetRangeScoreResponse Alibabacloud_SysOM20231230::Client::getRangeScoreWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetRangeScoreResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetRangeScoreResponse(execute(params, req, runtime));
-  }
+  return GetRangeScoreResponse(callApi(params, req, runtime));
 }
 
 GetRangeScoreResponse Alibabacloud_SysOM20231230::Client::getRangeScore(shared_ptr<GetRangeScoreRequest> request) {
@@ -952,12 +880,7 @@ GetResourcesResponse Alibabacloud_SysOM20231230::Client::getResourcesWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetResourcesResponse(execute(params, req, runtime));
-  }
+  return GetResourcesResponse(callApi(params, req, runtime));
 }
 
 GetResourcesResponse Alibabacloud_SysOM20231230::Client::getResources(shared_ptr<GetResourcesRequest> request) {
@@ -998,12 +921,7 @@ GetServiceFuncStatusResponse Alibabacloud_SysOM20231230::Client::getServiceFuncS
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetServiceFuncStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetServiceFuncStatusResponse(execute(params, req, runtime));
-  }
+  return GetServiceFuncStatusResponse(callApi(params, req, runtime));
 }
 
 GetServiceFuncStatusResponse Alibabacloud_SysOM20231230::Client::getServiceFuncStatus(shared_ptr<GetServiceFuncStatusRequest> request) {
@@ -1033,12 +951,7 @@ InitialSysomResponse Alibabacloud_SysOM20231230::Client::initialSysomWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return InitialSysomResponse(callApi(params, req, runtime));
-  }
-  else {
-    return InitialSysomResponse(execute(params, req, runtime));
-  }
+  return InitialSysomResponse(callApi(params, req, runtime));
 }
 
 InitialSysomResponse Alibabacloud_SysOM20231230::Client::initialSysom(shared_ptr<InitialSysomRequest> request) {
@@ -1077,12 +990,7 @@ InstallAgentResponse Alibabacloud_SysOM20231230::Client::installAgentWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return InstallAgentResponse(callApi(params, req, runtime));
-  }
-  else {
-    return InstallAgentResponse(execute(params, req, runtime));
-  }
+  return InstallAgentResponse(callApi(params, req, runtime));
 }
 
 InstallAgentResponse Alibabacloud_SysOM20231230::Client::installAgent(shared_ptr<InstallAgentRequest> request) {
@@ -1121,12 +1029,7 @@ InstallAgentForClusterResponse Alibabacloud_SysOM20231230::Client::installAgentF
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return InstallAgentForClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return InstallAgentForClusterResponse(execute(params, req, runtime));
-  }
+  return InstallAgentForClusterResponse(callApi(params, req, runtime));
 }
 
 InstallAgentForClusterResponse Alibabacloud_SysOM20231230::Client::installAgentForCluster(shared_ptr<InstallAgentForClusterRequest> request) {
@@ -1156,12 +1059,7 @@ InvokeAnomalyDiagnosisResponse Alibabacloud_SysOM20231230::Client::invokeAnomaly
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return InvokeAnomalyDiagnosisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return InvokeAnomalyDiagnosisResponse(execute(params, req, runtime));
-  }
+  return InvokeAnomalyDiagnosisResponse(callApi(params, req, runtime));
 }
 
 InvokeAnomalyDiagnosisResponse Alibabacloud_SysOM20231230::Client::invokeAnomalyDiagnosis(shared_ptr<InvokeAnomalyDiagnosisRequest> request) {
@@ -1197,12 +1095,7 @@ InvokeDiagnosisResponse Alibabacloud_SysOM20231230::Client::invokeDiagnosisWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return InvokeDiagnosisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return InvokeDiagnosisResponse(execute(params, req, runtime));
-  }
+  return InvokeDiagnosisResponse(callApi(params, req, runtime));
 }
 
 InvokeDiagnosisResponse Alibabacloud_SysOM20231230::Client::invokeDiagnosis(shared_ptr<InvokeDiagnosisRequest> request) {
@@ -1259,12 +1152,7 @@ ListAbnormalyEventsResponse Alibabacloud_SysOM20231230::Client::listAbnormalyEve
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAbnormalyEventsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAbnormalyEventsResponse(execute(params, req, runtime));
-  }
+  return ListAbnormalyEventsResponse(callApi(params, req, runtime));
 }
 
 ListAbnormalyEventsResponse Alibabacloud_SysOM20231230::Client::listAbnormalyEvents(shared_ptr<ListAbnormalyEventsRequest> request) {
@@ -1309,12 +1197,7 @@ ListAgentInstallRecordsResponse Alibabacloud_SysOM20231230::Client::listAgentIns
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAgentInstallRecordsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAgentInstallRecordsResponse(execute(params, req, runtime));
-  }
+  return ListAgentInstallRecordsResponse(callApi(params, req, runtime));
 }
 
 ListAgentInstallRecordsResponse Alibabacloud_SysOM20231230::Client::listAgentInstallRecords(shared_ptr<ListAgentInstallRecordsRequest> request) {
@@ -1353,12 +1236,7 @@ ListAgentsResponse Alibabacloud_SysOM20231230::Client::listAgentsWithOptions(sha
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAgentsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAgentsResponse(execute(params, req, runtime));
-  }
+  return ListAgentsResponse(callApi(params, req, runtime));
 }
 
 ListAgentsResponse Alibabacloud_SysOM20231230::Client::listAgents(shared_ptr<ListAgentsRequest> request) {
@@ -1400,12 +1278,7 @@ ListClusterAgentInstallRecordsResponse Alibabacloud_SysOM20231230::Client::listC
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListClusterAgentInstallRecordsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListClusterAgentInstallRecordsResponse(execute(params, req, runtime));
-  }
+  return ListClusterAgentInstallRecordsResponse(callApi(params, req, runtime));
 }
 
 ListClusterAgentInstallRecordsResponse Alibabacloud_SysOM20231230::Client::listClusterAgentInstallRecords(shared_ptr<ListClusterAgentInstallRecordsRequest> request) {
@@ -1453,12 +1326,7 @@ ListClustersResponse Alibabacloud_SysOM20231230::Client::listClustersWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListClustersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListClustersResponse(execute(params, req, runtime));
-  }
+  return ListClustersResponse(callApi(params, req, runtime));
 }
 
 ListClustersResponse Alibabacloud_SysOM20231230::Client::listClusters(shared_ptr<ListClustersRequest> request) {
@@ -1500,12 +1368,7 @@ ListDiagnosisResponse Alibabacloud_SysOM20231230::Client::listDiagnosisWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListDiagnosisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListDiagnosisResponse(execute(params, req, runtime));
-  }
+  return ListDiagnosisResponse(callApi(params, req, runtime));
 }
 
 ListDiagnosisResponse Alibabacloud_SysOM20231230::Client::listDiagnosis(shared_ptr<ListDiagnosisRequest> request) {
@@ -1550,12 +1413,7 @@ ListInstanceHealthResponse Alibabacloud_SysOM20231230::Client::listInstanceHealt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListInstanceHealthResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListInstanceHealthResponse(execute(params, req, runtime));
-  }
+  return ListInstanceHealthResponse(callApi(params, req, runtime));
 }
 
 ListInstanceHealthResponse Alibabacloud_SysOM20231230::Client::listInstanceHealth(shared_ptr<ListInstanceHealthRequest> request) {
@@ -1597,12 +1455,7 @@ ListInstanceStatusResponse Alibabacloud_SysOM20231230::Client::listInstanceStatu
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListInstanceStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListInstanceStatusResponse(execute(params, req, runtime));
-  }
+  return ListInstanceStatusResponse(callApi(params, req, runtime));
 }
 
 ListInstanceStatusResponse Alibabacloud_SysOM20231230::Client::listInstanceStatus(shared_ptr<ListInstanceStatusRequest> request) {
@@ -1647,12 +1500,7 @@ ListInstancesResponse Alibabacloud_SysOM20231230::Client::listInstancesWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListInstancesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListInstancesResponse(execute(params, req, runtime));
-  }
+  return ListInstancesResponse(callApi(params, req, runtime));
 }
 
 ListInstancesResponse Alibabacloud_SysOM20231230::Client::listInstances(shared_ptr<ListInstancesRequest> request) {
@@ -1694,12 +1542,7 @@ ListInstancesEcsInfoListResponse Alibabacloud_SysOM20231230::Client::listInstanc
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListInstancesEcsInfoListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListInstancesEcsInfoListResponse(execute(params, req, runtime));
-  }
+  return ListInstancesEcsInfoListResponse(callApi(params, req, runtime));
 }
 
 ListInstancesEcsInfoListResponse Alibabacloud_SysOM20231230::Client::listInstancesEcsInfoList(shared_ptr<ListInstancesEcsInfoListRequest> request) {
@@ -1776,12 +1619,7 @@ ListInstancesWithEcsInfoResponse Alibabacloud_SysOM20231230::Client::listInstanc
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListInstancesWithEcsInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListInstancesWithEcsInfoResponse(execute(params, req, runtime));
-  }
+  return ListInstancesWithEcsInfoResponse(callApi(params, req, runtime));
 }
 
 ListInstancesWithEcsInfoResponse Alibabacloud_SysOM20231230::Client::listInstancesWithEcsInfo(shared_ptr<ListInstancesWithEcsInfoRequest> request) {
@@ -1829,12 +1667,7 @@ ListPluginsInstancesResponse Alibabacloud_SysOM20231230::Client::listPluginsInst
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListPluginsInstancesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListPluginsInstancesResponse(execute(params, req, runtime));
-  }
+  return ListPluginsInstancesResponse(callApi(params, req, runtime));
 }
 
 ListPluginsInstancesResponse Alibabacloud_SysOM20231230::Client::listPluginsInstances(shared_ptr<ListPluginsInstancesRequest> request) {
@@ -1873,12 +1706,7 @@ ListPodsOfInstanceResponse Alibabacloud_SysOM20231230::Client::listPodsOfInstanc
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListPodsOfInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListPodsOfInstanceResponse(execute(params, req, runtime));
-  }
+  return ListPodsOfInstanceResponse(callApi(params, req, runtime));
 }
 
 ListPodsOfInstanceResponse Alibabacloud_SysOM20231230::Client::listPodsOfInstance(shared_ptr<ListPodsOfInstanceRequest> request) {
@@ -1902,12 +1730,7 @@ ListRegionsResponse Alibabacloud_SysOM20231230::Client::listRegionsWithOptions(s
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRegionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRegionsResponse(execute(params, req, runtime));
-  }
+  return ListRegionsResponse(callApi(params, req, runtime));
 }
 
 ListRegionsResponse Alibabacloud_SysOM20231230::Client::listRegions() {
@@ -1955,12 +1778,7 @@ StartAIAnalysisResponse Alibabacloud_SysOM20231230::Client::startAIAnalysisWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StartAIAnalysisResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StartAIAnalysisResponse(execute(params, req, runtime));
-  }
+  return StartAIAnalysisResponse(callApi(params, req, runtime));
 }
 
 StartAIAnalysisResponse Alibabacloud_SysOM20231230::Client::startAIAnalysis(shared_ptr<StartAIAnalysisRequest> request) {
@@ -1996,12 +1814,7 @@ UninstallAgentResponse Alibabacloud_SysOM20231230::Client::uninstallAgentWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UninstallAgentResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UninstallAgentResponse(execute(params, req, runtime));
-  }
+  return UninstallAgentResponse(callApi(params, req, runtime));
 }
 
 UninstallAgentResponse Alibabacloud_SysOM20231230::Client::uninstallAgent(shared_ptr<UninstallAgentRequest> request) {
@@ -2037,12 +1850,7 @@ UninstallAgentForClusterResponse Alibabacloud_SysOM20231230::Client::uninstallAg
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UninstallAgentForClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UninstallAgentForClusterResponse(execute(params, req, runtime));
-  }
+  return UninstallAgentForClusterResponse(callApi(params, req, runtime));
 }
 
 UninstallAgentForClusterResponse Alibabacloud_SysOM20231230::Client::uninstallAgentForCluster(shared_ptr<UninstallAgentForClusterRequest> request) {
@@ -2051,20 +1859,21 @@ UninstallAgentForClusterResponse Alibabacloud_SysOM20231230::Client::uninstallAg
   return uninstallAgentForClusterWithOptions(request, headers, runtime);
 }
 
-UpdateEventsAttentionResponse Alibabacloud_SysOM20231230::Client::updateEventsAttentionWithOptions(shared_ptr<UpdateEventsAttentionRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<UpdateEventsAttentionShrinkRequest> request = make_shared<UpdateEventsAttentionShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<UpdateEventsAttentionRequestBody>(tmpReq->body)) {
-    request->bodyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->body, make_shared<string>("body"), make_shared<string>("json")));
+UpdateEventsAttentionResponse Alibabacloud_SysOM20231230::Client::updateEventsAttentionWithOptions(shared_ptr<UpdateEventsAttentionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->mode)) {
+    body->insert(pair<string, long>("mode", *request->mode));
   }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->bodyShrink)) {
-    query->insert(pair<string, string>("body", *request->bodyShrink));
+  if (!Darabonba_Util::Client::isUnset<string>(request->range)) {
+    body->insert(pair<string, string>("range", *request->range));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("uuid", *request->uuid));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateEventsAttention"))},
@@ -2077,12 +1886,7 @@ UpdateEventsAttentionResponse Alibabacloud_SysOM20231230::Client::updateEventsAt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateEventsAttentionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateEventsAttentionResponse(execute(params, req, runtime));
-  }
+  return UpdateEventsAttentionResponse(callApi(params, req, runtime));
 }
 
 UpdateEventsAttentionResponse Alibabacloud_SysOM20231230::Client::updateEventsAttention(shared_ptr<UpdateEventsAttentionRequest> request) {
@@ -2123,12 +1927,7 @@ UpdateFuncSwitchRecordResponse Alibabacloud_SysOM20231230::Client::updateFuncSwi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateFuncSwitchRecordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateFuncSwitchRecordResponse(execute(params, req, runtime));
-  }
+  return UpdateFuncSwitchRecordResponse(callApi(params, req, runtime));
 }
 
 UpdateFuncSwitchRecordResponse Alibabacloud_SysOM20231230::Client::updateFuncSwitchRecord(shared_ptr<UpdateFuncSwitchRecordRequest> request) {
@@ -2164,12 +1963,7 @@ UpgradeAgentResponse Alibabacloud_SysOM20231230::Client::upgradeAgentWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpgradeAgentResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpgradeAgentResponse(execute(params, req, runtime));
-  }
+  return UpgradeAgentResponse(callApi(params, req, runtime));
 }
 
 UpgradeAgentResponse Alibabacloud_SysOM20231230::Client::upgradeAgent(shared_ptr<UpgradeAgentRequest> request) {
@@ -2205,12 +1999,7 @@ UpgradeAgentForClusterResponse Alibabacloud_SysOM20231230::Client::upgradeAgentF
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpgradeAgentForClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpgradeAgentForClusterResponse(execute(params, req, runtime));
-  }
+  return UpgradeAgentForClusterResponse(callApi(params, req, runtime));
 }
 
 UpgradeAgentForClusterResponse Alibabacloud_SysOM20231230::Client::upgradeAgentForCluster(shared_ptr<UpgradeAgentForClusterRequest> request) {
