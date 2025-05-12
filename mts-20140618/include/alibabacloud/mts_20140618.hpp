@@ -1401,6 +1401,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> scene{};
+  shared_ptr<string> templateConfig{};
   shared_ptr<string> templateName{};
 
   AddSmarttagTemplateRequest() {}
@@ -1467,6 +1468,9 @@ public:
     if (scene) {
       res["Scene"] = boost::any(*scene);
     }
+    if (templateConfig) {
+      res["TemplateConfig"] = boost::any(*templateConfig);
+    }
     if (templateName) {
       res["TemplateName"] = boost::any(*templateName);
     }
@@ -1527,6 +1531,9 @@ public:
     }
     if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
       scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("TemplateConfig") != m.end() && !m["TemplateConfig"].empty()) {
+      templateConfig = make_shared<string>(boost::any_cast<string>(m["TemplateConfig"]));
     }
     if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
       templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
@@ -46010,6 +46017,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> scene{};
+  shared_ptr<string> templateConfig{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateName{};
 
@@ -46071,6 +46079,9 @@ public:
     if (scene) {
       res["Scene"] = boost::any(*scene);
     }
+    if (templateConfig) {
+      res["TemplateConfig"] = boost::any(*templateConfig);
+    }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
@@ -46128,6 +46139,9 @@ public:
     }
     if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
       scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("TemplateConfig") != m.end() && !m["TemplateConfig"].empty()) {
+      templateConfig = make_shared<string>(boost::any_cast<string>(m["TemplateConfig"]));
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
