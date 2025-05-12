@@ -191,6 +191,226 @@ public:
 
   virtual ~Collection() = default;
 };
+class ConnectionModels : public Darabonba::Model {
+public:
+  shared_ptr<string> displayName{};
+  shared_ptr<string> model{};
+  shared_ptr<string> modelType{};
+
+  ConnectionModels() {}
+
+  explicit ConnectionModels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayName) {
+      res["DisplayName"] = boost::any(*displayName);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (modelType) {
+      res["ModelType"] = boost::any(*modelType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("ModelType") != m.end() && !m["ModelType"].empty()) {
+      modelType = make_shared<string>(boost::any_cast<string>(m["ModelType"]));
+    }
+  }
+
+
+  virtual ~ConnectionModels() = default;
+};
+class ConnectionResourceMeta : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
+
+  ConnectionResourceMeta() {}
+
+  explicit ConnectionResourceMeta(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+  }
+
+
+  virtual ~ConnectionResourceMeta() = default;
+};
+class Connection : public Darabonba::Model {
+public:
+  shared_ptr<string> accessibility{};
+  shared_ptr<map<string, string>> configs{};
+  shared_ptr<string> connectionId{};
+  shared_ptr<string> connectionName{};
+  shared_ptr<string> connectionType{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> description{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<vector<ConnectionModels>> models{};
+  shared_ptr<ConnectionResourceMeta> resourceMeta{};
+  shared_ptr<map<string, string>> secrets{};
+  shared_ptr<string> workspaceId{};
+
+  Connection() {}
+
+  explicit Connection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (configs) {
+      res["Configs"] = boost::any(*configs);
+    }
+    if (connectionId) {
+      res["ConnectionId"] = boost::any(*connectionId);
+    }
+    if (connectionName) {
+      res["ConnectionName"] = boost::any(*connectionName);
+    }
+    if (connectionType) {
+      res["ConnectionType"] = boost::any(*connectionType);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (models) {
+      vector<boost::any> temp1;
+      for(auto item1:*models){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Models"] = boost::any(temp1);
+    }
+    if (resourceMeta) {
+      res["ResourceMeta"] = resourceMeta ? boost::any(resourceMeta->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (secrets) {
+      res["Secrets"] = boost::any(*secrets);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("Configs") != m.end() && !m["Configs"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Configs"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      configs = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("ConnectionId") != m.end() && !m["ConnectionId"].empty()) {
+      connectionId = make_shared<string>(boost::any_cast<string>(m["ConnectionId"]));
+    }
+    if (m.find("ConnectionName") != m.end() && !m["ConnectionName"].empty()) {
+      connectionName = make_shared<string>(boost::any_cast<string>(m["ConnectionName"]));
+    }
+    if (m.find("ConnectionType") != m.end() && !m["ConnectionType"].empty()) {
+      connectionType = make_shared<string>(boost::any_cast<string>(m["ConnectionType"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("Models") != m.end() && !m["Models"].empty()) {
+      if (typeid(vector<boost::any>) == m["Models"].type()) {
+        vector<ConnectionModels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Models"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ConnectionModels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        models = make_shared<vector<ConnectionModels>>(expect1);
+      }
+    }
+    if (m.find("ResourceMeta") != m.end() && !m["ResourceMeta"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceMeta"].type()) {
+        ConnectionResourceMeta model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceMeta"]));
+        resourceMeta = make_shared<ConnectionResourceMeta>(model1);
+      }
+    }
+    if (m.find("Secrets") != m.end() && !m["Secrets"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Secrets"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      secrets = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~Connection() = default;
+};
 class Label : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -731,6 +951,7 @@ public:
   shared_ptr<long> dataSize{};
   shared_ptr<string> datasetFileMetaId{};
   shared_ptr<string> fileCreateTime{};
+  shared_ptr<string> fileFingerPrint{};
   shared_ptr<string> fileName{};
   shared_ptr<string> fileType{};
   shared_ptr<string> fileUpdateTime{};
@@ -763,6 +984,9 @@ public:
     }
     if (fileCreateTime) {
       res["FileCreateTime"] = boost::any(*fileCreateTime);
+    }
+    if (fileFingerPrint) {
+      res["FileFingerPrint"] = boost::any(*fileFingerPrint);
     }
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
@@ -803,6 +1027,9 @@ public:
     }
     if (m.find("FileCreateTime") != m.end() && !m["FileCreateTime"].empty()) {
       fileCreateTime = make_shared<string>(boost::any_cast<string>(m["FileCreateTime"]));
+    }
+    if (m.find("FileFingerPrint") != m.end() && !m["FileFingerPrint"].empty()) {
+      fileFingerPrint = make_shared<string>(boost::any_cast<string>(m["FileFingerPrint"]));
     }
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
