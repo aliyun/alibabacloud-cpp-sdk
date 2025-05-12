@@ -3169,6 +3169,40 @@ UpdateGatewayResponse Alibabacloud_Eas20210701::Client::updateGateway(shared_ptr
   return updateGatewayWithOptions(GatewayId, ClusterId, request, headers, runtime);
 }
 
+UpdateGroupResponse Alibabacloud_Eas20210701::Client::updateGroupWithOptions(shared_ptr<string> ClusterId,
+                                                                             shared_ptr<string> GroupName,
+                                                                             shared_ptr<UpdateGroupRequest> request,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficMode)) {
+    body->insert(pair<string, string>("TrafficMode", *request->trafficMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGroup"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/groups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(GroupName)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGroupResponse(callApi(params, req, runtime));
+}
+
+UpdateGroupResponse Alibabacloud_Eas20210701::Client::updateGroup(shared_ptr<string> ClusterId, shared_ptr<string> GroupName, shared_ptr<UpdateGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateGroupWithOptions(ClusterId, GroupName, request, headers, runtime);
+}
+
 UpdateResourceResponse Alibabacloud_Eas20210701::Client::updateResourceWithOptions(shared_ptr<string> ClusterId,
                                                                                    shared_ptr<string> ResourceId,
                                                                                    shared_ptr<UpdateResourceRequest> request,

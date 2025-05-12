@@ -15726,6 +15726,116 @@ public:
 
   virtual ~UpdateGatewayResponse() = default;
 };
+class UpdateGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> trafficMode{};
+
+  UpdateGroupRequest() {}
+
+  explicit UpdateGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (trafficMode) {
+      res["TrafficMode"] = boost::any(*trafficMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TrafficMode") != m.end() && !m["TrafficMode"].empty()) {
+      trafficMode = make_shared<string>(boost::any_cast<string>(m["TrafficMode"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupRequest() = default;
+};
+class UpdateGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateGroupResponseBody() {}
+
+  explicit UpdateGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupResponseBody() = default;
+};
+class UpdateGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGroupResponseBody> body{};
+
+  UpdateGroupResponse() {}
+
+  explicit UpdateGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGroupResponse() = default;
+};
 class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations : public Darabonba::Model {
 public:
   shared_ptr<string> effect{};
@@ -18331,6 +18441,12 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayResponse updateGateway(shared_ptr<string> GatewayId, shared_ptr<string> ClusterId, shared_ptr<UpdateGatewayRequest> request);
+  UpdateGroupResponse updateGroupWithOptions(shared_ptr<string> ClusterId,
+                                             shared_ptr<string> GroupName,
+                                             shared_ptr<UpdateGroupRequest> request,
+                                             shared_ptr<map<string, string>> headers,
+                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGroupResponse updateGroup(shared_ptr<string> ClusterId, shared_ptr<string> GroupName, shared_ptr<UpdateGroupRequest> request);
   UpdateResourceResponse updateResourceWithOptions(shared_ptr<string> ClusterId,
                                                    shared_ptr<string> ResourceId,
                                                    shared_ptr<UpdateResourceRequest> request,
