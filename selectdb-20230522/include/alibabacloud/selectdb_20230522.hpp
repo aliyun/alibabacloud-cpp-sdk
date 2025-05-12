@@ -766,6 +766,191 @@ public:
 
   virtual ~CreateDBClusterResponse() = default;
 };
+class CreateDBClusterBindingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> DBClusterIdBak{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> regionId{};
+
+  CreateDBClusterBindingRequest() {}
+
+  explicit CreateDBClusterBindingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (DBClusterIdBak) {
+      res["DBClusterIdBak"] = boost::any(*DBClusterIdBak);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("DBClusterIdBak") != m.end() && !m["DBClusterIdBak"].empty()) {
+      DBClusterIdBak = make_shared<string>(boost::any_cast<string>(m["DBClusterIdBak"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateDBClusterBindingRequest() = default;
+};
+class CreateDBClusterBindingResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> dbClusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<string> dbInstanceName{};
+
+  CreateDBClusterBindingResponseBodyData() {}
+
+  explicit CreateDBClusterBindingResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbClusterId) {
+      res["DbClusterId"] = boost::any(*dbClusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (dbInstanceName) {
+      res["DbInstanceName"] = boost::any(*dbInstanceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbClusterId") != m.end() && !m["DbClusterId"].empty()) {
+      dbClusterId = make_shared<string>(boost::any_cast<string>(m["DbClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("DbInstanceName") != m.end() && !m["DbInstanceName"].empty()) {
+      dbInstanceName = make_shared<string>(boost::any_cast<string>(m["DbInstanceName"]));
+    }
+  }
+
+
+  virtual ~CreateDBClusterBindingResponseBodyData() = default;
+};
+class CreateDBClusterBindingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateDBClusterBindingResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CreateDBClusterBindingResponseBody() {}
+
+  explicit CreateDBClusterBindingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateDBClusterBindingResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateDBClusterBindingResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateDBClusterBindingResponseBody() = default;
+};
+class CreateDBClusterBindingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDBClusterBindingResponseBody> body{};
+
+  CreateDBClusterBindingResponse() {}
+
+  explicit CreateDBClusterBindingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDBClusterBindingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDBClusterBindingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDBClusterBindingResponse() = default;
+};
 class CreateDBInstanceRequestMultiZone : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> vSwitchIds{};
@@ -847,6 +1032,7 @@ public:
 };
 class CreateDBInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> addVPCIPs{};
   shared_ptr<long> cacheSize{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clientToken{};
@@ -878,6 +1064,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addVPCIPs) {
+      res["AddVPCIPs"] = boost::any(*addVPCIPs);
+    }
     if (cacheSize) {
       res["CacheSize"] = boost::any(*cacheSize);
     }
@@ -950,6 +1139,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddVPCIPs") != m.end() && !m["AddVPCIPs"].empty()) {
+      addVPCIPs = make_shared<string>(boost::any_cast<string>(m["AddVPCIPs"]));
+    }
     if (m.find("CacheSize") != m.end() && !m["CacheSize"].empty()) {
       cacheSize = make_shared<long>(boost::any_cast<long>(m["CacheSize"]));
     }
@@ -1037,6 +1229,7 @@ public:
 };
 class CreateDBInstanceShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> addVPCIPs{};
   shared_ptr<long> cacheSize{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clientToken{};
@@ -1068,6 +1261,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addVPCIPs) {
+      res["AddVPCIPs"] = boost::any(*addVPCIPs);
+    }
     if (cacheSize) {
       res["CacheSize"] = boost::any(*cacheSize);
     }
@@ -1132,6 +1328,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddVPCIPs") != m.end() && !m["AddVPCIPs"].empty()) {
+      addVPCIPs = make_shared<string>(boost::any_cast<string>(m["AddVPCIPs"]));
+    }
     if (m.find("CacheSize") != m.end() && !m["CacheSize"].empty()) {
       cacheSize = make_shared<long>(boost::any_cast<long>(m["CacheSize"]));
     }
@@ -1853,6 +2052,137 @@ public:
 
 
   virtual ~DeleteDBClusterResponse() = default;
+};
+class DeleteDBClusterBindingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> DBClusterIdBak{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> regionId{};
+
+  DeleteDBClusterBindingRequest() {}
+
+  explicit DeleteDBClusterBindingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (DBClusterIdBak) {
+      res["DBClusterIdBak"] = boost::any(*DBClusterIdBak);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("DBClusterIdBak") != m.end() && !m["DBClusterIdBak"].empty()) {
+      DBClusterIdBak = make_shared<string>(boost::any_cast<string>(m["DBClusterIdBak"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteDBClusterBindingRequest() = default;
+};
+class DeleteDBClusterBindingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteDBClusterBindingResponseBody() {}
+
+  explicit DeleteDBClusterBindingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDBClusterBindingResponseBody() = default;
+};
+class DeleteDBClusterBindingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDBClusterBindingResponseBody> body{};
+
+  DeleteDBClusterBindingResponse() {}
+
+  explicit DeleteDBClusterBindingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDBClusterBindingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDBClusterBindingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDBClusterBindingResponse() = default;
 };
 class DeleteDBInstanceRequest : public Darabonba::Model {
 public:
@@ -5947,6 +6277,7 @@ public:
   shared_ptr<string> commodityCode{};
   shared_ptr<long> computeSize{};
   shared_ptr<string> dbInstanceId{};
+  shared_ptr<bool> modifyClusterChargeType{};
   shared_ptr<long> preCacheSize{};
   shared_ptr<long> preComputeSize{};
   shared_ptr<string> pricingCycle{};
@@ -5981,6 +6312,9 @@ public:
     }
     if (dbInstanceId) {
       res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (modifyClusterChargeType) {
+      res["ModifyClusterChargeType"] = boost::any(*modifyClusterChargeType);
     }
     if (preCacheSize) {
       res["PreCacheSize"] = boost::any(*preCacheSize);
@@ -6022,6 +6356,9 @@ public:
     if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
       dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
     }
+    if (m.find("ModifyClusterChargeType") != m.end() && !m["ModifyClusterChargeType"].empty()) {
+      modifyClusterChargeType = make_shared<bool>(boost::any_cast<bool>(m["ModifyClusterChargeType"]));
+    }
     if (m.find("PreCacheSize") != m.end() && !m["PreCacheSize"].empty()) {
       preCacheSize = make_shared<long>(boost::any_cast<long>(m["PreCacheSize"]));
     }
@@ -6048,6 +6385,7 @@ public:
 class GetModifyBEClusterInquiryResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> currency{};
+  shared_ptr<string> refundAmount{};
   shared_ptr<string> tradeAmount{};
 
   GetModifyBEClusterInquiryResponseBodyData() {}
@@ -6063,6 +6401,9 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (refundAmount) {
+      res["RefundAmount"] = boost::any(*refundAmount);
+    }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
     }
@@ -6072,6 +6413,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("RefundAmount") != m.end() && !m["RefundAmount"].empty()) {
+      refundAmount = make_shared<string>(boost::any_cast<string>(m["RefundAmount"]));
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<string>(boost::any_cast<string>(m["TradeAmount"]));
@@ -8224,6 +8568,8 @@ public:
   CheckServiceLinkedRoleResponse checkServiceLinkedRole(shared_ptr<CheckServiceLinkedRoleRequest> request);
   CreateDBClusterResponse createDBClusterWithOptions(shared_ptr<CreateDBClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBClusterResponse createDBCluster(shared_ptr<CreateDBClusterRequest> request);
+  CreateDBClusterBindingResponse createDBClusterBindingWithOptions(shared_ptr<CreateDBClusterBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDBClusterBindingResponse createDBClusterBinding(shared_ptr<CreateDBClusterBindingRequest> request);
   CreateDBInstanceResponse createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBInstanceResponse createDBInstance(shared_ptr<CreateDBInstanceRequest> request);
   CreateElasticRuleResponse createElasticRuleWithOptions(shared_ptr<CreateElasticRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8232,6 +8578,8 @@ public:
   CreateServiceLinkedRoleForSelectDBResponse createServiceLinkedRoleForSelectDB(shared_ptr<CreateServiceLinkedRoleForSelectDBRequest> request);
   DeleteDBClusterResponse deleteDBClusterWithOptions(shared_ptr<DeleteDBClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDBClusterResponse deleteDBCluster(shared_ptr<DeleteDBClusterRequest> request);
+  DeleteDBClusterBindingResponse deleteDBClusterBindingWithOptions(shared_ptr<DeleteDBClusterBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDBClusterBindingResponse deleteDBClusterBinding(shared_ptr<DeleteDBClusterBindingRequest> request);
   DeleteDBInstanceResponse deleteDBInstanceWithOptions(shared_ptr<DeleteDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDBInstanceResponse deleteDBInstance(shared_ptr<DeleteDBInstanceRequest> request);
   DeleteElasticRuleResponse deleteElasticRuleWithOptions(shared_ptr<DeleteElasticRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -69,12 +69,7 @@ AllocateInstancePublicConnectionResponse Alibabacloud_Selectdb20230522::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AllocateInstancePublicConnectionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AllocateInstancePublicConnectionResponse(execute(params, req, runtime));
-  }
+  return AllocateInstancePublicConnectionResponse(callApi(params, req, runtime));
 }
 
 AllocateInstancePublicConnectionResponse Alibabacloud_Selectdb20230522::Client::allocateInstancePublicConnection(shared_ptr<AllocateInstancePublicConnectionRequest> request) {
@@ -150,12 +145,7 @@ CheckCreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::checkCreate
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckCreateDBInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckCreateDBInstanceResponse(execute(params, req, runtime));
-  }
+  return CheckCreateDBInstanceResponse(callApi(params, req, runtime));
 }
 
 CheckCreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::checkCreateDBInstance(shared_ptr<CheckCreateDBInstanceRequest> request) {
@@ -186,12 +176,7 @@ CheckServiceLinkedRoleResponse Alibabacloud_Selectdb20230522::Client::checkServi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckServiceLinkedRoleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckServiceLinkedRoleResponse(execute(params, req, runtime));
-  }
+  return CheckServiceLinkedRoleResponse(callApi(params, req, runtime));
 }
 
 CheckServiceLinkedRoleResponse Alibabacloud_Selectdb20230522::Client::checkServiceLinkedRole(shared_ptr<CheckServiceLinkedRoleRequest> request) {
@@ -260,17 +245,49 @@ CreateDBClusterResponse Alibabacloud_Selectdb20230522::Client::createDBClusterWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateDBClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateDBClusterResponse(execute(params, req, runtime));
-  }
+  return CreateDBClusterResponse(callApi(params, req, runtime));
 }
 
 CreateDBClusterResponse Alibabacloud_Selectdb20230522::Client::createDBCluster(shared_ptr<CreateDBClusterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createDBClusterWithOptions(request, runtime);
+}
+
+CreateDBClusterBindingResponse Alibabacloud_Selectdb20230522::Client::createDBClusterBindingWithOptions(shared_ptr<CreateDBClusterBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterIdBak)) {
+    query->insert(pair<string, string>("DBClusterIdBak", *request->DBClusterIdBak));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDBClusterBinding"))},
+    {"version", boost::any(string("2023-05-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDBClusterBindingResponse(callApi(params, req, runtime));
+}
+
+CreateDBClusterBindingResponse Alibabacloud_Selectdb20230522::Client::createDBClusterBinding(shared_ptr<CreateDBClusterBindingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDBClusterBindingWithOptions(request, runtime);
 }
 
 CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -284,6 +301,9 @@ CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstance
     request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addVPCIPs)) {
+    query->insert(pair<string, string>("AddVPCIPs", *request->addVPCIPs));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->cacheSize)) {
     query->insert(pair<string, long>("CacheSize", *request->cacheSize));
   }
@@ -360,12 +380,7 @@ CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstance
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateDBInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateDBInstanceResponse(execute(params, req, runtime));
-  }
+  return CreateDBInstanceResponse(callApi(params, req, runtime));
 }
 
 CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstance(shared_ptr<CreateDBInstanceRequest> request) {
@@ -411,12 +426,7 @@ CreateElasticRuleResponse Alibabacloud_Selectdb20230522::Client::createElasticRu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateElasticRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateElasticRuleResponse(execute(params, req, runtime));
-  }
+  return CreateElasticRuleResponse(callApi(params, req, runtime));
 }
 
 CreateElasticRuleResponse Alibabacloud_Selectdb20230522::Client::createElasticRule(shared_ptr<CreateElasticRuleRequest> request) {
@@ -447,12 +457,7 @@ CreateServiceLinkedRoleForSelectDBResponse Alibabacloud_Selectdb20230522::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateServiceLinkedRoleForSelectDBResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateServiceLinkedRoleForSelectDBResponse(execute(params, req, runtime));
-  }
+  return CreateServiceLinkedRoleForSelectDBResponse(callApi(params, req, runtime));
 }
 
 CreateServiceLinkedRoleForSelectDBResponse Alibabacloud_Selectdb20230522::Client::createServiceLinkedRoleForSelectDB(shared_ptr<CreateServiceLinkedRoleForSelectDBRequest> request) {
@@ -494,17 +499,49 @@ DeleteDBClusterResponse Alibabacloud_Selectdb20230522::Client::deleteDBClusterWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteDBClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteDBClusterResponse(execute(params, req, runtime));
-  }
+  return DeleteDBClusterResponse(callApi(params, req, runtime));
 }
 
 DeleteDBClusterResponse Alibabacloud_Selectdb20230522::Client::deleteDBCluster(shared_ptr<DeleteDBClusterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDBClusterWithOptions(request, runtime);
+}
+
+DeleteDBClusterBindingResponse Alibabacloud_Selectdb20230522::Client::deleteDBClusterBindingWithOptions(shared_ptr<DeleteDBClusterBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterIdBak)) {
+    query->insert(pair<string, string>("DBClusterIdBak", *request->DBClusterIdBak));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDBClusterBinding"))},
+    {"version", boost::any(string("2023-05-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDBClusterBindingResponse(callApi(params, req, runtime));
+}
+
+DeleteDBClusterBindingResponse Alibabacloud_Selectdb20230522::Client::deleteDBClusterBinding(shared_ptr<DeleteDBClusterBindingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteDBClusterBindingWithOptions(request, runtime);
 }
 
 DeleteDBInstanceResponse Alibabacloud_Selectdb20230522::Client::deleteDBInstanceWithOptions(shared_ptr<DeleteDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -535,12 +572,7 @@ DeleteDBInstanceResponse Alibabacloud_Selectdb20230522::Client::deleteDBInstance
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteDBInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteDBInstanceResponse(execute(params, req, runtime));
-  }
+  return DeleteDBInstanceResponse(callApi(params, req, runtime));
 }
 
 DeleteDBInstanceResponse Alibabacloud_Selectdb20230522::Client::deleteDBInstance(shared_ptr<DeleteDBInstanceRequest> request) {
@@ -583,12 +615,7 @@ DeleteElasticRuleResponse Alibabacloud_Selectdb20230522::Client::deleteElasticRu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteElasticRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteElasticRuleResponse(execute(params, req, runtime));
-  }
+  return DeleteElasticRuleResponse(callApi(params, req, runtime));
 }
 
 DeleteElasticRuleResponse Alibabacloud_Selectdb20230522::Client::deleteElasticRule(shared_ptr<DeleteElasticRuleRequest> request) {
@@ -619,12 +646,7 @@ DescribeAllDBInstanceClassResponse Alibabacloud_Selectdb20230522::Client::descri
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeAllDBInstanceClassResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeAllDBInstanceClassResponse(execute(params, req, runtime));
-  }
+  return DescribeAllDBInstanceClassResponse(callApi(params, req, runtime));
 }
 
 DescribeAllDBInstanceClassResponse Alibabacloud_Selectdb20230522::Client::describeAllDBInstanceClass(shared_ptr<DescribeAllDBInstanceClassRequest> request) {
@@ -661,12 +683,7 @@ DescribeDBClusterConfigResponse Alibabacloud_Selectdb20230522::Client::describeD
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClusterConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClusterConfigResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClusterConfigResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClusterConfigResponse Alibabacloud_Selectdb20230522::Client::describeDBClusterConfig(shared_ptr<DescribeDBClusterConfigRequest> request) {
@@ -709,12 +726,7 @@ DescribeDBClusterConfigChangeLogsResponse Alibabacloud_Selectdb20230522::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClusterConfigChangeLogsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClusterConfigChangeLogsResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClusterConfigChangeLogsResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClusterConfigChangeLogsResponse Alibabacloud_Selectdb20230522::Client::describeDBClusterConfigChangeLogs(shared_ptr<DescribeDBClusterConfigChangeLogsRequest> request) {
@@ -748,12 +760,7 @@ DescribeDBInstanceAttributeResponse Alibabacloud_Selectdb20230522::Client::descr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceAttributeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceAttributeResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceAttributeResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceAttributeResponse Alibabacloud_Selectdb20230522::Client::describeDBInstanceAttribute(shared_ptr<DescribeDBInstanceAttributeRequest> request) {
@@ -787,12 +794,7 @@ DescribeDBInstanceNetInfoResponse Alibabacloud_Selectdb20230522::Client::describ
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceNetInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceNetInfoResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceNetInfoResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceNetInfoResponse Alibabacloud_Selectdb20230522::Client::describeDBInstanceNetInfo(shared_ptr<DescribeDBInstanceNetInfoRequest> request) {
@@ -849,12 +851,7 @@ DescribeDBInstancesResponse Alibabacloud_Selectdb20230522::Client::describeDBIns
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstancesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstancesResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstancesResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstancesResponse Alibabacloud_Selectdb20230522::Client::describeDBInstances(shared_ptr<DescribeDBInstancesRequest> request) {
@@ -879,12 +876,7 @@ DescribeElasticRulesResponse Alibabacloud_Selectdb20230522::Client::describeElas
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeElasticRulesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeElasticRulesResponse(execute(params, req, runtime));
-  }
+  return DescribeElasticRulesResponse(callApi(params, req, runtime));
 }
 
 DescribeElasticRulesResponse Alibabacloud_Selectdb20230522::Client::describeElasticRules(shared_ptr<DescribeElasticRulesRequest> request) {
@@ -909,12 +901,7 @@ DescribeRegionsResponse Alibabacloud_Selectdb20230522::Client::describeRegionsWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeRegionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeRegionsResponse(execute(params, req, runtime));
-  }
+  return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
 DescribeRegionsResponse Alibabacloud_Selectdb20230522::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
@@ -948,12 +935,7 @@ DescribeSecurityIPListResponse Alibabacloud_Selectdb20230522::Client::describeSe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeSecurityIPListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeSecurityIPListResponse(execute(params, req, runtime));
-  }
+  return DescribeSecurityIPListResponse(callApi(params, req, runtime));
 }
 
 DescribeSecurityIPListResponse Alibabacloud_Selectdb20230522::Client::describeSecurityIPList(shared_ptr<DescribeSecurityIPListRequest> request) {
@@ -996,12 +978,7 @@ EnDisableScalingRulesResponse Alibabacloud_Selectdb20230522::Client::enDisableSc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return EnDisableScalingRulesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return EnDisableScalingRulesResponse(execute(params, req, runtime));
-  }
+  return EnDisableScalingRulesResponse(callApi(params, req, runtime));
 }
 
 EnDisableScalingRulesResponse Alibabacloud_Selectdb20230522::Client::enDisableScalingRules(shared_ptr<EnDisableScalingRulesRequest> request) {
@@ -1026,12 +1003,7 @@ GetCreateBEClusterInquiryResponse Alibabacloud_Selectdb20230522::Client::getCrea
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetCreateBEClusterInquiryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetCreateBEClusterInquiryResponse(execute(params, req, runtime));
-  }
+  return GetCreateBEClusterInquiryResponse(callApi(params, req, runtime));
 }
 
 GetCreateBEClusterInquiryResponse Alibabacloud_Selectdb20230522::Client::getCreateBEClusterInquiry(shared_ptr<GetCreateBEClusterInquiryRequest> request) {
@@ -1056,12 +1028,7 @@ GetModifyBEClusterInquiryResponse Alibabacloud_Selectdb20230522::Client::getModi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetModifyBEClusterInquiryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetModifyBEClusterInquiryResponse(execute(params, req, runtime));
-  }
+  return GetModifyBEClusterInquiryResponse(callApi(params, req, runtime));
 }
 
 GetModifyBEClusterInquiryResponse Alibabacloud_Selectdb20230522::Client::getModifyBEClusterInquiry(shared_ptr<GetModifyBEClusterInquiryRequest> request) {
@@ -1104,12 +1071,7 @@ ModifyBEClusterAttributeResponse Alibabacloud_Selectdb20230522::Client::modifyBE
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyBEClusterAttributeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyBEClusterAttributeResponse(execute(params, req, runtime));
-  }
+  return ModifyBEClusterAttributeResponse(callApi(params, req, runtime));
 }
 
 ModifyBEClusterAttributeResponse Alibabacloud_Selectdb20230522::Client::modifyBEClusterAttribute(shared_ptr<ModifyBEClusterAttributeRequest> request) {
@@ -1155,12 +1117,7 @@ ModifyDBClusterResponse Alibabacloud_Selectdb20230522::Client::modifyDBClusterWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBClusterResponse(execute(params, req, runtime));
-  }
+  return ModifyDBClusterResponse(callApi(params, req, runtime));
 }
 
 ModifyDBClusterResponse Alibabacloud_Selectdb20230522::Client::modifyDBCluster(shared_ptr<ModifyDBClusterRequest> request) {
@@ -1206,12 +1163,7 @@ ModifyDBClusterConfigResponse Alibabacloud_Selectdb20230522::Client::modifyDBClu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBClusterConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBClusterConfigResponse(execute(params, req, runtime));
-  }
+  return ModifyDBClusterConfigResponse(callApi(params, req, runtime));
 }
 
 ModifyDBClusterConfigResponse Alibabacloud_Selectdb20230522::Client::modifyDBClusterConfig(shared_ptr<ModifyDBClusterConfigRequest> request) {
@@ -1251,12 +1203,7 @@ ModifyDBInstanceAttributeResponse Alibabacloud_Selectdb20230522::Client::modifyD
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBInstanceAttributeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBInstanceAttributeResponse(execute(params, req, runtime));
-  }
+  return ModifyDBInstanceAttributeResponse(callApi(params, req, runtime));
 }
 
 ModifyDBInstanceAttributeResponse Alibabacloud_Selectdb20230522::Client::modifyDBInstanceAttribute(shared_ptr<ModifyDBInstanceAttributeRequest> request) {
@@ -1308,12 +1255,7 @@ ModifyElasticRuleResponse Alibabacloud_Selectdb20230522::Client::modifyElasticRu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyElasticRuleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyElasticRuleResponse(execute(params, req, runtime));
-  }
+  return ModifyElasticRuleResponse(callApi(params, req, runtime));
 }
 
 ModifyElasticRuleResponse Alibabacloud_Selectdb20230522::Client::modifyElasticRule(shared_ptr<ModifyElasticRuleRequest> request) {
@@ -1356,12 +1298,7 @@ ModifySecurityIPListResponse Alibabacloud_Selectdb20230522::Client::modifySecuri
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifySecurityIPListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifySecurityIPListResponse(execute(params, req, runtime));
-  }
+  return ModifySecurityIPListResponse(callApi(params, req, runtime));
 }
 
 ModifySecurityIPListResponse Alibabacloud_Selectdb20230522::Client::modifySecurityIPList(shared_ptr<ModifySecurityIPListRequest> request) {
@@ -1398,12 +1335,7 @@ ReleaseInstancePublicConnectionResponse Alibabacloud_Selectdb20230522::Client::r
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ReleaseInstancePublicConnectionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ReleaseInstancePublicConnectionResponse(execute(params, req, runtime));
-  }
+  return ReleaseInstancePublicConnectionResponse(callApi(params, req, runtime));
 }
 
 ReleaseInstancePublicConnectionResponse Alibabacloud_Selectdb20230522::Client::releaseInstancePublicConnection(shared_ptr<ReleaseInstancePublicConnectionRequest> request) {
@@ -1428,12 +1360,7 @@ ResetAccountPasswordResponse Alibabacloud_Selectdb20230522::Client::resetAccount
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ResetAccountPasswordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ResetAccountPasswordResponse(execute(params, req, runtime));
-  }
+  return ResetAccountPasswordResponse(callApi(params, req, runtime));
 }
 
 ResetAccountPasswordResponse Alibabacloud_Selectdb20230522::Client::resetAccountPassword(shared_ptr<ResetAccountPasswordRequest> request) {
@@ -1478,12 +1405,7 @@ RestartDBClusterResponse Alibabacloud_Selectdb20230522::Client::restartDBCluster
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RestartDBClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RestartDBClusterResponse(execute(params, req, runtime));
-  }
+  return RestartDBClusterResponse(callApi(params, req, runtime));
 }
 
 RestartDBClusterResponse Alibabacloud_Selectdb20230522::Client::restartDBCluster(shared_ptr<RestartDBClusterRequest> request) {
@@ -1520,12 +1442,7 @@ StartBEClusterResponse Alibabacloud_Selectdb20230522::Client::startBEClusterWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StartBEClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StartBEClusterResponse(execute(params, req, runtime));
-  }
+  return StartBEClusterResponse(callApi(params, req, runtime));
 }
 
 StartBEClusterResponse Alibabacloud_Selectdb20230522::Client::startBECluster(shared_ptr<StartBEClusterRequest> request) {
@@ -1562,12 +1479,7 @@ StopBEClusterResponse Alibabacloud_Selectdb20230522::Client::stopBEClusterWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StopBEClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StopBEClusterResponse(execute(params, req, runtime));
-  }
+  return StopBEClusterResponse(callApi(params, req, runtime));
 }
 
 StopBEClusterResponse Alibabacloud_Selectdb20230522::Client::stopBECluster(shared_ptr<StopBEClusterRequest> request) {
@@ -1610,12 +1522,7 @@ UpgradeDBInstanceEngineVersionResponse Alibabacloud_Selectdb20230522::Client::up
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpgradeDBInstanceEngineVersionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpgradeDBInstanceEngineVersionResponse(execute(params, req, runtime));
-  }
+  return UpgradeDBInstanceEngineVersionResponse(callApi(params, req, runtime));
 }
 
 UpgradeDBInstanceEngineVersionResponse Alibabacloud_Selectdb20230522::Client::upgradeDBInstanceEngineVersion(shared_ptr<UpgradeDBInstanceEngineVersionRequest> request) {
