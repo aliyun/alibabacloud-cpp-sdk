@@ -531,15 +531,6 @@ ImportNumberV2Response Alibabacloud_Aiccs20230516::Client::importNumberV2WithOpt
     request->customersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->customers, make_shared<string>("Customers"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->customersShrink)) {
-    query->insert(pair<string, string>("Customers", *request->customersShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->failReturn)) {
-    query->insert(pair<string, long>("FailReturn", *request->failReturn));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
-    query->insert(pair<string, string>("OutId", *request->outId));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
@@ -549,11 +540,22 @@ ImportNumberV2Response Alibabacloud_Aiccs20230516::Client::importNumberV2WithOpt
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->customersShrink)) {
+    body->insert(pair<string, string>("Customers", *request->customersShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->failReturn)) {
+    body->insert(pair<string, long>("FailReturn", *request->failReturn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    body->insert(pair<string, string>("OutId", *request->outId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->taskId)) {
-    query->insert(pair<string, long>("TaskId", *request->taskId));
+    body->insert(pair<string, long>("TaskId", *request->taskId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ImportNumberV2"))},
