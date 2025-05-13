@@ -77,80 +77,8 @@ public:
 
   virtual ~BatchDeleteJobsRequest() = default;
 };
-class BatchDeleteJobsResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  BatchDeleteJobsResponseBodyAccessDeniedDetail() {}
-
-  explicit BatchDeleteJobsResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~BatchDeleteJobsResponseBodyAccessDeniedDetail() = default;
-};
 class BatchDeleteJobsResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<BatchDeleteJobsResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -166,9 +94,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -185,13 +110,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        BatchDeleteJobsResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<BatchDeleteJobsResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -318,80 +236,8 @@ public:
 
   virtual ~BatchDeleteRouteStrategyRequest() = default;
 };
-class BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail() {}
-
-  explicit BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail() = default;
-};
 class BatchDeleteRouteStrategyResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -407,9 +253,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -426,13 +269,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<BatchDeleteRouteStrategyResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -566,80 +402,8 @@ public:
 
   virtual ~BatchDisableJobsRequest() = default;
 };
-class BatchDisableJobsResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  BatchDisableJobsResponseBodyAccessDeniedDetail() {}
-
-  explicit BatchDisableJobsResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~BatchDisableJobsResponseBodyAccessDeniedDetail() = default;
-};
 class BatchDisableJobsResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<BatchDisableJobsResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -655,9 +419,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -674,13 +435,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        BatchDisableJobsResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<BatchDisableJobsResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -814,80 +568,8 @@ public:
 
   virtual ~BatchEnableJobsRequest() = default;
 };
-class BatchEnableJobsResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  BatchEnableJobsResponseBodyAccessDeniedDetail() {}
-
-  explicit BatchEnableJobsResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~BatchEnableJobsResponseBodyAccessDeniedDetail() = default;
-};
 class BatchEnableJobsResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<BatchEnableJobsResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -903,9 +585,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -922,13 +601,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        BatchEnableJobsResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<BatchEnableJobsResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -1125,77 +797,6 @@ public:
 
   virtual ~CreateAppGroupRequest() = default;
 };
-class CreateAppGroupResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  CreateAppGroupResponseBodyAccessDeniedDetail() {}
-
-  explicit CreateAppGroupResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~CreateAppGroupResponseBodyAccessDeniedDetail() = default;
-};
 class CreateAppGroupResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> appGroupId{};
@@ -1234,7 +835,6 @@ public:
 };
 class CreateAppGroupResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<CreateAppGroupResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<CreateAppGroupResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -1251,9 +851,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -1273,13 +870,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        CreateAppGroupResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<CreateAppGroupResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -1430,6 +1020,7 @@ public:
   shared_ptr<string> namespaceSource{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> parameters{};
+  shared_ptr<long> priority{};
   shared_ptr<long> queueSize{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sendChannel{};
@@ -1524,6 +1115,9 @@ public:
     }
     if (parameters) {
       res["Parameters"] = boost::any(*parameters);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (queueSize) {
       res["QueueSize"] = boost::any(*queueSize);
@@ -1647,6 +1241,9 @@ public:
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       parameters = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
     }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
     if (m.find("QueueSize") != m.end() && !m["QueueSize"].empty()) {
       queueSize = make_shared<long>(boost::any_cast<long>(m["QueueSize"]));
     }
@@ -1694,77 +1291,6 @@ public:
 
   virtual ~CreateJobRequest() = default;
 };
-class CreateJobResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  CreateJobResponseBodyAccessDeniedDetail() {}
-
-  explicit CreateJobResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~CreateJobResponseBodyAccessDeniedDetail() = default;
-};
 class CreateJobResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> jobId{};
@@ -1796,7 +1322,6 @@ public:
 };
 class CreateJobResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<CreateJobResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<CreateJobResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -1813,9 +1338,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -1835,13 +1357,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        CreateJobResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<CreateJobResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -1968,77 +1483,6 @@ public:
 
   virtual ~CreateNamespaceRequest() = default;
 };
-class CreateNamespaceResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  CreateNamespaceResponseBodyAccessDeniedDetail() {}
-
-  explicit CreateNamespaceResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~CreateNamespaceResponseBodyAccessDeniedDetail() = default;
-};
 class CreateNamespaceResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> namespaceUid{};
@@ -2070,7 +1514,6 @@ public:
 };
 class CreateNamespaceResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<CreateNamespaceResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<CreateNamespaceResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -2087,9 +1530,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2109,13 +1549,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        CreateNamespaceResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<CreateNamespaceResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -2270,77 +1703,6 @@ public:
 
   virtual ~CreateRouteStrategyRequest() = default;
 };
-class CreateRouteStrategyResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  CreateRouteStrategyResponseBodyAccessDeniedDetail() {}
-
-  explicit CreateRouteStrategyResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~CreateRouteStrategyResponseBodyAccessDeniedDetail() = default;
-};
 class CreateRouteStrategyResponseBodyData : public Darabonba::Model {
 public:
 
@@ -2365,7 +1727,6 @@ public:
 };
 class CreateRouteStrategyResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<CreateRouteStrategyResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<CreateRouteStrategyResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -2382,9 +1743,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2404,13 +1762,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        CreateRouteStrategyResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<CreateRouteStrategyResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -2579,77 +1930,6 @@ public:
 
   virtual ~CreateWorkflowRequest() = default;
 };
-class CreateWorkflowResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  CreateWorkflowResponseBodyAccessDeniedDetail() {}
-
-  explicit CreateWorkflowResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~CreateWorkflowResponseBodyAccessDeniedDetail() = default;
-};
 class CreateWorkflowResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> workflowId{};
@@ -2681,7 +1961,6 @@ public:
 };
 class CreateWorkflowResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<CreateWorkflowResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<CreateWorkflowResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -2698,9 +1977,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2720,13 +1996,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        CreateWorkflowResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<CreateWorkflowResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -2853,80 +2122,8 @@ public:
 
   virtual ~DeleteAppGroupRequest() = default;
 };
-class DeleteAppGroupResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  DeleteAppGroupResponseBodyAccessDeniedDetail() {}
-
-  explicit DeleteAppGroupResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~DeleteAppGroupResponseBodyAccessDeniedDetail() = default;
-};
 class DeleteAppGroupResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<DeleteAppGroupResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -2942,9 +2139,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2961,13 +2155,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        DeleteAppGroupResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<DeleteAppGroupResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -3094,80 +2281,8 @@ public:
 
   virtual ~DeleteJobRequest() = default;
 };
-class DeleteJobResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  DeleteJobResponseBodyAccessDeniedDetail() {}
-
-  explicit DeleteJobResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~DeleteJobResponseBodyAccessDeniedDetail() = default;
-};
 class DeleteJobResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<DeleteJobResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -3183,9 +2298,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -3202,13 +2314,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        DeleteJobResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<DeleteJobResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -3278,6 +2383,144 @@ public:
 
   virtual ~DeleteJobResponse() = default;
 };
+class DeleteNamespaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> regionId{};
+
+  DeleteNamespaceRequest() {}
+
+  explicit DeleteNamespaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteNamespaceRequest() = default;
+};
+class DeleteNamespaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteNamespaceResponseBody() {}
+
+  explicit DeleteNamespaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteNamespaceResponseBody() = default;
+};
+class DeleteNamespaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteNamespaceResponseBody> body{};
+
+  DeleteNamespaceResponse() {}
+
+  explicit DeleteNamespaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteNamespaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteNamespaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteNamespaceResponse() = default;
+};
 class DeleteRouteStrategyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
@@ -3328,80 +2571,8 @@ public:
 
   virtual ~DeleteRouteStrategyRequest() = default;
 };
-class DeleteRouteStrategyResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  DeleteRouteStrategyResponseBodyAccessDeniedDetail() {}
-
-  explicit DeleteRouteStrategyResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~DeleteRouteStrategyResponseBodyAccessDeniedDetail() = default;
-};
 class DeleteRouteStrategyResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<DeleteRouteStrategyResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -3417,9 +2588,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -3436,13 +2604,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        DeleteRouteStrategyResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<DeleteRouteStrategyResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -3569,80 +2730,8 @@ public:
 
   virtual ~DeleteWorkflowRequest() = default;
 };
-class DeleteWorkflowResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  DeleteWorkflowResponseBodyAccessDeniedDetail() {}
-
-  explicit DeleteWorkflowResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~DeleteWorkflowResponseBodyAccessDeniedDetail() = default;
-};
 class DeleteWorkflowResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<DeleteWorkflowResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -3658,9 +2747,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -3677,13 +2763,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        DeleteWorkflowResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<DeleteWorkflowResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -4033,80 +3112,8 @@ public:
 
   virtual ~DesignateWorkersRequest() = default;
 };
-class DesignateWorkersResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  DesignateWorkersResponseBodyAccessDeniedDetail() {}
-
-  explicit DesignateWorkersResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~DesignateWorkersResponseBodyAccessDeniedDetail() = default;
-};
 class DesignateWorkersResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<DesignateWorkersResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -4122,9 +3129,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -4141,13 +3145,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        DesignateWorkersResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<DesignateWorkersResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -4274,80 +3271,8 @@ public:
 
   virtual ~DisableJobRequest() = default;
 };
-class DisableJobResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  DisableJobResponseBodyAccessDeniedDetail() {}
-
-  explicit DisableJobResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~DisableJobResponseBodyAccessDeniedDetail() = default;
-};
 class DisableJobResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<DisableJobResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -4363,9 +3288,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -4382,13 +3304,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        DisableJobResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<DisableJobResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -4515,80 +3430,8 @@ public:
 
   virtual ~DisableWorkflowRequest() = default;
 };
-class DisableWorkflowResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  DisableWorkflowResponseBodyAccessDeniedDetail() {}
-
-  explicit DisableWorkflowResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~DisableWorkflowResponseBodyAccessDeniedDetail() = default;
-};
 class DisableWorkflowResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<DisableWorkflowResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -4604,9 +3447,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -4623,13 +3463,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        DisableWorkflowResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<DisableWorkflowResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -4756,80 +3589,8 @@ public:
 
   virtual ~EnableJobRequest() = default;
 };
-class EnableJobResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  EnableJobResponseBodyAccessDeniedDetail() {}
-
-  explicit EnableJobResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~EnableJobResponseBodyAccessDeniedDetail() = default;
-};
 class EnableJobResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<EnableJobResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -4845,9 +3606,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -4864,13 +3622,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        EnableJobResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<EnableJobResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -4997,80 +3748,8 @@ public:
 
   virtual ~EnableWorkflowRequest() = default;
 };
-class EnableWorkflowResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  EnableWorkflowResponseBodyAccessDeniedDetail() {}
-
-  explicit EnableWorkflowResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~EnableWorkflowResponseBodyAccessDeniedDetail() = default;
-};
 class EnableWorkflowResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<EnableWorkflowResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -5086,9 +3765,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -5105,13 +3781,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        EnableWorkflowResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<EnableWorkflowResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -5273,77 +3942,6 @@ public:
 
   virtual ~ExecuteJobRequest() = default;
 };
-class ExecuteJobResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  ExecuteJobResponseBodyAccessDeniedDetail() {}
-
-  explicit ExecuteJobResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~ExecuteJobResponseBodyAccessDeniedDetail() = default;
-};
 class ExecuteJobResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> jobInstanceId{};
@@ -5375,7 +3973,6 @@ public:
 };
 class ExecuteJobResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ExecuteJobResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<ExecuteJobResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -5392,9 +3989,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -5414,13 +4008,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        ExecuteJobResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<ExecuteJobResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -5561,77 +4148,6 @@ public:
 
   virtual ~ExecuteWorkflowRequest() = default;
 };
-class ExecuteWorkflowResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  ExecuteWorkflowResponseBodyAccessDeniedDetail() {}
-
-  explicit ExecuteWorkflowResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~ExecuteWorkflowResponseBodyAccessDeniedDetail() = default;
-};
 class ExecuteWorkflowResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> wfInstanceId{};
@@ -5663,7 +4179,6 @@ public:
 };
 class ExecuteWorkflowResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ExecuteWorkflowResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<ExecuteWorkflowResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -5680,9 +4195,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -5702,13 +4214,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        ExecuteWorkflowResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<ExecuteWorkflowResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -5828,77 +4333,6 @@ public:
 
   virtual ~GetAppGroupRequest() = default;
 };
-class GetAppGroupResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetAppGroupResponseBodyAccessDeniedDetail() {}
-
-  explicit GetAppGroupResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetAppGroupResponseBodyAccessDeniedDetail() = default;
-};
 class GetAppGroupResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appKey{};
@@ -5909,6 +4343,8 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> maxJobs{};
   shared_ptr<string> monitorConfigJson{};
+  shared_ptr<string> monitorContactsJson{};
+  shared_ptr<string> namespace_{};
 
   GetAppGroupResponseBodyData() {}
 
@@ -5944,6 +4380,12 @@ public:
     if (monitorConfigJson) {
       res["MonitorConfigJson"] = boost::any(*monitorConfigJson);
     }
+    if (monitorContactsJson) {
+      res["MonitorContactsJson"] = boost::any(*monitorContactsJson);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     return res;
   }
 
@@ -5972,6 +4414,12 @@ public:
     if (m.find("MonitorConfigJson") != m.end() && !m["MonitorConfigJson"].empty()) {
       monitorConfigJson = make_shared<string>(boost::any_cast<string>(m["MonitorConfigJson"]));
     }
+    if (m.find("MonitorContactsJson") != m.end() && !m["MonitorContactsJson"].empty()) {
+      monitorContactsJson = make_shared<string>(boost::any_cast<string>(m["MonitorContactsJson"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
   }
 
 
@@ -5979,7 +4427,6 @@ public:
 };
 class GetAppGroupResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetAppGroupResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<GetAppGroupResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -5996,9 +4443,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -6018,13 +4462,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetAppGroupResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetAppGroupResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -6164,77 +4601,6 @@ public:
 
 
   virtual ~GetJobInfoRequest() = default;
-};
-class GetJobInfoResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetJobInfoResponseBodyAccessDeniedDetail() {}
-
-  explicit GetJobInfoResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetJobInfoResponseBodyAccessDeniedDetail() = default;
 };
 class GetJobInfoResponseBodyDataJobConfigInfoJobMonitorInfoContactInfo : public Darabonba::Model {
 public:
@@ -6706,7 +5072,6 @@ public:
 };
 class GetJobInfoResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetJobInfoResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<GetJobInfoResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -6723,9 +5088,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -6745,13 +5107,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetJobInfoResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetJobInfoResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -6891,77 +5246,6 @@ public:
 
 
   virtual ~GetJobInstanceRequest() = default;
-};
-class GetJobInstanceResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetJobInstanceResponseBodyAccessDeniedDetail() {}
-
-  explicit GetJobInstanceResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetJobInstanceResponseBodyAccessDeniedDetail() = default;
 };
 class GetJobInstanceResponseBodyDataJobInstanceDetail : public Darabonba::Model {
 public:
@@ -7132,7 +5416,6 @@ public:
 };
 class GetJobInstanceResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetJobInstanceResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<GetJobInstanceResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -7149,9 +5432,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -7171,13 +5451,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetJobInstanceResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetJobInstanceResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -7346,77 +5619,6 @@ public:
 
   virtual ~GetJobInstanceListRequest() = default;
 };
-class GetJobInstanceListResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetJobInstanceListResponseBodyAccessDeniedDetail() {}
-
-  explicit GetJobInstanceListResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetJobInstanceListResponseBodyAccessDeniedDetail() = default;
-};
 class GetJobInstanceListResponseBodyDataJobInstanceDetails : public Darabonba::Model {
 public:
   shared_ptr<string> dataTime{};
@@ -7575,7 +5777,6 @@ public:
 };
 class GetJobInstanceListResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetJobInstanceListResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<GetJobInstanceListResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -7592,9 +5793,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -7614,13 +5812,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetJobInstanceListResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetJobInstanceListResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -7803,77 +5994,6 @@ public:
 
   virtual ~GetLogRequest() = default;
 };
-class GetLogResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetLogResponseBodyAccessDeniedDetail() {}
-
-  explicit GetLogResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetLogResponseBodyAccessDeniedDetail() = default;
-};
 class GetLogResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> logs{};
@@ -7912,7 +6032,6 @@ public:
 };
 class GetLogResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetLogResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<GetLogResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -7929,9 +6048,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -7951,13 +6067,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetLogResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetLogResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -8112,80 +6221,8 @@ public:
 
   virtual ~GetOverviewRequest() = default;
 };
-class GetOverviewResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetOverviewResponseBodyAccessDeniedDetail() {}
-
-  explicit GetOverviewResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetOverviewResponseBodyAccessDeniedDetail() = default;
-};
 class GetOverviewResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetOverviewResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> data{};
   shared_ptr<string> message{};
@@ -8202,9 +6239,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -8224,13 +6258,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetOverviewResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetOverviewResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -8360,81 +6387,13 @@ public:
 
   virtual ~GetWorkFlowRequest() = default;
 };
-class GetWorkFlowResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetWorkFlowResponseBodyAccessDeniedDetail() {}
-
-  explicit GetWorkFlowResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetWorkFlowResponseBodyAccessDeniedDetail() = default;
-};
 class GetWorkFlowResponseBodyDataWorkFlowInfo : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> maxConcurrency{};
   shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> status{};
   shared_ptr<string> timeExpression{};
   shared_ptr<string> timeType{};
@@ -8453,8 +6412,17 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (maxConcurrency) {
+      res["MaxConcurrency"] = boost::any(*maxConcurrency);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -8475,8 +6443,17 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
+      maxConcurrency = make_shared<string>(boost::any_cast<string>(m["MaxConcurrency"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -8684,7 +6661,6 @@ public:
 };
 class GetWorkFlowResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetWorkFlowResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<GetWorkFlowResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -8701,9 +6677,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -8723,13 +6696,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetWorkFlowResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetWorkFlowResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -8856,77 +6822,6 @@ public:
 
   virtual ~GetWorkerListRequest() = default;
 };
-class GetWorkerListResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetWorkerListResponseBodyAccessDeniedDetail() {}
-
-  explicit GetWorkerListResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetWorkerListResponseBodyAccessDeniedDetail() = default;
-};
 class GetWorkerListResponseBodyDataWorkerInfos : public Darabonba::Model {
 public:
   shared_ptr<string> ip{};
@@ -9036,7 +6931,6 @@ public:
 };
 class GetWorkerListResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetWorkerListResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<GetWorkerListResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -9053,9 +6947,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -9075,13 +6966,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetWorkerListResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetWorkerListResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -9221,77 +7105,6 @@ public:
 
 
   virtual ~GetWorkflowInstanceRequest() = default;
-};
-class GetWorkflowInstanceResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GetWorkflowInstanceResponseBodyAccessDeniedDetail() {}
-
-  explicit GetWorkflowInstanceResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GetWorkflowInstanceResponseBodyAccessDeniedDetail() = default;
 };
 class GetWorkflowInstanceResponseBodyDataWfInstanceDagEdges : public Darabonba::Model {
 public:
@@ -9595,7 +7408,6 @@ public:
 };
 class GetWorkflowInstanceResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GetWorkflowInstanceResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<GetWorkflowInstanceResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -9612,9 +7424,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -9634,13 +7443,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GetWorkflowInstanceResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GetWorkflowInstanceResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -9788,80 +7590,8 @@ public:
 
   virtual ~GrantPermissionRequest() = default;
 };
-class GrantPermissionResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  GrantPermissionResponseBodyAccessDeniedDetail() {}
-
-  explicit GrantPermissionResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~GrantPermissionResponseBodyAccessDeniedDetail() = default;
-};
 class GrantPermissionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<GrantPermissionResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -9877,9 +7607,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -9896,13 +7623,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        GrantPermissionResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<GrantPermissionResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -10022,77 +7742,6 @@ public:
 
   virtual ~ListGroupsRequest() = default;
 };
-class ListGroupsResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  ListGroupsResponseBodyAccessDeniedDetail() {}
-
-  explicit ListGroupsResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~ListGroupsResponseBodyAccessDeniedDetail() = default;
-};
 class ListGroupsResponseBodyDataAppGroups : public Darabonba::Model {
 public:
   shared_ptr<long> appGroupId{};
@@ -10101,6 +7750,7 @@ public:
   shared_ptr<long> appVersion{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> namespace_{};
 
   ListGroupsResponseBodyDataAppGroups() {}
 
@@ -10130,6 +7780,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     return res;
   }
 
@@ -10151,6 +7804,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
   }
 
@@ -10202,7 +7858,6 @@ public:
 };
 class ListGroupsResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ListGroupsResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<ListGroupsResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -10219,9 +7874,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -10241,13 +7893,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        ListGroupsResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<ListGroupsResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -10324,6 +7969,269 @@ public:
 
   virtual ~ListGroupsResponse() = default;
 };
+class ListJobScriptHistoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+  shared_ptr<long> jobId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespaceSource{};
+  shared_ptr<string> regionId{};
+
+  ListJobScriptHistoryRequest() {}
+
+  explicit ListJobScriptHistoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespaceSource) {
+      res["NamespaceSource"] = boost::any(*namespaceSource);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespaceSource") != m.end() && !m["NamespaceSource"].empty()) {
+      namespaceSource = make_shared<string>(boost::any_cast<string>(m["NamespaceSource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListJobScriptHistoryRequest() = default;
+};
+class ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> scriptContent{};
+  shared_ptr<string> versionesDescription{};
+
+  ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos() {}
+
+  explicit ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (scriptContent) {
+      res["ScriptContent"] = boost::any(*scriptContent);
+    }
+    if (versionesDescription) {
+      res["VersionesDescription"] = boost::any(*versionesDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("ScriptContent") != m.end() && !m["ScriptContent"].empty()) {
+      scriptContent = make_shared<string>(boost::any_cast<string>(m["ScriptContent"]));
+    }
+    if (m.find("VersionesDescription") != m.end() && !m["VersionesDescription"].empty()) {
+      versionesDescription = make_shared<string>(boost::any_cast<string>(m["VersionesDescription"]));
+    }
+  }
+
+
+  virtual ~ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos() = default;
+};
+class ListJobScriptHistoryResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos>> jobScriptHistoryInfos{};
+
+  ListJobScriptHistoryResponseBodyData() {}
+
+  explicit ListJobScriptHistoryResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobScriptHistoryInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*jobScriptHistoryInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["JobScriptHistoryInfos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobScriptHistoryInfos") != m.end() && !m["JobScriptHistoryInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["JobScriptHistoryInfos"].type()) {
+        vector<ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["JobScriptHistoryInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        jobScriptHistoryInfos = make_shared<vector<ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListJobScriptHistoryResponseBodyData() = default;
+};
+class ListJobScriptHistoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<ListJobScriptHistoryResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListJobScriptHistoryResponseBody() {}
+
+  explicit ListJobScriptHistoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListJobScriptHistoryResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListJobScriptHistoryResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListJobScriptHistoryResponseBody() = default;
+};
+class ListJobScriptHistoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListJobScriptHistoryResponseBody> body{};
+
+  ListJobScriptHistoryResponse() {}
+
+  explicit ListJobScriptHistoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListJobScriptHistoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListJobScriptHistoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListJobScriptHistoryResponse() = default;
+};
 class ListJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
@@ -10387,77 +8295,6 @@ public:
 
 
   virtual ~ListJobsRequest() = default;
-};
-class ListJobsResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  ListJobsResponseBodyAccessDeniedDetail() {}
-
-  explicit ListJobsResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~ListJobsResponseBodyAccessDeniedDetail() = default;
 };
 class ListJobsResponseBodyDataJobsJobMonitorInfoContactInfo : public Darabonba::Model {
 public:
@@ -10939,7 +8776,6 @@ public:
 };
 class ListJobsResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ListJobsResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<ListJobsResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -10956,9 +8792,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -10978,13 +8811,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        ListJobsResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<ListJobsResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -11104,77 +8930,6 @@ public:
 
   virtual ~ListNamespacesRequest() = default;
 };
-class ListNamespacesResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  ListNamespacesResponseBodyAccessDeniedDetail() {}
-
-  explicit ListNamespacesResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~ListNamespacesResponseBodyAccessDeniedDetail() = default;
-};
 class ListNamespacesResponseBodyDataNamespaces : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -11263,7 +9018,6 @@ public:
 };
 class ListNamespacesResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ListNamespacesResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<ListNamespacesResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -11280,9 +9034,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -11302,13 +9053,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        ListNamespacesResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<ListNamespacesResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -11442,77 +9186,6 @@ public:
 
   virtual ~ListWorkflowInstanceRequest() = default;
 };
-class ListWorkflowInstanceResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  ListWorkflowInstanceResponseBodyAccessDeniedDetail() {}
-
-  explicit ListWorkflowInstanceResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~ListWorkflowInstanceResponseBodyAccessDeniedDetail() = default;
-};
 class ListWorkflowInstanceResponseBodyDataWfInstanceInfos : public Darabonba::Model {
 public:
   shared_ptr<string> dataTime{};
@@ -11629,7 +9302,6 @@ public:
 };
 class ListWorkflowInstanceResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ListWorkflowInstanceResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<ListWorkflowInstanceResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -11646,9 +9318,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -11668,13 +9337,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        ListWorkflowInstanceResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<ListWorkflowInstanceResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -11750,6 +9412,503 @@ public:
 
 
   virtual ~ListWorkflowInstanceResponse() = default;
+};
+class ReadSchedulerxDesignateDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> designateType{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> jobId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespaceSource{};
+  shared_ptr<string> regionId{};
+
+  ReadSchedulerxDesignateDetailRequest() {}
+
+  explicit ReadSchedulerxDesignateDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (designateType) {
+      res["DesignateType"] = boost::any(*designateType);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespaceSource) {
+      res["NamespaceSource"] = boost::any(*namespaceSource);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesignateType") != m.end() && !m["DesignateType"].empty()) {
+      designateType = make_shared<long>(boost::any_cast<long>(m["DesignateType"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespaceSource") != m.end() && !m["NamespaceSource"].empty()) {
+      namespaceSource = make_shared<string>(boost::any_cast<string>(m["NamespaceSource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateDetailRequest() = default;
+};
+class ReadSchedulerxDesignateDetailResponseBodyAccessDeniedDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> authAction{};
+  shared_ptr<string> authPrincipalDisplayName{};
+  shared_ptr<string> authPrincipalOwnerId{};
+  shared_ptr<string> authPrincipalType{};
+  shared_ptr<string> encodedDiagnosticMessage{};
+  shared_ptr<string> noPermissionType{};
+  shared_ptr<string> policyType{};
+
+  ReadSchedulerxDesignateDetailResponseBodyAccessDeniedDetail() {}
+
+  explicit ReadSchedulerxDesignateDetailResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authAction) {
+      res["AuthAction"] = boost::any(*authAction);
+    }
+    if (authPrincipalDisplayName) {
+      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
+    }
+    if (authPrincipalOwnerId) {
+      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
+    }
+    if (authPrincipalType) {
+      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
+    }
+    if (encodedDiagnosticMessage) {
+      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
+    }
+    if (noPermissionType) {
+      res["NoPermissionType"] = boost::any(*noPermissionType);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
+      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
+    }
+    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
+      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
+    }
+    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
+      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
+    }
+    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
+      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
+    }
+    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
+      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
+    }
+    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
+      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateDetailResponseBodyAccessDeniedDetail() = default;
+};
+class ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVosMetrics : public Darabonba::Model {
+public:
+  shared_ptr<double> cpuLoad1{};
+  shared_ptr<double> cpuLoad5{};
+  shared_ptr<long> cpuProcessors{};
+  shared_ptr<long> diskMax{};
+  shared_ptr<double> diskUsage{};
+  shared_ptr<long> diskUsed{};
+  shared_ptr<long> execCount{};
+  shared_ptr<double> heap1Usage{};
+  shared_ptr<double> heap1Used{};
+  shared_ptr<double> heap5Usage{};
+  shared_ptr<long> heapMax{};
+  shared_ptr<long> sharePoolAvailableSize{};
+  shared_ptr<long> sharePoolQueueSize{};
+
+  ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVosMetrics() {}
+
+  explicit ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVosMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuLoad1) {
+      res["CpuLoad1"] = boost::any(*cpuLoad1);
+    }
+    if (cpuLoad5) {
+      res["CpuLoad5"] = boost::any(*cpuLoad5);
+    }
+    if (cpuProcessors) {
+      res["CpuProcessors"] = boost::any(*cpuProcessors);
+    }
+    if (diskMax) {
+      res["DiskMax"] = boost::any(*diskMax);
+    }
+    if (diskUsage) {
+      res["DiskUsage"] = boost::any(*diskUsage);
+    }
+    if (diskUsed) {
+      res["DiskUsed"] = boost::any(*diskUsed);
+    }
+    if (execCount) {
+      res["ExecCount"] = boost::any(*execCount);
+    }
+    if (heap1Usage) {
+      res["Heap1Usage"] = boost::any(*heap1Usage);
+    }
+    if (heap1Used) {
+      res["Heap1Used"] = boost::any(*heap1Used);
+    }
+    if (heap5Usage) {
+      res["Heap5Usage"] = boost::any(*heap5Usage);
+    }
+    if (heapMax) {
+      res["HeapMax"] = boost::any(*heapMax);
+    }
+    if (sharePoolAvailableSize) {
+      res["SharePoolAvailableSize"] = boost::any(*sharePoolAvailableSize);
+    }
+    if (sharePoolQueueSize) {
+      res["SharePoolQueueSize"] = boost::any(*sharePoolQueueSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CpuLoad1") != m.end() && !m["CpuLoad1"].empty()) {
+      cpuLoad1 = make_shared<double>(boost::any_cast<double>(m["CpuLoad1"]));
+    }
+    if (m.find("CpuLoad5") != m.end() && !m["CpuLoad5"].empty()) {
+      cpuLoad5 = make_shared<double>(boost::any_cast<double>(m["CpuLoad5"]));
+    }
+    if (m.find("CpuProcessors") != m.end() && !m["CpuProcessors"].empty()) {
+      cpuProcessors = make_shared<long>(boost::any_cast<long>(m["CpuProcessors"]));
+    }
+    if (m.find("DiskMax") != m.end() && !m["DiskMax"].empty()) {
+      diskMax = make_shared<long>(boost::any_cast<long>(m["DiskMax"]));
+    }
+    if (m.find("DiskUsage") != m.end() && !m["DiskUsage"].empty()) {
+      diskUsage = make_shared<double>(boost::any_cast<double>(m["DiskUsage"]));
+    }
+    if (m.find("DiskUsed") != m.end() && !m["DiskUsed"].empty()) {
+      diskUsed = make_shared<long>(boost::any_cast<long>(m["DiskUsed"]));
+    }
+    if (m.find("ExecCount") != m.end() && !m["ExecCount"].empty()) {
+      execCount = make_shared<long>(boost::any_cast<long>(m["ExecCount"]));
+    }
+    if (m.find("Heap1Usage") != m.end() && !m["Heap1Usage"].empty()) {
+      heap1Usage = make_shared<double>(boost::any_cast<double>(m["Heap1Usage"]));
+    }
+    if (m.find("Heap1Used") != m.end() && !m["Heap1Used"].empty()) {
+      heap1Used = make_shared<double>(boost::any_cast<double>(m["Heap1Used"]));
+    }
+    if (m.find("Heap5Usage") != m.end() && !m["Heap5Usage"].empty()) {
+      heap5Usage = make_shared<double>(boost::any_cast<double>(m["Heap5Usage"]));
+    }
+    if (m.find("HeapMax") != m.end() && !m["HeapMax"].empty()) {
+      heapMax = make_shared<long>(boost::any_cast<long>(m["HeapMax"]));
+    }
+    if (m.find("SharePoolAvailableSize") != m.end() && !m["SharePoolAvailableSize"].empty()) {
+      sharePoolAvailableSize = make_shared<long>(boost::any_cast<long>(m["SharePoolAvailableSize"]));
+    }
+    if (m.find("SharePoolQueueSize") != m.end() && !m["SharePoolQueueSize"].empty()) {
+      sharePoolQueueSize = make_shared<long>(boost::any_cast<long>(m["SharePoolQueueSize"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVosMetrics() = default;
+};
+class ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos : public Darabonba::Model {
+public:
+  shared_ptr<string> busy{};
+  shared_ptr<bool> checked{};
+  shared_ptr<string> key{};
+  shared_ptr<ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVosMetrics> metrics{};
+  shared_ptr<bool> offline{};
+  shared_ptr<long> size{};
+  shared_ptr<string> starter{};
+  shared_ptr<string> version{};
+
+  ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos() {}
+
+  explicit ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (busy) {
+      res["Busy"] = boost::any(*busy);
+    }
+    if (checked) {
+      res["Checked"] = boost::any(*checked);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (metrics) {
+      res["Metrics"] = metrics ? boost::any(metrics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (offline) {
+      res["Offline"] = boost::any(*offline);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (starter) {
+      res["Starter"] = boost::any(*starter);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Busy") != m.end() && !m["Busy"].empty()) {
+      busy = make_shared<string>(boost::any_cast<string>(m["Busy"]));
+    }
+    if (m.find("Checked") != m.end() && !m["Checked"].empty()) {
+      checked = make_shared<bool>(boost::any_cast<bool>(m["Checked"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Metrics"].type()) {
+        ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVosMetrics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Metrics"]));
+        metrics = make_shared<ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVosMetrics>(model1);
+      }
+    }
+    if (m.find("Offline") != m.end() && !m["Offline"].empty()) {
+      offline = make_shared<bool>(boost::any_cast<bool>(m["Offline"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Starter") != m.end() && !m["Starter"].empty()) {
+      starter = make_shared<string>(boost::any_cast<string>(m["Starter"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos() = default;
+};
+class ReadSchedulerxDesignateDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos>> designateDetailVos{};
+
+  ReadSchedulerxDesignateDetailResponseBodyData() {}
+
+  explicit ReadSchedulerxDesignateDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (designateDetailVos) {
+      vector<boost::any> temp1;
+      for(auto item1:*designateDetailVos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DesignateDetailVos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesignateDetailVos") != m.end() && !m["DesignateDetailVos"].empty()) {
+      if (typeid(vector<boost::any>) == m["DesignateDetailVos"].type()) {
+        vector<ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DesignateDetailVos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        designateDetailVos = make_shared<vector<ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateDetailResponseBodyData() = default;
+};
+class ReadSchedulerxDesignateDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ReadSchedulerxDesignateDetailResponseBodyAccessDeniedDetail> accessDeniedDetail{};
+  shared_ptr<long> code{};
+  shared_ptr<ReadSchedulerxDesignateDetailResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ReadSchedulerxDesignateDetailResponseBody() {}
+
+  explicit ReadSchedulerxDesignateDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
+        ReadSchedulerxDesignateDetailResponseBodyAccessDeniedDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
+        accessDeniedDetail = make_shared<ReadSchedulerxDesignateDetailResponseBodyAccessDeniedDetail>(model1);
+      }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ReadSchedulerxDesignateDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ReadSchedulerxDesignateDetailResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateDetailResponseBody() = default;
+};
+class ReadSchedulerxDesignateDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ReadSchedulerxDesignateDetailResponseBody> body{};
+
+  ReadSchedulerxDesignateDetailResponse() {}
+
+  explicit ReadSchedulerxDesignateDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReadSchedulerxDesignateDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReadSchedulerxDesignateDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateDetailResponse() = default;
 };
 class RerunJobRequest : public Darabonba::Model {
 public:
@@ -11829,80 +9988,8 @@ public:
 
   virtual ~RerunJobRequest() = default;
 };
-class RerunJobResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  RerunJobResponseBodyAccessDeniedDetail() {}
-
-  explicit RerunJobResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~RerunJobResponseBodyAccessDeniedDetail() = default;
-};
 class RerunJobResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<RerunJobResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -11918,9 +10005,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -11937,13 +10021,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        RerunJobResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<RerunJobResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -12077,80 +10154,8 @@ public:
 
   virtual ~RetryJobInstanceRequest() = default;
 };
-class RetryJobInstanceResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  RetryJobInstanceResponseBodyAccessDeniedDetail() {}
-
-  explicit RetryJobInstanceResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~RetryJobInstanceResponseBodyAccessDeniedDetail() = default;
-};
 class RetryJobInstanceResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<RetryJobInstanceResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -12166,9 +10171,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -12185,13 +10187,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        RetryJobInstanceResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<RetryJobInstanceResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -12318,80 +10313,8 @@ public:
 
   virtual ~RevokePermissionRequest() = default;
 };
-class RevokePermissionResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  RevokePermissionResponseBodyAccessDeniedDetail() {}
-
-  explicit RevokePermissionResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~RevokePermissionResponseBodyAccessDeniedDetail() = default;
-};
 class RevokePermissionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<RevokePermissionResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -12407,9 +10330,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -12426,13 +10346,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        RevokePermissionResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<RevokePermissionResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -12566,80 +10479,8 @@ public:
 
   virtual ~SetJobInstanceSuccessRequest() = default;
 };
-class SetJobInstanceSuccessResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  SetJobInstanceSuccessResponseBodyAccessDeniedDetail() {}
-
-  explicit SetJobInstanceSuccessResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~SetJobInstanceSuccessResponseBodyAccessDeniedDetail() = default;
-};
 class SetJobInstanceSuccessResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<SetJobInstanceSuccessResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -12655,9 +10496,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -12674,13 +10512,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        SetJobInstanceSuccessResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<SetJobInstanceSuccessResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -12814,80 +10645,8 @@ public:
 
   virtual ~SetWfInstanceSuccessRequest() = default;
 };
-class SetWfInstanceSuccessResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  SetWfInstanceSuccessResponseBodyAccessDeniedDetail() {}
-
-  explicit SetWfInstanceSuccessResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~SetWfInstanceSuccessResponseBodyAccessDeniedDetail() = default;
-};
 class SetWfInstanceSuccessResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<SetWfInstanceSuccessResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -12903,9 +10662,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -12922,13 +10678,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        SetWfInstanceSuccessResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<SetWfInstanceSuccessResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -13062,80 +10811,8 @@ public:
 
   virtual ~StopInstanceRequest() = default;
 };
-class StopInstanceResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  StopInstanceResponseBodyAccessDeniedDetail() {}
-
-  explicit StopInstanceResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~StopInstanceResponseBodyAccessDeniedDetail() = default;
-};
 class StopInstanceResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<StopInstanceResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -13151,9 +10828,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -13170,13 +10844,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        StopInstanceResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<StopInstanceResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -13252,6 +10919,8 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<long> maxConcurrency{};
+  shared_ptr<string> monitorConfigJson{};
+  shared_ptr<string> monitorContactsJson{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
 
@@ -13277,6 +10946,12 @@ public:
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
     }
+    if (monitorConfigJson) {
+      res["MonitorConfigJson"] = boost::any(*monitorConfigJson);
+    }
+    if (monitorContactsJson) {
+      res["MonitorContactsJson"] = boost::any(*monitorContactsJson);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
@@ -13299,6 +10974,12 @@ public:
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
     }
+    if (m.find("MonitorConfigJson") != m.end() && !m["MonitorConfigJson"].empty()) {
+      monitorConfigJson = make_shared<string>(boost::any_cast<string>(m["MonitorConfigJson"]));
+    }
+    if (m.find("MonitorContactsJson") != m.end() && !m["MonitorContactsJson"].empty()) {
+      monitorContactsJson = make_shared<string>(boost::any_cast<string>(m["MonitorContactsJson"]));
+    }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
@@ -13310,80 +10991,8 @@ public:
 
   virtual ~UpdateAppGroupRequest() = default;
 };
-class UpdateAppGroupResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  UpdateAppGroupResponseBodyAccessDeniedDetail() {}
-
-  explicit UpdateAppGroupResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~UpdateAppGroupResponseBodyAccessDeniedDetail() = default;
-};
 class UpdateAppGroupResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<UpdateAppGroupResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -13399,9 +11008,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -13418,13 +11024,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        UpdateAppGroupResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<UpdateAppGroupResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -13568,6 +11167,7 @@ public:
   shared_ptr<string> namespaceSource{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> parameters{};
+  shared_ptr<long> priority{};
   shared_ptr<long> queueSize{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sendChannel{};
@@ -13663,6 +11263,9 @@ public:
     }
     if (parameters) {
       res["Parameters"] = boost::any(*parameters);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (queueSize) {
       res["QueueSize"] = boost::any(*queueSize);
@@ -13789,6 +11392,9 @@ public:
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       parameters = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
     }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
     if (m.find("QueueSize") != m.end() && !m["QueueSize"].empty()) {
       queueSize = make_shared<long>(boost::any_cast<long>(m["QueueSize"]));
     }
@@ -13839,80 +11445,8 @@ public:
 
   virtual ~UpdateJobRequest() = default;
 };
-class UpdateJobResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  UpdateJobResponseBodyAccessDeniedDetail() {}
-
-  explicit UpdateJobResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~UpdateJobResponseBodyAccessDeniedDetail() = default;
-};
 class UpdateJobResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<UpdateJobResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -13928,9 +11462,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -13947,13 +11478,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        UpdateJobResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<UpdateJobResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -14022,6 +11546,331 @@ public:
 
 
   virtual ~UpdateJobResponse() = default;
+};
+class UpdateJobScriptRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+  shared_ptr<long> jobId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespaceSource{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scriptContent{};
+  shared_ptr<string> versionDescription{};
+
+  UpdateJobScriptRequest() {}
+
+  explicit UpdateJobScriptRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespaceSource) {
+      res["NamespaceSource"] = boost::any(*namespaceSource);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scriptContent) {
+      res["ScriptContent"] = boost::any(*scriptContent);
+    }
+    if (versionDescription) {
+      res["VersionDescription"] = boost::any(*versionDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespaceSource") != m.end() && !m["NamespaceSource"].empty()) {
+      namespaceSource = make_shared<string>(boost::any_cast<string>(m["NamespaceSource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScriptContent") != m.end() && !m["ScriptContent"].empty()) {
+      scriptContent = make_shared<string>(boost::any_cast<string>(m["ScriptContent"]));
+    }
+    if (m.find("VersionDescription") != m.end() && !m["VersionDescription"].empty()) {
+      versionDescription = make_shared<string>(boost::any_cast<string>(m["VersionDescription"]));
+    }
+  }
+
+
+  virtual ~UpdateJobScriptRequest() = default;
+};
+class UpdateJobScriptResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateJobScriptResponseBody() {}
+
+  explicit UpdateJobScriptResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateJobScriptResponseBody() = default;
+};
+class UpdateJobScriptResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateJobScriptResponseBody> body{};
+
+  UpdateJobScriptResponse() {}
+
+  explicit UpdateJobScriptResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateJobScriptResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateJobScriptResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateJobScriptResponse() = default;
+};
+class UpdateNamespaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespaceName{};
+  shared_ptr<string> regionId{};
+
+  UpdateNamespaceRequest() {}
+
+  explicit UpdateNamespaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespaceName) {
+      res["NamespaceName"] = boost::any(*namespaceName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespaceName") != m.end() && !m["NamespaceName"].empty()) {
+      namespaceName = make_shared<string>(boost::any_cast<string>(m["NamespaceName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateNamespaceRequest() = default;
+};
+class UpdateNamespaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateNamespaceResponseBody() {}
+
+  explicit UpdateNamespaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateNamespaceResponseBody() = default;
+};
+class UpdateNamespaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateNamespaceResponseBody> body{};
+
+  UpdateNamespaceResponse() {}
+
+  explicit UpdateNamespaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateNamespaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateNamespaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateNamespaceResponse() = default;
 };
 class UpdateWorkflowRequest : public Darabonba::Model {
 public:
@@ -14108,80 +11957,8 @@ public:
 
   virtual ~UpdateWorkflowRequest() = default;
 };
-class UpdateWorkflowResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  UpdateWorkflowResponseBodyAccessDeniedDetail() {}
-
-  explicit UpdateWorkflowResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~UpdateWorkflowResponseBodyAccessDeniedDetail() = default;
-};
 class UpdateWorkflowResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<UpdateWorkflowResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -14197,9 +11974,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -14216,13 +11990,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        UpdateWorkflowResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<UpdateWorkflowResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -14356,80 +12123,8 @@ public:
 
   virtual ~UpdateWorkflowDagRequest() = default;
 };
-class UpdateWorkflowDagResponseBodyAccessDeniedDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> authAction{};
-  shared_ptr<string> authPrincipalDisplayName{};
-  shared_ptr<string> authPrincipalOwnerId{};
-  shared_ptr<string> authPrincipalType{};
-  shared_ptr<string> encodedDiagnosticMessage{};
-  shared_ptr<string> noPermissionType{};
-  shared_ptr<string> policyType{};
-
-  UpdateWorkflowDagResponseBodyAccessDeniedDetail() {}
-
-  explicit UpdateWorkflowDagResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authAction) {
-      res["AuthAction"] = boost::any(*authAction);
-    }
-    if (authPrincipalDisplayName) {
-      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
-    }
-    if (authPrincipalOwnerId) {
-      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
-    }
-    if (authPrincipalType) {
-      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
-    }
-    if (encodedDiagnosticMessage) {
-      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
-    }
-    if (noPermissionType) {
-      res["NoPermissionType"] = boost::any(*noPermissionType);
-    }
-    if (policyType) {
-      res["PolicyType"] = boost::any(*policyType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
-      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
-    }
-    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
-      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
-    }
-    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
-      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
-    }
-    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
-      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
-    }
-    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
-      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
-    }
-    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
-      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
-    }
-    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
-      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
-    }
-  }
-
-
-  virtual ~UpdateWorkflowDagResponseBodyAccessDeniedDetail() = default;
-};
 class UpdateWorkflowDagResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<UpdateWorkflowDagResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -14445,9 +12140,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accessDeniedDetail) {
-      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -14464,13 +12156,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
-        UpdateWorkflowDagResponseBodyAccessDeniedDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
-        accessDeniedDetail = make_shared<UpdateWorkflowDagResponseBodyAccessDeniedDetail>(model1);
-      }
-    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -14572,6 +12257,8 @@ public:
   DeleteAppGroupResponse deleteAppGroup(shared_ptr<DeleteAppGroupRequest> request);
   DeleteJobResponse deleteJobWithOptions(shared_ptr<DeleteJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteJobResponse deleteJob(shared_ptr<DeleteJobRequest> request);
+  DeleteNamespaceResponse deleteNamespaceWithOptions(shared_ptr<DeleteNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteNamespaceResponse deleteNamespace(shared_ptr<DeleteNamespaceRequest> request);
   DeleteRouteStrategyResponse deleteRouteStrategyWithOptions(shared_ptr<DeleteRouteStrategyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteRouteStrategyResponse deleteRouteStrategy(shared_ptr<DeleteRouteStrategyRequest> request);
   DeleteWorkflowResponse deleteWorkflowWithOptions(shared_ptr<DeleteWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -14614,12 +12301,16 @@ public:
   GrantPermissionResponse grantPermission(shared_ptr<GrantPermissionRequest> request);
   ListGroupsResponse listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupsResponse listGroups(shared_ptr<ListGroupsRequest> request);
+  ListJobScriptHistoryResponse listJobScriptHistoryWithOptions(shared_ptr<ListJobScriptHistoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListJobScriptHistoryResponse listJobScriptHistory(shared_ptr<ListJobScriptHistoryRequest> request);
   ListJobsResponse listJobsWithOptions(shared_ptr<ListJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListJobsResponse listJobs(shared_ptr<ListJobsRequest> request);
   ListNamespacesResponse listNamespacesWithOptions(shared_ptr<ListNamespacesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListNamespacesResponse listNamespaces(shared_ptr<ListNamespacesRequest> request);
   ListWorkflowInstanceResponse listWorkflowInstanceWithOptions(shared_ptr<ListWorkflowInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListWorkflowInstanceResponse listWorkflowInstance(shared_ptr<ListWorkflowInstanceRequest> request);
+  ReadSchedulerxDesignateDetailResponse readSchedulerxDesignateDetailWithOptions(shared_ptr<ReadSchedulerxDesignateDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReadSchedulerxDesignateDetailResponse readSchedulerxDesignateDetail(shared_ptr<ReadSchedulerxDesignateDetailRequest> request);
   RerunJobResponse rerunJobWithOptions(shared_ptr<RerunJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RerunJobResponse rerunJob(shared_ptr<RerunJobRequest> request);
   RetryJobInstanceResponse retryJobInstanceWithOptions(shared_ptr<RetryJobInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -14636,6 +12327,10 @@ public:
   UpdateAppGroupResponse updateAppGroup(shared_ptr<UpdateAppGroupRequest> request);
   UpdateJobResponse updateJobWithOptions(shared_ptr<UpdateJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateJobResponse updateJob(shared_ptr<UpdateJobRequest> request);
+  UpdateJobScriptResponse updateJobScriptWithOptions(shared_ptr<UpdateJobScriptRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateJobScriptResponse updateJobScript(shared_ptr<UpdateJobScriptRequest> request);
+  UpdateNamespaceResponse updateNamespaceWithOptions(shared_ptr<UpdateNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateNamespaceResponse updateNamespace(shared_ptr<UpdateNamespaceRequest> request);
   UpdateWorkflowResponse updateWorkflowWithOptions(shared_ptr<UpdateWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateWorkflowResponse updateWorkflow(shared_ptr<UpdateWorkflowRequest> request);
   UpdateWorkflowDagResponse updateWorkflowDagWithOptions(shared_ptr<UpdateWorkflowDagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
