@@ -3119,6 +3119,408 @@ public:
 
   virtual ~ImportNumberResponse() = default;
 };
+class ImportNumberV2RequestCustomers : public Darabonba::Model {
+public:
+  shared_ptr<string> clientUrl{};
+  shared_ptr<string> number{};
+  shared_ptr<string> numberMD5{};
+  shared_ptr<map<string, boost::any>> properties{};
+  shared_ptr<string> tag{};
+
+  ImportNumberV2RequestCustomers() {}
+
+  explicit ImportNumberV2RequestCustomers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientUrl) {
+      res["ClientUrl"] = boost::any(*clientUrl);
+    }
+    if (number) {
+      res["Number"] = boost::any(*number);
+    }
+    if (numberMD5) {
+      res["NumberMD5"] = boost::any(*numberMD5);
+    }
+    if (properties) {
+      res["Properties"] = boost::any(*properties);
+    }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientUrl") != m.end() && !m["ClientUrl"].empty()) {
+      clientUrl = make_shared<string>(boost::any_cast<string>(m["ClientUrl"]));
+    }
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<string>(boost::any_cast<string>(m["Number"]));
+    }
+    if (m.find("NumberMD5") != m.end() && !m["NumberMD5"].empty()) {
+      numberMD5 = make_shared<string>(boost::any_cast<string>(m["NumberMD5"]));
+    }
+    if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Properties"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      properties = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ImportNumberV2RequestCustomers() = default;
+};
+class ImportNumberV2Request : public Darabonba::Model {
+public:
+  shared_ptr<vector<ImportNumberV2RequestCustomers>> customers{};
+  shared_ptr<long> failReturn{};
+  shared_ptr<string> outId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> taskId{};
+
+  ImportNumberV2Request() {}
+
+  explicit ImportNumberV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customers) {
+      vector<boost::any> temp1;
+      for(auto item1:*customers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Customers"] = boost::any(temp1);
+    }
+    if (failReturn) {
+      res["FailReturn"] = boost::any(*failReturn);
+    }
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Customers") != m.end() && !m["Customers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Customers"].type()) {
+        vector<ImportNumberV2RequestCustomers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Customers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImportNumberV2RequestCustomers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customers = make_shared<vector<ImportNumberV2RequestCustomers>>(expect1);
+      }
+    }
+    if (m.find("FailReturn") != m.end() && !m["FailReturn"].empty()) {
+      failReturn = make_shared<long>(boost::any_cast<long>(m["FailReturn"]));
+    }
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~ImportNumberV2Request() = default;
+};
+class ImportNumberV2ShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> customersShrink{};
+  shared_ptr<long> failReturn{};
+  shared_ptr<string> outId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> taskId{};
+
+  ImportNumberV2ShrinkRequest() {}
+
+  explicit ImportNumberV2ShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customersShrink) {
+      res["Customers"] = boost::any(*customersShrink);
+    }
+    if (failReturn) {
+      res["FailReturn"] = boost::any(*failReturn);
+    }
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Customers") != m.end() && !m["Customers"].empty()) {
+      customersShrink = make_shared<string>(boost::any_cast<string>(m["Customers"]));
+    }
+    if (m.find("FailReturn") != m.end() && !m["FailReturn"].empty()) {
+      failReturn = make_shared<long>(boost::any_cast<long>(m["FailReturn"]));
+    }
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~ImportNumberV2ShrinkRequest() = default;
+};
+class ImportNumberV2ResponseBodyModel : public Darabonba::Model {
+public:
+  shared_ptr<long> batchId{};
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<long> importNum{};
+  shared_ptr<string> message{};
+
+  ImportNumberV2ResponseBodyModel() {}
+
+  explicit ImportNumberV2ResponseBodyModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (batchId) {
+      res["BatchId"] = boost::any(*batchId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (importNum) {
+      res["ImportNum"] = boost::any(*importNum);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BatchId") != m.end() && !m["BatchId"].empty()) {
+      batchId = make_shared<long>(boost::any_cast<long>(m["BatchId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ImportNum") != m.end() && !m["ImportNum"].empty()) {
+      importNum = make_shared<long>(boost::any_cast<long>(m["ImportNum"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~ImportNumberV2ResponseBodyModel() = default;
+};
+class ImportNumberV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<ImportNumberV2ResponseBodyModel> model{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+  shared_ptr<long> timestamp{};
+
+  ImportNumberV2ResponseBody() {}
+
+  explicit ImportNumberV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (model) {
+      res["Model"] = model ? boost::any(model->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Model"].type()) {
+        ImportNumberV2ResponseBodyModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Model"]));
+        model = make_shared<ImportNumberV2ResponseBodyModel>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+  }
+
+
+  virtual ~ImportNumberV2ResponseBody() = default;
+};
+class ImportNumberV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ImportNumberV2ResponseBody> body{};
+
+  ImportNumberV2Response() {}
+
+  explicit ImportNumberV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ImportNumberV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ImportNumberV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImportNumberV2Response() = default;
+};
 class PageRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> numbers{};
@@ -7095,6 +7497,8 @@ public:
   EditTaskResponse editTask(shared_ptr<EditTaskRequest> request);
   ImportNumberResponse importNumberWithOptions(shared_ptr<ImportNumberRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportNumberResponse importNumber(shared_ptr<ImportNumberRequest> request);
+  ImportNumberV2Response importNumberV2WithOptions(shared_ptr<ImportNumberV2Request> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ImportNumberV2Response importNumberV2(shared_ptr<ImportNumberV2Request> request);
   PageResponse pageWithOptions(shared_ptr<PageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PageResponse page(shared_ptr<PageRequest> request);
   SmsTemplateCreateResponse smsTemplateCreateWithOptions(shared_ptr<SmsTemplateCreateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
