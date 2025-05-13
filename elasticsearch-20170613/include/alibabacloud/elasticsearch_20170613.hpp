@@ -10491,7 +10491,7 @@ public:
   shared_ptr<bool> enableKibanaPrivateNetwork{};
   shared_ptr<bool> enableKibanaPublicNetwork{};
   shared_ptr<bool> enablePublic{};
-  shared_ptr<long> endtime{};
+  shared_ptr<long> endTime{};
   shared_ptr<map<string, boost::any>> esConfig{};
   shared_ptr<vector<string>> esIPBlacklist{};
   shared_ptr<vector<string>> esIPWhitelist{};
@@ -10594,8 +10594,8 @@ public:
     if (enablePublic) {
       res["enablePublic"] = boost::any(*enablePublic);
     }
-    if (endtime) {
-      res["endtime"] = boost::any(*endtime);
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
     }
     if (esConfig) {
       res["esConfig"] = boost::any(*esConfig);
@@ -10814,8 +10814,8 @@ public:
     if (m.find("enablePublic") != m.end() && !m["enablePublic"].empty()) {
       enablePublic = make_shared<bool>(boost::any_cast<bool>(m["enablePublic"]));
     }
-    if (m.find("endtime") != m.end() && !m["endtime"].empty()) {
-      endtime = make_shared<long>(boost::any_cast<long>(m["endtime"]));
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
     }
     if (m.find("esConfig") != m.end() && !m["esConfig"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["esConfig"]);
