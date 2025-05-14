@@ -76515,8 +76515,8 @@ public:
   shared_ptr<string> message{};
   shared_ptr<SubmitCopyrightJobRequestOutput> output{};
   shared_ptr<string> params{};
-  shared_ptr<string> startTime{};
-  shared_ptr<string> totalTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalTime{};
   shared_ptr<string> userData{};
 
   SubmitCopyrightJobRequest() {}
@@ -76587,10 +76587,10 @@ public:
       params = make_shared<string>(boost::any_cast<string>(m["Params"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("TotalTime") != m.end() && !m["TotalTime"].empty()) {
-      totalTime = make_shared<string>(boost::any_cast<string>(m["TotalTime"]));
+      totalTime = make_shared<long>(boost::any_cast<long>(m["TotalTime"]));
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
@@ -76608,8 +76608,8 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> outputShrink{};
   shared_ptr<string> params{};
-  shared_ptr<string> startTime{};
-  shared_ptr<string> totalTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalTime{};
   shared_ptr<string> userData{};
 
   SubmitCopyrightJobShrinkRequest() {}
@@ -76672,10 +76672,10 @@ public:
       params = make_shared<string>(boost::any_cast<string>(m["Params"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("TotalTime") != m.end() && !m["TotalTime"].empty()) {
-      totalTime = make_shared<string>(boost::any_cast<string>(m["TotalTime"]));
+      totalTime = make_shared<long>(boost::any_cast<long>(m["TotalTime"]));
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
@@ -84871,8 +84871,8 @@ public:
   shared_ptr<SubmitTraceAbJobRequestInput> input{};
   shared_ptr<long> level{};
   shared_ptr<SubmitTraceAbJobRequestOutput> output{};
-  shared_ptr<string> startTime{};
-  shared_ptr<string> totalTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalTime{};
   shared_ptr<string> userData{};
 
   SubmitTraceAbJobRequest() {}
@@ -84931,10 +84931,10 @@ public:
       }
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("TotalTime") != m.end() && !m["TotalTime"].empty()) {
-      totalTime = make_shared<string>(boost::any_cast<string>(m["TotalTime"]));
+      totalTime = make_shared<long>(boost::any_cast<long>(m["TotalTime"]));
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
@@ -84950,8 +84950,8 @@ public:
   shared_ptr<string> inputShrink{};
   shared_ptr<long> level{};
   shared_ptr<string> outputShrink{};
-  shared_ptr<string> startTime{};
-  shared_ptr<string> totalTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalTime{};
   shared_ptr<string> userData{};
 
   SubmitTraceAbJobShrinkRequest() {}
@@ -85002,10 +85002,10 @@ public:
       outputShrink = make_shared<string>(boost::any_cast<string>(m["Output"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("TotalTime") != m.end() && !m["TotalTime"].empty()) {
-      totalTime = make_shared<string>(boost::any_cast<string>(m["TotalTime"]));
+      totalTime = make_shared<long>(boost::any_cast<long>(m["TotalTime"]));
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));

@@ -9425,11 +9425,11 @@ SubmitCopyrightJobResponse Alibabacloud_ICE20201109::Client::submitCopyrightJobW
   if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
     query->insert(pair<string, string>("Params", *request->params));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
-    query->insert(pair<string, string>("StartTime", *request->startTime));
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->totalTime)) {
-    query->insert(pair<string, string>("TotalTime", *request->totalTime));
+  if (!Darabonba_Util::Client::isUnset<long>(request->totalTime)) {
+    query->insert(pair<string, long>("TotalTime", *request->totalTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
     query->insert(pair<string, string>("UserData", *request->userData));
@@ -10692,11 +10692,11 @@ SubmitTraceAbJobResponse Alibabacloud_ICE20201109::Client::submitTraceAbJobWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->outputShrink)) {
     query->insert(pair<string, string>("Output", *request->outputShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
-    query->insert(pair<string, string>("StartTime", *request->startTime));
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->totalTime)) {
-    query->insert(pair<string, string>("TotalTime", *request->totalTime));
+  if (!Darabonba_Util::Client::isUnset<long>(request->totalTime)) {
+    query->insert(pair<string, long>("TotalTime", *request->totalTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
     query->insert(pair<string, string>("UserData", *request->userData));
