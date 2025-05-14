@@ -36251,8 +36251,8 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> output{};
   shared_ptr<string> params{};
-  shared_ptr<string> startTime{};
-  shared_ptr<string> totalTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalTime{};
   shared_ptr<string> url{};
   shared_ptr<string> userData{};
 
@@ -36325,10 +36325,10 @@ public:
       params = make_shared<string>(boost::any_cast<string>(m["Params"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("TotalTime") != m.end() && !m["TotalTime"].empty()) {
-      totalTime = make_shared<string>(boost::any_cast<string>(m["TotalTime"]));
+      totalTime = make_shared<long>(boost::any_cast<long>(m["TotalTime"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -43144,8 +43144,8 @@ public:
   shared_ptr<string> input{};
   shared_ptr<long> level{};
   shared_ptr<string> output{};
-  shared_ptr<string> startTime{};
-  shared_ptr<string> totalTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalTime{};
   shared_ptr<string> url{};
   shared_ptr<string> userData{};
 
@@ -43206,10 +43206,10 @@ public:
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("TotalTime") != m.end() && !m["TotalTime"].empty()) {
-      totalTime = make_shared<string>(boost::any_cast<string>(m["TotalTime"]));
+      totalTime = make_shared<long>(boost::any_cast<long>(m["TotalTime"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
