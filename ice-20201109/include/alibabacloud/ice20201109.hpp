@@ -11463,6 +11463,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> videoCodec{};
   shared_ptr<CreateMediaLiveChannelRequestVideoSettingsVideoCodecSetting> videoCodecSetting{};
+  shared_ptr<string> videoCodecType{};
   shared_ptr<long> width{};
 
   CreateMediaLiveChannelRequestVideoSettings() {}
@@ -11487,6 +11488,9 @@ public:
     if (videoCodecSetting) {
       res["VideoCodecSetting"] = videoCodecSetting ? boost::any(videoCodecSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (videoCodecType) {
+      res["VideoCodecType"] = boost::any(*videoCodecType);
+    }
     if (width) {
       res["Width"] = boost::any(*width);
     }
@@ -11509,6 +11513,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VideoCodecSetting"]));
         videoCodecSetting = make_shared<CreateMediaLiveChannelRequestVideoSettingsVideoCodecSetting>(model1);
       }
+    }
+    if (m.find("VideoCodecType") != m.end() && !m["VideoCodecType"].empty()) {
+      videoCodecType = make_shared<string>(boost::any_cast<string>(m["VideoCodecType"]));
     }
     if (m.find("Width") != m.end() && !m["Width"].empty()) {
       width = make_shared<long>(boost::any_cast<long>(m["Width"]));
@@ -33362,6 +33369,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> videoCodec{};
   shared_ptr<GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSetting> videoCodecSetting{};
+  shared_ptr<string> videoCodecType{};
   shared_ptr<long> width{};
 
   GetMediaLiveChannelResponseBodyChannelVideoSettings() {}
@@ -33386,6 +33394,9 @@ public:
     if (videoCodecSetting) {
       res["VideoCodecSetting"] = videoCodecSetting ? boost::any(videoCodecSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (videoCodecType) {
+      res["VideoCodecType"] = boost::any(*videoCodecType);
+    }
     if (width) {
       res["Width"] = boost::any(*width);
     }
@@ -33408,6 +33419,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VideoCodecSetting"]));
         videoCodecSetting = make_shared<GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSetting>(model1);
       }
+    }
+    if (m.find("VideoCodecType") != m.end() && !m["VideoCodecType"].empty()) {
+      videoCodecType = make_shared<string>(boost::any_cast<string>(m["VideoCodecType"]));
     }
     if (m.find("Width") != m.end() && !m["Width"].empty()) {
       width = make_shared<long>(boost::any_cast<long>(m["Width"]));
@@ -55083,6 +55097,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> videoCodec{};
   shared_ptr<ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSetting> videoCodecSetting{};
+  shared_ptr<string> videoCodecType{};
   shared_ptr<long> width{};
 
   ListMediaLiveChannelsResponseBodyChannelsVideoSettings() {}
@@ -55107,6 +55122,9 @@ public:
     if (videoCodecSetting) {
       res["VideoCodecSetting"] = videoCodecSetting ? boost::any(videoCodecSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (videoCodecType) {
+      res["VideoCodecType"] = boost::any(*videoCodecType);
+    }
     if (width) {
       res["Width"] = boost::any(*width);
     }
@@ -55129,6 +55147,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VideoCodecSetting"]));
         videoCodecSetting = make_shared<ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSetting>(model1);
       }
+    }
+    if (m.find("VideoCodecType") != m.end() && !m["VideoCodecType"].empty()) {
+      videoCodecType = make_shared<string>(boost::any_cast<string>(m["VideoCodecType"]));
     }
     if (m.find("Width") != m.end() && !m["Width"].empty()) {
       width = make_shared<long>(boost::any_cast<long>(m["Width"]));
@@ -96217,6 +96238,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> videoCodec{};
   shared_ptr<UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSetting> videoCodecSetting{};
+  shared_ptr<string> videoCodecType{};
   shared_ptr<long> width{};
 
   UpdateMediaLiveChannelRequestVideoSettings() {}
@@ -96241,6 +96263,9 @@ public:
     if (videoCodecSetting) {
       res["VideoCodecSetting"] = videoCodecSetting ? boost::any(videoCodecSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (videoCodecType) {
+      res["VideoCodecType"] = boost::any(*videoCodecType);
+    }
     if (width) {
       res["Width"] = boost::any(*width);
     }
@@ -96263,6 +96288,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VideoCodecSetting"]));
         videoCodecSetting = make_shared<UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSetting>(model1);
       }
+    }
+    if (m.find("VideoCodecType") != m.end() && !m["VideoCodecType"].empty()) {
+      videoCodecType = make_shared<string>(boost::any_cast<string>(m["VideoCodecType"]));
     }
     if (m.find("Width") != m.end() && !m["Width"].empty()) {
       width = make_shared<long>(boost::any_cast<long>(m["Width"]));
