@@ -10881,6 +10881,578 @@ public:
 
   virtual ~RealTimeDialogResponse() = default;
 };
+class RealtimeDialogAssistRequestConversationModel : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> customerId{};
+  shared_ptr<string> customerServiceId{};
+  shared_ptr<string> customerServiceType{};
+  shared_ptr<long> role{};
+  shared_ptr<string> type{};
+
+  RealtimeDialogAssistRequestConversationModel() {}
+
+  explicit RealtimeDialogAssistRequestConversationModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (customerId) {
+      res["customerId"] = boost::any(*customerId);
+    }
+    if (customerServiceId) {
+      res["customerServiceId"] = boost::any(*customerServiceId);
+    }
+    if (customerServiceType) {
+      res["customerServiceType"] = boost::any(*customerServiceType);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("customerId") != m.end() && !m["customerId"].empty()) {
+      customerId = make_shared<string>(boost::any_cast<string>(m["customerId"]));
+    }
+    if (m.find("customerServiceId") != m.end() && !m["customerServiceId"].empty()) {
+      customerServiceId = make_shared<string>(boost::any_cast<string>(m["customerServiceId"]));
+    }
+    if (m.find("customerServiceType") != m.end() && !m["customerServiceType"].empty()) {
+      customerServiceType = make_shared<string>(boost::any_cast<string>(m["customerServiceType"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<long>(boost::any_cast<long>(m["role"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~RealtimeDialogAssistRequestConversationModel() = default;
+};
+class RealtimeDialogAssistRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> analysis{};
+  shared_ptr<string> bizType{};
+  shared_ptr<vector<RealtimeDialogAssistRequestConversationModel>> conversationModel{};
+  shared_ptr<long> dialogMemoryTurns{};
+  shared_ptr<bool> hangUpDialog{};
+  shared_ptr<map<string, boost::any>> metaData{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sessionId{};
+
+  RealtimeDialogAssistRequest() {}
+
+  explicit RealtimeDialogAssistRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (analysis) {
+      res["analysis"] = boost::any(*analysis);
+    }
+    if (bizType) {
+      res["bizType"] = boost::any(*bizType);
+    }
+    if (conversationModel) {
+      vector<boost::any> temp1;
+      for(auto item1:*conversationModel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["conversationModel"] = boost::any(temp1);
+    }
+    if (dialogMemoryTurns) {
+      res["dialogMemoryTurns"] = boost::any(*dialogMemoryTurns);
+    }
+    if (hangUpDialog) {
+      res["hangUpDialog"] = boost::any(*hangUpDialog);
+    }
+    if (metaData) {
+      res["metaData"] = boost::any(*metaData);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("analysis") != m.end() && !m["analysis"].empty()) {
+      analysis = make_shared<bool>(boost::any_cast<bool>(m["analysis"]));
+    }
+    if (m.find("bizType") != m.end() && !m["bizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["bizType"]));
+    }
+    if (m.find("conversationModel") != m.end() && !m["conversationModel"].empty()) {
+      if (typeid(vector<boost::any>) == m["conversationModel"].type()) {
+        vector<RealtimeDialogAssistRequestConversationModel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["conversationModel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RealtimeDialogAssistRequestConversationModel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conversationModel = make_shared<vector<RealtimeDialogAssistRequestConversationModel>>(expect1);
+      }
+    }
+    if (m.find("dialogMemoryTurns") != m.end() && !m["dialogMemoryTurns"].empty()) {
+      dialogMemoryTurns = make_shared<long>(boost::any_cast<long>(m["dialogMemoryTurns"]));
+    }
+    if (m.find("hangUpDialog") != m.end() && !m["hangUpDialog"].empty()) {
+      hangUpDialog = make_shared<bool>(boost::any_cast<bool>(m["hangUpDialog"]));
+    }
+    if (m.find("metaData") != m.end() && !m["metaData"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["metaData"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metaData = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+  }
+
+
+  virtual ~RealtimeDialogAssistRequest() = default;
+};
+class RealtimeDialogAssistResponseBodyDataAssistScripts : public Darabonba::Model {
+public:
+  shared_ptr<string> assistScript{};
+  shared_ptr<string> intentCode{};
+  shared_ptr<string> intentLabels{};
+  shared_ptr<string> intentName{};
+  shared_ptr<bool> isDefault{};
+
+  RealtimeDialogAssistResponseBodyDataAssistScripts() {}
+
+  explicit RealtimeDialogAssistResponseBodyDataAssistScripts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistScript) {
+      res["assistScript"] = boost::any(*assistScript);
+    }
+    if (intentCode) {
+      res["intentCode"] = boost::any(*intentCode);
+    }
+    if (intentLabels) {
+      res["intentLabels"] = boost::any(*intentLabels);
+    }
+    if (intentName) {
+      res["intentName"] = boost::any(*intentName);
+    }
+    if (isDefault) {
+      res["isDefault"] = boost::any(*isDefault);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistScript") != m.end() && !m["assistScript"].empty()) {
+      assistScript = make_shared<string>(boost::any_cast<string>(m["assistScript"]));
+    }
+    if (m.find("intentCode") != m.end() && !m["intentCode"].empty()) {
+      intentCode = make_shared<string>(boost::any_cast<string>(m["intentCode"]));
+    }
+    if (m.find("intentLabels") != m.end() && !m["intentLabels"].empty()) {
+      intentLabels = make_shared<string>(boost::any_cast<string>(m["intentLabels"]));
+    }
+    if (m.find("intentName") != m.end() && !m["intentName"].empty()) {
+      intentName = make_shared<string>(boost::any_cast<string>(m["intentName"]));
+    }
+    if (m.find("isDefault") != m.end() && !m["isDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["isDefault"]));
+    }
+  }
+
+
+  virtual ~RealtimeDialogAssistResponseBodyDataAssistScripts() = default;
+};
+class RealtimeDialogAssistResponseBodyDataAssistSop : public Darabonba::Model {
+public:
+  shared_ptr<string> assistSop{};
+  shared_ptr<string> intentCode{};
+  shared_ptr<string> intentName{};
+  shared_ptr<bool> isDefault{};
+
+  RealtimeDialogAssistResponseBodyDataAssistSop() {}
+
+  explicit RealtimeDialogAssistResponseBodyDataAssistSop(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistSop) {
+      res["assistSop"] = boost::any(*assistSop);
+    }
+    if (intentCode) {
+      res["intentCode"] = boost::any(*intentCode);
+    }
+    if (intentName) {
+      res["intentName"] = boost::any(*intentName);
+    }
+    if (isDefault) {
+      res["isDefault"] = boost::any(*isDefault);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistSop") != m.end() && !m["assistSop"].empty()) {
+      assistSop = make_shared<string>(boost::any_cast<string>(m["assistSop"]));
+    }
+    if (m.find("intentCode") != m.end() && !m["intentCode"].empty()) {
+      intentCode = make_shared<string>(boost::any_cast<string>(m["intentCode"]));
+    }
+    if (m.find("intentName") != m.end() && !m["intentName"].empty()) {
+      intentName = make_shared<string>(boost::any_cast<string>(m["intentName"]));
+    }
+    if (m.find("isDefault") != m.end() && !m["isDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["isDefault"]));
+    }
+  }
+
+
+  virtual ~RealtimeDialogAssistResponseBodyDataAssistSop() = default;
+};
+class RealtimeDialogAssistResponseBodyDataConversationModel : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> customerId{};
+  shared_ptr<string> customerServiceId{};
+  shared_ptr<string> customerServiceType{};
+  shared_ptr<string> role{};
+  shared_ptr<string> type{};
+
+  RealtimeDialogAssistResponseBodyDataConversationModel() {}
+
+  explicit RealtimeDialogAssistResponseBodyDataConversationModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (customerId) {
+      res["customerId"] = boost::any(*customerId);
+    }
+    if (customerServiceId) {
+      res["customerServiceId"] = boost::any(*customerServiceId);
+    }
+    if (customerServiceType) {
+      res["customerServiceType"] = boost::any(*customerServiceType);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("customerId") != m.end() && !m["customerId"].empty()) {
+      customerId = make_shared<string>(boost::any_cast<string>(m["customerId"]));
+    }
+    if (m.find("customerServiceId") != m.end() && !m["customerServiceId"].empty()) {
+      customerServiceId = make_shared<string>(boost::any_cast<string>(m["customerServiceId"]));
+    }
+    if (m.find("customerServiceType") != m.end() && !m["customerServiceType"].empty()) {
+      customerServiceType = make_shared<string>(boost::any_cast<string>(m["customerServiceType"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~RealtimeDialogAssistResponseBodyDataConversationModel() = default;
+};
+class RealtimeDialogAssistResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> analysisProcess{};
+  shared_ptr<vector<RealtimeDialogAssistResponseBodyDataAssistScripts>> assistScripts{};
+  shared_ptr<vector<RealtimeDialogAssistResponseBodyDataAssistSop>> assistSop{};
+  shared_ptr<vector<RealtimeDialogAssistResponseBodyDataConversationModel>> conversationModel{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sessionId{};
+
+  RealtimeDialogAssistResponseBodyData() {}
+
+  explicit RealtimeDialogAssistResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (analysisProcess) {
+      res["analysisProcess"] = boost::any(*analysisProcess);
+    }
+    if (assistScripts) {
+      vector<boost::any> temp1;
+      for(auto item1:*assistScripts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["assistScripts"] = boost::any(temp1);
+    }
+    if (assistSop) {
+      vector<boost::any> temp1;
+      for(auto item1:*assistSop){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["assistSop"] = boost::any(temp1);
+    }
+    if (conversationModel) {
+      vector<boost::any> temp1;
+      for(auto item1:*conversationModel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["conversationModel"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("analysisProcess") != m.end() && !m["analysisProcess"].empty()) {
+      analysisProcess = make_shared<string>(boost::any_cast<string>(m["analysisProcess"]));
+    }
+    if (m.find("assistScripts") != m.end() && !m["assistScripts"].empty()) {
+      if (typeid(vector<boost::any>) == m["assistScripts"].type()) {
+        vector<RealtimeDialogAssistResponseBodyDataAssistScripts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["assistScripts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RealtimeDialogAssistResponseBodyDataAssistScripts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        assistScripts = make_shared<vector<RealtimeDialogAssistResponseBodyDataAssistScripts>>(expect1);
+      }
+    }
+    if (m.find("assistSop") != m.end() && !m["assistSop"].empty()) {
+      if (typeid(vector<boost::any>) == m["assistSop"].type()) {
+        vector<RealtimeDialogAssistResponseBodyDataAssistSop> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["assistSop"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RealtimeDialogAssistResponseBodyDataAssistSop model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        assistSop = make_shared<vector<RealtimeDialogAssistResponseBodyDataAssistSop>>(expect1);
+      }
+    }
+    if (m.find("conversationModel") != m.end() && !m["conversationModel"].empty()) {
+      if (typeid(vector<boost::any>) == m["conversationModel"].type()) {
+        vector<RealtimeDialogAssistResponseBodyDataConversationModel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["conversationModel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RealtimeDialogAssistResponseBodyDataConversationModel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conversationModel = make_shared<vector<RealtimeDialogAssistResponseBodyDataConversationModel>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+  }
+
+
+  virtual ~RealtimeDialogAssistResponseBodyData() = default;
+};
+class RealtimeDialogAssistResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> cost{};
+  shared_ptr<RealtimeDialogAssistResponseBodyData> data{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> time{};
+
+  RealtimeDialogAssistResponseBody() {}
+
+  explicit RealtimeDialogAssistResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = boost::any(*cost);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      cost = make_shared<long>(boost::any_cast<long>(m["cost"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        RealtimeDialogAssistResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<RealtimeDialogAssistResponseBodyData>(model1);
+      }
+    }
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~RealtimeDialogAssistResponseBody() = default;
+};
+class RealtimeDialogAssistResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RealtimeDialogAssistResponseBody> body{};
+
+  RealtimeDialogAssistResponse() {}
+
+  explicit RealtimeDialogAssistResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RealtimeDialogAssistResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RealtimeDialogAssistResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RealtimeDialogAssistResponse() = default;
+};
 class RebuildTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> taskIds{};
@@ -16600,6 +17172,11 @@ public:
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RealTimeDialogResponse realTimeDialog(shared_ptr<string> workspaceId, shared_ptr<RealTimeDialogRequest> request);
+  RealtimeDialogAssistResponse realtimeDialogAssistWithOptions(shared_ptr<string> workspaceId,
+                                                               shared_ptr<RealtimeDialogAssistRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RealtimeDialogAssistResponse realtimeDialogAssist(shared_ptr<string> workspaceId, shared_ptr<RealtimeDialogAssistRequest> request);
   RebuildTaskResponse rebuildTaskWithOptions(shared_ptr<string> workspaceId,
                                              shared_ptr<RebuildTaskRequest> request,
                                              shared_ptr<map<string, string>> headers,
