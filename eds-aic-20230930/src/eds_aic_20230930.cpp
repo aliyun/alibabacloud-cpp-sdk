@@ -938,6 +938,9 @@ DescribeAndroidInstancesResponse Alibabacloud_Eds-aic20230930::Client::describeA
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->officeSiteIds)) {
     query->insert(pair<string, vector<string>>("OfficeSiteIds", *request->officeSiteIds));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->qosRuleIds)) {
+    query->insert(pair<string, vector<string>>("QosRuleIds", *request->qosRuleIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
     query->insert(pair<string, string>("SaleMode", *request->saleMode));
   }
@@ -1132,6 +1135,34 @@ DescribeCloudPhoneNodesResponse Alibabacloud_Eds-aic20230930::Client::describeCl
 DescribeCloudPhoneNodesResponse Alibabacloud_Eds-aic20230930::Client::describeCloudPhoneNodes(shared_ptr<DescribeCloudPhoneNodesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeCloudPhoneNodesWithOptions(request, runtime);
+}
+
+DescribeDisplayConfigResponse Alibabacloud_Eds-aic20230930::Client::describeDisplayConfigWithOptions(shared_ptr<DescribeDisplayConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
+    body->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDisplayConfig"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDisplayConfigResponse(callApi(params, req, runtime));
+}
+
+DescribeDisplayConfigResponse Alibabacloud_Eds-aic20230930::Client::describeDisplayConfig(shared_ptr<DescribeDisplayConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDisplayConfigWithOptions(request, runtime);
 }
 
 DescribeImageListResponse Alibabacloud_Eds-aic20230930::Client::describeImageListWithOptions(shared_ptr<DescribeImageListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1893,6 +1924,42 @@ ModifyCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::modifyCloudPh
 ModifyCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::modifyCloudPhoneNode(shared_ptr<ModifyCloudPhoneNodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyCloudPhoneNodeWithOptions(request, runtime);
+}
+
+ModifyDisplayConfigResponse Alibabacloud_Eds-aic20230930::Client::modifyDisplayConfigWithOptions(shared_ptr<ModifyDisplayConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyDisplayConfigShrinkRequest> request = make_shared<ModifyDisplayConfigShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyDisplayConfigRequestDisplayConfig>(tmpReq->displayConfig)) {
+    request->displayConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->displayConfig, make_shared<string>("DisplayConfig"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
+    body->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayConfigShrink)) {
+    body->insert(pair<string, string>("DisplayConfig", *request->displayConfigShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyDisplayConfig"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyDisplayConfigResponse(callApi(params, req, runtime));
+}
+
+ModifyDisplayConfigResponse Alibabacloud_Eds-aic20230930::Client::modifyDisplayConfig(shared_ptr<ModifyDisplayConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyDisplayConfigWithOptions(request, runtime);
 }
 
 ModifyInstanceChargeTypeResponse Alibabacloud_Eds-aic20230930::Client::modifyInstanceChargeTypeWithOptions(shared_ptr<ModifyInstanceChargeTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

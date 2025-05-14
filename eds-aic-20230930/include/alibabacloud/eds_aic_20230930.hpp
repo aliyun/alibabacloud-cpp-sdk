@@ -4994,6 +4994,7 @@ public:
   shared_ptr<string> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<vector<string>> officeSiteIds{};
+  shared_ptr<vector<string>> qosRuleIds{};
   shared_ptr<string> saleMode{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeAndroidInstancesRequestTag>> tag{};
@@ -5049,6 +5050,9 @@ public:
     }
     if (officeSiteIds) {
       res["OfficeSiteIds"] = boost::any(*officeSiteIds);
+    }
+    if (qosRuleIds) {
+      res["QosRuleIds"] = boost::any(*qosRuleIds);
     }
     if (saleMode) {
       res["SaleMode"] = boost::any(*saleMode);
@@ -5129,6 +5133,16 @@ public:
         }
       }
       officeSiteIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("QosRuleIds") != m.end() && !m["QosRuleIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["QosRuleIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["QosRuleIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      qosRuleIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
       saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
@@ -5314,6 +5328,7 @@ public:
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> publicIpAddress{};
   shared_ptr<string> publicIpv6Address{};
+  shared_ptr<string> qosRuleId{};
   shared_ptr<long> rate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> renderingType{};
@@ -5420,6 +5435,9 @@ public:
     }
     if (publicIpv6Address) {
       res["PublicIpv6Address"] = boost::any(*publicIpv6Address);
+    }
+    if (qosRuleId) {
+      res["QosRuleId"] = boost::any(*qosRuleId);
     }
     if (rate) {
       res["Rate"] = boost::any(*rate);
@@ -5544,6 +5562,9 @@ public:
     }
     if (m.find("PublicIpv6Address") != m.end() && !m["PublicIpv6Address"].empty()) {
       publicIpv6Address = make_shared<string>(boost::any_cast<string>(m["PublicIpv6Address"]));
+    }
+    if (m.find("QosRuleId") != m.end() && !m["QosRuleId"].empty()) {
+      qosRuleId = make_shared<string>(boost::any_cast<string>(m["QosRuleId"]));
     }
     if (m.find("Rate") != m.end() && !m["Rate"].empty()) {
       rate = make_shared<long>(boost::any_cast<long>(m["Rate"]));
@@ -6800,6 +6821,208 @@ public:
 
 
   virtual ~DescribeCloudPhoneNodesResponse() = default;
+};
+class DescribeDisplayConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceIds{};
+
+  DescribeDisplayConfigRequest() {}
+
+  explicit DescribeDisplayConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceIds) {
+      res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceIds") != m.end() && !m["AndroidInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeDisplayConfigRequest() = default;
+};
+class DescribeDisplayConfigResponseBodyDisplayConfigModel : public Darabonba::Model {
+public:
+  shared_ptr<string> androidInstanceId{};
+  shared_ptr<long> dpi{};
+  shared_ptr<long> fps{};
+  shared_ptr<string> lockResolution{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<long> resolutionWidth{};
+
+  DescribeDisplayConfigResponseBodyDisplayConfigModel() {}
+
+  explicit DescribeDisplayConfigResponseBodyDisplayConfigModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceId) {
+      res["AndroidInstanceId"] = boost::any(*androidInstanceId);
+    }
+    if (dpi) {
+      res["Dpi"] = boost::any(*dpi);
+    }
+    if (fps) {
+      res["Fps"] = boost::any(*fps);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
+      androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
+    }
+    if (m.find("Dpi") != m.end() && !m["Dpi"].empty()) {
+      dpi = make_shared<long>(boost::any_cast<long>(m["Dpi"]));
+    }
+    if (m.find("Fps") != m.end() && !m["Fps"].empty()) {
+      fps = make_shared<long>(boost::any_cast<long>(m["Fps"]));
+    }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+  }
+
+
+  virtual ~DescribeDisplayConfigResponseBodyDisplayConfigModel() = default;
+};
+class DescribeDisplayConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDisplayConfigResponseBodyDisplayConfigModel>> displayConfigModel{};
+  shared_ptr<string> requestId{};
+
+  DescribeDisplayConfigResponseBody() {}
+
+  explicit DescribeDisplayConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayConfigModel) {
+      vector<boost::any> temp1;
+      for(auto item1:*displayConfigModel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DisplayConfigModel"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisplayConfigModel") != m.end() && !m["DisplayConfigModel"].empty()) {
+      if (typeid(vector<boost::any>) == m["DisplayConfigModel"].type()) {
+        vector<DescribeDisplayConfigResponseBodyDisplayConfigModel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DisplayConfigModel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDisplayConfigResponseBodyDisplayConfigModel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        displayConfigModel = make_shared<vector<DescribeDisplayConfigResponseBodyDisplayConfigModel>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDisplayConfigResponseBody() = default;
+};
+class DescribeDisplayConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDisplayConfigResponseBody> body{};
+
+  DescribeDisplayConfigResponse() {}
+
+  explicit DescribeDisplayConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDisplayConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDisplayConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDisplayConfigResponse() = default;
 };
 class DescribeImageListRequest : public Darabonba::Model {
 public:
@@ -11014,6 +11237,234 @@ public:
 
   virtual ~ModifyCloudPhoneNodeResponse() = default;
 };
+class ModifyDisplayConfigRequestDisplayConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> dpi{};
+  shared_ptr<long> fps{};
+  shared_ptr<string> lockResolution{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<long> resolutionWidth{};
+
+  ModifyDisplayConfigRequestDisplayConfig() {}
+
+  explicit ModifyDisplayConfigRequestDisplayConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dpi) {
+      res["Dpi"] = boost::any(*dpi);
+    }
+    if (fps) {
+      res["Fps"] = boost::any(*fps);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dpi") != m.end() && !m["Dpi"].empty()) {
+      dpi = make_shared<long>(boost::any_cast<long>(m["Dpi"]));
+    }
+    if (m.find("Fps") != m.end() && !m["Fps"].empty()) {
+      fps = make_shared<long>(boost::any_cast<long>(m["Fps"]));
+    }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+  }
+
+
+  virtual ~ModifyDisplayConfigRequestDisplayConfig() = default;
+};
+class ModifyDisplayConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<ModifyDisplayConfigRequestDisplayConfig> displayConfig{};
+
+  ModifyDisplayConfigRequest() {}
+
+  explicit ModifyDisplayConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceIds) {
+      res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
+    }
+    if (displayConfig) {
+      res["DisplayConfig"] = displayConfig ? boost::any(displayConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceIds") != m.end() && !m["AndroidInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DisplayConfig") != m.end() && !m["DisplayConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DisplayConfig"].type()) {
+        ModifyDisplayConfigRequestDisplayConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DisplayConfig"]));
+        displayConfig = make_shared<ModifyDisplayConfigRequestDisplayConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyDisplayConfigRequest() = default;
+};
+class ModifyDisplayConfigShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<string> displayConfigShrink{};
+
+  ModifyDisplayConfigShrinkRequest() {}
+
+  explicit ModifyDisplayConfigShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceIds) {
+      res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
+    }
+    if (displayConfigShrink) {
+      res["DisplayConfig"] = boost::any(*displayConfigShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceIds") != m.end() && !m["AndroidInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DisplayConfig") != m.end() && !m["DisplayConfig"].empty()) {
+      displayConfigShrink = make_shared<string>(boost::any_cast<string>(m["DisplayConfig"]));
+    }
+  }
+
+
+  virtual ~ModifyDisplayConfigShrinkRequest() = default;
+};
+class ModifyDisplayConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyDisplayConfigResponseBody() {}
+
+  explicit ModifyDisplayConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyDisplayConfigResponseBody() = default;
+};
+class ModifyDisplayConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyDisplayConfigResponseBody> body{};
+
+  ModifyDisplayConfigResponse() {}
+
+  explicit ModifyDisplayConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyDisplayConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyDisplayConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyDisplayConfigResponse() = default;
+};
 class ModifyInstanceChargeTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -14224,6 +14675,8 @@ public:
   DescribeBackupFilesResponse describeBackupFiles(shared_ptr<DescribeBackupFilesRequest> request);
   DescribeCloudPhoneNodesResponse describeCloudPhoneNodesWithOptions(shared_ptr<DescribeCloudPhoneNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCloudPhoneNodesResponse describeCloudPhoneNodes(shared_ptr<DescribeCloudPhoneNodesRequest> request);
+  DescribeDisplayConfigResponse describeDisplayConfigWithOptions(shared_ptr<DescribeDisplayConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDisplayConfigResponse describeDisplayConfig(shared_ptr<DescribeDisplayConfigRequest> request);
   DescribeImageListResponse describeImageListWithOptions(shared_ptr<DescribeImageListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeImageListResponse describeImageList(shared_ptr<DescribeImageListRequest> request);
   DescribeInvocationsResponse describeInvocationsWithOptions(shared_ptr<DescribeInvocationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -14266,6 +14719,8 @@ public:
   ModifyAppResponse modifyApp(shared_ptr<ModifyAppRequest> request);
   ModifyCloudPhoneNodeResponse modifyCloudPhoneNodeWithOptions(shared_ptr<ModifyCloudPhoneNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyCloudPhoneNodeResponse modifyCloudPhoneNode(shared_ptr<ModifyCloudPhoneNodeRequest> request);
+  ModifyDisplayConfigResponse modifyDisplayConfigWithOptions(shared_ptr<ModifyDisplayConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDisplayConfigResponse modifyDisplayConfig(shared_ptr<ModifyDisplayConfigRequest> request);
   ModifyInstanceChargeTypeResponse modifyInstanceChargeTypeWithOptions(shared_ptr<ModifyInstanceChargeTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyInstanceChargeTypeResponse modifyInstanceChargeType(shared_ptr<ModifyInstanceChargeTypeRequest> request);
   ModifyKeyPairNameResponse modifyKeyPairNameWithOptions(shared_ptr<ModifyKeyPairNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
