@@ -3723,11 +3723,199 @@ public:
 
   virtual ~CreateDatabaseResponse() = default;
 };
+class CreateGlobalDataNetworkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> destinationFileSystemPath{};
+  shared_ptr<string> destinationId{};
+  shared_ptr<string> destinationRegion{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<string> freezeSourceDuringSync{};
+  shared_ptr<string> sourceFileSystemPath{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceRegion{};
+  shared_ptr<string> sourceType{};
+
+  CreateGlobalDataNetworkRequest() {}
+
+  explicit CreateGlobalDataNetworkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destinationFileSystemPath) {
+      res["DestinationFileSystemPath"] = boost::any(*destinationFileSystemPath);
+    }
+    if (destinationId) {
+      res["DestinationId"] = boost::any(*destinationId);
+    }
+    if (destinationRegion) {
+      res["DestinationRegion"] = boost::any(*destinationRegion);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (freezeSourceDuringSync) {
+      res["FreezeSourceDuringSync"] = boost::any(*freezeSourceDuringSync);
+    }
+    if (sourceFileSystemPath) {
+      res["SourceFileSystemPath"] = boost::any(*sourceFileSystemPath);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceRegion) {
+      res["SourceRegion"] = boost::any(*sourceRegion);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestinationFileSystemPath") != m.end() && !m["DestinationFileSystemPath"].empty()) {
+      destinationFileSystemPath = make_shared<string>(boost::any_cast<string>(m["DestinationFileSystemPath"]));
+    }
+    if (m.find("DestinationId") != m.end() && !m["DestinationId"].empty()) {
+      destinationId = make_shared<string>(boost::any_cast<string>(m["DestinationId"]));
+    }
+    if (m.find("DestinationRegion") != m.end() && !m["DestinationRegion"].empty()) {
+      destinationRegion = make_shared<string>(boost::any_cast<string>(m["DestinationRegion"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("FreezeSourceDuringSync") != m.end() && !m["FreezeSourceDuringSync"].empty()) {
+      freezeSourceDuringSync = make_shared<string>(boost::any_cast<string>(m["FreezeSourceDuringSync"]));
+    }
+    if (m.find("SourceFileSystemPath") != m.end() && !m["SourceFileSystemPath"].empty()) {
+      sourceFileSystemPath = make_shared<string>(boost::any_cast<string>(m["SourceFileSystemPath"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceRegion") != m.end() && !m["SourceRegion"].empty()) {
+      sourceRegion = make_shared<string>(boost::any_cast<string>(m["SourceRegion"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~CreateGlobalDataNetworkRequest() = default;
+};
+class CreateGlobalDataNetworkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> channelId{};
+  shared_ptr<string> networkId{};
+  shared_ptr<string> requestId{};
+
+  CreateGlobalDataNetworkResponseBody() {}
+
+  explicit CreateGlobalDataNetworkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (networkId) {
+      res["NetworkId"] = boost::any(*networkId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
+      networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateGlobalDataNetworkResponseBody() = default;
+};
+class CreateGlobalDataNetworkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateGlobalDataNetworkResponseBody> body{};
+
+  CreateGlobalDataNetworkResponse() {}
+
+  explicit CreateGlobalDataNetworkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateGlobalDataNetworkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateGlobalDataNetworkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGlobalDataNetworkResponse() = default;
+};
 class CreateGlobalDatabaseNetworkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<bool> enableGlobalDomainName{};
   shared_ptr<string> GDNDescription{};
+  shared_ptr<string> GDNVersion{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceGroupId{};
@@ -3753,6 +3941,9 @@ public:
     }
     if (GDNDescription) {
       res["GDNDescription"] = boost::any(*GDNDescription);
+    }
+    if (GDNVersion) {
+      res["GDNVersion"] = boost::any(*GDNVersion);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -3784,6 +3975,9 @@ public:
     }
     if (m.find("GDNDescription") != m.end() && !m["GDNDescription"].empty()) {
       GDNDescription = make_shared<string>(boost::any_cast<string>(m["GDNDescription"]));
+    }
+    if (m.find("GDNVersion") != m.end() && !m["GDNVersion"].empty()) {
+      GDNVersion = make_shared<string>(boost::any_cast<string>(m["GDNVersion"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -6054,6 +6248,116 @@ public:
 
 
   virtual ~DeleteDatabaseResponse() = default;
+};
+class DeleteGlobalDataNetworkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> networkId{};
+
+  DeleteGlobalDataNetworkRequest() {}
+
+  explicit DeleteGlobalDataNetworkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkId) {
+      res["NetworkId"] = boost::any(*networkId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
+      networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+  }
+
+
+  virtual ~DeleteGlobalDataNetworkRequest() = default;
+};
+class DeleteGlobalDataNetworkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteGlobalDataNetworkResponseBody() {}
+
+  explicit DeleteGlobalDataNetworkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteGlobalDataNetworkResponseBody() = default;
+};
+class DeleteGlobalDataNetworkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteGlobalDataNetworkResponseBody> body{};
+
+  DeleteGlobalDataNetworkResponse() {}
+
+  explicit DeleteGlobalDataNetworkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGlobalDataNetworkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGlobalDataNetworkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGlobalDataNetworkResponse() = default;
 };
 class DeleteGlobalDatabaseNetworkRequest : public Darabonba::Model {
 public:
@@ -18883,6 +19187,494 @@ public:
 
   virtual ~DescribeDetachedBackupsResponse() = default;
 };
+class DescribeGlobalDataNetworkListRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  DescribeGlobalDataNetworkListRequest() {}
+
+  explicit DescribeGlobalDataNetworkListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListRequest() = default;
+};
+class DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels : public Darabonba::Model {
+public:
+  shared_ptr<string> channelId{};
+  shared_ptr<string> channelStatus{};
+  shared_ptr<bool> freezeSourceDuringSync{};
+  shared_ptr<string> progress{};
+
+  DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels() {}
+
+  explicit DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (channelStatus) {
+      res["ChannelStatus"] = boost::any(*channelStatus);
+    }
+    if (freezeSourceDuringSync) {
+      res["FreezeSourceDuringSync"] = boost::any(*freezeSourceDuringSync);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("ChannelStatus") != m.end() && !m["ChannelStatus"].empty()) {
+      channelStatus = make_shared<string>(boost::any_cast<string>(m["ChannelStatus"]));
+    }
+    if (m.find("FreezeSourceDuringSync") != m.end() && !m["FreezeSourceDuringSync"].empty()) {
+      freezeSourceDuringSync = make_shared<bool>(boost::any_cast<bool>(m["FreezeSourceDuringSync"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels() = default;
+};
+class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationFileSystemPath{};
+  shared_ptr<string> destinationId{};
+  shared_ptr<string> destinationRegion{};
+  shared_ptr<string> destinationType{};
+
+  DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations() {}
+
+  explicit DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationFileSystemPath) {
+      res["DestinationFileSystemPath"] = boost::any(*destinationFileSystemPath);
+    }
+    if (destinationId) {
+      res["DestinationId"] = boost::any(*destinationId);
+    }
+    if (destinationRegion) {
+      res["DestinationRegion"] = boost::any(*destinationRegion);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationFileSystemPath") != m.end() && !m["DestinationFileSystemPath"].empty()) {
+      destinationFileSystemPath = make_shared<string>(boost::any_cast<string>(m["DestinationFileSystemPath"]));
+    }
+    if (m.find("DestinationId") != m.end() && !m["DestinationId"].empty()) {
+      destinationId = make_shared<string>(boost::any_cast<string>(m["DestinationId"]));
+    }
+    if (m.find("DestinationRegion") != m.end() && !m["DestinationRegion"].empty()) {
+      destinationRegion = make_shared<string>(boost::any_cast<string>(m["DestinationRegion"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations() = default;
+};
+class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources : public Darabonba::Model {
+public:
+  shared_ptr<string> sourceFileSystemPath{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceRegion{};
+  shared_ptr<string> sourceType{};
+
+  DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources() {}
+
+  explicit DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceFileSystemPath) {
+      res["SourceFileSystemPath"] = boost::any(*sourceFileSystemPath);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceRegion) {
+      res["SourceRegion"] = boost::any(*sourceRegion);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceFileSystemPath") != m.end() && !m["SourceFileSystemPath"].empty()) {
+      sourceFileSystemPath = make_shared<string>(boost::any_cast<string>(m["SourceFileSystemPath"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceRegion") != m.end() && !m["SourceRegion"].empty()) {
+      sourceRegion = make_shared<string>(boost::any_cast<string>(m["SourceRegion"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources() = default;
+};
+class DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations>> destinations{};
+  shared_ptr<vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources>> sources{};
+
+  DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology() {}
+
+  explicit DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinations) {
+      vector<boost::any> temp1;
+      for(auto item1:*destinations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Destinations"] = boost::any(temp1);
+    }
+    if (sources) {
+      vector<boost::any> temp1;
+      for(auto item1:*sources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Sources"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Destinations") != m.end() && !m["Destinations"].empty()) {
+      if (typeid(vector<boost::any>) == m["Destinations"].type()) {
+        vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Destinations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        destinations = make_shared<vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologyDestinations>>(expect1);
+      }
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      if (typeid(vector<boost::any>) == m["Sources"].type()) {
+        vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Sources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sources = make_shared<vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopologySources>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology() = default;
+};
+class DescribeGlobalDataNetworkListResponseBodyItemsNetworks : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels>> channels{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> networkDescription{};
+  shared_ptr<string> networkId{};
+  shared_ptr<string> networkStatus{};
+  shared_ptr<DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology> networkTopology{};
+
+  DescribeGlobalDataNetworkListResponseBodyItemsNetworks() {}
+
+  explicit DescribeGlobalDataNetworkListResponseBodyItemsNetworks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channels) {
+      vector<boost::any> temp1;
+      for(auto item1:*channels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Channels"] = boost::any(temp1);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (networkDescription) {
+      res["NetworkDescription"] = boost::any(*networkDescription);
+    }
+    if (networkId) {
+      res["NetworkId"] = boost::any(*networkId);
+    }
+    if (networkStatus) {
+      res["NetworkStatus"] = boost::any(*networkStatus);
+    }
+    if (networkTopology) {
+      res["NetworkTopology"] = networkTopology ? boost::any(networkTopology->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Channels") != m.end() && !m["Channels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Channels"].type()) {
+        vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Channels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        channels = make_shared<vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworksChannels>>(expect1);
+      }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("NetworkDescription") != m.end() && !m["NetworkDescription"].empty()) {
+      networkDescription = make_shared<string>(boost::any_cast<string>(m["NetworkDescription"]));
+    }
+    if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
+      networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("NetworkStatus") != m.end() && !m["NetworkStatus"].empty()) {
+      networkStatus = make_shared<string>(boost::any_cast<string>(m["NetworkStatus"]));
+    }
+    if (m.find("NetworkTopology") != m.end() && !m["NetworkTopology"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkTopology"].type()) {
+        DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkTopology"]));
+        networkTopology = make_shared<DescribeGlobalDataNetworkListResponseBodyItemsNetworksNetworkTopology>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListResponseBodyItemsNetworks() = default;
+};
+class DescribeGlobalDataNetworkListResponseBodyItems : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworks>> networks{};
+
+  DescribeGlobalDataNetworkListResponseBodyItems() {}
+
+  explicit DescribeGlobalDataNetworkListResponseBodyItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networks) {
+      vector<boost::any> temp1;
+      for(auto item1:*networks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Networks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Networks") != m.end() && !m["Networks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Networks"].type()) {
+        vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Networks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGlobalDataNetworkListResponseBodyItemsNetworks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networks = make_shared<vector<DescribeGlobalDataNetworkListResponseBodyItemsNetworks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListResponseBodyItems() = default;
+};
+class DescribeGlobalDataNetworkListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeGlobalDataNetworkListResponseBodyItems> items{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageRecordCount{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> totalRecordCount{};
+
+  DescribeGlobalDataNetworkListResponseBody() {}
+
+  explicit DescribeGlobalDataNetworkListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      res["Items"] = items ? boost::any(items->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageRecordCount) {
+      res["PageRecordCount"] = boost::any(*pageRecordCount);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalRecordCount) {
+      res["TotalRecordCount"] = boost::any(*totalRecordCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Items"].type()) {
+        DescribeGlobalDataNetworkListResponseBodyItems model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Items"]));
+        items = make_shared<DescribeGlobalDataNetworkListResponseBodyItems>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageRecordCount") != m.end() && !m["PageRecordCount"].empty()) {
+      pageRecordCount = make_shared<string>(boost::any_cast<string>(m["PageRecordCount"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalRecordCount") != m.end() && !m["TotalRecordCount"].empty()) {
+      totalRecordCount = make_shared<string>(boost::any_cast<string>(m["TotalRecordCount"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListResponseBody() = default;
+};
+class DescribeGlobalDataNetworkListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeGlobalDataNetworkListResponseBody> body{};
+
+  DescribeGlobalDataNetworkListResponse() {}
+
+  explicit DescribeGlobalDataNetworkListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeGlobalDataNetworkListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeGlobalDataNetworkListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGlobalDataNetworkListResponse() = default;
+};
 class DescribeGlobalDatabaseNetworkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> GDNId{};
@@ -19230,6 +20022,35 @@ public:
 
   virtual ~DescribeGlobalDatabaseNetworkResponseBodyDBClusters() = default;
 };
+class DescribeGlobalDatabaseNetworkResponseBodyLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> GDNVersion{};
+
+  DescribeGlobalDatabaseNetworkResponseBodyLabels() {}
+
+  explicit DescribeGlobalDatabaseNetworkResponseBodyLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GDNVersion) {
+      res["GDNVersion"] = boost::any(*GDNVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GDNVersion") != m.end() && !m["GDNVersion"].empty()) {
+      GDNVersion = make_shared<string>(boost::any_cast<string>(m["GDNVersion"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalDatabaseNetworkResponseBodyLabels() = default;
+};
 class DescribeGlobalDatabaseNetworkResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeGlobalDatabaseNetworkResponseBodyConnections>> connections{};
@@ -19242,6 +20063,7 @@ public:
   shared_ptr<string> GDNId{};
   shared_ptr<string> GDNStatus{};
   shared_ptr<string> globalDomainName{};
+  shared_ptr<DescribeGlobalDatabaseNetworkResponseBodyLabels> labels{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
 
@@ -19292,6 +20114,9 @@ public:
     }
     if (globalDomainName) {
       res["GlobalDomainName"] = boost::any(*globalDomainName);
+    }
+    if (labels) {
+      res["Labels"] = labels ? boost::any(labels->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -19352,6 +20177,13 @@ public:
     }
     if (m.find("GlobalDomainName") != m.end() && !m["GlobalDomainName"].empty()) {
       globalDomainName = make_shared<string>(boost::any_cast<string>(m["GlobalDomainName"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Labels"].type()) {
+        DescribeGlobalDatabaseNetworkResponseBodyLabels model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Labels"]));
+        labels = make_shared<DescribeGlobalDatabaseNetworkResponseBodyLabels>(model1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -19565,6 +20397,35 @@ public:
 
   virtual ~DescribeGlobalDatabaseNetworksResponseBodyItemsDBClusters() = default;
 };
+class DescribeGlobalDatabaseNetworksResponseBodyItemsLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> GDNVersion{};
+
+  DescribeGlobalDatabaseNetworksResponseBodyItemsLabels() {}
+
+  explicit DescribeGlobalDatabaseNetworksResponseBodyItemsLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GDNVersion) {
+      res["GDNVersion"] = boost::any(*GDNVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GDNVersion") != m.end() && !m["GDNVersion"].empty()) {
+      GDNVersion = make_shared<string>(boost::any_cast<string>(m["GDNVersion"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalDatabaseNetworksResponseBodyItemsLabels() = default;
+};
 class DescribeGlobalDatabaseNetworksResponseBodyItems : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
@@ -19574,6 +20435,7 @@ public:
   shared_ptr<string> GDNDescription{};
   shared_ptr<string> GDNId{};
   shared_ptr<string> GDNStatus{};
+  shared_ptr<DescribeGlobalDatabaseNetworksResponseBodyItemsLabels> labels{};
 
   DescribeGlobalDatabaseNetworksResponseBodyItems() {}
 
@@ -19610,6 +20472,9 @@ public:
     if (GDNStatus) {
       res["GDNStatus"] = boost::any(*GDNStatus);
     }
+    if (labels) {
+      res["Labels"] = labels ? boost::any(labels->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -19644,6 +20509,13 @@ public:
     }
     if (m.find("GDNStatus") != m.end() && !m["GDNStatus"].empty()) {
       GDNStatus = make_shared<string>(boost::any_cast<string>(m["GDNStatus"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Labels"].type()) {
+        DescribeGlobalDatabaseNetworksResponseBodyItemsLabels model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Labels"]));
+        labels = make_shared<DescribeGlobalDatabaseNetworksResponseBodyItemsLabels>(model1);
+      }
     }
   }
 
@@ -34465,6 +35337,7 @@ public:
 class RemoveDBClusterFromGDNRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<bool> force{};
   shared_ptr<string> GDNId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -34484,6 +35357,9 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
     }
     if (GDNId) {
       res["GDNId"] = boost::any(*GDNId);
@@ -34509,6 +35385,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
     }
     if (m.find("GDNId") != m.end() && !m["GDNId"].empty()) {
       GDNId = make_shared<string>(boost::any_cast<string>(m["GDNId"]));
@@ -36808,6 +37687,8 @@ public:
   CreateDBNodesResponse createDBNodes(shared_ptr<CreateDBNodesRequest> request);
   CreateDatabaseResponse createDatabaseWithOptions(shared_ptr<CreateDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDatabaseResponse createDatabase(shared_ptr<CreateDatabaseRequest> request);
+  CreateGlobalDataNetworkResponse createGlobalDataNetworkWithOptions(shared_ptr<CreateGlobalDataNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateGlobalDataNetworkResponse createGlobalDataNetwork(shared_ptr<CreateGlobalDataNetworkRequest> request);
   CreateGlobalDatabaseNetworkResponse createGlobalDatabaseNetworkWithOptions(shared_ptr<CreateGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateGlobalDatabaseNetworkResponse createGlobalDatabaseNetwork(shared_ptr<CreateGlobalDatabaseNetworkRequest> request);
   CreateGlobalSecurityIPGroupResponse createGlobalSecurityIPGroupWithOptions(shared_ptr<CreateGlobalSecurityIPGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36836,6 +37717,8 @@ public:
   DeleteDBNodesResponse deleteDBNodes(shared_ptr<DeleteDBNodesRequest> request);
   DeleteDatabaseResponse deleteDatabaseWithOptions(shared_ptr<DeleteDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDatabaseResponse deleteDatabase(shared_ptr<DeleteDatabaseRequest> request);
+  DeleteGlobalDataNetworkResponse deleteGlobalDataNetworkWithOptions(shared_ptr<DeleteGlobalDataNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGlobalDataNetworkResponse deleteGlobalDataNetwork(shared_ptr<DeleteGlobalDataNetworkRequest> request);
   DeleteGlobalDatabaseNetworkResponse deleteGlobalDatabaseNetworkWithOptions(shared_ptr<DeleteGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGlobalDatabaseNetworkResponse deleteGlobalDatabaseNetwork(shared_ptr<DeleteGlobalDatabaseNetworkRequest> request);
   DeleteGlobalSecurityIPGroupResponse deleteGlobalSecurityIPGroupWithOptions(shared_ptr<DeleteGlobalSecurityIPGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36916,6 +37799,8 @@ public:
   DescribeDatabasesResponse describeDatabases(shared_ptr<DescribeDatabasesRequest> request);
   DescribeDetachedBackupsResponse describeDetachedBackupsWithOptions(shared_ptr<DescribeDetachedBackupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDetachedBackupsResponse describeDetachedBackups(shared_ptr<DescribeDetachedBackupsRequest> request);
+  DescribeGlobalDataNetworkListResponse describeGlobalDataNetworkListWithOptions(shared_ptr<DescribeGlobalDataNetworkListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeGlobalDataNetworkListResponse describeGlobalDataNetworkList(shared_ptr<DescribeGlobalDataNetworkListRequest> request);
   DescribeGlobalDatabaseNetworkResponse describeGlobalDatabaseNetworkWithOptions(shared_ptr<DescribeGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeGlobalDatabaseNetworkResponse describeGlobalDatabaseNetwork(shared_ptr<DescribeGlobalDatabaseNetworkRequest> request);
   DescribeGlobalDatabaseNetworksResponse describeGlobalDatabaseNetworksWithOptions(shared_ptr<DescribeGlobalDatabaseNetworksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

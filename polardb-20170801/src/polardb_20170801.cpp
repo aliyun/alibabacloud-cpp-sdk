@@ -1170,6 +1170,61 @@ CreateDatabaseResponse Alibabacloud_Polardb20170801::Client::createDatabase(shar
   return createDatabaseWithOptions(request, runtime);
 }
 
+CreateGlobalDataNetworkResponse Alibabacloud_Polardb20170801::Client::createGlobalDataNetworkWithOptions(shared_ptr<CreateGlobalDataNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationFileSystemPath)) {
+    query->insert(pair<string, string>("DestinationFileSystemPath", *request->destinationFileSystemPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationId)) {
+    query->insert(pair<string, string>("DestinationId", *request->destinationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationRegion)) {
+    query->insert(pair<string, string>("DestinationRegion", *request->destinationRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
+    query->insert(pair<string, string>("DestinationType", *request->destinationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->freezeSourceDuringSync)) {
+    query->insert(pair<string, string>("FreezeSourceDuringSync", *request->freezeSourceDuringSync));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceFileSystemPath)) {
+    query->insert(pair<string, string>("SourceFileSystemPath", *request->sourceFileSystemPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
+    query->insert(pair<string, string>("SourceId", *request->sourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceRegion)) {
+    query->insert(pair<string, string>("SourceRegion", *request->sourceRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateGlobalDataNetwork"))},
+    {"version", boost::any(string("2017-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateGlobalDataNetworkResponse(callApi(params, req, runtime));
+}
+
+CreateGlobalDataNetworkResponse Alibabacloud_Polardb20170801::Client::createGlobalDataNetwork(shared_ptr<CreateGlobalDataNetworkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createGlobalDataNetworkWithOptions(request, runtime);
+}
+
 CreateGlobalDatabaseNetworkResponse Alibabacloud_Polardb20170801::Client::createGlobalDatabaseNetworkWithOptions(shared_ptr<CreateGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1181,6 +1236,9 @@ CreateGlobalDatabaseNetworkResponse Alibabacloud_Polardb20170801::Client::create
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->GDNDescription)) {
     query->insert(pair<string, string>("GDNDescription", *request->GDNDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->GDNVersion)) {
+    query->insert(pair<string, string>("GDNVersion", *request->GDNVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -1812,6 +1870,34 @@ DeleteDatabaseResponse Alibabacloud_Polardb20170801::Client::deleteDatabaseWithO
 DeleteDatabaseResponse Alibabacloud_Polardb20170801::Client::deleteDatabase(shared_ptr<DeleteDatabaseRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDatabaseWithOptions(request, runtime);
+}
+
+DeleteGlobalDataNetworkResponse Alibabacloud_Polardb20170801::Client::deleteGlobalDataNetworkWithOptions(shared_ptr<DeleteGlobalDataNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkId)) {
+    query->insert(pair<string, string>("NetworkId", *request->networkId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteGlobalDataNetwork"))},
+    {"version", boost::any(string("2017-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteGlobalDataNetworkResponse(callApi(params, req, runtime));
+}
+
+DeleteGlobalDataNetworkResponse Alibabacloud_Polardb20170801::Client::deleteGlobalDataNetwork(shared_ptr<DeleteGlobalDataNetworkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteGlobalDataNetworkWithOptions(request, runtime);
 }
 
 DeleteGlobalDatabaseNetworkResponse Alibabacloud_Polardb20170801::Client::deleteGlobalDatabaseNetworkWithOptions(shared_ptr<DeleteGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3712,6 +3798,37 @@ DescribeDetachedBackupsResponse Alibabacloud_Polardb20170801::Client::describeDe
 DescribeDetachedBackupsResponse Alibabacloud_Polardb20170801::Client::describeDetachedBackups(shared_ptr<DescribeDetachedBackupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeDetachedBackupsWithOptions(request, runtime);
+}
+
+DescribeGlobalDataNetworkListResponse Alibabacloud_Polardb20170801::Client::describeGlobalDataNetworkListWithOptions(shared_ptr<DescribeGlobalDataNetworkListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeGlobalDataNetworkList"))},
+    {"version", boost::any(string("2017-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeGlobalDataNetworkListResponse(callApi(params, req, runtime));
+}
+
+DescribeGlobalDataNetworkListResponse Alibabacloud_Polardb20170801::Client::describeGlobalDataNetworkList(shared_ptr<DescribeGlobalDataNetworkListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeGlobalDataNetworkListWithOptions(request, runtime);
 }
 
 DescribeGlobalDatabaseNetworkResponse Alibabacloud_Polardb20170801::Client::describeGlobalDatabaseNetworkWithOptions(shared_ptr<DescribeGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7404,6 +7521,9 @@ RemoveDBClusterFromGDNResponse Alibabacloud_Polardb20170801::Client::removeDBClu
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->GDNId)) {
     query->insert(pair<string, string>("GDNId", *request->GDNId));
