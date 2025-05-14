@@ -542,10 +542,104 @@ public:
 
   virtual ~CreateFeatureEntityResponse() = default;
 };
+class CreateFeatureViewRequestFieldsTransformInput : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+
+  CreateFeatureViewRequestFieldsTransformInput() {}
+
+  explicit CreateFeatureViewRequestFieldsTransformInput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateFeatureViewRequestFieldsTransformInput() = default;
+};
+class CreateFeatureViewRequestFieldsTransform : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateFeatureViewRequestFieldsTransformInput>> input{};
+  shared_ptr<long> LLMConfigId{};
+  shared_ptr<string> type{};
+
+  CreateFeatureViewRequestFieldsTransform() {}
+
+  explicit CreateFeatureViewRequestFieldsTransform(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (input) {
+      vector<boost::any> temp1;
+      for(auto item1:*input){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Input"] = boost::any(temp1);
+    }
+    if (LLMConfigId) {
+      res["LLMConfigId"] = boost::any(*LLMConfigId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Input") != m.end() && !m["Input"].empty()) {
+      if (typeid(vector<boost::any>) == m["Input"].type()) {
+        vector<CreateFeatureViewRequestFieldsTransformInput> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Input"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateFeatureViewRequestFieldsTransformInput model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        input = make_shared<vector<CreateFeatureViewRequestFieldsTransformInput>>(expect1);
+      }
+    }
+    if (m.find("LLMConfigId") != m.end() && !m["LLMConfigId"].empty()) {
+      LLMConfigId = make_shared<long>(boost::any_cast<long>(m["LLMConfigId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateFeatureViewRequestFieldsTransform() = default;
+};
 class CreateFeatureViewRequestFields : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> attributes{};
   shared_ptr<string> name{};
+  shared_ptr<vector<CreateFeatureViewRequestFieldsTransform>> transform{};
   shared_ptr<string> type{};
 
   CreateFeatureViewRequestFields() {}
@@ -563,6 +657,13 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (transform) {
+      vector<boost::any> temp1;
+      for(auto item1:*transform){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Transform"] = boost::any(temp1);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -583,6 +684,19 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Transform") != m.end() && !m["Transform"].empty()) {
+      if (typeid(vector<boost::any>) == m["Transform"].type()) {
+        vector<CreateFeatureViewRequestFieldsTransform> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Transform"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateFeatureViewRequestFieldsTransform model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transform = make_shared<vector<CreateFeatureViewRequestFieldsTransform>>(expect1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -2796,10 +2910,104 @@ public:
 
   virtual ~GetFeatureEntityResponse() = default;
 };
+class GetFeatureViewResponseBodyFieldsTransformInput : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+
+  GetFeatureViewResponseBodyFieldsTransformInput() {}
+
+  explicit GetFeatureViewResponseBodyFieldsTransformInput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetFeatureViewResponseBodyFieldsTransformInput() = default;
+};
+class GetFeatureViewResponseBodyFieldsTransform : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetFeatureViewResponseBodyFieldsTransformInput>> input{};
+  shared_ptr<long> LLMConfigId{};
+  shared_ptr<string> type{};
+
+  GetFeatureViewResponseBodyFieldsTransform() {}
+
+  explicit GetFeatureViewResponseBodyFieldsTransform(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (input) {
+      vector<boost::any> temp1;
+      for(auto item1:*input){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Input"] = boost::any(temp1);
+    }
+    if (LLMConfigId) {
+      res["LLMConfigId"] = boost::any(*LLMConfigId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Input") != m.end() && !m["Input"].empty()) {
+      if (typeid(vector<boost::any>) == m["Input"].type()) {
+        vector<GetFeatureViewResponseBodyFieldsTransformInput> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Input"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFeatureViewResponseBodyFieldsTransformInput model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        input = make_shared<vector<GetFeatureViewResponseBodyFieldsTransformInput>>(expect1);
+      }
+    }
+    if (m.find("LLMConfigId") != m.end() && !m["LLMConfigId"].empty()) {
+      LLMConfigId = make_shared<long>(boost::any_cast<long>(m["LLMConfigId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetFeatureViewResponseBodyFieldsTransform() = default;
+};
 class GetFeatureViewResponseBodyFields : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> attributes{};
   shared_ptr<string> name{};
+  shared_ptr<GetFeatureViewResponseBodyFieldsTransform> transform{};
   shared_ptr<string> type{};
 
   GetFeatureViewResponseBodyFields() {}
@@ -2817,6 +3025,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (transform) {
+      res["Transform"] = transform ? boost::any(transform->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -2837,6 +3048,13 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Transform") != m.end() && !m["Transform"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Transform"].type()) {
+        GetFeatureViewResponseBodyFieldsTransform model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Transform"]));
+        transform = make_shared<GetFeatureViewResponseBodyFieldsTransform>(model1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -5724,6 +5942,7 @@ public:
 };
 class ListFeatureViewFieldRelationshipsResponseBodyRelationshipsModels : public Darabonba::Model {
 public:
+  shared_ptr<string> featureAliasName{};
   shared_ptr<string> modelId{};
   shared_ptr<string> modelName{};
 
@@ -5737,6 +5956,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (featureAliasName) {
+      res["FeatureAliasName"] = boost::any(*featureAliasName);
+    }
     if (modelId) {
       res["ModelId"] = boost::any(*modelId);
     }
@@ -5747,6 +5969,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeatureAliasName") != m.end() && !m["FeatureAliasName"].empty()) {
+      featureAliasName = make_shared<string>(boost::any_cast<string>(m["FeatureAliasName"]));
+    }
     if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
       modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
     }
