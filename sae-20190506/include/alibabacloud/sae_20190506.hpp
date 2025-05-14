@@ -22692,6 +22692,7 @@ public:
   shared_ptr<string> packageType{};
   shared_ptr<string> packageUrl{};
   shared_ptr<string> packageVersion{};
+  shared_ptr<string> packageVersionId{};
   shared_ptr<long> replicas{};
   shared_ptr<long> runningInstances{};
   shared_ptr<string> webContainer{};
@@ -22733,6 +22734,9 @@ public:
     if (packageVersion) {
       res["PackageVersion"] = boost::any(*packageVersion);
     }
+    if (packageVersionId) {
+      res["PackageVersionId"] = boost::any(*packageVersionId);
+    }
     if (replicas) {
       res["Replicas"] = boost::any(*replicas);
     }
@@ -22772,6 +22776,9 @@ public:
     }
     if (m.find("PackageVersion") != m.end() && !m["PackageVersion"].empty()) {
       packageVersion = make_shared<string>(boost::any_cast<string>(m["PackageVersion"]));
+    }
+    if (m.find("PackageVersionId") != m.end() && !m["PackageVersionId"].empty()) {
+      packageVersionId = make_shared<string>(boost::any_cast<string>(m["PackageVersionId"]));
     }
     if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
       replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
@@ -25515,6 +25522,9 @@ public:
 };
 class DescribeApplicationSlbsResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> clusterId{};
   shared_ptr<vector<DescribeApplicationSlbsResponseBodyDataInternet>> internet{};
   shared_ptr<string> internetIp{};
   shared_ptr<string> internetSlbChargeType{};
@@ -25536,6 +25546,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (internet) {
       vector<boost::any> temp1;
       for(auto item1:*internet){
@@ -25578,6 +25597,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("Internet") != m.end() && !m["Internet"].empty()) {
       if (typeid(vector<boost::any>) == m["Internet"].type()) {
         vector<DescribeApplicationSlbsResponseBodyDataInternet> expect1;
@@ -26126,6 +26154,8 @@ class DescribeChangeOrderResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<bool> applicationEnableGreyTagRoute{};
+  shared_ptr<string> applicationUpdateStrategy{};
   shared_ptr<string> approvalId{};
   shared_ptr<bool> auto_{};
   shared_ptr<long> batchCount{};
@@ -26158,6 +26188,12 @@ public:
     }
     if (appName) {
       res["AppName"] = boost::any(*appName);
+    }
+    if (applicationEnableGreyTagRoute) {
+      res["ApplicationEnableGreyTagRoute"] = boost::any(*applicationEnableGreyTagRoute);
+    }
+    if (applicationUpdateStrategy) {
+      res["ApplicationUpdateStrategy"] = boost::any(*applicationUpdateStrategy);
     }
     if (approvalId) {
       res["ApprovalId"] = boost::any(*approvalId);
@@ -26220,6 +26256,12 @@ public:
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("ApplicationEnableGreyTagRoute") != m.end() && !m["ApplicationEnableGreyTagRoute"].empty()) {
+      applicationEnableGreyTagRoute = make_shared<bool>(boost::any_cast<bool>(m["ApplicationEnableGreyTagRoute"]));
+    }
+    if (m.find("ApplicationUpdateStrategy") != m.end() && !m["ApplicationUpdateStrategy"].empty()) {
+      applicationUpdateStrategy = make_shared<string>(boost::any_cast<string>(m["ApplicationUpdateStrategy"]));
     }
     if (m.find("ApprovalId") != m.end() && !m["ApprovalId"].empty()) {
       approvalId = make_shared<string>(boost::any_cast<string>(m["ApprovalId"]));
