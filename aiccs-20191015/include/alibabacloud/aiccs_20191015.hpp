@@ -27707,6 +27707,7 @@ public:
   shared_ptr<map<string, boost::any>> bizParam{};
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerNumber{};
+  shared_ptr<string> extension{};
   shared_ptr<string> outId{};
   shared_ptr<map<string, boost::any>> promptParam{};
   shared_ptr<map<string, boost::any>> startWordParam{};
@@ -27732,6 +27733,9 @@ public:
     }
     if (callerNumber) {
       res["CallerNumber"] = boost::any(*callerNumber);
+    }
+    if (extension) {
+      res["Extension"] = boost::any(*extension);
     }
     if (outId) {
       res["OutId"] = boost::any(*outId);
@@ -27763,6 +27767,9 @@ public:
     if (m.find("CallerNumber") != m.end() && !m["CallerNumber"].empty()) {
       callerNumber = make_shared<string>(boost::any_cast<string>(m["CallerNumber"]));
     }
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      extension = make_shared<string>(boost::any_cast<string>(m["Extension"]));
+    }
     if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
       outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
     }
@@ -27793,6 +27800,7 @@ public:
   shared_ptr<string> bizParamShrink{};
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerNumber{};
+  shared_ptr<string> extension{};
   shared_ptr<string> outId{};
   shared_ptr<string> promptParamShrink{};
   shared_ptr<string> startWordParamShrink{};
@@ -27819,6 +27827,9 @@ public:
     if (callerNumber) {
       res["CallerNumber"] = boost::any(*callerNumber);
     }
+    if (extension) {
+      res["Extension"] = boost::any(*extension);
+    }
     if (outId) {
       res["OutId"] = boost::any(*outId);
     }
@@ -27843,6 +27854,9 @@ public:
     }
     if (m.find("CallerNumber") != m.end() && !m["CallerNumber"].empty()) {
       callerNumber = make_shared<string>(boost::any_cast<string>(m["CallerNumber"]));
+    }
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      extension = make_shared<string>(boost::any_cast<string>(m["Extension"]));
     }
     if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
       outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));

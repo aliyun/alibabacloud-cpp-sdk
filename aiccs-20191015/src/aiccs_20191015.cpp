@@ -4240,6 +4240,9 @@ LlmSmartCallResponse Alibabacloud_Aiccs20191015::Client::llmSmartCallWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->callerNumber)) {
     query->insert(pair<string, string>("CallerNumber", *request->callerNumber));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extension)) {
+    query->insert(pair<string, string>("Extension", *request->extension));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
     query->insert(pair<string, string>("OutId", *request->outId));
   }
