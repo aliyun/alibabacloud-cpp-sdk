@@ -32416,8 +32416,80 @@ public:
 
   virtual ~RunCustomHotTopicViewPointAnalysisResponseBodyHeader() = default;
 };
+class RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles : public Darabonba::Model {
+public:
+  shared_ptr<string> author{};
+  shared_ptr<string> content{};
+  shared_ptr<string> pubTime{};
+  shared_ptr<string> source{};
+  shared_ptr<string> summary{};
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+
+  RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles() {}
+
+  explicit RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (author) {
+      res["Author"] = boost::any(*author);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (pubTime) {
+      res["PubTime"] = boost::any(*pubTime);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (summary) {
+      res["Summary"] = boost::any(*summary);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Author") != m.end() && !m["Author"].empty()) {
+      author = make_shared<string>(boost::any_cast<string>(m["Author"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("PubTime") != m.end() && !m["PubTime"].empty()) {
+      pubTime = make_shared<string>(boost::any_cast<string>(m["PubTime"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Summary") != m.end() && !m["Summary"].empty()) {
+      summary = make_shared<string>(boost::any_cast<string>(m["Summary"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles() = default;
+};
 class RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput : public Darabonba::Model {
 public:
+  shared_ptr<vector<RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles>> articles{};
   shared_ptr<vector<string>> askUser{};
   shared_ptr<string> asyncTaskId{};
   shared_ptr<string> attitude{};
@@ -32435,6 +32507,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (articles) {
+      vector<boost::any> temp1;
+      for(auto item1:*articles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Articles"] = boost::any(temp1);
+    }
     if (askUser) {
       res["AskUser"] = boost::any(*askUser);
     }
@@ -32457,6 +32536,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Articles") != m.end() && !m["Articles"].empty()) {
+      if (typeid(vector<boost::any>) == m["Articles"].type()) {
+        vector<RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Articles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        articles = make_shared<vector<RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles>>(expect1);
+      }
+    }
     if (m.find("AskUser") != m.end() && !m["AskUser"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["AskUser"].type()) {
