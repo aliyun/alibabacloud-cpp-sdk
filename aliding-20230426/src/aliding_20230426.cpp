@@ -261,6 +261,65 @@ AddMeetingRoomsResponse Alibabacloud_Aliding20230426::Client::addMeetingRooms(sh
   return addMeetingRoomsWithOptions(request, headers, runtime);
 }
 
+AddMultiDimTableResponse Alibabacloud_Aliding20230426::Client::addMultiDimTableWithOptions(shared_ptr<AddMultiDimTableRequest> tmpReq, shared_ptr<AddMultiDimTableHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AddMultiDimTableShrinkRequest> request = make_shared<AddMultiDimTableShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<AddMultiDimTableShrinkHeaders> headers = make_shared<AddMultiDimTableShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<AddMultiDimTableHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AddMultiDimTableRequestFields>>(tmpReq->fields)) {
+    request->fieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fields, make_shared<string>("Fields"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<AddMultiDimTableRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseId)) {
+    body->insert(pair<string, string>("BaseId", *request->baseId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fieldsShrink)) {
+    body->insert(pair<string, string>("Fields", *request->fieldsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddMultiDimTable"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/table/addMultiDimTable"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddMultiDimTableResponse(callApi(params, req, runtime));
+}
+
+AddMultiDimTableResponse Alibabacloud_Aliding20230426::Client::addMultiDimTable(shared_ptr<AddMultiDimTableRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AddMultiDimTableHeaders> headers = make_shared<AddMultiDimTableHeaders>();
+  return addMultiDimTableWithOptions(request, headers, runtime);
+}
+
 AddPermissionResponse Alibabacloud_Aliding20230426::Client::addPermissionWithOptions(shared_ptr<AddPermissionRequest> tmpReq, shared_ptr<AddPermissionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<AddPermissionShrinkRequest> request = make_shared<AddPermissionShrinkRequest>();
@@ -2063,6 +2122,71 @@ CreateMessageResponse Alibabacloud_Aliding20230426::Client::createMessage(shared
   return createMessageWithOptions(request, headers, runtime);
 }
 
+CreateMultiDimTableFieldResponse Alibabacloud_Aliding20230426::Client::createMultiDimTableFieldWithOptions(shared_ptr<CreateMultiDimTableFieldRequest> tmpReq, shared_ptr<CreateMultiDimTableFieldHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateMultiDimTableFieldShrinkRequest> request = make_shared<CreateMultiDimTableFieldShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<CreateMultiDimTableFieldShrinkHeaders> headers = make_shared<CreateMultiDimTableFieldShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<CreateMultiDimTableFieldHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->property)) {
+    request->propertyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->property, make_shared<string>("Property"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateMultiDimTableFieldRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseId)) {
+    body->insert(pair<string, string>("BaseId", *request->baseId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->propertyShrink)) {
+    body->insert(pair<string, string>("Property", *request->propertyShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sheetIdOrName)) {
+    body->insert(pair<string, string>("SheetIdOrName", *request->sheetIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMultiDimTableField"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/table/createMultiDimTableField"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMultiDimTableFieldResponse(callApi(params, req, runtime));
+}
+
+CreateMultiDimTableFieldResponse Alibabacloud_Aliding20230426::Client::createMultiDimTableField(shared_ptr<CreateMultiDimTableFieldRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CreateMultiDimTableFieldHeaders> headers = make_shared<CreateMultiDimTableFieldHeaders>();
+  return createMultiDimTableFieldWithOptions(request, headers, runtime);
+}
+
 CreateOrUpdateFormDataResponse Alibabacloud_Aliding20230426::Client::createOrUpdateFormDataWithOptions(shared_ptr<CreateOrUpdateFormDataRequest> request, shared_ptr<CreateOrUpdateFormDataHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<CreateOrUpdateFormDataShrinkHeaders> headers = make_shared<CreateOrUpdateFormDataShrinkHeaders>();
@@ -3665,6 +3789,121 @@ DeleteMeetingRoomGroupResponse Alibabacloud_Aliding20230426::Client::deleteMeeti
   return deleteMeetingRoomGroupWithOptions(request, headers, runtime);
 }
 
+DeleteMultiDimTableFieldResponse Alibabacloud_Aliding20230426::Client::deleteMultiDimTableFieldWithOptions(shared_ptr<DeleteMultiDimTableFieldRequest> tmpReq, shared_ptr<DeleteMultiDimTableFieldHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteMultiDimTableFieldShrinkRequest> request = make_shared<DeleteMultiDimTableFieldShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<DeleteMultiDimTableFieldShrinkHeaders> headers = make_shared<DeleteMultiDimTableFieldShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<DeleteMultiDimTableFieldHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<DeleteMultiDimTableFieldRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseId)) {
+    body->insert(pair<string, string>("BaseId", *request->baseId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fieldIdOrName)) {
+    body->insert(pair<string, string>("FieldIdOrName", *request->fieldIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sheetIdOrName)) {
+    body->insert(pair<string, string>("SheetIdOrName", *request->sheetIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMultiDimTableField"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/table/deleteMultiDimTableField"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMultiDimTableFieldResponse(callApi(params, req, runtime));
+}
+
+DeleteMultiDimTableFieldResponse Alibabacloud_Aliding20230426::Client::deleteMultiDimTableField(shared_ptr<DeleteMultiDimTableFieldRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteMultiDimTableFieldHeaders> headers = make_shared<DeleteMultiDimTableFieldHeaders>();
+  return deleteMultiDimTableFieldWithOptions(request, headers, runtime);
+}
+
+DeleteMultiDimTableRecordsResponse Alibabacloud_Aliding20230426::Client::deleteMultiDimTableRecordsWithOptions(shared_ptr<DeleteMultiDimTableRecordsRequest> tmpReq, shared_ptr<DeleteMultiDimTableRecordsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteMultiDimTableRecordsShrinkRequest> request = make_shared<DeleteMultiDimTableRecordsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<DeleteMultiDimTableRecordsShrinkHeaders> headers = make_shared<DeleteMultiDimTableRecordsShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<DeleteMultiDimTableRecordsHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->recordIds)) {
+    request->recordIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->recordIds, make_shared<string>("RecordIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<DeleteMultiDimTableRecordsRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseId)) {
+    body->insert(pair<string, string>("BaseId", *request->baseId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordIdsShrink)) {
+    body->insert(pair<string, string>("RecordIds", *request->recordIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sheetIdOrName)) {
+    body->insert(pair<string, string>("SheetIdOrName", *request->sheetIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMultiDimTableRecords"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/table/deleteMultiDimTableRecords"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMultiDimTableRecordsResponse(callApi(params, req, runtime));
+}
+
+DeleteMultiDimTableRecordsResponse Alibabacloud_Aliding20230426::Client::deleteMultiDimTableRecords(shared_ptr<DeleteMultiDimTableRecordsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteMultiDimTableRecordsHeaders> headers = make_shared<DeleteMultiDimTableRecordsHeaders>();
+  return deleteMultiDimTableRecordsWithOptions(request, headers, runtime);
+}
+
 DeletePermissionResponse Alibabacloud_Aliding20230426::Client::deletePermissionWithOptions(shared_ptr<DeletePermissionRequest> tmpReq, shared_ptr<DeletePermissionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DeletePermissionShrinkRequest> request = make_shared<DeletePermissionShrinkRequest>();
@@ -4089,6 +4328,65 @@ DeleteWorkspaceMembersResponse Alibabacloud_Aliding20230426::Client::deleteWorks
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<DeleteWorkspaceMembersHeaders> headers = make_shared<DeleteWorkspaceMembersHeaders>();
   return deleteWorkspaceMembersWithOptions(request, headers, runtime);
+}
+
+DocBlocksQueryResponse Alibabacloud_Aliding20230426::Client::docBlocksQueryWithOptions(shared_ptr<DocBlocksQueryRequest> tmpReq, shared_ptr<DocBlocksQueryHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DocBlocksQueryShrinkRequest> request = make_shared<DocBlocksQueryShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<DocBlocksQueryShrinkHeaders> headers = make_shared<DocBlocksQueryShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<DocBlocksQueryHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<DocBlocksQueryRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->blockType)) {
+    body->insert(pair<string, string>("BlockType", *request->blockType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docKey)) {
+    body->insert(pair<string, string>("DocKey", *request->docKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endIndex)) {
+    body->insert(pair<string, long>("EndIndex", *request->endIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startIndex)) {
+    body->insert(pair<string, long>("StartIndex", *request->startIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DocBlocksQuery"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/documents/docBlocksQuery"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DocBlocksQueryResponse(callApi(params, req, runtime));
+}
+
+DocBlocksQueryResponse Alibabacloud_Aliding20230426::Client::docBlocksQuery(shared_ptr<DocBlocksQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DocBlocksQueryHeaders> headers = make_shared<DocBlocksQueryHeaders>();
+  return docBlocksQueryWithOptions(request, headers, runtime);
 }
 
 DocUpdateContentResponse Alibabacloud_Aliding20230426::Client::docUpdateContentWithOptions(shared_ptr<DocUpdateContentRequest> tmpReq, shared_ptr<DocUpdateContentHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -8052,6 +8350,65 @@ InsertColumnsBeforeResponse Alibabacloud_Aliding20230426::Client::insertColumnsB
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<InsertColumnsBeforeHeaders> headers = make_shared<InsertColumnsBeforeHeaders>();
   return insertColumnsBeforeWithOptions(request, headers, runtime);
+}
+
+InsertMultiDimTableRecordResponse Alibabacloud_Aliding20230426::Client::insertMultiDimTableRecordWithOptions(shared_ptr<InsertMultiDimTableRecordRequest> tmpReq, shared_ptr<InsertMultiDimTableRecordHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<InsertMultiDimTableRecordShrinkRequest> request = make_shared<InsertMultiDimTableRecordShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<InsertMultiDimTableRecordShrinkHeaders> headers = make_shared<InsertMultiDimTableRecordShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<InsertMultiDimTableRecordHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<InsertMultiDimTableRecordRequestRecords>>(tmpReq->records)) {
+    request->recordsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->records, make_shared<string>("Records"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<InsertMultiDimTableRecordRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseId)) {
+    body->insert(pair<string, string>("BaseId", *request->baseId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordsShrink)) {
+    body->insert(pair<string, string>("Records", *request->recordsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sheetIdOrName)) {
+    body->insert(pair<string, string>("SheetIdOrName", *request->sheetIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsertMultiDimTableRecord"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/table/insertMultiDimTableRecord"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsertMultiDimTableRecordResponse(callApi(params, req, runtime));
+}
+
+InsertMultiDimTableRecordResponse Alibabacloud_Aliding20230426::Client::insertMultiDimTableRecord(shared_ptr<InsertMultiDimTableRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsertMultiDimTableRecordHeaders> headers = make_shared<InsertMultiDimTableRecordHeaders>();
+  return insertMultiDimTableRecordWithOptions(request, headers, runtime);
 }
 
 InsertRowsBeforeResponse Alibabacloud_Aliding20230426::Client::insertRowsBeforeWithOptions(shared_ptr<InsertRowsBeforeRequest> tmpReq, shared_ptr<InsertRowsBeforeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -13277,6 +13634,186 @@ UpdateMeetingRoomGroupResponse Alibabacloud_Aliding20230426::Client::updateMeeti
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<UpdateMeetingRoomGroupHeaders> headers = make_shared<UpdateMeetingRoomGroupHeaders>();
   return updateMeetingRoomGroupWithOptions(request, headers, runtime);
+}
+
+UpdateMultiDimTableResponse Alibabacloud_Aliding20230426::Client::updateMultiDimTableWithOptions(shared_ptr<UpdateMultiDimTableRequest> tmpReq, shared_ptr<UpdateMultiDimTableHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateMultiDimTableShrinkRequest> request = make_shared<UpdateMultiDimTableShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<UpdateMultiDimTableShrinkHeaders> headers = make_shared<UpdateMultiDimTableShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<UpdateMultiDimTableHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateMultiDimTableRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseId)) {
+    body->insert(pair<string, string>("BaseId", *request->baseId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sheetIdOrName)) {
+    body->insert(pair<string, string>("SheetIdOrName", *request->sheetIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMultiDimTable"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/table/updateMultiDimTable"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMultiDimTableResponse(callApi(params, req, runtime));
+}
+
+UpdateMultiDimTableResponse Alibabacloud_Aliding20230426::Client::updateMultiDimTable(shared_ptr<UpdateMultiDimTableRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateMultiDimTableHeaders> headers = make_shared<UpdateMultiDimTableHeaders>();
+  return updateMultiDimTableWithOptions(request, headers, runtime);
+}
+
+UpdateMultiDimTableFieldResponse Alibabacloud_Aliding20230426::Client::updateMultiDimTableFieldWithOptions(shared_ptr<UpdateMultiDimTableFieldRequest> tmpReq, shared_ptr<UpdateMultiDimTableFieldHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateMultiDimTableFieldShrinkRequest> request = make_shared<UpdateMultiDimTableFieldShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<UpdateMultiDimTableFieldShrinkHeaders> headers = make_shared<UpdateMultiDimTableFieldShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<UpdateMultiDimTableFieldHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->property)) {
+    request->propertyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->property, make_shared<string>("Property"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateMultiDimTableFieldRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseId)) {
+    body->insert(pair<string, string>("BaseId", *request->baseId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fieldIdOrName)) {
+    body->insert(pair<string, string>("FieldIdOrName", *request->fieldIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->propertyShrink)) {
+    body->insert(pair<string, string>("Property", *request->propertyShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sheetIdOrName)) {
+    body->insert(pair<string, string>("SheetIdOrName", *request->sheetIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMultiDimTableField"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/table/updateMultiDimTableField"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMultiDimTableFieldResponse(callApi(params, req, runtime));
+}
+
+UpdateMultiDimTableFieldResponse Alibabacloud_Aliding20230426::Client::updateMultiDimTableField(shared_ptr<UpdateMultiDimTableFieldRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateMultiDimTableFieldHeaders> headers = make_shared<UpdateMultiDimTableFieldHeaders>();
+  return updateMultiDimTableFieldWithOptions(request, headers, runtime);
+}
+
+UpdateMultiDimTableRecordsResponse Alibabacloud_Aliding20230426::Client::updateMultiDimTableRecordsWithOptions(shared_ptr<UpdateMultiDimTableRecordsRequest> tmpReq, shared_ptr<UpdateMultiDimTableRecordsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateMultiDimTableRecordsShrinkRequest> request = make_shared<UpdateMultiDimTableRecordsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<UpdateMultiDimTableRecordsShrinkHeaders> headers = make_shared<UpdateMultiDimTableRecordsShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<UpdateMultiDimTableRecordsHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateMultiDimTableRecordsRequestRecordIds>>(tmpReq->recordIds)) {
+    request->recordIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->recordIds, make_shared<string>("RecordIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateMultiDimTableRecordsRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseId)) {
+    body->insert(pair<string, string>("BaseId", *request->baseId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordIdsShrink)) {
+    body->insert(pair<string, string>("RecordIds", *request->recordIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sheetIdOrName)) {
+    body->insert(pair<string, string>("SheetIdOrName", *request->sheetIdOrName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMultiDimTableRecords"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/table/updateMultiDimTableRecords"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMultiDimTableRecordsResponse(callApi(params, req, runtime));
+}
+
+UpdateMultiDimTableRecordsResponse Alibabacloud_Aliding20230426::Client::updateMultiDimTableRecords(shared_ptr<UpdateMultiDimTableRecordsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateMultiDimTableRecordsHeaders> headers = make_shared<UpdateMultiDimTableRecordsHeaders>();
+  return updateMultiDimTableRecordsWithOptions(request, headers, runtime);
 }
 
 UpdatePermissionResponse Alibabacloud_Aliding20230426::Client::updatePermissionWithOptions(shared_ptr<UpdatePermissionRequest> tmpReq, shared_ptr<UpdatePermissionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

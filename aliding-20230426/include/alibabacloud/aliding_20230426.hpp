@@ -1920,6 +1920,425 @@ public:
 
   virtual ~AddMeetingRoomsResponse() = default;
 };
+class AddMultiDimTableHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  AddMultiDimTableHeadersAccountContext() {}
+
+  explicit AddMultiDimTableHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~AddMultiDimTableHeadersAccountContext() = default;
+};
+class AddMultiDimTableHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<AddMultiDimTableHeadersAccountContext> accountContext{};
+
+  AddMultiDimTableHeaders() {}
+
+  explicit AddMultiDimTableHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        AddMultiDimTableHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<AddMultiDimTableHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddMultiDimTableHeaders() = default;
+};
+class AddMultiDimTableShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  AddMultiDimTableShrinkHeaders() {}
+
+  explicit AddMultiDimTableShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~AddMultiDimTableShrinkHeaders() = default;
+};
+class AddMultiDimTableRequestFields : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<map<string, boost::any>> property{};
+  shared_ptr<string> type{};
+
+  AddMultiDimTableRequestFields() {}
+
+  explicit AddMultiDimTableRequestFields(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (property) {
+      res["Property"] = boost::any(*property);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Property"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      property = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~AddMultiDimTableRequestFields() = default;
+};
+class AddMultiDimTableRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  AddMultiDimTableRequestTenantContext() {}
+
+  explicit AddMultiDimTableRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~AddMultiDimTableRequestTenantContext() = default;
+};
+class AddMultiDimTableRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<vector<AddMultiDimTableRequestFields>> fields{};
+  shared_ptr<string> name{};
+  shared_ptr<AddMultiDimTableRequestTenantContext> tenantContext{};
+
+  AddMultiDimTableRequest() {}
+
+  explicit AddMultiDimTableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (fields) {
+      vector<boost::any> temp1;
+      for(auto item1:*fields){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Fields"] = boost::any(temp1);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("Fields") != m.end() && !m["Fields"].empty()) {
+      if (typeid(vector<boost::any>) == m["Fields"].type()) {
+        vector<AddMultiDimTableRequestFields> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Fields"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddMultiDimTableRequestFields model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fields = make_shared<vector<AddMultiDimTableRequestFields>>(expect1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        AddMultiDimTableRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<AddMultiDimTableRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddMultiDimTableRequest() = default;
+};
+class AddMultiDimTableShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> fieldsShrink{};
+  shared_ptr<string> name{};
+  shared_ptr<string> tenantContextShrink{};
+
+  AddMultiDimTableShrinkRequest() {}
+
+  explicit AddMultiDimTableShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (fieldsShrink) {
+      res["Fields"] = boost::any(*fieldsShrink);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("Fields") != m.end() && !m["Fields"].empty()) {
+      fieldsShrink = make_shared<string>(boost::any_cast<string>(m["Fields"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~AddMultiDimTableShrinkRequest() = default;
+};
+class AddMultiDimTableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  AddMultiDimTableResponseBody() {}
+
+  explicit AddMultiDimTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~AddMultiDimTableResponseBody() = default;
+};
+class AddMultiDimTableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddMultiDimTableResponseBody> body{};
+
+  AddMultiDimTableResponse() {}
+
+  explicit AddMultiDimTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddMultiDimTableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddMultiDimTableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddMultiDimTableResponse() = default;
+};
 class AddPermissionHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -16475,6 +16894,415 @@ public:
 
   virtual ~CreateMessageResponse() = default;
 };
+class CreateMultiDimTableFieldHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  CreateMultiDimTableFieldHeadersAccountContext() {}
+
+  explicit CreateMultiDimTableFieldHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~CreateMultiDimTableFieldHeadersAccountContext() = default;
+};
+class CreateMultiDimTableFieldHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<CreateMultiDimTableFieldHeadersAccountContext> accountContext{};
+
+  CreateMultiDimTableFieldHeaders() {}
+
+  explicit CreateMultiDimTableFieldHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        CreateMultiDimTableFieldHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<CreateMultiDimTableFieldHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateMultiDimTableFieldHeaders() = default;
+};
+class CreateMultiDimTableFieldShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  CreateMultiDimTableFieldShrinkHeaders() {}
+
+  explicit CreateMultiDimTableFieldShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~CreateMultiDimTableFieldShrinkHeaders() = default;
+};
+class CreateMultiDimTableFieldRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  CreateMultiDimTableFieldRequestTenantContext() {}
+
+  explicit CreateMultiDimTableFieldRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~CreateMultiDimTableFieldRequestTenantContext() = default;
+};
+class CreateMultiDimTableFieldRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> name{};
+  shared_ptr<map<string, boost::any>> property{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<CreateMultiDimTableFieldRequestTenantContext> tenantContext{};
+  shared_ptr<string> type{};
+
+  CreateMultiDimTableFieldRequest() {}
+
+  explicit CreateMultiDimTableFieldRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (property) {
+      res["Property"] = boost::any(*property);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Property"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      property = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        CreateMultiDimTableFieldRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<CreateMultiDimTableFieldRequestTenantContext>(model1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateMultiDimTableFieldRequest() = default;
+};
+class CreateMultiDimTableFieldShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> propertyShrink{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<string> tenantContextShrink{};
+  shared_ptr<string> type{};
+
+  CreateMultiDimTableFieldShrinkRequest() {}
+
+  explicit CreateMultiDimTableFieldShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (propertyShrink) {
+      res["Property"] = boost::any(*propertyShrink);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      propertyShrink = make_shared<string>(boost::any_cast<string>(m["Property"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateMultiDimTableFieldShrinkRequest() = default;
+};
+class CreateMultiDimTableFieldResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<map<string, boost::any>> property{};
+  shared_ptr<string> type{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  CreateMultiDimTableFieldResponseBody() {}
+
+  explicit CreateMultiDimTableFieldResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (property) {
+      res["Property"] = boost::any(*property);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Property"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      property = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~CreateMultiDimTableFieldResponseBody() = default;
+};
+class CreateMultiDimTableFieldResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateMultiDimTableFieldResponseBody> body{};
+
+  CreateMultiDimTableFieldResponse() {}
+
+  explicit CreateMultiDimTableFieldResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateMultiDimTableFieldResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateMultiDimTableFieldResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateMultiDimTableFieldResponse() = default;
+};
 class CreateOrUpdateFormDataHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -27670,6 +28498,713 @@ public:
 
   virtual ~DeleteMeetingRoomGroupResponse() = default;
 };
+class DeleteMultiDimTableFieldHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  DeleteMultiDimTableFieldHeadersAccountContext() {}
+
+  explicit DeleteMultiDimTableFieldHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableFieldHeadersAccountContext() = default;
+};
+class DeleteMultiDimTableFieldHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<DeleteMultiDimTableFieldHeadersAccountContext> accountContext{};
+
+  DeleteMultiDimTableFieldHeaders() {}
+
+  explicit DeleteMultiDimTableFieldHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        DeleteMultiDimTableFieldHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<DeleteMultiDimTableFieldHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableFieldHeaders() = default;
+};
+class DeleteMultiDimTableFieldShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  DeleteMultiDimTableFieldShrinkHeaders() {}
+
+  explicit DeleteMultiDimTableFieldShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableFieldShrinkHeaders() = default;
+};
+class DeleteMultiDimTableFieldRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  DeleteMultiDimTableFieldRequestTenantContext() {}
+
+  explicit DeleteMultiDimTableFieldRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableFieldRequestTenantContext() = default;
+};
+class DeleteMultiDimTableFieldRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> fieldIdOrName{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<DeleteMultiDimTableFieldRequestTenantContext> tenantContext{};
+
+  DeleteMultiDimTableFieldRequest() {}
+
+  explicit DeleteMultiDimTableFieldRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (fieldIdOrName) {
+      res["FieldIdOrName"] = boost::any(*fieldIdOrName);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("FieldIdOrName") != m.end() && !m["FieldIdOrName"].empty()) {
+      fieldIdOrName = make_shared<string>(boost::any_cast<string>(m["FieldIdOrName"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        DeleteMultiDimTableFieldRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<DeleteMultiDimTableFieldRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableFieldRequest() = default;
+};
+class DeleteMultiDimTableFieldShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> fieldIdOrName{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<string> tenantContextShrink{};
+
+  DeleteMultiDimTableFieldShrinkRequest() {}
+
+  explicit DeleteMultiDimTableFieldShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (fieldIdOrName) {
+      res["FieldIdOrName"] = boost::any(*fieldIdOrName);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("FieldIdOrName") != m.end() && !m["FieldIdOrName"].empty()) {
+      fieldIdOrName = make_shared<string>(boost::any_cast<string>(m["FieldIdOrName"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableFieldShrinkRequest() = default;
+};
+class DeleteMultiDimTableFieldResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  DeleteMultiDimTableFieldResponseBody() {}
+
+  explicit DeleteMultiDimTableFieldResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableFieldResponseBody() = default;
+};
+class DeleteMultiDimTableFieldResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteMultiDimTableFieldResponseBody> body{};
+
+  DeleteMultiDimTableFieldResponse() {}
+
+  explicit DeleteMultiDimTableFieldResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteMultiDimTableFieldResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteMultiDimTableFieldResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableFieldResponse() = default;
+};
+class DeleteMultiDimTableRecordsHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  DeleteMultiDimTableRecordsHeadersAccountContext() {}
+
+  explicit DeleteMultiDimTableRecordsHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableRecordsHeadersAccountContext() = default;
+};
+class DeleteMultiDimTableRecordsHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<DeleteMultiDimTableRecordsHeadersAccountContext> accountContext{};
+
+  DeleteMultiDimTableRecordsHeaders() {}
+
+  explicit DeleteMultiDimTableRecordsHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        DeleteMultiDimTableRecordsHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<DeleteMultiDimTableRecordsHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableRecordsHeaders() = default;
+};
+class DeleteMultiDimTableRecordsShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  DeleteMultiDimTableRecordsShrinkHeaders() {}
+
+  explicit DeleteMultiDimTableRecordsShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableRecordsShrinkHeaders() = default;
+};
+class DeleteMultiDimTableRecordsRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  DeleteMultiDimTableRecordsRequestTenantContext() {}
+
+  explicit DeleteMultiDimTableRecordsRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableRecordsRequestTenantContext() = default;
+};
+class DeleteMultiDimTableRecordsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<vector<string>> recordIds{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<DeleteMultiDimTableRecordsRequestTenantContext> tenantContext{};
+
+  DeleteMultiDimTableRecordsRequest() {}
+
+  explicit DeleteMultiDimTableRecordsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (recordIds) {
+      res["RecordIds"] = boost::any(*recordIds);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("RecordIds") != m.end() && !m["RecordIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        DeleteMultiDimTableRecordsRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<DeleteMultiDimTableRecordsRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableRecordsRequest() = default;
+};
+class DeleteMultiDimTableRecordsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> recordIdsShrink{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<string> tenantContextShrink{};
+
+  DeleteMultiDimTableRecordsShrinkRequest() {}
+
+  explicit DeleteMultiDimTableRecordsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (recordIdsShrink) {
+      res["RecordIds"] = boost::any(*recordIdsShrink);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("RecordIds") != m.end() && !m["RecordIds"].empty()) {
+      recordIdsShrink = make_shared<string>(boost::any_cast<string>(m["RecordIds"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableRecordsShrinkRequest() = default;
+};
+class DeleteMultiDimTableRecordsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  DeleteMultiDimTableRecordsResponseBody() {}
+
+  explicit DeleteMultiDimTableRecordsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableRecordsResponseBody() = default;
+};
+class DeleteMultiDimTableRecordsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteMultiDimTableRecordsResponseBody> body{};
+
+  DeleteMultiDimTableRecordsResponse() {}
+
+  explicit DeleteMultiDimTableRecordsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteMultiDimTableRecordsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteMultiDimTableRecordsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteMultiDimTableRecordsResponse() = default;
+};
 class DeletePermissionHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -30285,6 +31820,417 @@ public:
 
 
   virtual ~DeleteWorkspaceMembersResponse() = default;
+};
+class DocBlocksQueryHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  DocBlocksQueryHeadersAccountContext() {}
+
+  explicit DocBlocksQueryHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~DocBlocksQueryHeadersAccountContext() = default;
+};
+class DocBlocksQueryHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<DocBlocksQueryHeadersAccountContext> accountContext{};
+
+  DocBlocksQueryHeaders() {}
+
+  explicit DocBlocksQueryHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        DocBlocksQueryHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<DocBlocksQueryHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DocBlocksQueryHeaders() = default;
+};
+class DocBlocksQueryShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  DocBlocksQueryShrinkHeaders() {}
+
+  explicit DocBlocksQueryShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~DocBlocksQueryShrinkHeaders() = default;
+};
+class DocBlocksQueryRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  DocBlocksQueryRequestTenantContext() {}
+
+  explicit DocBlocksQueryRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~DocBlocksQueryRequestTenantContext() = default;
+};
+class DocBlocksQueryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> blockType{};
+  shared_ptr<string> docKey{};
+  shared_ptr<long> endIndex{};
+  shared_ptr<long> startIndex{};
+  shared_ptr<DocBlocksQueryRequestTenantContext> tenantContext{};
+
+  DocBlocksQueryRequest() {}
+
+  explicit DocBlocksQueryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockType) {
+      res["BlockType"] = boost::any(*blockType);
+    }
+    if (docKey) {
+      res["DocKey"] = boost::any(*docKey);
+    }
+    if (endIndex) {
+      res["EndIndex"] = boost::any(*endIndex);
+    }
+    if (startIndex) {
+      res["StartIndex"] = boost::any(*startIndex);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockType") != m.end() && !m["BlockType"].empty()) {
+      blockType = make_shared<string>(boost::any_cast<string>(m["BlockType"]));
+    }
+    if (m.find("DocKey") != m.end() && !m["DocKey"].empty()) {
+      docKey = make_shared<string>(boost::any_cast<string>(m["DocKey"]));
+    }
+    if (m.find("EndIndex") != m.end() && !m["EndIndex"].empty()) {
+      endIndex = make_shared<long>(boost::any_cast<long>(m["EndIndex"]));
+    }
+    if (m.find("StartIndex") != m.end() && !m["StartIndex"].empty()) {
+      startIndex = make_shared<long>(boost::any_cast<long>(m["StartIndex"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        DocBlocksQueryRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<DocBlocksQueryRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DocBlocksQueryRequest() = default;
+};
+class DocBlocksQueryShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> blockType{};
+  shared_ptr<string> docKey{};
+  shared_ptr<long> endIndex{};
+  shared_ptr<long> startIndex{};
+  shared_ptr<string> tenantContextShrink{};
+
+  DocBlocksQueryShrinkRequest() {}
+
+  explicit DocBlocksQueryShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockType) {
+      res["BlockType"] = boost::any(*blockType);
+    }
+    if (docKey) {
+      res["DocKey"] = boost::any(*docKey);
+    }
+    if (endIndex) {
+      res["EndIndex"] = boost::any(*endIndex);
+    }
+    if (startIndex) {
+      res["StartIndex"] = boost::any(*startIndex);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockType") != m.end() && !m["BlockType"].empty()) {
+      blockType = make_shared<string>(boost::any_cast<string>(m["BlockType"]));
+    }
+    if (m.find("DocKey") != m.end() && !m["DocKey"].empty()) {
+      docKey = make_shared<string>(boost::any_cast<string>(m["DocKey"]));
+    }
+    if (m.find("EndIndex") != m.end() && !m["EndIndex"].empty()) {
+      endIndex = make_shared<long>(boost::any_cast<long>(m["EndIndex"]));
+    }
+    if (m.find("StartIndex") != m.end() && !m["StartIndex"].empty()) {
+      startIndex = make_shared<long>(boost::any_cast<long>(m["StartIndex"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~DocBlocksQueryShrinkRequest() = default;
+};
+class DocBlocksQueryResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<boost::any>> data{};
+
+  DocBlocksQueryResponseBodyResult() {}
+
+  explicit DocBlocksQueryResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Data"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      data = make_shared<vector<boost::any>>(toVec1);
+    }
+  }
+
+
+  virtual ~DocBlocksQueryResponseBodyResult() = default;
+};
+class DocBlocksQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<DocBlocksQueryResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  DocBlocksQueryResponseBody() {}
+
+  explicit DocBlocksQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["result"].type()) {
+        DocBlocksQueryResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["result"]));
+        result = make_shared<DocBlocksQueryResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~DocBlocksQueryResponseBody() = default;
+};
+class DocBlocksQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DocBlocksQueryResponseBody> body{};
+
+  DocBlocksQueryResponse() {}
+
+  explicit DocBlocksQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DocBlocksQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DocBlocksQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DocBlocksQueryResponse() = default;
 };
 class DocUpdateContentHeadersAccountContext : public Darabonba::Model {
 public:
@@ -63185,6 +65131,447 @@ public:
 
 
   virtual ~InsertColumnsBeforeResponse() = default;
+};
+class InsertMultiDimTableRecordHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  InsertMultiDimTableRecordHeadersAccountContext() {}
+
+  explicit InsertMultiDimTableRecordHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordHeadersAccountContext() = default;
+};
+class InsertMultiDimTableRecordHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<InsertMultiDimTableRecordHeadersAccountContext> accountContext{};
+
+  InsertMultiDimTableRecordHeaders() {}
+
+  explicit InsertMultiDimTableRecordHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        InsertMultiDimTableRecordHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<InsertMultiDimTableRecordHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordHeaders() = default;
+};
+class InsertMultiDimTableRecordShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  InsertMultiDimTableRecordShrinkHeaders() {}
+
+  explicit InsertMultiDimTableRecordShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordShrinkHeaders() = default;
+};
+class InsertMultiDimTableRecordRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> fields{};
+
+  InsertMultiDimTableRecordRequestRecords() {}
+
+  explicit InsertMultiDimTableRecordRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fields) {
+      res["Fields"] = boost::any(*fields);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Fields") != m.end() && !m["Fields"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Fields"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      fields = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordRequestRecords() = default;
+};
+class InsertMultiDimTableRecordRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  InsertMultiDimTableRecordRequestTenantContext() {}
+
+  explicit InsertMultiDimTableRecordRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordRequestTenantContext() = default;
+};
+class InsertMultiDimTableRecordRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<vector<InsertMultiDimTableRecordRequestRecords>> records{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<InsertMultiDimTableRecordRequestTenantContext> tenantContext{};
+
+  InsertMultiDimTableRecordRequest() {}
+
+  explicit InsertMultiDimTableRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Records"] = boost::any(temp1);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("Records") != m.end() && !m["Records"].empty()) {
+      if (typeid(vector<boost::any>) == m["Records"].type()) {
+        vector<InsertMultiDimTableRecordRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InsertMultiDimTableRecordRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<InsertMultiDimTableRecordRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        InsertMultiDimTableRecordRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<InsertMultiDimTableRecordRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordRequest() = default;
+};
+class InsertMultiDimTableRecordShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> recordsShrink{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<string> tenantContextShrink{};
+
+  InsertMultiDimTableRecordShrinkRequest() {}
+
+  explicit InsertMultiDimTableRecordShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (recordsShrink) {
+      res["Records"] = boost::any(*recordsShrink);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("Records") != m.end() && !m["Records"].empty()) {
+      recordsShrink = make_shared<string>(boost::any_cast<string>(m["Records"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordShrinkRequest() = default;
+};
+class InsertMultiDimTableRecordResponseBodyValue : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+
+  InsertMultiDimTableRecordResponseBodyValue() {}
+
+  explicit InsertMultiDimTableRecordResponseBodyValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordResponseBodyValue() = default;
+};
+class InsertMultiDimTableRecordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<InsertMultiDimTableRecordResponseBodyValue>> value{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  InsertMultiDimTableRecordResponseBody() {}
+
+  explicit InsertMultiDimTableRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      vector<boost::any> temp1;
+      for(auto item1:*value){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Value"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      if (typeid(vector<boost::any>) == m["Value"].type()) {
+        vector<InsertMultiDimTableRecordResponseBodyValue> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Value"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InsertMultiDimTableRecordResponseBodyValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        value = make_shared<vector<InsertMultiDimTableRecordResponseBodyValue>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordResponseBody() = default;
+};
+class InsertMultiDimTableRecordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InsertMultiDimTableRecordResponseBody> body{};
+
+  InsertMultiDimTableRecordResponse() {}
+
+  explicit InsertMultiDimTableRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InsertMultiDimTableRecordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InsertMultiDimTableRecordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsertMultiDimTableRecordResponse() = default;
 };
 class InsertRowsBeforeHeadersAccountContext : public Darabonba::Model {
 public:
@@ -105411,6 +107798,1194 @@ public:
 
   virtual ~UpdateMeetingRoomGroupResponse() = default;
 };
+class UpdateMultiDimTableHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  UpdateMultiDimTableHeadersAccountContext() {}
+
+  explicit UpdateMultiDimTableHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableHeadersAccountContext() = default;
+};
+class UpdateMultiDimTableHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<UpdateMultiDimTableHeadersAccountContext> accountContext{};
+
+  UpdateMultiDimTableHeaders() {}
+
+  explicit UpdateMultiDimTableHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        UpdateMultiDimTableHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<UpdateMultiDimTableHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableHeaders() = default;
+};
+class UpdateMultiDimTableShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  UpdateMultiDimTableShrinkHeaders() {}
+
+  explicit UpdateMultiDimTableShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableShrinkHeaders() = default;
+};
+class UpdateMultiDimTableRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  UpdateMultiDimTableRequestTenantContext() {}
+
+  explicit UpdateMultiDimTableRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRequestTenantContext() = default;
+};
+class UpdateMultiDimTableRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<UpdateMultiDimTableRequestTenantContext> tenantContext{};
+
+  UpdateMultiDimTableRequest() {}
+
+  explicit UpdateMultiDimTableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        UpdateMultiDimTableRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<UpdateMultiDimTableRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRequest() = default;
+};
+class UpdateMultiDimTableShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<string> tenantContextShrink{};
+
+  UpdateMultiDimTableShrinkRequest() {}
+
+  explicit UpdateMultiDimTableShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableShrinkRequest() = default;
+};
+class UpdateMultiDimTableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  UpdateMultiDimTableResponseBody() {}
+
+  explicit UpdateMultiDimTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableResponseBody() = default;
+};
+class UpdateMultiDimTableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateMultiDimTableResponseBody> body{};
+
+  UpdateMultiDimTableResponse() {}
+
+  explicit UpdateMultiDimTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateMultiDimTableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateMultiDimTableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableResponse() = default;
+};
+class UpdateMultiDimTableFieldHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  UpdateMultiDimTableFieldHeadersAccountContext() {}
+
+  explicit UpdateMultiDimTableFieldHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableFieldHeadersAccountContext() = default;
+};
+class UpdateMultiDimTableFieldHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<UpdateMultiDimTableFieldHeadersAccountContext> accountContext{};
+
+  UpdateMultiDimTableFieldHeaders() {}
+
+  explicit UpdateMultiDimTableFieldHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        UpdateMultiDimTableFieldHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<UpdateMultiDimTableFieldHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableFieldHeaders() = default;
+};
+class UpdateMultiDimTableFieldShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  UpdateMultiDimTableFieldShrinkHeaders() {}
+
+  explicit UpdateMultiDimTableFieldShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableFieldShrinkHeaders() = default;
+};
+class UpdateMultiDimTableFieldRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  UpdateMultiDimTableFieldRequestTenantContext() {}
+
+  explicit UpdateMultiDimTableFieldRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableFieldRequestTenantContext() = default;
+};
+class UpdateMultiDimTableFieldRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> fieldIdOrName{};
+  shared_ptr<string> name{};
+  shared_ptr<map<string, boost::any>> property{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<UpdateMultiDimTableFieldRequestTenantContext> tenantContext{};
+
+  UpdateMultiDimTableFieldRequest() {}
+
+  explicit UpdateMultiDimTableFieldRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (fieldIdOrName) {
+      res["FieldIdOrName"] = boost::any(*fieldIdOrName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (property) {
+      res["Property"] = boost::any(*property);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("FieldIdOrName") != m.end() && !m["FieldIdOrName"].empty()) {
+      fieldIdOrName = make_shared<string>(boost::any_cast<string>(m["FieldIdOrName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Property"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      property = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        UpdateMultiDimTableFieldRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<UpdateMultiDimTableFieldRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableFieldRequest() = default;
+};
+class UpdateMultiDimTableFieldShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> fieldIdOrName{};
+  shared_ptr<string> name{};
+  shared_ptr<string> propertyShrink{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<string> tenantContextShrink{};
+
+  UpdateMultiDimTableFieldShrinkRequest() {}
+
+  explicit UpdateMultiDimTableFieldShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (fieldIdOrName) {
+      res["FieldIdOrName"] = boost::any(*fieldIdOrName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (propertyShrink) {
+      res["Property"] = boost::any(*propertyShrink);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("FieldIdOrName") != m.end() && !m["FieldIdOrName"].empty()) {
+      fieldIdOrName = make_shared<string>(boost::any_cast<string>(m["FieldIdOrName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      propertyShrink = make_shared<string>(boost::any_cast<string>(m["Property"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableFieldShrinkRequest() = default;
+};
+class UpdateMultiDimTableFieldResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  UpdateMultiDimTableFieldResponseBody() {}
+
+  explicit UpdateMultiDimTableFieldResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableFieldResponseBody() = default;
+};
+class UpdateMultiDimTableFieldResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateMultiDimTableFieldResponseBody> body{};
+
+  UpdateMultiDimTableFieldResponse() {}
+
+  explicit UpdateMultiDimTableFieldResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateMultiDimTableFieldResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateMultiDimTableFieldResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableFieldResponse() = default;
+};
+class UpdateMultiDimTableRecordsHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  UpdateMultiDimTableRecordsHeadersAccountContext() {}
+
+  explicit UpdateMultiDimTableRecordsHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsHeadersAccountContext() = default;
+};
+class UpdateMultiDimTableRecordsHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<UpdateMultiDimTableRecordsHeadersAccountContext> accountContext{};
+
+  UpdateMultiDimTableRecordsHeaders() {}
+
+  explicit UpdateMultiDimTableRecordsHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        UpdateMultiDimTableRecordsHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<UpdateMultiDimTableRecordsHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsHeaders() = default;
+};
+class UpdateMultiDimTableRecordsShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  UpdateMultiDimTableRecordsShrinkHeaders() {}
+
+  explicit UpdateMultiDimTableRecordsShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsShrinkHeaders() = default;
+};
+class UpdateMultiDimTableRecordsRequestRecordIds : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> fields{};
+  shared_ptr<string> id{};
+
+  UpdateMultiDimTableRecordsRequestRecordIds() {}
+
+  explicit UpdateMultiDimTableRecordsRequestRecordIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fields) {
+      res["Fields"] = boost::any(*fields);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Fields") != m.end() && !m["Fields"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Fields"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      fields = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsRequestRecordIds() = default;
+};
+class UpdateMultiDimTableRecordsRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  UpdateMultiDimTableRecordsRequestTenantContext() {}
+
+  explicit UpdateMultiDimTableRecordsRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsRequestTenantContext() = default;
+};
+class UpdateMultiDimTableRecordsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<vector<UpdateMultiDimTableRecordsRequestRecordIds>> recordIds{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<UpdateMultiDimTableRecordsRequestTenantContext> tenantContext{};
+
+  UpdateMultiDimTableRecordsRequest() {}
+
+  explicit UpdateMultiDimTableRecordsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (recordIds) {
+      vector<boost::any> temp1;
+      for(auto item1:*recordIds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RecordIds"] = boost::any(temp1);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("RecordIds") != m.end() && !m["RecordIds"].empty()) {
+      if (typeid(vector<boost::any>) == m["RecordIds"].type()) {
+        vector<UpdateMultiDimTableRecordsRequestRecordIds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RecordIds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateMultiDimTableRecordsRequestRecordIds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        recordIds = make_shared<vector<UpdateMultiDimTableRecordsRequestRecordIds>>(expect1);
+      }
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        UpdateMultiDimTableRecordsRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<UpdateMultiDimTableRecordsRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsRequest() = default;
+};
+class UpdateMultiDimTableRecordsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseId{};
+  shared_ptr<string> recordIdsShrink{};
+  shared_ptr<string> sheetIdOrName{};
+  shared_ptr<string> tenantContextShrink{};
+
+  UpdateMultiDimTableRecordsShrinkRequest() {}
+
+  explicit UpdateMultiDimTableRecordsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseId) {
+      res["BaseId"] = boost::any(*baseId);
+    }
+    if (recordIdsShrink) {
+      res["RecordIds"] = boost::any(*recordIdsShrink);
+    }
+    if (sheetIdOrName) {
+      res["SheetIdOrName"] = boost::any(*sheetIdOrName);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseId") != m.end() && !m["BaseId"].empty()) {
+      baseId = make_shared<string>(boost::any_cast<string>(m["BaseId"]));
+    }
+    if (m.find("RecordIds") != m.end() && !m["RecordIds"].empty()) {
+      recordIdsShrink = make_shared<string>(boost::any_cast<string>(m["RecordIds"]));
+    }
+    if (m.find("SheetIdOrName") != m.end() && !m["SheetIdOrName"].empty()) {
+      sheetIdOrName = make_shared<string>(boost::any_cast<string>(m["SheetIdOrName"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsShrinkRequest() = default;
+};
+class UpdateMultiDimTableRecordsResponseBodyValue : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+
+  UpdateMultiDimTableRecordsResponseBodyValue() {}
+
+  explicit UpdateMultiDimTableRecordsResponseBodyValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsResponseBodyValue() = default;
+};
+class UpdateMultiDimTableRecordsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateMultiDimTableRecordsResponseBodyValue>> value{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  UpdateMultiDimTableRecordsResponseBody() {}
+
+  explicit UpdateMultiDimTableRecordsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      vector<boost::any> temp1;
+      for(auto item1:*value){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Value"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      if (typeid(vector<boost::any>) == m["Value"].type()) {
+        vector<UpdateMultiDimTableRecordsResponseBodyValue> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Value"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateMultiDimTableRecordsResponseBodyValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        value = make_shared<vector<UpdateMultiDimTableRecordsResponseBodyValue>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsResponseBody() = default;
+};
+class UpdateMultiDimTableRecordsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateMultiDimTableRecordsResponseBody> body{};
+
+  UpdateMultiDimTableRecordsResponse() {}
+
+  explicit UpdateMultiDimTableRecordsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateMultiDimTableRecordsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateMultiDimTableRecordsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiDimTableRecordsResponse() = default;
+};
 class UpdatePermissionHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -111064,6 +114639,8 @@ public:
   AddFolderResponse addFolder(shared_ptr<AddFolderRequest> request);
   AddMeetingRoomsResponse addMeetingRoomsWithOptions(shared_ptr<AddMeetingRoomsRequest> tmpReq, shared_ptr<AddMeetingRoomsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddMeetingRoomsResponse addMeetingRooms(shared_ptr<AddMeetingRoomsRequest> request);
+  AddMultiDimTableResponse addMultiDimTableWithOptions(shared_ptr<AddMultiDimTableRequest> tmpReq, shared_ptr<AddMultiDimTableHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddMultiDimTableResponse addMultiDimTable(shared_ptr<AddMultiDimTableRequest> request);
   AddPermissionResponse addPermissionWithOptions(shared_ptr<AddPermissionRequest> tmpReq, shared_ptr<AddPermissionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddPermissionResponse addPermission(shared_ptr<AddPermissionRequest> request);
   AddRecordPermissionResponse addRecordPermissionWithOptions(shared_ptr<AddRecordPermissionRequest> tmpReq, shared_ptr<AddRecordPermissionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -111122,6 +114699,8 @@ public:
   CreateMeetingRoomGroupResponse createMeetingRoomGroup(shared_ptr<CreateMeetingRoomGroupRequest> request);
   CreateMessageResponse createMessageWithOptions(shared_ptr<CreateMessageRequest> request, shared_ptr<CreateMessageHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateMessageResponse createMessage(shared_ptr<CreateMessageRequest> request);
+  CreateMultiDimTableFieldResponse createMultiDimTableFieldWithOptions(shared_ptr<CreateMultiDimTableFieldRequest> tmpReq, shared_ptr<CreateMultiDimTableFieldHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateMultiDimTableFieldResponse createMultiDimTableField(shared_ptr<CreateMultiDimTableFieldRequest> request);
   CreateOrUpdateFormDataResponse createOrUpdateFormDataWithOptions(shared_ptr<CreateOrUpdateFormDataRequest> request, shared_ptr<CreateOrUpdateFormDataHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateOrUpdateFormDataResponse createOrUpdateFormData(shared_ptr<CreateOrUpdateFormDataRequest> request);
   CreateOrgHonorTemplateResponse createOrgHonorTemplateWithOptions(shared_ptr<CreateOrgHonorTemplateRequest> tmpReq, shared_ptr<CreateOrgHonorTemplateHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -111174,6 +114753,10 @@ public:
   DeleteMeetingRoomResponse deleteMeetingRoom(shared_ptr<DeleteMeetingRoomRequest> request);
   DeleteMeetingRoomGroupResponse deleteMeetingRoomGroupWithOptions(shared_ptr<DeleteMeetingRoomGroupRequest> tmpReq, shared_ptr<DeleteMeetingRoomGroupHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteMeetingRoomGroupResponse deleteMeetingRoomGroup(shared_ptr<DeleteMeetingRoomGroupRequest> request);
+  DeleteMultiDimTableFieldResponse deleteMultiDimTableFieldWithOptions(shared_ptr<DeleteMultiDimTableFieldRequest> tmpReq, shared_ptr<DeleteMultiDimTableFieldHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteMultiDimTableFieldResponse deleteMultiDimTableField(shared_ptr<DeleteMultiDimTableFieldRequest> request);
+  DeleteMultiDimTableRecordsResponse deleteMultiDimTableRecordsWithOptions(shared_ptr<DeleteMultiDimTableRecordsRequest> tmpReq, shared_ptr<DeleteMultiDimTableRecordsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteMultiDimTableRecordsResponse deleteMultiDimTableRecords(shared_ptr<DeleteMultiDimTableRecordsRequest> request);
   DeletePermissionResponse deletePermissionWithOptions(shared_ptr<DeletePermissionRequest> tmpReq, shared_ptr<DeletePermissionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletePermissionResponse deletePermission(shared_ptr<DeletePermissionRequest> request);
   DeleteRowsResponse deleteRowsWithOptions(shared_ptr<DeleteRowsRequest> tmpReq, shared_ptr<DeleteRowsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -111190,6 +114773,8 @@ public:
   DeleteWorkspaceDocMembersResponse deleteWorkspaceDocMembers(shared_ptr<DeleteWorkspaceDocMembersRequest> request);
   DeleteWorkspaceMembersResponse deleteWorkspaceMembersWithOptions(shared_ptr<DeleteWorkspaceMembersRequest> tmpReq, shared_ptr<DeleteWorkspaceMembersHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteWorkspaceMembersResponse deleteWorkspaceMembers(shared_ptr<DeleteWorkspaceMembersRequest> request);
+  DocBlocksQueryResponse docBlocksQueryWithOptions(shared_ptr<DocBlocksQueryRequest> tmpReq, shared_ptr<DocBlocksQueryHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DocBlocksQueryResponse docBlocksQuery(shared_ptr<DocBlocksQueryRequest> request);
   DocUpdateContentResponse docUpdateContentWithOptions(shared_ptr<DocUpdateContentRequest> tmpReq, shared_ptr<DocUpdateContentHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DocUpdateContentResponse docUpdateContent(shared_ptr<DocUpdateContentRequest> request);
   ExecuteBatchTaskResponse executeBatchTaskWithOptions(shared_ptr<ExecuteBatchTaskRequest> request, shared_ptr<ExecuteBatchTaskHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -111330,6 +114915,8 @@ public:
   InitMultipartFileUploadResponse initMultipartFileUpload(shared_ptr<InitMultipartFileUploadRequest> request);
   InsertColumnsBeforeResponse insertColumnsBeforeWithOptions(shared_ptr<InsertColumnsBeforeRequest> tmpReq, shared_ptr<InsertColumnsBeforeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InsertColumnsBeforeResponse insertColumnsBefore(shared_ptr<InsertColumnsBeforeRequest> request);
+  InsertMultiDimTableRecordResponse insertMultiDimTableRecordWithOptions(shared_ptr<InsertMultiDimTableRecordRequest> tmpReq, shared_ptr<InsertMultiDimTableRecordHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InsertMultiDimTableRecordResponse insertMultiDimTableRecord(shared_ptr<InsertMultiDimTableRecordRequest> request);
   InsertRowsBeforeResponse insertRowsBeforeWithOptions(shared_ptr<InsertRowsBeforeRequest> tmpReq, shared_ptr<InsertRowsBeforeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InsertRowsBeforeResponse insertRowsBefore(shared_ptr<InsertRowsBeforeRequest> request);
   InviteUsersResponse inviteUsersWithOptions(shared_ptr<InviteUsersRequest> tmpReq, shared_ptr<InviteUsersHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -111512,6 +115099,12 @@ public:
   UpdateMeetingRoomResponse updateMeetingRoom(shared_ptr<UpdateMeetingRoomRequest> request);
   UpdateMeetingRoomGroupResponse updateMeetingRoomGroupWithOptions(shared_ptr<UpdateMeetingRoomGroupRequest> tmpReq, shared_ptr<UpdateMeetingRoomGroupHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateMeetingRoomGroupResponse updateMeetingRoomGroup(shared_ptr<UpdateMeetingRoomGroupRequest> request);
+  UpdateMultiDimTableResponse updateMultiDimTableWithOptions(shared_ptr<UpdateMultiDimTableRequest> tmpReq, shared_ptr<UpdateMultiDimTableHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateMultiDimTableResponse updateMultiDimTable(shared_ptr<UpdateMultiDimTableRequest> request);
+  UpdateMultiDimTableFieldResponse updateMultiDimTableFieldWithOptions(shared_ptr<UpdateMultiDimTableFieldRequest> tmpReq, shared_ptr<UpdateMultiDimTableFieldHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateMultiDimTableFieldResponse updateMultiDimTableField(shared_ptr<UpdateMultiDimTableFieldRequest> request);
+  UpdateMultiDimTableRecordsResponse updateMultiDimTableRecordsWithOptions(shared_ptr<UpdateMultiDimTableRecordsRequest> tmpReq, shared_ptr<UpdateMultiDimTableRecordsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateMultiDimTableRecordsResponse updateMultiDimTableRecords(shared_ptr<UpdateMultiDimTableRecordsRequest> request);
   UpdatePermissionResponse updatePermissionWithOptions(shared_ptr<UpdatePermissionRequest> tmpReq, shared_ptr<UpdatePermissionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePermissionResponse updatePermission(shared_ptr<UpdatePermissionRequest> request);
   UpdateRangeResponse updateRangeWithOptions(shared_ptr<UpdateRangeRequest> tmpReq, shared_ptr<UpdateRangeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
