@@ -1416,6 +1416,40 @@ GetEnterpriseVocAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::getE
   return getEnterpriseVocAnalysisTaskWithOptions(request, runtime);
 }
 
+GetFileContentLengthResponse Alibabacloud_AiMiaoBi20230801::Client::getFileContentLengthWithOptions(shared_ptr<GetFileContentLengthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->docName)) {
+    body->insert(pair<string, string>("DocName", *request->docName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
+    body->insert(pair<string, string>("FileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetFileContentLength"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetFileContentLengthResponse(callApi(params, req, runtime));
+}
+
+GetFileContentLengthResponse Alibabacloud_AiMiaoBi20230801::Client::getFileContentLength(shared_ptr<GetFileContentLengthRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getFileContentLengthWithOptions(request, runtime);
+}
+
 GetGeneratedContentResponse Alibabacloud_AiMiaoBi20230801::Client::getGeneratedContentWithOptions(shared_ptr<GetGeneratedContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3548,6 +3582,52 @@ RunAbbreviationContentResponse Alibabacloud_AiMiaoBi20230801::Client::runAbbrevi
   return runAbbreviationContentWithOptions(request, runtime);
 }
 
+RunBookBrainmapResponse Alibabacloud_AiMiaoBi20230801::Client::runBookBrainmapWithOptions(shared_ptr<RunBookBrainmapRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cleanCache)) {
+    body->insert(pair<string, bool>("CleanCache", *request->cleanCache));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
+    body->insert(pair<string, string>("DocId", *request->docId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->nodeNumber)) {
+    body->insert(pair<string, long>("NodeNumber", *request->nodeNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->wordNumber)) {
+    body->insert(pair<string, long>("WordNumber", *request->wordNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunBookBrainmap"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunBookBrainmapResponse(callApi(params, req, runtime));
+}
+
+RunBookBrainmapResponse Alibabacloud_AiMiaoBi20230801::Client::runBookBrainmap(shared_ptr<RunBookBrainmapRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return runBookBrainmapWithOptions(request, runtime);
+}
+
 RunBookIntroductionResponse Alibabacloud_AiMiaoBi20230801::Client::runBookIntroductionWithOptions(shared_ptr<RunBookIntroductionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3986,6 +4066,9 @@ RunDocSmartCardResponse Alibabacloud_AiMiaoBi20230801::Client::runDocSmartCardWi
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
     body->insert(pair<string, string>("DocId", *request->docId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     body->insert(pair<string, string>("SessionId", *request->sessionId));
