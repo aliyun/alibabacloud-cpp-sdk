@@ -320,6 +320,45 @@ GetVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getV
   return getVideoAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
 }
 
+ListAnalysisTagDetailByTaskIdResponse Alibabacloud_QuanMiaoLightApp20240801::Client::listAnalysisTagDetailByTaskIdWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                              shared_ptr<ListAnalysisTagDetailByTaskIdRequest> request,
+                                                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("maxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("nextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAnalysisTagDetailByTaskId"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/listAnalysisTagDetailByTaskId"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAnalysisTagDetailByTaskIdResponse(callApi(params, req, runtime));
+}
+
+ListAnalysisTagDetailByTaskIdResponse Alibabacloud_QuanMiaoLightApp20240801::Client::listAnalysisTagDetailByTaskId(shared_ptr<string> workspaceId, shared_ptr<ListAnalysisTagDetailByTaskIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listAnalysisTagDetailByTaskIdWithOptions(workspaceId, request, headers, runtime);
+}
+
 ListHotTopicSummariesResponse Alibabacloud_QuanMiaoLightApp20240801::Client::listHotTopicSummariesWithOptions(shared_ptr<string> workspaceId,
                                                                                                               shared_ptr<ListHotTopicSummariesRequest> request,
                                                                                                               shared_ptr<map<string, string>> headers,
@@ -1010,6 +1049,9 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   if (!Darabonba_Util::Client::isUnset<vector<RunVideoAnalysisRequestTextProcessTasks>>(tmpReq->textProcessTasks)) {
     request->textProcessTasksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->textProcessTasks, make_shared<string>("textProcessTasks"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<RunVideoAnalysisRequestVideoCaptionInfo>(tmpReq->videoCaptionInfo)) {
+    request->videoCaptionInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoCaptionInfo, make_shared<string>("videoCaptionInfo"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<RunVideoAnalysisRequestVideoRoles>>(tmpReq->videoRoles)) {
     request->videoRolesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoRoles, make_shared<string>("videoRoles"), make_shared<string>("json")));
   }
@@ -1052,6 +1094,9 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->textProcessTasksShrink)) {
     body->insert(pair<string, string>("textProcessTasks", *request->textProcessTasksShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoCaptionInfoShrink)) {
+    body->insert(pair<string, string>("videoCaptionInfo", *request->videoCaptionInfoShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoExtraInfo)) {
     body->insert(pair<string, string>("videoExtraInfo", *request->videoExtraInfo));
@@ -1250,6 +1295,9 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
   if (!Darabonba_Util::Client::isUnset<vector<SubmitVideoAnalysisTaskRequestTextProcessTasks>>(tmpReq->textProcessTasks)) {
     request->textProcessTasksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->textProcessTasks, make_shared<string>("textProcessTasks"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SubmitVideoAnalysisTaskRequestVideoCaptionInfo>(tmpReq->videoCaptionInfo)) {
+    request->videoCaptionInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoCaptionInfo, make_shared<string>("videoCaptionInfo"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<SubmitVideoAnalysisTaskRequestVideoRoles>>(tmpReq->videoRoles)) {
     request->videoRolesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoRoles, make_shared<string>("videoRoles"), make_shared<string>("json")));
   }
@@ -1289,6 +1337,9 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->textProcessTasksShrink)) {
     body->insert(pair<string, string>("textProcessTasks", *request->textProcessTasksShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoCaptionInfoShrink)) {
+    body->insert(pair<string, string>("videoCaptionInfo", *request->videoCaptionInfoShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoExtraInfo)) {
     body->insert(pair<string, string>("videoExtraInfo", *request->videoExtraInfo));
@@ -1363,5 +1414,41 @@ UpdateVideoAnalysisConfigResponse Alibabacloud_QuanMiaoLightApp20240801::Client:
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateVideoAnalysisConfigWithOptions(workspaceId, request, headers, runtime);
+}
+
+UpdateVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::updateVideoAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                  shared_ptr<UpdateVideoAnalysisTaskRequest> request,
+                                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskStatus)) {
+    body->insert(pair<string, string>("taskStatus", *request->taskStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateVideoAnalysisTask"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisTask"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateVideoAnalysisTaskResponse(callApi(params, req, runtime));
+}
+
+UpdateVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::updateVideoAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<UpdateVideoAnalysisTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateVideoAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
 }
 

@@ -2357,6 +2357,7 @@ class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResultVideoCa
 public:
   shared_ptr<long> endTime{};
   shared_ptr<string> endTimeFormat{};
+  shared_ptr<string> speaker{};
   shared_ptr<long> startTime{};
   shared_ptr<string> startTimeFormat{};
   shared_ptr<string> text{};
@@ -2377,6 +2378,9 @@ public:
     if (endTimeFormat) {
       res["endTimeFormat"] = boost::any(*endTimeFormat);
     }
+    if (speaker) {
+      res["speaker"] = boost::any(*speaker);
+    }
     if (startTime) {
       res["startTime"] = boost::any(*startTime);
     }
@@ -2395,6 +2399,9 @@ public:
     }
     if (m.find("endTimeFormat") != m.end() && !m["endTimeFormat"].empty()) {
       endTimeFormat = make_shared<string>(boost::any_cast<string>(m["endTimeFormat"]));
+    }
+    if (m.find("speaker") != m.end() && !m["speaker"].empty()) {
+      speaker = make_shared<string>(boost::any_cast<string>(m["speaker"]));
     }
     if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
@@ -3442,6 +3449,293 @@ public:
 
 
   virtual ~GetVideoAnalysisTaskResponse() = default;
+};
+class ListAnalysisTagDetailByTaskIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> taskId{};
+
+  ListAnalysisTagDetailByTaskIdRequest() {}
+
+  explicit ListAnalysisTagDetailByTaskIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["maxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+  }
+
+
+  virtual ~ListAnalysisTagDetailByTaskIdRequest() = default;
+};
+class ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagName{};
+  shared_ptr<vector<string>> tags{};
+
+  ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags() {}
+
+  explicit ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagName) {
+      res["tagName"] = boost::any(*tagName);
+    }
+    if (tags) {
+      res["tags"] = boost::any(*tags);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagName") != m.end() && !m["tagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["tagName"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tags = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags() = default;
+};
+class ListAnalysisTagDetailByTaskIdResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<vector<ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags>> contentTags{};
+  shared_ptr<string> originResponse{};
+
+  ListAnalysisTagDetailByTaskIdResponseBodyData() {}
+
+  explicit ListAnalysisTagDetailByTaskIdResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (contentTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*contentTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["contentTags"] = boost::any(temp1);
+    }
+    if (originResponse) {
+      res["originResponse"] = boost::any(*originResponse);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("contentTags") != m.end() && !m["contentTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["contentTags"].type()) {
+        vector<ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["contentTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contentTags = make_shared<vector<ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags>>(expect1);
+      }
+    }
+    if (m.find("originResponse") != m.end() && !m["originResponse"].empty()) {
+      originResponse = make_shared<string>(boost::any_cast<string>(m["originResponse"]));
+    }
+  }
+
+
+  virtual ~ListAnalysisTagDetailByTaskIdResponseBodyData() = default;
+};
+class ListAnalysisTagDetailByTaskIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<ListAnalysisTagDetailByTaskIdResponseBodyData>> data{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> message{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  ListAnalysisTagDetailByTaskIdResponseBody() {}
+
+  explicit ListAnalysisTagDetailByTaskIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["maxResults"] = boost::any(*maxResults);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["totalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<ListAnalysisTagDetailByTaskIdResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAnalysisTagDetailByTaskIdResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListAnalysisTagDetailByTaskIdResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("totalCount") != m.end() && !m["totalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["totalCount"]));
+    }
+  }
+
+
+  virtual ~ListAnalysisTagDetailByTaskIdResponseBody() = default;
+};
+class ListAnalysisTagDetailByTaskIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAnalysisTagDetailByTaskIdResponseBody> body{};
+
+  ListAnalysisTagDetailByTaskIdResponse() {}
+
+  explicit ListAnalysisTagDetailByTaskIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAnalysisTagDetailByTaskIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAnalysisTagDetailByTaskIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAnalysisTagDetailByTaskIdResponse() = default;
 };
 class ListHotTopicSummariesRequest : public Darabonba::Model {
 public:
@@ -9734,6 +10028,99 @@ public:
 
   virtual ~RunVideoAnalysisRequestTextProcessTasks() = default;
 };
+class RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<string> speaker{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> text{};
+
+  RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions() {}
+
+  explicit RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (speaker) {
+      res["speaker"] = boost::any(*speaker);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("speaker") != m.end() && !m["speaker"].empty()) {
+      speaker = make_shared<string>(boost::any_cast<string>(m["speaker"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions() = default;
+};
+class RunVideoAnalysisRequestVideoCaptionInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions>> videoCaptions{};
+
+  RunVideoAnalysisRequestVideoCaptionInfo() {}
+
+  explicit RunVideoAnalysisRequestVideoCaptionInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoCaptions) {
+      vector<boost::any> temp1;
+      for(auto item1:*videoCaptions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["videoCaptions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("videoCaptions") != m.end() && !m["videoCaptions"].empty()) {
+      if (typeid(vector<boost::any>) == m["videoCaptions"].type()) {
+        vector<RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["videoCaptions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        videoCaptions = make_shared<vector<RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RunVideoAnalysisRequestVideoCaptionInfo() = default;
+};
 class RunVideoAnalysisRequestVideoRoles : public Darabonba::Model {
 public:
   shared_ptr<string> roleInfo{};
@@ -9799,6 +10186,7 @@ public:
   shared_ptr<long> splitInterval{};
   shared_ptr<string> taskId{};
   shared_ptr<vector<RunVideoAnalysisRequestTextProcessTasks>> textProcessTasks{};
+  shared_ptr<RunVideoAnalysisRequestVideoCaptionInfo> videoCaptionInfo{};
   shared_ptr<string> videoExtraInfo{};
   shared_ptr<string> videoModelCustomPromptTemplate{};
   shared_ptr<string> videoModelId{};
@@ -9858,6 +10246,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["textProcessTasks"] = boost::any(temp1);
+    }
+    if (videoCaptionInfo) {
+      res["videoCaptionInfo"] = videoCaptionInfo ? boost::any(videoCaptionInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (videoExtraInfo) {
       res["videoExtraInfo"] = boost::any(*videoExtraInfo);
@@ -9952,6 +10343,13 @@ public:
         textProcessTasks = make_shared<vector<RunVideoAnalysisRequestTextProcessTasks>>(expect1);
       }
     }
+    if (m.find("videoCaptionInfo") != m.end() && !m["videoCaptionInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["videoCaptionInfo"].type()) {
+        RunVideoAnalysisRequestVideoCaptionInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["videoCaptionInfo"]));
+        videoCaptionInfo = make_shared<RunVideoAnalysisRequestVideoCaptionInfo>(model1);
+      }
+    }
     if (m.find("videoExtraInfo") != m.end() && !m["videoExtraInfo"].empty()) {
       videoExtraInfo = make_shared<string>(boost::any_cast<string>(m["videoExtraInfo"]));
     }
@@ -10000,6 +10398,7 @@ public:
   shared_ptr<long> splitInterval{};
   shared_ptr<string> taskId{};
   shared_ptr<string> textProcessTasksShrink{};
+  shared_ptr<string> videoCaptionInfoShrink{};
   shared_ptr<string> videoExtraInfo{};
   shared_ptr<string> videoModelCustomPromptTemplate{};
   shared_ptr<string> videoModelId{};
@@ -10055,6 +10454,9 @@ public:
     }
     if (textProcessTasksShrink) {
       res["textProcessTasks"] = boost::any(*textProcessTasksShrink);
+    }
+    if (videoCaptionInfoShrink) {
+      res["videoCaptionInfo"] = boost::any(*videoCaptionInfoShrink);
     }
     if (videoExtraInfo) {
       res["videoExtraInfo"] = boost::any(*videoExtraInfo);
@@ -10116,6 +10518,9 @@ public:
     }
     if (m.find("textProcessTasks") != m.end() && !m["textProcessTasks"].empty()) {
       textProcessTasksShrink = make_shared<string>(boost::any_cast<string>(m["textProcessTasks"]));
+    }
+    if (m.find("videoCaptionInfo") != m.end() && !m["videoCaptionInfo"].empty()) {
+      videoCaptionInfoShrink = make_shared<string>(boost::any_cast<string>(m["videoCaptionInfo"]));
     }
     if (m.find("videoExtraInfo") != m.end() && !m["videoExtraInfo"].empty()) {
       videoExtraInfo = make_shared<string>(boost::any_cast<string>(m["videoExtraInfo"]));
@@ -10376,6 +10781,7 @@ class RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions :
 public:
   shared_ptr<long> endTime{};
   shared_ptr<string> endTimeFormat{};
+  shared_ptr<string> speaker{};
   shared_ptr<long> startTime{};
   shared_ptr<string> startTimeFormat{};
   shared_ptr<string> text{};
@@ -10396,6 +10802,9 @@ public:
     if (endTimeFormat) {
       res["endTimeFormat"] = boost::any(*endTimeFormat);
     }
+    if (speaker) {
+      res["speaker"] = boost::any(*speaker);
+    }
     if (startTime) {
       res["startTime"] = boost::any(*startTime);
     }
@@ -10414,6 +10823,9 @@ public:
     }
     if (m.find("endTimeFormat") != m.end() && !m["endTimeFormat"].empty()) {
       endTimeFormat = make_shared<string>(boost::any_cast<string>(m["endTimeFormat"]));
+    }
+    if (m.find("speaker") != m.end() && !m["speaker"].empty()) {
+      speaker = make_shared<string>(boost::any_cast<string>(m["speaker"]));
     }
     if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
@@ -12460,6 +12872,99 @@ public:
 
   virtual ~SubmitVideoAnalysisTaskRequestTextProcessTasks() = default;
 };
+class SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<string> speaker{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> text{};
+
+  SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions() {}
+
+  explicit SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (speaker) {
+      res["speaker"] = boost::any(*speaker);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("speaker") != m.end() && !m["speaker"].empty()) {
+      speaker = make_shared<string>(boost::any_cast<string>(m["speaker"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions() = default;
+};
+class SubmitVideoAnalysisTaskRequestVideoCaptionInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions>> videoCaptions{};
+
+  SubmitVideoAnalysisTaskRequestVideoCaptionInfo() {}
+
+  explicit SubmitVideoAnalysisTaskRequestVideoCaptionInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoCaptions) {
+      vector<boost::any> temp1;
+      for(auto item1:*videoCaptions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["videoCaptions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("videoCaptions") != m.end() && !m["videoCaptions"].empty()) {
+      if (typeid(vector<boost::any>) == m["videoCaptions"].type()) {
+        vector<SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["videoCaptions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        videoCaptions = make_shared<vector<SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitVideoAnalysisTaskRequestVideoCaptionInfo() = default;
+};
 class SubmitVideoAnalysisTaskRequestVideoRoles : public Darabonba::Model {
 public:
   shared_ptr<string> roleInfo{};
@@ -12524,6 +13029,7 @@ public:
   shared_ptr<double> snapshotInterval{};
   shared_ptr<long> splitInterval{};
   shared_ptr<vector<SubmitVideoAnalysisTaskRequestTextProcessTasks>> textProcessTasks{};
+  shared_ptr<SubmitVideoAnalysisTaskRequestVideoCaptionInfo> videoCaptionInfo{};
   shared_ptr<string> videoExtraInfo{};
   shared_ptr<string> videoModelCustomPromptTemplate{};
   shared_ptr<string> videoModelId{};
@@ -12580,6 +13086,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["textProcessTasks"] = boost::any(temp1);
+    }
+    if (videoCaptionInfo) {
+      res["videoCaptionInfo"] = videoCaptionInfo ? boost::any(videoCaptionInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (videoExtraInfo) {
       res["videoExtraInfo"] = boost::any(*videoExtraInfo);
@@ -12671,6 +13180,13 @@ public:
         textProcessTasks = make_shared<vector<SubmitVideoAnalysisTaskRequestTextProcessTasks>>(expect1);
       }
     }
+    if (m.find("videoCaptionInfo") != m.end() && !m["videoCaptionInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["videoCaptionInfo"].type()) {
+        SubmitVideoAnalysisTaskRequestVideoCaptionInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["videoCaptionInfo"]));
+        videoCaptionInfo = make_shared<SubmitVideoAnalysisTaskRequestVideoCaptionInfo>(model1);
+      }
+    }
     if (m.find("videoExtraInfo") != m.end() && !m["videoExtraInfo"].empty()) {
       videoExtraInfo = make_shared<string>(boost::any_cast<string>(m["videoExtraInfo"]));
     }
@@ -12718,6 +13234,7 @@ public:
   shared_ptr<double> snapshotInterval{};
   shared_ptr<long> splitInterval{};
   shared_ptr<string> textProcessTasksShrink{};
+  shared_ptr<string> videoCaptionInfoShrink{};
   shared_ptr<string> videoExtraInfo{};
   shared_ptr<string> videoModelCustomPromptTemplate{};
   shared_ptr<string> videoModelId{};
@@ -12770,6 +13287,9 @@ public:
     }
     if (textProcessTasksShrink) {
       res["textProcessTasks"] = boost::any(*textProcessTasksShrink);
+    }
+    if (videoCaptionInfoShrink) {
+      res["videoCaptionInfo"] = boost::any(*videoCaptionInfoShrink);
     }
     if (videoExtraInfo) {
       res["videoExtraInfo"] = boost::any(*videoExtraInfo);
@@ -12828,6 +13348,9 @@ public:
     }
     if (m.find("textProcessTasks") != m.end() && !m["textProcessTasks"].empty()) {
       textProcessTasksShrink = make_shared<string>(boost::any_cast<string>(m["textProcessTasks"]));
+    }
+    if (m.find("videoCaptionInfo") != m.end() && !m["videoCaptionInfo"].empty()) {
+      videoCaptionInfoShrink = make_shared<string>(boost::any_cast<string>(m["videoCaptionInfo"]));
     }
     if (m.find("videoExtraInfo") != m.end() && !m["videoExtraInfo"].empty()) {
       videoExtraInfo = make_shared<string>(boost::any_cast<string>(m["videoExtraInfo"]));
@@ -13139,6 +13662,205 @@ public:
 
   virtual ~UpdateVideoAnalysisConfigResponse() = default;
 };
+class UpdateVideoAnalysisTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskStatus{};
+
+  UpdateVideoAnalysisTaskRequest() {}
+
+  explicit UpdateVideoAnalysisTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (taskStatus) {
+      res["taskStatus"] = boost::any(*taskStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("taskStatus") != m.end() && !m["taskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["taskStatus"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoAnalysisTaskRequest() = default;
+};
+class UpdateVideoAnalysisTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskErrorMessage{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskStatus{};
+
+  UpdateVideoAnalysisTaskResponseBodyData() {}
+
+  explicit UpdateVideoAnalysisTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskErrorMessage) {
+      res["taskErrorMessage"] = boost::any(*taskErrorMessage);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (taskStatus) {
+      res["taskStatus"] = boost::any(*taskStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskErrorMessage") != m.end() && !m["taskErrorMessage"].empty()) {
+      taskErrorMessage = make_shared<string>(boost::any_cast<string>(m["taskErrorMessage"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("taskStatus") != m.end() && !m["taskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["taskStatus"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoAnalysisTaskResponseBodyData() = default;
+};
+class UpdateVideoAnalysisTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<UpdateVideoAnalysisTaskResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateVideoAnalysisTaskResponseBody() {}
+
+  explicit UpdateVideoAnalysisTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        UpdateVideoAnalysisTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<UpdateVideoAnalysisTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoAnalysisTaskResponseBody() = default;
+};
+class UpdateVideoAnalysisTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateVideoAnalysisTaskResponseBody> body{};
+
+  UpdateVideoAnalysisTaskResponse() {}
+
+  explicit UpdateVideoAnalysisTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateVideoAnalysisTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateVideoAnalysisTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVideoAnalysisTaskResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -13186,6 +13908,11 @@ public:
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVideoAnalysisTaskResponse getVideoAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<GetVideoAnalysisTaskRequest> request);
+  ListAnalysisTagDetailByTaskIdResponse listAnalysisTagDetailByTaskIdWithOptions(shared_ptr<string> workspaceId,
+                                                                                 shared_ptr<ListAnalysisTagDetailByTaskIdRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAnalysisTagDetailByTaskIdResponse listAnalysisTagDetailByTaskId(shared_ptr<string> workspaceId, shared_ptr<ListAnalysisTagDetailByTaskIdRequest> request);
   ListHotTopicSummariesResponse listHotTopicSummariesWithOptions(shared_ptr<string> workspaceId,
                                                                  shared_ptr<ListHotTopicSummariesRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
@@ -13276,6 +14003,11 @@ public:
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateVideoAnalysisConfigResponse updateVideoAnalysisConfig(shared_ptr<string> workspaceId, shared_ptr<UpdateVideoAnalysisConfigRequest> request);
+  UpdateVideoAnalysisTaskResponse updateVideoAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                     shared_ptr<UpdateVideoAnalysisTaskRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateVideoAnalysisTaskResponse updateVideoAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<UpdateVideoAnalysisTaskRequest> request);
 
   virtual ~Client() = default;
 };
