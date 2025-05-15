@@ -9430,6 +9430,7 @@ public:
   shared_ptr<string> logStoreName{};
   shared_ptr<string> projectName{};
   shared_ptr<long> quota{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
   shared_ptr<long> ttl{};
   shared_ptr<long> used{};
@@ -9453,6 +9454,9 @@ public:
     if (quota) {
       res["Quota"] = boost::any(*quota);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -9474,6 +9478,9 @@ public:
     }
     if (m.find("Quota") != m.end() && !m["Quota"].empty()) {
       quota = make_shared<long>(boost::any_cast<long>(m["Quota"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -11557,8 +11564,10 @@ class DescribeOutgoingDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> categoryId{};
   shared_ptr<string> currentPage{};
+  shared_ptr<string> dataType{};
   shared_ptr<string> domain{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> isAITraffic{};
   shared_ptr<string> lang{};
   shared_ptr<string> order{};
   shared_ptr<string> pageSize{};
@@ -11583,11 +11592,17 @@ public:
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (isAITraffic) {
+      res["IsAITraffic"] = boost::any(*isAITraffic);
     }
     if (lang) {
       res["Lang"] = boost::any(*lang);
@@ -11620,11 +11635,17 @@ public:
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<string>(boost::any_cast<string>(m["CurrentPage"]));
     }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("IsAITraffic") != m.end() && !m["IsAITraffic"].empty()) {
+      isAITraffic = make_shared<string>(boost::any_cast<string>(m["IsAITraffic"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));

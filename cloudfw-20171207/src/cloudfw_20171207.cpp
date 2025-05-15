@@ -2328,11 +2328,17 @@ DescribeOutgoingDomainResponse Alibabacloud_Cloudfw20171207::Client::describeOut
   if (!Darabonba_Util::Client::isUnset<string>(request->currentPage)) {
     query->insert(pair<string, string>("CurrentPage", *request->currentPage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataType)) {
+    query->insert(pair<string, string>("DataType", *request->dataType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     query->insert(pair<string, string>("Domain", *request->domain));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isAITraffic)) {
+    query->insert(pair<string, string>("IsAITraffic", *request->isAITraffic));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
