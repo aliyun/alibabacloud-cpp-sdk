@@ -66212,6 +66212,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> envType{};
   shared_ptr<long> id{};
+  shared_ptr<string> instanceMode{};
   shared_ptr<string> name{};
   shared_ptr<UpdateWorkflowRequestOutputs> outputs{};
   shared_ptr<string> owner{};
@@ -66248,6 +66249,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (instanceMode) {
+      res["InstanceMode"] = boost::any(*instanceMode);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -66306,6 +66310,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("InstanceMode") != m.end() && !m["InstanceMode"].empty()) {
+      instanceMode = make_shared<string>(boost::any_cast<string>(m["InstanceMode"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -66368,6 +66375,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> envType{};
   shared_ptr<long> id{};
+  shared_ptr<string> instanceMode{};
   shared_ptr<string> name{};
   shared_ptr<string> outputsShrink{};
   shared_ptr<string> owner{};
@@ -66400,6 +66408,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (instanceMode) {
+      res["InstanceMode"] = boost::any(*instanceMode);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -66440,6 +66451,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("InstanceMode") != m.end() && !m["InstanceMode"].empty()) {
+      instanceMode = make_shared<string>(boost::any_cast<string>(m["InstanceMode"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));

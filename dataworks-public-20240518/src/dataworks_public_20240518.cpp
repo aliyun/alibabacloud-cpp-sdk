@@ -6681,6 +6681,9 @@ UpdateWorkflowResponse Alibabacloud_Dataworks-public20240518::Client::updateWork
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     body->insert(pair<string, long>("Id", *request->id));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceMode)) {
+    body->insert(pair<string, string>("InstanceMode", *request->instanceMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
