@@ -8893,6 +8893,9 @@ public:
   shared_ptr<vector<string>> vSwitches{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
+  shared_ptr<long> hdeniIpv6SipQuota{};
+  shared_ptr<long> hdeniSipQuota{};
+  shared_ptr<long> leniIpv6SipQuota{};
 
   GetNodeInfoForPodResponseBodyContent() {}
 
@@ -8934,6 +8937,15 @@ public:
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
+    if (hdeniIpv6SipQuota) {
+      res["hdeniIpv6SipQuota"] = boost::any(*hdeniIpv6SipQuota);
+    }
+    if (hdeniSipQuota) {
+      res["hdeniSipQuota"] = boost::any(*hdeniSipQuota);
+    }
+    if (leniIpv6SipQuota) {
+      res["leniIpv6SipQuota"] = boost::any(*leniIpv6SipQuota);
+    }
     return res;
   }
 
@@ -8974,6 +8986,15 @@ public:
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+    if (m.find("hdeniIpv6SipQuota") != m.end() && !m["hdeniIpv6SipQuota"].empty()) {
+      hdeniIpv6SipQuota = make_shared<long>(boost::any_cast<long>(m["hdeniIpv6SipQuota"]));
+    }
+    if (m.find("hdeniSipQuota") != m.end() && !m["hdeniSipQuota"].empty()) {
+      hdeniSipQuota = make_shared<long>(boost::any_cast<long>(m["hdeniSipQuota"]));
+    }
+    if (m.find("leniIpv6SipQuota") != m.end() && !m["leniIpv6SipQuota"].empty()) {
+      leniIpv6SipQuota = make_shared<long>(boost::any_cast<long>(m["leniIpv6SipQuota"]));
     }
   }
 
