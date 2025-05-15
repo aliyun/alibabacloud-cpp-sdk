@@ -4517,6 +4517,9 @@ CreateStorageSetResponse Alibabacloud_Ecs20140526::Client::createStorageSetWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->storageSetName)) {
     query->insert(pair<string, string>("StorageSetName", *request->storageSetName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateStorageSetRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateStorageSetRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     query->insert(pair<string, string>("ZoneId", *request->zoneId));
   }
@@ -13004,6 +13007,9 @@ DescribeStorageSetsResponse Alibabacloud_Ecs20140526::Client::describeStorageSet
   if (!Darabonba_Util::Client::isUnset<string>(request->storageSetName)) {
     query->insert(pair<string, string>("StorageSetName", *request->storageSetName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeStorageSetsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeStorageSetsRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     query->insert(pair<string, string>("ZoneId", *request->zoneId));
   }
@@ -14520,6 +14526,9 @@ InvokeCommandResponse Alibabacloud_Ecs20140526::Client::invokeCommandWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->windowsPasswordName)) {
     query->insert(pair<string, string>("WindowsPasswordName", *request->windowsPasswordName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workingDir)) {
+    query->insert(pair<string, string>("WorkingDir", *request->workingDir));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
