@@ -4238,6 +4238,158 @@ public:
 
   virtual ~DeleteMaterialByIdResponse() = default;
 };
+class DeleteStyleLearningResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> id{};
+
+  DeleteStyleLearningResultRequest() {}
+
+  explicit DeleteStyleLearningResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~DeleteStyleLearningResultRequest() = default;
+};
+class DeleteStyleLearningResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteStyleLearningResultResponseBody() {}
+
+  explicit DeleteStyleLearningResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteStyleLearningResultResponseBody() = default;
+};
+class DeleteStyleLearningResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteStyleLearningResultResponseBody> body{};
+
+  DeleteStyleLearningResultResponse() {}
+
+  explicit DeleteStyleLearningResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteStyleLearningResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteStyleLearningResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteStyleLearningResultResponse() = default;
+};
 class DocumentExtractionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -30587,9 +30739,11 @@ class QueryAuditTaskResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> auditTime{};
   shared_ptr<string> content{};
+  shared_ptr<string> htmlContent{};
   shared_ptr<QueryAuditTaskResponseBodyDataResponse> response{};
   shared_ptr<string> status{};
   shared_ptr<long> taskStatus{};
+  shared_ptr<string> title{};
 
   QueryAuditTaskResponseBodyData() {}
 
@@ -30607,6 +30761,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (htmlContent) {
+      res["HtmlContent"] = boost::any(*htmlContent);
+    }
     if (response) {
       res["Response"] = response ? boost::any(response->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -30615,6 +30772,9 @@ public:
     }
     if (taskStatus) {
       res["TaskStatus"] = boost::any(*taskStatus);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
     }
     return res;
   }
@@ -30625,6 +30785,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("HtmlContent") != m.end() && !m["HtmlContent"].empty()) {
+      htmlContent = make_shared<string>(boost::any_cast<string>(m["HtmlContent"]));
     }
     if (m.find("Response") != m.end() && !m["Response"].empty()) {
       if (typeid(map<string, boost::any>) == m["Response"].type()) {
@@ -30638,6 +30801,9 @@ public:
     }
     if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
       taskStatus = make_shared<long>(boost::any_cast<long>(m["TaskStatus"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
     }
   }
 
@@ -58558,6 +58724,8 @@ public:
   DeleteInterveneRuleResponse deleteInterveneRule(shared_ptr<DeleteInterveneRuleRequest> request);
   DeleteMaterialByIdResponse deleteMaterialByIdWithOptions(shared_ptr<DeleteMaterialByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteMaterialByIdResponse deleteMaterialById(shared_ptr<DeleteMaterialByIdRequest> request);
+  DeleteStyleLearningResultResponse deleteStyleLearningResultWithOptions(shared_ptr<DeleteStyleLearningResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteStyleLearningResultResponse deleteStyleLearningResult(shared_ptr<DeleteStyleLearningResultRequest> request);
   DocumentExtractionResponse documentExtractionWithOptions(shared_ptr<DocumentExtractionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DocumentExtractionResponse documentExtraction(shared_ptr<DocumentExtractionRequest> request);
   ExportAnalysisTagDetailByTaskIdResponse exportAnalysisTagDetailByTaskIdWithOptions(shared_ptr<ExportAnalysisTagDetailByTaskIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
