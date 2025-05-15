@@ -196,6 +196,7 @@ public:
   shared_ptr<string> displayName{};
   shared_ptr<string> model{};
   shared_ptr<string> modelType{};
+  shared_ptr<bool> toolCall{};
 
   ConnectionModels() {}
 
@@ -216,6 +217,9 @@ public:
     if (modelType) {
       res["ModelType"] = boost::any(*modelType);
     }
+    if (toolCall) {
+      res["ToolCall"] = boost::any(*toolCall);
+    }
     return res;
   }
 
@@ -228,6 +232,9 @@ public:
     }
     if (m.find("ModelType") != m.end() && !m["ModelType"].empty()) {
       modelType = make_shared<string>(boost::any_cast<string>(m["ModelType"]));
+    }
+    if (m.find("ToolCall") != m.end() && !m["ToolCall"].empty()) {
+      toolCall = make_shared<bool>(boost::any_cast<bool>(m["ToolCall"]));
     }
   }
 
@@ -2634,6 +2641,84 @@ public:
 
 
   virtual ~Model() = default;
+};
+class Prompt : public Darabonba::Model {
+public:
+  shared_ptr<string> accessibility{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> frameworkContent{};
+  shared_ptr<string> frameworkType{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<string> promptId{};
+  shared_ptr<string> promptName{};
+
+  Prompt() {}
+
+  explicit Prompt(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (frameworkContent) {
+      res["FrameworkContent"] = boost::any(*frameworkContent);
+    }
+    if (frameworkType) {
+      res["FrameworkType"] = boost::any(*frameworkType);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (promptId) {
+      res["PromptId"] = boost::any(*promptId);
+    }
+    if (promptName) {
+      res["PromptName"] = boost::any(*promptName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("FrameworkContent") != m.end() && !m["FrameworkContent"].empty()) {
+      frameworkContent = make_shared<string>(boost::any_cast<string>(m["FrameworkContent"]));
+    }
+    if (m.find("FrameworkType") != m.end() && !m["FrameworkType"].empty()) {
+      frameworkType = make_shared<string>(boost::any_cast<string>(m["FrameworkType"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("PromptId") != m.end() && !m["PromptId"].empty()) {
+      promptId = make_shared<string>(boost::any_cast<string>(m["PromptId"]));
+    }
+    if (m.find("PromptName") != m.end() && !m["PromptName"].empty()) {
+      promptName = make_shared<string>(boost::any_cast<string>(m["PromptName"]));
+    }
+  }
+
+
+  virtual ~Prompt() = default;
 };
 class Relation : public Darabonba::Model {
 public:
@@ -8939,6 +9024,7 @@ public:
 class DeleteUserConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configKey{};
+  shared_ptr<string> scope{};
 
   DeleteUserConfigRequest() {}
 
@@ -8953,12 +9039,18 @@ public:
     if (configKey) {
       res["ConfigKey"] = boost::any(*configKey);
     }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConfigKey") != m.end() && !m["ConfigKey"].empty()) {
       configKey = make_shared<string>(boost::any_cast<string>(m["ConfigKey"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
     }
   }
 

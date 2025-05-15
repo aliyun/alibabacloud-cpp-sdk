@@ -1616,6 +1616,9 @@ DeleteUserConfigResponse Alibabacloud_AIWorkSpace20210204::Client::deleteUserCon
   if (!Darabonba_Util::Client::isUnset<string>(request->configKey)) {
     query->insert(pair<string, string>("ConfigKey", *request->configKey));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
