@@ -2558,6 +2558,7 @@ public:
 class ListEvaluationMetadataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> language{};
+  shared_ptr<string> lensCode{};
   shared_ptr<string> regionId{};
 
   ListEvaluationMetadataRequest() {}
@@ -2573,6 +2574,9 @@ public:
     if (language) {
       res["Language"] = boost::any(*language);
     }
+    if (lensCode) {
+      res["LensCode"] = boost::any(*lensCode);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -2582,6 +2586,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("LensCode") != m.end() && !m["LensCode"].empty()) {
+      lensCode = make_shared<string>(boost::any_cast<string>(m["LensCode"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -3498,6 +3505,7 @@ class ListEvaluationResultsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
   shared_ptr<vector<ListEvaluationResultsRequestFilters>> filters{};
+  shared_ptr<string> lensCode{};
   shared_ptr<string> regionId{};
   shared_ptr<string> scope{};
   shared_ptr<string> snapshotId{};
@@ -3521,6 +3529,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Filters"] = boost::any(temp1);
+    }
+    if (lensCode) {
+      res["LensCode"] = boost::any(*lensCode);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -3550,6 +3561,9 @@ public:
         }
         filters = make_shared<vector<ListEvaluationResultsRequestFilters>>(expect1);
       }
+    }
+    if (m.find("LensCode") != m.end() && !m["LensCode"].empty()) {
+      lensCode = make_shared<string>(boost::any_cast<string>(m["LensCode"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
