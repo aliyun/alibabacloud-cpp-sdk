@@ -9414,6 +9414,7 @@ public:
 };
 class ListReportsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -9431,6 +9432,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
@@ -9453,6 +9457,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }

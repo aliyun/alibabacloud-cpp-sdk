@@ -1588,6 +1588,9 @@ GetReportResponse Alibabacloud_Ebs20210730::Client::getReport(shared_ptr<GetRepo
 ListReportsResponse Alibabacloud_Ebs20210730::Client::listReportsWithOptions(shared_ptr<ListReportsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
