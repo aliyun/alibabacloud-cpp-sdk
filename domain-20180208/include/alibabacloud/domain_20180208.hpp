@@ -3987,6 +3987,453 @@ public:
 
   virtual ~QueryExchangeRateResponse() = default;
 };
+class QueryExportDomainExpireSnatchsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageSize{};
+
+  QueryExportDomainExpireSnatchsRequest() {}
+
+  explicit QueryExportDomainExpireSnatchsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentId) {
+      res["CurrentId"] = boost::any(*currentId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentId") != m.end() && !m["CurrentId"].empty()) {
+      currentId = make_shared<long>(boost::any_cast<long>(m["CurrentId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~QueryExportDomainExpireSnatchsRequest() = default;
+};
+class QueryExportDomainExpireSnatchsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> auctionEndTime{};
+  shared_ptr<long> auctionRemainingSeconds{};
+  shared_ptr<long> baiduAntiLink{};
+  shared_ptr<long> baiduExLink{};
+  shared_ptr<long> baiduIndex{};
+  shared_ptr<long> baiduWeight{};
+  shared_ptr<string> bookEndTime{};
+  shared_ptr<long> bookRemainingSeconds{};
+  shared_ptr<long> bookedNum{};
+  shared_ptr<string> bookedPartners{};
+  shared_ptr<string> constitute{};
+  shared_ptr<string> currencyType{};
+  shared_ptr<string> deliveryTime{};
+  shared_ptr<string> domainId{};
+  shared_ptr<long> domainLen{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> domainType{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> expireDate{};
+  shared_ptr<string> extend{};
+  shared_ptr<double> freezeAmount{};
+  shared_ptr<string> introduction{};
+  shared_ptr<bool> isPremium{};
+  shared_ptr<string> partnerTypes{};
+  shared_ptr<double> price{};
+  shared_ptr<string> productId{};
+  shared_ptr<string> publishTime{};
+  shared_ptr<string> regDate{};
+  shared_ptr<bool> reserved{};
+  shared_ptr<double> rmbPrice{};
+  shared_ptr<long> s360Weight{};
+  shared_ptr<string> seoAttributes{};
+  shared_ptr<string> shortName{};
+  shared_ptr<string> snatchTypeDesc{};
+  shared_ptr<long> sougouAntiLink{};
+  shared_ptr<long> sougouIndex{};
+  shared_ptr<long> sougouWeight{};
+  shared_ptr<string> suffix{};
+  shared_ptr<long> weight{};
+
+  QueryExportDomainExpireSnatchsResponseBodyData() {}
+
+  explicit QueryExportDomainExpireSnatchsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auctionEndTime) {
+      res["AuctionEndTime"] = boost::any(*auctionEndTime);
+    }
+    if (auctionRemainingSeconds) {
+      res["AuctionRemainingSeconds"] = boost::any(*auctionRemainingSeconds);
+    }
+    if (baiduAntiLink) {
+      res["BaiduAntiLink"] = boost::any(*baiduAntiLink);
+    }
+    if (baiduExLink) {
+      res["BaiduExLink"] = boost::any(*baiduExLink);
+    }
+    if (baiduIndex) {
+      res["BaiduIndex"] = boost::any(*baiduIndex);
+    }
+    if (baiduWeight) {
+      res["BaiduWeight"] = boost::any(*baiduWeight);
+    }
+    if (bookEndTime) {
+      res["BookEndTime"] = boost::any(*bookEndTime);
+    }
+    if (bookRemainingSeconds) {
+      res["BookRemainingSeconds"] = boost::any(*bookRemainingSeconds);
+    }
+    if (bookedNum) {
+      res["BookedNum"] = boost::any(*bookedNum);
+    }
+    if (bookedPartners) {
+      res["BookedPartners"] = boost::any(*bookedPartners);
+    }
+    if (constitute) {
+      res["Constitute"] = boost::any(*constitute);
+    }
+    if (currencyType) {
+      res["CurrencyType"] = boost::any(*currencyType);
+    }
+    if (deliveryTime) {
+      res["DeliveryTime"] = boost::any(*deliveryTime);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
+    if (domainLen) {
+      res["DomainLen"] = boost::any(*domainLen);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (domainType) {
+      res["DomainType"] = boost::any(*domainType);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (expireDate) {
+      res["ExpireDate"] = boost::any(*expireDate);
+    }
+    if (extend) {
+      res["Extend"] = boost::any(*extend);
+    }
+    if (freezeAmount) {
+      res["FreezeAmount"] = boost::any(*freezeAmount);
+    }
+    if (introduction) {
+      res["Introduction"] = boost::any(*introduction);
+    }
+    if (isPremium) {
+      res["IsPremium"] = boost::any(*isPremium);
+    }
+    if (partnerTypes) {
+      res["PartnerTypes"] = boost::any(*partnerTypes);
+    }
+    if (price) {
+      res["Price"] = boost::any(*price);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (publishTime) {
+      res["PublishTime"] = boost::any(*publishTime);
+    }
+    if (regDate) {
+      res["RegDate"] = boost::any(*regDate);
+    }
+    if (reserved) {
+      res["Reserved"] = boost::any(*reserved);
+    }
+    if (rmbPrice) {
+      res["RmbPrice"] = boost::any(*rmbPrice);
+    }
+    if (s360Weight) {
+      res["S360Weight"] = boost::any(*s360Weight);
+    }
+    if (seoAttributes) {
+      res["SeoAttributes"] = boost::any(*seoAttributes);
+    }
+    if (shortName) {
+      res["ShortName"] = boost::any(*shortName);
+    }
+    if (snatchTypeDesc) {
+      res["SnatchTypeDesc"] = boost::any(*snatchTypeDesc);
+    }
+    if (sougouAntiLink) {
+      res["SougouAntiLink"] = boost::any(*sougouAntiLink);
+    }
+    if (sougouIndex) {
+      res["SougouIndex"] = boost::any(*sougouIndex);
+    }
+    if (sougouWeight) {
+      res["SougouWeight"] = boost::any(*sougouWeight);
+    }
+    if (suffix) {
+      res["Suffix"] = boost::any(*suffix);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuctionEndTime") != m.end() && !m["AuctionEndTime"].empty()) {
+      auctionEndTime = make_shared<string>(boost::any_cast<string>(m["AuctionEndTime"]));
+    }
+    if (m.find("AuctionRemainingSeconds") != m.end() && !m["AuctionRemainingSeconds"].empty()) {
+      auctionRemainingSeconds = make_shared<long>(boost::any_cast<long>(m["AuctionRemainingSeconds"]));
+    }
+    if (m.find("BaiduAntiLink") != m.end() && !m["BaiduAntiLink"].empty()) {
+      baiduAntiLink = make_shared<long>(boost::any_cast<long>(m["BaiduAntiLink"]));
+    }
+    if (m.find("BaiduExLink") != m.end() && !m["BaiduExLink"].empty()) {
+      baiduExLink = make_shared<long>(boost::any_cast<long>(m["BaiduExLink"]));
+    }
+    if (m.find("BaiduIndex") != m.end() && !m["BaiduIndex"].empty()) {
+      baiduIndex = make_shared<long>(boost::any_cast<long>(m["BaiduIndex"]));
+    }
+    if (m.find("BaiduWeight") != m.end() && !m["BaiduWeight"].empty()) {
+      baiduWeight = make_shared<long>(boost::any_cast<long>(m["BaiduWeight"]));
+    }
+    if (m.find("BookEndTime") != m.end() && !m["BookEndTime"].empty()) {
+      bookEndTime = make_shared<string>(boost::any_cast<string>(m["BookEndTime"]));
+    }
+    if (m.find("BookRemainingSeconds") != m.end() && !m["BookRemainingSeconds"].empty()) {
+      bookRemainingSeconds = make_shared<long>(boost::any_cast<long>(m["BookRemainingSeconds"]));
+    }
+    if (m.find("BookedNum") != m.end() && !m["BookedNum"].empty()) {
+      bookedNum = make_shared<long>(boost::any_cast<long>(m["BookedNum"]));
+    }
+    if (m.find("BookedPartners") != m.end() && !m["BookedPartners"].empty()) {
+      bookedPartners = make_shared<string>(boost::any_cast<string>(m["BookedPartners"]));
+    }
+    if (m.find("Constitute") != m.end() && !m["Constitute"].empty()) {
+      constitute = make_shared<string>(boost::any_cast<string>(m["Constitute"]));
+    }
+    if (m.find("CurrencyType") != m.end() && !m["CurrencyType"].empty()) {
+      currencyType = make_shared<string>(boost::any_cast<string>(m["CurrencyType"]));
+    }
+    if (m.find("DeliveryTime") != m.end() && !m["DeliveryTime"].empty()) {
+      deliveryTime = make_shared<string>(boost::any_cast<string>(m["DeliveryTime"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
+    }
+    if (m.find("DomainLen") != m.end() && !m["DomainLen"].empty()) {
+      domainLen = make_shared<long>(boost::any_cast<long>(m["DomainLen"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
+      domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("ExpireDate") != m.end() && !m["ExpireDate"].empty()) {
+      expireDate = make_shared<string>(boost::any_cast<string>(m["ExpireDate"]));
+    }
+    if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
+      extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));
+    }
+    if (m.find("FreezeAmount") != m.end() && !m["FreezeAmount"].empty()) {
+      freezeAmount = make_shared<double>(boost::any_cast<double>(m["FreezeAmount"]));
+    }
+    if (m.find("Introduction") != m.end() && !m["Introduction"].empty()) {
+      introduction = make_shared<string>(boost::any_cast<string>(m["Introduction"]));
+    }
+    if (m.find("IsPremium") != m.end() && !m["IsPremium"].empty()) {
+      isPremium = make_shared<bool>(boost::any_cast<bool>(m["IsPremium"]));
+    }
+    if (m.find("PartnerTypes") != m.end() && !m["PartnerTypes"].empty()) {
+      partnerTypes = make_shared<string>(boost::any_cast<string>(m["PartnerTypes"]));
+    }
+    if (m.find("Price") != m.end() && !m["Price"].empty()) {
+      price = make_shared<double>(boost::any_cast<double>(m["Price"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["ProductId"]));
+    }
+    if (m.find("PublishTime") != m.end() && !m["PublishTime"].empty()) {
+      publishTime = make_shared<string>(boost::any_cast<string>(m["PublishTime"]));
+    }
+    if (m.find("RegDate") != m.end() && !m["RegDate"].empty()) {
+      regDate = make_shared<string>(boost::any_cast<string>(m["RegDate"]));
+    }
+    if (m.find("Reserved") != m.end() && !m["Reserved"].empty()) {
+      reserved = make_shared<bool>(boost::any_cast<bool>(m["Reserved"]));
+    }
+    if (m.find("RmbPrice") != m.end() && !m["RmbPrice"].empty()) {
+      rmbPrice = make_shared<double>(boost::any_cast<double>(m["RmbPrice"]));
+    }
+    if (m.find("S360Weight") != m.end() && !m["S360Weight"].empty()) {
+      s360Weight = make_shared<long>(boost::any_cast<long>(m["S360Weight"]));
+    }
+    if (m.find("SeoAttributes") != m.end() && !m["SeoAttributes"].empty()) {
+      seoAttributes = make_shared<string>(boost::any_cast<string>(m["SeoAttributes"]));
+    }
+    if (m.find("ShortName") != m.end() && !m["ShortName"].empty()) {
+      shortName = make_shared<string>(boost::any_cast<string>(m["ShortName"]));
+    }
+    if (m.find("SnatchTypeDesc") != m.end() && !m["SnatchTypeDesc"].empty()) {
+      snatchTypeDesc = make_shared<string>(boost::any_cast<string>(m["SnatchTypeDesc"]));
+    }
+    if (m.find("SougouAntiLink") != m.end() && !m["SougouAntiLink"].empty()) {
+      sougouAntiLink = make_shared<long>(boost::any_cast<long>(m["SougouAntiLink"]));
+    }
+    if (m.find("SougouIndex") != m.end() && !m["SougouIndex"].empty()) {
+      sougouIndex = make_shared<long>(boost::any_cast<long>(m["SougouIndex"]));
+    }
+    if (m.find("SougouWeight") != m.end() && !m["SougouWeight"].empty()) {
+      sougouWeight = make_shared<long>(boost::any_cast<long>(m["SougouWeight"]));
+    }
+    if (m.find("Suffix") != m.end() && !m["Suffix"].empty()) {
+      suffix = make_shared<string>(boost::any_cast<string>(m["Suffix"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~QueryExportDomainExpireSnatchsResponseBodyData() = default;
+};
+class QueryExportDomainExpireSnatchsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryExportDomainExpireSnatchsResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  QueryExportDomainExpireSnatchsResponseBody() {}
+
+  explicit QueryExportDomainExpireSnatchsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<QueryExportDomainExpireSnatchsResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryExportDomainExpireSnatchsResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<QueryExportDomainExpireSnatchsResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~QueryExportDomainExpireSnatchsResponseBody() = default;
+};
+class QueryExportDomainExpireSnatchsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryExportDomainExpireSnatchsResponseBody> body{};
+
+  QueryExportDomainExpireSnatchsResponse() {}
+
+  explicit QueryExportDomainExpireSnatchsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryExportDomainExpireSnatchsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryExportDomainExpireSnatchsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryExportDomainExpireSnatchsResponse() = default;
+};
 class QueryPurchasedDomainsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
@@ -5516,6 +5963,8 @@ public:
   QueryDomainTransferStatusResponse queryDomainTransferStatus(shared_ptr<QueryDomainTransferStatusRequest> request);
   QueryExchangeRateResponse queryExchangeRateWithOptions(shared_ptr<QueryExchangeRateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryExchangeRateResponse queryExchangeRate(shared_ptr<QueryExchangeRateRequest> request);
+  QueryExportDomainExpireSnatchsResponse queryExportDomainExpireSnatchsWithOptions(shared_ptr<QueryExportDomainExpireSnatchsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryExportDomainExpireSnatchsResponse queryExportDomainExpireSnatchs(shared_ptr<QueryExportDomainExpireSnatchsRequest> request);
   QueryPurchasedDomainsResponse queryPurchasedDomainsWithOptions(shared_ptr<QueryPurchasedDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryPurchasedDomainsResponse queryPurchasedDomains(shared_ptr<QueryPurchasedDomainsRequest> request);
   RecordDemandResponse recordDemandWithOptions(shared_ptr<RecordDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
