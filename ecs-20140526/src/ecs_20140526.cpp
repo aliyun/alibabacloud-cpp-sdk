@@ -12428,6 +12428,12 @@ DescribeSnapshotLinksResponse Alibabacloud_Ecs20140526::Client::describeSnapshot
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
