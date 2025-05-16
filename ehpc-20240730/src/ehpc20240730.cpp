@@ -37,6 +37,45 @@ string Alibabacloud_EHPC20240730::Client::getEndpoint(shared_ptr<string> product
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AttachNodesResponse Alibabacloud_EHPC20240730::Client::attachNodesWithOptions(shared_ptr<AttachNodesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AttachNodesShrinkRequest> request = make_shared<AttachNodesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<AttachNodesRequestComputeNode>(tmpReq->computeNode)) {
+    request->computeNodeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->computeNode, make_shared<string>("ComputeNode"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->computeNodeShrink)) {
+    query->insert(pair<string, string>("ComputeNode", *request->computeNodeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
+    query->insert(pair<string, string>("QueueName", *request->queueName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AttachNodes"))},
+    {"version", boost::any(string("2024-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AttachNodesResponse(callApi(params, req, runtime));
+}
+
+AttachNodesResponse Alibabacloud_EHPC20240730::Client::attachNodes(shared_ptr<AttachNodesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return attachNodesWithOptions(request, runtime);
+}
+
 AttachSharedStoragesResponse Alibabacloud_EHPC20240730::Client::attachSharedStoragesWithOptions(shared_ptr<AttachSharedStoragesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<AttachSharedStoragesShrinkRequest> request = make_shared<AttachSharedStoragesShrinkRequest>();
@@ -263,6 +302,9 @@ CreateNodesResponse Alibabacloud_EHPC20240730::Client::createNodesWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ramRole)) {
     query->insert(pair<string, string>("RamRole", *request->ramRole));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reservedNodePoolId)) {
+    query->insert(pair<string, string>("ReservedNodePoolId", *request->reservedNodePoolId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));

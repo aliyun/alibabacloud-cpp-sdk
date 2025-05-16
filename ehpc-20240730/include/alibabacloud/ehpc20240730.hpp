@@ -526,6 +526,7 @@ public:
   shared_ptr<long> minCount{};
   shared_ptr<string> queueName{};
   shared_ptr<string> ramRole{};
+  shared_ptr<string> reservedNodePoolId{};
   shared_ptr<vector<string>> vSwitchIds{};
 
   QueueTemplate() {}
@@ -583,6 +584,9 @@ public:
     }
     if (ramRole) {
       res["RamRole"] = boost::any(*ramRole);
+    }
+    if (reservedNodePoolId) {
+      res["ReservedNodePoolId"] = boost::any(*reservedNodePoolId);
     }
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
@@ -649,6 +653,9 @@ public:
     }
     if (m.find("RamRole") != m.end() && !m["RamRole"].empty()) {
       ramRole = make_shared<string>(boost::any_cast<string>(m["RamRole"]));
+    }
+    if (m.find("ReservedNodePoolId") != m.end() && !m["ReservedNodePoolId"].empty()) {
+      reservedNodePoolId = make_shared<string>(boost::any_cast<string>(m["ReservedNodePoolId"]));
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vector<string> toVec1;
@@ -728,6 +735,227 @@ public:
 
 
   virtual ~SharedStorageTemplate() = default;
+};
+class AttachNodesRequestComputeNode : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<vector<string>> instanceIds{};
+
+  AttachNodesRequestComputeNode() {}
+
+  explicit AttachNodesRequestComputeNode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AttachNodesRequestComputeNode() = default;
+};
+class AttachNodesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<AttachNodesRequestComputeNode> computeNode{};
+  shared_ptr<string> queueName{};
+
+  AttachNodesRequest() {}
+
+  explicit AttachNodesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (computeNode) {
+      res["ComputeNode"] = computeNode ? boost::any(computeNode->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ComputeNode") != m.end() && !m["ComputeNode"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComputeNode"].type()) {
+        AttachNodesRequestComputeNode model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComputeNode"]));
+        computeNode = make_shared<AttachNodesRequestComputeNode>(model1);
+      }
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+  }
+
+
+  virtual ~AttachNodesRequest() = default;
+};
+class AttachNodesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> computeNodeShrink{};
+  shared_ptr<string> queueName{};
+
+  AttachNodesShrinkRequest() {}
+
+  explicit AttachNodesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (computeNodeShrink) {
+      res["ComputeNode"] = boost::any(*computeNodeShrink);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ComputeNode") != m.end() && !m["ComputeNode"].empty()) {
+      computeNodeShrink = make_shared<string>(boost::any_cast<string>(m["ComputeNode"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+  }
+
+
+  virtual ~AttachNodesShrinkRequest() = default;
+};
+class AttachNodesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AttachNodesResponseBody() {}
+
+  explicit AttachNodesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AttachNodesResponseBody() = default;
+};
+class AttachNodesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AttachNodesResponseBody> body{};
+
+  AttachNodesResponse() {}
+
+  explicit AttachNodesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AttachNodesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AttachNodesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AttachNodesResponse() = default;
 };
 class AttachSharedStoragesRequestSharedStorages : public Darabonba::Model {
 public:
@@ -2235,6 +2463,7 @@ public:
   shared_ptr<string> keepAlive{};
   shared_ptr<string> queueName{};
   shared_ptr<string> ramRole{};
+  shared_ptr<string> reservedNodePoolId{};
   shared_ptr<string> vSwitchId{};
 
   CreateNodesRequest() {}
@@ -2277,6 +2506,9 @@ public:
     if (ramRole) {
       res["RamRole"] = boost::any(*ramRole);
     }
+    if (reservedNodePoolId) {
+      res["ReservedNodePoolId"] = boost::any(*reservedNodePoolId);
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -2318,6 +2550,9 @@ public:
     if (m.find("RamRole") != m.end() && !m["RamRole"].empty()) {
       ramRole = make_shared<string>(boost::any_cast<string>(m["RamRole"]));
     }
+    if (m.find("ReservedNodePoolId") != m.end() && !m["ReservedNodePoolId"].empty()) {
+      reservedNodePoolId = make_shared<string>(boost::any_cast<string>(m["ReservedNodePoolId"]));
+    }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
@@ -2338,6 +2573,7 @@ public:
   shared_ptr<string> keepAlive{};
   shared_ptr<string> queueName{};
   shared_ptr<string> ramRole{};
+  shared_ptr<string> reservedNodePoolId{};
   shared_ptr<string> vSwitchId{};
 
   CreateNodesShrinkRequest() {}
@@ -2380,6 +2616,9 @@ public:
     if (ramRole) {
       res["RamRole"] = boost::any(*ramRole);
     }
+    if (reservedNodePoolId) {
+      res["ReservedNodePoolId"] = boost::any(*reservedNodePoolId);
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -2416,6 +2655,9 @@ public:
     }
     if (m.find("RamRole") != m.end() && !m["RamRole"].empty()) {
       ramRole = make_shared<string>(boost::any_cast<string>(m["RamRole"]));
+    }
+    if (m.find("ReservedNodePoolId") != m.end() && !m["ReservedNodePoolId"].empty()) {
+      reservedNodePoolId = make_shared<string>(boost::any_cast<string>(m["ReservedNodePoolId"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -6510,6 +6752,7 @@ public:
   shared_ptr<long> minCount{};
   shared_ptr<string> queueName{};
   shared_ptr<string> ramRole{};
+  shared_ptr<string> reservedNodePoolId{};
   shared_ptr<vector<string>> vSwitchIds{};
 
   GetQueueResponseBodyQueue() {}
@@ -6567,6 +6810,9 @@ public:
     }
     if (ramRole) {
       res["RamRole"] = boost::any(*ramRole);
+    }
+    if (reservedNodePoolId) {
+      res["ReservedNodePoolId"] = boost::any(*reservedNodePoolId);
     }
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
@@ -6633,6 +6879,9 @@ public:
     }
     if (m.find("RamRole") != m.end() && !m["RamRole"].empty()) {
       ramRole = make_shared<string>(boost::any_cast<string>(m["RamRole"]));
+    }
+    if (m.find("ReservedNodePoolId") != m.end() && !m["ReservedNodePoolId"].empty()) {
+      reservedNodePoolId = make_shared<string>(boost::any_cast<string>(m["ReservedNodePoolId"]));
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vector<string> toVec1;
@@ -13907,6 +14156,7 @@ public:
   shared_ptr<long> minCount{};
   shared_ptr<string> queueName{};
   shared_ptr<string> ramRole{};
+  shared_ptr<string> reservedNodePoolId{};
   shared_ptr<vector<string>> vSwitchIds{};
 
   UpdateQueueRequestQueue() {}
@@ -13964,6 +14214,9 @@ public:
     }
     if (ramRole) {
       res["RamRole"] = boost::any(*ramRole);
+    }
+    if (reservedNodePoolId) {
+      res["ReservedNodePoolId"] = boost::any(*reservedNodePoolId);
     }
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
@@ -14030,6 +14283,9 @@ public:
     }
     if (m.find("RamRole") != m.end() && !m["RamRole"].empty()) {
       ramRole = make_shared<string>(boost::any_cast<string>(m["RamRole"]));
+    }
+    if (m.find("ReservedNodePoolId") != m.end() && !m["ReservedNodePoolId"].empty()) {
+      reservedNodePoolId = make_shared<string>(boost::any_cast<string>(m["ReservedNodePoolId"]));
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vector<string> toVec1;
@@ -14358,6 +14614,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AttachNodesResponse attachNodesWithOptions(shared_ptr<AttachNodesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AttachNodesResponse attachNodes(shared_ptr<AttachNodesRequest> request);
   AttachSharedStoragesResponse attachSharedStoragesWithOptions(shared_ptr<AttachSharedStoragesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachSharedStoragesResponse attachSharedStorages(shared_ptr<AttachSharedStoragesRequest> request);
   CreateClusterResponse createClusterWithOptions(shared_ptr<CreateClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
