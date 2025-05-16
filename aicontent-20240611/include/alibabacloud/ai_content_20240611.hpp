@@ -444,6 +444,776 @@ public:
 
   virtual ~OpenApiSingleResponse() = default;
 };
+class OralEvaluationStatisticsCallsCountRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationAccessId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> granularity{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> startTime{};
+
+  OralEvaluationStatisticsCallsCountRequest() {}
+
+  explicit OralEvaluationStatisticsCallsCountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationAccessId) {
+      res["applicationAccessId"] = boost::any(*applicationAccessId);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (granularity) {
+      res["granularity"] = boost::any(*granularity);
+    }
+    if (projectId) {
+      res["projectId"] = boost::any(*projectId);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("applicationAccessId") != m.end() && !m["applicationAccessId"].empty()) {
+      applicationAccessId = make_shared<string>(boost::any_cast<string>(m["applicationAccessId"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("granularity") != m.end() && !m["granularity"].empty()) {
+      granularity = make_shared<string>(boost::any_cast<string>(m["granularity"]));
+    }
+    if (m.find("projectId") != m.end() && !m["projectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["projectId"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsCallsCountRequest() = default;
+};
+class OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> name{};
+
+  OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData() {}
+
+  explicit OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["count"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData() = default;
+};
+class OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData>> data{};
+  shared_ptr<string> applicationAccessId{};
+
+  OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData() {}
+
+  explicit OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (applicationAccessId) {
+      res["applicationAccessId"] = boost::any(*applicationAccessId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData>>(expect1);
+      }
+    }
+    if (m.find("applicationAccessId") != m.end() && !m["applicationAccessId"].empty()) {
+      applicationAccessId = make_shared<string>(boost::any_cast<string>(m["applicationAccessId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData() = default;
+};
+class OralEvaluationStatisticsCallsCountResponseProjectData : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData>> applicationData{};
+  shared_ptr<string> applicationInternalId{};
+
+  OralEvaluationStatisticsCallsCountResponseProjectData() {}
+
+  explicit OralEvaluationStatisticsCallsCountResponseProjectData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationData) {
+      vector<boost::any> temp1;
+      for(auto item1:*applicationData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApplicationData"] = boost::any(temp1);
+    }
+    if (applicationInternalId) {
+      res["applicationInternalId"] = boost::any(*applicationInternalId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationData") != m.end() && !m["ApplicationData"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApplicationData"].type()) {
+        vector<OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApplicationData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applicationData = make_shared<vector<OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData>>(expect1);
+      }
+    }
+    if (m.find("applicationInternalId") != m.end() && !m["applicationInternalId"].empty()) {
+      applicationInternalId = make_shared<string>(boost::any_cast<string>(m["applicationInternalId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsCallsCountResponseProjectData() = default;
+};
+class OralEvaluationStatisticsCallsCountResponse : public Darabonba::Model {
+public:
+  shared_ptr<OralEvaluationStatisticsCallsCountResponseProjectData> projectData{};
+  shared_ptr<string> projectId{};
+
+  OralEvaluationStatisticsCallsCountResponse() {}
+
+  explicit OralEvaluationStatisticsCallsCountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectData) {
+      res["projectData"] = projectData ? boost::any(projectData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (projectId) {
+      res["projectId"] = boost::any(*projectId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("projectData") != m.end() && !m["projectData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["projectData"].type()) {
+        OralEvaluationStatisticsCallsCountResponseProjectData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["projectData"]));
+        projectData = make_shared<OralEvaluationStatisticsCallsCountResponseProjectData>(model1);
+      }
+    }
+    if (m.find("projectId") != m.end() && !m["projectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["projectId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsCallsCountResponse() = default;
+};
+class OralEvaluationStatisticsConcurrentCountRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationAccessId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> granularity{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> startTime{};
+
+  OralEvaluationStatisticsConcurrentCountRequest() {}
+
+  explicit OralEvaluationStatisticsConcurrentCountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationAccessId) {
+      res["applicationAccessId"] = boost::any(*applicationAccessId);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (granularity) {
+      res["granularity"] = boost::any(*granularity);
+    }
+    if (projectId) {
+      res["projectId"] = boost::any(*projectId);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("applicationAccessId") != m.end() && !m["applicationAccessId"].empty()) {
+      applicationAccessId = make_shared<string>(boost::any_cast<string>(m["applicationAccessId"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("granularity") != m.end() && !m["granularity"].empty()) {
+      granularity = make_shared<string>(boost::any_cast<string>(m["granularity"]));
+    }
+    if (m.find("projectId") != m.end() && !m["projectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["projectId"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsConcurrentCountRequest() = default;
+};
+class OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> name{};
+
+  OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData() {}
+
+  explicit OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["count"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData() = default;
+};
+class OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData>> data{};
+  shared_ptr<string> applicationAccessId{};
+
+  OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData() {}
+
+  explicit OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (applicationAccessId) {
+      res["applicationAccessId"] = boost::any(*applicationAccessId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData>>(expect1);
+      }
+    }
+    if (m.find("applicationAccessId") != m.end() && !m["applicationAccessId"].empty()) {
+      applicationAccessId = make_shared<string>(boost::any_cast<string>(m["applicationAccessId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData() = default;
+};
+class OralEvaluationStatisticsConcurrentCountResponseProjectData : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData>> applicationData{};
+  shared_ptr<string> applicationInternalId{};
+
+  OralEvaluationStatisticsConcurrentCountResponseProjectData() {}
+
+  explicit OralEvaluationStatisticsConcurrentCountResponseProjectData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationData) {
+      vector<boost::any> temp1;
+      for(auto item1:*applicationData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApplicationData"] = boost::any(temp1);
+    }
+    if (applicationInternalId) {
+      res["applicationInternalId"] = boost::any(*applicationInternalId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationData") != m.end() && !m["ApplicationData"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApplicationData"].type()) {
+        vector<OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApplicationData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applicationData = make_shared<vector<OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData>>(expect1);
+      }
+    }
+    if (m.find("applicationInternalId") != m.end() && !m["applicationInternalId"].empty()) {
+      applicationInternalId = make_shared<string>(boost::any_cast<string>(m["applicationInternalId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsConcurrentCountResponseProjectData() = default;
+};
+class OralEvaluationStatisticsConcurrentCountResponse : public Darabonba::Model {
+public:
+  shared_ptr<OralEvaluationStatisticsConcurrentCountResponseProjectData> projectData{};
+  shared_ptr<string> projectId{};
+
+  OralEvaluationStatisticsConcurrentCountResponse() {}
+
+  explicit OralEvaluationStatisticsConcurrentCountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectData) {
+      res["projectData"] = projectData ? boost::any(projectData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (projectId) {
+      res["projectId"] = boost::any(*projectId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("projectData") != m.end() && !m["projectData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["projectData"].type()) {
+        OralEvaluationStatisticsConcurrentCountResponseProjectData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["projectData"]));
+        projectData = make_shared<OralEvaluationStatisticsConcurrentCountResponseProjectData>(model1);
+      }
+    }
+    if (m.find("projectId") != m.end() && !m["projectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["projectId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsConcurrentCountResponse() = default;
+};
+class OralEvaluationStatisticsErrorCountRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationAccessId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<vector<string>> errorCode{};
+  shared_ptr<string> granularity{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> startTime{};
+
+  OralEvaluationStatisticsErrorCountRequest() {}
+
+  explicit OralEvaluationStatisticsErrorCountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationAccessId) {
+      res["applicationAccessId"] = boost::any(*applicationAccessId);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (granularity) {
+      res["granularity"] = boost::any(*granularity);
+    }
+    if (projectId) {
+      res["projectId"] = boost::any(*projectId);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("applicationAccessId") != m.end() && !m["applicationAccessId"].empty()) {
+      applicationAccessId = make_shared<string>(boost::any_cast<string>(m["applicationAccessId"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["errorCode"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["errorCode"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      errorCode = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("granularity") != m.end() && !m["granularity"].empty()) {
+      granularity = make_shared<string>(boost::any_cast<string>(m["granularity"]));
+    }
+    if (m.find("projectId") != m.end() && !m["projectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["projectId"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsErrorCountRequest() = default;
+};
+class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> name{};
+
+  OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData() {}
+
+  explicit OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["count"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData() = default;
+};
+class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData>> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+
+  OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData() {}
+
+  explicit OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData>>(expect1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData() = default;
+};
+class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData>> data{};
+  shared_ptr<string> applicationAccessId{};
+
+  OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData() {}
+
+  explicit OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (applicationAccessId) {
+      res["applicationAccessId"] = boost::any(*applicationAccessId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData>>(expect1);
+      }
+    }
+    if (m.find("applicationAccessId") != m.end() && !m["applicationAccessId"].empty()) {
+      applicationAccessId = make_shared<string>(boost::any_cast<string>(m["applicationAccessId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData() = default;
+};
+class OralEvaluationStatisticsErrorCountResponseProjectData : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData>> applicationData{};
+  shared_ptr<string> applicationInternalId{};
+
+  OralEvaluationStatisticsErrorCountResponseProjectData() {}
+
+  explicit OralEvaluationStatisticsErrorCountResponseProjectData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationData) {
+      vector<boost::any> temp1;
+      for(auto item1:*applicationData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApplicationData"] = boost::any(temp1);
+    }
+    if (applicationInternalId) {
+      res["applicationInternalId"] = boost::any(*applicationInternalId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationData") != m.end() && !m["ApplicationData"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApplicationData"].type()) {
+        vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApplicationData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applicationData = make_shared<vector<OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData>>(expect1);
+      }
+    }
+    if (m.find("applicationInternalId") != m.end() && !m["applicationInternalId"].empty()) {
+      applicationInternalId = make_shared<string>(boost::any_cast<string>(m["applicationInternalId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsErrorCountResponseProjectData() = default;
+};
+class OralEvaluationStatisticsErrorCountResponse : public Darabonba::Model {
+public:
+  shared_ptr<OralEvaluationStatisticsErrorCountResponseProjectData> projectData{};
+  shared_ptr<string> projectId{};
+
+  OralEvaluationStatisticsErrorCountResponse() {}
+
+  explicit OralEvaluationStatisticsErrorCountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectData) {
+      res["ProjectData"] = projectData ? boost::any(projectData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (projectId) {
+      res["projectId"] = boost::any(*projectId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectData") != m.end() && !m["ProjectData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProjectData"].type()) {
+        OralEvaluationStatisticsErrorCountResponseProjectData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProjectData"]));
+        projectData = make_shared<OralEvaluationStatisticsErrorCountResponseProjectData>(model1);
+      }
+    }
+    if (m.find("projectId") != m.end() && !m["projectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["projectId"]));
+    }
+  }
+
+
+  virtual ~OralEvaluationStatisticsErrorCountResponse() = default;
+};
 class Personalizedtxt2imgAddInferenceJobCmd : public Darabonba::Model {
 public:
   shared_ptr<long> imageNumber{};
@@ -1674,6 +2444,495 @@ public:
 
   virtual ~AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse() = default;
 };
+class CountOralEvaluationStatisticsCallsRequest : public Darabonba::Model {
+public:
+  shared_ptr<OralEvaluationStatisticsCallsCountRequest> body{};
+
+  CountOralEvaluationStatisticsCallsRequest() {}
+
+  explicit CountOralEvaluationStatisticsCallsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OralEvaluationStatisticsCallsCountRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OralEvaluationStatisticsCallsCountRequest>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsCallsRequest() = default;
+};
+class CountOralEvaluationStatisticsCallsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsCallsCountResponse>> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CountOralEvaluationStatisticsCallsResponseBody() {}
+
+  explicit CountOralEvaluationStatisticsCallsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<OralEvaluationStatisticsCallsCountResponse> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsCallsCountResponse model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<OralEvaluationStatisticsCallsCountResponse>>(expect1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsCallsResponseBody() = default;
+};
+class CountOralEvaluationStatisticsCallsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CountOralEvaluationStatisticsCallsResponseBody> body{};
+
+  CountOralEvaluationStatisticsCallsResponse() {}
+
+  explicit CountOralEvaluationStatisticsCallsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CountOralEvaluationStatisticsCallsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CountOralEvaluationStatisticsCallsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsCallsResponse() = default;
+};
+class CountOralEvaluationStatisticsConcurrentRequest : public Darabonba::Model {
+public:
+  shared_ptr<OralEvaluationStatisticsConcurrentCountRequest> body{};
+
+  CountOralEvaluationStatisticsConcurrentRequest() {}
+
+  explicit CountOralEvaluationStatisticsConcurrentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OralEvaluationStatisticsConcurrentCountRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OralEvaluationStatisticsConcurrentCountRequest>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsConcurrentRequest() = default;
+};
+class CountOralEvaluationStatisticsConcurrentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsConcurrentCountResponse>> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CountOralEvaluationStatisticsConcurrentResponseBody() {}
+
+  explicit CountOralEvaluationStatisticsConcurrentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<OralEvaluationStatisticsConcurrentCountResponse> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsConcurrentCountResponse model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<OralEvaluationStatisticsConcurrentCountResponse>>(expect1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsConcurrentResponseBody() = default;
+};
+class CountOralEvaluationStatisticsConcurrentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CountOralEvaluationStatisticsConcurrentResponseBody> body{};
+
+  CountOralEvaluationStatisticsConcurrentResponse() {}
+
+  explicit CountOralEvaluationStatisticsConcurrentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CountOralEvaluationStatisticsConcurrentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CountOralEvaluationStatisticsConcurrentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsConcurrentResponse() = default;
+};
+class CountOralEvaluationStatisticsErrorRequest : public Darabonba::Model {
+public:
+  shared_ptr<OralEvaluationStatisticsErrorCountRequest> body{};
+
+  CountOralEvaluationStatisticsErrorRequest() {}
+
+  explicit CountOralEvaluationStatisticsErrorRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OralEvaluationStatisticsErrorCountRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OralEvaluationStatisticsErrorCountRequest>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsErrorRequest() = default;
+};
+class CountOralEvaluationStatisticsErrorResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<OralEvaluationStatisticsErrorCountResponse>> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CountOralEvaluationStatisticsErrorResponseBody() {}
+
+  explicit CountOralEvaluationStatisticsErrorResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<OralEvaluationStatisticsErrorCountResponse> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OralEvaluationStatisticsErrorCountResponse model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<OralEvaluationStatisticsErrorCountResponse>>(expect1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsErrorResponseBody() = default;
+};
+class CountOralEvaluationStatisticsErrorResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CountOralEvaluationStatisticsErrorResponseBody> body{};
+
+  CountOralEvaluationStatisticsErrorResponse() {}
+
+  explicit CountOralEvaluationStatisticsErrorResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CountOralEvaluationStatisticsErrorResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CountOralEvaluationStatisticsErrorResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CountOralEvaluationStatisticsErrorResponse() = default;
+};
 class CreateAccessWarrantRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -2340,68 +3599,6 @@ public:
 
 
   virtual ~CreateProjectResponse() = default;
-};
-class ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> commonHeaders{};
-  shared_ptr<long> callerParentId{};
-  shared_ptr<string> callerType{};
-  shared_ptr<long> callerUid{};
-  shared_ptr<long> stsTokenCallerUid{};
-
-  ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders() {}
-
-  explicit ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (commonHeaders) {
-      res["commonHeaders"] = boost::any(*commonHeaders);
-    }
-    if (callerParentId) {
-      res["callerParentId"] = boost::any(*callerParentId);
-    }
-    if (callerType) {
-      res["callerType"] = boost::any(*callerType);
-    }
-    if (callerUid) {
-      res["callerUid"] = boost::any(*callerUid);
-    }
-    if (stsTokenCallerUid) {
-      res["stsTokenCallerUid"] = boost::any(*stsTokenCallerUid);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      commonHeaders = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("callerParentId") != m.end() && !m["callerParentId"].empty()) {
-      callerParentId = make_shared<long>(boost::any_cast<long>(m["callerParentId"]));
-    }
-    if (m.find("callerType") != m.end() && !m["callerType"].empty()) {
-      callerType = make_shared<string>(boost::any_cast<string>(m["callerType"]));
-    }
-    if (m.find("callerUid") != m.end() && !m["callerUid"].empty()) {
-      callerUid = make_shared<long>(boost::any_cast<long>(m["callerUid"]));
-    }
-    if (m.find("stsTokenCallerUid") != m.end() && !m["stsTokenCallerUid"].empty()) {
-      stsTokenCallerUid = make_shared<long>(boost::any_cast<long>(m["stsTokenCallerUid"]));
-    }
-  }
-
-
-  virtual ~ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders() = default;
 };
 class ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest : public Darabonba::Model {
 public:
@@ -5043,6 +6240,326 @@ public:
 
 
   virtual ~ExecuteAITeacherSyncDialogueTranslateResponse() = default;
+};
+class ExecuteHundredThousandWhysDialogueRequestMessages : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> role{};
+
+  ExecuteHundredThousandWhysDialogueRequestMessages() {}
+
+  explicit ExecuteHundredThousandWhysDialogueRequestMessages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~ExecuteHundredThousandWhysDialogueRequestMessages() = default;
+};
+class ExecuteHundredThousandWhysDialogueRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ageGroup{};
+  shared_ptr<string> chatId{};
+  shared_ptr<string> deviceId{};
+  shared_ptr<string> macAddress{};
+  shared_ptr<vector<ExecuteHundredThousandWhysDialogueRequestMessages>> messages{};
+
+  ExecuteHundredThousandWhysDialogueRequest() {}
+
+  explicit ExecuteHundredThousandWhysDialogueRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ageGroup) {
+      res["ageGroup"] = boost::any(*ageGroup);
+    }
+    if (chatId) {
+      res["chatId"] = boost::any(*chatId);
+    }
+    if (deviceId) {
+      res["deviceId"] = boost::any(*deviceId);
+    }
+    if (macAddress) {
+      res["macAddress"] = boost::any(*macAddress);
+    }
+    if (messages) {
+      vector<boost::any> temp1;
+      for(auto item1:*messages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["messages"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ageGroup") != m.end() && !m["ageGroup"].empty()) {
+      ageGroup = make_shared<string>(boost::any_cast<string>(m["ageGroup"]));
+    }
+    if (m.find("chatId") != m.end() && !m["chatId"].empty()) {
+      chatId = make_shared<string>(boost::any_cast<string>(m["chatId"]));
+    }
+    if (m.find("deviceId") != m.end() && !m["deviceId"].empty()) {
+      deviceId = make_shared<string>(boost::any_cast<string>(m["deviceId"]));
+    }
+    if (m.find("macAddress") != m.end() && !m["macAddress"].empty()) {
+      macAddress = make_shared<string>(boost::any_cast<string>(m["macAddress"]));
+    }
+    if (m.find("messages") != m.end() && !m["messages"].empty()) {
+      if (typeid(vector<boost::any>) == m["messages"].type()) {
+        vector<ExecuteHundredThousandWhysDialogueRequestMessages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["messages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteHundredThousandWhysDialogueRequestMessages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        messages = make_shared<vector<ExecuteHundredThousandWhysDialogueRequestMessages>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteHundredThousandWhysDialogueRequest() = default;
+};
+class ExecuteHundredThousandWhysDialogueResponseBodyChoicesDelta : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> role{};
+
+  ExecuteHundredThousandWhysDialogueResponseBodyChoicesDelta() {}
+
+  explicit ExecuteHundredThousandWhysDialogueResponseBodyChoicesDelta(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~ExecuteHundredThousandWhysDialogueResponseBodyChoicesDelta() = default;
+};
+class ExecuteHundredThousandWhysDialogueResponseBodyChoices : public Darabonba::Model {
+public:
+  shared_ptr<ExecuteHundredThousandWhysDialogueResponseBodyChoicesDelta> delta{};
+  shared_ptr<string> finishReason{};
+  shared_ptr<long> index{};
+
+  ExecuteHundredThousandWhysDialogueResponseBodyChoices() {}
+
+  explicit ExecuteHundredThousandWhysDialogueResponseBodyChoices(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (delta) {
+      res["delta"] = delta ? boost::any(delta->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (finishReason) {
+      res["finish_reason"] = boost::any(*finishReason);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("delta") != m.end() && !m["delta"].empty()) {
+      if (typeid(map<string, boost::any>) == m["delta"].type()) {
+        ExecuteHundredThousandWhysDialogueResponseBodyChoicesDelta model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["delta"]));
+        delta = make_shared<ExecuteHundredThousandWhysDialogueResponseBodyChoicesDelta>(model1);
+      }
+    }
+    if (m.find("finish_reason") != m.end() && !m["finish_reason"].empty()) {
+      finishReason = make_shared<string>(boost::any_cast<string>(m["finish_reason"]));
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["index"]));
+    }
+  }
+
+
+  virtual ~ExecuteHundredThousandWhysDialogueResponseBodyChoices() = default;
+};
+class ExecuteHundredThousandWhysDialogueResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ExecuteHundredThousandWhysDialogueResponseBodyChoices>> choices{};
+  shared_ptr<long> created{};
+  shared_ptr<string> id{};
+  shared_ptr<string> model{};
+  shared_ptr<string> object{};
+  shared_ptr<string> requestId{};
+
+  ExecuteHundredThousandWhysDialogueResponseBody() {}
+
+  explicit ExecuteHundredThousandWhysDialogueResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (choices) {
+      vector<boost::any> temp1;
+      for(auto item1:*choices){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["choices"] = boost::any(temp1);
+    }
+    if (created) {
+      res["created"] = boost::any(*created);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (model) {
+      res["model"] = boost::any(*model);
+    }
+    if (object) {
+      res["object"] = boost::any(*object);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("choices") != m.end() && !m["choices"].empty()) {
+      if (typeid(vector<boost::any>) == m["choices"].type()) {
+        vector<ExecuteHundredThousandWhysDialogueResponseBodyChoices> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["choices"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteHundredThousandWhysDialogueResponseBodyChoices model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        choices = make_shared<vector<ExecuteHundredThousandWhysDialogueResponseBodyChoices>>(expect1);
+      }
+    }
+    if (m.find("created") != m.end() && !m["created"].empty()) {
+      created = make_shared<long>(boost::any_cast<long>(m["created"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("model") != m.end() && !m["model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["model"]));
+    }
+    if (m.find("object") != m.end() && !m["object"].empty()) {
+      object = make_shared<string>(boost::any_cast<string>(m["object"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ExecuteHundredThousandWhysDialogueResponseBody() = default;
+};
+class ExecuteHundredThousandWhysDialogueResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteHundredThousandWhysDialogueResponseBody> body{};
+
+  ExecuteHundredThousandWhysDialogueResponse() {}
+
+  explicit ExecuteHundredThousandWhysDialogueResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteHundredThousandWhysDialogueResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteHundredThousandWhysDialogueResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteHundredThousandWhysDialogueResponse() = default;
 };
 class ExecuteTextbookAssistantDialogueRequest : public Darabonba::Model {
 public:
@@ -9890,7 +11407,7 @@ public:
 };
 class ListTextbookAssistantGradeVolumesResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ListTextbookAssistantGradeVolumesResponseBodyData> data{};
+  shared_ptr<vector<ListTextbookAssistantGradeVolumesResponseBodyData>> data{};
   shared_ptr<string> errCode{};
   shared_ptr<string> errMessage{};
   shared_ptr<long> httpStatusCode{};
@@ -9908,7 +11425,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (data) {
-      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
     }
     if (errCode) {
       res["errCode"] = boost::any(*errCode);
@@ -9930,10 +11451,16 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("data") != m.end() && !m["data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["data"].type()) {
-        ListTextbookAssistantGradeVolumesResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
-        data = make_shared<ListTextbookAssistantGradeVolumesResponseBodyData>(model1);
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<ListTextbookAssistantGradeVolumesResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTextbookAssistantGradeVolumesResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListTextbookAssistantGradeVolumesResponseBodyData>>(expect1);
       }
     }
     if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
@@ -14214,11 +15741,17 @@ public:
   AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse aliyunConsoleOpenApiQueryAliyunConsoleServcieList();
   AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceList();
+  CountOralEvaluationStatisticsCallsResponse countOralEvaluationStatisticsCallsWithOptions(shared_ptr<CountOralEvaluationStatisticsCallsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CountOralEvaluationStatisticsCallsResponse countOralEvaluationStatisticsCalls(shared_ptr<CountOralEvaluationStatisticsCallsRequest> request);
+  CountOralEvaluationStatisticsConcurrentResponse countOralEvaluationStatisticsConcurrentWithOptions(shared_ptr<CountOralEvaluationStatisticsConcurrentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CountOralEvaluationStatisticsConcurrentResponse countOralEvaluationStatisticsConcurrent(shared_ptr<CountOralEvaluationStatisticsConcurrentRequest> request);
+  CountOralEvaluationStatisticsErrorResponse countOralEvaluationStatisticsErrorWithOptions(shared_ptr<CountOralEvaluationStatisticsErrorRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CountOralEvaluationStatisticsErrorResponse countOralEvaluationStatisticsError(shared_ptr<CountOralEvaluationStatisticsErrorRequest> request);
   CreateAccessWarrantResponse createAccessWarrantWithOptions(shared_ptr<CreateAccessWarrantRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAccessWarrantResponse createAccessWarrant(shared_ptr<CreateAccessWarrantRequest> request);
   CreateProjectResponse createProjectWithOptions(shared_ptr<CreateProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateProjectResponse createProject(shared_ptr<CreateProjectRequest> request);
-  ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse executeAITeacherChineseCompositionTutoringWorkflowRunWithOptions(shared_ptr<ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest> request, shared_ptr<ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse executeAITeacherChineseCompositionTutoringWorkflowRunWithOptions(shared_ptr<ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse executeAITeacherChineseCompositionTutoringWorkflowRun(shared_ptr<ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest> request);
   ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse executeAITeacherEnglishCompositionTutoringWorkflowRunWithOptions(shared_ptr<ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse executeAITeacherEnglishCompositionTutoringWorkflowRun(shared_ptr<ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest> request);
@@ -14236,6 +15769,8 @@ public:
   ExecuteAITeacherSyncDialogueResponse executeAITeacherSyncDialogue(shared_ptr<ExecuteAITeacherSyncDialogueRequest> request);
   ExecuteAITeacherSyncDialogueTranslateResponse executeAITeacherSyncDialogueTranslateWithOptions(shared_ptr<ExecuteAITeacherSyncDialogueTranslateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteAITeacherSyncDialogueTranslateResponse executeAITeacherSyncDialogueTranslate(shared_ptr<ExecuteAITeacherSyncDialogueTranslateRequest> request);
+  ExecuteHundredThousandWhysDialogueResponse executeHundredThousandWhysDialogueWithOptions(shared_ptr<ExecuteHundredThousandWhysDialogueRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteHundredThousandWhysDialogueResponse executeHundredThousandWhysDialogue(shared_ptr<ExecuteHundredThousandWhysDialogueRequest> request);
   ExecuteTextbookAssistantDialogueResponse executeTextbookAssistantDialogueWithOptions(shared_ptr<ExecuteTextbookAssistantDialogueRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteTextbookAssistantDialogueResponse executeTextbookAssistantDialogue(shared_ptr<ExecuteTextbookAssistantDialogueRequest> request);
   ExecuteTextbookAssistantDifficultyResponse executeTextbookAssistantDifficultyWithOptions(shared_ptr<ExecuteTextbookAssistantDifficultyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
