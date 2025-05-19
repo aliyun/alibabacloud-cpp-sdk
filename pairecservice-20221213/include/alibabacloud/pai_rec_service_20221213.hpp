@@ -417,6 +417,7 @@ public:
 };
 class CheckInstanceResourcesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> resourceId{};
   shared_ptr<string> type{};
   shared_ptr<string> uri{};
 
@@ -430,6 +431,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -440,6 +444,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
@@ -1484,6 +1491,116 @@ public:
 
 
   virtual ~CloneTrafficControlTaskResponse() = default;
+};
+class CompareSampleConsistencyJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  CompareSampleConsistencyJobRequest() {}
+
+  explicit CompareSampleConsistencyJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~CompareSampleConsistencyJobRequest() = default;
+};
+class CompareSampleConsistencyJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CompareSampleConsistencyJobResponseBody() {}
+
+  explicit CompareSampleConsistencyJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CompareSampleConsistencyJobResponseBody() = default;
+};
+class CompareSampleConsistencyJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CompareSampleConsistencyJobResponseBody> body{};
+
+  CompareSampleConsistencyJobResponse() {}
+
+  explicit CompareSampleConsistencyJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CompareSampleConsistencyJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CompareSampleConsistencyJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CompareSampleConsistencyJobResponse() = default;
 };
 class CreateABMetricRequest : public Darabonba::Model {
 public:
@@ -4235,6 +4352,207 @@ public:
 
   virtual ~CreateResourceRuleItemResponse() = default;
 };
+class CreateSampleConsistencyJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> duration{};
+  shared_ptr<string> easModelServiceName{};
+  shared_ptr<string> featureSaveResourceId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> itemIdField{};
+  shared_ptr<string> name{};
+  shared_ptr<string> partitionField{};
+  shared_ptr<string> partitionFieldFormat{};
+  shared_ptr<string> requestIdField{};
+  shared_ptr<string> sampleRate{};
+  shared_ptr<string> sampleTableName{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> userIdField{};
+
+  CreateSampleConsistencyJobRequest() {}
+
+  explicit CreateSampleConsistencyJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (easModelServiceName) {
+      res["EasModelServiceName"] = boost::any(*easModelServiceName);
+    }
+    if (featureSaveResourceId) {
+      res["FeatureSaveResourceId"] = boost::any(*featureSaveResourceId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (itemIdField) {
+      res["ItemIdField"] = boost::any(*itemIdField);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (partitionField) {
+      res["PartitionField"] = boost::any(*partitionField);
+    }
+    if (partitionFieldFormat) {
+      res["PartitionFieldFormat"] = boost::any(*partitionFieldFormat);
+    }
+    if (requestIdField) {
+      res["RequestIdField"] = boost::any(*requestIdField);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    if (sampleTableName) {
+      res["SampleTableName"] = boost::any(*sampleTableName);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (userIdField) {
+      res["UserIdField"] = boost::any(*userIdField);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("EasModelServiceName") != m.end() && !m["EasModelServiceName"].empty()) {
+      easModelServiceName = make_shared<string>(boost::any_cast<string>(m["EasModelServiceName"]));
+    }
+    if (m.find("FeatureSaveResourceId") != m.end() && !m["FeatureSaveResourceId"].empty()) {
+      featureSaveResourceId = make_shared<string>(boost::any_cast<string>(m["FeatureSaveResourceId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ItemIdField") != m.end() && !m["ItemIdField"].empty()) {
+      itemIdField = make_shared<string>(boost::any_cast<string>(m["ItemIdField"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PartitionField") != m.end() && !m["PartitionField"].empty()) {
+      partitionField = make_shared<string>(boost::any_cast<string>(m["PartitionField"]));
+    }
+    if (m.find("PartitionFieldFormat") != m.end() && !m["PartitionFieldFormat"].empty()) {
+      partitionFieldFormat = make_shared<string>(boost::any_cast<string>(m["PartitionFieldFormat"]));
+    }
+    if (m.find("RequestIdField") != m.end() && !m["RequestIdField"].empty()) {
+      requestIdField = make_shared<string>(boost::any_cast<string>(m["RequestIdField"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
+    }
+    if (m.find("SampleTableName") != m.end() && !m["SampleTableName"].empty()) {
+      sampleTableName = make_shared<string>(boost::any_cast<string>(m["SampleTableName"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("UserIdField") != m.end() && !m["UserIdField"].empty()) {
+      userIdField = make_shared<string>(boost::any_cast<string>(m["UserIdField"]));
+    }
+  }
+
+
+  virtual ~CreateSampleConsistencyJobRequest() = default;
+};
+class CreateSampleConsistencyJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sampleConsistencyJobId{};
+
+  CreateSampleConsistencyJobResponseBody() {}
+
+  explicit CreateSampleConsistencyJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sampleConsistencyJobId) {
+      res["SampleConsistencyJobId"] = boost::any(*sampleConsistencyJobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SampleConsistencyJobId") != m.end() && !m["SampleConsistencyJobId"].empty()) {
+      sampleConsistencyJobId = make_shared<string>(boost::any_cast<string>(m["SampleConsistencyJobId"]));
+    }
+  }
+
+
+  virtual ~CreateSampleConsistencyJobResponseBody() = default;
+};
+class CreateSampleConsistencyJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSampleConsistencyJobResponseBody> body{};
+
+  CreateSampleConsistencyJobResponse() {}
+
+  explicit CreateSampleConsistencyJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSampleConsistencyJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSampleConsistencyJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSampleConsistencyJobResponse() = default;
+};
 class CreateSceneRequestFlows : public Darabonba::Model {
 public:
   shared_ptr<string> flowCode{};
@@ -5121,6 +5439,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> endTime{};
   shared_ptr<string> executionTime{};
+  shared_ptr<string> flinkResourceId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> itemConditionArray{};
   shared_ptr<string> itemConditionExpress{};
@@ -5171,6 +5490,9 @@ public:
     }
     if (executionTime) {
       res["ExecutionTime"] = boost::any(*executionTime);
+    }
+    if (flinkResourceId) {
+      res["FlinkResourceId"] = boost::any(*flinkResourceId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -5257,6 +5579,9 @@ public:
     }
     if (m.find("ExecutionTime") != m.end() && !m["ExecutionTime"].empty()) {
       executionTime = make_shared<string>(boost::any_cast<string>(m["ExecutionTime"]));
+    }
+    if (m.find("FlinkResourceId") != m.end() && !m["FlinkResourceId"].empty()) {
+      flinkResourceId = make_shared<string>(boost::any_cast<string>(m["FlinkResourceId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -6904,6 +7229,116 @@ public:
 
 
   virtual ~DeleteResourceRuleItemResponse() = default;
+};
+class DeleteSampleConsistencyJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  DeleteSampleConsistencyJobRequest() {}
+
+  explicit DeleteSampleConsistencyJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DeleteSampleConsistencyJobRequest() = default;
+};
+class DeleteSampleConsistencyJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteSampleConsistencyJobResponseBody() {}
+
+  explicit DeleteSampleConsistencyJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteSampleConsistencyJobResponseBody() = default;
+};
+class DeleteSampleConsistencyJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteSampleConsistencyJobResponseBody> body{};
+
+  DeleteSampleConsistencyJobResponse() {}
+
+  explicit DeleteSampleConsistencyJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSampleConsistencyJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSampleConsistencyJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSampleConsistencyJobResponse() = default;
 };
 class DeleteSceneRequest : public Darabonba::Model {
 public:
@@ -10845,6 +11280,263 @@ public:
 
   virtual ~GetResourceRuleResponse() = default;
 };
+class GetSampleConsistencyJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GetSampleConsistencyJobRequest() {}
+
+  explicit GetSampleConsistencyJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetSampleConsistencyJobRequest() = default;
+};
+class GetSampleConsistencyJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> duration{};
+  shared_ptr<string> easModelServiceName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> featureSaveResourceId{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> itemIdField{};
+  shared_ptr<string> logs{};
+  shared_ptr<string> name{};
+  shared_ptr<string> partitionField{};
+  shared_ptr<string> partitionFieldFormat{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> requestIdField{};
+  shared_ptr<string> sampleConsistencyJobId{};
+  shared_ptr<string> sampleRate{};
+  shared_ptr<string> sampleTableName{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> sceneName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> userIdField{};
+
+  GetSampleConsistencyJobResponseBody() {}
+
+  explicit GetSampleConsistencyJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (easModelServiceName) {
+      res["EasModelServiceName"] = boost::any(*easModelServiceName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (featureSaveResourceId) {
+      res["FeatureSaveResourceId"] = boost::any(*featureSaveResourceId);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (itemIdField) {
+      res["ItemIdField"] = boost::any(*itemIdField);
+    }
+    if (logs) {
+      res["Logs"] = boost::any(*logs);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (partitionField) {
+      res["PartitionField"] = boost::any(*partitionField);
+    }
+    if (partitionFieldFormat) {
+      res["PartitionFieldFormat"] = boost::any(*partitionFieldFormat);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (requestIdField) {
+      res["RequestIdField"] = boost::any(*requestIdField);
+    }
+    if (sampleConsistencyJobId) {
+      res["SampleConsistencyJobId"] = boost::any(*sampleConsistencyJobId);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    if (sampleTableName) {
+      res["SampleTableName"] = boost::any(*sampleTableName);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sceneName) {
+      res["SceneName"] = boost::any(*sceneName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userIdField) {
+      res["UserIdField"] = boost::any(*userIdField);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("EasModelServiceName") != m.end() && !m["EasModelServiceName"].empty()) {
+      easModelServiceName = make_shared<string>(boost::any_cast<string>(m["EasModelServiceName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("FeatureSaveResourceId") != m.end() && !m["FeatureSaveResourceId"].empty()) {
+      featureSaveResourceId = make_shared<string>(boost::any_cast<string>(m["FeatureSaveResourceId"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("ItemIdField") != m.end() && !m["ItemIdField"].empty()) {
+      itemIdField = make_shared<string>(boost::any_cast<string>(m["ItemIdField"]));
+    }
+    if (m.find("Logs") != m.end() && !m["Logs"].empty()) {
+      logs = make_shared<string>(boost::any_cast<string>(m["Logs"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PartitionField") != m.end() && !m["PartitionField"].empty()) {
+      partitionField = make_shared<string>(boost::any_cast<string>(m["PartitionField"]));
+    }
+    if (m.find("PartitionFieldFormat") != m.end() && !m["PartitionFieldFormat"].empty()) {
+      partitionFieldFormat = make_shared<string>(boost::any_cast<string>(m["PartitionFieldFormat"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RequestIdField") != m.end() && !m["RequestIdField"].empty()) {
+      requestIdField = make_shared<string>(boost::any_cast<string>(m["RequestIdField"]));
+    }
+    if (m.find("SampleConsistencyJobId") != m.end() && !m["SampleConsistencyJobId"].empty()) {
+      sampleConsistencyJobId = make_shared<string>(boost::any_cast<string>(m["SampleConsistencyJobId"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
+    }
+    if (m.find("SampleTableName") != m.end() && !m["SampleTableName"].empty()) {
+      sampleTableName = make_shared<string>(boost::any_cast<string>(m["SampleTableName"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
+      sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UserIdField") != m.end() && !m["UserIdField"].empty()) {
+      userIdField = make_shared<string>(boost::any_cast<string>(m["UserIdField"]));
+    }
+  }
+
+
+  virtual ~GetSampleConsistencyJobResponseBody() = default;
+};
+class GetSampleConsistencyJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSampleConsistencyJobResponseBody> body{};
+
+  GetSampleConsistencyJobResponse() {}
+
+  explicit GetSampleConsistencyJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSampleConsistencyJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSampleConsistencyJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSampleConsistencyJobResponse() = default;
+};
 class GetSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -12002,6 +12694,8 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<bool> everPublished{};
   shared_ptr<string> executionTime{};
+  shared_ptr<string> flinkResourceId{};
+  shared_ptr<string> flinkResourceName{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> itemConditionArray{};
@@ -12061,6 +12755,12 @@ public:
     }
     if (executionTime) {
       res["ExecutionTime"] = boost::any(*executionTime);
+    }
+    if (flinkResourceId) {
+      res["FlinkResourceId"] = boost::any(*flinkResourceId);
+    }
+    if (flinkResourceName) {
+      res["FlinkResourceName"] = boost::any(*flinkResourceName);
     }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
@@ -12168,6 +12868,12 @@ public:
     }
     if (m.find("ExecutionTime") != m.end() && !m["ExecutionTime"].empty()) {
       executionTime = make_shared<string>(boost::any_cast<string>(m["ExecutionTime"]));
+    }
+    if (m.find("FlinkResourceId") != m.end() && !m["FlinkResourceId"].empty()) {
+      flinkResourceId = make_shared<string>(boost::any_cast<string>(m["FlinkResourceId"]));
+    }
+    if (m.find("FlinkResourceName") != m.end() && !m["FlinkResourceName"].empty()) {
+      flinkResourceName = make_shared<string>(boost::any_cast<string>(m["FlinkResourceName"]));
     }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
@@ -17772,6 +18478,341 @@ public:
 
   virtual ~ListResourceRulesResponse() = default;
 };
+class ListSampleConsistencyJobsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> sortBy{};
+
+  ListSampleConsistencyJobsRequest() {}
+
+  explicit ListSampleConsistencyJobsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+  }
+
+
+  virtual ~ListSampleConsistencyJobsRequest() = default;
+};
+class ListSampleConsistencyJobsResponseBodySampleConsistencyJobs : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> duration{};
+  shared_ptr<string> easModelServiceName{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> featureSaveResourceId{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> itemIdField{};
+  shared_ptr<string> logs{};
+  shared_ptr<string> name{};
+  shared_ptr<string> partitionField{};
+  shared_ptr<string> partitionFieldFormat{};
+  shared_ptr<string> requestIdField{};
+  shared_ptr<string> sampleConsistencyJobId{};
+  shared_ptr<string> sampleRate{};
+  shared_ptr<string> sampleTableName{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> sceneName{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> userIdField{};
+
+  ListSampleConsistencyJobsResponseBodySampleConsistencyJobs() {}
+
+  explicit ListSampleConsistencyJobsResponseBodySampleConsistencyJobs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (easModelServiceName) {
+      res["EasModelServiceName"] = boost::any(*easModelServiceName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (featureSaveResourceId) {
+      res["FeatureSaveResourceId"] = boost::any(*featureSaveResourceId);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (itemIdField) {
+      res["ItemIdField"] = boost::any(*itemIdField);
+    }
+    if (logs) {
+      res["Logs"] = boost::any(*logs);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (partitionField) {
+      res["PartitionField"] = boost::any(*partitionField);
+    }
+    if (partitionFieldFormat) {
+      res["PartitionFieldFormat"] = boost::any(*partitionFieldFormat);
+    }
+    if (requestIdField) {
+      res["RequestIdField"] = boost::any(*requestIdField);
+    }
+    if (sampleConsistencyJobId) {
+      res["SampleConsistencyJobId"] = boost::any(*sampleConsistencyJobId);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    if (sampleTableName) {
+      res["SampleTableName"] = boost::any(*sampleTableName);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sceneName) {
+      res["SceneName"] = boost::any(*sceneName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userIdField) {
+      res["UserIdField"] = boost::any(*userIdField);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("EasModelServiceName") != m.end() && !m["EasModelServiceName"].empty()) {
+      easModelServiceName = make_shared<string>(boost::any_cast<string>(m["EasModelServiceName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("FeatureSaveResourceId") != m.end() && !m["FeatureSaveResourceId"].empty()) {
+      featureSaveResourceId = make_shared<string>(boost::any_cast<string>(m["FeatureSaveResourceId"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("ItemIdField") != m.end() && !m["ItemIdField"].empty()) {
+      itemIdField = make_shared<string>(boost::any_cast<string>(m["ItemIdField"]));
+    }
+    if (m.find("Logs") != m.end() && !m["Logs"].empty()) {
+      logs = make_shared<string>(boost::any_cast<string>(m["Logs"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PartitionField") != m.end() && !m["PartitionField"].empty()) {
+      partitionField = make_shared<string>(boost::any_cast<string>(m["PartitionField"]));
+    }
+    if (m.find("PartitionFieldFormat") != m.end() && !m["PartitionFieldFormat"].empty()) {
+      partitionFieldFormat = make_shared<string>(boost::any_cast<string>(m["PartitionFieldFormat"]));
+    }
+    if (m.find("RequestIdField") != m.end() && !m["RequestIdField"].empty()) {
+      requestIdField = make_shared<string>(boost::any_cast<string>(m["RequestIdField"]));
+    }
+    if (m.find("SampleConsistencyJobId") != m.end() && !m["SampleConsistencyJobId"].empty()) {
+      sampleConsistencyJobId = make_shared<string>(boost::any_cast<string>(m["SampleConsistencyJobId"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
+    }
+    if (m.find("SampleTableName") != m.end() && !m["SampleTableName"].empty()) {
+      sampleTableName = make_shared<string>(boost::any_cast<string>(m["SampleTableName"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
+      sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UserIdField") != m.end() && !m["UserIdField"].empty()) {
+      userIdField = make_shared<string>(boost::any_cast<string>(m["UserIdField"]));
+    }
+  }
+
+
+  virtual ~ListSampleConsistencyJobsResponseBodySampleConsistencyJobs() = default;
+};
+class ListSampleConsistencyJobsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListSampleConsistencyJobsResponseBodySampleConsistencyJobs>> sampleConsistencyJobs{};
+  shared_ptr<long> totalCount{};
+
+  ListSampleConsistencyJobsResponseBody() {}
+
+  explicit ListSampleConsistencyJobsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sampleConsistencyJobs) {
+      vector<boost::any> temp1;
+      for(auto item1:*sampleConsistencyJobs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SampleConsistencyJobs"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SampleConsistencyJobs") != m.end() && !m["SampleConsistencyJobs"].empty()) {
+      if (typeid(vector<boost::any>) == m["SampleConsistencyJobs"].type()) {
+        vector<ListSampleConsistencyJobsResponseBodySampleConsistencyJobs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SampleConsistencyJobs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSampleConsistencyJobsResponseBodySampleConsistencyJobs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sampleConsistencyJobs = make_shared<vector<ListSampleConsistencyJobsResponseBodySampleConsistencyJobs>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListSampleConsistencyJobsResponseBody() = default;
+};
+class ListSampleConsistencyJobsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSampleConsistencyJobsResponseBody> body{};
+
+  ListSampleConsistencyJobsResponse() {}
+
+  explicit ListSampleConsistencyJobsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSampleConsistencyJobsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSampleConsistencyJobsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSampleConsistencyJobsResponse() = default;
+};
 class ListScenesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -19138,6 +20179,8 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<bool> everPublished{};
   shared_ptr<string> executionTime{};
+  shared_ptr<string> flinkResourceId{};
+  shared_ptr<string> flinkResourceName{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> itemConditionArray{};
@@ -19196,6 +20239,12 @@ public:
     }
     if (executionTime) {
       res["ExecutionTime"] = boost::any(*executionTime);
+    }
+    if (flinkResourceId) {
+      res["FlinkResourceId"] = boost::any(*flinkResourceId);
+    }
+    if (flinkResourceName) {
+      res["FlinkResourceName"] = boost::any(*flinkResourceName);
     }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
@@ -19300,6 +20349,12 @@ public:
     }
     if (m.find("ExecutionTime") != m.end() && !m["ExecutionTime"].empty()) {
       executionTime = make_shared<string>(boost::any_cast<string>(m["ExecutionTime"]));
+    }
+    if (m.find("FlinkResourceId") != m.end() && !m["FlinkResourceId"].empty()) {
+      flinkResourceId = make_shared<string>(boost::any_cast<string>(m["FlinkResourceId"]));
+    }
+    if (m.find("FlinkResourceName") != m.end() && !m["FlinkResourceName"].empty()) {
+      flinkResourceName = make_shared<string>(boost::any_cast<string>(m["FlinkResourceName"]));
     }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
@@ -20552,6 +21607,350 @@ public:
 
   virtual ~PushResourceRuleResponse() = default;
 };
+class QuerySampleConsistencyJobDifferenceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> featureName{};
+  shared_ptr<string> featureType{};
+  shared_ptr<string> instanceId{};
+
+  QuerySampleConsistencyJobDifferenceRequest() {}
+
+  explicit QuerySampleConsistencyJobDifferenceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (featureType) {
+      res["FeatureType"] = boost::any(*featureType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("FeatureType") != m.end() && !m["FeatureType"].empty()) {
+      featureType = make_shared<string>(boost::any_cast<string>(m["FeatureType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~QuerySampleConsistencyJobDifferenceRequest() = default;
+};
+class QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram : public Darabonba::Model {
+public:
+  shared_ptr<string> abscissa{};
+  shared_ptr<long> value{};
+
+  QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram() {}
+
+  explicit QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abscissa) {
+      res["Abscissa"] = boost::any(*abscissa);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Abscissa") != m.end() && !m["Abscissa"].empty()) {
+      abscissa = make_shared<string>(boost::any_cast<string>(m["Abscissa"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["Value"]));
+    }
+  }
+
+
+  virtual ~QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram() = default;
+};
+class QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences : public Darabonba::Model {
+public:
+  shared_ptr<double> diffValue{};
+  shared_ptr<string> itemId{};
+  shared_ptr<double> replyTableFeatureValue{};
+  shared_ptr<string> requestId{};
+  shared_ptr<double> sampleTableFeatureValue{};
+  shared_ptr<string> userId{};
+
+  QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences() {}
+
+  explicit QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diffValue) {
+      res["DiffValue"] = boost::any(*diffValue);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (replyTableFeatureValue) {
+      res["ReplyTableFeatureValue"] = boost::any(*replyTableFeatureValue);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sampleTableFeatureValue) {
+      res["SampleTableFeatureValue"] = boost::any(*sampleTableFeatureValue);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiffValue") != m.end() && !m["DiffValue"].empty()) {
+      diffValue = make_shared<double>(boost::any_cast<double>(m["DiffValue"]));
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("ReplyTableFeatureValue") != m.end() && !m["ReplyTableFeatureValue"].empty()) {
+      replyTableFeatureValue = make_shared<double>(boost::any_cast<double>(m["ReplyTableFeatureValue"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SampleTableFeatureValue") != m.end() && !m["SampleTableFeatureValue"].empty()) {
+      sampleTableFeatureValue = make_shared<double>(boost::any_cast<double>(m["SampleTableFeatureValue"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences() = default;
+};
+class QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences : public Darabonba::Model {
+public:
+  shared_ptr<string> itemId{};
+  shared_ptr<string> replyTableFeatureValue{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sampleTableFeatureValue{};
+  shared_ptr<string> userId{};
+
+  QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences() {}
+
+  explicit QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (replyTableFeatureValue) {
+      res["ReplyTableFeatureValue"] = boost::any(*replyTableFeatureValue);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sampleTableFeatureValue) {
+      res["SampleTableFeatureValue"] = boost::any(*sampleTableFeatureValue);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("ReplyTableFeatureValue") != m.end() && !m["ReplyTableFeatureValue"].empty()) {
+      replyTableFeatureValue = make_shared<string>(boost::any_cast<string>(m["ReplyTableFeatureValue"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SampleTableFeatureValue") != m.end() && !m["SampleTableFeatureValue"].empty()) {
+      sampleTableFeatureValue = make_shared<string>(boost::any_cast<string>(m["SampleTableFeatureValue"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences() = default;
+};
+class QuerySampleConsistencyJobDifferenceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram>> differenceHistogram{};
+  shared_ptr<vector<QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences>> numberFeatureDifferences{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences>> stringFeatureDifferences{};
+
+  QuerySampleConsistencyJobDifferenceResponseBody() {}
+
+  explicit QuerySampleConsistencyJobDifferenceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (differenceHistogram) {
+      vector<boost::any> temp1;
+      for(auto item1:*differenceHistogram){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DifferenceHistogram"] = boost::any(temp1);
+    }
+    if (numberFeatureDifferences) {
+      vector<boost::any> temp1;
+      for(auto item1:*numberFeatureDifferences){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NumberFeatureDifferences"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (stringFeatureDifferences) {
+      vector<boost::any> temp1;
+      for(auto item1:*stringFeatureDifferences){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StringFeatureDifferences"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DifferenceHistogram") != m.end() && !m["DifferenceHistogram"].empty()) {
+      if (typeid(vector<boost::any>) == m["DifferenceHistogram"].type()) {
+        vector<QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DifferenceHistogram"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        differenceHistogram = make_shared<vector<QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram>>(expect1);
+      }
+    }
+    if (m.find("NumberFeatureDifferences") != m.end() && !m["NumberFeatureDifferences"].empty()) {
+      if (typeid(vector<boost::any>) == m["NumberFeatureDifferences"].type()) {
+        vector<QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NumberFeatureDifferences"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        numberFeatureDifferences = make_shared<vector<QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StringFeatureDifferences") != m.end() && !m["StringFeatureDifferences"].empty()) {
+      if (typeid(vector<boost::any>) == m["StringFeatureDifferences"].type()) {
+        vector<QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StringFeatureDifferences"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stringFeatureDifferences = make_shared<vector<QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySampleConsistencyJobDifferenceResponseBody() = default;
+};
+class QuerySampleConsistencyJobDifferenceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QuerySampleConsistencyJobDifferenceResponseBody> body{};
+
+  QuerySampleConsistencyJobDifferenceResponse() {}
+
+  explicit QuerySampleConsistencyJobDifferenceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QuerySampleConsistencyJobDifferenceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QuerySampleConsistencyJobDifferenceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySampleConsistencyJobDifferenceResponse() = default;
+};
 class QueryTrafficControlTargetItemReportDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> date{};
@@ -21186,6 +22585,215 @@ public:
 
   virtual ~ReportABMetricGroupResponse() = default;
 };
+class ReportSampleConsistencyJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  ReportSampleConsistencyJobRequest() {}
+
+  explicit ReportSampleConsistencyJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~ReportSampleConsistencyJobRequest() = default;
+};
+class ReportSampleConsistencyJobResponseBodyFeaturesDifference : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> featureType{};
+  shared_ptr<string> ratio{};
+
+  ReportSampleConsistencyJobResponseBodyFeaturesDifference() {}
+
+  explicit ReportSampleConsistencyJobResponseBodyFeaturesDifference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (featureType) {
+      res["FeatureType"] = boost::any(*featureType);
+    }
+    if (ratio) {
+      res["Ratio"] = boost::any(*ratio);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("FeatureType") != m.end() && !m["FeatureType"].empty()) {
+      featureType = make_shared<string>(boost::any_cast<string>(m["FeatureType"]));
+    }
+    if (m.find("Ratio") != m.end() && !m["Ratio"].empty()) {
+      ratio = make_shared<string>(boost::any_cast<string>(m["Ratio"]));
+    }
+  }
+
+
+  virtual ~ReportSampleConsistencyJobResponseBodyFeaturesDifference() = default;
+};
+class ReportSampleConsistencyJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ReportSampleConsistencyJobResponseBodyFeaturesDifference>> featuresDifference{};
+  shared_ptr<long> replyTableFeatures{};
+  shared_ptr<long> replyTableLostFeatures{};
+  shared_ptr<long> requestId{};
+  shared_ptr<long> sampleTableFeatures{};
+  shared_ptr<long> sampleTableLostFeatures{};
+
+  ReportSampleConsistencyJobResponseBody() {}
+
+  explicit ReportSampleConsistencyJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (featuresDifference) {
+      vector<boost::any> temp1;
+      for(auto item1:*featuresDifference){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FeaturesDifference"] = boost::any(temp1);
+    }
+    if (replyTableFeatures) {
+      res["ReplyTableFeatures"] = boost::any(*replyTableFeatures);
+    }
+    if (replyTableLostFeatures) {
+      res["ReplyTableLostFeatures"] = boost::any(*replyTableLostFeatures);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sampleTableFeatures) {
+      res["SampleTableFeatures"] = boost::any(*sampleTableFeatures);
+    }
+    if (sampleTableLostFeatures) {
+      res["SampleTableLostFeatures"] = boost::any(*sampleTableLostFeatures);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeaturesDifference") != m.end() && !m["FeaturesDifference"].empty()) {
+      if (typeid(vector<boost::any>) == m["FeaturesDifference"].type()) {
+        vector<ReportSampleConsistencyJobResponseBodyFeaturesDifference> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FeaturesDifference"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ReportSampleConsistencyJobResponseBodyFeaturesDifference model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        featuresDifference = make_shared<vector<ReportSampleConsistencyJobResponseBodyFeaturesDifference>>(expect1);
+      }
+    }
+    if (m.find("ReplyTableFeatures") != m.end() && !m["ReplyTableFeatures"].empty()) {
+      replyTableFeatures = make_shared<long>(boost::any_cast<long>(m["ReplyTableFeatures"]));
+    }
+    if (m.find("ReplyTableLostFeatures") != m.end() && !m["ReplyTableLostFeatures"].empty()) {
+      replyTableLostFeatures = make_shared<long>(boost::any_cast<long>(m["ReplyTableLostFeatures"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<long>(boost::any_cast<long>(m["RequestId"]));
+    }
+    if (m.find("SampleTableFeatures") != m.end() && !m["SampleTableFeatures"].empty()) {
+      sampleTableFeatures = make_shared<long>(boost::any_cast<long>(m["SampleTableFeatures"]));
+    }
+    if (m.find("SampleTableLostFeatures") != m.end() && !m["SampleTableLostFeatures"].empty()) {
+      sampleTableLostFeatures = make_shared<long>(boost::any_cast<long>(m["SampleTableLostFeatures"]));
+    }
+  }
+
+
+  virtual ~ReportSampleConsistencyJobResponseBody() = default;
+};
+class ReportSampleConsistencyJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ReportSampleConsistencyJobResponseBody> body{};
+
+  ReportSampleConsistencyJobResponse() {}
+
+  explicit ReportSampleConsistencyJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReportSampleConsistencyJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReportSampleConsistencyJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReportSampleConsistencyJobResponse() = default;
+};
 class SplitTrafficControlTargetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> environment{};
@@ -21571,6 +23179,116 @@ public:
 
 
   virtual ~StartTrafficControlTaskResponse() = default;
+};
+class StopSampleConsistencyJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  StopSampleConsistencyJobRequest() {}
+
+  explicit StopSampleConsistencyJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~StopSampleConsistencyJobRequest() = default;
+};
+class StopSampleConsistencyJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StopSampleConsistencyJobResponseBody() {}
+
+  explicit StopSampleConsistencyJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StopSampleConsistencyJobResponseBody() = default;
+};
+class StopSampleConsistencyJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopSampleConsistencyJobResponseBody> body{};
+
+  StopSampleConsistencyJobResponse() {}
+
+  explicit StopSampleConsistencyJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopSampleConsistencyJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopSampleConsistencyJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopSampleConsistencyJobResponse() = default;
 };
 class StopTrafficControlTargetRequest : public Darabonba::Model {
 public:
@@ -25044,6 +26762,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> endTime{};
   shared_ptr<string> executionTime{};
+  shared_ptr<string> flinkResourceId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> itemConditionArray{};
   shared_ptr<string> itemConditionExpress{};
@@ -25094,6 +26813,9 @@ public:
     }
     if (executionTime) {
       res["ExecutionTime"] = boost::any(*executionTime);
+    }
+    if (flinkResourceId) {
+      res["FlinkResourceId"] = boost::any(*flinkResourceId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -25180,6 +26902,9 @@ public:
     }
     if (m.find("ExecutionTime") != m.end() && !m["ExecutionTime"].empty()) {
       executionTime = make_shared<string>(boost::any_cast<string>(m["ExecutionTime"]));
+    }
+    if (m.find("FlinkResourceId") != m.end() && !m["FlinkResourceId"].empty()) {
+      flinkResourceId = make_shared<string>(boost::any_cast<string>(m["FlinkResourceId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -25778,6 +27503,11 @@ public:
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CloneTrafficControlTaskResponse cloneTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<CloneTrafficControlTaskRequest> request);
+  CompareSampleConsistencyJobResponse compareSampleConsistencyJobWithOptions(shared_ptr<string> SampleConsistencyJobId,
+                                                                             shared_ptr<CompareSampleConsistencyJobRequest> request,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CompareSampleConsistencyJobResponse compareSampleConsistencyJob(shared_ptr<string> SampleConsistencyJobId, shared_ptr<CompareSampleConsistencyJobRequest> request);
   CreateABMetricResponse createABMetricWithOptions(shared_ptr<CreateABMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateABMetricResponse createABMetric(shared_ptr<CreateABMetricRequest> request);
   CreateABMetricGroupResponse createABMetricGroupWithOptions(shared_ptr<CreateABMetricGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -25814,6 +27544,8 @@ public:
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateResourceRuleItemResponse createResourceRuleItem(shared_ptr<string> ResourceRuleId, shared_ptr<CreateResourceRuleItemRequest> request);
+  CreateSampleConsistencyJobResponse createSampleConsistencyJobWithOptions(shared_ptr<CreateSampleConsistencyJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSampleConsistencyJobResponse createSampleConsistencyJob(shared_ptr<CreateSampleConsistencyJobRequest> request);
   CreateSceneResponse createSceneWithOptions(shared_ptr<CreateSceneRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSceneResponse createScene(shared_ptr<CreateSceneRequest> request);
   CreateSubCrowdResponse createSubCrowdWithOptions(shared_ptr<string> CrowdId,
@@ -25893,6 +27625,11 @@ public:
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteResourceRuleItemResponse deleteResourceRuleItem(shared_ptr<string> ResourceRuleId, shared_ptr<string> ResourceRuleItemId, shared_ptr<DeleteResourceRuleItemRequest> request);
+  DeleteSampleConsistencyJobResponse deleteSampleConsistencyJobWithOptions(shared_ptr<string> SampleConsistencyJobId,
+                                                                           shared_ptr<DeleteSampleConsistencyJobRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSampleConsistencyJobResponse deleteSampleConsistencyJob(shared_ptr<string> SampleConsistencyJobId, shared_ptr<DeleteSampleConsistencyJobRequest> request);
   DeleteSceneResponse deleteSceneWithOptions(shared_ptr<string> SceneId,
                                              shared_ptr<DeleteSceneRequest> request,
                                              shared_ptr<map<string, string>> headers,
@@ -25997,6 +27734,11 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceRuleResponse getResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<GetResourceRuleRequest> request);
+  GetSampleConsistencyJobResponse getSampleConsistencyJobWithOptions(shared_ptr<string> SampleConsistencyJobId,
+                                                                     shared_ptr<GetSampleConsistencyJobRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSampleConsistencyJobResponse getSampleConsistencyJob(shared_ptr<string> SampleConsistencyJobId, shared_ptr<GetSampleConsistencyJobRequest> request);
   GetSceneResponse getSceneWithOptions(shared_ptr<string> SceneId,
                                        shared_ptr<GetSceneRequest> request,
                                        shared_ptr<map<string, string>> headers,
@@ -26076,6 +27818,8 @@ public:
   ListParamsResponse listParams(shared_ptr<ListParamsRequest> request);
   ListResourceRulesResponse listResourceRulesWithOptions(shared_ptr<ListResourceRulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListResourceRulesResponse listResourceRules(shared_ptr<ListResourceRulesRequest> request);
+  ListSampleConsistencyJobsResponse listSampleConsistencyJobsWithOptions(shared_ptr<ListSampleConsistencyJobsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSampleConsistencyJobsResponse listSampleConsistencyJobs(shared_ptr<ListSampleConsistencyJobsRequest> request);
   ListScenesResponse listScenesWithOptions(shared_ptr<ListScenesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListScenesResponse listScenes(shared_ptr<ListScenesRequest> request);
   ListSubCrowdsResponse listSubCrowdsWithOptions(shared_ptr<string> CrowdId,
@@ -26132,6 +27876,11 @@ public:
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PushResourceRuleResponse pushResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<PushResourceRuleRequest> request);
+  QuerySampleConsistencyJobDifferenceResponse querySampleConsistencyJobDifferenceWithOptions(shared_ptr<string> SampleConsistencyJobId,
+                                                                                             shared_ptr<QuerySampleConsistencyJobDifferenceRequest> request,
+                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QuerySampleConsistencyJobDifferenceResponse querySampleConsistencyJobDifference(shared_ptr<string> SampleConsistencyJobId, shared_ptr<QuerySampleConsistencyJobDifferenceRequest> request);
   QueryTrafficControlTargetItemReportDetailResponse queryTrafficControlTargetItemReportDetailWithOptions(shared_ptr<string> TrafficControlTargetId,
                                                                                                          shared_ptr<QueryTrafficControlTargetItemReportDetailRequest> request,
                                                                                                          shared_ptr<map<string, string>> headers,
@@ -26147,6 +27896,11 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReportABMetricGroupResponse reportABMetricGroup(shared_ptr<string> ABMetricGroupId, shared_ptr<ReportABMetricGroupRequest> request);
+  ReportSampleConsistencyJobResponse reportSampleConsistencyJobWithOptions(shared_ptr<string> SampleConsistencyJobId,
+                                                                           shared_ptr<ReportSampleConsistencyJobRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReportSampleConsistencyJobResponse reportSampleConsistencyJob(shared_ptr<string> SampleConsistencyJobId, shared_ptr<ReportSampleConsistencyJobRequest> request);
   SplitTrafficControlTargetResponse splitTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
                                                                          shared_ptr<SplitTrafficControlTargetRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
@@ -26162,6 +27916,11 @@ public:
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartTrafficControlTaskResponse startTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<StartTrafficControlTaskRequest> request);
+  StopSampleConsistencyJobResponse stopSampleConsistencyJobWithOptions(shared_ptr<string> SampleConsistencyJobId,
+                                                                       shared_ptr<StopSampleConsistencyJobRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopSampleConsistencyJobResponse stopSampleConsistencyJob(shared_ptr<string> SampleConsistencyJobId, shared_ptr<StopSampleConsistencyJobRequest> request);
   StopTrafficControlTargetResponse stopTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
                                                                        shared_ptr<StopTrafficControlTargetRequest> request,
                                                                        shared_ptr<map<string, string>> headers,
