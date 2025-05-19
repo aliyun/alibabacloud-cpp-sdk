@@ -8884,7 +8884,10 @@ public:
 class GetNodeInfoForPodResponseBodyContent : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
+  shared_ptr<long> hdeniIpv6SipQuota{};
   shared_ptr<long> hdeniQuota{};
+  shared_ptr<long> hdeniSipQuota{};
+  shared_ptr<long> leniIpv6SipQuota{};
   shared_ptr<long> leniQuota{};
   shared_ptr<long> leniSipQuota{};
   shared_ptr<long> lniSipQuota{};
@@ -8893,9 +8896,6 @@ public:
   shared_ptr<vector<string>> vSwitches{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
-  shared_ptr<long> hdeniIpv6SipQuota{};
-  shared_ptr<long> hdeniSipQuota{};
-  shared_ptr<long> leniIpv6SipQuota{};
 
   GetNodeInfoForPodResponseBodyContent() {}
 
@@ -8910,8 +8910,17 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
+    if (hdeniIpv6SipQuota) {
+      res["HdeniIpv6SipQuota"] = boost::any(*hdeniIpv6SipQuota);
+    }
     if (hdeniQuota) {
       res["HdeniQuota"] = boost::any(*hdeniQuota);
+    }
+    if (hdeniSipQuota) {
+      res["HdeniSipQuota"] = boost::any(*hdeniSipQuota);
+    }
+    if (leniIpv6SipQuota) {
+      res["LeniIpv6SipQuota"] = boost::any(*leniIpv6SipQuota);
     }
     if (leniQuota) {
       res["LeniQuota"] = boost::any(*leniQuota);
@@ -8937,15 +8946,6 @@ public:
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
-    if (hdeniIpv6SipQuota) {
-      res["hdeniIpv6SipQuota"] = boost::any(*hdeniIpv6SipQuota);
-    }
-    if (hdeniSipQuota) {
-      res["hdeniSipQuota"] = boost::any(*hdeniSipQuota);
-    }
-    if (leniIpv6SipQuota) {
-      res["leniIpv6SipQuota"] = boost::any(*leniIpv6SipQuota);
-    }
     return res;
   }
 
@@ -8953,8 +8953,17 @@ public:
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
+    if (m.find("HdeniIpv6SipQuota") != m.end() && !m["HdeniIpv6SipQuota"].empty()) {
+      hdeniIpv6SipQuota = make_shared<long>(boost::any_cast<long>(m["HdeniIpv6SipQuota"]));
+    }
     if (m.find("HdeniQuota") != m.end() && !m["HdeniQuota"].empty()) {
       hdeniQuota = make_shared<long>(boost::any_cast<long>(m["HdeniQuota"]));
+    }
+    if (m.find("HdeniSipQuota") != m.end() && !m["HdeniSipQuota"].empty()) {
+      hdeniSipQuota = make_shared<long>(boost::any_cast<long>(m["HdeniSipQuota"]));
+    }
+    if (m.find("LeniIpv6SipQuota") != m.end() && !m["LeniIpv6SipQuota"].empty()) {
+      leniIpv6SipQuota = make_shared<long>(boost::any_cast<long>(m["LeniIpv6SipQuota"]));
     }
     if (m.find("LeniQuota") != m.end() && !m["LeniQuota"].empty()) {
       leniQuota = make_shared<long>(boost::any_cast<long>(m["LeniQuota"]));
@@ -8986,15 +8995,6 @@ public:
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
-    }
-    if (m.find("hdeniIpv6SipQuota") != m.end() && !m["hdeniIpv6SipQuota"].empty()) {
-      hdeniIpv6SipQuota = make_shared<long>(boost::any_cast<long>(m["hdeniIpv6SipQuota"]));
-    }
-    if (m.find("hdeniSipQuota") != m.end() && !m["hdeniSipQuota"].empty()) {
-      hdeniSipQuota = make_shared<long>(boost::any_cast<long>(m["hdeniSipQuota"]));
-    }
-    if (m.find("leniIpv6SipQuota") != m.end() && !m["leniIpv6SipQuota"].empty()) {
-      leniIpv6SipQuota = make_shared<long>(boost::any_cast<long>(m["leniIpv6SipQuota"]));
     }
   }
 
