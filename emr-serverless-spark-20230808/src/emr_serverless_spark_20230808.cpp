@@ -241,6 +241,9 @@ CreateSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->publicEndpointEnabled)) {
+    body->insert(pair<string, bool>("publicEndpointEnabled", *request->publicEndpointEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
     body->insert(pair<string, string>("queueName", *request->queueName));
   }
@@ -633,6 +636,9 @@ GetTemplateResponse Alibabacloud_Emr-serverless-spark20230808::Client::getTempla
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBizId)) {
+    query->insert(pair<string, string>("templateBizId", *request->templateBizId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
     query->insert(pair<string, string>("templateType", *request->templateType));

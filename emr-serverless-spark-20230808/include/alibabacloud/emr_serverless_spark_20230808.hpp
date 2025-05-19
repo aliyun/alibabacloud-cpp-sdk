@@ -1591,12 +1591,15 @@ public:
 };
 class Template : public Darabonba::Model {
 public:
+  shared_ptr<string> bizId{};
   shared_ptr<long> creator{};
   shared_ptr<string> displaySparkVersion{};
   shared_ptr<bool> fusion{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<bool> isDefault{};
   shared_ptr<long> modifier{};
+  shared_ptr<string> name{};
   shared_ptr<vector<SparkConf>> sparkConf{};
   shared_ptr<long> sparkDriverCores{};
   shared_ptr<long> sparkDriverMemory{};
@@ -1617,6 +1620,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizId) {
+      res["bizId"] = boost::any(*bizId);
+    }
     if (creator) {
       res["creator"] = boost::any(*creator);
     }
@@ -1632,8 +1638,14 @@ public:
     if (gmtModified) {
       res["gmtModified"] = boost::any(*gmtModified);
     }
+    if (isDefault) {
+      res["isDefault"] = boost::any(*isDefault);
+    }
     if (modifier) {
       res["modifier"] = boost::any(*modifier);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
     }
     if (sparkConf) {
       vector<boost::any> temp1;
@@ -1670,6 +1682,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("bizId") != m.end() && !m["bizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["bizId"]));
+    }
     if (m.find("creator") != m.end() && !m["creator"].empty()) {
       creator = make_shared<long>(boost::any_cast<long>(m["creator"]));
     }
@@ -1685,8 +1700,14 @@ public:
     if (m.find("gmtModified") != m.end() && !m["gmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["gmtModified"]));
     }
+    if (m.find("isDefault") != m.end() && !m["isDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["isDefault"]));
+    }
     if (m.find("modifier") != m.end() && !m["modifier"].empty()) {
       modifier = make_shared<long>(boost::any_cast<long>(m["modifier"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
     if (m.find("sparkConf") != m.end() && !m["sparkConf"].empty()) {
       if (typeid(vector<boost::any>) == m["sparkConf"].type()) {
@@ -3141,6 +3162,7 @@ public:
   shared_ptr<bool> fusion{};
   shared_ptr<string> kind{};
   shared_ptr<string> name{};
+  shared_ptr<bool> publicEndpointEnabled{};
   shared_ptr<string> queueName{};
   shared_ptr<string> releaseVersion{};
   shared_ptr<string> regionId{};
@@ -3182,6 +3204,9 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (publicEndpointEnabled) {
+      res["publicEndpointEnabled"] = boost::any(*publicEndpointEnabled);
     }
     if (queueName) {
       res["queueName"] = boost::any(*queueName);
@@ -3237,6 +3262,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("publicEndpointEnabled") != m.end() && !m["publicEndpointEnabled"].empty()) {
+      publicEndpointEnabled = make_shared<bool>(boost::any_cast<bool>(m["publicEndpointEnabled"]));
     }
     if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
@@ -4923,6 +4951,7 @@ public:
   shared_ptr<long> gmtCreate{};
   shared_ptr<string> kind{};
   shared_ptr<string> name{};
+  shared_ptr<bool> publicEndpointEnabled{};
   shared_ptr<string> queueName{};
   shared_ptr<string> releaseVersion{};
   shared_ptr<string> sessionClusterId{};
@@ -4986,6 +5015,9 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (publicEndpointEnabled) {
+      res["publicEndpointEnabled"] = boost::any(*publicEndpointEnabled);
     }
     if (queueName) {
       res["queueName"] = boost::any(*queueName);
@@ -5077,6 +5109,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("publicEndpointEnabled") != m.end() && !m["publicEndpointEnabled"].empty()) {
+      publicEndpointEnabled = make_shared<bool>(boost::any_cast<bool>(m["publicEndpointEnabled"]));
     }
     if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
@@ -5461,6 +5496,7 @@ public:
 class GetTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<string> templateBizId{};
   shared_ptr<string> templateType{};
 
   GetTemplateRequest() {}
@@ -5476,6 +5512,9 @@ public:
     if (regionId) {
       res["regionId"] = boost::any(*regionId);
     }
+    if (templateBizId) {
+      res["templateBizId"] = boost::any(*templateBizId);
+    }
     if (templateType) {
       res["templateType"] = boost::any(*templateType);
     }
@@ -5485,6 +5524,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("templateBizId") != m.end() && !m["templateBizId"].empty()) {
+      templateBizId = make_shared<string>(boost::any_cast<string>(m["templateBizId"]));
     }
     if (m.find("templateType") != m.end() && !m["templateType"].empty()) {
       templateType = make_shared<string>(boost::any_cast<string>(m["templateType"]));
@@ -7607,6 +7649,7 @@ public:
   shared_ptr<long> gmtCreate{};
   shared_ptr<string> kind{};
   shared_ptr<string> name{};
+  shared_ptr<bool> publicEndpointEnabled{};
   shared_ptr<string> queueName{};
   shared_ptr<string> releaseVersion{};
   shared_ptr<string> sessionClusterId{};
@@ -7667,6 +7710,9 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (publicEndpointEnabled) {
+      res["publicEndpointEnabled"] = boost::any(*publicEndpointEnabled);
     }
     if (queueName) {
       res["queueName"] = boost::any(*queueName);
@@ -7755,6 +7801,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("publicEndpointEnabled") != m.end() && !m["publicEndpointEnabled"].empty()) {
+      publicEndpointEnabled = make_shared<bool>(boost::any_cast<bool>(m["publicEndpointEnabled"]));
     }
     if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
@@ -8475,6 +8524,7 @@ public:
   shared_ptr<long> expireTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> maxResource{};
+  shared_ptr<string> orderId{};
   shared_ptr<string> paymentStatus{};
   shared_ptr<string> usedResource{};
 
@@ -8506,6 +8556,9 @@ public:
     if (maxResource) {
       res["maxResource"] = boost::any(*maxResource);
     }
+    if (orderId) {
+      res["orderId"] = boost::any(*orderId);
+    }
     if (paymentStatus) {
       res["paymentStatus"] = boost::any(*paymentStatus);
     }
@@ -8533,6 +8586,9 @@ public:
     }
     if (m.find("maxResource") != m.end() && !m["maxResource"].empty()) {
       maxResource = make_shared<string>(boost::any_cast<string>(m["maxResource"]));
+    }
+    if (m.find("orderId") != m.end() && !m["orderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["orderId"]));
     }
     if (m.find("paymentStatus") != m.end() && !m["paymentStatus"].empty()) {
       paymentStatus = make_shared<string>(boost::any_cast<string>(m["paymentStatus"]));
