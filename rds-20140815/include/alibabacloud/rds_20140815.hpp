@@ -10971,6 +10971,42 @@ public:
 
   virtual ~CreateRCDeploymentSetResponse() = default;
 };
+class CreateRCDiskRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateRCDiskRequestTag() {}
+
+  explicit CreateRCDiskRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateRCDiskRequestTag() = default;
+};
 class CreateRCDiskRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -10984,8 +11020,10 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> size{};
   shared_ptr<string> snapshotId{};
+  shared_ptr<vector<CreateRCDiskRequestTag>> tag{};
   shared_ptr<string> zoneId{};
 
   CreateRCDiskRequest() {}
@@ -11031,11 +11069,21 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
@@ -11077,11 +11125,27 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateRCDiskRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateRCDiskRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateRCDiskRequestTag>>(expect1);
+      }
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
@@ -51993,6 +52057,42 @@ public:
 
   virtual ~DescribeRCDeploymentSetsResponse() = default;
 };
+class DescribeRCDisksRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeRCDisksRequestTag() {}
+
+  explicit DescribeRCDisksRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeRCDisksRequestTag() = default;
+};
 class DescribeRCDisksRequest : public Darabonba::Model {
 public:
   shared_ptr<string> diskIds{};
@@ -52000,6 +52100,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<DescribeRCDisksRequestTag>> tag{};
 
   DescribeRCDisksRequest() {}
 
@@ -52026,6 +52127,13 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -52045,10 +52153,59 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeRCDisksRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRCDisksRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeRCDisksRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~DescribeRCDisksRequest() = default;
+};
+class DescribeRCDisksResponseBodyDisksTag : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeRCDisksResponseBodyDisksTag() {}
+
+  explicit DescribeRCDisksResponseBodyDisksTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeRCDisksResponseBodyDisksTag() = default;
 };
 class DescribeRCDisksResponseBodyDisks : public Darabonba::Model {
 public:
@@ -52075,6 +52232,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> storageClusterId{};
   shared_ptr<string> storageSetId{};
+  shared_ptr<vector<DescribeRCDisksResponseBodyDisksTag>> tag{};
   shared_ptr<string> type{};
   shared_ptr<string> zoneId{};
 
@@ -52157,6 +52315,13 @@ public:
     if (storageSetId) {
       res["StorageSetId"] = boost::any(*storageSetId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -52235,6 +52400,19 @@ public:
     }
     if (m.find("StorageSetId") != m.end() && !m["StorageSetId"].empty()) {
       storageSetId = make_shared<string>(boost::any_cast<string>(m["StorageSetId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeRCDisksResponseBodyDisksTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRCDisksResponseBodyDisksTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeRCDisksResponseBodyDisksTag>>(expect1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -80521,10 +80699,12 @@ public:
 class ModifyRCInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoUseCoupon{};
   shared_ptr<string> direction{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
+  shared_ptr<string> promotionCode{};
   shared_ptr<string> rebootTime{};
   shared_ptr<bool> rebootWhenFinished{};
   shared_ptr<string> regionId{};
@@ -80542,6 +80722,9 @@ public:
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
     }
+    if (autoUseCoupon) {
+      res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
+    }
     if (direction) {
       res["Direction"] = boost::any(*direction);
     }
@@ -80553,6 +80736,9 @@ public:
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (promotionCode) {
+      res["PromotionCode"] = boost::any(*promotionCode);
     }
     if (rebootTime) {
       res["RebootTime"] = boost::any(*rebootTime);
@@ -80570,6 +80756,9 @@ public:
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }
+    if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
+      autoUseCoupon = make_shared<bool>(boost::any_cast<bool>(m["AutoUseCoupon"]));
+    }
     if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
       direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
     }
@@ -80581,6 +80770,9 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("PromotionCode") != m.end() && !m["PromotionCode"].empty()) {
+      promotionCode = make_shared<string>(boost::any_cast<string>(m["PromotionCode"]));
     }
     if (m.find("RebootTime") != m.end() && !m["RebootTime"].empty()) {
       rebootTime = make_shared<string>(boost::any_cast<string>(m["RebootTime"]));
@@ -88276,6 +88468,7 @@ public:
   shared_ptr<long> amount{};
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<bool> autoUseCoupon{};
   shared_ptr<string> clientToken{};
   shared_ptr<RunRCInstancesRequestCreateAckEdgeParam> createAckEdgeParam{};
   shared_ptr<string> createExtraParam{};
@@ -88296,6 +88489,7 @@ public:
   shared_ptr<string> password{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
+  shared_ptr<string> promotionCode{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityEnhancementStrategy{};
@@ -88327,6 +88521,9 @@ public:
     }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (autoUseCoupon) {
+      res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -88392,6 +88589,9 @@ public:
     if (periodUnit) {
       res["PeriodUnit"] = boost::any(*periodUnit);
     }
+    if (promotionCode) {
+      res["PromotionCode"] = boost::any(*promotionCode);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -88444,6 +88644,9 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
+      autoUseCoupon = make_shared<bool>(boost::any_cast<bool>(m["AutoUseCoupon"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -88518,6 +88721,9 @@ public:
     }
     if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
       periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
+    if (m.find("PromotionCode") != m.end() && !m["PromotionCode"].empty()) {
+      promotionCode = make_shared<string>(boost::any_cast<string>(m["PromotionCode"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -88615,6 +88821,7 @@ public:
   shared_ptr<long> amount{};
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<bool> autoUseCoupon{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> createAckEdgeParamShrink{};
   shared_ptr<string> createExtraParam{};
@@ -88635,6 +88842,7 @@ public:
   shared_ptr<string> password{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
+  shared_ptr<string> promotionCode{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityEnhancementStrategy{};
@@ -88666,6 +88874,9 @@ public:
     }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (autoUseCoupon) {
+      res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -88727,6 +88938,9 @@ public:
     if (periodUnit) {
       res["PeriodUnit"] = boost::any(*periodUnit);
     }
+    if (promotionCode) {
+      res["PromotionCode"] = boost::any(*promotionCode);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -88779,6 +88993,9 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
+      autoUseCoupon = make_shared<bool>(boost::any_cast<bool>(m["AutoUseCoupon"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -88839,6 +89056,9 @@ public:
     }
     if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
       periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
+    if (m.find("PromotionCode") != m.end() && !m["PromotionCode"].empty()) {
+      promotionCode = make_shared<string>(boost::any_cast<string>(m["PromotionCode"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

@@ -2692,11 +2692,17 @@ CreateRCDiskResponse Alibabacloud_Rds20140815::Client::createRCDiskWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
     query->insert(pair<string, long>("Size", *request->size));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
     query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateRCDiskRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateRCDiskRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     query->insert(pair<string, string>("ZoneId", *request->zoneId));
@@ -14818,6 +14824,9 @@ ModifyRCInstanceResponse Alibabacloud_Rds20140815::Client::modifyRCInstanceWithO
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoUseCoupon)) {
+    query->insert(pair<string, bool>("AutoUseCoupon", *request->autoUseCoupon));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
     query->insert(pair<string, string>("Direction", *request->direction));
   }
@@ -14829,6 +14838,9 @@ ModifyRCInstanceResponse Alibabacloud_Rds20140815::Client::modifyRCInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->promotionCode)) {
+    query->insert(pair<string, string>("PromotionCode", *request->promotionCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rebootTime)) {
     query->insert(pair<string, string>("RebootTime", *request->rebootTime));
@@ -16851,6 +16863,9 @@ RunRCInstancesResponse Alibabacloud_Rds20140815::Client::runRCInstancesWithOptio
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoUseCoupon)) {
+    query->insert(pair<string, bool>("AutoUseCoupon", *request->autoUseCoupon));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -16910,6 +16925,9 @@ RunRCInstancesResponse Alibabacloud_Rds20140815::Client::runRCInstancesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
     query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->promotionCode)) {
+    query->insert(pair<string, string>("PromotionCode", *request->promotionCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
