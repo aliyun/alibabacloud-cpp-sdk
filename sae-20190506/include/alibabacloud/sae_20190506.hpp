@@ -12800,6 +12800,7 @@ public:
 class AbortChangeOrderRequest : public Darabonba::Model {
 public:
   shared_ptr<string> changeOrderId{};
+  shared_ptr<bool> rollback{};
 
   AbortChangeOrderRequest() {}
 
@@ -12814,12 +12815,18 @@ public:
     if (changeOrderId) {
       res["ChangeOrderId"] = boost::any(*changeOrderId);
     }
+    if (rollback) {
+      res["Rollback"] = boost::any(*rollback);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ChangeOrderId") != m.end() && !m["ChangeOrderId"].empty()) {
       changeOrderId = make_shared<string>(boost::any_cast<string>(m["ChangeOrderId"]));
+    }
+    if (m.find("Rollback") != m.end() && !m["Rollback"].empty()) {
+      rollback = make_shared<bool>(boost::any_cast<bool>(m["Rollback"]));
     }
   }
 
@@ -17186,6 +17193,925 @@ public:
 
   virtual ~CreateNamespaceResponse() = default;
 };
+class CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> condition{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions() {}
+
+  explicit CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions() = default;
+};
+class CreateOrUpdateSwimmingLaneRequestAppEntryRule : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionJoiner{};
+  shared_ptr<vector<CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions>> conditions{};
+  shared_ptr<bool> independentPercentageEnable{};
+  shared_ptr<vector<string>> paths{};
+  shared_ptr<long> percentage{};
+  shared_ptr<map<string, long>> percentageByPath{};
+
+  CreateOrUpdateSwimmingLaneRequestAppEntryRule() {}
+
+  explicit CreateOrUpdateSwimmingLaneRequestAppEntryRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionJoiner) {
+      res["ConditionJoiner"] = boost::any(*conditionJoiner);
+    }
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (independentPercentageEnable) {
+      res["IndependentPercentageEnable"] = boost::any(*independentPercentageEnable);
+    }
+    if (paths) {
+      res["Paths"] = boost::any(*paths);
+    }
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (percentageByPath) {
+      res["PercentageByPath"] = boost::any(*percentageByPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionJoiner") != m.end() && !m["ConditionJoiner"].empty()) {
+      conditionJoiner = make_shared<string>(boost::any_cast<string>(m["ConditionJoiner"]));
+    }
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions>>(expect1);
+      }
+    }
+    if (m.find("IndependentPercentageEnable") != m.end() && !m["IndependentPercentageEnable"].empty()) {
+      independentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["IndependentPercentageEnable"]));
+    }
+    if (m.find("Paths") != m.end() && !m["Paths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Paths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Paths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      paths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("PercentageByPath") != m.end() && !m["PercentageByPath"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["PercentageByPath"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      percentageByPath = make_shared<map<string, long>>(toMap1);
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneRequestAppEntryRule() = default;
+};
+class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> condition{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions() {}
+
+  explicit CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions() = default;
+};
+class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionJoiner{};
+  shared_ptr<vector<CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions>> conditions{};
+  shared_ptr<bool> independentPercentageEnable{};
+  shared_ptr<long> percentage{};
+  shared_ptr<map<string, long>> percentageByRoute{};
+  shared_ptr<vector<long>> routeIds{};
+
+  CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule() {}
+
+  explicit CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionJoiner) {
+      res["ConditionJoiner"] = boost::any(*conditionJoiner);
+    }
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (independentPercentageEnable) {
+      res["IndependentPercentageEnable"] = boost::any(*independentPercentageEnable);
+    }
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (percentageByRoute) {
+      res["PercentageByRoute"] = boost::any(*percentageByRoute);
+    }
+    if (routeIds) {
+      res["RouteIds"] = boost::any(*routeIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionJoiner") != m.end() && !m["ConditionJoiner"].empty()) {
+      conditionJoiner = make_shared<string>(boost::any_cast<string>(m["ConditionJoiner"]));
+    }
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions>>(expect1);
+      }
+    }
+    if (m.find("IndependentPercentageEnable") != m.end() && !m["IndependentPercentageEnable"].empty()) {
+      independentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["IndependentPercentageEnable"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("PercentageByRoute") != m.end() && !m["PercentageByRoute"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["PercentageByRoute"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      percentageByRoute = make_shared<map<string, long>>(toMap1);
+    }
+    if (m.find("RouteIds") != m.end() && !m["RouteIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RouteIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RouteIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      routeIds = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule() = default;
+};
+class CreateOrUpdateSwimmingLaneRequest : public Darabonba::Model {
+public:
+  shared_ptr<CreateOrUpdateSwimmingLaneRequestAppEntryRule> appEntryRule{};
+  shared_ptr<long> canaryModel{};
+  shared_ptr<bool> enable{};
+  shared_ptr<long> groupId{};
+  shared_ptr<long> laneId{};
+  shared_ptr<string> laneName{};
+  shared_ptr<string> laneTag{};
+  shared_ptr<CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule> mseGatewayEntryRule{};
+  shared_ptr<string> namespaceId{};
+
+  CreateOrUpdateSwimmingLaneRequest() {}
+
+  explicit CreateOrUpdateSwimmingLaneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appEntryRule) {
+      res["AppEntryRule"] = appEntryRule ? boost::any(appEntryRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (canaryModel) {
+      res["CanaryModel"] = boost::any(*canaryModel);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (laneId) {
+      res["LaneId"] = boost::any(*laneId);
+    }
+    if (laneName) {
+      res["LaneName"] = boost::any(*laneName);
+    }
+    if (laneTag) {
+      res["LaneTag"] = boost::any(*laneTag);
+    }
+    if (mseGatewayEntryRule) {
+      res["MseGatewayEntryRule"] = mseGatewayEntryRule ? boost::any(mseGatewayEntryRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppEntryRule") != m.end() && !m["AppEntryRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AppEntryRule"].type()) {
+        CreateOrUpdateSwimmingLaneRequestAppEntryRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AppEntryRule"]));
+        appEntryRule = make_shared<CreateOrUpdateSwimmingLaneRequestAppEntryRule>(model1);
+      }
+    }
+    if (m.find("CanaryModel") != m.end() && !m["CanaryModel"].empty()) {
+      canaryModel = make_shared<long>(boost::any_cast<long>(m["CanaryModel"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
+      laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
+    }
+    if (m.find("LaneName") != m.end() && !m["LaneName"].empty()) {
+      laneName = make_shared<string>(boost::any_cast<string>(m["LaneName"]));
+    }
+    if (m.find("LaneTag") != m.end() && !m["LaneTag"].empty()) {
+      laneTag = make_shared<string>(boost::any_cast<string>(m["LaneTag"]));
+    }
+    if (m.find("MseGatewayEntryRule") != m.end() && !m["MseGatewayEntryRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MseGatewayEntryRule"].type()) {
+        CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MseGatewayEntryRule"]));
+        mseGatewayEntryRule = make_shared<CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule>(model1);
+      }
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneRequest() = default;
+};
+class CreateOrUpdateSwimmingLaneShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appEntryRuleShrink{};
+  shared_ptr<long> canaryModel{};
+  shared_ptr<bool> enable{};
+  shared_ptr<long> groupId{};
+  shared_ptr<long> laneId{};
+  shared_ptr<string> laneName{};
+  shared_ptr<string> laneTag{};
+  shared_ptr<string> mseGatewayEntryRuleShrink{};
+  shared_ptr<string> namespaceId{};
+
+  CreateOrUpdateSwimmingLaneShrinkRequest() {}
+
+  explicit CreateOrUpdateSwimmingLaneShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appEntryRuleShrink) {
+      res["AppEntryRule"] = boost::any(*appEntryRuleShrink);
+    }
+    if (canaryModel) {
+      res["CanaryModel"] = boost::any(*canaryModel);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (laneId) {
+      res["LaneId"] = boost::any(*laneId);
+    }
+    if (laneName) {
+      res["LaneName"] = boost::any(*laneName);
+    }
+    if (laneTag) {
+      res["LaneTag"] = boost::any(*laneTag);
+    }
+    if (mseGatewayEntryRuleShrink) {
+      res["MseGatewayEntryRule"] = boost::any(*mseGatewayEntryRuleShrink);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppEntryRule") != m.end() && !m["AppEntryRule"].empty()) {
+      appEntryRuleShrink = make_shared<string>(boost::any_cast<string>(m["AppEntryRule"]));
+    }
+    if (m.find("CanaryModel") != m.end() && !m["CanaryModel"].empty()) {
+      canaryModel = make_shared<long>(boost::any_cast<long>(m["CanaryModel"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
+      laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
+    }
+    if (m.find("LaneName") != m.end() && !m["LaneName"].empty()) {
+      laneName = make_shared<string>(boost::any_cast<string>(m["LaneName"]));
+    }
+    if (m.find("LaneTag") != m.end() && !m["LaneTag"].empty()) {
+      laneTag = make_shared<string>(boost::any_cast<string>(m["LaneTag"]));
+    }
+    if (m.find("MseGatewayEntryRule") != m.end() && !m["MseGatewayEntryRule"].empty()) {
+      mseGatewayEntryRuleShrink = make_shared<string>(boost::any_cast<string>(m["MseGatewayEntryRule"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneShrinkRequest() = default;
+};
+class CreateOrUpdateSwimmingLaneResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> laneId{};
+
+  CreateOrUpdateSwimmingLaneResponseBodyData() {}
+
+  explicit CreateOrUpdateSwimmingLaneResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (laneId) {
+      res["LaneId"] = boost::any(*laneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
+      laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneResponseBodyData() = default;
+};
+class CreateOrUpdateSwimmingLaneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreateOrUpdateSwimmingLaneResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  CreateOrUpdateSwimmingLaneResponseBody() {}
+
+  explicit CreateOrUpdateSwimmingLaneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateOrUpdateSwimmingLaneResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateOrUpdateSwimmingLaneResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneResponseBody() = default;
+};
+class CreateOrUpdateSwimmingLaneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateOrUpdateSwimmingLaneResponseBody> body{};
+
+  CreateOrUpdateSwimmingLaneResponse() {}
+
+  explicit CreateOrUpdateSwimmingLaneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateOrUpdateSwimmingLaneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateOrUpdateSwimmingLaneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneResponse() = default;
+};
+class CreateOrUpdateSwimmingLaneGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> appIds{};
+  shared_ptr<string> entryAppId{};
+  shared_ptr<string> entryAppType{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> swimVersion{};
+
+  CreateOrUpdateSwimmingLaneGroupRequest() {}
+
+  explicit CreateOrUpdateSwimmingLaneGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appIds) {
+      res["AppIds"] = boost::any(*appIds);
+    }
+    if (entryAppId) {
+      res["EntryAppId"] = boost::any(*entryAppId);
+    }
+    if (entryAppType) {
+      res["EntryAppType"] = boost::any(*entryAppType);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (swimVersion) {
+      res["SwimVersion"] = boost::any(*swimVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppIds") != m.end() && !m["AppIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AppIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AppIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      appIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EntryAppId") != m.end() && !m["EntryAppId"].empty()) {
+      entryAppId = make_shared<string>(boost::any_cast<string>(m["EntryAppId"]));
+    }
+    if (m.find("EntryAppType") != m.end() && !m["EntryAppType"].empty()) {
+      entryAppType = make_shared<string>(boost::any_cast<string>(m["EntryAppType"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("SwimVersion") != m.end() && !m["SwimVersion"].empty()) {
+      swimVersion = make_shared<string>(boost::any_cast<string>(m["SwimVersion"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneGroupRequest() = default;
+};
+class CreateOrUpdateSwimmingLaneGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appIdsShrink{};
+  shared_ptr<string> entryAppId{};
+  shared_ptr<string> entryAppType{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> swimVersion{};
+
+  CreateOrUpdateSwimmingLaneGroupShrinkRequest() {}
+
+  explicit CreateOrUpdateSwimmingLaneGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appIdsShrink) {
+      res["AppIds"] = boost::any(*appIdsShrink);
+    }
+    if (entryAppId) {
+      res["EntryAppId"] = boost::any(*entryAppId);
+    }
+    if (entryAppType) {
+      res["EntryAppType"] = boost::any(*entryAppType);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (swimVersion) {
+      res["SwimVersion"] = boost::any(*swimVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppIds") != m.end() && !m["AppIds"].empty()) {
+      appIdsShrink = make_shared<string>(boost::any_cast<string>(m["AppIds"]));
+    }
+    if (m.find("EntryAppId") != m.end() && !m["EntryAppId"].empty()) {
+      entryAppId = make_shared<string>(boost::any_cast<string>(m["EntryAppId"]));
+    }
+    if (m.find("EntryAppType") != m.end() && !m["EntryAppType"].empty()) {
+      entryAppType = make_shared<string>(boost::any_cast<string>(m["EntryAppType"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("SwimVersion") != m.end() && !m["SwimVersion"].empty()) {
+      swimVersion = make_shared<string>(boost::any_cast<string>(m["SwimVersion"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneGroupShrinkRequest() = default;
+};
+class CreateOrUpdateSwimmingLaneGroupResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> groupId{};
+
+  CreateOrUpdateSwimmingLaneGroupResponseBodyData() {}
+
+  explicit CreateOrUpdateSwimmingLaneGroupResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneGroupResponseBodyData() = default;
+};
+class CreateOrUpdateSwimmingLaneGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreateOrUpdateSwimmingLaneGroupResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  CreateOrUpdateSwimmingLaneGroupResponseBody() {}
+
+  explicit CreateOrUpdateSwimmingLaneGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateOrUpdateSwimmingLaneGroupResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateOrUpdateSwimmingLaneGroupResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneGroupResponseBody() = default;
+};
+class CreateOrUpdateSwimmingLaneGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateOrUpdateSwimmingLaneGroupResponseBody> body{};
+
+  CreateOrUpdateSwimmingLaneGroupResponse() {}
+
+  explicit CreateOrUpdateSwimmingLaneGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateOrUpdateSwimmingLaneGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateOrUpdateSwimmingLaneGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneGroupResponse() = default;
+};
 class CreateSecretRequestSecretData : public Darabonba::Model {
 public:
   shared_ptr<string> secretData{};
@@ -19205,6 +20131,158 @@ public:
 
 
   virtual ~DeleteSecretResponse() = default;
+};
+class DeleteSwimmingLaneGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> groupId{};
+  shared_ptr<string> namespaceId{};
+
+  DeleteSwimmingLaneGroupRequest() {}
+
+  explicit DeleteSwimmingLaneGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~DeleteSwimmingLaneGroupRequest() = default;
+};
+class DeleteSwimmingLaneGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  DeleteSwimmingLaneGroupResponseBody() {}
+
+  explicit DeleteSwimmingLaneGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~DeleteSwimmingLaneGroupResponseBody() = default;
+};
+class DeleteSwimmingLaneGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteSwimmingLaneGroupResponseBody> body{};
+
+  DeleteSwimmingLaneGroupResponse() {}
+
+  explicit DeleteSwimmingLaneGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSwimmingLaneGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSwimmingLaneGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSwimmingLaneGroupResponse() = default;
 };
 class DeleteWebApplicationRequest : public Darabonba::Model {
 public:
@@ -33137,6 +34215,771 @@ public:
 
   virtual ~DescribeSecretResponse() = default;
 };
+class DescribeSwimmingLaneRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> groupId{};
+  shared_ptr<long> laneId{};
+  shared_ptr<string> namespaceId{};
+
+  DescribeSwimmingLaneRequest() {}
+
+  explicit DescribeSwimmingLaneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (laneId) {
+      res["LaneId"] = boost::any(*laneId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
+      laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneRequest() = default;
+};
+class DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> condition{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+  shared_ptr<vector<string>> values{};
+
+  DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions() {}
+
+  explicit DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions() = default;
+};
+class DescribeSwimmingLaneResponseBodyDataAppEntryRule : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionJoiner{};
+  shared_ptr<vector<DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions>> conditions{};
+  shared_ptr<bool> independentPercentageEnable{};
+  shared_ptr<vector<string>> paths{};
+  shared_ptr<long> percentage{};
+  shared_ptr<map<string, long>> percentageByPath{};
+
+  DescribeSwimmingLaneResponseBodyDataAppEntryRule() {}
+
+  explicit DescribeSwimmingLaneResponseBodyDataAppEntryRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionJoiner) {
+      res["ConditionJoiner"] = boost::any(*conditionJoiner);
+    }
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (independentPercentageEnable) {
+      res["IndependentPercentageEnable"] = boost::any(*independentPercentageEnable);
+    }
+    if (paths) {
+      res["Paths"] = boost::any(*paths);
+    }
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (percentageByPath) {
+      res["PercentageByPath"] = boost::any(*percentageByPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionJoiner") != m.end() && !m["ConditionJoiner"].empty()) {
+      conditionJoiner = make_shared<string>(boost::any_cast<string>(m["ConditionJoiner"]));
+    }
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions>>(expect1);
+      }
+    }
+    if (m.find("IndependentPercentageEnable") != m.end() && !m["IndependentPercentageEnable"].empty()) {
+      independentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["IndependentPercentageEnable"]));
+    }
+    if (m.find("Paths") != m.end() && !m["Paths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Paths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Paths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      paths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("PercentageByPath") != m.end() && !m["PercentageByPath"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["PercentageByPath"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      percentageByPath = make_shared<map<string, long>>(toMap1);
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyDataAppEntryRule() = default;
+};
+class DescribeSwimmingLaneResponseBodyDataApps : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> mseAppId{};
+  shared_ptr<string> mseAppName{};
+  shared_ptr<string> mseNamespaceId{};
+
+  DescribeSwimmingLaneResponseBodyDataApps() {}
+
+  explicit DescribeSwimmingLaneResponseBodyDataApps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (mseAppId) {
+      res["MseAppId"] = boost::any(*mseAppId);
+    }
+    if (mseAppName) {
+      res["MseAppName"] = boost::any(*mseAppName);
+    }
+    if (mseNamespaceId) {
+      res["mseNamespaceId"] = boost::any(*mseNamespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("MseAppId") != m.end() && !m["MseAppId"].empty()) {
+      mseAppId = make_shared<string>(boost::any_cast<string>(m["MseAppId"]));
+    }
+    if (m.find("MseAppName") != m.end() && !m["MseAppName"].empty()) {
+      mseAppName = make_shared<string>(boost::any_cast<string>(m["MseAppName"]));
+    }
+    if (m.find("mseNamespaceId") != m.end() && !m["mseNamespaceId"].empty()) {
+      mseNamespaceId = make_shared<string>(boost::any_cast<string>(m["mseNamespaceId"]));
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyDataApps() = default;
+};
+class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> condition{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions() {}
+
+  explicit DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions() = default;
+};
+class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate : public Darabonba::Model {
+public:
+  shared_ptr<string> path{};
+  shared_ptr<string> type{};
+
+  DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate() {}
+
+  explicit DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate() = default;
+};
+class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate> pathPredicate{};
+
+  DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate() {}
+
+  explicit DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pathPredicate) {
+      res["PathPredicate"] = pathPredicate ? boost::any(pathPredicate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PathPredicate") != m.end() && !m["PathPredicate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PathPredicate"].type()) {
+        DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PathPredicate"]));
+        pathPredicate = make_shared<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate() = default;
+};
+class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes : public Darabonba::Model {
+public:
+  shared_ptr<long> routeId{};
+  shared_ptr<string> routeName{};
+  shared_ptr<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate> routePredicate{};
+
+  DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes() {}
+
+  explicit DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (routeId) {
+      res["RouteId"] = boost::any(*routeId);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (routePredicate) {
+      res["RoutePredicate"] = routePredicate ? boost::any(routePredicate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
+      routeId = make_shared<long>(boost::any_cast<long>(m["RouteId"]));
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("RoutePredicate") != m.end() && !m["RoutePredicate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RoutePredicate"].type()) {
+        DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RoutePredicate"]));
+        routePredicate = make_shared<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes() = default;
+};
+class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionJoiner{};
+  shared_ptr<vector<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions>> conditions{};
+  shared_ptr<bool> independentPercentageEnable{};
+  shared_ptr<long> percentage{};
+  shared_ptr<map<string, long>> percentageByRoute{};
+  shared_ptr<vector<long>> routeIds{};
+  shared_ptr<vector<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes>> routes{};
+
+  DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule() {}
+
+  explicit DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionJoiner) {
+      res["ConditionJoiner"] = boost::any(*conditionJoiner);
+    }
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (independentPercentageEnable) {
+      res["IndependentPercentageEnable"] = boost::any(*independentPercentageEnable);
+    }
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (percentageByRoute) {
+      res["PercentageByRoute"] = boost::any(*percentageByRoute);
+    }
+    if (routeIds) {
+      res["RouteIds"] = boost::any(*routeIds);
+    }
+    if (routes) {
+      vector<boost::any> temp1;
+      for(auto item1:*routes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Routes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionJoiner") != m.end() && !m["ConditionJoiner"].empty()) {
+      conditionJoiner = make_shared<string>(boost::any_cast<string>(m["ConditionJoiner"]));
+    }
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions>>(expect1);
+      }
+    }
+    if (m.find("IndependentPercentageEnable") != m.end() && !m["IndependentPercentageEnable"].empty()) {
+      independentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["IndependentPercentageEnable"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("PercentageByRoute") != m.end() && !m["PercentageByRoute"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["PercentageByRoute"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      percentageByRoute = make_shared<map<string, long>>(toMap1);
+    }
+    if (m.find("RouteIds") != m.end() && !m["RouteIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RouteIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RouteIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      routeIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Routes") != m.end() && !m["Routes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Routes"].type()) {
+        vector<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Routes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routes = make_shared<vector<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule() = default;
+};
+class DescribeSwimmingLaneResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSwimmingLaneResponseBodyDataAppEntryRule> appEntryRule{};
+  shared_ptr<vector<DescribeSwimmingLaneResponseBodyDataApps>> apps{};
+  shared_ptr<long> canaryModel{};
+  shared_ptr<bool> enable{};
+  shared_ptr<bool> enableRules{};
+  shared_ptr<long> laneId{};
+  shared_ptr<string> laneName{};
+  shared_ptr<string> laneTag{};
+  shared_ptr<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule> mseGatewayEntryRule{};
+
+  DescribeSwimmingLaneResponseBodyData() {}
+
+  explicit DescribeSwimmingLaneResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appEntryRule) {
+      res["AppEntryRule"] = appEntryRule ? boost::any(appEntryRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (apps) {
+      vector<boost::any> temp1;
+      for(auto item1:*apps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Apps"] = boost::any(temp1);
+    }
+    if (canaryModel) {
+      res["CanaryModel"] = boost::any(*canaryModel);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (enableRules) {
+      res["EnableRules"] = boost::any(*enableRules);
+    }
+    if (laneId) {
+      res["LaneId"] = boost::any(*laneId);
+    }
+    if (laneName) {
+      res["LaneName"] = boost::any(*laneName);
+    }
+    if (laneTag) {
+      res["LaneTag"] = boost::any(*laneTag);
+    }
+    if (mseGatewayEntryRule) {
+      res["MseGatewayEntryRule"] = mseGatewayEntryRule ? boost::any(mseGatewayEntryRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppEntryRule") != m.end() && !m["AppEntryRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AppEntryRule"].type()) {
+        DescribeSwimmingLaneResponseBodyDataAppEntryRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AppEntryRule"]));
+        appEntryRule = make_shared<DescribeSwimmingLaneResponseBodyDataAppEntryRule>(model1);
+      }
+    }
+    if (m.find("Apps") != m.end() && !m["Apps"].empty()) {
+      if (typeid(vector<boost::any>) == m["Apps"].type()) {
+        vector<DescribeSwimmingLaneResponseBodyDataApps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Apps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSwimmingLaneResponseBodyDataApps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apps = make_shared<vector<DescribeSwimmingLaneResponseBodyDataApps>>(expect1);
+      }
+    }
+    if (m.find("CanaryModel") != m.end() && !m["CanaryModel"].empty()) {
+      canaryModel = make_shared<long>(boost::any_cast<long>(m["CanaryModel"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("EnableRules") != m.end() && !m["EnableRules"].empty()) {
+      enableRules = make_shared<bool>(boost::any_cast<bool>(m["EnableRules"]));
+    }
+    if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
+      laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
+    }
+    if (m.find("LaneName") != m.end() && !m["LaneName"].empty()) {
+      laneName = make_shared<string>(boost::any_cast<string>(m["LaneName"]));
+    }
+    if (m.find("LaneTag") != m.end() && !m["LaneTag"].empty()) {
+      laneTag = make_shared<string>(boost::any_cast<string>(m["LaneTag"]));
+    }
+    if (m.find("MseGatewayEntryRule") != m.end() && !m["MseGatewayEntryRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MseGatewayEntryRule"].type()) {
+        DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MseGatewayEntryRule"]));
+        mseGatewayEntryRule = make_shared<DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBodyData() = default;
+};
+class DescribeSwimmingLaneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DescribeSwimmingLaneResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  DescribeSwimmingLaneResponseBody() {}
+
+  explicit DescribeSwimmingLaneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeSwimmingLaneResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeSwimmingLaneResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponseBody() = default;
+};
+class DescribeSwimmingLaneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSwimmingLaneResponseBody> body{};
+
+  DescribeSwimmingLaneResponse() {}
+
+  explicit DescribeSwimmingLaneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSwimmingLaneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSwimmingLaneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSwimmingLaneResponse() = default;
+};
 class DescribeWebApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> namespaceId{};
@@ -36226,6 +38069,1185 @@ public:
 
 
   virtual ~GetWebshellTokenResponse() = default;
+};
+class ListAllSwimmingLaneGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> namespaceId{};
+
+  ListAllSwimmingLaneGroupsRequest() {}
+
+  explicit ListAllSwimmingLaneGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLaneGroupsRequest() = default;
+};
+class ListAllSwimmingLaneGroupsResponseBodyDataApps : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> mseAppId{};
+  shared_ptr<string> mseAppName{};
+  shared_ptr<string> mseNamespaceId{};
+
+  ListAllSwimmingLaneGroupsResponseBodyDataApps() {}
+
+  explicit ListAllSwimmingLaneGroupsResponseBodyDataApps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (mseAppId) {
+      res["MseAppId"] = boost::any(*mseAppId);
+    }
+    if (mseAppName) {
+      res["MseAppName"] = boost::any(*mseAppName);
+    }
+    if (mseNamespaceId) {
+      res["MseNamespaceId"] = boost::any(*mseNamespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("MseAppId") != m.end() && !m["MseAppId"].empty()) {
+      mseAppId = make_shared<string>(boost::any_cast<string>(m["MseAppId"]));
+    }
+    if (m.find("MseAppName") != m.end() && !m["MseAppName"].empty()) {
+      mseAppName = make_shared<string>(boost::any_cast<string>(m["MseAppName"]));
+    }
+    if (m.find("MseNamespaceId") != m.end() && !m["MseNamespaceId"].empty()) {
+      mseNamespaceId = make_shared<string>(boost::any_cast<string>(m["MseNamespaceId"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLaneGroupsResponseBodyDataApps() = default;
+};
+class ListAllSwimmingLaneGroupsResponseBodyDataEntryApp : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> appType{};
+  shared_ptr<string> mseAppId{};
+  shared_ptr<string> mseAppName{};
+  shared_ptr<string> mseNamespaceId{};
+
+  ListAllSwimmingLaneGroupsResponseBodyDataEntryApp() {}
+
+  explicit ListAllSwimmingLaneGroupsResponseBodyDataEntryApp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
+    }
+    if (mseAppId) {
+      res["MseAppId"] = boost::any(*mseAppId);
+    }
+    if (mseAppName) {
+      res["MseAppName"] = boost::any(*mseAppName);
+    }
+    if (mseNamespaceId) {
+      res["MseNamespaceId"] = boost::any(*mseNamespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<string>(boost::any_cast<string>(m["AppType"]));
+    }
+    if (m.find("MseAppId") != m.end() && !m["MseAppId"].empty()) {
+      mseAppId = make_shared<string>(boost::any_cast<string>(m["MseAppId"]));
+    }
+    if (m.find("MseAppName") != m.end() && !m["MseAppName"].empty()) {
+      mseAppName = make_shared<string>(boost::any_cast<string>(m["MseAppName"]));
+    }
+    if (m.find("MseNamespaceId") != m.end() && !m["MseNamespaceId"].empty()) {
+      mseNamespaceId = make_shared<string>(boost::any_cast<string>(m["MseNamespaceId"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLaneGroupsResponseBodyDataEntryApp() = default;
+};
+class ListAllSwimmingLaneGroupsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> appIds{};
+  shared_ptr<vector<ListAllSwimmingLaneGroupsResponseBodyDataApps>> apps{};
+  shared_ptr<long> canaryModel{};
+  shared_ptr<ListAllSwimmingLaneGroupsResponseBodyDataEntryApp> entryApp{};
+  shared_ptr<string> entryAppId{};
+  shared_ptr<string> entryAppType{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> mseNamespaceId{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> swimVersion{};
+
+  ListAllSwimmingLaneGroupsResponseBodyData() {}
+
+  explicit ListAllSwimmingLaneGroupsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appIds) {
+      res["AppIds"] = boost::any(*appIds);
+    }
+    if (apps) {
+      vector<boost::any> temp1;
+      for(auto item1:*apps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Apps"] = boost::any(temp1);
+    }
+    if (canaryModel) {
+      res["CanaryModel"] = boost::any(*canaryModel);
+    }
+    if (entryApp) {
+      res["EntryApp"] = entryApp ? boost::any(entryApp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (entryAppId) {
+      res["EntryAppId"] = boost::any(*entryAppId);
+    }
+    if (entryAppType) {
+      res["EntryAppType"] = boost::any(*entryAppType);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (mseNamespaceId) {
+      res["MseNamespaceId"] = boost::any(*mseNamespaceId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (swimVersion) {
+      res["SwimVersion"] = boost::any(*swimVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppIds") != m.end() && !m["AppIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AppIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AppIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      appIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Apps") != m.end() && !m["Apps"].empty()) {
+      if (typeid(vector<boost::any>) == m["Apps"].type()) {
+        vector<ListAllSwimmingLaneGroupsResponseBodyDataApps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Apps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAllSwimmingLaneGroupsResponseBodyDataApps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apps = make_shared<vector<ListAllSwimmingLaneGroupsResponseBodyDataApps>>(expect1);
+      }
+    }
+    if (m.find("CanaryModel") != m.end() && !m["CanaryModel"].empty()) {
+      canaryModel = make_shared<long>(boost::any_cast<long>(m["CanaryModel"]));
+    }
+    if (m.find("EntryApp") != m.end() && !m["EntryApp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EntryApp"].type()) {
+        ListAllSwimmingLaneGroupsResponseBodyDataEntryApp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EntryApp"]));
+        entryApp = make_shared<ListAllSwimmingLaneGroupsResponseBodyDataEntryApp>(model1);
+      }
+    }
+    if (m.find("EntryAppId") != m.end() && !m["EntryAppId"].empty()) {
+      entryAppId = make_shared<string>(boost::any_cast<string>(m["EntryAppId"]));
+    }
+    if (m.find("EntryAppType") != m.end() && !m["EntryAppType"].empty()) {
+      entryAppType = make_shared<string>(boost::any_cast<string>(m["EntryAppType"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("MseNamespaceId") != m.end() && !m["MseNamespaceId"].empty()) {
+      mseNamespaceId = make_shared<string>(boost::any_cast<string>(m["MseNamespaceId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("SwimVersion") != m.end() && !m["SwimVersion"].empty()) {
+      swimVersion = make_shared<string>(boost::any_cast<string>(m["SwimVersion"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLaneGroupsResponseBodyData() = default;
+};
+class ListAllSwimmingLaneGroupsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<ListAllSwimmingLaneGroupsResponseBodyData>> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  ListAllSwimmingLaneGroupsResponseBody() {}
+
+  explicit ListAllSwimmingLaneGroupsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListAllSwimmingLaneGroupsResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAllSwimmingLaneGroupsResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListAllSwimmingLaneGroupsResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLaneGroupsResponseBody() = default;
+};
+class ListAllSwimmingLaneGroupsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAllSwimmingLaneGroupsResponseBody> body{};
+
+  ListAllSwimmingLaneGroupsResponse() {}
+
+  explicit ListAllSwimmingLaneGroupsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAllSwimmingLaneGroupsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAllSwimmingLaneGroupsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLaneGroupsResponse() = default;
+};
+class ListAllSwimmingLanesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> groupId{};
+  shared_ptr<string> namespaceId{};
+
+  ListAllSwimmingLanesRequest() {}
+
+  explicit ListAllSwimmingLanesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesRequest() = default;
+};
+class ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> condition{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+  shared_ptr<vector<string>> values{};
+
+  ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions() {}
+
+  explicit ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions() = default;
+};
+class ListAllSwimmingLanesResponseBodyDataAppEntryRule : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionJoiner{};
+  shared_ptr<vector<ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions>> conditions{};
+  shared_ptr<bool> independentPercentageEnable{};
+  shared_ptr<vector<string>> paths{};
+  shared_ptr<long> percentage{};
+  shared_ptr<map<string, long>> percentageByPath{};
+
+  ListAllSwimmingLanesResponseBodyDataAppEntryRule() {}
+
+  explicit ListAllSwimmingLanesResponseBodyDataAppEntryRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionJoiner) {
+      res["ConditionJoiner"] = boost::any(*conditionJoiner);
+    }
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (independentPercentageEnable) {
+      res["IndependentPercentageEnable"] = boost::any(*independentPercentageEnable);
+    }
+    if (paths) {
+      res["Paths"] = boost::any(*paths);
+    }
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (percentageByPath) {
+      res["PercentageByPath"] = boost::any(*percentageByPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionJoiner") != m.end() && !m["ConditionJoiner"].empty()) {
+      conditionJoiner = make_shared<string>(boost::any_cast<string>(m["ConditionJoiner"]));
+    }
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions>>(expect1);
+      }
+    }
+    if (m.find("IndependentPercentageEnable") != m.end() && !m["IndependentPercentageEnable"].empty()) {
+      independentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["IndependentPercentageEnable"]));
+    }
+    if (m.find("Paths") != m.end() && !m["Paths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Paths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Paths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      paths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("PercentageByPath") != m.end() && !m["PercentageByPath"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["PercentageByPath"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      percentageByPath = make_shared<map<string, long>>(toMap1);
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyDataAppEntryRule() = default;
+};
+class ListAllSwimmingLanesResponseBodyDataApps : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> mseAppId{};
+  shared_ptr<string> mseAppName{};
+  shared_ptr<string> mseNamespaceId{};
+
+  ListAllSwimmingLanesResponseBodyDataApps() {}
+
+  explicit ListAllSwimmingLanesResponseBodyDataApps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (mseAppId) {
+      res["MseAppId"] = boost::any(*mseAppId);
+    }
+    if (mseAppName) {
+      res["MseAppName"] = boost::any(*mseAppName);
+    }
+    if (mseNamespaceId) {
+      res["MseNamespaceId"] = boost::any(*mseNamespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("MseAppId") != m.end() && !m["MseAppId"].empty()) {
+      mseAppId = make_shared<string>(boost::any_cast<string>(m["MseAppId"]));
+    }
+    if (m.find("MseAppName") != m.end() && !m["MseAppName"].empty()) {
+      mseAppName = make_shared<string>(boost::any_cast<string>(m["MseAppName"]));
+    }
+    if (m.find("MseNamespaceId") != m.end() && !m["MseNamespaceId"].empty()) {
+      mseNamespaceId = make_shared<string>(boost::any_cast<string>(m["MseNamespaceId"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyDataApps() = default;
+};
+class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> condition{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions() {}
+
+  explicit ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions() = default;
+};
+class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate : public Darabonba::Model {
+public:
+  shared_ptr<string> path{};
+  shared_ptr<string> type{};
+
+  ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate() {}
+
+  explicit ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (path) {
+      res["path"] = boost::any(*path);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("path") != m.end() && !m["path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["path"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate() = default;
+};
+class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate : public Darabonba::Model {
+public:
+  shared_ptr<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate> pathPredicate{};
+
+  ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate() {}
+
+  explicit ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pathPredicate) {
+      res["PathPredicate"] = pathPredicate ? boost::any(pathPredicate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PathPredicate") != m.end() && !m["PathPredicate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PathPredicate"].type()) {
+        ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PathPredicate"]));
+        pathPredicate = make_shared<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate() = default;
+};
+class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes : public Darabonba::Model {
+public:
+  shared_ptr<long> routeId{};
+  shared_ptr<string> routeName{};
+  shared_ptr<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate> routePredicate{};
+
+  ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes() {}
+
+  explicit ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (routeId) {
+      res["RouteId"] = boost::any(*routeId);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (routePredicate) {
+      res["RoutePredicate"] = routePredicate ? boost::any(routePredicate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
+      routeId = make_shared<long>(boost::any_cast<long>(m["RouteId"]));
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("RoutePredicate") != m.end() && !m["RoutePredicate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RoutePredicate"].type()) {
+        ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RoutePredicate"]));
+        routePredicate = make_shared<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes() = default;
+};
+class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionJoiner{};
+  shared_ptr<vector<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions>> conditions{};
+  shared_ptr<bool> independentPercentageEnable{};
+  shared_ptr<long> percentage{};
+  shared_ptr<map<string, long>> percentageByRoute{};
+  shared_ptr<vector<long>> routeIds{};
+  shared_ptr<vector<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes>> routes{};
+
+  ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule() {}
+
+  explicit ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionJoiner) {
+      res["ConditionJoiner"] = boost::any(*conditionJoiner);
+    }
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
+    if (independentPercentageEnable) {
+      res["IndependentPercentageEnable"] = boost::any(*independentPercentageEnable);
+    }
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (percentageByRoute) {
+      res["PercentageByRoute"] = boost::any(*percentageByRoute);
+    }
+    if (routeIds) {
+      res["RouteIds"] = boost::any(*routeIds);
+    }
+    if (routes) {
+      vector<boost::any> temp1;
+      for(auto item1:*routes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Routes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConditionJoiner") != m.end() && !m["ConditionJoiner"].empty()) {
+      conditionJoiner = make_shared<string>(boost::any_cast<string>(m["ConditionJoiner"]));
+    }
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions>>(expect1);
+      }
+    }
+    if (m.find("IndependentPercentageEnable") != m.end() && !m["IndependentPercentageEnable"].empty()) {
+      independentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["IndependentPercentageEnable"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("PercentageByRoute") != m.end() && !m["PercentageByRoute"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["PercentageByRoute"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      percentageByRoute = make_shared<map<string, long>>(toMap1);
+    }
+    if (m.find("RouteIds") != m.end() && !m["RouteIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RouteIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RouteIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      routeIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Routes") != m.end() && !m["Routes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Routes"].type()) {
+        vector<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Routes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routes = make_shared<vector<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule() = default;
+};
+class ListAllSwimmingLanesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<ListAllSwimmingLanesResponseBodyDataAppEntryRule> appEntryRule{};
+  shared_ptr<vector<ListAllSwimmingLanesResponseBodyDataApps>> apps{};
+  shared_ptr<long> canaryModel{};
+  shared_ptr<bool> enable{};
+  shared_ptr<bool> enableRules{};
+  shared_ptr<long> laneId{};
+  shared_ptr<string> laneName{};
+  shared_ptr<string> laneTag{};
+  shared_ptr<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule> mseGatewayEntryRule{};
+
+  ListAllSwimmingLanesResponseBodyData() {}
+
+  explicit ListAllSwimmingLanesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appEntryRule) {
+      res["AppEntryRule"] = appEntryRule ? boost::any(appEntryRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (apps) {
+      vector<boost::any> temp1;
+      for(auto item1:*apps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Apps"] = boost::any(temp1);
+    }
+    if (canaryModel) {
+      res["CanaryModel"] = boost::any(*canaryModel);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (enableRules) {
+      res["EnableRules"] = boost::any(*enableRules);
+    }
+    if (laneId) {
+      res["LaneId"] = boost::any(*laneId);
+    }
+    if (laneName) {
+      res["LaneName"] = boost::any(*laneName);
+    }
+    if (laneTag) {
+      res["LaneTag"] = boost::any(*laneTag);
+    }
+    if (mseGatewayEntryRule) {
+      res["MseGatewayEntryRule"] = mseGatewayEntryRule ? boost::any(mseGatewayEntryRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppEntryRule") != m.end() && !m["AppEntryRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AppEntryRule"].type()) {
+        ListAllSwimmingLanesResponseBodyDataAppEntryRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AppEntryRule"]));
+        appEntryRule = make_shared<ListAllSwimmingLanesResponseBodyDataAppEntryRule>(model1);
+      }
+    }
+    if (m.find("Apps") != m.end() && !m["Apps"].empty()) {
+      if (typeid(vector<boost::any>) == m["Apps"].type()) {
+        vector<ListAllSwimmingLanesResponseBodyDataApps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Apps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAllSwimmingLanesResponseBodyDataApps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apps = make_shared<vector<ListAllSwimmingLanesResponseBodyDataApps>>(expect1);
+      }
+    }
+    if (m.find("CanaryModel") != m.end() && !m["CanaryModel"].empty()) {
+      canaryModel = make_shared<long>(boost::any_cast<long>(m["CanaryModel"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("EnableRules") != m.end() && !m["EnableRules"].empty()) {
+      enableRules = make_shared<bool>(boost::any_cast<bool>(m["EnableRules"]));
+    }
+    if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
+      laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
+    }
+    if (m.find("LaneName") != m.end() && !m["LaneName"].empty()) {
+      laneName = make_shared<string>(boost::any_cast<string>(m["LaneName"]));
+    }
+    if (m.find("LaneTag") != m.end() && !m["LaneTag"].empty()) {
+      laneTag = make_shared<string>(boost::any_cast<string>(m["LaneTag"]));
+    }
+    if (m.find("MseGatewayEntryRule") != m.end() && !m["MseGatewayEntryRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MseGatewayEntryRule"].type()) {
+        ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MseGatewayEntryRule"]));
+        mseGatewayEntryRule = make_shared<ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBodyData() = default;
+};
+class ListAllSwimmingLanesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<ListAllSwimmingLanesResponseBodyData>> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  ListAllSwimmingLanesResponseBody() {}
+
+  explicit ListAllSwimmingLanesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListAllSwimmingLanesResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAllSwimmingLanesResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListAllSwimmingLanesResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponseBody() = default;
+};
+class ListAllSwimmingLanesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAllSwimmingLanesResponseBody> body{};
+
+  ListAllSwimmingLanesResponse() {}
+
+  explicit ListAllSwimmingLanesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAllSwimmingLanesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAllSwimmingLanesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAllSwimmingLanesResponse() = default;
 };
 class ListAppEventsRequest : public Darabonba::Model {
 public:
@@ -42579,6 +45601,504 @@ public:
 
 
   virtual ~ListSecretsResponse() = default;
+};
+class ListSwimmingLaneGatewayRoutesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> namespaceId{};
+
+  ListSwimmingLaneGatewayRoutesRequest() {}
+
+  explicit ListSwimmingLaneGatewayRoutesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGatewayRoutesRequest() = default;
+};
+class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate : public Darabonba::Model {
+public:
+  shared_ptr<string> path{};
+  shared_ptr<string> type{};
+
+  ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate() {}
+
+  explicit ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate() = default;
+};
+class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate : public Darabonba::Model {
+public:
+  shared_ptr<ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate> pathPredicate{};
+
+  ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate() {}
+
+  explicit ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pathPredicate) {
+      res["PathPredicate"] = pathPredicate ? boost::any(pathPredicate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PathPredicate") != m.end() && !m["PathPredicate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PathPredicate"].type()) {
+        ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PathPredicate"]));
+        pathPredicate = make_shared<ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate() = default;
+};
+class ListSwimmingLaneGatewayRoutesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> routeId{};
+  shared_ptr<string> routeName{};
+  shared_ptr<ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate> routePredicate{};
+
+  ListSwimmingLaneGatewayRoutesResponseBodyData() {}
+
+  explicit ListSwimmingLaneGatewayRoutesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (routeId) {
+      res["RouteId"] = boost::any(*routeId);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (routePredicate) {
+      res["RoutePredicate"] = routePredicate ? boost::any(routePredicate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
+      routeId = make_shared<long>(boost::any_cast<long>(m["RouteId"]));
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("RoutePredicate") != m.end() && !m["RoutePredicate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RoutePredicate"].type()) {
+        ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RoutePredicate"]));
+        routePredicate = make_shared<ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGatewayRoutesResponseBodyData() = default;
+};
+class ListSwimmingLaneGatewayRoutesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<ListSwimmingLaneGatewayRoutesResponseBodyData>> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  ListSwimmingLaneGatewayRoutesResponseBody() {}
+
+  explicit ListSwimmingLaneGatewayRoutesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListSwimmingLaneGatewayRoutesResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSwimmingLaneGatewayRoutesResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListSwimmingLaneGatewayRoutesResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGatewayRoutesResponseBody() = default;
+};
+class ListSwimmingLaneGatewayRoutesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSwimmingLaneGatewayRoutesResponseBody> body{};
+
+  ListSwimmingLaneGatewayRoutesResponse() {}
+
+  explicit ListSwimmingLaneGatewayRoutesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSwimmingLaneGatewayRoutesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSwimmingLaneGatewayRoutesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGatewayRoutesResponse() = default;
+};
+class ListSwimmingLaneGroupTagsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> groupId{};
+  shared_ptr<string> namespaceId{};
+
+  ListSwimmingLaneGroupTagsRequest() {}
+
+  explicit ListSwimmingLaneGroupTagsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGroupTagsRequest() = default;
+};
+class ListSwimmingLaneGroupTagsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> metadata{};
+  shared_ptr<string> tag{};
+
+  ListSwimmingLaneGroupTagsResponseBodyData() {}
+
+  explicit ListSwimmingLaneGroupTagsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metadata) {
+      res["Metadata"] = boost::any(*metadata);
+    }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
+      metadata = make_shared<string>(boost::any_cast<string>(m["Metadata"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGroupTagsResponseBodyData() = default;
+};
+class ListSwimmingLaneGroupTagsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<ListSwimmingLaneGroupTagsResponseBodyData>> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  ListSwimmingLaneGroupTagsResponseBody() {}
+
+  explicit ListSwimmingLaneGroupTagsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListSwimmingLaneGroupTagsResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSwimmingLaneGroupTagsResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListSwimmingLaneGroupTagsResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGroupTagsResponseBody() = default;
+};
+class ListSwimmingLaneGroupTagsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSwimmingLaneGroupTagsResponseBody> body{};
+
+  ListSwimmingLaneGroupTagsResponse() {}
+
+  explicit ListSwimmingLaneGroupTagsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSwimmingLaneGroupTagsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSwimmingLaneGroupTagsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSwimmingLaneGroupTagsResponse() = default;
 };
 class ListTagResourcesRequest : public Darabonba::Model {
 public:
@@ -49465,6 +52985,172 @@ public:
 
   virtual ~UpdateSecretResponse() = default;
 };
+class UpdateSwimmingLaneEnableAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<long> groupId{};
+  shared_ptr<long> laneId{};
+  shared_ptr<string> namespaceId{};
+
+  UpdateSwimmingLaneEnableAttributeRequest() {}
+
+  explicit UpdateSwimmingLaneEnableAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (laneId) {
+      res["LaneId"] = boost::any(*laneId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
+      laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~UpdateSwimmingLaneEnableAttributeRequest() = default;
+};
+class UpdateSwimmingLaneEnableAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  UpdateSwimmingLaneEnableAttributeResponseBody() {}
+
+  explicit UpdateSwimmingLaneEnableAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~UpdateSwimmingLaneEnableAttributeResponseBody() = default;
+};
+class UpdateSwimmingLaneEnableAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateSwimmingLaneEnableAttributeResponseBody> body{};
+
+  UpdateSwimmingLaneEnableAttributeResponse() {}
+
+  explicit UpdateSwimmingLaneEnableAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSwimmingLaneEnableAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSwimmingLaneEnableAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSwimmingLaneEnableAttributeResponse() = default;
+};
 class UpdateWebApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> namespaceId{};
@@ -50054,6 +53740,10 @@ public:
   CreateJobResponse createJob(shared_ptr<CreateJobRequest> request);
   CreateNamespaceResponse createNamespaceWithOptions(shared_ptr<CreateNamespaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateNamespaceResponse createNamespace(shared_ptr<CreateNamespaceRequest> request);
+  CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLaneWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLane(shared_ptr<CreateOrUpdateSwimmingLaneRequest> request);
+  CreateOrUpdateSwimmingLaneGroupResponse createOrUpdateSwimmingLaneGroupWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneGroupRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateOrUpdateSwimmingLaneGroupResponse createOrUpdateSwimmingLaneGroup(shared_ptr<CreateOrUpdateSwimmingLaneGroupRequest> request);
   CreateSecretResponse createSecretWithOptions(shared_ptr<CreateSecretRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSecretResponse createSecret(shared_ptr<CreateSecretRequest> request);
   CreateWebApplicationResponse createWebApplicationWithOptions(shared_ptr<CreateWebApplicationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -50078,6 +53768,8 @@ public:
   DeleteNamespaceResponse deleteNamespace(shared_ptr<DeleteNamespaceRequest> request);
   DeleteSecretResponse deleteSecretWithOptions(shared_ptr<DeleteSecretRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSecretResponse deleteSecret(shared_ptr<DeleteSecretRequest> request);
+  DeleteSwimmingLaneGroupResponse deleteSwimmingLaneGroupWithOptions(shared_ptr<DeleteSwimmingLaneGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSwimmingLaneGroupResponse deleteSwimmingLaneGroup(shared_ptr<DeleteSwimmingLaneGroupRequest> request);
   DeleteWebApplicationResponse deleteWebApplicationWithOptions(shared_ptr<string> ApplicationId,
                                                                shared_ptr<DeleteWebApplicationRequest> request,
                                                                shared_ptr<map<string, string>> headers,
@@ -50152,6 +53844,8 @@ public:
   DescribeRegionsResponse describeRegions();
   DescribeSecretResponse describeSecretWithOptions(shared_ptr<DescribeSecretRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSecretResponse describeSecret(shared_ptr<DescribeSecretRequest> request);
+  DescribeSwimmingLaneResponse describeSwimmingLaneWithOptions(shared_ptr<DescribeSwimmingLaneRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSwimmingLaneResponse describeSwimmingLane(shared_ptr<DescribeSwimmingLaneRequest> request);
   DescribeWebApplicationResponse describeWebApplicationWithOptions(shared_ptr<string> ApplicationId,
                                                                    shared_ptr<DescribeWebApplicationRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
@@ -50211,6 +53905,10 @@ public:
   GetWarningEventMetricResponse getWarningEventMetric(shared_ptr<GetWarningEventMetricRequest> request);
   GetWebshellTokenResponse getWebshellTokenWithOptions(shared_ptr<GetWebshellTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetWebshellTokenResponse getWebshellToken(shared_ptr<GetWebshellTokenRequest> request);
+  ListAllSwimmingLaneGroupsResponse listAllSwimmingLaneGroupsWithOptions(shared_ptr<ListAllSwimmingLaneGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAllSwimmingLaneGroupsResponse listAllSwimmingLaneGroups(shared_ptr<ListAllSwimmingLaneGroupsRequest> request);
+  ListAllSwimmingLanesResponse listAllSwimmingLanesWithOptions(shared_ptr<ListAllSwimmingLanesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAllSwimmingLanesResponse listAllSwimmingLanes(shared_ptr<ListAllSwimmingLanesRequest> request);
   ListAppEventsResponse listAppEventsWithOptions(shared_ptr<ListAppEventsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAppEventsResponse listAppEvents(shared_ptr<ListAppEventsRequest> request);
   ListAppServicesResponse listAppServicesWithOptions(shared_ptr<ListAppServicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -50243,6 +53941,10 @@ public:
   ListPublishedServicesResponse listPublishedServices(shared_ptr<ListPublishedServicesRequest> request);
   ListSecretsResponse listSecretsWithOptions(shared_ptr<ListSecretsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSecretsResponse listSecrets(shared_ptr<ListSecretsRequest> request);
+  ListSwimmingLaneGatewayRoutesResponse listSwimmingLaneGatewayRoutesWithOptions(shared_ptr<ListSwimmingLaneGatewayRoutesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSwimmingLaneGatewayRoutesResponse listSwimmingLaneGatewayRoutes(shared_ptr<ListSwimmingLaneGatewayRoutesRequest> request);
+  ListSwimmingLaneGroupTagsResponse listSwimmingLaneGroupTagsWithOptions(shared_ptr<ListSwimmingLaneGroupTagsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSwimmingLaneGroupTagsResponse listSwimmingLaneGroupTags(shared_ptr<ListSwimmingLaneGroupTagsRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ListWebApplicationInstancesResponse listWebApplicationInstancesWithOptions(shared_ptr<string> ApplicationId,
@@ -50326,6 +54028,8 @@ public:
   UpdateNamespaceVpcResponse updateNamespaceVpc(shared_ptr<UpdateNamespaceVpcRequest> request);
   UpdateSecretResponse updateSecretWithOptions(shared_ptr<UpdateSecretRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSecretResponse updateSecret(shared_ptr<UpdateSecretRequest> request);
+  UpdateSwimmingLaneEnableAttributeResponse updateSwimmingLaneEnableAttributeWithOptions(shared_ptr<UpdateSwimmingLaneEnableAttributeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSwimmingLaneEnableAttributeResponse updateSwimmingLaneEnableAttribute(shared_ptr<UpdateSwimmingLaneEnableAttributeRequest> request);
   UpdateWebApplicationResponse updateWebApplicationWithOptions(shared_ptr<string> ApplicationId,
                                                                shared_ptr<UpdateWebApplicationRequest> request,
                                                                shared_ptr<map<string, string>> headers,
