@@ -10080,6 +10080,7 @@ public:
 };
 class RunVideoAnalysisRequestVideoCaptionInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> videoCaptionFileUrl{};
   shared_ptr<vector<RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions>> videoCaptions{};
 
   RunVideoAnalysisRequestVideoCaptionInfo() {}
@@ -10092,6 +10093,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (videoCaptionFileUrl) {
+      res["videoCaptionFileUrl"] = boost::any(*videoCaptionFileUrl);
+    }
     if (videoCaptions) {
       vector<boost::any> temp1;
       for(auto item1:*videoCaptions){
@@ -10103,6 +10107,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("videoCaptionFileUrl") != m.end() && !m["videoCaptionFileUrl"].empty()) {
+      videoCaptionFileUrl = make_shared<string>(boost::any_cast<string>(m["videoCaptionFileUrl"]));
+    }
     if (m.find("videoCaptions") != m.end() && !m["videoCaptions"].empty()) {
       if (typeid(vector<boost::any>) == m["videoCaptions"].type()) {
         vector<RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions> expect1;
@@ -12924,6 +12931,7 @@ public:
 };
 class SubmitVideoAnalysisTaskRequestVideoCaptionInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> videoCaptionFileUrl{};
   shared_ptr<vector<SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions>> videoCaptions{};
 
   SubmitVideoAnalysisTaskRequestVideoCaptionInfo() {}
@@ -12936,6 +12944,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (videoCaptionFileUrl) {
+      res["videoCaptionFileUrl"] = boost::any(*videoCaptionFileUrl);
+    }
     if (videoCaptions) {
       vector<boost::any> temp1;
       for(auto item1:*videoCaptions){
@@ -12947,6 +12958,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("videoCaptionFileUrl") != m.end() && !m["videoCaptionFileUrl"].empty()) {
+      videoCaptionFileUrl = make_shared<string>(boost::any_cast<string>(m["videoCaptionFileUrl"]));
+    }
     if (m.find("videoCaptions") != m.end() && !m["videoCaptions"].empty()) {
       if (typeid(vector<boost::any>) == m["videoCaptions"].type()) {
         vector<SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions> expect1;
