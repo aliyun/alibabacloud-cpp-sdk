@@ -8352,6 +8352,74 @@ InsertColumnsBeforeResponse Alibabacloud_Aliding20230426::Client::insertColumnsB
   return insertColumnsBeforeWithOptions(request, headers, runtime);
 }
 
+InsertContentWithOptionsResponse Alibabacloud_Aliding20230426::Client::insertContentWithOptionsWithOptions(shared_ptr<InsertContentWithOptionsRequest> tmpReq, shared_ptr<InsertContentWithOptionsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<InsertContentWithOptionsShrinkRequest> request = make_shared<InsertContentWithOptionsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<InsertContentWithOptionsShrinkHeaders> headers = make_shared<InsertContentWithOptionsShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<InsertContentWithOptionsHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->content)) {
+    request->contentShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->content, make_shared<string>("Content"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->path)) {
+    request->pathShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->path, make_shared<string>("Path"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<InsertContentWithOptionsRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentShrink)) {
+    body->insert(pair<string, string>("Content", *request->contentShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->documentId)) {
+    body->insert(pair<string, string>("DocumentId", *request->documentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->index)) {
+    body->insert(pair<string, long>("Index", *request->index));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operatorId)) {
+    body->insert(pair<string, string>("OperatorId", *request->operatorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pathShrink)) {
+    body->insert(pair<string, string>("Path", *request->pathShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsertContentWithOptions"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/documents/insertContentWithOptions"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsertContentWithOptionsResponse(callApi(params, req, runtime));
+}
+
+InsertContentWithOptionsResponse Alibabacloud_Aliding20230426::Client::insertContentWithOptions(shared_ptr<InsertContentWithOptionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsertContentWithOptionsHeaders> headers = make_shared<InsertContentWithOptionsHeaders>();
+  return insertContentWithOptionsWithOptions(request, headers, runtime);
+}
+
 InsertMultiDimTableRecordResponse Alibabacloud_Aliding20230426::Client::insertMultiDimTableRecordWithOptions(shared_ptr<InsertMultiDimTableRecordRequest> tmpReq, shared_ptr<InsertMultiDimTableRecordHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<InsertMultiDimTableRecordShrinkRequest> request = make_shared<InsertMultiDimTableRecordShrinkRequest>();
@@ -10100,6 +10168,71 @@ QueryConferenceMembersResponse Alibabacloud_Aliding20230426::Client::queryConfer
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<QueryConferenceMembersHeaders> headers = make_shared<QueryConferenceMembersHeaders>();
   return queryConferenceMembersWithOptions(request, headers, runtime);
+}
+
+QueryDentriesInfoResponse Alibabacloud_Aliding20230426::Client::queryDentriesInfoWithOptions(shared_ptr<QueryDentriesInfoRequest> tmpReq, shared_ptr<QueryDentriesInfoHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryDentriesInfoShrinkRequest> request = make_shared<QueryDentriesInfoShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<QueryDentriesInfoShrinkHeaders> headers = make_shared<QueryDentriesInfoShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<QueryDentriesInfoHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->appIdsForAppProperties)) {
+    request->appIdsForAppPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->appIdsForAppProperties, make_shared<string>("AppIdsForAppProperties"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<QueryDentriesInfoRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appIdsForAppPropertiesShrink)) {
+    body->insert(pair<string, string>("AppIdsForAppProperties", *request->appIdsForAppPropertiesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dentryId)) {
+    body->insert(pair<string, string>("DentryId", *request->dentryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spaceId)) {
+    body->insert(pair<string, string>("SpaceId", *request->spaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unionId)) {
+    body->insert(pair<string, string>("UnionId", *request->unionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withThumbnail)) {
+    body->insert(pair<string, bool>("WithThumbnail", *request->withThumbnail));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryDentriesInfo"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/documents/queryDentriesInfo"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryDentriesInfoResponse(callApi(params, req, runtime));
+}
+
+QueryDentriesInfoResponse Alibabacloud_Aliding20230426::Client::queryDentriesInfo(shared_ptr<QueryDentriesInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<QueryDentriesInfoHeaders> headers = make_shared<QueryDentriesInfoHeaders>();
+  return queryDentriesInfoWithOptions(request, headers, runtime);
 }
 
 QueryDentryResponse Alibabacloud_Aliding20230426::Client::queryDentryWithOptions(shared_ptr<QueryDentryRequest> tmpReq, shared_ptr<QueryDentryHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
