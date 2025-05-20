@@ -5305,6 +5305,7 @@ public:
   shared_ptr<string> serverIp{};
   shared_ptr<long> status{};
   shared_ptr<long> timeType{};
+  shared_ptr<long> totalTokens{};
   shared_ptr<long> triggerType{};
   shared_ptr<string> workAddr{};
 
@@ -5369,6 +5370,9 @@ public:
     if (timeType) {
       res["TimeType"] = boost::any(*timeType);
     }
+    if (totalTokens) {
+      res["TotalTokens"] = boost::any(*totalTokens);
+    }
     if (triggerType) {
       res["TriggerType"] = boost::any(*triggerType);
     }
@@ -5429,6 +5433,9 @@ public:
     }
     if (m.find("TimeType") != m.end() && !m["TimeType"].empty()) {
       timeType = make_shared<long>(boost::any_cast<long>(m["TimeType"]));
+    }
+    if (m.find("TotalTokens") != m.end() && !m["TotalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["TotalTokens"]));
     }
     if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
       triggerType = make_shared<long>(boost::any_cast<long>(m["TriggerType"]));
@@ -6666,6 +6673,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<long> endTime{};
   shared_ptr<string> event{};
+  shared_ptr<string> eventType{};
   shared_ptr<string> jobExecutionId{};
   shared_ptr<string> jobName{};
   shared_ptr<string> keyword{};
@@ -6695,6 +6703,9 @@ public:
     }
     if (event) {
       res["Event"] = boost::any(*event);
+    }
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
     }
     if (jobExecutionId) {
       res["JobExecutionId"] = boost::any(*jobExecutionId);
@@ -6732,6 +6743,9 @@ public:
     }
     if (m.find("Event") != m.end() && !m["Event"].empty()) {
       event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
     }
     if (m.find("JobExecutionId") != m.end() && !m["JobExecutionId"].empty()) {
       jobExecutionId = make_shared<string>(boost::any_cast<string>(m["JobExecutionId"]));
