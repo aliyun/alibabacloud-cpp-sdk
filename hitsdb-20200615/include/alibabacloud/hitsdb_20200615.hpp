@@ -6024,13 +6024,16 @@ public:
 };
 class GetLindormInstanceResponseBodyEngineList : public Darabonba::Model {
 public:
+  shared_ptr<string> arbiterCoreCount{};
   shared_ptr<string> coreCount{};
   shared_ptr<string> cpuCount{};
   shared_ptr<string> engine{};
   shared_ptr<bool> isLastVersion{};
   shared_ptr<string> latestVersion{};
   shared_ptr<string> memorySize{};
+  shared_ptr<string> primaryCoreCount{};
   shared_ptr<string> specification{};
+  shared_ptr<string> standbyCoreCount{};
   shared_ptr<string> version{};
 
   GetLindormInstanceResponseBodyEngineList() {}
@@ -6043,6 +6046,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (arbiterCoreCount) {
+      res["ArbiterCoreCount"] = boost::any(*arbiterCoreCount);
+    }
     if (coreCount) {
       res["CoreCount"] = boost::any(*coreCount);
     }
@@ -6061,8 +6067,14 @@ public:
     if (memorySize) {
       res["MemorySize"] = boost::any(*memorySize);
     }
+    if (primaryCoreCount) {
+      res["PrimaryCoreCount"] = boost::any(*primaryCoreCount);
+    }
     if (specification) {
       res["Specification"] = boost::any(*specification);
+    }
+    if (standbyCoreCount) {
+      res["StandbyCoreCount"] = boost::any(*standbyCoreCount);
     }
     if (version) {
       res["Version"] = boost::any(*version);
@@ -6071,6 +6083,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArbiterCoreCount") != m.end() && !m["ArbiterCoreCount"].empty()) {
+      arbiterCoreCount = make_shared<string>(boost::any_cast<string>(m["ArbiterCoreCount"]));
+    }
     if (m.find("CoreCount") != m.end() && !m["CoreCount"].empty()) {
       coreCount = make_shared<string>(boost::any_cast<string>(m["CoreCount"]));
     }
@@ -6089,8 +6104,14 @@ public:
     if (m.find("MemorySize") != m.end() && !m["MemorySize"].empty()) {
       memorySize = make_shared<string>(boost::any_cast<string>(m["MemorySize"]));
     }
+    if (m.find("PrimaryCoreCount") != m.end() && !m["PrimaryCoreCount"].empty()) {
+      primaryCoreCount = make_shared<string>(boost::any_cast<string>(m["PrimaryCoreCount"]));
+    }
     if (m.find("Specification") != m.end() && !m["Specification"].empty()) {
       specification = make_shared<string>(boost::any_cast<string>(m["Specification"]));
+    }
+    if (m.find("StandbyCoreCount") != m.end() && !m["StandbyCoreCount"].empty()) {
+      standbyCoreCount = make_shared<string>(boost::any_cast<string>(m["StandbyCoreCount"]));
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
@@ -7797,6 +7818,8 @@ public:
 class GetLindormV2InstanceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> aliUid{};
+  shared_ptr<string> arbiterVSwitchId{};
+  shared_ptr<string> arbiterZoneId{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> coldStorage{};
   shared_ptr<long> createMilliseconds{};
@@ -7816,10 +7839,14 @@ public:
   shared_ptr<string> maintainStartTime{};
   shared_ptr<string> networkType{};
   shared_ptr<string> payType{};
+  shared_ptr<string> primaryVSwitchId{};
+  shared_ptr<string> primaryZoneId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceType{};
+  shared_ptr<string> standbyVSwitchId{};
+  shared_ptr<string> standbyZoneId{};
   shared_ptr<GetLindormV2InstanceResponseBodyStorageUsage> storageUsage{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vswitchId{};
@@ -7839,6 +7866,12 @@ public:
     map<string, boost::any> res;
     if (aliUid) {
       res["AliUid"] = boost::any(*aliUid);
+    }
+    if (arbiterVSwitchId) {
+      res["ArbiterVSwitchId"] = boost::any(*arbiterVSwitchId);
+    }
+    if (arbiterZoneId) {
+      res["ArbiterZoneId"] = boost::any(*arbiterZoneId);
     }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
@@ -7901,6 +7934,12 @@ public:
     if (payType) {
       res["PayType"] = boost::any(*payType);
     }
+    if (primaryVSwitchId) {
+      res["PrimaryVSwitchId"] = boost::any(*primaryVSwitchId);
+    }
+    if (primaryZoneId) {
+      res["PrimaryZoneId"] = boost::any(*primaryZoneId);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -7912,6 +7951,12 @@ public:
     }
     if (serviceType) {
       res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (standbyVSwitchId) {
+      res["StandbyVSwitchId"] = boost::any(*standbyVSwitchId);
+    }
+    if (standbyZoneId) {
+      res["StandbyZoneId"] = boost::any(*standbyZoneId);
     }
     if (storageUsage) {
       res["StorageUsage"] = storageUsage ? boost::any(storageUsage->toMap()) : boost::any(map<string,boost::any>({}));
@@ -7941,6 +7986,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
       aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("ArbiterVSwitchId") != m.end() && !m["ArbiterVSwitchId"].empty()) {
+      arbiterVSwitchId = make_shared<string>(boost::any_cast<string>(m["ArbiterVSwitchId"]));
+    }
+    if (m.find("ArbiterZoneId") != m.end() && !m["ArbiterZoneId"].empty()) {
+      arbiterZoneId = make_shared<string>(boost::any_cast<string>(m["ArbiterZoneId"]));
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
@@ -8009,6 +8060,12 @@ public:
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
     }
+    if (m.find("PrimaryVSwitchId") != m.end() && !m["PrimaryVSwitchId"].empty()) {
+      primaryVSwitchId = make_shared<string>(boost::any_cast<string>(m["PrimaryVSwitchId"]));
+    }
+    if (m.find("PrimaryZoneId") != m.end() && !m["PrimaryZoneId"].empty()) {
+      primaryZoneId = make_shared<string>(boost::any_cast<string>(m["PrimaryZoneId"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -8020,6 +8077,12 @@ public:
     }
     if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
       serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("StandbyVSwitchId") != m.end() && !m["StandbyVSwitchId"].empty()) {
+      standbyVSwitchId = make_shared<string>(boost::any_cast<string>(m["StandbyVSwitchId"]));
+    }
+    if (m.find("StandbyZoneId") != m.end() && !m["StandbyZoneId"].empty()) {
+      standbyZoneId = make_shared<string>(boost::any_cast<string>(m["StandbyZoneId"]));
     }
     if (m.find("StorageUsage") != m.end() && !m["StorageUsage"].empty()) {
       if (typeid(map<string, boost::any>) == m["StorageUsage"].type()) {
