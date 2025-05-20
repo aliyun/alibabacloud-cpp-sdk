@@ -1,3 +1,7 @@
+2025-05-20 Version: 2.4.1
+- Update API Initialize: add response parameters Body.Result.Protocol.
+
+
 2025-04-28 Version: 2.4.0
 - Support API DocOcrMax.
 

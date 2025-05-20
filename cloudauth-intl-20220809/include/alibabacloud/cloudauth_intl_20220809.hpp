@@ -4022,6 +4022,7 @@ public:
 class InitializeResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> clientCfg{};
+  shared_ptr<string> protocol{};
   shared_ptr<string> transactionId{};
   shared_ptr<string> transactionUrl{};
 
@@ -4038,6 +4039,9 @@ public:
     if (clientCfg) {
       res["ClientCfg"] = boost::any(*clientCfg);
     }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
     if (transactionId) {
       res["TransactionId"] = boost::any(*transactionId);
     }
@@ -4050,6 +4054,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientCfg") != m.end() && !m["ClientCfg"].empty()) {
       clientCfg = make_shared<string>(boost::any_cast<string>(m["ClientCfg"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
     if (m.find("TransactionId") != m.end() && !m["TransactionId"].empty()) {
       transactionId = make_shared<string>(boost::any_cast<string>(m["TransactionId"]));
