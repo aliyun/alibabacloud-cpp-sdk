@@ -14054,6 +14054,7 @@ public:
 class UpdateNodeGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> fileSystemMountEnabled{};
+  shared_ptr<string> imageId{};
   shared_ptr<string> keyPairName{};
   shared_ptr<string> newNodeGroupName{};
   shared_ptr<string> nodeGroupId{};
@@ -14071,6 +14072,9 @@ public:
     map<string, boost::any> res;
     if (fileSystemMountEnabled) {
       res["FileSystemMountEnabled"] = boost::any(*fileSystemMountEnabled);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
     }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
@@ -14090,6 +14094,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FileSystemMountEnabled") != m.end() && !m["FileSystemMountEnabled"].empty()) {
       fileSystemMountEnabled = make_shared<bool>(boost::any_cast<bool>(m["FileSystemMountEnabled"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));

@@ -1745,6 +1745,9 @@ UpdateNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::updateNode
   if (!Darabonba_Util::Client::isUnset<bool>(request->fileSystemMountEnabled)) {
     body->insert(pair<string, bool>("FileSystemMountEnabled", *request->fileSystemMountEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
+    body->insert(pair<string, string>("ImageId", *request->imageId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPairName)) {
     body->insert(pair<string, string>("KeyPairName", *request->keyPairName));
   }
