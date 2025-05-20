@@ -74,6 +74,46 @@ ChangeResourceGroupResponse Alibabacloud_Eflo-cnp20230828::Client::changeResourc
   return changeResourceGroupWithOptions(request, runtime);
 }
 
+CheckServiceLinkedRoleEfloCnpForDeletingResponse Alibabacloud_Eflo-cnp20230828::Client::checkServiceLinkedRoleEfloCnpForDeletingWithOptions(shared_ptr<CheckServiceLinkedRoleEfloCnpForDeletingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deletionTaskId)) {
+    query->insert(pair<string, string>("DeletionTaskId", *request->deletionTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleArn)) {
+    query->insert(pair<string, string>("RoleArn", *request->roleArn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->SPIRegionId)) {
+    query->insert(pair<string, string>("SPIRegionId", *request->SPIRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckServiceLinkedRoleEfloCnpForDeleting"))},
+    {"version", boost::any(string("2023-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckServiceLinkedRoleEfloCnpForDeletingResponse(callApi(params, req, runtime));
+}
+
+CheckServiceLinkedRoleEfloCnpForDeletingResponse Alibabacloud_Eflo-cnp20230828::Client::checkServiceLinkedRoleEfloCnpForDeleting(shared_ptr<CheckServiceLinkedRoleEfloCnpForDeletingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return checkServiceLinkedRoleEfloCnpForDeletingWithOptions(request, runtime);
+}
+
 CreateExperimentPlanResponse Alibabacloud_Eflo-cnp20230828::Client::createExperimentPlanWithOptions(shared_ptr<CreateExperimentPlanRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateExperimentPlanShrinkRequest> request = make_shared<CreateExperimentPlanShrinkRequest>();
