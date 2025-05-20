@@ -221,6 +221,35 @@ public:
 
   virtual ~AssumeUserInfo() = default;
 };
+class AutoScalingSpec : public Darabonba::Model {
+public:
+  shared_ptr<string> scalingStrategy{};
+
+  AutoScalingSpec() {}
+
+  explicit AutoScalingSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scalingStrategy) {
+      res["ScalingStrategy"] = boost::any(*scalingStrategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ScalingStrategy") != m.end() && !m["ScalingStrategy"].empty()) {
+      scalingStrategy = make_shared<string>(boost::any_cast<string>(m["ScalingStrategy"]));
+    }
+  }
+
+
+  virtual ~AutoScalingSpec() = default;
+};
 class CodeSourceItem : public Darabonba::Model {
 public:
   shared_ptr<string> codeBranch{};
@@ -2281,6 +2310,49 @@ public:
 
   virtual ~JobItemUserVpc() = default;
 };
+class LocalMountSpec : public Darabonba::Model {
+public:
+  shared_ptr<string> localPath{};
+  shared_ptr<string> mountMode{};
+  shared_ptr<string> mountPath{};
+
+  LocalMountSpec() {}
+
+  explicit LocalMountSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (localPath) {
+      res["LocalPath"] = boost::any(*localPath);
+    }
+    if (mountMode) {
+      res["MountMode"] = boost::any(*mountMode);
+    }
+    if (mountPath) {
+      res["MountPath"] = boost::any(*mountPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LocalPath") != m.end() && !m["LocalPath"].empty()) {
+      localPath = make_shared<string>(boost::any_cast<string>(m["LocalPath"]));
+    }
+    if (m.find("MountMode") != m.end() && !m["MountMode"].empty()) {
+      mountMode = make_shared<string>(boost::any_cast<string>(m["MountMode"]));
+    }
+    if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
+      mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+  }
+
+
+  virtual ~LocalMountSpec() = default;
+};
 class ResourceConfig : public Darabonba::Model {
 public:
   shared_ptr<string> CPU{};
@@ -2338,6 +2410,49 @@ public:
 
   virtual ~ResourceConfig() = default;
 };
+class ServiceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> defaultPort{};
+  shared_ptr<long> extraPorts{};
+  shared_ptr<string> serviceMode{};
+
+  ServiceSpec() {}
+
+  explicit ServiceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultPort) {
+      res["DefaultPort"] = boost::any(*defaultPort);
+    }
+    if (extraPorts) {
+      res["ExtraPorts"] = boost::any(*extraPorts);
+    }
+    if (serviceMode) {
+      res["ServiceMode"] = boost::any(*serviceMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultPort") != m.end() && !m["DefaultPort"].empty()) {
+      defaultPort = make_shared<long>(boost::any_cast<long>(m["DefaultPort"]));
+    }
+    if (m.find("ExtraPorts") != m.end() && !m["ExtraPorts"].empty()) {
+      extraPorts = make_shared<long>(boost::any_cast<long>(m["ExtraPorts"]));
+    }
+    if (m.find("ServiceMode") != m.end() && !m["ServiceMode"].empty()) {
+      serviceMode = make_shared<string>(boost::any_cast<string>(m["ServiceMode"]));
+    }
+  }
+
+
+  virtual ~ServiceSpec() = default;
+};
 class SpotSpec : public Darabonba::Model {
 public:
   shared_ptr<double> spotDiscountLimit{};
@@ -2384,12 +2499,17 @@ public:
 class JobSpec : public Darabonba::Model {
 public:
   shared_ptr<AssignNodeSpec> assignNodeSpec{};
+  shared_ptr<AutoScalingSpec> autoScalingSpec{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<ExtraPodSpec> extraPodSpec{};
   shared_ptr<string> image{};
   shared_ptr<ImageConfig> imageConfig{};
+  shared_ptr<bool> isCheif{};
+  shared_ptr<vector<LocalMountSpec>> localMountSpecs{};
   shared_ptr<long> podCount{};
   shared_ptr<ResourceConfig> resourceConfig{};
+  shared_ptr<string> restartPolicy{};
+  shared_ptr<ServiceSpec> serviceSpec{};
   shared_ptr<SpotSpec> spotSpec{};
   shared_ptr<string> type{};
   shared_ptr<bool> useSpotInstance{};
@@ -2407,6 +2527,9 @@ public:
     if (assignNodeSpec) {
       res["AssignNodeSpec"] = assignNodeSpec ? boost::any(assignNodeSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (autoScalingSpec) {
+      res["AutoScalingSpec"] = autoScalingSpec ? boost::any(autoScalingSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
     }
@@ -2419,11 +2542,27 @@ public:
     if (imageConfig) {
       res["ImageConfig"] = imageConfig ? boost::any(imageConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (isCheif) {
+      res["IsCheif"] = boost::any(*isCheif);
+    }
+    if (localMountSpecs) {
+      vector<boost::any> temp1;
+      for(auto item1:*localMountSpecs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LocalMountSpecs"] = boost::any(temp1);
+    }
     if (podCount) {
       res["PodCount"] = boost::any(*podCount);
     }
     if (resourceConfig) {
       res["ResourceConfig"] = resourceConfig ? boost::any(resourceConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (restartPolicy) {
+      res["RestartPolicy"] = boost::any(*restartPolicy);
+    }
+    if (serviceSpec) {
+      res["ServiceSpec"] = serviceSpec ? boost::any(serviceSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (spotSpec) {
       res["SpotSpec"] = spotSpec ? boost::any(spotSpec->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2443,6 +2582,13 @@ public:
         AssignNodeSpec model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssignNodeSpec"]));
         assignNodeSpec = make_shared<AssignNodeSpec>(model1);
+      }
+    }
+    if (m.find("AutoScalingSpec") != m.end() && !m["AutoScalingSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AutoScalingSpec"].type()) {
+        AutoScalingSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoScalingSpec"]));
+        autoScalingSpec = make_shared<AutoScalingSpec>(model1);
       }
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
@@ -2465,6 +2611,22 @@ public:
         imageConfig = make_shared<ImageConfig>(model1);
       }
     }
+    if (m.find("IsCheif") != m.end() && !m["IsCheif"].empty()) {
+      isCheif = make_shared<bool>(boost::any_cast<bool>(m["IsCheif"]));
+    }
+    if (m.find("LocalMountSpecs") != m.end() && !m["LocalMountSpecs"].empty()) {
+      if (typeid(vector<boost::any>) == m["LocalMountSpecs"].type()) {
+        vector<LocalMountSpec> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LocalMountSpecs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LocalMountSpec model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        localMountSpecs = make_shared<vector<LocalMountSpec>>(expect1);
+      }
+    }
     if (m.find("PodCount") != m.end() && !m["PodCount"].empty()) {
       podCount = make_shared<long>(boost::any_cast<long>(m["PodCount"]));
     }
@@ -2473,6 +2635,16 @@ public:
         ResourceConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceConfig"]));
         resourceConfig = make_shared<ResourceConfig>(model1);
+      }
+    }
+    if (m.find("RestartPolicy") != m.end() && !m["RestartPolicy"].empty()) {
+      restartPolicy = make_shared<string>(boost::any_cast<string>(m["RestartPolicy"]));
+    }
+    if (m.find("ServiceSpec") != m.end() && !m["ServiceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServiceSpec"].type()) {
+        ServiceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ServiceSpec"]));
+        serviceSpec = make_shared<ServiceSpec>(model1);
       }
     }
     if (m.find("SpotSpec") != m.end() && !m["SpotSpec"].empty()) {
@@ -2609,6 +2781,7 @@ public:
 class JobSettings : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> advancedSettings{};
+  shared_ptr<bool> allocateAllRDMADevices{};
   shared_ptr<string> businessUserId{};
   shared_ptr<string> caller{};
   shared_ptr<bool> disableEcsStockCheck{};
@@ -2639,6 +2812,9 @@ public:
     map<string, boost::any> res;
     if (advancedSettings) {
       res["AdvancedSettings"] = boost::any(*advancedSettings);
+    }
+    if (allocateAllRDMADevices) {
+      res["AllocateAllRDMADevices"] = boost::any(*allocateAllRDMADevices);
     }
     if (businessUserId) {
       res["BusinessUserId"] = boost::any(*businessUserId);
@@ -2702,6 +2878,9 @@ public:
          toMap1[item.first] = item.second;
       }
       advancedSettings = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("AllocateAllRDMADevices") != m.end() && !m["AllocateAllRDMADevices"].empty()) {
+      allocateAllRDMADevices = make_shared<bool>(boost::any_cast<bool>(m["AllocateAllRDMADevices"]));
     }
     if (m.find("BusinessUserId") != m.end() && !m["BusinessUserId"].empty()) {
       businessUserId = make_shared<string>(boost::any_cast<string>(m["BusinessUserId"]));
@@ -3968,8 +4147,60 @@ public:
 
   virtual ~SeccompProfile() = default;
 };
+class SecurityContextCapabilities : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> add{};
+  shared_ptr<vector<string>> drop{};
+
+  SecurityContextCapabilities() {}
+
+  explicit SecurityContextCapabilities(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (add) {
+      res["Add"] = boost::any(*add);
+    }
+    if (drop) {
+      res["Drop"] = boost::any(*drop);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Add") != m.end() && !m["Add"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Add"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Add"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      add = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Drop") != m.end() && !m["Drop"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Drop"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Drop"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      drop = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SecurityContextCapabilities() = default;
+};
 class SecurityContext : public Darabonba::Model {
 public:
+  shared_ptr<SecurityContextCapabilities> capabilities{};
+  shared_ptr<bool> privileged{};
   shared_ptr<long> runAsGroup{};
   shared_ptr<long> runAsUser{};
   shared_ptr<SeccompProfile> seccompProfile{};
@@ -3984,6 +4215,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (capabilities) {
+      res["Capabilities"] = capabilities ? boost::any(capabilities->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (privileged) {
+      res["Privileged"] = boost::any(*privileged);
+    }
     if (runAsGroup) {
       res["RunAsGroup"] = boost::any(*runAsGroup);
     }
@@ -3997,6 +4234,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Capabilities") != m.end() && !m["Capabilities"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Capabilities"].type()) {
+        SecurityContextCapabilities model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Capabilities"]));
+        capabilities = make_shared<SecurityContextCapabilities>(model1);
+      }
+    }
+    if (m.find("Privileged") != m.end() && !m["Privileged"].empty()) {
+      privileged = make_shared<bool>(boost::any_cast<bool>(m["Privileged"]));
+    }
     if (m.find("RunAsGroup") != m.end() && !m["RunAsGroup"].empty()) {
       runAsGroup = make_shared<long>(boost::any_cast<long>(m["RunAsGroup"]));
     }
