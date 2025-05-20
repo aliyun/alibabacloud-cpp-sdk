@@ -13,6 +13,8 @@ Alibaba Cloud mseap SDK 是基于 [`Darabonba DSL`](https://github.com/aliyun/da
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 在使用这个 SDK 访问 API 之前，请先安装必备的依赖库。
 
@@ -85,8 +87,7 @@ sh mseap-20210118/scripts/install.sh
 
 ## 相关
 
-* [OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
@@ -96,7 +97,7 @@ sh mseap-20210118/scripts/install.sh
 
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
-[open-api]: https://next.api.aliyun.com
+[OpenAPI 开发者门户]: https://next.api.aliyun.com
 [latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com
