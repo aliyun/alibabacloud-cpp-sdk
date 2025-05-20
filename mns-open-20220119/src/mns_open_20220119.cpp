@@ -799,6 +799,9 @@ SubscribeResponse Alibabacloud_Mns-open20220119::Client::subscribeWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->pushType)) {
     query->insert(pair<string, string>("PushType", *request->pushType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->stsRoleArn)) {
+    query->insert(pair<string, string>("StsRoleArn", *request->stsRoleArn));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionName)) {
     query->insert(pair<string, string>("SubscriptionName", *request->subscriptionName));
   }

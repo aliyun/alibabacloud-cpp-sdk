@@ -5826,6 +5826,7 @@ public:
   shared_ptr<string> notifyContentFormat{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> pushType{};
+  shared_ptr<string> stsRoleArn{};
   shared_ptr<string> subscriptionName{};
   shared_ptr<string> topicName{};
 
@@ -5856,6 +5857,9 @@ public:
     }
     if (pushType) {
       res["PushType"] = boost::any(*pushType);
+    }
+    if (stsRoleArn) {
+      res["StsRoleArn"] = boost::any(*stsRoleArn);
     }
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
@@ -5889,6 +5893,9 @@ public:
     if (m.find("PushType") != m.end() && !m["PushType"].empty()) {
       pushType = make_shared<string>(boost::any_cast<string>(m["PushType"]));
     }
+    if (m.find("StsRoleArn") != m.end() && !m["StsRoleArn"].empty()) {
+      stsRoleArn = make_shared<string>(boost::any_cast<string>(m["StsRoleArn"]));
+    }
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
     }
@@ -5908,6 +5915,7 @@ public:
   shared_ptr<string> notifyContentFormat{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> pushType{};
+  shared_ptr<string> stsRoleArn{};
   shared_ptr<string> subscriptionName{};
   shared_ptr<string> topicName{};
 
@@ -5939,6 +5947,9 @@ public:
     if (pushType) {
       res["PushType"] = boost::any(*pushType);
     }
+    if (stsRoleArn) {
+      res["StsRoleArn"] = boost::any(*stsRoleArn);
+    }
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
     }
@@ -5966,6 +5977,9 @@ public:
     }
     if (m.find("PushType") != m.end() && !m["PushType"].empty()) {
       pushType = make_shared<string>(boost::any_cast<string>(m["PushType"]));
+    }
+    if (m.find("StsRoleArn") != m.end() && !m["StsRoleArn"].empty()) {
+      stsRoleArn = make_shared<string>(boost::any_cast<string>(m["StsRoleArn"]));
     }
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
