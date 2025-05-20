@@ -1899,6 +1899,9 @@ CreateNetworkAclEntryResponse Alibabacloud_Ens20171110::Client::createNetworkAcl
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationCidrBlock)) {
+    query->insert(pair<string, string>("DestinationCidrBlock", *request->destinationCidrBlock));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
     query->insert(pair<string, string>("Direction", *request->direction));
   }
@@ -5643,7 +5646,22 @@ DescribeNatGatewaysResponse Alibabacloud_Ens20171110::Client::describeNatGateway
 
 DescribeNetworkAclsResponse Alibabacloud_Ens20171110::Client::describeNetworkAclsWithOptions(shared_ptr<DescribeNetworkAclsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkAclId)) {
+    query->insert(pair<string, string>("NetworkAclId", *request->networkAclId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkAclName)) {
+    query->insert(pair<string, string>("NetworkAclName", *request->networkAclName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    query->insert(pair<string, string>("ResourceId", *request->resourceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5652,7 +5670,7 @@ DescribeNetworkAclsResponse Alibabacloud_Ens20171110::Client::describeNetworkAcl
     {"version", boost::any(string("2017-11-10"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},

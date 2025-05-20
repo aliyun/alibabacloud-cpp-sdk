@@ -8810,6 +8810,7 @@ class CreateNetworkAclEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cidrBlock{};
   shared_ptr<string> description{};
+  shared_ptr<string> destinationCidrBlock{};
   shared_ptr<string> direction{};
   shared_ptr<string> networkAclEntryName{};
   shared_ptr<string> networkAclId{};
@@ -8833,6 +8834,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (destinationCidrBlock) {
+      res["DestinationCidrBlock"] = boost::any(*destinationCidrBlock);
     }
     if (direction) {
       res["Direction"] = boost::any(*direction);
@@ -8864,6 +8868,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestinationCidrBlock") != m.end() && !m["DestinationCidrBlock"].empty()) {
+      destinationCidrBlock = make_shared<string>(boost::any_cast<string>(m["DestinationCidrBlock"]));
     }
     if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
       direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
@@ -38848,6 +38855,7 @@ class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries : public Darab
 public:
   shared_ptr<string> cidrBlock{};
   shared_ptr<string> description{};
+  shared_ptr<string> destinationCidrBlock{};
   shared_ptr<string> networkAclEntryId{};
   shared_ptr<string> networkAclEntryName{};
   shared_ptr<string> policy{};
@@ -38871,6 +38879,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (destinationCidrBlock) {
+      res["DestinationCidrBlock"] = boost::any(*destinationCidrBlock);
     }
     if (networkAclEntryId) {
       res["NetworkAclEntryId"] = boost::any(*networkAclEntryId);
@@ -38902,6 +38913,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestinationCidrBlock") != m.end() && !m["DestinationCidrBlock"].empty()) {
+      destinationCidrBlock = make_shared<string>(boost::any_cast<string>(m["DestinationCidrBlock"]));
     }
     if (m.find("NetworkAclEntryId") != m.end() && !m["NetworkAclEntryId"].empty()) {
       networkAclEntryId = make_shared<string>(boost::any_cast<string>(m["NetworkAclEntryId"]));
