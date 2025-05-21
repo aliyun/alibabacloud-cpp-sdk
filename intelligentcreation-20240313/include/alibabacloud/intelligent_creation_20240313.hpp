@@ -7571,9 +7571,54 @@ public:
 
   virtual ~GetAICoachScriptResponseBodySampleDialogueList() = default;
 };
+class GetAICoachScriptResponseBodyScoreConfigLevels : public Darabonba::Model {
+public:
+  shared_ptr<long> max{};
+  shared_ptr<long> min{};
+  shared_ptr<string> name{};
+
+  GetAICoachScriptResponseBodyScoreConfigLevels() {}
+
+  explicit GetAICoachScriptResponseBodyScoreConfigLevels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (max) {
+      res["max"] = boost::any(*max);
+    }
+    if (min) {
+      res["min"] = boost::any(*min);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("max") != m.end() && !m["max"].empty()) {
+      max = make_shared<long>(boost::any_cast<long>(m["max"]));
+    }
+    if (m.find("min") != m.end() && !m["min"].empty()) {
+      min = make_shared<long>(boost::any_cast<long>(m["min"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyScoreConfigLevels() = default;
+};
 class GetAICoachScriptResponseBodyScoreConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> enabled{};
+  shared_ptr<bool> levelEnabled{};
+  shared_ptr<vector<GetAICoachScriptResponseBodyScoreConfigLevels>> levels{};
   shared_ptr<string> passScore{};
 
   GetAICoachScriptResponseBodyScoreConfig() {}
@@ -7589,6 +7634,16 @@ public:
     if (enabled) {
       res["enabled"] = boost::any(*enabled);
     }
+    if (levelEnabled) {
+      res["levelEnabled"] = boost::any(*levelEnabled);
+    }
+    if (levels) {
+      vector<boost::any> temp1;
+      for(auto item1:*levels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["levels"] = boost::any(temp1);
+    }
     if (passScore) {
       res["passScore"] = boost::any(*passScore);
     }
@@ -7598,6 +7653,22 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("levelEnabled") != m.end() && !m["levelEnabled"].empty()) {
+      levelEnabled = make_shared<bool>(boost::any_cast<bool>(m["levelEnabled"]));
+    }
+    if (m.find("levels") != m.end() && !m["levels"].empty()) {
+      if (typeid(vector<boost::any>) == m["levels"].type()) {
+        vector<GetAICoachScriptResponseBodyScoreConfigLevels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["levels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyScoreConfigLevels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        levels = make_shared<vector<GetAICoachScriptResponseBodyScoreConfigLevels>>(expect1);
+      }
     }
     if (m.find("passScore") != m.end() && !m["passScore"].empty()) {
       passScore = make_shared<string>(boost::any_cast<string>(m["passScore"]));
@@ -7617,6 +7688,7 @@ public:
   shared_ptr<bool> expressivenessEnabled{};
   shared_ptr<long> pointDeductionRule{};
   shared_ptr<bool> pointDeductionRuleEnabled{};
+  shared_ptr<bool> similarPronunciationScoringEnabled{};
   shared_ptr<long> standard{};
   shared_ptr<bool> standardEnabled{};
 
@@ -7654,6 +7726,9 @@ public:
     if (pointDeductionRuleEnabled) {
       res["pointDeductionRuleEnabled"] = boost::any(*pointDeductionRuleEnabled);
     }
+    if (similarPronunciationScoringEnabled) {
+      res["similarPronunciationScoringEnabled"] = boost::any(*similarPronunciationScoringEnabled);
+    }
     if (standard) {
       res["standard"] = boost::any(*standard);
     }
@@ -7687,6 +7762,9 @@ public:
     }
     if (m.find("pointDeductionRuleEnabled") != m.end() && !m["pointDeductionRuleEnabled"].empty()) {
       pointDeductionRuleEnabled = make_shared<bool>(boost::any_cast<bool>(m["pointDeductionRuleEnabled"]));
+    }
+    if (m.find("similarPronunciationScoringEnabled") != m.end() && !m["similarPronunciationScoringEnabled"].empty()) {
+      similarPronunciationScoringEnabled = make_shared<bool>(boost::any_cast<bool>(m["similarPronunciationScoringEnabled"]));
     }
     if (m.find("standard") != m.end() && !m["standard"].empty()) {
       standard = make_shared<long>(boost::any_cast<long>(m["standard"]));
@@ -8169,6 +8247,7 @@ public:
 class GetAICoachTaskSessionHistoryResponseBodyConversationList : public Darabonba::Model {
 public:
   shared_ptr<string> audioUrl{};
+  shared_ptr<string> dateLabel{};
   shared_ptr<string> evaluationFeedback{};
   shared_ptr<string> evaluationResult{};
   shared_ptr<string> message{};
@@ -8187,6 +8266,9 @@ public:
     map<string, boost::any> res;
     if (audioUrl) {
       res["audioUrl"] = boost::any(*audioUrl);
+    }
+    if (dateLabel) {
+      res["dateLabel"] = boost::any(*dateLabel);
     }
     if (evaluationFeedback) {
       res["evaluationFeedback"] = boost::any(*evaluationFeedback);
@@ -8209,6 +8291,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("audioUrl") != m.end() && !m["audioUrl"].empty()) {
       audioUrl = make_shared<string>(boost::any_cast<string>(m["audioUrl"]));
+    }
+    if (m.find("dateLabel") != m.end() && !m["dateLabel"].empty()) {
+      dateLabel = make_shared<string>(boost::any_cast<string>(m["dateLabel"]));
     }
     if (m.find("evaluationFeedback") != m.end() && !m["evaluationFeedback"].empty()) {
       evaluationFeedback = make_shared<string>(boost::any_cast<string>(m["evaluationFeedback"]));
@@ -9610,9 +9695,54 @@ public:
 
   virtual ~ListAICoachScriptPageResponseBodyListSampleDialogueList() = default;
 };
+class ListAICoachScriptPageResponseBodyListScoreConfigLevels : public Darabonba::Model {
+public:
+  shared_ptr<long> max{};
+  shared_ptr<long> min{};
+  shared_ptr<string> name{};
+
+  ListAICoachScriptPageResponseBodyListScoreConfigLevels() {}
+
+  explicit ListAICoachScriptPageResponseBodyListScoreConfigLevels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (max) {
+      res["max"] = boost::any(*max);
+    }
+    if (min) {
+      res["min"] = boost::any(*min);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("max") != m.end() && !m["max"].empty()) {
+      max = make_shared<long>(boost::any_cast<long>(m["max"]));
+    }
+    if (m.find("min") != m.end() && !m["min"].empty()) {
+      min = make_shared<long>(boost::any_cast<long>(m["min"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~ListAICoachScriptPageResponseBodyListScoreConfigLevels() = default;
+};
 class ListAICoachScriptPageResponseBodyListScoreConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> enabled{};
+  shared_ptr<bool> levelEnabled{};
+  shared_ptr<vector<ListAICoachScriptPageResponseBodyListScoreConfigLevels>> levels{};
   shared_ptr<long> passScore{};
 
   ListAICoachScriptPageResponseBodyListScoreConfig() {}
@@ -9628,6 +9758,16 @@ public:
     if (enabled) {
       res["enabled"] = boost::any(*enabled);
     }
+    if (levelEnabled) {
+      res["levelEnabled"] = boost::any(*levelEnabled);
+    }
+    if (levels) {
+      vector<boost::any> temp1;
+      for(auto item1:*levels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["levels"] = boost::any(temp1);
+    }
     if (passScore) {
       res["passScore"] = boost::any(*passScore);
     }
@@ -9637,6 +9777,22 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("levelEnabled") != m.end() && !m["levelEnabled"].empty()) {
+      levelEnabled = make_shared<bool>(boost::any_cast<bool>(m["levelEnabled"]));
+    }
+    if (m.find("levels") != m.end() && !m["levels"].empty()) {
+      if (typeid(vector<boost::any>) == m["levels"].type()) {
+        vector<ListAICoachScriptPageResponseBodyListScoreConfigLevels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["levels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAICoachScriptPageResponseBodyListScoreConfigLevels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        levels = make_shared<vector<ListAICoachScriptPageResponseBodyListScoreConfigLevels>>(expect1);
+      }
     }
     if (m.find("passScore") != m.end() && !m["passScore"].empty()) {
       passScore = make_shared<long>(boost::any_cast<long>(m["passScore"]));
@@ -9654,6 +9810,7 @@ public:
   shared_ptr<bool> expressivenessEnabled{};
   shared_ptr<long> pointDeductionRule{};
   shared_ptr<bool> pointDeductionRuleEnabled{};
+  shared_ptr<bool> similarPronunciationScoringEnabled{};
   shared_ptr<long> standard{};
   shared_ptr<bool> standardEnabled{};
 
@@ -9685,6 +9842,9 @@ public:
     if (pointDeductionRuleEnabled) {
       res["pointDeductionRuleEnabled"] = boost::any(*pointDeductionRuleEnabled);
     }
+    if (similarPronunciationScoringEnabled) {
+      res["similarPronunciationScoringEnabled"] = boost::any(*similarPronunciationScoringEnabled);
+    }
     if (standard) {
       res["standard"] = boost::any(*standard);
     }
@@ -9712,6 +9872,9 @@ public:
     }
     if (m.find("pointDeductionRuleEnabled") != m.end() && !m["pointDeductionRuleEnabled"].empty()) {
       pointDeductionRuleEnabled = make_shared<bool>(boost::any_cast<bool>(m["pointDeductionRuleEnabled"]));
+    }
+    if (m.find("similarPronunciationScoringEnabled") != m.end() && !m["similarPronunciationScoringEnabled"].empty()) {
+      similarPronunciationScoringEnabled = make_shared<bool>(boost::any_cast<bool>(m["similarPronunciationScoringEnabled"]));
     }
     if (m.find("standard") != m.end() && !m["standard"].empty()) {
       standard = make_shared<long>(boost::any_cast<long>(m["standard"]));
