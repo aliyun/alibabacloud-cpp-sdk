@@ -3300,6 +3300,7 @@ class CreateDatasetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetName{};
   shared_ptr<string> datasetType{};
+  shared_ptr<string> description{};
   shared_ptr<string> securityToken{};
   shared_ptr<vector<CreateDatasetRequestTag>> tag{};
 
@@ -3318,6 +3319,9 @@ public:
     }
     if (datasetType) {
       res["DatasetType"] = boost::any(*datasetType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
@@ -3338,6 +3342,9 @@ public:
     }
     if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
       datasetType = make_shared<string>(boost::any_cast<string>(m["DatasetType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
@@ -24738,6 +24745,7 @@ public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> datasetName{};
   shared_ptr<string> datasetType{};
+  shared_ptr<string> description{};
   shared_ptr<string> modifiedTime{};
 
   DescribeDatasetInfoResponseBodyDatasetInfo() {}
@@ -24762,6 +24770,9 @@ public:
     if (datasetType) {
       res["DatasetType"] = boost::any(*datasetType);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (modifiedTime) {
       res["ModifiedTime"] = boost::any(*modifiedTime);
     }
@@ -24780,6 +24791,9 @@ public:
     }
     if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
       datasetType = make_shared<string>(boost::any_cast<string>(m["DatasetType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
       modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
@@ -25501,6 +25515,7 @@ public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> datasetName{};
   shared_ptr<string> datasetType{};
+  shared_ptr<string> description{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<vector<DescribeDatasetListResponseBodyDatasetInfoListTags>> tags{};
 
@@ -25525,6 +25540,9 @@ public:
     }
     if (datasetType) {
       res["DatasetType"] = boost::any(*datasetType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (modifiedTime) {
       res["ModifiedTime"] = boost::any(*modifiedTime);
@@ -25551,6 +25569,9 @@ public:
     }
     if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
       datasetType = make_shared<string>(boost::any_cast<string>(m["DatasetType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
       modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
@@ -46316,6 +46337,7 @@ class ModifyDatasetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> datasetName{};
+  shared_ptr<string> description{};
   shared_ptr<string> securityToken{};
 
   ModifyDatasetRequest() {}
@@ -46334,6 +46356,9 @@ public:
     if (datasetName) {
       res["DatasetName"] = boost::any(*datasetName);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
@@ -46346,6 +46371,9 @@ public:
     }
     if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
       datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));

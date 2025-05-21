@@ -919,6 +919,9 @@ CreateDatasetResponse Alibabacloud_CloudAPI20160714::Client::createDatasetWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetType)) {
     query->insert(pair<string, string>("DatasetType", *request->datasetType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
@@ -6853,6 +6856,9 @@ ModifyDatasetResponse Alibabacloud_CloudAPI20160714::Client::modifyDatasetWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
     query->insert(pair<string, string>("DatasetName", *request->datasetName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
