@@ -16570,10 +16570,12 @@ public:
 };
 class DescribeEIURangeResponseBodyEIUInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> defaultReservedNodeSize{};
   shared_ptr<string> defaultValue{};
   shared_ptr<vector<long>> EIURange{};
   shared_ptr<string> maxValue{};
   shared_ptr<string> minValue{};
+  shared_ptr<vector<string>> reservedNodeSizeRange{};
   shared_ptr<string> step{};
   shared_ptr<vector<string>> storageResourceRange{};
 
@@ -16587,6 +16589,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (defaultReservedNodeSize) {
+      res["DefaultReservedNodeSize"] = boost::any(*defaultReservedNodeSize);
+    }
     if (defaultValue) {
       res["DefaultValue"] = boost::any(*defaultValue);
     }
@@ -16599,6 +16604,9 @@ public:
     if (minValue) {
       res["MinValue"] = boost::any(*minValue);
     }
+    if (reservedNodeSizeRange) {
+      res["ReservedNodeSizeRange"] = boost::any(*reservedNodeSizeRange);
+    }
     if (step) {
       res["Step"] = boost::any(*step);
     }
@@ -16609,6 +16617,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultReservedNodeSize") != m.end() && !m["DefaultReservedNodeSize"].empty()) {
+      defaultReservedNodeSize = make_shared<string>(boost::any_cast<string>(m["DefaultReservedNodeSize"]));
+    }
     if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
       defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
     }
@@ -16627,6 +16638,16 @@ public:
     }
     if (m.find("MinValue") != m.end() && !m["MinValue"].empty()) {
       minValue = make_shared<string>(boost::any_cast<string>(m["MinValue"]));
+    }
+    if (m.find("ReservedNodeSizeRange") != m.end() && !m["ReservedNodeSizeRange"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ReservedNodeSizeRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReservedNodeSizeRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      reservedNodeSizeRange = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Step") != m.end() && !m["Step"].empty()) {
       step = make_shared<string>(boost::any_cast<string>(m["Step"]));
@@ -31957,6 +31978,7 @@ class MigrateDBClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> computeResource{};
   shared_ptr<string> DBClusterId{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> productForm{};
@@ -31986,6 +32008,9 @@ public:
     }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -32035,6 +32060,9 @@ public:
     }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
