@@ -9789,7 +9789,7 @@ public:
   shared_ptr<string> scene{};
   shared_ptr<string> sceneId{};
   shared_ptr<vector<string>> sceneImageList{};
-  shared_ptr<string> sceneTransLate{};
+  shared_ptr<string> sceneTranslate{};
 
   ListTextbookAssistantArticleDetailsResponseBodyDataSceneList() {}
 
@@ -9810,8 +9810,8 @@ public:
     if (sceneImageList) {
       res["sceneImageList"] = boost::any(*sceneImageList);
     }
-    if (sceneTransLate) {
-      res["sceneTransLate"] = boost::any(*sceneTransLate);
+    if (sceneTranslate) {
+      res["sceneTranslate"] = boost::any(*sceneTranslate);
     }
     return res;
   }
@@ -9833,8 +9833,8 @@ public:
       }
       sceneImageList = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("sceneTransLate") != m.end() && !m["sceneTransLate"].empty()) {
-      sceneTransLate = make_shared<string>(boost::any_cast<string>(m["sceneTransLate"]));
+    if (m.find("sceneTranslate") != m.end() && !m["sceneTranslate"].empty()) {
+      sceneTranslate = make_shared<string>(boost::any_cast<string>(m["sceneTranslate"]));
     }
   }
 
@@ -10573,11 +10573,226 @@ public:
 
   virtual ~ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic() = default;
 };
+class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> labelId{};
+  shared_ptr<string> labelName{};
+
+  ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic() {}
+
+  explicit ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelId) {
+      res["labelId"] = boost::any(*labelId);
+    }
+    if (labelName) {
+      res["labelName"] = boost::any(*labelName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("labelId") != m.end() && !m["labelId"].empty()) {
+      labelId = make_shared<string>(boost::any_cast<string>(m["labelId"]));
+    }
+    if (m.find("labelName") != m.end() && !m["labelName"].empty()) {
+      labelName = make_shared<string>(boost::any_cast<string>(m["labelName"]));
+    }
+  }
+
+
+  virtual ~ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic() = default;
+};
+class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> children{};
+  shared_ptr<string> directoryId{};
+  shared_ptr<string> directoryName{};
+  shared_ptr<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic>> topic{};
+
+  ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection() {}
+
+  explicit ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (children) {
+      res["children"] = boost::any(*children);
+    }
+    if (directoryId) {
+      res["directoryId"] = boost::any(*directoryId);
+    }
+    if (directoryName) {
+      res["directoryName"] = boost::any(*directoryName);
+    }
+    if (topic) {
+      vector<boost::any> temp1;
+      for(auto item1:*topic){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["topic"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("children") != m.end() && !m["children"].empty()) {
+      children = make_shared<boost::any>(boost::any_cast<boost::any>(m["children"]));
+    }
+    if (m.find("directoryId") != m.end() && !m["directoryId"].empty()) {
+      directoryId = make_shared<string>(boost::any_cast<string>(m["directoryId"]));
+    }
+    if (m.find("directoryName") != m.end() && !m["directoryName"].empty()) {
+      directoryName = make_shared<string>(boost::any_cast<string>(m["directoryName"]));
+    }
+    if (m.find("topic") != m.end() && !m["topic"].empty()) {
+      if (typeid(vector<boost::any>) == m["topic"].type()) {
+        vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["topic"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        topic = make_shared<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection() = default;
+};
+class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic : public Darabonba::Model {
+public:
+  shared_ptr<string> labelId{};
+  shared_ptr<string> labelName{};
+
+  ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic() {}
+
+  explicit ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelId) {
+      res["labelId"] = boost::any(*labelId);
+    }
+    if (labelName) {
+      res["labelName"] = boost::any(*labelName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("labelId") != m.end() && !m["labelId"].empty()) {
+      labelId = make_shared<string>(boost::any_cast<string>(m["labelId"]));
+    }
+    if (m.find("labelName") != m.end() && !m["labelName"].empty()) {
+      labelName = make_shared<string>(boost::any_cast<string>(m["labelName"]));
+    }
+  }
+
+
+  virtual ~ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic() = default;
+};
+class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit : public Darabonba::Model {
+public:
+  shared_ptr<string> directoryId{};
+  shared_ptr<string> directoryName{};
+  shared_ptr<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection>> section{};
+  shared_ptr<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic>> topic{};
+
+  ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit() {}
+
+  explicit ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (directoryId) {
+      res["directoryId"] = boost::any(*directoryId);
+    }
+    if (directoryName) {
+      res["directoryName"] = boost::any(*directoryName);
+    }
+    if (section) {
+      vector<boost::any> temp1;
+      for(auto item1:*section){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["section"] = boost::any(temp1);
+    }
+    if (topic) {
+      vector<boost::any> temp1;
+      for(auto item1:*topic){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["topic"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("directoryId") != m.end() && !m["directoryId"].empty()) {
+      directoryId = make_shared<string>(boost::any_cast<string>(m["directoryId"]));
+    }
+    if (m.find("directoryName") != m.end() && !m["directoryName"].empty()) {
+      directoryName = make_shared<string>(boost::any_cast<string>(m["directoryName"]));
+    }
+    if (m.find("section") != m.end() && !m["section"].empty()) {
+      if (typeid(vector<boost::any>) == m["section"].type()) {
+        vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["section"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        section = make_shared<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection>>(expect1);
+      }
+    }
+    if (m.find("topic") != m.end() && !m["topic"].empty()) {
+      if (typeid(vector<boost::any>) == m["topic"].type()) {
+        vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["topic"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        topic = make_shared<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit() = default;
+};
 class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTree : public Darabonba::Model {
 public:
   shared_ptr<string> directoryId{};
   shared_ptr<string> directoryName{};
   shared_ptr<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic>> topic{};
+  shared_ptr<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit>> unit{};
 
   ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTree() {}
 
@@ -10602,6 +10817,13 @@ public:
       }
       res["topic"] = boost::any(temp1);
     }
+    if (unit) {
+      vector<boost::any> temp1;
+      for(auto item1:*unit){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["unit"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -10623,6 +10845,19 @@ public:
           }
         }
         topic = make_shared<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic>>(expect1);
+      }
+    }
+    if (m.find("unit") != m.end() && !m["unit"].empty()) {
+      if (typeid(vector<boost::any>) == m["unit"].type()) {
+        vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["unit"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        unit = make_shared<vector<ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit>>(expect1);
       }
     }
   }
@@ -11878,6 +12113,7 @@ public:
   shared_ptr<string> sceneId{};
   shared_ptr<vector<string>> sceneImageList{};
   shared_ptr<vector<ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList>> sceneTaskList{};
+  shared_ptr<string> sceneTranslate{};
   shared_ptr<vector<ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList>> sentenceList{};
   shared_ptr<string> target{};
   shared_ptr<ListTextbookAssistantSceneDetailsResponseBodyDataTheme> theme{};
@@ -11916,6 +12152,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["sceneTaskList"] = boost::any(temp1);
+    }
+    if (sceneTranslate) {
+      res["sceneTranslate"] = boost::any(*sceneTranslate);
     }
     if (sentenceList) {
       vector<boost::any> temp1;
@@ -11985,6 +12224,9 @@ public:
         }
         sceneTaskList = make_shared<vector<ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList>>(expect1);
       }
+    }
+    if (m.find("sceneTranslate") != m.end() && !m["sceneTranslate"].empty()) {
+      sceneTranslate = make_shared<string>(boost::any_cast<string>(m["sceneTranslate"]));
     }
     if (m.find("sentenceList") != m.end() && !m["sentenceList"].empty()) {
       if (typeid(vector<boost::any>) == m["sentenceList"].type()) {
