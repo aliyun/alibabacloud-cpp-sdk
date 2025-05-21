@@ -1421,6 +1421,158 @@ public:
 
   virtual ~GetNodeByTemplateIdResponse() = default;
 };
+class GetPlatformUserInfoForPartnerRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> platformType{};
+  shared_ptr<string> userId{};
+
+  GetPlatformUserInfoForPartnerRequest() {}
+
+  explicit GetPlatformUserInfoForPartnerRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (platformType) {
+      res["PlatformType"] = boost::any(*platformType);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("PlatformType") != m.end() && !m["PlatformType"].empty()) {
+      platformType = make_shared<string>(boost::any_cast<string>(m["PlatformType"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~GetPlatformUserInfoForPartnerRequest() = default;
+};
+class GetPlatformUserInfoForPartnerResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> encryptedOpenId{};
+  shared_ptr<string> encryptedUnionId{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetPlatformUserInfoForPartnerResponseBody() {}
+
+  explicit GetPlatformUserInfoForPartnerResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encryptedOpenId) {
+      res["EncryptedOpenId"] = boost::any(*encryptedOpenId);
+    }
+    if (encryptedUnionId) {
+      res["EncryptedUnionId"] = boost::any(*encryptedUnionId);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptedOpenId") != m.end() && !m["EncryptedOpenId"].empty()) {
+      encryptedOpenId = make_shared<string>(boost::any_cast<string>(m["EncryptedOpenId"]));
+    }
+    if (m.find("EncryptedUnionId") != m.end() && !m["EncryptedUnionId"].empty()) {
+      encryptedUnionId = make_shared<string>(boost::any_cast<string>(m["EncryptedUnionId"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetPlatformUserInfoForPartnerResponseBody() = default;
+};
+class GetPlatformUserInfoForPartnerResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetPlatformUserInfoForPartnerResponseBody> body{};
+
+  GetPlatformUserInfoForPartnerResponse() {}
+
+  explicit GetPlatformUserInfoForPartnerResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPlatformUserInfoForPartnerResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPlatformUserInfoForPartnerResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPlatformUserInfoForPartnerResponse() = default;
+};
 class GetProxyByTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliyunKp{};
@@ -4470,6 +4622,8 @@ public:
   GetNodeByFlowIdResponse getNodeByFlowId(shared_ptr<GetNodeByFlowIdRequest> request);
   GetNodeByTemplateIdResponse getNodeByTemplateIdWithOptions(shared_ptr<GetNodeByTemplateIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNodeByTemplateIdResponse getNodeByTemplateId(shared_ptr<GetNodeByTemplateIdRequest> request);
+  GetPlatformUserInfoForPartnerResponse getPlatformUserInfoForPartnerWithOptions(shared_ptr<GetPlatformUserInfoForPartnerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPlatformUserInfoForPartnerResponse getPlatformUserInfoForPartner(shared_ptr<GetPlatformUserInfoForPartnerRequest> request);
   GetProxyByTypeResponse getProxyByTypeWithOptions(shared_ptr<GetProxyByTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetProxyByTypeResponse getProxyByType(shared_ptr<GetProxyByTypeRequest> request);
   GetRedisValueResponse getRedisValueWithOptions(shared_ptr<GetRedisValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
