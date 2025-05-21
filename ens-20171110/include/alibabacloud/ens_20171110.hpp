@@ -20932,6 +20932,85 @@ public:
 
   virtual ~DescribeDisksRequest() = default;
 };
+class DescribeDisksResponseBodyDisksDisksTagsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeDisksResponseBodyDisksDisksTagsTags() {}
+
+  explicit DescribeDisksResponseBodyDisksDisksTagsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDisksResponseBodyDisksDisksTagsTags() = default;
+};
+class DescribeDisksResponseBodyDisksDisksTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDisksResponseBodyDisksDisksTagsTags>> tags{};
+
+  DescribeDisksResponseBodyDisksDisksTags() {}
+
+  explicit DescribeDisksResponseBodyDisksDisksTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeDisksResponseBodyDisksDisksTagsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDisksResponseBodyDisksDisksTagsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeDisksResponseBodyDisksDisksTagsTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDisksResponseBodyDisksDisksTags() = default;
+};
 class DescribeDisksResponseBodyDisksDisks : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
@@ -20951,6 +21030,7 @@ public:
   shared_ptr<long> size{};
   shared_ptr<string> snapshotId{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeDisksResponseBodyDisksDisksTags> tags{};
   shared_ptr<string> type{};
 
   DescribeDisksResponseBodyDisksDisks() {}
@@ -21014,6 +21094,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -21071,6 +21154,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeDisksResponseBodyDisksDisksTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeDisksResponseBodyDisksDisksTags>(model1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
