@@ -18755,6 +18755,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> enableAuth{};
   shared_ptr<UpdateHttpApiRequestIngressConfig> ingressConfig{};
+  shared_ptr<bool> onlyChangeConfig{};
   shared_ptr<vector<string>> protocols{};
   shared_ptr<HttpApiVersionConfig> versionConfig{};
 
@@ -18792,6 +18793,9 @@ public:
     }
     if (ingressConfig) {
       res["ingressConfig"] = ingressConfig ? boost::any(ingressConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (onlyChangeConfig) {
+      res["onlyChangeConfig"] = boost::any(*onlyChangeConfig);
     }
     if (protocols) {
       res["protocols"] = boost::any(*protocols);
@@ -18848,6 +18852,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ingressConfig"]));
         ingressConfig = make_shared<UpdateHttpApiRequestIngressConfig>(model1);
       }
+    }
+    if (m.find("onlyChangeConfig") != m.end() && !m["onlyChangeConfig"].empty()) {
+      onlyChangeConfig = make_shared<bool>(boost::any_cast<bool>(m["onlyChangeConfig"]));
     }
     if (m.find("protocols") != m.end() && !m["protocols"].empty()) {
       vector<string> toVec1;

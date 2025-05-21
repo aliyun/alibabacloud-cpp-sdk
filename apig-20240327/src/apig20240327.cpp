@@ -2140,6 +2140,9 @@ UpdateHttpApiResponse Alibabacloud_APIG20240327::Client::updateHttpApiWithOption
   if (!Darabonba_Util::Client::isUnset<UpdateHttpApiRequestIngressConfig>(request->ingressConfig)) {
     body->insert(pair<string, UpdateHttpApiRequestIngressConfig>("ingressConfig", *request->ingressConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->onlyChangeConfig)) {
+    body->insert(pair<string, bool>("onlyChangeConfig", *request->onlyChangeConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->protocols)) {
     body->insert(pair<string, vector<string>>("protocols", *request->protocols));
   }
