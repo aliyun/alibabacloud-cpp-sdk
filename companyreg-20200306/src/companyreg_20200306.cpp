@@ -368,6 +368,9 @@ ListIntentionNoteResponse Alibabacloud_Companyreg20200306::Client::listIntention
   if (!Darabonba_Util::Client::isUnset<long>(request->beginTime)) {
     query->insert(pair<string, long>("BeginTime", *request->beginTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     query->insert(pair<string, long>("EndTime", *request->endTime));
   }
@@ -613,6 +616,9 @@ ListUserSolutionsResponse Alibabacloud_Companyreg20200306::Client::listUserSolut
     request->existStatusShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->existStatus, make_shared<string>("ExistStatus"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->existStatusShrink)) {
     query->insert(pair<string, string>("ExistStatus", *request->existStatusShrink));
   }
@@ -817,40 +823,6 @@ QueryBagRemainingResponse Alibabacloud_Companyreg20200306::Client::queryBagRemai
   return queryBagRemainingWithOptions(request, runtime);
 }
 
-QueryCommodityConfigResponse Alibabacloud_Companyreg20200306::Client::queryCommodityConfigWithOptions(shared_ptr<QueryCommodityConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
-    query->insert(pair<string, string>("BizType", *request->bizType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->commodityCode)) {
-    query->insert(pair<string, string>("CommodityCode", *request->commodityCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->queryModule)) {
-    query->insert(pair<string, bool>("QueryModule", *request->queryModule));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("QueryCommodityConfig"))},
-    {"version", boost::any(string("2020-03-06"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return QueryCommodityConfigResponse(callApi(params, req, runtime));
-}
-
-QueryCommodityConfigResponse Alibabacloud_Companyreg20200306::Client::queryCommodityConfig(shared_ptr<QueryCommodityConfigRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return queryCommodityConfigWithOptions(request, runtime);
-}
-
 QueryInstanceResponse Alibabacloud_Companyreg20200306::Client::queryInstanceWithOptions(shared_ptr<QueryInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1008,6 +980,9 @@ RecordPostBackResponse Alibabacloud_Companyreg20200306::Client::recordPostBack(s
 RejectSolutionResponse Alibabacloud_Companyreg20200306::Client::rejectSolutionWithOptions(shared_ptr<RejectSolutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->note)) {
     query->insert(pair<string, string>("Note", *request->note));
   }
@@ -1147,9 +1122,67 @@ StartBackToBackCallResponse Alibabacloud_Companyreg20200306::Client::startBackTo
   return startBackToBackCallWithOptions(request, runtime);
 }
 
+SubmitIntentionForPartnerResponse Alibabacloud_Companyreg20200306::Client::submitIntentionForPartnerWithOptions(shared_ptr<SubmitIntentionForPartnerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->area)) {
+    query->insert(pair<string, string>("Area", *request->area));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->channel)) {
+    query->insert(pair<string, string>("Channel", *request->channel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->commodityType)) {
+    query->insert(pair<string, string>("CommodityType", *request->commodityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactName)) {
+    query->insert(pair<string, string>("ContactName", *request->contactName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extInfo)) {
+    query->insert(pair<string, string>("ExtInfo", *request->extInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->grade)) {
+    query->insert(pair<string, long>("Grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
+    query->insert(pair<string, string>("Mobile", *request->mobile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitIntentionForPartner"))},
+    {"version", boost::any(string("2020-03-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitIntentionForPartnerResponse(callApi(params, req, runtime));
+}
+
+SubmitIntentionForPartnerResponse Alibabacloud_Companyreg20200306::Client::submitIntentionForPartner(shared_ptr<SubmitIntentionForPartnerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitIntentionForPartnerWithOptions(request, runtime);
+}
+
 SubmitIntentionNoteResponse Alibabacloud_Companyreg20200306::Client::submitIntentionNoteWithOptions(shared_ptr<SubmitIntentionNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->intentionBizId)) {
     query->insert(pair<string, string>("IntentionBizId", *request->intentionBizId));
   }
