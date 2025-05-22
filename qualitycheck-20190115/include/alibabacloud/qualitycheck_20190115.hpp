@@ -13025,6 +13025,7 @@ public:
   shared_ptr<string> cid{};
   shared_ptr<string> customizeCode{};
   shared_ptr<long> from{};
+  shared_ptr<bool> isMatch{};
   shared_ptr<long> pid{};
   shared_ptr<string> tid{};
   shared_ptr<long> to{};
@@ -13048,6 +13049,9 @@ public:
     }
     if (from) {
       res["From"] = boost::any(*from);
+    }
+    if (isMatch) {
+      res["IsMatch"] = boost::any(*isMatch);
     }
     if (pid) {
       res["Pid"] = boost::any(*pid);
@@ -13073,6 +13077,9 @@ public:
     }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<long>(boost::any_cast<long>(m["From"]));
+    }
+    if (m.find("IsMatch") != m.end() && !m["IsMatch"].empty()) {
+      isMatch = make_shared<bool>(boost::any_cast<bool>(m["IsMatch"]));
     }
     if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
       pid = make_shared<long>(boost::any_cast<long>(m["Pid"]));
@@ -13366,6 +13373,8 @@ public:
   shared_ptr<GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoComplainHistories> complainHistories{};
   shared_ptr<bool> complainable{};
   shared_ptr<GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoList> conditionHitInfoList{};
+  shared_ptr<long> machineHitResult{};
+  shared_ptr<long> reviewHitResult{};
   shared_ptr<GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo> reviewInfo{};
   shared_ptr<long> rid{};
   shared_ptr<string> ruleName{};
@@ -13395,6 +13404,12 @@ public:
     }
     if (conditionHitInfoList) {
       res["ConditionHitInfoList"] = conditionHitInfoList ? boost::any(conditionHitInfoList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (machineHitResult) {
+      res["MachineHitResult"] = boost::any(*machineHitResult);
+    }
+    if (reviewHitResult) {
+      res["ReviewHitResult"] = boost::any(*reviewHitResult);
     }
     if (reviewInfo) {
       res["ReviewInfo"] = reviewInfo ? boost::any(reviewInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -13440,6 +13455,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConditionHitInfoList"]));
         conditionHitInfoList = make_shared<GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoList>(model1);
       }
+    }
+    if (m.find("MachineHitResult") != m.end() && !m["MachineHitResult"].empty()) {
+      machineHitResult = make_shared<long>(boost::any_cast<long>(m["MachineHitResult"]));
+    }
+    if (m.find("ReviewHitResult") != m.end() && !m["ReviewHitResult"].empty()) {
+      reviewHitResult = make_shared<long>(boost::any_cast<long>(m["ReviewHitResult"]));
     }
     if (m.find("ReviewInfo") != m.end() && !m["ReviewInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["ReviewInfo"].type()) {
