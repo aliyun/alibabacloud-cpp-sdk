@@ -2896,6 +2896,49 @@ public:
 
   virtual ~DescribeResourceGroupsRequest() = default;
 };
+class DescribeResourceGroupsResponseBodyResourceGroupAppRules : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<long> type{};
+
+  DescribeResourceGroupsResponseBodyResourceGroupAppRules() {}
+
+  explicit DescribeResourceGroupsResponseBodyResourceGroupAppRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceGroupsResponseBodyResourceGroupAppRules() = default;
+};
 class DescribeResourceGroupsResponseBodyResourceGroupPolicies : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -2941,8 +2984,10 @@ public:
 };
 class DescribeResourceGroupsResponseBodyResourceGroupTimers : public Darabonba::Model {
 public:
+  shared_ptr<string> bindStatus{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
+  shared_ptr<string> timerStatus{};
 
   DescribeResourceGroupsResponseBodyResourceGroupTimers() {}
 
@@ -2954,21 +2999,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindStatus) {
+      res["BindStatus"] = boost::any(*bindStatus);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (timerStatus) {
+      res["TimerStatus"] = boost::any(*timerStatus);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindStatus") != m.end() && !m["BindStatus"].empty()) {
+      bindStatus = make_shared<string>(boost::any_cast<string>(m["BindStatus"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("TimerStatus") != m.end() && !m["TimerStatus"].empty()) {
+      timerStatus = make_shared<string>(boost::any_cast<string>(m["TimerStatus"]));
     }
   }
 
@@ -2977,6 +3034,7 @@ public:
 };
 class DescribeResourceGroupsResponseBodyResourceGroup : public Darabonba::Model {
 public:
+  shared_ptr<vector<DescribeResourceGroupsResponseBodyResourceGroupAppRules>> appRules{};
   shared_ptr<string> authCount{};
   shared_ptr<string> createTime{};
   shared_ptr<vector<DescribeResourceGroupsResponseBodyResourceGroupPolicies>> policies{};
@@ -2995,6 +3053,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*appRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AppRules"] = boost::any(temp1);
+    }
     if (authCount) {
       res["AuthCount"] = boost::any(*authCount);
     }
@@ -3028,6 +3093,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppRules") != m.end() && !m["AppRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["AppRules"].type()) {
+        vector<DescribeResourceGroupsResponseBodyResourceGroupAppRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AppRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResourceGroupsResponseBodyResourceGroupAppRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        appRules = make_shared<vector<DescribeResourceGroupsResponseBodyResourceGroupAppRules>>(expect1);
+      }
+    }
     if (m.find("AuthCount") != m.end() && !m["AuthCount"].empty()) {
       authCount = make_shared<string>(boost::any_cast<string>(m["AuthCount"]));
     }
