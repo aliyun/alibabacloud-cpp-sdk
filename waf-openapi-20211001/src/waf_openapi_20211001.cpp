@@ -3898,6 +3898,9 @@ DescribeProductInstancesResponse Alibabacloud_Waf-openapi20211001::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceInstanceAccessStatus)) {
+    query->insert(pair<string, string>("ResourceInstanceAccessStatus", *request->resourceInstanceAccessStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceInstanceId)) {
     query->insert(pair<string, string>("ResourceInstanceId", *request->resourceInstanceId));
   }

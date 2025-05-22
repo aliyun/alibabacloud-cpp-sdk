@@ -10048,6 +10048,91 @@ public:
 
   virtual ~DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders() = default;
 };
+class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> appliedType{};
+  shared_ptr<string> certId{};
+  shared_ptr<string> certName{};
+  shared_ptr<string> commonName{};
+  shared_ptr<string> domain{};
+  shared_ptr<long> expireTime{};
+  shared_ptr<string> productCertId{};
+  shared_ptr<string> productCertName{};
+  shared_ptr<string> reasonCode{};
+
+  DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails() {}
+
+  explicit DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appliedType) {
+      res["AppliedType"] = boost::any(*appliedType);
+    }
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
+    if (certName) {
+      res["CertName"] = boost::any(*certName);
+    }
+    if (commonName) {
+      res["CommonName"] = boost::any(*commonName);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (productCertId) {
+      res["ProductCertId"] = boost::any(*productCertId);
+    }
+    if (productCertName) {
+      res["ProductCertName"] = boost::any(*productCertName);
+    }
+    if (reasonCode) {
+      res["ReasonCode"] = boost::any(*reasonCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppliedType") != m.end() && !m["AppliedType"].empty()) {
+      appliedType = make_shared<string>(boost::any_cast<string>(m["AppliedType"]));
+    }
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<string>(boost::any_cast<string>(m["CertId"]));
+    }
+    if (m.find("CertName") != m.end() && !m["CertName"].empty()) {
+      certName = make_shared<string>(boost::any_cast<string>(m["CertName"]));
+    }
+    if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
+      commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<long>(boost::any_cast<long>(m["ExpireTime"]));
+    }
+    if (m.find("ProductCertId") != m.end() && !m["ProductCertId"].empty()) {
+      productCertId = make_shared<string>(boost::any_cast<string>(m["ProductCertId"]));
+    }
+    if (m.find("ProductCertName") != m.end() && !m["ProductCertName"].empty()) {
+      productCertName = make_shared<string>(boost::any_cast<string>(m["ProductCertName"]));
+    }
+    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
+      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails() = default;
+};
 class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates>> certificates{};
@@ -10064,6 +10149,8 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<long> readTimeout{};
   shared_ptr<long> status{};
+  shared_ptr<string> subStatus{};
+  shared_ptr<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails>> subStatusDetails{};
   shared_ptr<string> TLSVersion{};
   shared_ptr<long> writeTimeout{};
   shared_ptr<long> xffHeaderMode{};
@@ -10129,6 +10216,16 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (subStatus) {
+      res["SubStatus"] = boost::any(*subStatus);
+    }
+    if (subStatusDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*subStatusDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubStatusDetails"] = boost::any(temp1);
     }
     if (TLSVersion) {
       res["TLSVersion"] = boost::any(*TLSVersion);
@@ -10217,6 +10314,22 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
+      subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
+    }
+    if (m.find("SubStatusDetails") != m.end() && !m["SubStatusDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubStatusDetails"].type()) {
+        vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubStatusDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subStatusDetails = make_shared<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails>>(expect1);
+      }
     }
     if (m.find("TLSVersion") != m.end() && !m["TLSVersion"].empty()) {
       TLSVersion = make_shared<string>(boost::any_cast<string>(m["TLSVersion"]));
@@ -21766,6 +21879,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceInstanceAccessStatus{};
   shared_ptr<string> resourceInstanceId{};
   shared_ptr<string> resourceInstanceIp{};
   shared_ptr<string> resourceInstanceName{};
@@ -21799,6 +21913,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceInstanceAccessStatus) {
+      res["ResourceInstanceAccessStatus"] = boost::any(*resourceInstanceAccessStatus);
     }
     if (resourceInstanceId) {
       res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
@@ -21843,6 +21960,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceInstanceAccessStatus") != m.end() && !m["ResourceInstanceAccessStatus"].empty()) {
+      resourceInstanceAccessStatus = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceAccessStatus"]));
+    }
     if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
       resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
     }
@@ -21872,10 +21992,62 @@ public:
 
   virtual ~DescribeProductInstancesRequest() = default;
 };
+class DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> certificateIds{};
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+
+  DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols() {}
+
+  explicit DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificateIds) {
+      res["CertificateIds"] = boost::any(*certificateIds);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertificateIds") != m.end() && !m["CertificateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CertificateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertificateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      certificateIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+  }
+
+
+  virtual ~DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols() = default;
+};
 class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates : public Darabonba::Model {
 public:
+  shared_ptr<string> appliedType{};
   shared_ptr<string> certificateId{};
   shared_ptr<string> certificateName{};
+  shared_ptr<string> domain{};
 
   DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates() {}
 
@@ -21887,21 +22059,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appliedType) {
+      res["AppliedType"] = boost::any(*appliedType);
+    }
     if (certificateId) {
       res["CertificateId"] = boost::any(*certificateId);
     }
     if (certificateName) {
       res["CertificateName"] = boost::any(*certificateName);
     }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppliedType") != m.end() && !m["AppliedType"].empty()) {
+      appliedType = make_shared<string>(boost::any_cast<string>(m["AppliedType"]));
+    }
     if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
       certificateId = make_shared<string>(boost::any_cast<string>(m["CertificateId"]));
     }
     if (m.find("CertificateName") != m.end() && !m["CertificateName"].empty()) {
       certificateName = make_shared<string>(boost::any_cast<string>(m["CertificateName"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
   }
 
@@ -21967,7 +22151,12 @@ public:
 };
 class DescribeProductInstancesResponseBodyProductInstances : public Darabonba::Model {
 public:
+  shared_ptr<string> accessInstanceId{};
+  shared_ptr<vector<DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols>> accessPortAndProtocols{};
+  shared_ptr<vector<long>> accessPorts{};
   shared_ptr<string> ownerUserId{};
+  shared_ptr<string> resourceInstanceAccessStatus{};
+  shared_ptr<string> resourceInstanceEdition{};
   shared_ptr<string> resourceInstanceId{};
   shared_ptr<string> resourceInstanceIp{};
   shared_ptr<string> resourceInstanceName{};
@@ -21987,8 +22176,27 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessInstanceId) {
+      res["AccessInstanceId"] = boost::any(*accessInstanceId);
+    }
+    if (accessPortAndProtocols) {
+      vector<boost::any> temp1;
+      for(auto item1:*accessPortAndProtocols){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AccessPortAndProtocols"] = boost::any(temp1);
+    }
+    if (accessPorts) {
+      res["AccessPorts"] = boost::any(*accessPorts);
+    }
     if (ownerUserId) {
       res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    if (resourceInstanceAccessStatus) {
+      res["ResourceInstanceAccessStatus"] = boost::any(*resourceInstanceAccessStatus);
+    }
+    if (resourceInstanceEdition) {
+      res["ResourceInstanceEdition"] = boost::any(*resourceInstanceEdition);
     }
     if (resourceInstanceId) {
       res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
@@ -22022,8 +22230,40 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessInstanceId") != m.end() && !m["AccessInstanceId"].empty()) {
+      accessInstanceId = make_shared<string>(boost::any_cast<string>(m["AccessInstanceId"]));
+    }
+    if (m.find("AccessPortAndProtocols") != m.end() && !m["AccessPortAndProtocols"].empty()) {
+      if (typeid(vector<boost::any>) == m["AccessPortAndProtocols"].type()) {
+        vector<DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AccessPortAndProtocols"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        accessPortAndProtocols = make_shared<vector<DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols>>(expect1);
+      }
+    }
+    if (m.find("AccessPorts") != m.end() && !m["AccessPorts"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AccessPorts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccessPorts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      accessPorts = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
       ownerUserId = make_shared<string>(boost::any_cast<string>(m["OwnerUserId"]));
+    }
+    if (m.find("ResourceInstanceAccessStatus") != m.end() && !m["ResourceInstanceAccessStatus"].empty()) {
+      resourceInstanceAccessStatus = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceAccessStatus"]));
+    }
+    if (m.find("ResourceInstanceEdition") != m.end() && !m["ResourceInstanceEdition"].empty()) {
+      resourceInstanceEdition = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceEdition"]));
     }
     if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
       resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
