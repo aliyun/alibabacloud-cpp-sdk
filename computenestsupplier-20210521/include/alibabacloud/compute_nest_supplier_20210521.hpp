@@ -21799,9 +21799,53 @@ public:
 
   virtual ~UpdateServiceResponse() = default;
 };
+class UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<bool> updateResponse{};
+
+  UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo() {}
+
+  explicit UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (updateResponse) {
+      res["UpdateResponse"] = boost::any(*updateResponse);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("UpdateResponse") != m.end() && !m["UpdateResponse"].empty()) {
+      updateResponse = make_shared<bool>(boost::any_cast<bool>(m["UpdateResponse"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo() = default;
+};
 class UpdateServiceInstanceAttributeRequestLicenseData : public Darabonba::Model {
 public:
   shared_ptr<string> customData{};
+  shared_ptr<UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo> responseInfo{};
 
   UpdateServiceInstanceAttributeRequestLicenseData() {}
 
@@ -21816,12 +21860,22 @@ public:
     if (customData) {
       res["CustomData"] = boost::any(*customData);
     }
+    if (responseInfo) {
+      res["ResponseInfo"] = responseInfo ? boost::any(responseInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CustomData") != m.end() && !m["CustomData"].empty()) {
       customData = make_shared<string>(boost::any_cast<string>(m["CustomData"]));
+    }
+    if (m.find("ResponseInfo") != m.end() && !m["ResponseInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResponseInfo"].type()) {
+        UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseInfo"]));
+        responseInfo = make_shared<UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo>(model1);
+      }
     }
   }
 
