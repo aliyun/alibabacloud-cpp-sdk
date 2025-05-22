@@ -3450,6 +3450,269 @@ public:
 
   virtual ~GetVideoAnalysisTaskResponse() = default;
 };
+class HotNewsRecommendRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> prompt{};
+
+  HotNewsRecommendRequest() {}
+
+  explicit HotNewsRecommendRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (prompt) {
+      res["prompt"] = boost::any(*prompt);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("prompt") != m.end() && !m["prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["prompt"]));
+    }
+  }
+
+
+  virtual ~HotNewsRecommendRequest() = default;
+};
+class HotNewsRecommendResponseBodyDataNews : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<vector<string>> imageUrls{};
+  shared_ptr<string> pubTime{};
+  shared_ptr<string> searchSource{};
+  shared_ptr<string> source{};
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+
+  HotNewsRecommendResponseBodyDataNews() {}
+
+  explicit HotNewsRecommendResponseBodyDataNews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (imageUrls) {
+      res["imageUrls"] = boost::any(*imageUrls);
+    }
+    if (pubTime) {
+      res["pubTime"] = boost::any(*pubTime);
+    }
+    if (searchSource) {
+      res["searchSource"] = boost::any(*searchSource);
+    }
+    if (source) {
+      res["source"] = boost::any(*source);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("imageUrls") != m.end() && !m["imageUrls"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["imageUrls"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["imageUrls"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      imageUrls = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("pubTime") != m.end() && !m["pubTime"].empty()) {
+      pubTime = make_shared<string>(boost::any_cast<string>(m["pubTime"]));
+    }
+    if (m.find("searchSource") != m.end() && !m["searchSource"].empty()) {
+      searchSource = make_shared<string>(boost::any_cast<string>(m["searchSource"]));
+    }
+    if (m.find("source") != m.end() && !m["source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["source"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~HotNewsRecommendResponseBodyDataNews() = default;
+};
+class HotNewsRecommendResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<HotNewsRecommendResponseBodyDataNews>> news{};
+
+  HotNewsRecommendResponseBodyData() {}
+
+  explicit HotNewsRecommendResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (news) {
+      vector<boost::any> temp1;
+      for(auto item1:*news){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["news"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("news") != m.end() && !m["news"].empty()) {
+      if (typeid(vector<boost::any>) == m["news"].type()) {
+        vector<HotNewsRecommendResponseBodyDataNews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["news"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            HotNewsRecommendResponseBodyDataNews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        news = make_shared<vector<HotNewsRecommendResponseBodyDataNews>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~HotNewsRecommendResponseBodyData() = default;
+};
+class HotNewsRecommendResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<HotNewsRecommendResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  HotNewsRecommendResponseBody() {}
+
+  explicit HotNewsRecommendResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        HotNewsRecommendResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<HotNewsRecommendResponseBodyData>(model1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~HotNewsRecommendResponseBody() = default;
+};
+class HotNewsRecommendResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<HotNewsRecommendResponseBody> body{};
+
+  HotNewsRecommendResponse() {}
+
+  explicit HotNewsRecommendResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        HotNewsRecommendResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<HotNewsRecommendResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~HotNewsRecommendResponse() = default;
+};
 class ListAnalysisTagDetailByTaskIdRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
@@ -13922,6 +14185,11 @@ public:
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVideoAnalysisTaskResponse getVideoAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<GetVideoAnalysisTaskRequest> request);
+  HotNewsRecommendResponse hotNewsRecommendWithOptions(shared_ptr<string> workspaceId,
+                                                       shared_ptr<HotNewsRecommendRequest> request,
+                                                       shared_ptr<map<string, string>> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  HotNewsRecommendResponse hotNewsRecommend(shared_ptr<string> workspaceId, shared_ptr<HotNewsRecommendRequest> request);
   ListAnalysisTagDetailByTaskIdResponse listAnalysisTagDetailByTaskIdWithOptions(shared_ptr<string> workspaceId,
                                                                                  shared_ptr<ListAnalysisTagDetailByTaskIdRequest> request,
                                                                                  shared_ptr<map<string, string>> headers,
