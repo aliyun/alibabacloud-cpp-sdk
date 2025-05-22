@@ -54,6 +54,7 @@ public:
   shared_ptr<long> amount{};
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<bool> buyChange{};
   shared_ptr<vector<CreateMultiOrderRequestOrderItemsComponents>> components{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -79,6 +80,9 @@ public:
     }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (buyChange) {
+      res["BuyChange"] = boost::any(*buyChange);
     }
     if (components) {
       vector<boost::any> temp1;
@@ -114,6 +118,9 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("BuyChange") != m.end() && !m["BuyChange"].empty()) {
+      buyChange = make_shared<bool>(boost::any_cast<bool>(m["BuyChange"]));
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       if (typeid(vector<boost::any>) == m["Components"].type()) {
@@ -265,6 +272,7 @@ public:
   shared_ptr<long> amount{};
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<bool> buyChange{};
   shared_ptr<vector<CreateMultiOrderShrinkRequestOrderItemsComponents>> components{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -290,6 +298,9 @@ public:
     }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (buyChange) {
+      res["BuyChange"] = boost::any(*buyChange);
     }
     if (components) {
       vector<boost::any> temp1;
@@ -325,6 +336,9 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("BuyChange") != m.end() && !m["BuyChange"].empty()) {
+      buyChange = make_shared<bool>(boost::any_cast<bool>(m["BuyChange"]));
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       if (typeid(vector<boost::any>) == m["Components"].type()) {
