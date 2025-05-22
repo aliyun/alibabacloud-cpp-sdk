@@ -137,12 +137,7 @@ AyncTradeDocumentPackageExtractSmartAppResponse Alibabacloud_Docmind-api20220711
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AyncTradeDocumentPackageExtractSmartAppResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AyncTradeDocumentPackageExtractSmartAppResponse(execute(params, req, runtime));
-  }
+  return AyncTradeDocumentPackageExtractSmartAppResponse(callApi(params, req, runtime));
 }
 
 AyncTradeDocumentPackageExtractSmartAppResponse Alibabacloud_Docmind-api20220711::Client::ayncTradeDocumentPackageExtractSmartApp(shared_ptr<AyncTradeDocumentPackageExtractSmartAppRequest> request) {
@@ -176,12 +171,7 @@ GetDocParserResultResponse Alibabacloud_Docmind-api20220711::Client::getDocParse
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDocParserResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDocParserResultResponse(execute(params, req, runtime));
-  }
+  return GetDocParserResultResponse(callApi(params, req, runtime));
 }
 
 GetDocParserResultResponse Alibabacloud_Docmind-api20220711::Client::getDocParserResult(shared_ptr<GetDocParserResultRequest> request) {
@@ -218,12 +208,7 @@ GetDocStructureResultResponse Alibabacloud_Docmind-api20220711::Client::getDocSt
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDocStructureResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDocStructureResultResponse(execute(params, req, runtime));
-  }
+  return GetDocStructureResultResponse(callApi(params, req, runtime));
 }
 
 GetDocStructureResultResponse Alibabacloud_Docmind-api20220711::Client::getDocStructureResult(shared_ptr<GetDocStructureResultRequest> request) {
@@ -251,12 +236,7 @@ GetDocumentCompareResultResponse Alibabacloud_Docmind-api20220711::Client::getDo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDocumentCompareResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDocumentCompareResultResponse(execute(params, req, runtime));
-  }
+  return GetDocumentCompareResultResponse(callApi(params, req, runtime));
 }
 
 GetDocumentCompareResultResponse Alibabacloud_Docmind-api20220711::Client::getDocumentCompareResult(shared_ptr<GetDocumentCompareResultRequest> request) {
@@ -284,12 +264,7 @@ GetDocumentConvertResultResponse Alibabacloud_Docmind-api20220711::Client::getDo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDocumentConvertResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDocumentConvertResultResponse(execute(params, req, runtime));
-  }
+  return GetDocumentConvertResultResponse(callApi(params, req, runtime));
 }
 
 GetDocumentConvertResultResponse Alibabacloud_Docmind-api20220711::Client::getDocumentConvertResult(shared_ptr<GetDocumentConvertResultRequest> request) {
@@ -317,12 +292,7 @@ GetDocumentExtractResultResponse Alibabacloud_Docmind-api20220711::Client::getDo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDocumentExtractResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDocumentExtractResultResponse(execute(params, req, runtime));
-  }
+  return GetDocumentExtractResultResponse(callApi(params, req, runtime));
 }
 
 GetDocumentExtractResultResponse Alibabacloud_Docmind-api20220711::Client::getDocumentExtractResult(shared_ptr<GetDocumentExtractResultRequest> request) {
@@ -350,12 +320,7 @@ GetPageNumResponse Alibabacloud_Docmind-api20220711::Client::getPageNumWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetPageNumResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetPageNumResponse(execute(params, req, runtime));
-  }
+  return GetPageNumResponse(callApi(params, req, runtime));
 }
 
 GetPageNumResponse Alibabacloud_Docmind-api20220711::Client::getPageNum(shared_ptr<GetPageNumRequest> request) {
@@ -383,12 +348,7 @@ GetTableUnderstandingResultResponse Alibabacloud_Docmind-api20220711::Client::ge
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetTableUnderstandingResultResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetTableUnderstandingResultResponse(execute(params, req, runtime));
-  }
+  return GetTableUnderstandingResultResponse(callApi(params, req, runtime));
 }
 
 GetTableUnderstandingResultResponse Alibabacloud_Docmind-api20220711::Client::getTableUnderstandingResult(shared_ptr<GetTableUnderstandingResultRequest> request) {
@@ -416,12 +376,7 @@ QueryDocParserStatusResponse Alibabacloud_Docmind-api20220711::Client::queryDocP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDocParserStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDocParserStatusResponse(execute(params, req, runtime));
-  }
+  return QueryDocParserStatusResponse(callApi(params, req, runtime));
 }
 
 QueryDocParserStatusResponse Alibabacloud_Docmind-api20220711::Client::queryDocParserStatus(shared_ptr<QueryDocParserStatusRequest> request) {
@@ -472,12 +427,7 @@ SubmitConvertImageToExcelJobResponse Alibabacloud_Docmind-api20220711::Client::s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitConvertImageToExcelJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitConvertImageToExcelJobResponse(execute(params, req, runtime));
-  }
+  return SubmitConvertImageToExcelJobResponse(callApi(params, req, runtime));
 }
 
 SubmitConvertImageToExcelJobResponse Alibabacloud_Docmind-api20220711::Client::submitConvertImageToExcelJob(shared_ptr<SubmitConvertImageToExcelJobRequest> request) {
@@ -525,12 +475,7 @@ SubmitConvertImageToMarkdownJobResponse Alibabacloud_Docmind-api20220711::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitConvertImageToMarkdownJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitConvertImageToMarkdownJobResponse(execute(params, req, runtime));
-  }
+  return SubmitConvertImageToMarkdownJobResponse(callApi(params, req, runtime));
 }
 
 SubmitConvertImageToMarkdownJobResponse Alibabacloud_Docmind-api20220711::Client::submitConvertImageToMarkdownJob(shared_ptr<SubmitConvertImageToMarkdownJobRequest> request) {
@@ -578,12 +523,7 @@ SubmitConvertImageToPdfJobResponse Alibabacloud_Docmind-api20220711::Client::sub
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitConvertImageToPdfJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitConvertImageToPdfJobResponse(execute(params, req, runtime));
-  }
+  return SubmitConvertImageToPdfJobResponse(callApi(params, req, runtime));
 }
 
 SubmitConvertImageToPdfJobResponse Alibabacloud_Docmind-api20220711::Client::submitConvertImageToPdfJob(shared_ptr<SubmitConvertImageToPdfJobRequest> request) {
@@ -631,12 +571,7 @@ SubmitConvertImageToWordJobResponse Alibabacloud_Docmind-api20220711::Client::su
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitConvertImageToWordJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitConvertImageToWordJobResponse(execute(params, req, runtime));
-  }
+  return SubmitConvertImageToWordJobResponse(callApi(params, req, runtime));
 }
 
 SubmitConvertImageToWordJobResponse Alibabacloud_Docmind-api20220711::Client::submitConvertImageToWordJob(shared_ptr<SubmitConvertImageToWordJobRequest> request) {
@@ -679,12 +614,7 @@ SubmitConvertPdfToExcelJobResponse Alibabacloud_Docmind-api20220711::Client::sub
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitConvertPdfToExcelJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitConvertPdfToExcelJobResponse(execute(params, req, runtime));
-  }
+  return SubmitConvertPdfToExcelJobResponse(callApi(params, req, runtime));
 }
 
 SubmitConvertPdfToExcelJobResponse Alibabacloud_Docmind-api20220711::Client::submitConvertPdfToExcelJob(shared_ptr<SubmitConvertPdfToExcelJobRequest> request) {
@@ -793,12 +723,7 @@ SubmitConvertPdfToImageJobResponse Alibabacloud_Docmind-api20220711::Client::sub
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitConvertPdfToImageJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitConvertPdfToImageJobResponse(execute(params, req, runtime));
-  }
+  return SubmitConvertPdfToImageJobResponse(callApi(params, req, runtime));
 }
 
 SubmitConvertPdfToImageJobResponse Alibabacloud_Docmind-api20220711::Client::submitConvertPdfToImageJob(shared_ptr<SubmitConvertPdfToImageJobRequest> request) {
@@ -907,12 +832,7 @@ SubmitConvertPdfToMarkdownJobResponse Alibabacloud_Docmind-api20220711::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitConvertPdfToMarkdownJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitConvertPdfToMarkdownJobResponse(execute(params, req, runtime));
-  }
+  return SubmitConvertPdfToMarkdownJobResponse(callApi(params, req, runtime));
 }
 
 SubmitConvertPdfToMarkdownJobResponse Alibabacloud_Docmind-api20220711::Client::submitConvertPdfToMarkdownJob(shared_ptr<SubmitConvertPdfToMarkdownJobRequest> request) {
@@ -1030,12 +950,7 @@ SubmitConvertPdfToWordJobResponse Alibabacloud_Docmind-api20220711::Client::subm
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitConvertPdfToWordJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitConvertPdfToWordJobResponse(execute(params, req, runtime));
-  }
+  return SubmitConvertPdfToWordJobResponse(callApi(params, req, runtime));
 }
 
 SubmitConvertPdfToWordJobResponse Alibabacloud_Docmind-api20220711::Client::submitConvertPdfToWordJob(shared_ptr<SubmitConvertPdfToWordJobRequest> request) {
@@ -1156,12 +1071,7 @@ SubmitDigitalDocStructureJobResponse Alibabacloud_Docmind-api20220711::Client::s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitDigitalDocStructureJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitDigitalDocStructureJobResponse(execute(params, req, runtime));
-  }
+  return SubmitDigitalDocStructureJobResponse(callApi(params, req, runtime));
 }
 
 SubmitDigitalDocStructureJobResponse Alibabacloud_Docmind-api20220711::Client::submitDigitalDocStructureJob(shared_ptr<SubmitDigitalDocStructureJobRequest> request) {
@@ -1259,11 +1169,17 @@ SubmitDocParserJobResponse Alibabacloud_Docmind-api20220711::Client::submitDocPa
   if (!Darabonba_Util::Client::isUnset<bool>(request->llmEnhancement)) {
     query->insert(pair<string, bool>("LlmEnhancement", *request->llmEnhancement));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->option)) {
+    query->insert(pair<string, string>("Option", *request->option));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ossBucket)) {
     query->insert(pair<string, string>("OssBucket", *request->ossBucket));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ossEndpoint)) {
     query->insert(pair<string, string>("OssEndpoint", *request->ossEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageIndex)) {
+    query->insert(pair<string, string>("PageIndex", *request->pageIndex));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1279,12 +1195,7 @@ SubmitDocParserJobResponse Alibabacloud_Docmind-api20220711::Client::submitDocPa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitDocParserJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitDocParserJobResponse(execute(params, req, runtime));
-  }
+  return SubmitDocParserJobResponse(callApi(params, req, runtime));
 }
 
 SubmitDocParserJobResponse Alibabacloud_Docmind-api20220711::Client::submitDocParserJob(shared_ptr<SubmitDocParserJobRequest> request) {
@@ -1388,6 +1299,9 @@ SubmitDocStructureJobResponse Alibabacloud_Docmind-api20220711::Client::submitDo
   if (!Darabonba_Util::Client::isUnset<string>(request->ossEndpoint)) {
     query->insert(pair<string, string>("OssEndpoint", *request->ossEndpoint));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageIndex)) {
+    query->insert(pair<string, string>("PageIndex", *request->pageIndex));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->structureType)) {
     query->insert(pair<string, string>("StructureType", *request->structureType));
   }
@@ -1405,12 +1319,7 @@ SubmitDocStructureJobResponse Alibabacloud_Docmind-api20220711::Client::submitDo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitDocStructureJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitDocStructureJobResponse(execute(params, req, runtime));
-  }
+  return SubmitDocStructureJobResponse(callApi(params, req, runtime));
 }
 
 SubmitDocStructureJobResponse Alibabacloud_Docmind-api20220711::Client::submitDocStructureJob(shared_ptr<SubmitDocStructureJobRequest> request) {
@@ -1522,12 +1431,7 @@ SubmitDocumentExtractJobResponse Alibabacloud_Docmind-api20220711::Client::submi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitDocumentExtractJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitDocumentExtractJobResponse(execute(params, req, runtime));
-  }
+  return SubmitDocumentExtractJobResponse(callApi(params, req, runtime));
 }
 
 SubmitDocumentExtractJobResponse Alibabacloud_Docmind-api20220711::Client::submitDocumentExtractJob(shared_ptr<SubmitDocumentExtractJobRequest> request) {
@@ -1639,12 +1543,7 @@ SubmitTableUnderstandingJobResponse Alibabacloud_Docmind-api20220711::Client::su
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitTableUnderstandingJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitTableUnderstandingJobResponse(execute(params, req, runtime));
-  }
+  return SubmitTableUnderstandingJobResponse(callApi(params, req, runtime));
 }
 
 SubmitTableUnderstandingJobResponse Alibabacloud_Docmind-api20220711::Client::submitTableUnderstandingJob(shared_ptr<SubmitTableUnderstandingJobRequest> request) {

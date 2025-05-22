@@ -1439,6 +1439,7 @@ public:
   shared_ptr<long> numberOfSuccessfulParsing{};
   shared_ptr<long> pageCountEstimate{};
   shared_ptr<long> paragraphCount{};
+  shared_ptr<double> processing{};
   shared_ptr<string> status{};
   shared_ptr<long> tableCount{};
   shared_ptr<long> tokens{};
@@ -1465,6 +1466,9 @@ public:
     if (paragraphCount) {
       res["ParagraphCount"] = boost::any(*paragraphCount);
     }
+    if (processing) {
+      res["Processing"] = boost::any(*processing);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -1489,6 +1493,9 @@ public:
     }
     if (m.find("ParagraphCount") != m.end() && !m["ParagraphCount"].empty()) {
       paragraphCount = make_shared<long>(boost::any_cast<long>(m["ParagraphCount"]));
+    }
+    if (m.find("Processing") != m.end() && !m["Processing"].empty()) {
+      processing = make_shared<double>(boost::any_cast<double>(m["Processing"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -3965,8 +3972,10 @@ public:
   shared_ptr<string> fileUrl{};
   shared_ptr<bool> formulaEnhancement{};
   shared_ptr<bool> llmEnhancement{};
+  shared_ptr<string> option{};
   shared_ptr<string> ossBucket{};
   shared_ptr<string> ossEndpoint{};
+  shared_ptr<string> pageIndex{};
 
   SubmitDocParserJobRequest() {}
 
@@ -3993,11 +4002,17 @@ public:
     if (llmEnhancement) {
       res["LlmEnhancement"] = boost::any(*llmEnhancement);
     }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
     if (ossBucket) {
       res["OssBucket"] = boost::any(*ossBucket);
     }
     if (ossEndpoint) {
       res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
     }
     return res;
   }
@@ -4018,11 +4033,17 @@ public:
     if (m.find("LlmEnhancement") != m.end() && !m["LlmEnhancement"].empty()) {
       llmEnhancement = make_shared<bool>(boost::any_cast<bool>(m["LlmEnhancement"]));
     }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
+    }
     if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
       ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
     }
     if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
       ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<string>(boost::any_cast<string>(m["PageIndex"]));
     }
   }
 
@@ -4036,8 +4057,10 @@ public:
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<bool> formulaEnhancement{};
   shared_ptr<bool> llmEnhancement{};
+  shared_ptr<string> option{};
   shared_ptr<string> ossBucket{};
   shared_ptr<string> ossEndpoint{};
+  shared_ptr<string> pageIndex{};
 
   SubmitDocParserJobAdvanceRequest() {}
 
@@ -4064,11 +4087,17 @@ public:
     if (llmEnhancement) {
       res["LlmEnhancement"] = boost::any(*llmEnhancement);
     }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
     if (ossBucket) {
       res["OssBucket"] = boost::any(*ossBucket);
     }
     if (ossEndpoint) {
       res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
     }
     return res;
   }
@@ -4089,11 +4118,17 @@ public:
     if (m.find("LlmEnhancement") != m.end() && !m["LlmEnhancement"].empty()) {
       llmEnhancement = make_shared<bool>(boost::any_cast<bool>(m["LlmEnhancement"]));
     }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
+    }
     if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
       ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
     }
     if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
       ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<string>(boost::any_cast<string>(m["PageIndex"]));
     }
   }
 
@@ -4244,6 +4279,7 @@ public:
   shared_ptr<bool> formulaEnhancement{};
   shared_ptr<string> ossBucket{};
   shared_ptr<string> ossEndpoint{};
+  shared_ptr<string> pageIndex{};
   shared_ptr<string> structureType{};
 
   SubmitDocStructureJobRequest() {}
@@ -4277,6 +4313,9 @@ public:
     if (ossEndpoint) {
       res["OssEndpoint"] = boost::any(*ossEndpoint);
     }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
@@ -4305,6 +4344,9 @@ public:
     if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
       ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<string>(boost::any_cast<string>(m["PageIndex"]));
+    }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
     }
@@ -4322,6 +4364,7 @@ public:
   shared_ptr<bool> formulaEnhancement{};
   shared_ptr<string> ossBucket{};
   shared_ptr<string> ossEndpoint{};
+  shared_ptr<string> pageIndex{};
   shared_ptr<string> structureType{};
 
   SubmitDocStructureJobAdvanceRequest() {}
@@ -4355,6 +4398,9 @@ public:
     if (ossEndpoint) {
       res["OssEndpoint"] = boost::any(*ossEndpoint);
     }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
@@ -4382,6 +4428,9 @@ public:
     }
     if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
       ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<string>(boost::any_cast<string>(m["PageIndex"]));
     }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
