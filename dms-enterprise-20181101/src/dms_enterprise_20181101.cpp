@@ -1201,6 +1201,9 @@ CreateDataImportOrderResponse Alibabacloud_Dms-enterprise20181101::Client::creat
   if (!Darabonba_Util::Client::isUnset<string>(request->paramShrink)) {
     query->insert(pair<string, string>("Param", *request->paramShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->relatedUserListShrink)) {
     query->insert(pair<string, string>("RelatedUserList", *request->relatedUserListShrink));
   }

@@ -8669,6 +8669,7 @@ public:
   shared_ptr<string> attachmentKey{};
   shared_ptr<string> comment{};
   shared_ptr<CreateDataImportOrderRequestParam> param{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<vector<long>> relatedUserList{};
   shared_ptr<long> tid{};
 
@@ -8690,6 +8691,9 @@ public:
     }
     if (param) {
       res["Param"] = param ? boost::any(param->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
     }
     if (relatedUserList) {
       res["RelatedUserList"] = boost::any(*relatedUserList);
@@ -8714,6 +8718,9 @@ public:
         param = make_shared<CreateDataImportOrderRequestParam>(model1);
       }
     }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
+    }
     if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["RelatedUserList"].type()) {
@@ -8737,6 +8744,7 @@ public:
   shared_ptr<string> attachmentKey{};
   shared_ptr<string> comment{};
   shared_ptr<string> paramShrink{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<string> relatedUserListShrink{};
   shared_ptr<long> tid{};
 
@@ -8759,6 +8767,9 @@ public:
     if (paramShrink) {
       res["Param"] = boost::any(*paramShrink);
     }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
+    }
     if (relatedUserListShrink) {
       res["RelatedUserList"] = boost::any(*relatedUserListShrink);
     }
@@ -8777,6 +8788,9 @@ public:
     }
     if (m.find("Param") != m.end() && !m["Param"].empty()) {
       paramShrink = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
     }
     if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
       relatedUserListShrink = make_shared<string>(boost::any_cast<string>(m["RelatedUserList"]));
