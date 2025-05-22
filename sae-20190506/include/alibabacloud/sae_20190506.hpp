@@ -9985,7 +9985,11 @@ public:
   shared_ptr<string> appType{};
   shared_ptr<double> cpuCore{};
   shared_ptr<string> cpuStrategy{};
+  shared_ptr<string> cpuUtilLevel{};
+  shared_ptr<vector<double>> cpuUtilMetrics{};
+  shared_ptr<bool> enableCpuIdle{};
   shared_ptr<string> envType{};
+  shared_ptr<long> ephemeralStorageGiB{};
   shared_ptr<long> highLoadInstanceCount{};
   shared_ptr<double> highLoadQps{};
   shared_ptr<long> highLoadSeconds{};
@@ -9997,9 +10001,11 @@ public:
   shared_ptr<long> maxInstanceCount{};
   shared_ptr<double> memoryGiB{};
   shared_ptr<long> minInstanceCount{};
+  shared_ptr<string> newSaeVersion{};
   shared_ptr<long> noneLoadInstanceCount{};
   shared_ptr<long> noneLoadSeconds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceType{};
 
   PriceEstimateFeature() {}
 
@@ -10020,8 +10026,20 @@ public:
     if (cpuStrategy) {
       res["CpuStrategy"] = boost::any(*cpuStrategy);
     }
+    if (cpuUtilLevel) {
+      res["CpuUtilLevel"] = boost::any(*cpuUtilLevel);
+    }
+    if (cpuUtilMetrics) {
+      res["CpuUtilMetrics"] = boost::any(*cpuUtilMetrics);
+    }
+    if (enableCpuIdle) {
+      res["EnableCpuIdle"] = boost::any(*enableCpuIdle);
+    }
     if (envType) {
       res["EnvType"] = boost::any(*envType);
+    }
+    if (ephemeralStorageGiB) {
+      res["EphemeralStorageGiB"] = boost::any(*ephemeralStorageGiB);
     }
     if (highLoadInstanceCount) {
       res["HighLoadInstanceCount"] = boost::any(*highLoadInstanceCount);
@@ -10056,6 +10074,9 @@ public:
     if (minInstanceCount) {
       res["MinInstanceCount"] = boost::any(*minInstanceCount);
     }
+    if (newSaeVersion) {
+      res["NewSaeVersion"] = boost::any(*newSaeVersion);
+    }
     if (noneLoadInstanceCount) {
       res["NoneLoadInstanceCount"] = boost::any(*noneLoadInstanceCount);
     }
@@ -10064,6 +10085,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     return res;
   }
@@ -10078,8 +10102,27 @@ public:
     if (m.find("CpuStrategy") != m.end() && !m["CpuStrategy"].empty()) {
       cpuStrategy = make_shared<string>(boost::any_cast<string>(m["CpuStrategy"]));
     }
+    if (m.find("CpuUtilLevel") != m.end() && !m["CpuUtilLevel"].empty()) {
+      cpuUtilLevel = make_shared<string>(boost::any_cast<string>(m["CpuUtilLevel"]));
+    }
+    if (m.find("CpuUtilMetrics") != m.end() && !m["CpuUtilMetrics"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuUtilMetrics"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuUtilMetrics"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      cpuUtilMetrics = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("EnableCpuIdle") != m.end() && !m["EnableCpuIdle"].empty()) {
+      enableCpuIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableCpuIdle"]));
+    }
     if (m.find("EnvType") != m.end() && !m["EnvType"].empty()) {
       envType = make_shared<string>(boost::any_cast<string>(m["EnvType"]));
+    }
+    if (m.find("EphemeralStorageGiB") != m.end() && !m["EphemeralStorageGiB"].empty()) {
+      ephemeralStorageGiB = make_shared<long>(boost::any_cast<long>(m["EphemeralStorageGiB"]));
     }
     if (m.find("HighLoadInstanceCount") != m.end() && !m["HighLoadInstanceCount"].empty()) {
       highLoadInstanceCount = make_shared<long>(boost::any_cast<long>(m["HighLoadInstanceCount"]));
@@ -10114,6 +10157,9 @@ public:
     if (m.find("MinInstanceCount") != m.end() && !m["MinInstanceCount"].empty()) {
       minInstanceCount = make_shared<long>(boost::any_cast<long>(m["MinInstanceCount"]));
     }
+    if (m.find("NewSaeVersion") != m.end() && !m["NewSaeVersion"].empty()) {
+      newSaeVersion = make_shared<string>(boost::any_cast<string>(m["NewSaeVersion"]));
+    }
     if (m.find("NoneLoadInstanceCount") != m.end() && !m["NoneLoadInstanceCount"].empty()) {
       noneLoadInstanceCount = make_shared<long>(boost::any_cast<long>(m["NoneLoadInstanceCount"]));
     }
@@ -10122,6 +10168,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
   }
 
@@ -13831,6 +13880,7 @@ public:
   shared_ptr<bool> enableNewArms{};
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
+  shared_ptr<string> gpuConfig{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<InitContainerConfig>> initContainersConfig{};
@@ -13961,6 +14011,9 @@ public:
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
+    }
+    if (gpuConfig) {
+      res["GpuConfig"] = boost::any(*gpuConfig);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -14196,6 +14249,9 @@ public:
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
     }
+    if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
+      gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
+    }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
     }
@@ -14399,6 +14455,7 @@ public:
   shared_ptr<bool> enableNewArms{};
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
+  shared_ptr<string> gpuConfig{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> initContainersConfigShrink{};
@@ -14529,6 +14586,9 @@ public:
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
+    }
+    if (gpuConfig) {
+      res["GpuConfig"] = boost::any(*gpuConfig);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -14755,6 +14815,9 @@ public:
     }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
+    }
+    if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
+      gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
     }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
@@ -19636,6 +19699,198 @@ public:
 
   virtual ~DeleteIngressResponse() = default;
 };
+class DeleteInstancesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> instanceIds{};
+
+  DeleteInstancesRequest() {}
+
+  explicit DeleteInstancesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      instanceIds = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));
+    }
+  }
+
+
+  virtual ~DeleteInstancesRequest() = default;
+};
+class DeleteInstancesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> changeOrderId{};
+
+  DeleteInstancesResponseBodyData() {}
+
+  explicit DeleteInstancesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (changeOrderId) {
+      res["ChangeOrderId"] = boost::any(*changeOrderId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChangeOrderId") != m.end() && !m["ChangeOrderId"].empty()) {
+      changeOrderId = make_shared<string>(boost::any_cast<string>(m["ChangeOrderId"]));
+    }
+  }
+
+
+  virtual ~DeleteInstancesResponseBodyData() = default;
+};
+class DeleteInstancesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DeleteInstancesResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  DeleteInstancesResponseBody() {}
+
+  explicit DeleteInstancesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DeleteInstancesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DeleteInstancesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~DeleteInstancesResponseBody() = default;
+};
+class DeleteInstancesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteInstancesResponseBody> body{};
+
+  DeleteInstancesResponse() {}
+
+  explicit DeleteInstancesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteInstancesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteInstancesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteInstancesResponse() = default;
+};
 class DeleteJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -20551,6 +20806,7 @@ public:
   shared_ptr<bool> enableNewArms{};
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
+  shared_ptr<string> gpuConfig{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<InitContainerConfig>> initContainersConfig{};
@@ -20677,6 +20933,9 @@ public:
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
+    }
+    if (gpuConfig) {
+      res["GpuConfig"] = boost::any(*gpuConfig);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -20906,6 +21165,9 @@ public:
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
     }
+    if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
+      gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
+    }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
     }
@@ -21105,6 +21367,7 @@ public:
   shared_ptr<bool> enableNewArms{};
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
+  shared_ptr<string> gpuConfig{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> initContainersConfigShrink{};
@@ -21231,6 +21494,9 @@ public:
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
+    }
+    if (gpuConfig) {
+      res["GpuConfig"] = boost::any(*gpuConfig);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -21451,6 +21717,9 @@ public:
     }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
+    }
+    if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
+      gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
     }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
@@ -47163,6 +47432,8 @@ public:
   shared_ptr<double> cpu{};
   shared_ptr<double> cu{};
   shared_ptr<double> ephemeralStorage{};
+  shared_ptr<double> gpuA10{};
+  shared_ptr<double> gpuPpu810e{};
   shared_ptr<double> idleCpu{};
   shared_ptr<double> memory{};
 
@@ -47188,6 +47459,12 @@ public:
     if (ephemeralStorage) {
       res["EphemeralStorage"] = boost::any(*ephemeralStorage);
     }
+    if (gpuA10) {
+      res["GpuA10"] = boost::any(*gpuA10);
+    }
+    if (gpuPpu810e) {
+      res["GpuPpu810e"] = boost::any(*gpuPpu810e);
+    }
     if (idleCpu) {
       res["IdleCpu"] = boost::any(*idleCpu);
     }
@@ -47209,6 +47486,12 @@ public:
     }
     if (m.find("EphemeralStorage") != m.end() && !m["EphemeralStorage"].empty()) {
       ephemeralStorage = make_shared<double>(boost::any_cast<double>(m["EphemeralStorage"]));
+    }
+    if (m.find("GpuA10") != m.end() && !m["GpuA10"].empty()) {
+      gpuA10 = make_shared<double>(boost::any_cast<double>(m["GpuA10"]));
+    }
+    if (m.find("GpuPpu810e") != m.end() && !m["GpuPpu810e"].empty()) {
+      gpuPpu810e = make_shared<double>(boost::any_cast<double>(m["GpuPpu810e"]));
     }
     if (m.find("IdleCpu") != m.end() && !m["IdleCpu"].empty()) {
       idleCpu = make_shared<double>(boost::any_cast<double>(m["IdleCpu"]));
@@ -53762,6 +54045,8 @@ public:
   DeleteHistoryJobResponse deleteHistoryJob(shared_ptr<DeleteHistoryJobRequest> request);
   DeleteIngressResponse deleteIngressWithOptions(shared_ptr<DeleteIngressRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIngressResponse deleteIngress(shared_ptr<DeleteIngressRequest> request);
+  DeleteInstancesResponse deleteInstancesWithOptions(shared_ptr<DeleteInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteInstancesResponse deleteInstances(shared_ptr<DeleteInstancesRequest> request);
   DeleteJobResponse deleteJobWithOptions(shared_ptr<DeleteJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteJobResponse deleteJob(shared_ptr<DeleteJobRequest> request);
   DeleteNamespaceResponse deleteNamespaceWithOptions(shared_ptr<DeleteNamespaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

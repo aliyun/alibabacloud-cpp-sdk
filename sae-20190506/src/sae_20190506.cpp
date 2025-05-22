@@ -318,6 +318,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->envs)) {
     query->insert(pair<string, string>("Envs", *request->envs));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuConfig)) {
+    query->insert(pair<string, string>("GpuConfig", *request->gpuConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imagePullSecrets)) {
     query->insert(pair<string, string>("ImagePullSecrets", *request->imagePullSecrets));
   }
@@ -1387,6 +1390,39 @@ DeleteIngressResponse Alibabacloud_Sae20190506::Client::deleteIngress(shared_ptr
   return deleteIngressWithOptions(request, headers, runtime);
 }
 
+DeleteInstancesResponse Alibabacloud_Sae20190506::Client::deleteInstancesWithOptions(shared_ptr<DeleteInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIds)) {
+    query->insert(pair<string, string>("InstanceIds", *request->instanceIds));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteInstances"))},
+    {"version", boost::any(string("2019-05-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/pop/v1/sam/app/deleteInstances"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteInstancesResponse(callApi(params, req, runtime));
+}
+
+DeleteInstancesResponse Alibabacloud_Sae20190506::Client::deleteInstances(shared_ptr<DeleteInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteInstancesWithOptions(request, headers, runtime);
+}
+
 DeleteJobResponse Alibabacloud_Sae20190506::Client::deleteJobWithOptions(shared_ptr<DeleteJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1680,6 +1716,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->envs)) {
     query->insert(pair<string, string>("Envs", *request->envs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuConfig)) {
+    query->insert(pair<string, string>("GpuConfig", *request->gpuConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imagePullSecrets)) {
     query->insert(pair<string, string>("ImagePullSecrets", *request->imagePullSecrets));
