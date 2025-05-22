@@ -18332,6 +18332,7 @@ public:
 };
 class DescribeDtsJobsResponseBodyDtsJobListFullDataCheckStatus : public Darabonba::Model {
 public:
+  shared_ptr<bool> canSwitch{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> percent{};
   shared_ptr<string> progress{};
@@ -18347,6 +18348,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (canSwitch) {
+      res["CanSwitch"] = boost::any(*canSwitch);
+    }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
@@ -18363,6 +18367,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CanSwitch") != m.end() && !m["CanSwitch"].empty()) {
+      canSwitch = make_shared<bool>(boost::any_cast<bool>(m["CanSwitch"]));
+    }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
@@ -18436,6 +18443,7 @@ public:
   shared_ptr<bool> dataSynchronization{};
   shared_ptr<bool> fullDataCheck{};
   shared_ptr<bool> incDataCheck{};
+  shared_ptr<bool> structureDataCheck{};
   shared_ptr<bool> structureInitialization{};
 
   DescribeDtsJobsResponseBodyDtsJobListMigrationMode() {}
@@ -18460,6 +18468,9 @@ public:
     if (incDataCheck) {
       res["IncDataCheck"] = boost::any(*incDataCheck);
     }
+    if (structureDataCheck) {
+      res["StructureDataCheck"] = boost::any(*structureDataCheck);
+    }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
     }
@@ -18478,6 +18489,9 @@ public:
     }
     if (m.find("IncDataCheck") != m.end() && !m["IncDataCheck"].empty()) {
       incDataCheck = make_shared<bool>(boost::any_cast<bool>(m["IncDataCheck"]));
+    }
+    if (m.find("StructureDataCheck") != m.end() && !m["StructureDataCheck"].empty()) {
+      structureDataCheck = make_shared<bool>(boost::any_cast<bool>(m["StructureDataCheck"]));
     }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));
@@ -19001,6 +19015,7 @@ public:
 };
 class DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus : public Darabonba::Model {
 public:
+  shared_ptr<bool> canSwitch{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> percent{};
   shared_ptr<string> progress{};
@@ -19016,6 +19031,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (canSwitch) {
+      res["CanSwitch"] = boost::any(*canSwitch);
+    }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
@@ -19032,6 +19050,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CanSwitch") != m.end() && !m["CanSwitch"].empty()) {
+      canSwitch = make_shared<bool>(boost::any_cast<bool>(m["CanSwitch"]));
+    }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
@@ -19105,6 +19126,7 @@ public:
   shared_ptr<bool> dataSynchronization{};
   shared_ptr<bool> fullDataCheck{};
   shared_ptr<bool> incDataCheck{};
+  shared_ptr<bool> structureDataCheck{};
   shared_ptr<bool> structureInitialization{};
 
   DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode() {}
@@ -19129,6 +19151,9 @@ public:
     if (incDataCheck) {
       res["IncDataCheck"] = boost::any(*incDataCheck);
     }
+    if (structureDataCheck) {
+      res["StructureDataCheck"] = boost::any(*structureDataCheck);
+    }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
     }
@@ -19147,6 +19172,9 @@ public:
     }
     if (m.find("IncDataCheck") != m.end() && !m["IncDataCheck"].empty()) {
       incDataCheck = make_shared<bool>(boost::any_cast<bool>(m["IncDataCheck"]));
+    }
+    if (m.find("StructureDataCheck") != m.end() && !m["StructureDataCheck"].empty()) {
+      structureDataCheck = make_shared<bool>(boost::any_cast<bool>(m["StructureDataCheck"]));
     }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));
@@ -19405,6 +19433,56 @@ public:
 
   virtual ~DescribeDtsJobsResponseBodyDtsJobListReverseJobSourceEndpoint() = default;
 };
+class DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureDataCheckStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> percent{};
+  shared_ptr<string> progress{};
+  shared_ptr<string> status{};
+
+  DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureDataCheckStatus() {}
+
+  explicit DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureDataCheckStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (percent) {
+      res["Percent"] = boost::any(*percent);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Percent") != m.end() && !m["Percent"].empty()) {
+      percent = make_shared<string>(boost::any_cast<string>(m["Percent"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureDataCheckStatus() = default;
+};
 class DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureInitializationStatus : public Darabonba::Model {
 public:
   shared_ptr<string> errorMessage{};
@@ -19488,6 +19566,7 @@ public:
   shared_ptr<string> reserved{};
   shared_ptr<DescribeDtsJobsResponseBodyDtsJobListReverseJobSourceEndpoint> sourceEndpoint{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureDataCheckStatus> structureDataCheckStatus{};
   shared_ptr<DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureInitializationStatus> structureInitializationStatus{};
 
   DescribeDtsJobsResponseBodyDtsJobListReverseJob() {}
@@ -19596,6 +19675,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (structureDataCheckStatus) {
+      res["StructureDataCheckStatus"] = structureDataCheckStatus ? boost::any(structureDataCheckStatus->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (structureInitializationStatus) {
       res["StructureInitializationStatus"] = structureInitializationStatus ? boost::any(structureInitializationStatus->toMap()) : boost::any(map<string,boost::any>({}));
@@ -19743,6 +19825,13 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("StructureDataCheckStatus") != m.end() && !m["StructureDataCheckStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StructureDataCheckStatus"].type()) {
+        DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureDataCheckStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StructureDataCheckStatus"]));
+        structureDataCheckStatus = make_shared<DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureDataCheckStatus>(model1);
+      }
+    }
     if (m.find("StructureInitializationStatus") != m.end() && !m["StructureInitializationStatus"].empty()) {
       if (typeid(map<string, boost::any>) == m["StructureInitializationStatus"].type()) {
         DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureInitializationStatus model1;
@@ -19846,6 +19935,56 @@ public:
 
 
   virtual ~DescribeDtsJobsResponseBodyDtsJobListSourceEndpoint() = default;
+};
+class DescribeDtsJobsResponseBodyDtsJobListStructureDataCheckStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> percent{};
+  shared_ptr<string> progress{};
+  shared_ptr<string> status{};
+
+  DescribeDtsJobsResponseBodyDtsJobListStructureDataCheckStatus() {}
+
+  explicit DescribeDtsJobsResponseBodyDtsJobListStructureDataCheckStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (percent) {
+      res["Percent"] = boost::any(*percent);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Percent") != m.end() && !m["Percent"].empty()) {
+      percent = make_shared<string>(boost::any_cast<string>(m["Percent"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeDtsJobsResponseBodyDtsJobListStructureDataCheckStatus() = default;
 };
 class DescribeDtsJobsResponseBodyDtsJobListStructureInitializationStatus : public Darabonba::Model {
 public:
@@ -19987,6 +20126,7 @@ public:
   shared_ptr<DescribeDtsJobsResponseBodyDtsJobListReverseJob> reverseJob{};
   shared_ptr<DescribeDtsJobsResponseBodyDtsJobListSourceEndpoint> sourceEndpoint{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeDtsJobsResponseBodyDtsJobListStructureDataCheckStatus> structureDataCheckStatus{};
   shared_ptr<DescribeDtsJobsResponseBodyDtsJobListStructureInitializationStatus> structureInitializationStatus{};
   shared_ptr<vector<DescribeDtsJobsResponseBodyDtsJobListTagList>> tagList{};
 
@@ -20159,6 +20299,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (structureDataCheckStatus) {
+      res["StructureDataCheckStatus"] = structureDataCheckStatus ? boost::any(structureDataCheckStatus->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (structureInitializationStatus) {
       res["StructureInitializationStatus"] = structureInitializationStatus ? boost::any(structureInitializationStatus->toMap()) : boost::any(map<string,boost::any>({}));
@@ -20391,6 +20534,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StructureDataCheckStatus") != m.end() && !m["StructureDataCheckStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StructureDataCheckStatus"].type()) {
+        DescribeDtsJobsResponseBodyDtsJobListStructureDataCheckStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StructureDataCheckStatus"]));
+        structureDataCheckStatus = make_shared<DescribeDtsJobsResponseBodyDtsJobListStructureDataCheckStatus>(model1);
+      }
     }
     if (m.find("StructureInitializationStatus") != m.end() && !m["StructureInitializationStatus"].empty()) {
       if (typeid(map<string, boost::any>) == m["StructureInitializationStatus"].type()) {
