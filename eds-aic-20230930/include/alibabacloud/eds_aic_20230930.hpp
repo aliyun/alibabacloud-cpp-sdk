@@ -4982,6 +4982,7 @@ class DescribeAndroidInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
   shared_ptr<string> androidInstanceName{};
+  shared_ptr<string> appManagePolicyId{};
   shared_ptr<string> authorizedUserId{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
@@ -5014,6 +5015,9 @@ public:
     }
     if (androidInstanceName) {
       res["AndroidInstanceName"] = boost::any(*androidInstanceName);
+    }
+    if (appManagePolicyId) {
+      res["AppManagePolicyId"] = boost::any(*appManagePolicyId);
     }
     if (authorizedUserId) {
       res["AuthorizedUserId"] = boost::any(*authorizedUserId);
@@ -5083,6 +5087,9 @@ public:
     }
     if (m.find("AndroidInstanceName") != m.end() && !m["AndroidInstanceName"].empty()) {
       androidInstanceName = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceName"]));
+    }
+    if (m.find("AppManagePolicyId") != m.end() && !m["AppManagePolicyId"].empty()) {
+      appManagePolicyId = make_shared<string>(boost::any_cast<string>(m["AppManagePolicyId"]));
     }
     if (m.find("AuthorizedUserId") != m.end() && !m["AuthorizedUserId"].empty()) {
       authorizedUserId = make_shared<string>(boost::any_cast<string>(m["AuthorizedUserId"]));
@@ -5167,6 +5174,42 @@ public:
 
 
   virtual ~DescribeAndroidInstancesRequest() = default;
+};
+class DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> appManagePolicyId{};
+  shared_ptr<string> appManagePolicyName{};
+
+  DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy() {}
+
+  explicit DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appManagePolicyId) {
+      res["AppManagePolicyId"] = boost::any(*appManagePolicyId);
+    }
+    if (appManagePolicyName) {
+      res["AppManagePolicyName"] = boost::any(*appManagePolicyName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppManagePolicyId") != m.end() && !m["AppManagePolicyId"].empty()) {
+      appManagePolicyId = make_shared<string>(boost::any_cast<string>(m["AppManagePolicyId"]));
+    }
+    if (m.find("AppManagePolicyName") != m.end() && !m["AppManagePolicyName"].empty()) {
+      appManagePolicyName = make_shared<string>(boost::any_cast<string>(m["AppManagePolicyName"]));
+    }
+  }
+
+
+  virtual ~DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy() = default;
 };
 class DescribeAndroidInstancesResponseBodyInstanceModelDisks : public Darabonba::Model {
 public:
@@ -5306,6 +5349,7 @@ public:
   shared_ptr<string> androidInstanceStatus{};
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceId{};
+  shared_ptr<DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy> appManagePolicy{};
   shared_ptr<string> authorizedUserId{};
   shared_ptr<string> bindUserId{};
   shared_ptr<string> chargeType{};
@@ -5365,6 +5409,9 @@ public:
     }
     if (appInstanceId) {
       res["AppInstanceId"] = boost::any(*appInstanceId);
+    }
+    if (appManagePolicy) {
+      res["AppManagePolicy"] = appManagePolicy ? boost::any(appManagePolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (authorizedUserId) {
       res["AuthorizedUserId"] = boost::any(*authorizedUserId);
@@ -5482,6 +5529,13 @@ public:
     }
     if (m.find("AppInstanceId") != m.end() && !m["AppInstanceId"].empty()) {
       appInstanceId = make_shared<string>(boost::any_cast<string>(m["AppInstanceId"]));
+    }
+    if (m.find("AppManagePolicy") != m.end() && !m["AppManagePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AppManagePolicy"].type()) {
+        DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AppManagePolicy"]));
+        appManagePolicy = make_shared<DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy>(model1);
+      }
     }
     if (m.find("AuthorizedUserId") != m.end() && !m["AuthorizedUserId"].empty()) {
       authorizedUserId = make_shared<string>(boost::any_cast<string>(m["AuthorizedUserId"]));
