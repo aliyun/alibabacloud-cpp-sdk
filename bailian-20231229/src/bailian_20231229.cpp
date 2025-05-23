@@ -859,6 +859,9 @@ ListCategoryResponse Alibabacloud_Bailian20231229::Client::listCategoryWithOptio
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryName)) {
+    body->insert(pair<string, string>("CategoryName", *request->categoryName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->categoryType)) {
     body->insert(pair<string, string>("CategoryType", *request->categoryType));
   }

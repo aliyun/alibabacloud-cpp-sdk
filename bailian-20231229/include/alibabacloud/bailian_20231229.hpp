@@ -5039,6 +5039,7 @@ public:
 };
 class ListCategoryRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> categoryName{};
   shared_ptr<string> categoryType{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -5054,6 +5055,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (categoryName) {
+      res["CategoryName"] = boost::any(*categoryName);
+    }
     if (categoryType) {
       res["CategoryType"] = boost::any(*categoryType);
     }
@@ -5070,6 +5074,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryName") != m.end() && !m["CategoryName"].empty()) {
+      categoryName = make_shared<string>(boost::any_cast<string>(m["CategoryName"]));
+    }
     if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
       categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
     }
