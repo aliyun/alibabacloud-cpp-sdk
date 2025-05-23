@@ -3730,6 +3730,42 @@ public:
 
   virtual ~CreateAutoscalingConfigResponse() = default;
 };
+class CreateClusterRequestAuditLogConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> slsProjectName{};
+
+  CreateClusterRequestAuditLogConfig() {}
+
+  explicit CreateClusterRequestAuditLogConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (slsProjectName) {
+      res["sls_project_name"] = boost::any(*slsProjectName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("sls_project_name") != m.end() && !m["sls_project_name"].empty()) {
+      slsProjectName = make_shared<string>(boost::any_cast<string>(m["sls_project_name"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestAuditLogConfig() = default;
+};
 class CreateClusterRequestControlPlaneConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenew{};
@@ -4051,6 +4087,7 @@ public:
   shared_ptr<vector<string>> accessControlList{};
   shared_ptr<vector<Addon>> addons{};
   shared_ptr<string> apiAudiences{};
+  shared_ptr<CreateClusterRequestAuditLogConfig> auditLogConfig{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<string> chargeType{};
@@ -4169,6 +4206,9 @@ public:
     }
     if (apiAudiences) {
       res["api_audiences"] = boost::any(*apiAudiences);
+    }
+    if (auditLogConfig) {
+      res["audit_log_config"] = auditLogConfig ? boost::any(auditLogConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (autoRenew) {
       res["auto_renew"] = boost::any(*autoRenew);
@@ -4500,6 +4540,13 @@ public:
     }
     if (m.find("api_audiences") != m.end() && !m["api_audiences"].empty()) {
       apiAudiences = make_shared<string>(boost::any_cast<string>(m["api_audiences"]));
+    }
+    if (m.find("audit_log_config") != m.end() && !m["audit_log_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["audit_log_config"].type()) {
+        CreateClusterRequestAuditLogConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["audit_log_config"]));
+        auditLogConfig = make_shared<CreateClusterRequestAuditLogConfig>(model1);
+      }
     }
     if (m.find("auto_renew") != m.end() && !m["auto_renew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["auto_renew"]));

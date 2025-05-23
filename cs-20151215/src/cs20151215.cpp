@@ -501,6 +501,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->apiAudiences)) {
     body->insert(pair<string, string>("api_audiences", *request->apiAudiences));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateClusterRequestAuditLogConfig>(request->auditLogConfig)) {
+    body->insert(pair<string, CreateClusterRequestAuditLogConfig>("audit_log_config", *request->auditLogConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     body->insert(pair<string, bool>("auto_renew", *request->autoRenew));
   }
