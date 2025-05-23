@@ -10823,6 +10823,7 @@ public:
   shared_ptr<string> createUser{};
   shared_ptr<string> deviceId{};
   shared_ptr<long> id{};
+  shared_ptr<string> ignoreContentAuditWords{};
   shared_ptr<vector<string>> keywordList{};
   shared_ptr<string> keywords{};
   shared_ptr<string> prompt{};
@@ -10862,6 +10863,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (ignoreContentAuditWords) {
+      res["IgnoreContentAuditWords"] = boost::any(*ignoreContentAuditWords);
     }
     if (keywordList) {
       res["KeywordList"] = boost::any(*keywordList);
@@ -10911,6 +10915,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IgnoreContentAuditWords") != m.end() && !m["IgnoreContentAuditWords"].empty()) {
+      ignoreContentAuditWords = make_shared<string>(boost::any_cast<string>(m["IgnoreContentAuditWords"]));
     }
     if (m.find("KeywordList") != m.end() && !m["KeywordList"].empty()) {
       vector<string> toVec1;
