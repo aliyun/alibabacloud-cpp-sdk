@@ -2505,6 +2505,7 @@ public:
   shared_ptr<string> image{};
   shared_ptr<ImageConfig> imageConfig{};
   shared_ptr<bool> isCheif{};
+  shared_ptr<bool> isChief{};
   shared_ptr<vector<LocalMountSpec>> localMountSpecs{};
   shared_ptr<long> podCount{};
   shared_ptr<ResourceConfig> resourceConfig{};
@@ -2544,6 +2545,9 @@ public:
     }
     if (isCheif) {
       res["IsCheif"] = boost::any(*isCheif);
+    }
+    if (isChief) {
+      res["IsChief"] = boost::any(*isChief);
     }
     if (localMountSpecs) {
       vector<boost::any> temp1;
@@ -2613,6 +2617,9 @@ public:
     }
     if (m.find("IsCheif") != m.end() && !m["IsCheif"].empty()) {
       isCheif = make_shared<bool>(boost::any_cast<bool>(m["IsCheif"]));
+    }
+    if (m.find("IsChief") != m.end() && !m["IsChief"].empty()) {
+      isChief = make_shared<bool>(boost::any_cast<bool>(m["IsChief"]));
     }
     if (m.find("LocalMountSpecs") != m.end() && !m["LocalMountSpecs"].empty()) {
       if (typeid(vector<boost::any>) == m["LocalMountSpecs"].type()) {
