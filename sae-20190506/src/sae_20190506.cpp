@@ -426,6 +426,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->slsConfigs)) {
     query->insert(pair<string, string>("SlsConfigs", *request->slsConfigs));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startupProbe)) {
+    query->insert(pair<string, string>("StartupProbe", *request->startupProbe));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->terminationGracePeriodSeconds)) {
     query->insert(pair<string, long>("TerminationGracePeriodSeconds", *request->terminationGracePeriodSeconds));
   }
@@ -1818,6 +1821,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->slsConfigs)) {
     query->insert(pair<string, string>("SlsConfigs", *request->slsConfigs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startupProbe)) {
+    query->insert(pair<string, string>("StartupProbe", *request->startupProbe));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->terminationGracePeriodSeconds)) {
     query->insert(pair<string, long>("TerminationGracePeriodSeconds", *request->terminationGracePeriodSeconds));

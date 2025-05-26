@@ -13925,6 +13925,7 @@ public:
   shared_ptr<string> serviceTags{};
   shared_ptr<vector<SidecarContainerConfig>> sidecarContainersConfig{};
   shared_ptr<string> slsConfigs{};
+  shared_ptr<string> startupProbe{};
   shared_ptr<long> terminationGracePeriodSeconds{};
   shared_ptr<string> timezone{};
   shared_ptr<string> tomcatConfig{};
@@ -14154,6 +14155,9 @@ public:
     }
     if (slsConfigs) {
       res["SlsConfigs"] = boost::any(*slsConfigs);
+    }
+    if (startupProbe) {
+      res["StartupProbe"] = boost::any(*startupProbe);
     }
     if (terminationGracePeriodSeconds) {
       res["TerminationGracePeriodSeconds"] = boost::any(*terminationGracePeriodSeconds);
@@ -14404,6 +14408,9 @@ public:
     if (m.find("SlsConfigs") != m.end() && !m["SlsConfigs"].empty()) {
       slsConfigs = make_shared<string>(boost::any_cast<string>(m["SlsConfigs"]));
     }
+    if (m.find("StartupProbe") != m.end() && !m["StartupProbe"].empty()) {
+      startupProbe = make_shared<string>(boost::any_cast<string>(m["StartupProbe"]));
+    }
     if (m.find("TerminationGracePeriodSeconds") != m.end() && !m["TerminationGracePeriodSeconds"].empty()) {
       terminationGracePeriodSeconds = make_shared<long>(boost::any_cast<long>(m["TerminationGracePeriodSeconds"]));
     }
@@ -14500,6 +14507,7 @@ public:
   shared_ptr<string> serviceTags{};
   shared_ptr<string> sidecarContainersConfigShrink{};
   shared_ptr<string> slsConfigs{};
+  shared_ptr<string> startupProbe{};
   shared_ptr<long> terminationGracePeriodSeconds{};
   shared_ptr<string> timezone{};
   shared_ptr<string> tomcatConfig{};
@@ -14721,6 +14729,9 @@ public:
     }
     if (slsConfigs) {
       res["SlsConfigs"] = boost::any(*slsConfigs);
+    }
+    if (startupProbe) {
+      res["StartupProbe"] = boost::any(*startupProbe);
     }
     if (terminationGracePeriodSeconds) {
       res["TerminationGracePeriodSeconds"] = boost::any(*terminationGracePeriodSeconds);
@@ -14950,6 +14961,9 @@ public:
     }
     if (m.find("SlsConfigs") != m.end() && !m["SlsConfigs"].empty()) {
       slsConfigs = make_shared<string>(boost::any_cast<string>(m["SlsConfigs"]));
+    }
+    if (m.find("StartupProbe") != m.end() && !m["StartupProbe"].empty()) {
+      startupProbe = make_shared<string>(boost::any_cast<string>(m["StartupProbe"]));
     }
     if (m.find("TerminationGracePeriodSeconds") != m.end() && !m["TerminationGracePeriodSeconds"].empty()) {
       terminationGracePeriodSeconds = make_shared<long>(boost::any_cast<long>(m["TerminationGracePeriodSeconds"]));
@@ -20849,6 +20863,7 @@ public:
   shared_ptr<string> serviceTags{};
   shared_ptr<vector<SidecarContainerConfig>> sidecarContainersConfig{};
   shared_ptr<string> slsConfigs{};
+  shared_ptr<string> startupProbe{};
   shared_ptr<string> swimlanePvtzDiscoverySvc{};
   shared_ptr<long> terminationGracePeriodSeconds{};
   shared_ptr<string> timezone{};
@@ -21070,6 +21085,9 @@ public:
     }
     if (slsConfigs) {
       res["SlsConfigs"] = boost::any(*slsConfigs);
+    }
+    if (startupProbe) {
+      res["StartupProbe"] = boost::any(*startupProbe);
     }
     if (swimlanePvtzDiscoverySvc) {
       res["SwimlanePvtzDiscoverySvc"] = boost::any(*swimlanePvtzDiscoverySvc);
@@ -21314,6 +21332,9 @@ public:
     if (m.find("SlsConfigs") != m.end() && !m["SlsConfigs"].empty()) {
       slsConfigs = make_shared<string>(boost::any_cast<string>(m["SlsConfigs"]));
     }
+    if (m.find("StartupProbe") != m.end() && !m["StartupProbe"].empty()) {
+      startupProbe = make_shared<string>(boost::any_cast<string>(m["StartupProbe"]));
+    }
     if (m.find("SwimlanePvtzDiscoverySvc") != m.end() && !m["SwimlanePvtzDiscoverySvc"].empty()) {
       swimlanePvtzDiscoverySvc = make_shared<string>(boost::any_cast<string>(m["SwimlanePvtzDiscoverySvc"]));
     }
@@ -21410,6 +21431,7 @@ public:
   shared_ptr<string> serviceTags{};
   shared_ptr<string> sidecarContainersConfigShrink{};
   shared_ptr<string> slsConfigs{};
+  shared_ptr<string> startupProbe{};
   shared_ptr<string> swimlanePvtzDiscoverySvc{};
   shared_ptr<long> terminationGracePeriodSeconds{};
   shared_ptr<string> timezone{};
@@ -21623,6 +21645,9 @@ public:
     }
     if (slsConfigs) {
       res["SlsConfigs"] = boost::any(*slsConfigs);
+    }
+    if (startupProbe) {
+      res["StartupProbe"] = boost::any(*startupProbe);
     }
     if (swimlanePvtzDiscoverySvc) {
       res["SwimlanePvtzDiscoverySvc"] = boost::any(*swimlanePvtzDiscoverySvc);
@@ -21846,6 +21871,9 @@ public:
     }
     if (m.find("SlsConfigs") != m.end() && !m["SlsConfigs"].empty()) {
       slsConfigs = make_shared<string>(boost::any_cast<string>(m["SlsConfigs"]));
+    }
+    if (m.find("StartupProbe") != m.end() && !m["StartupProbe"].empty()) {
+      startupProbe = make_shared<string>(boost::any_cast<string>(m["StartupProbe"]));
     }
     if (m.find("SwimlanePvtzDiscoverySvc") != m.end() && !m["SwimlanePvtzDiscoverySvc"].empty()) {
       swimlanePvtzDiscoverySvc = make_shared<string>(boost::any_cast<string>(m["SwimlanePvtzDiscoverySvc"]));
@@ -23227,6 +23255,7 @@ public:
   shared_ptr<map<string, string>> serviceTags{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataSidecarContainersConfig>> sidecarContainersConfig{};
   shared_ptr<string> slsConfigs{};
+  shared_ptr<string> startupProbe{};
   shared_ptr<string> swimlanePvtzDiscovery{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataTags>> tags{};
   shared_ptr<long> terminationGracePeriodSeconds{};
@@ -23490,6 +23519,9 @@ public:
     }
     if (slsConfigs) {
       res["SlsConfigs"] = boost::any(*slsConfigs);
+    }
+    if (startupProbe) {
+      res["StartupProbe"] = boost::any(*startupProbe);
     }
     if (swimlanePvtzDiscovery) {
       res["SwimlanePvtzDiscovery"] = boost::any(*swimlanePvtzDiscovery);
@@ -23812,6 +23844,9 @@ public:
     }
     if (m.find("SlsConfigs") != m.end() && !m["SlsConfigs"].empty()) {
       slsConfigs = make_shared<string>(boost::any_cast<string>(m["SlsConfigs"]));
+    }
+    if (m.find("StartupProbe") != m.end() && !m["StartupProbe"].empty()) {
+      startupProbe = make_shared<string>(boost::any_cast<string>(m["StartupProbe"]));
     }
     if (m.find("SwimlanePvtzDiscovery") != m.end() && !m["SwimlanePvtzDiscovery"].empty()) {
       swimlanePvtzDiscovery = make_shared<string>(boost::any_cast<string>(m["SwimlanePvtzDiscovery"]));
