@@ -3399,7 +3399,7 @@ class GetFeatureViewResponseBodyFields : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> attributes{};
   shared_ptr<string> name{};
-  shared_ptr<GetFeatureViewResponseBodyFieldsTransform> transform{};
+  shared_ptr<vector<GetFeatureViewResponseBodyFieldsTransform>> transform{};
   shared_ptr<string> type{};
 
   GetFeatureViewResponseBodyFields() {}
@@ -3419,7 +3419,11 @@ public:
       res["Name"] = boost::any(*name);
     }
     if (transform) {
-      res["Transform"] = transform ? boost::any(transform->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*transform){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Transform"] = boost::any(temp1);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -3442,10 +3446,16 @@ public:
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("Transform") != m.end() && !m["Transform"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Transform"].type()) {
-        GetFeatureViewResponseBodyFieldsTransform model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Transform"]));
-        transform = make_shared<GetFeatureViewResponseBodyFieldsTransform>(model1);
+      if (typeid(vector<boost::any>) == m["Transform"].type()) {
+        vector<GetFeatureViewResponseBodyFieldsTransform> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Transform"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFeatureViewResponseBodyFieldsTransform model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transform = make_shared<vector<GetFeatureViewResponseBodyFieldsTransform>>(expect1);
       }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
