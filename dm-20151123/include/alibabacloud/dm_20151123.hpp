@@ -779,6 +779,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> dkimSelector{};
 
   CreateDomainRequest() {}
 
@@ -802,6 +803,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (dkimSelector) {
+      res["dkimSelector"] = boost::any(*dkimSelector);
+    }
     return res;
   }
 
@@ -817,6 +821,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("dkimSelector") != m.end() && !m["dkimSelector"].empty()) {
+      dkimSelector = make_shared<string>(boost::any_cast<string>(m["dkimSelector"]));
     }
   }
 
