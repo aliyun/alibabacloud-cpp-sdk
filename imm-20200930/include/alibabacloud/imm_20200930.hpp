@@ -7227,6 +7227,122 @@ public:
 
   virtual ~TargetVideoFilterVideoDelogos() = default;
 };
+class TargetVideoFilterVideoDesensitizationFace : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<long> minSize{};
+
+  TargetVideoFilterVideoDesensitizationFace() {}
+
+  explicit TargetVideoFilterVideoDesensitizationFace(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (minSize) {
+      res["MinSize"] = boost::any(*minSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("MinSize") != m.end() && !m["MinSize"].empty()) {
+      minSize = make_shared<long>(boost::any_cast<long>(m["MinSize"]));
+    }
+  }
+
+
+  virtual ~TargetVideoFilterVideoDesensitizationFace() = default;
+};
+class TargetVideoFilterVideoDesensitizationLicensePlate : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<long> minSize{};
+
+  TargetVideoFilterVideoDesensitizationLicensePlate() {}
+
+  explicit TargetVideoFilterVideoDesensitizationLicensePlate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (minSize) {
+      res["MinSize"] = boost::any(*minSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("MinSize") != m.end() && !m["MinSize"].empty()) {
+      minSize = make_shared<long>(boost::any_cast<long>(m["MinSize"]));
+    }
+  }
+
+
+  virtual ~TargetVideoFilterVideoDesensitizationLicensePlate() = default;
+};
+class TargetVideoFilterVideoDesensitization : public Darabonba::Model {
+public:
+  shared_ptr<TargetVideoFilterVideoDesensitizationFace> face{};
+  shared_ptr<TargetVideoFilterVideoDesensitizationLicensePlate> licensePlate{};
+
+  TargetVideoFilterVideoDesensitization() {}
+
+  explicit TargetVideoFilterVideoDesensitization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (face) {
+      res["Face"] = face ? boost::any(face->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (licensePlate) {
+      res["LicensePlate"] = licensePlate ? boost::any(licensePlate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Face") != m.end() && !m["Face"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Face"].type()) {
+        TargetVideoFilterVideoDesensitizationFace model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Face"]));
+        face = make_shared<TargetVideoFilterVideoDesensitizationFace>(model1);
+      }
+    }
+    if (m.find("LicensePlate") != m.end() && !m["LicensePlate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LicensePlate"].type()) {
+        TargetVideoFilterVideoDesensitizationLicensePlate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LicensePlate"]));
+        licensePlate = make_shared<TargetVideoFilterVideoDesensitizationLicensePlate>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TargetVideoFilterVideoDesensitization() = default;
+};
 class TargetVideoFilterVideoWatermarks : public Darabonba::Model {
 public:
   shared_ptr<string> borderColor{};
@@ -7364,6 +7480,8 @@ public:
 class TargetVideoFilterVideo : public Darabonba::Model {
 public:
   shared_ptr<vector<TargetVideoFilterVideoDelogos>> delogos{};
+  shared_ptr<TargetVideoFilterVideoDesensitization> desensitization{};
+  shared_ptr<double> speed{};
   shared_ptr<vector<TargetVideoFilterVideoWatermarks>> watermarks{};
 
   TargetVideoFilterVideo() {}
@@ -7382,6 +7500,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Delogos"] = boost::any(temp1);
+    }
+    if (desensitization) {
+      res["Desensitization"] = desensitization ? boost::any(desensitization->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (speed) {
+      res["Speed"] = boost::any(*speed);
     }
     if (watermarks) {
       vector<boost::any> temp1;
@@ -7406,6 +7530,16 @@ public:
         }
         delogos = make_shared<vector<TargetVideoFilterVideoDelogos>>(expect1);
       }
+    }
+    if (m.find("Desensitization") != m.end() && !m["Desensitization"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Desensitization"].type()) {
+        TargetVideoFilterVideoDesensitization model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Desensitization"]));
+        desensitization = make_shared<TargetVideoFilterVideoDesensitization>(model1);
+      }
+    }
+    if (m.find("Speed") != m.end() && !m["Speed"].empty()) {
+      speed = make_shared<double>(boost::any_cast<double>(m["Speed"]));
     }
     if (m.find("Watermarks") != m.end() && !m["Watermarks"].empty()) {
       if (typeid(vector<boost::any>) == m["Watermarks"].type()) {
