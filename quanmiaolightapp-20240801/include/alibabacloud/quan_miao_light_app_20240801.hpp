@@ -3804,6 +3804,7 @@ public:
   shared_ptr<string> content{};
   shared_ptr<vector<ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags>> contentTags{};
   shared_ptr<string> originResponse{};
+  shared_ptr<vector<string>> sourceList{};
 
   ListAnalysisTagDetailByTaskIdResponseBodyData() {}
 
@@ -3828,6 +3829,9 @@ public:
     if (originResponse) {
       res["originResponse"] = boost::any(*originResponse);
     }
+    if (sourceList) {
+      res["sourceList"] = boost::any(*sourceList);
+    }
     return res;
   }
 
@@ -3850,6 +3854,16 @@ public:
     }
     if (m.find("originResponse") != m.end() && !m["originResponse"].empty()) {
       originResponse = make_shared<string>(boost::any_cast<string>(m["originResponse"]));
+    }
+    if (m.find("sourceList") != m.end() && !m["sourceList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["sourceList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["sourceList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceList = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -4564,6 +4578,7 @@ public:
   shared_ptr<vector<RunEnterpriseVocAnalysisRequestFilterTags>> filterTags{};
   shared_ptr<string> modelId{};
   shared_ptr<string> outputFormat{};
+  shared_ptr<bool> sourceTrace{};
   shared_ptr<vector<RunEnterpriseVocAnalysisRequestTags>> tags{};
   shared_ptr<string> taskDescription{};
 
@@ -4601,6 +4616,9 @@ public:
     }
     if (outputFormat) {
       res["outputFormat"] = boost::any(*outputFormat);
+    }
+    if (sourceTrace) {
+      res["sourceTrace"] = boost::any(*sourceTrace);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -4647,6 +4665,9 @@ public:
     if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
       outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
     }
+    if (m.find("sourceTrace") != m.end() && !m["sourceTrace"].empty()) {
+      sourceTrace = make_shared<bool>(boost::any_cast<bool>(m["sourceTrace"]));
+    }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       if (typeid(vector<boost::any>) == m["tags"].type()) {
         vector<RunEnterpriseVocAnalysisRequestTags> expect1;
@@ -4677,6 +4698,7 @@ public:
   shared_ptr<string> filterTagsShrink{};
   shared_ptr<string> modelId{};
   shared_ptr<string> outputFormat{};
+  shared_ptr<bool> sourceTrace{};
   shared_ptr<string> tagsShrink{};
   shared_ptr<string> taskDescription{};
 
@@ -4711,6 +4733,9 @@ public:
     if (outputFormat) {
       res["outputFormat"] = boost::any(*outputFormat);
     }
+    if (sourceTrace) {
+      res["sourceTrace"] = boost::any(*sourceTrace);
+    }
     if (tagsShrink) {
       res["tags"] = boost::any(*tagsShrink);
     }
@@ -4741,6 +4766,9 @@ public:
     }
     if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
       outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
+    }
+    if (m.find("sourceTrace") != m.end() && !m["sourceTrace"].empty()) {
+      sourceTrace = make_shared<bool>(boost::any_cast<bool>(m["sourceTrace"]));
     }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
@@ -4906,6 +4934,7 @@ public:
 class RunEnterpriseVocAnalysisResponseBodyPayloadOutput : public Darabonba::Model {
 public:
   shared_ptr<RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult> filterResult{};
+  shared_ptr<string> reasonContent{};
   shared_ptr<string> text{};
 
   RunEnterpriseVocAnalysisResponseBodyPayloadOutput() {}
@@ -4921,6 +4950,9 @@ public:
     if (filterResult) {
       res["filterResult"] = filterResult ? boost::any(filterResult->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (reasonContent) {
+      res["reasonContent"] = boost::any(*reasonContent);
+    }
     if (text) {
       res["text"] = boost::any(*text);
     }
@@ -4934,6 +4966,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["filterResult"]));
         filterResult = make_shared<RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult>(model1);
       }
+    }
+    if (m.find("reasonContent") != m.end() && !m["reasonContent"].empty()) {
+      reasonContent = make_shared<string>(boost::any_cast<string>(m["reasonContent"]));
     }
     if (m.find("text") != m.end() && !m["text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["text"]));
@@ -12314,6 +12349,7 @@ public:
   shared_ptr<vector<SubmitEnterpriseVocAnalysisTaskRequestFilterTags>> filterTags{};
   shared_ptr<string> modelId{};
   shared_ptr<string> outputFormat{};
+  shared_ptr<bool> sourceTrace{};
   shared_ptr<vector<SubmitEnterpriseVocAnalysisTaskRequestTags>> tags{};
   shared_ptr<string> taskDescription{};
   shared_ptr<string> url{};
@@ -12356,6 +12392,9 @@ public:
     }
     if (outputFormat) {
       res["outputFormat"] = boost::any(*outputFormat);
+    }
+    if (sourceTrace) {
+      res["sourceTrace"] = boost::any(*sourceTrace);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -12415,6 +12454,9 @@ public:
     if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
       outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
     }
+    if (m.find("sourceTrace") != m.end() && !m["sourceTrace"].empty()) {
+      sourceTrace = make_shared<bool>(boost::any_cast<bool>(m["sourceTrace"]));
+    }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       if (typeid(vector<boost::any>) == m["tags"].type()) {
         vector<SubmitEnterpriseVocAnalysisTaskRequestTags> expect1;
@@ -12448,6 +12490,7 @@ public:
   shared_ptr<string> filterTagsShrink{};
   shared_ptr<string> modelId{};
   shared_ptr<string> outputFormat{};
+  shared_ptr<bool> sourceTrace{};
   shared_ptr<string> tagsShrink{};
   shared_ptr<string> taskDescription{};
   shared_ptr<string> url{};
@@ -12483,6 +12526,9 @@ public:
     if (outputFormat) {
       res["outputFormat"] = boost::any(*outputFormat);
     }
+    if (sourceTrace) {
+      res["sourceTrace"] = boost::any(*sourceTrace);
+    }
     if (tagsShrink) {
       res["tags"] = boost::any(*tagsShrink);
     }
@@ -12516,6 +12562,9 @@ public:
     }
     if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
       outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
+    }
+    if (m.find("sourceTrace") != m.end() && !m["sourceTrace"].empty()) {
+      sourceTrace = make_shared<bool>(boost::any_cast<bool>(m["sourceTrace"]));
     }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));

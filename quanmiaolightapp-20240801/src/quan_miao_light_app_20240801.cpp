@@ -472,6 +472,9 @@ RunEnterpriseVocAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::
   if (!Darabonba_Util::Client::isUnset<string>(request->outputFormat)) {
     body->insert(pair<string, string>("outputFormat", *request->outputFormat));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->sourceTrace)) {
+    body->insert(pair<string, bool>("sourceTrace", *request->sourceTrace));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
     body->insert(pair<string, string>("tags", *request->tagsShrink));
   }
@@ -1210,6 +1213,9 @@ SubmitEnterpriseVocAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::C
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->outputFormat)) {
     body->insert(pair<string, string>("outputFormat", *request->outputFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->sourceTrace)) {
+    body->insert(pair<string, bool>("sourceTrace", *request->sourceTrace));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
     body->insert(pair<string, string>("tags", *request->tagsShrink));
