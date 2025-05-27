@@ -5796,6 +5796,49 @@ public:
 
   virtual ~GetServiceProvisionsShrinkRequest() = default;
 };
+class GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions : public Darabonba::Model {
+public:
+  shared_ptr<string> commodityCode{};
+  shared_ptr<string> enableURL{};
+  shared_ptr<string> status{};
+
+  GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions() {}
+
+  explicit GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commodityCode) {
+      res["CommodityCode"] = boost::any(*commodityCode);
+    }
+    if (enableURL) {
+      res["EnableURL"] = boost::any(*enableURL);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
+      commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("EnableURL") != m.end() && !m["EnableURL"].empty()) {
+      enableURL = make_shared<string>(boost::any_cast<string>(m["EnableURL"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions() = default;
+};
 class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation : public Darabonba::Model {
 public:
   shared_ptr<string> apiName{};
@@ -5958,6 +6001,7 @@ public:
 class GetServiceProvisionsResponseBodyServiceProvisions : public Darabonba::Model {
 public:
   shared_ptr<bool> autoEnableService{};
+  shared_ptr<vector<GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions>> commodityProvisions{};
   shared_ptr<string> enableURL{};
   shared_ptr<GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision> roleProvision{};
   shared_ptr<string> serviceName{};
@@ -5976,6 +6020,13 @@ public:
     map<string, boost::any> res;
     if (autoEnableService) {
       res["AutoEnableService"] = boost::any(*autoEnableService);
+    }
+    if (commodityProvisions) {
+      vector<boost::any> temp1;
+      for(auto item1:*commodityProvisions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CommodityProvisions"] = boost::any(temp1);
     }
     if (enableURL) {
       res["EnableURL"] = boost::any(*enableURL);
@@ -5998,6 +6049,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoEnableService") != m.end() && !m["AutoEnableService"].empty()) {
       autoEnableService = make_shared<bool>(boost::any_cast<bool>(m["AutoEnableService"]));
+    }
+    if (m.find("CommodityProvisions") != m.end() && !m["CommodityProvisions"].empty()) {
+      if (typeid(vector<boost::any>) == m["CommodityProvisions"].type()) {
+        vector<GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CommodityProvisions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        commodityProvisions = make_shared<vector<GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions>>(expect1);
+      }
     }
     if (m.find("EnableURL") != m.end() && !m["EnableURL"].empty()) {
       enableURL = make_shared<string>(boost::any_cast<string>(m["EnableURL"]));
