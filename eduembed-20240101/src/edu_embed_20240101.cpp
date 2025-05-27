@@ -111,6 +111,62 @@ CreateLabSessionResponse Alibabacloud_EduEmbed20240101::Client::createLabSession
   return createLabSessionWithOptions(request, runtime);
 }
 
+DescribeCourseResponse Alibabacloud_EduEmbed20240101::Client::describeCourseWithOptions(shared_ptr<DescribeCourseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->courseId)) {
+    query->insert(pair<string, long>("CourseId", *request->courseId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCourse"))},
+    {"version", boost::any(string("2024-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCourseResponse(callApi(params, req, runtime));
+}
+
+DescribeCourseResponse Alibabacloud_EduEmbed20240101::Client::describeCourse(shared_ptr<DescribeCourseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCourseWithOptions(request, runtime);
+}
+
+DescribeCourseLessonResponse Alibabacloud_EduEmbed20240101::Client::describeCourseLessonWithOptions(shared_ptr<DescribeCourseLessonRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->lessonId)) {
+    query->insert(pair<string, long>("LessonId", *request->lessonId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCourseLesson"))},
+    {"version", boost::any(string("2024-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCourseLessonResponse(callApi(params, req, runtime));
+}
+
+DescribeCourseLessonResponse Alibabacloud_EduEmbed20240101::Client::describeCourseLesson(shared_ptr<DescribeCourseLessonRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCourseLessonWithOptions(request, runtime);
+}
+
 DescribeLabResponse Alibabacloud_EduEmbed20240101::Client::describeLabWithOptions(shared_ptr<DescribeLabRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -184,6 +240,40 @@ DescribeLabSessionResponse Alibabacloud_EduEmbed20240101::Client::describeLabSes
 DescribeLabSessionResponse Alibabacloud_EduEmbed20240101::Client::describeLabSession(shared_ptr<DescribeLabSessionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeLabSessionWithOptions(request, runtime);
+}
+
+ListCoursesResponse Alibabacloud_EduEmbed20240101::Client::listCoursesWithOptions(shared_ptr<ListCoursesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->id)) {
+    query->insert(pair<string, vector<long>>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
+    query->insert(pair<string, long>("Page", *request->page));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCourses"))},
+    {"version", boost::any(string("2024-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCoursesResponse(callApi(params, req, runtime));
+}
+
+ListCoursesResponse Alibabacloud_EduEmbed20240101::Client::listCourses(shared_ptr<ListCoursesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCoursesWithOptions(request, runtime);
 }
 
 PageListLabReservationsResponse Alibabacloud_EduEmbed20240101::Client::pageListLabReservationsWithOptions(shared_ptr<PageListLabReservationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
