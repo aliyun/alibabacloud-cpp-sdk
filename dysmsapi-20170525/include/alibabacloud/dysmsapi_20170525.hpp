@@ -7267,6 +7267,7 @@ public:
 };
 class QueryMobilesCardSupportRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> encryptType{};
   shared_ptr<vector<map<string, boost::any>>> mobiles{};
   shared_ptr<string> templateCode{};
 
@@ -7280,6 +7281,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (encryptType) {
+      res["EncryptType"] = boost::any(*encryptType);
+    }
     if (mobiles) {
       res["Mobiles"] = boost::any(*mobiles);
     }
@@ -7290,6 +7294,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptType") != m.end() && !m["EncryptType"].empty()) {
+      encryptType = make_shared<string>(boost::any_cast<string>(m["EncryptType"]));
+    }
     if (m.find("Mobiles") != m.end() && !m["Mobiles"].empty()) {
       vector<map<string, boost::any>> toVec1;
       if (typeid(vector<boost::any>) == m["Mobiles"].type()) {
@@ -7315,6 +7322,7 @@ public:
 };
 class QueryMobilesCardSupportShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> encryptType{};
   shared_ptr<string> mobilesShrink{};
   shared_ptr<string> templateCode{};
 
@@ -7328,6 +7336,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (encryptType) {
+      res["EncryptType"] = boost::any(*encryptType);
+    }
     if (mobilesShrink) {
       res["Mobiles"] = boost::any(*mobilesShrink);
     }
@@ -7338,6 +7349,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptType") != m.end() && !m["EncryptType"].empty()) {
+      encryptType = make_shared<string>(boost::any_cast<string>(m["EncryptType"]));
+    }
     if (m.find("Mobiles") != m.end() && !m["Mobiles"].empty()) {
       mobilesShrink = make_shared<string>(boost::any_cast<string>(m["Mobiles"]));
     }

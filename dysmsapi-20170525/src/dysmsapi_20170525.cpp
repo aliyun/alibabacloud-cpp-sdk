@@ -1399,6 +1399,9 @@ QueryMobilesCardSupportResponse Alibabacloud_Dysmsapi20170525::Client::queryMobi
     request->mobilesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->mobiles, make_shared<string>("Mobiles"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->encryptType)) {
+    query->insert(pair<string, string>("EncryptType", *request->encryptType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->mobilesShrink)) {
     query->insert(pair<string, string>("Mobiles", *request->mobilesShrink));
   }
