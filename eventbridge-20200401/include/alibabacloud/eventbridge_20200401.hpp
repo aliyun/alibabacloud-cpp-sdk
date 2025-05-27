@@ -2847,6 +2847,7 @@ public:
   shared_ptr<string> errorsTolerance{};
   shared_ptr<long> maximumTasks{};
   shared_ptr<CreateEventStreamingRequestRunOptionsRetryStrategy> retryStrategy{};
+  shared_ptr<long> throttling{};
 
   CreateEventStreamingRequestRunOptions() {}
 
@@ -2872,6 +2873,9 @@ public:
     }
     if (retryStrategy) {
       res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (throttling) {
+      res["Throttling"] = boost::any(*throttling);
     }
     return res;
   }
@@ -2903,6 +2907,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryStrategy"]));
         retryStrategy = make_shared<CreateEventStreamingRequestRunOptionsRetryStrategy>(model1);
       }
+    }
+    if (m.find("Throttling") != m.end() && !m["Throttling"].empty()) {
+      throttling = make_shared<long>(boost::any_cast<long>(m["Throttling"]));
     }
   }
 
@@ -9881,6 +9888,10 @@ public:
 class CreateRuleRequestEventTargetsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
+  shared_ptr<string> network{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> vpcId{};
 
   CreateRuleRequestEventTargetsDeadLetterQueue() {}
 
@@ -9895,12 +9906,36 @@ public:
     if (arn) {
       res["Arn"] = boost::any(*arn);
     }
+    if (network) {
+      res["Network"] = boost::any(*network);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
       arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("Network") != m.end() && !m["Network"].empty()) {
+      network = make_shared<string>(boost::any_cast<string>(m["Network"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -14026,6 +14061,7 @@ public:
   shared_ptr<string> errorsTolerance{};
   shared_ptr<long> maximumTasks{};
   shared_ptr<GetEventStreamingResponseBodyDataRunOptionsRetryStrategy> retryStrategy{};
+  shared_ptr<long> throttling{};
 
   GetEventStreamingResponseBodyDataRunOptions() {}
 
@@ -14051,6 +14087,9 @@ public:
     }
     if (retryStrategy) {
       res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (throttling) {
+      res["Throttling"] = boost::any(*throttling);
     }
     return res;
   }
@@ -14082,6 +14121,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryStrategy"]));
         retryStrategy = make_shared<GetEventStreamingResponseBodyDataRunOptionsRetryStrategy>(model1);
       }
+    }
+    if (m.find("Throttling") != m.end() && !m["Throttling"].empty()) {
+      throttling = make_shared<long>(boost::any_cast<long>(m["Throttling"]));
     }
   }
 
@@ -20341,6 +20383,10 @@ public:
 class GetRuleResponseBodyDataTargetsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
+  shared_ptr<string> network{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> vpcId{};
 
   GetRuleResponseBodyDataTargetsDeadLetterQueue() {}
 
@@ -20355,12 +20401,36 @@ public:
     if (arn) {
       res["Arn"] = boost::any(*arn);
     }
+    if (network) {
+      res["Network"] = boost::any(*network);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
       arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("Network") != m.end() && !m["Network"].empty()) {
+      network = make_shared<string>(boost::any_cast<string>(m["Network"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -22660,6 +22730,7 @@ public:
   shared_ptr<string> errorsTolerance{};
   shared_ptr<long> maximumTasks{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy> retryStrategy{};
+  shared_ptr<long> throttling{};
 
   ListEventStreamingsResponseBodyDataEventStreamingsRunOptions() {}
 
@@ -22685,6 +22756,9 @@ public:
     }
     if (retryStrategy) {
       res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (throttling) {
+      res["Throttling"] = boost::any(*throttling);
     }
     return res;
   }
@@ -22716,6 +22790,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryStrategy"]));
         retryStrategy = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy>(model1);
       }
+    }
+    if (m.find("Throttling") != m.end() && !m["Throttling"].empty()) {
+      throttling = make_shared<long>(boost::any_cast<long>(m["Throttling"]));
     }
   }
 
@@ -30724,6 +30801,10 @@ public:
 class PutTargetsRequestTargetsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
+  shared_ptr<string> network{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> vpcId{};
 
   PutTargetsRequestTargetsDeadLetterQueue() {}
 
@@ -30738,12 +30819,36 @@ public:
     if (arn) {
       res["Arn"] = boost::any(*arn);
     }
+    if (network) {
+      res["Network"] = boost::any(*network);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
       arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("Network") != m.end() && !m["Network"].empty()) {
+      network = make_shared<string>(boost::any_cast<string>(m["Network"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -34598,6 +34703,7 @@ public:
   shared_ptr<string> errorsTolerance{};
   shared_ptr<long> maximumTasks{};
   shared_ptr<UpdateEventStreamingRequestRunOptionsRetryStrategy> retryStrategy{};
+  shared_ptr<long> throttling{};
 
   UpdateEventStreamingRequestRunOptions() {}
 
@@ -34623,6 +34729,9 @@ public:
     }
     if (retryStrategy) {
       res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (throttling) {
+      res["Throttling"] = boost::any(*throttling);
     }
     return res;
   }
@@ -34654,6 +34763,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryStrategy"]));
         retryStrategy = make_shared<UpdateEventStreamingRequestRunOptionsRetryStrategy>(model1);
       }
+    }
+    if (m.find("Throttling") != m.end() && !m["Throttling"].empty()) {
+      throttling = make_shared<long>(boost::any_cast<long>(m["Throttling"]));
     }
   }
 
