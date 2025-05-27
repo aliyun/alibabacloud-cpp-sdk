@@ -13339,6 +13339,7 @@ public:
   shared_ptr<string> DBClusterDescription{};
   shared_ptr<string> DBClusterIds{};
   shared_ptr<string> DBClusterStatus{};
+  shared_ptr<string> DBClusterVersion{};
   shared_ptr<string> DBVersion{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -13368,6 +13369,9 @@ public:
     }
     if (DBClusterStatus) {
       res["DBClusterStatus"] = boost::any(*DBClusterStatus);
+    }
+    if (DBClusterVersion) {
+      res["DBClusterVersion"] = boost::any(*DBClusterVersion);
     }
     if (DBVersion) {
       res["DBVersion"] = boost::any(*DBVersion);
@@ -13415,6 +13419,9 @@ public:
     }
     if (m.find("DBClusterStatus") != m.end() && !m["DBClusterStatus"].empty()) {
       DBClusterStatus = make_shared<string>(boost::any_cast<string>(m["DBClusterStatus"]));
+    }
+    if (m.find("DBClusterVersion") != m.end() && !m["DBClusterVersion"].empty()) {
+      DBClusterVersion = make_shared<string>(boost::any_cast<string>(m["DBClusterVersion"]));
     }
     if (m.find("DBVersion") != m.end() && !m["DBVersion"].empty()) {
       DBVersion = make_shared<string>(boost::any_cast<string>(m["DBVersion"]));

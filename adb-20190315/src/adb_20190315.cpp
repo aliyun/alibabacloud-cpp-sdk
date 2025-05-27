@@ -2539,6 +2539,9 @@ DescribeDBClustersResponse Alibabacloud_Adb20190315::Client::describeDBClustersW
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterStatus)) {
     query->insert(pair<string, string>("DBClusterStatus", *request->DBClusterStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterVersion)) {
+    query->insert(pair<string, string>("DBClusterVersion", *request->DBClusterVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBVersion)) {
     query->insert(pair<string, string>("DBVersion", *request->DBVersion));
   }
