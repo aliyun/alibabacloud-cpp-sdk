@@ -36230,6 +36230,7 @@ class RunDocSummaryRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> cleanCache{};
   shared_ptr<string> docId{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> query{};
   shared_ptr<string> recommendContent{};
   shared_ptr<string> sessionId{};
@@ -36250,6 +36251,9 @@ public:
     }
     if (docId) {
       res["DocId"] = boost::any(*docId);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
     }
     if (query) {
       res["Query"] = boost::any(*query);
@@ -36272,6 +36276,9 @@ public:
     }
     if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
       docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["Query"]));

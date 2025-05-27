@@ -4140,6 +4140,9 @@ RunDocSummaryResponse Alibabacloud_AiMiaoBi20230801::Client::runDocSummaryWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
     body->insert(pair<string, string>("DocId", *request->docId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelName)) {
+    body->insert(pair<string, string>("ModelName", *request->modelName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
     body->insert(pair<string, string>("Query", *request->query));
   }
