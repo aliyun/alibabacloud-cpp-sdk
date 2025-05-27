@@ -2160,6 +2160,7 @@ public:
 };
 class CreateTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> callBackUrl{};
   shared_ptr<vector<CreateTaskRequestCategoryTags>> categoryTags{};
   shared_ptr<string> customPrompt{};
   shared_ptr<CreateTaskRequestDialogue> dialogue{};
@@ -2184,6 +2185,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (callBackUrl) {
+      res["callBackUrl"] = boost::any(*callBackUrl);
+    }
     if (categoryTags) {
       vector<boost::any> temp1;
       for(auto item1:*categoryTags){
@@ -2239,6 +2243,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("callBackUrl") != m.end() && !m["callBackUrl"].empty()) {
+      callBackUrl = make_shared<string>(boost::any_cast<string>(m["callBackUrl"]));
+    }
     if (m.find("categoryTags") != m.end() && !m["categoryTags"].empty()) {
       if (typeid(vector<boost::any>) == m["categoryTags"].type()) {
         vector<CreateTaskRequestCategoryTags> expect1;

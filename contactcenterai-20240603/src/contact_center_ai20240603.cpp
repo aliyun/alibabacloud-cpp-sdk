@@ -224,6 +224,9 @@ CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithO
                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->callBackUrl)) {
+    body->insert(pair<string, string>("callBackUrl", *request->callBackUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateTaskRequestCategoryTags>>(request->categoryTags)) {
     body->insert(pair<string, vector<CreateTaskRequestCategoryTags>>("categoryTags", *request->categoryTags));
   }
