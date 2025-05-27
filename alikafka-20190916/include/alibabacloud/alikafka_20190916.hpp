@@ -10090,6 +10090,269 @@ public:
 
   virtual ~GetTopicSubscribeStatusResponse() = default;
 };
+class ListRebalanceInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> consumerId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+
+  ListRebalanceInfoRequest() {}
+
+  explicit ListRebalanceInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumerId) {
+      res["ConsumerId"] = boost::any(*consumerId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsumerId") != m.end() && !m["ConsumerId"].empty()) {
+      consumerId = make_shared<string>(boost::any_cast<string>(m["ConsumerId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListRebalanceInfoRequest() = default;
+};
+class ListRebalanceInfoResponseBodyDataRebalanceInfoList : public Darabonba::Model {
+public:
+  shared_ptr<long> generation{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> lastRebalanceTimestamp{};
+  shared_ptr<string> reason{};
+  shared_ptr<bool> rebalanceSuccess{};
+  shared_ptr<long> rebalanceTimeConsuming{};
+
+  ListRebalanceInfoResponseBodyDataRebalanceInfoList() {}
+
+  explicit ListRebalanceInfoResponseBodyDataRebalanceInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (generation) {
+      res["Generation"] = boost::any(*generation);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (lastRebalanceTimestamp) {
+      res["LastRebalanceTimestamp"] = boost::any(*lastRebalanceTimestamp);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (rebalanceSuccess) {
+      res["RebalanceSuccess"] = boost::any(*rebalanceSuccess);
+    }
+    if (rebalanceTimeConsuming) {
+      res["RebalanceTimeConsuming"] = boost::any(*rebalanceTimeConsuming);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Generation") != m.end() && !m["Generation"].empty()) {
+      generation = make_shared<long>(boost::any_cast<long>(m["Generation"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("LastRebalanceTimestamp") != m.end() && !m["LastRebalanceTimestamp"].empty()) {
+      lastRebalanceTimestamp = make_shared<long>(boost::any_cast<long>(m["LastRebalanceTimestamp"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("RebalanceSuccess") != m.end() && !m["RebalanceSuccess"].empty()) {
+      rebalanceSuccess = make_shared<bool>(boost::any_cast<bool>(m["RebalanceSuccess"]));
+    }
+    if (m.find("RebalanceTimeConsuming") != m.end() && !m["RebalanceTimeConsuming"].empty()) {
+      rebalanceTimeConsuming = make_shared<long>(boost::any_cast<long>(m["RebalanceTimeConsuming"]));
+    }
+  }
+
+
+  virtual ~ListRebalanceInfoResponseBodyDataRebalanceInfoList() = default;
+};
+class ListRebalanceInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListRebalanceInfoResponseBodyDataRebalanceInfoList>> rebalanceInfoList{};
+
+  ListRebalanceInfoResponseBodyData() {}
+
+  explicit ListRebalanceInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rebalanceInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*rebalanceInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RebalanceInfoList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RebalanceInfoList") != m.end() && !m["RebalanceInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RebalanceInfoList"].type()) {
+        vector<ListRebalanceInfoResponseBodyDataRebalanceInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RebalanceInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRebalanceInfoResponseBodyDataRebalanceInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rebalanceInfoList = make_shared<vector<ListRebalanceInfoResponseBodyDataRebalanceInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListRebalanceInfoResponseBodyData() = default;
+};
+class ListRebalanceInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<ListRebalanceInfoResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListRebalanceInfoResponseBody() {}
+
+  explicit ListRebalanceInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListRebalanceInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListRebalanceInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListRebalanceInfoResponseBody() = default;
+};
+class ListRebalanceInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListRebalanceInfoResponseBody> body{};
+
+  ListRebalanceInfoResponse() {}
+
+  explicit ListRebalanceInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListRebalanceInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListRebalanceInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListRebalanceInfoResponse() = default;
+};
 class ListTagResourcesRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -14169,6 +14432,8 @@ public:
   GetTopicStatusResponse getTopicStatus(shared_ptr<GetTopicStatusRequest> request);
   GetTopicSubscribeStatusResponse getTopicSubscribeStatusWithOptions(shared_ptr<GetTopicSubscribeStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTopicSubscribeStatusResponse getTopicSubscribeStatus(shared_ptr<GetTopicSubscribeStatusRequest> request);
+  ListRebalanceInfoResponse listRebalanceInfoWithOptions(shared_ptr<ListRebalanceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRebalanceInfoResponse listRebalanceInfo(shared_ptr<ListRebalanceInfoRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ModifyInstanceNameResponse modifyInstanceNameWithOptions(shared_ptr<ModifyInstanceNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
