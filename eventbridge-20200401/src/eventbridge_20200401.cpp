@@ -656,6 +656,39 @@ DisableRuleResponse Alibabacloud_Eventbridge20200401::Client::disableRule(shared
   return disableRuleWithOptions(request, runtime);
 }
 
+DiscoverEventSourceResponse Alibabacloud_Eventbridge20200401::Client::discoverEventSourceWithOptions(shared_ptr<DiscoverEventSourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DiscoverEventSourceShrinkRequest> request = make_shared<DiscoverEventSourceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<DiscoverEventSourceRequestSourceMySQLParameters>(tmpReq->sourceMySQLParameters)) {
+    request->sourceMySQLParametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sourceMySQLParameters, make_shared<string>("SourceMySQLParameters"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceMySQLParametersShrink)) {
+    body->insert(pair<string, string>("SourceMySQLParameters", *request->sourceMySQLParametersShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DiscoverEventSource"))},
+    {"version", boost::any(string("2020-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DiscoverEventSourceResponse(callApi(params, req, runtime));
+}
+
+DiscoverEventSourceResponse Alibabacloud_Eventbridge20200401::Client::discoverEventSource(shared_ptr<DiscoverEventSourceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return discoverEventSourceWithOptions(request, runtime);
+}
+
 EnableRuleResponse Alibabacloud_Eventbridge20200401::Client::enableRuleWithOptions(shared_ptr<EnableRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1429,6 +1462,39 @@ TestEventPatternResponse Alibabacloud_Eventbridge20200401::Client::testEventPatt
 TestEventPatternResponse Alibabacloud_Eventbridge20200401::Client::testEventPattern(shared_ptr<TestEventPatternRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return testEventPatternWithOptions(request, runtime);
+}
+
+TestEventSourceConfigResponse Alibabacloud_Eventbridge20200401::Client::testEventSourceConfigWithOptions(shared_ptr<TestEventSourceConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<TestEventSourceConfigShrinkRequest> request = make_shared<TestEventSourceConfigShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<TestEventSourceConfigRequestSourceMySQLParameters>(tmpReq->sourceMySQLParameters)) {
+    request->sourceMySQLParametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sourceMySQLParameters, make_shared<string>("SourceMySQLParameters"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceMySQLParametersShrink)) {
+    body->insert(pair<string, string>("SourceMySQLParameters", *request->sourceMySQLParametersShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TestEventSourceConfig"))},
+    {"version", boost::any(string("2020-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TestEventSourceConfigResponse(callApi(params, req, runtime));
+}
+
+TestEventSourceConfigResponse Alibabacloud_Eventbridge20200401::Client::testEventSourceConfig(shared_ptr<TestEventSourceConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return testEventSourceConfigWithOptions(request, runtime);
 }
 
 UpdateApiDestinationResponse Alibabacloud_Eventbridge20200401::Client::updateApiDestinationWithOptions(shared_ptr<UpdateApiDestinationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

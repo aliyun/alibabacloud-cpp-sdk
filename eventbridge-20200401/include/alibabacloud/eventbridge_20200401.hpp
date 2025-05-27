@@ -11744,6 +11744,502 @@ public:
 
   virtual ~DisableRuleResponse() = default;
 };
+class DiscoverEventSourceRequestSourceMySQLParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> databaseName{};
+  shared_ptr<string> hostName{};
+  shared_ptr<string> limit{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> offset{};
+  shared_ptr<string> password{};
+  shared_ptr<long> port{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> tableName{};
+  shared_ptr<string> user{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> vpcId{};
+
+  DiscoverEventSourceRequestSourceMySQLParameters() {}
+
+  explicit DiscoverEventSourceRequestSourceMySQLParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (databaseName) {
+      res["DatabaseName"] = boost::any(*databaseName);
+    }
+    if (hostName) {
+      res["HostName"] = boost::any(*hostName);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (user) {
+      res["User"] = boost::any(*user);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatabaseName") != m.end() && !m["DatabaseName"].empty()) {
+      databaseName = make_shared<string>(boost::any_cast<string>(m["DatabaseName"]));
+    }
+    if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
+      hostName = make_shared<string>(boost::any_cast<string>(m["HostName"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<string>(boost::any_cast<string>(m["Limit"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<string>(boost::any_cast<string>(m["Offset"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["User"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceRequestSourceMySQLParameters() = default;
+};
+class DiscoverEventSourceRequest : public Darabonba::Model {
+public:
+  shared_ptr<DiscoverEventSourceRequestSourceMySQLParameters> sourceMySQLParameters{};
+
+  DiscoverEventSourceRequest() {}
+
+  explicit DiscoverEventSourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceMySQLParameters) {
+      res["SourceMySQLParameters"] = sourceMySQLParameters ? boost::any(sourceMySQLParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceMySQLParameters") != m.end() && !m["SourceMySQLParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceMySQLParameters"].type()) {
+        DiscoverEventSourceRequestSourceMySQLParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceMySQLParameters"]));
+        sourceMySQLParameters = make_shared<DiscoverEventSourceRequestSourceMySQLParameters>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceRequest() = default;
+};
+class DiscoverEventSourceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sourceMySQLParametersShrink{};
+
+  DiscoverEventSourceShrinkRequest() {}
+
+  explicit DiscoverEventSourceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceMySQLParametersShrink) {
+      res["SourceMySQLParameters"] = boost::any(*sourceMySQLParametersShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceMySQLParameters") != m.end() && !m["SourceMySQLParameters"].empty()) {
+      sourceMySQLParametersShrink = make_shared<string>(boost::any_cast<string>(m["SourceMySQLParameters"]));
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceShrinkRequest() = default;
+};
+class DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchemaColumns : public Darabonba::Model {
+public:
+  shared_ptr<string> extra{};
+  shared_ptr<string> field{};
+  shared_ptr<string> isNull{};
+  shared_ptr<string> key{};
+  shared_ptr<string> type{};
+
+  DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchemaColumns() {}
+
+  explicit DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchemaColumns(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extra) {
+      res["Extra"] = boost::any(*extra);
+    }
+    if (field) {
+      res["Field"] = boost::any(*field);
+    }
+    if (isNull) {
+      res["IsNull"] = boost::any(*isNull);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("Field") != m.end() && !m["Field"].empty()) {
+      field = make_shared<string>(boost::any_cast<string>(m["Field"]));
+    }
+    if (m.find("IsNull") != m.end() && !m["IsNull"].empty()) {
+      isNull = make_shared<string>(boost::any_cast<string>(m["IsNull"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchemaColumns() = default;
+};
+class DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema : public Darabonba::Model {
+public:
+  shared_ptr<vector<DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchemaColumns>> columns{};
+  shared_ptr<string> tableName{};
+
+  DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema() {}
+
+  explicit DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (columns) {
+      vector<boost::any> temp1;
+      for(auto item1:*columns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Columns"] = boost::any(temp1);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Columns") != m.end() && !m["Columns"].empty()) {
+      if (typeid(vector<boost::any>) == m["Columns"].type()) {
+        vector<DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchemaColumns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Columns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchemaColumns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        columns = make_shared<vector<DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchemaColumns>>(expect1);
+      }
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema() = default;
+};
+class DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> databaseNames{};
+  shared_ptr<string> simpleData{};
+  shared_ptr<vector<string>> tableNames{};
+  shared_ptr<DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema> tableSchema{};
+
+  DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery() {}
+
+  explicit DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (databaseNames) {
+      res["DatabaseNames"] = boost::any(*databaseNames);
+    }
+    if (simpleData) {
+      res["SimpleData"] = boost::any(*simpleData);
+    }
+    if (tableNames) {
+      res["TableNames"] = boost::any(*tableNames);
+    }
+    if (tableSchema) {
+      res["TableSchema"] = tableSchema ? boost::any(tableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatabaseNames") != m.end() && !m["DatabaseNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DatabaseNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DatabaseNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      databaseNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SimpleData") != m.end() && !m["SimpleData"].empty()) {
+      simpleData = make_shared<string>(boost::any_cast<string>(m["SimpleData"]));
+    }
+    if (m.find("TableNames") != m.end() && !m["TableNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TableNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TableNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tableNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TableSchema") != m.end() && !m["TableSchema"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TableSchema"].type()) {
+        DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TableSchema"]));
+        tableSchema = make_shared<DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery() = default;
+};
+class DiscoverEventSourceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery> sourceMySQLDiscovery{};
+
+  DiscoverEventSourceResponseBodyData() {}
+
+  explicit DiscoverEventSourceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceMySQLDiscovery) {
+      res["SourceMySQLDiscovery"] = sourceMySQLDiscovery ? boost::any(sourceMySQLDiscovery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceMySQLDiscovery") != m.end() && !m["SourceMySQLDiscovery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceMySQLDiscovery"].type()) {
+        DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceMySQLDiscovery"]));
+        sourceMySQLDiscovery = make_shared<DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceResponseBodyData() = default;
+};
+class DiscoverEventSourceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DiscoverEventSourceResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DiscoverEventSourceResponseBody() {}
+
+  explicit DiscoverEventSourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DiscoverEventSourceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DiscoverEventSourceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceResponseBody() = default;
+};
+class DiscoverEventSourceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DiscoverEventSourceResponseBody> body{};
+
+  DiscoverEventSourceResponse() {}
+
+  explicit DiscoverEventSourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DiscoverEventSourceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DiscoverEventSourceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DiscoverEventSourceResponse() = default;
+};
 class EnableRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> eventBusName{};
@@ -32627,6 +33123,333 @@ public:
 
   virtual ~TestEventPatternResponse() = default;
 };
+class TestEventSourceConfigRequestSourceMySQLParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> databaseName{};
+  shared_ptr<string> hostName{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> password{};
+  shared_ptr<long> port{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> tableNames{};
+  shared_ptr<string> user{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> vpcId{};
+
+  TestEventSourceConfigRequestSourceMySQLParameters() {}
+
+  explicit TestEventSourceConfigRequestSourceMySQLParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (databaseName) {
+      res["DatabaseName"] = boost::any(*databaseName);
+    }
+    if (hostName) {
+      res["HostName"] = boost::any(*hostName);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (tableNames) {
+      res["TableNames"] = boost::any(*tableNames);
+    }
+    if (user) {
+      res["User"] = boost::any(*user);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatabaseName") != m.end() && !m["DatabaseName"].empty()) {
+      databaseName = make_shared<string>(boost::any_cast<string>(m["DatabaseName"]));
+    }
+    if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
+      hostName = make_shared<string>(boost::any_cast<string>(m["HostName"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("TableNames") != m.end() && !m["TableNames"].empty()) {
+      tableNames = make_shared<string>(boost::any_cast<string>(m["TableNames"]));
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["User"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~TestEventSourceConfigRequestSourceMySQLParameters() = default;
+};
+class TestEventSourceConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<TestEventSourceConfigRequestSourceMySQLParameters> sourceMySQLParameters{};
+
+  TestEventSourceConfigRequest() {}
+
+  explicit TestEventSourceConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceMySQLParameters) {
+      res["SourceMySQLParameters"] = sourceMySQLParameters ? boost::any(sourceMySQLParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceMySQLParameters") != m.end() && !m["SourceMySQLParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceMySQLParameters"].type()) {
+        TestEventSourceConfigRequestSourceMySQLParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceMySQLParameters"]));
+        sourceMySQLParameters = make_shared<TestEventSourceConfigRequestSourceMySQLParameters>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TestEventSourceConfigRequest() = default;
+};
+class TestEventSourceConfigShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sourceMySQLParametersShrink{};
+
+  TestEventSourceConfigShrinkRequest() {}
+
+  explicit TestEventSourceConfigShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceMySQLParametersShrink) {
+      res["SourceMySQLParameters"] = boost::any(*sourceMySQLParametersShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceMySQLParameters") != m.end() && !m["SourceMySQLParameters"].empty()) {
+      sourceMySQLParametersShrink = make_shared<string>(boost::any_cast<string>(m["SourceMySQLParameters"]));
+    }
+  }
+
+
+  virtual ~TestEventSourceConfigShrinkRequest() = default;
+};
+class TestEventSourceConfigResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> checkItem{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> isSucceed{};
+
+  TestEventSourceConfigResponseBodyData() {}
+
+  explicit TestEventSourceConfigResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkItem) {
+      res["CheckItem"] = boost::any(*checkItem);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (isSucceed) {
+      res["IsSucceed"] = boost::any(*isSucceed);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckItem") != m.end() && !m["CheckItem"].empty()) {
+      checkItem = make_shared<string>(boost::any_cast<string>(m["CheckItem"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("IsSucceed") != m.end() && !m["IsSucceed"].empty()) {
+      isSucceed = make_shared<string>(boost::any_cast<string>(m["IsSucceed"]));
+    }
+  }
+
+
+  virtual ~TestEventSourceConfigResponseBodyData() = default;
+};
+class TestEventSourceConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<TestEventSourceConfigResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  TestEventSourceConfigResponseBody() {}
+
+  explicit TestEventSourceConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<TestEventSourceConfigResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TestEventSourceConfigResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<TestEventSourceConfigResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~TestEventSourceConfigResponseBody() = default;
+};
+class TestEventSourceConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<TestEventSourceConfigResponseBody> body{};
+
+  TestEventSourceConfigResponse() {}
+
+  explicit TestEventSourceConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        TestEventSourceConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<TestEventSourceConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TestEventSourceConfigResponse() = default;
+};
 class UpdateApiDestinationRequestHttpApiParameters : public Darabonba::Model {
 public:
   shared_ptr<string> endpoint{};
@@ -41853,6 +42676,8 @@ public:
   DeleteTargetsResponse deleteTargets(shared_ptr<DeleteTargetsRequest> request);
   DisableRuleResponse disableRuleWithOptions(shared_ptr<DisableRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableRuleResponse disableRule(shared_ptr<DisableRuleRequest> request);
+  DiscoverEventSourceResponse discoverEventSourceWithOptions(shared_ptr<DiscoverEventSourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DiscoverEventSourceResponse discoverEventSource(shared_ptr<DiscoverEventSourceRequest> request);
   EnableRuleResponse enableRuleWithOptions(shared_ptr<EnableRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableRuleResponse enableRule(shared_ptr<EnableRuleRequest> request);
   EventCenterQueryEventsResponse eventCenterQueryEventsWithOptions(shared_ptr<EventCenterQueryEventsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -41899,6 +42724,8 @@ public:
   StartEventStreamingResponse startEventStreaming(shared_ptr<StartEventStreamingRequest> request);
   TestEventPatternResponse testEventPatternWithOptions(shared_ptr<TestEventPatternRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TestEventPatternResponse testEventPattern(shared_ptr<TestEventPatternRequest> request);
+  TestEventSourceConfigResponse testEventSourceConfigWithOptions(shared_ptr<TestEventSourceConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TestEventSourceConfigResponse testEventSourceConfig(shared_ptr<TestEventSourceConfigRequest> request);
   UpdateApiDestinationResponse updateApiDestinationWithOptions(shared_ptr<UpdateApiDestinationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateApiDestinationResponse updateApiDestination(shared_ptr<UpdateApiDestinationRequest> request);
   UpdateConnectionResponse updateConnectionWithOptions(shared_ptr<UpdateConnectionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
