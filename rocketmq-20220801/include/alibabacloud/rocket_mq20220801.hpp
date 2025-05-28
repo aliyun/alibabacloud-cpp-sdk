@@ -491,6 +491,7 @@ public:
 class CreateConsumerGroupRequestConsumeRetryPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> deadLetterTargetTopic{};
+  shared_ptr<long> fixedIntervalRetryTime{};
   shared_ptr<long> maxRetryTimes{};
   shared_ptr<string> retryPolicy{};
 
@@ -507,6 +508,9 @@ public:
     if (deadLetterTargetTopic) {
       res["deadLetterTargetTopic"] = boost::any(*deadLetterTargetTopic);
     }
+    if (fixedIntervalRetryTime) {
+      res["fixedIntervalRetryTime"] = boost::any(*fixedIntervalRetryTime);
+    }
     if (maxRetryTimes) {
       res["maxRetryTimes"] = boost::any(*maxRetryTimes);
     }
@@ -519,6 +523,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("deadLetterTargetTopic") != m.end() && !m["deadLetterTargetTopic"].empty()) {
       deadLetterTargetTopic = make_shared<string>(boost::any_cast<string>(m["deadLetterTargetTopic"]));
+    }
+    if (m.find("fixedIntervalRetryTime") != m.end() && !m["fixedIntervalRetryTime"].empty()) {
+      fixedIntervalRetryTime = make_shared<long>(boost::any_cast<long>(m["fixedIntervalRetryTime"]));
     }
     if (m.find("maxRetryTimes") != m.end() && !m["maxRetryTimes"].empty()) {
       maxRetryTimes = make_shared<long>(boost::any_cast<long>(m["maxRetryTimes"]));
@@ -3763,6 +3770,7 @@ public:
 class GetConsumerGroupResponseBodyDataConsumeRetryPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> deadLetterTargetTopic{};
+  shared_ptr<long> fixedIntervalRetryTime{};
   shared_ptr<long> maxRetryTimes{};
   shared_ptr<string> retryPolicy{};
 
@@ -3779,6 +3787,9 @@ public:
     if (deadLetterTargetTopic) {
       res["deadLetterTargetTopic"] = boost::any(*deadLetterTargetTopic);
     }
+    if (fixedIntervalRetryTime) {
+      res["fixedIntervalRetryTime"] = boost::any(*fixedIntervalRetryTime);
+    }
     if (maxRetryTimes) {
       res["maxRetryTimes"] = boost::any(*maxRetryTimes);
     }
@@ -3791,6 +3802,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("deadLetterTargetTopic") != m.end() && !m["deadLetterTargetTopic"].empty()) {
       deadLetterTargetTopic = make_shared<string>(boost::any_cast<string>(m["deadLetterTargetTopic"]));
+    }
+    if (m.find("fixedIntervalRetryTime") != m.end() && !m["fixedIntervalRetryTime"].empty()) {
+      fixedIntervalRetryTime = make_shared<long>(boost::any_cast<long>(m["fixedIntervalRetryTime"]));
     }
     if (m.find("maxRetryTimes") != m.end() && !m["maxRetryTimes"].empty()) {
       maxRetryTimes = make_shared<long>(boost::any_cast<long>(m["maxRetryTimes"]));
@@ -15917,6 +15931,7 @@ public:
 class UpdateConsumerGroupRequestConsumeRetryPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> deadLetterTargetTopic{};
+  shared_ptr<long> fixedIntervalRetryTime{};
   shared_ptr<long> maxRetryTimes{};
   shared_ptr<string> retryPolicy{};
 
@@ -15933,6 +15948,9 @@ public:
     if (deadLetterTargetTopic) {
       res["deadLetterTargetTopic"] = boost::any(*deadLetterTargetTopic);
     }
+    if (fixedIntervalRetryTime) {
+      res["fixedIntervalRetryTime"] = boost::any(*fixedIntervalRetryTime);
+    }
     if (maxRetryTimes) {
       res["maxRetryTimes"] = boost::any(*maxRetryTimes);
     }
@@ -15945,6 +15963,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("deadLetterTargetTopic") != m.end() && !m["deadLetterTargetTopic"].empty()) {
       deadLetterTargetTopic = make_shared<string>(boost::any_cast<string>(m["deadLetterTargetTopic"]));
+    }
+    if (m.find("fixedIntervalRetryTime") != m.end() && !m["fixedIntervalRetryTime"].empty()) {
+      fixedIntervalRetryTime = make_shared<long>(boost::any_cast<long>(m["fixedIntervalRetryTime"]));
     }
     if (m.find("maxRetryTimes") != m.end() && !m["maxRetryTimes"].empty()) {
       maxRetryTimes = make_shared<long>(boost::any_cast<long>(m["maxRetryTimes"]));
