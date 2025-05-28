@@ -57,12 +57,7 @@ AddDataLevelPermissionRuleUsersResponse Alibabacloud_Quickbi-public20220101::Cli
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddDataLevelPermissionRuleUsersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddDataLevelPermissionRuleUsersResponse(execute(params, req, runtime));
-  }
+  return AddDataLevelPermissionRuleUsersResponse(callApi(params, req, runtime));
 }
 
 AddDataLevelPermissionRuleUsersResponse Alibabacloud_Quickbi-public20220101::Client::addDataLevelPermissionRuleUsers(shared_ptr<AddDataLevelPermissionRuleUsersRequest> request) {
@@ -102,12 +97,7 @@ AddDataLevelPermissionWhiteListResponse Alibabacloud_Quickbi-public20220101::Cli
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddDataLevelPermissionWhiteListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddDataLevelPermissionWhiteListResponse(execute(params, req, runtime));
-  }
+  return AddDataLevelPermissionWhiteListResponse(callApi(params, req, runtime));
 }
 
 AddDataLevelPermissionWhiteListResponse Alibabacloud_Quickbi-public20220101::Client::addDataLevelPermissionWhiteList(shared_ptr<AddDataLevelPermissionWhiteListRequest> request) {
@@ -147,12 +137,7 @@ AddShareReportResponse Alibabacloud_Quickbi-public20220101::Client::addShareRepo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddShareReportResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddShareReportResponse(execute(params, req, runtime));
-  }
+  return AddShareReportResponse(callApi(params, req, runtime));
 }
 
 AddShareReportResponse Alibabacloud_Quickbi-public20220101::Client::addShareReport(shared_ptr<AddShareReportRequest> request) {
@@ -200,12 +185,7 @@ AddUserResponse Alibabacloud_Quickbi-public20220101::Client::addUserWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddUserResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddUserResponse(execute(params, req, runtime));
-  }
+  return AddUserResponse(callApi(params, req, runtime));
 }
 
 AddUserResponse Alibabacloud_Quickbi-public20220101::Client::addUser(shared_ptr<AddUserRequest> request) {
@@ -236,12 +216,7 @@ AddUserGroupMemberResponse Alibabacloud_Quickbi-public20220101::Client::addUserG
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddUserGroupMemberResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddUserGroupMemberResponse(execute(params, req, runtime));
-  }
+  return AddUserGroupMemberResponse(callApi(params, req, runtime));
 }
 
 AddUserGroupMemberResponse Alibabacloud_Quickbi-public20220101::Client::addUserGroupMember(shared_ptr<AddUserGroupMemberRequest> request) {
@@ -272,12 +247,7 @@ AddUserGroupMembersResponse Alibabacloud_Quickbi-public20220101::Client::addUser
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddUserGroupMembersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddUserGroupMembersResponse(execute(params, req, runtime));
-  }
+  return AddUserGroupMembersResponse(callApi(params, req, runtime));
 }
 
 AddUserGroupMembersResponse Alibabacloud_Quickbi-public20220101::Client::addUserGroupMembers(shared_ptr<AddUserGroupMembersRequest> request) {
@@ -308,12 +278,7 @@ AddUserTagMetaResponse Alibabacloud_Quickbi-public20220101::Client::addUserTagMe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddUserTagMetaResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddUserTagMetaResponse(execute(params, req, runtime));
-  }
+  return AddUserTagMetaResponse(callApi(params, req, runtime));
 }
 
 AddUserTagMetaResponse Alibabacloud_Quickbi-public20220101::Client::addUserTagMeta(shared_ptr<AddUserTagMetaRequest> request) {
@@ -347,12 +312,7 @@ AddUserToWorkspaceResponse Alibabacloud_Quickbi-public20220101::Client::addUserT
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddUserToWorkspaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddUserToWorkspaceResponse(execute(params, req, runtime));
-  }
+  return AddUserToWorkspaceResponse(callApi(params, req, runtime));
 }
 
 AddUserToWorkspaceResponse Alibabacloud_Quickbi-public20220101::Client::addUserToWorkspace(shared_ptr<AddUserToWorkspaceRequest> request) {
@@ -386,12 +346,7 @@ AddWorkspaceUsersResponse Alibabacloud_Quickbi-public20220101::Client::addWorksp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AddWorkspaceUsersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AddWorkspaceUsersResponse(execute(params, req, runtime));
-  }
+  return AddWorkspaceUsersResponse(callApi(params, req, runtime));
 }
 
 AddWorkspaceUsersResponse Alibabacloud_Quickbi-public20220101::Client::addWorkspaceUsers(shared_ptr<AddWorkspaceUsersRequest> request) {
@@ -419,12 +374,7 @@ AllotDatasetAccelerationTaskResponse Alibabacloud_Quickbi-public20220101::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AllotDatasetAccelerationTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AllotDatasetAccelerationTaskResponse(execute(params, req, runtime));
-  }
+  return AllotDatasetAccelerationTaskResponse(callApi(params, req, runtime));
 }
 
 AllotDatasetAccelerationTaskResponse Alibabacloud_Quickbi-public20220101::Client::allotDatasetAccelerationTask(shared_ptr<AllotDatasetAccelerationTaskRequest> request) {
@@ -464,12 +414,7 @@ AuthorizeMenuResponse Alibabacloud_Quickbi-public20220101::Client::authorizeMenu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AuthorizeMenuResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AuthorizeMenuResponse(execute(params, req, runtime));
-  }
+  return AuthorizeMenuResponse(callApi(params, req, runtime));
 }
 
 AuthorizeMenuResponse Alibabacloud_Quickbi-public20220101::Client::authorizeMenu(shared_ptr<AuthorizeMenuRequest> request) {
@@ -509,12 +454,7 @@ BatchAddFeishuUsersResponse Alibabacloud_Quickbi-public20220101::Client::batchAd
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return BatchAddFeishuUsersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return BatchAddFeishuUsersResponse(execute(params, req, runtime));
-  }
+  return BatchAddFeishuUsersResponse(callApi(params, req, runtime));
 }
 
 BatchAddFeishuUsersResponse Alibabacloud_Quickbi-public20220101::Client::batchAddFeishuUsers(shared_ptr<BatchAddFeishuUsersRequest> request) {
@@ -551,12 +491,7 @@ CancelAuthorizationMenuResponse Alibabacloud_Quickbi-public20220101::Client::can
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelAuthorizationMenuResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelAuthorizationMenuResponse(execute(params, req, runtime));
-  }
+  return CancelAuthorizationMenuResponse(callApi(params, req, runtime));
 }
 
 CancelAuthorizationMenuResponse Alibabacloud_Quickbi-public20220101::Client::cancelAuthorizationMenu(shared_ptr<CancelAuthorizationMenuRequest> request) {
@@ -587,12 +522,7 @@ CancelCollectionResponse Alibabacloud_Quickbi-public20220101::Client::cancelColl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelCollectionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelCollectionResponse(execute(params, req, runtime));
-  }
+  return CancelCollectionResponse(callApi(params, req, runtime));
 }
 
 CancelCollectionResponse Alibabacloud_Quickbi-public20220101::Client::cancelCollection(shared_ptr<CancelCollectionRequest> request) {
@@ -626,12 +556,7 @@ CancelReportShareResponse Alibabacloud_Quickbi-public20220101::Client::cancelRep
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelReportShareResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelReportShareResponse(execute(params, req, runtime));
-  }
+  return CancelReportShareResponse(callApi(params, req, runtime));
 }
 
 CancelReportShareResponse Alibabacloud_Quickbi-public20220101::Client::cancelReportShare(shared_ptr<CancelReportShareRequest> request) {
@@ -665,12 +590,7 @@ ChangeVisibilityModelResponse Alibabacloud_Quickbi-public20220101::Client::chang
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ChangeVisibilityModelResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ChangeVisibilityModelResponse(execute(params, req, runtime));
-  }
+  return ChangeVisibilityModelResponse(callApi(params, req, runtime));
 }
 
 ChangeVisibilityModelResponse Alibabacloud_Quickbi-public20220101::Client::changeVisibilityModel(shared_ptr<ChangeVisibilityModelRequest> request) {
@@ -701,12 +621,7 @@ CheckReadableResponse Alibabacloud_Quickbi-public20220101::Client::checkReadable
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckReadableResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckReadableResponse(execute(params, req, runtime));
-  }
+  return CheckReadableResponse(callApi(params, req, runtime));
 }
 
 CheckReadableResponse Alibabacloud_Quickbi-public20220101::Client::checkReadable(shared_ptr<CheckReadableRequest> request) {
@@ -758,12 +673,7 @@ CreateTicketResponse Alibabacloud_Quickbi-public20220101::Client::createTicketWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateTicketResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateTicketResponse(execute(params, req, runtime));
-  }
+  return CreateTicketResponse(callApi(params, req, runtime));
 }
 
 CreateTicketResponse Alibabacloud_Quickbi-public20220101::Client::createTicket(shared_ptr<CreateTicketRequest> request) {
@@ -806,12 +716,7 @@ CreateTicket4CopilotResponse Alibabacloud_Quickbi-public20220101::Client::create
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateTicket4CopilotResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateTicket4CopilotResponse(execute(params, req, runtime));
-  }
+  return CreateTicket4CopilotResponse(callApi(params, req, runtime));
 }
 
 CreateTicket4CopilotResponse Alibabacloud_Quickbi-public20220101::Client::createTicket4Copilot(shared_ptr<CreateTicket4CopilotRequest> request) {
@@ -848,17 +753,52 @@ CreateUserGroupResponse Alibabacloud_Quickbi-public20220101::Client::createUserG
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateUserGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateUserGroupResponse(execute(params, req, runtime));
-  }
+  return CreateUserGroupResponse(callApi(params, req, runtime));
 }
 
 CreateUserGroupResponse Alibabacloud_Quickbi-public20220101::Client::createUserGroup(shared_ptr<CreateUserGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createUserGroupWithOptions(request, runtime);
+}
+
+DataInterpretationResponse Alibabacloud_Quickbi-public20220101::Client::dataInterpretationWithOptions(shared_ptr<DataInterpretationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->data)) {
+    query->insert(pair<string, string>("Data", *request->data));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelCode)) {
+    query->insert(pair<string, string>("ModelCode", *request->modelCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->promptForceOverride)) {
+    query->insert(pair<string, bool>("PromptForceOverride", *request->promptForceOverride));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userPrompt)) {
+    query->insert(pair<string, string>("UserPrompt", *request->userPrompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userQuestion)) {
+    query->insert(pair<string, string>("UserQuestion", *request->userQuestion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DataInterpretation"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DataInterpretationResponse(callApi(params, req, runtime));
+}
+
+DataInterpretationResponse Alibabacloud_Quickbi-public20220101::Client::dataInterpretation(shared_ptr<DataInterpretationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return dataInterpretationWithOptions(request, runtime);
 }
 
 DataSetBloodResponse Alibabacloud_Quickbi-public20220101::Client::dataSetBloodWithOptions(shared_ptr<DataSetBloodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -887,12 +827,7 @@ DataSetBloodResponse Alibabacloud_Quickbi-public20220101::Client::dataSetBloodWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DataSetBloodResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DataSetBloodResponse(execute(params, req, runtime));
-  }
+  return DataSetBloodResponse(callApi(params, req, runtime));
 }
 
 DataSetBloodResponse Alibabacloud_Quickbi-public20220101::Client::dataSetBlood(shared_ptr<DataSetBloodRequest> request) {
@@ -920,12 +855,7 @@ DataSourceBloodResponse Alibabacloud_Quickbi-public20220101::Client::dataSourceB
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DataSourceBloodResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DataSourceBloodResponse(execute(params, req, runtime));
-  }
+  return DataSourceBloodResponse(callApi(params, req, runtime));
 }
 
 DataSourceBloodResponse Alibabacloud_Quickbi-public20220101::Client::dataSourceBlood(shared_ptr<DataSourceBloodRequest> request) {
@@ -956,12 +886,7 @@ DelayTicketExpireTimeResponse Alibabacloud_Quickbi-public20220101::Client::delay
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DelayTicketExpireTimeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DelayTicketExpireTimeResponse(execute(params, req, runtime));
-  }
+  return DelayTicketExpireTimeResponse(callApi(params, req, runtime));
 }
 
 DelayTicketExpireTimeResponse Alibabacloud_Quickbi-public20220101::Client::delayTicketExpireTime(shared_ptr<DelayTicketExpireTimeRequest> request) {
@@ -989,12 +914,7 @@ DeleteDataLevelPermissionRuleUsersResponse Alibabacloud_Quickbi-public20220101::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteDataLevelPermissionRuleUsersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteDataLevelPermissionRuleUsersResponse(execute(params, req, runtime));
-  }
+  return DeleteDataLevelPermissionRuleUsersResponse(callApi(params, req, runtime));
 }
 
 DeleteDataLevelPermissionRuleUsersResponse Alibabacloud_Quickbi-public20220101::Client::deleteDataLevelPermissionRuleUsers(shared_ptr<DeleteDataLevelPermissionRuleUsersRequest> request) {
@@ -1025,12 +945,7 @@ DeleteDataLevelRuleConfigResponse Alibabacloud_Quickbi-public20220101::Client::d
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteDataLevelRuleConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteDataLevelRuleConfigResponse(execute(params, req, runtime));
-  }
+  return DeleteDataLevelRuleConfigResponse(callApi(params, req, runtime));
 }
 
 DeleteDataLevelRuleConfigResponse Alibabacloud_Quickbi-public20220101::Client::deleteDataLevelRuleConfig(shared_ptr<DeleteDataLevelRuleConfigRequest> request) {
@@ -1058,12 +973,7 @@ DeleteTicketResponse Alibabacloud_Quickbi-public20220101::Client::deleteTicketWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteTicketResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteTicketResponse(execute(params, req, runtime));
-  }
+  return DeleteTicketResponse(callApi(params, req, runtime));
 }
 
 DeleteTicketResponse Alibabacloud_Quickbi-public20220101::Client::deleteTicket(shared_ptr<DeleteTicketRequest> request) {
@@ -1094,12 +1004,7 @@ DeleteUserResponse Alibabacloud_Quickbi-public20220101::Client::deleteUserWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteUserResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteUserResponse(execute(params, req, runtime));
-  }
+  return DeleteUserResponse(callApi(params, req, runtime));
 }
 
 DeleteUserResponse Alibabacloud_Quickbi-public20220101::Client::deleteUser(shared_ptr<DeleteUserRequest> request) {
@@ -1130,12 +1035,7 @@ DeleteUserFromWorkspaceResponse Alibabacloud_Quickbi-public20220101::Client::del
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteUserFromWorkspaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteUserFromWorkspaceResponse(execute(params, req, runtime));
-  }
+  return DeleteUserFromWorkspaceResponse(callApi(params, req, runtime));
 }
 
 DeleteUserFromWorkspaceResponse Alibabacloud_Quickbi-public20220101::Client::deleteUserFromWorkspace(shared_ptr<DeleteUserFromWorkspaceRequest> request) {
@@ -1163,12 +1063,7 @@ DeleteUserGroupResponse Alibabacloud_Quickbi-public20220101::Client::deleteUserG
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteUserGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteUserGroupResponse(execute(params, req, runtime));
-  }
+  return DeleteUserGroupResponse(callApi(params, req, runtime));
 }
 
 DeleteUserGroupResponse Alibabacloud_Quickbi-public20220101::Client::deleteUserGroup(shared_ptr<DeleteUserGroupRequest> request) {
@@ -1199,12 +1094,7 @@ DeleteUserGroupMemberResponse Alibabacloud_Quickbi-public20220101::Client::delet
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteUserGroupMemberResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteUserGroupMemberResponse(execute(params, req, runtime));
-  }
+  return DeleteUserGroupMemberResponse(callApi(params, req, runtime));
 }
 
 DeleteUserGroupMemberResponse Alibabacloud_Quickbi-public20220101::Client::deleteUserGroupMember(shared_ptr<DeleteUserGroupMemberRequest> request) {
@@ -1235,12 +1125,7 @@ DeleteUserGroupMembersResponse Alibabacloud_Quickbi-public20220101::Client::dele
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteUserGroupMembersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteUserGroupMembersResponse(execute(params, req, runtime));
-  }
+  return DeleteUserGroupMembersResponse(callApi(params, req, runtime));
 }
 
 DeleteUserGroupMembersResponse Alibabacloud_Quickbi-public20220101::Client::deleteUserGroupMembers(shared_ptr<DeleteUserGroupMembersRequest> request) {
@@ -1268,12 +1153,7 @@ DeleteUserTagMetaResponse Alibabacloud_Quickbi-public20220101::Client::deleteUse
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteUserTagMetaResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteUserTagMetaResponse(execute(params, req, runtime));
-  }
+  return DeleteUserTagMetaResponse(callApi(params, req, runtime));
 }
 
 DeleteUserTagMetaResponse Alibabacloud_Quickbi-public20220101::Client::deleteUserTagMeta(shared_ptr<DeleteUserTagMetaRequest> request) {
@@ -1301,12 +1181,7 @@ GetDataSourceConnectionInfoResponse Alibabacloud_Quickbi-public20220101::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetDataSourceConnectionInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetDataSourceConnectionInfoResponse(execute(params, req, runtime));
-  }
+  return GetDataSourceConnectionInfoResponse(callApi(params, req, runtime));
 }
 
 GetDataSourceConnectionInfoResponse Alibabacloud_Quickbi-public20220101::Client::getDataSourceConnectionInfo(shared_ptr<GetDataSourceConnectionInfoRequest> request) {
@@ -1337,12 +1212,7 @@ GetMailTaskStatusResponse Alibabacloud_Quickbi-public20220101::Client::getMailTa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetMailTaskStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetMailTaskStatusResponse(execute(params, req, runtime));
-  }
+  return GetMailTaskStatusResponse(callApi(params, req, runtime));
 }
 
 GetMailTaskStatusResponse Alibabacloud_Quickbi-public20220101::Client::getMailTaskStatus(shared_ptr<GetMailTaskStatusRequest> request) {
@@ -1370,12 +1240,7 @@ GetUserGroupInfoResponse Alibabacloud_Quickbi-public20220101::Client::getUserGro
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetUserGroupInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetUserGroupInfoResponse(execute(params, req, runtime));
-  }
+  return GetUserGroupInfoResponse(callApi(params, req, runtime));
 }
 
 GetUserGroupInfoResponse Alibabacloud_Quickbi-public20220101::Client::getUserGroupInfo(shared_ptr<GetUserGroupInfoRequest> request) {
@@ -1415,12 +1280,7 @@ GetWorksEmbedListResponse Alibabacloud_Quickbi-public20220101::Client::getWorksE
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetWorksEmbedListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetWorksEmbedListResponse(execute(params, req, runtime));
-  }
+  return GetWorksEmbedListResponse(callApi(params, req, runtime));
 }
 
 GetWorksEmbedListResponse Alibabacloud_Quickbi-public20220101::Client::getWorksEmbedList(shared_ptr<GetWorksEmbedListRequest> request) {
@@ -1457,12 +1317,7 @@ ListApiDatasourceResponse Alibabacloud_Quickbi-public20220101::Client::listApiDa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListApiDatasourceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListApiDatasourceResponse(execute(params, req, runtime));
-  }
+  return ListApiDatasourceResponse(callApi(params, req, runtime));
 }
 
 ListApiDatasourceResponse Alibabacloud_Quickbi-public20220101::Client::listApiDatasource(shared_ptr<ListApiDatasourceRequest> request) {
@@ -1490,12 +1345,7 @@ ListByUserGroupIdResponse Alibabacloud_Quickbi-public20220101::Client::listByUse
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListByUserGroupIdResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListByUserGroupIdResponse(execute(params, req, runtime));
-  }
+  return ListByUserGroupIdResponse(callApi(params, req, runtime));
 }
 
 ListByUserGroupIdResponse Alibabacloud_Quickbi-public20220101::Client::listByUserGroupId(shared_ptr<ListByUserGroupIdRequest> request) {
@@ -1523,12 +1373,7 @@ ListCollectionsResponse Alibabacloud_Quickbi-public20220101::Client::listCollect
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListCollectionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListCollectionsResponse(execute(params, req, runtime));
-  }
+  return ListCollectionsResponse(callApi(params, req, runtime));
 }
 
 ListCollectionsResponse Alibabacloud_Quickbi-public20220101::Client::listCollections(shared_ptr<ListCollectionsRequest> request) {
@@ -1559,12 +1404,7 @@ ListCubeDataLevelPermissionConfigResponse Alibabacloud_Quickbi-public20220101::C
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListCubeDataLevelPermissionConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListCubeDataLevelPermissionConfigResponse(execute(params, req, runtime));
-  }
+  return ListCubeDataLevelPermissionConfigResponse(callApi(params, req, runtime));
 }
 
 ListCubeDataLevelPermissionConfigResponse Alibabacloud_Quickbi-public20220101::Client::listCubeDataLevelPermissionConfig(shared_ptr<ListCubeDataLevelPermissionConfigRequest> request) {
@@ -1595,12 +1435,7 @@ ListDataLevelPermissionWhiteListResponse Alibabacloud_Quickbi-public20220101::Cl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListDataLevelPermissionWhiteListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListDataLevelPermissionWhiteListResponse(execute(params, req, runtime));
-  }
+  return ListDataLevelPermissionWhiteListResponse(callApi(params, req, runtime));
 }
 
 ListDataLevelPermissionWhiteListResponse Alibabacloud_Quickbi-public20220101::Client::listDataLevelPermissionWhiteList(shared_ptr<ListDataLevelPermissionWhiteListRequest> request) {
@@ -1631,12 +1466,7 @@ ListDataSourceResponse Alibabacloud_Quickbi-public20220101::Client::listDataSour
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListDataSourceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListDataSourceResponse(execute(params, req, runtime));
-  }
+  return ListDataSourceResponse(callApi(params, req, runtime));
 }
 
 ListDataSourceResponse Alibabacloud_Quickbi-public20220101::Client::listDataSource(shared_ptr<ListDataSourceRequest> request) {
@@ -1673,12 +1503,7 @@ ListFavoriteReportsResponse Alibabacloud_Quickbi-public20220101::Client::listFav
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListFavoriteReportsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListFavoriteReportsResponse(execute(params, req, runtime));
-  }
+  return ListFavoriteReportsResponse(callApi(params, req, runtime));
 }
 
 ListFavoriteReportsResponse Alibabacloud_Quickbi-public20220101::Client::listFavoriteReports(shared_ptr<ListFavoriteReportsRequest> request) {
@@ -1715,12 +1540,7 @@ ListOrganizationRoleUsersResponse Alibabacloud_Quickbi-public20220101::Client::l
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListOrganizationRoleUsersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListOrganizationRoleUsersResponse(execute(params, req, runtime));
-  }
+  return ListOrganizationRoleUsersResponse(callApi(params, req, runtime));
 }
 
 ListOrganizationRoleUsersResponse Alibabacloud_Quickbi-public20220101::Client::listOrganizationRoleUsers(shared_ptr<ListOrganizationRoleUsersRequest> request) {
@@ -1741,12 +1561,7 @@ ListOrganizationRolesResponse Alibabacloud_Quickbi-public20220101::Client::listO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListOrganizationRolesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListOrganizationRolesResponse(execute(params, req, runtime));
-  }
+  return ListOrganizationRolesResponse(callApi(params, req, runtime));
 }
 
 ListOrganizationRolesResponse Alibabacloud_Quickbi-public20220101::Client::listOrganizationRoles() {
@@ -1774,12 +1589,7 @@ ListPortalMenuAuthorizationResponse Alibabacloud_Quickbi-public20220101::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListPortalMenuAuthorizationResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListPortalMenuAuthorizationResponse(execute(params, req, runtime));
-  }
+  return ListPortalMenuAuthorizationResponse(callApi(params, req, runtime));
 }
 
 ListPortalMenuAuthorizationResponse Alibabacloud_Quickbi-public20220101::Client::listPortalMenuAuthorization(shared_ptr<ListPortalMenuAuthorizationRequest> request) {
@@ -1810,12 +1620,7 @@ ListPortalMenusResponse Alibabacloud_Quickbi-public20220101::Client::listPortalM
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListPortalMenusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListPortalMenusResponse(execute(params, req, runtime));
-  }
+  return ListPortalMenusResponse(callApi(params, req, runtime));
 }
 
 ListPortalMenusResponse Alibabacloud_Quickbi-public20220101::Client::listPortalMenus(shared_ptr<ListPortalMenusRequest> request) {
@@ -1858,12 +1663,7 @@ ListRecentViewReportsResponse Alibabacloud_Quickbi-public20220101::Client::listR
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRecentViewReportsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRecentViewReportsResponse(execute(params, req, runtime));
-  }
+  return ListRecentViewReportsResponse(callApi(params, req, runtime));
 }
 
 ListRecentViewReportsResponse Alibabacloud_Quickbi-public20220101::Client::listRecentViewReports(shared_ptr<ListRecentViewReportsRequest> request) {
@@ -1900,12 +1700,7 @@ ListSharedReportsResponse Alibabacloud_Quickbi-public20220101::Client::listShare
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListSharedReportsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListSharedReportsResponse(execute(params, req, runtime));
-  }
+  return ListSharedReportsResponse(callApi(params, req, runtime));
 }
 
 ListSharedReportsResponse Alibabacloud_Quickbi-public20220101::Client::listSharedReports(shared_ptr<ListSharedReportsRequest> request) {
@@ -1933,12 +1728,7 @@ ListUserGroupsByUserIdResponse Alibabacloud_Quickbi-public20220101::Client::list
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListUserGroupsByUserIdResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListUserGroupsByUserIdResponse(execute(params, req, runtime));
-  }
+  return ListUserGroupsByUserIdResponse(callApi(params, req, runtime));
 }
 
 ListUserGroupsByUserIdResponse Alibabacloud_Quickbi-public20220101::Client::listUserGroupsByUserId(shared_ptr<ListUserGroupsByUserIdRequest> request) {
@@ -1978,12 +1768,7 @@ ListWorkspaceRoleUsersResponse Alibabacloud_Quickbi-public20220101::Client::list
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListWorkspaceRoleUsersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListWorkspaceRoleUsersResponse(execute(params, req, runtime));
-  }
+  return ListWorkspaceRoleUsersResponse(callApi(params, req, runtime));
 }
 
 ListWorkspaceRoleUsersResponse Alibabacloud_Quickbi-public20220101::Client::listWorkspaceRoleUsers(shared_ptr<ListWorkspaceRoleUsersRequest> request) {
@@ -2011,12 +1796,7 @@ ListWorkspaceRolesResponse Alibabacloud_Quickbi-public20220101::Client::listWork
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListWorkspaceRolesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListWorkspaceRolesResponse(execute(params, req, runtime));
-  }
+  return ListWorkspaceRolesResponse(callApi(params, req, runtime));
 }
 
 ListWorkspaceRolesResponse Alibabacloud_Quickbi-public20220101::Client::listWorkspaceRoles(shared_ptr<ListWorkspaceRolesRequest> request) {
@@ -2044,12 +1824,7 @@ ManualRunMailTaskResponse Alibabacloud_Quickbi-public20220101::Client::manualRun
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ManualRunMailTaskResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ManualRunMailTaskResponse(execute(params, req, runtime));
-  }
+  return ManualRunMailTaskResponse(callApi(params, req, runtime));
 }
 
 ManualRunMailTaskResponse Alibabacloud_Quickbi-public20220101::Client::manualRunMailTask(shared_ptr<ManualRunMailTaskRequest> request) {
@@ -2083,12 +1858,7 @@ ModifyApiDatasourceParametersResponse Alibabacloud_Quickbi-public20220101::Clien
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyApiDatasourceParametersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyApiDatasourceParametersResponse(execute(params, req, runtime));
-  }
+  return ModifyApiDatasourceParametersResponse(callApi(params, req, runtime));
 }
 
 ModifyApiDatasourceParametersResponse Alibabacloud_Quickbi-public20220101::Client::modifyApiDatasourceParameters(shared_ptr<ModifyApiDatasourceParametersRequest> request) {
@@ -2125,12 +1895,7 @@ ModifyCopilotEmbedConfigResponse Alibabacloud_Quickbi-public20220101::Client::mo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyCopilotEmbedConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyCopilotEmbedConfigResponse(execute(params, req, runtime));
-  }
+  return ModifyCopilotEmbedConfigResponse(callApi(params, req, runtime));
 }
 
 ModifyCopilotEmbedConfigResponse Alibabacloud_Quickbi-public20220101::Client::modifyCopilotEmbedConfig(shared_ptr<ModifyCopilotEmbedConfigRequest> request) {
@@ -2167,12 +1932,7 @@ QueryApprovalInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryAppr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryApprovalInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryApprovalInfoResponse(execute(params, req, runtime));
-  }
+  return QueryApprovalInfoResponse(callApi(params, req, runtime));
 }
 
 QueryApprovalInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryApprovalInfo(shared_ptr<QueryApprovalInfoRequest> request) {
@@ -2218,12 +1978,7 @@ QueryAuditLogResponse Alibabacloud_Quickbi-public20220101::Client::queryAuditLog
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryAuditLogResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryAuditLogResponse(execute(params, req, runtime));
-  }
+  return QueryAuditLogResponse(callApi(params, req, runtime));
 }
 
 QueryAuditLogResponse Alibabacloud_Quickbi-public20220101::Client::queryAuditLog(shared_ptr<QueryAuditLogRequest> request) {
@@ -2269,12 +2024,7 @@ QueryComponentPerformanceResponse Alibabacloud_Quickbi-public20220101::Client::q
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryComponentPerformanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryComponentPerformanceResponse(execute(params, req, runtime));
-  }
+  return QueryComponentPerformanceResponse(callApi(params, req, runtime));
 }
 
 QueryComponentPerformanceResponse Alibabacloud_Quickbi-public20220101::Client::queryComponentPerformance(shared_ptr<QueryComponentPerformanceRequest> request) {
@@ -2302,12 +2052,7 @@ QueryCopilotEmbedConfigResponse Alibabacloud_Quickbi-public20220101::Client::que
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryCopilotEmbedConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryCopilotEmbedConfigResponse(execute(params, req, runtime));
-  }
+  return QueryCopilotEmbedConfigResponse(callApi(params, req, runtime));
 }
 
 QueryCopilotEmbedConfigResponse Alibabacloud_Quickbi-public20220101::Client::queryCopilotEmbedConfig(shared_ptr<QueryCopilotEmbedConfigRequest> request) {
@@ -2335,12 +2080,7 @@ QueryCubeOptimizationResponse Alibabacloud_Quickbi-public20220101::Client::query
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryCubeOptimizationResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryCubeOptimizationResponse(execute(params, req, runtime));
-  }
+  return QueryCubeOptimizationResponse(callApi(params, req, runtime));
 }
 
 QueryCubeOptimizationResponse Alibabacloud_Quickbi-public20220101::Client::queryCubeOptimization(shared_ptr<QueryCubeOptimizationRequest> request) {
@@ -2383,12 +2123,7 @@ QueryCubePerformanceResponse Alibabacloud_Quickbi-public20220101::Client::queryC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryCubePerformanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryCubePerformanceResponse(execute(params, req, runtime));
-  }
+  return QueryCubePerformanceResponse(callApi(params, req, runtime));
 }
 
 QueryCubePerformanceResponse Alibabacloud_Quickbi-public20220101::Client::queryCubePerformance(shared_ptr<QueryCubePerformanceRequest> request) {
@@ -2425,12 +2160,7 @@ QueryDataResponse Alibabacloud_Quickbi-public20220101::Client::queryDataWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDataResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDataResponse(execute(params, req, runtime));
-  }
+  return QueryDataResponse(callApi(params, req, runtime));
 }
 
 QueryDataResponse Alibabacloud_Quickbi-public20220101::Client::queryData(shared_ptr<QueryDataRequest> request) {
@@ -2461,12 +2191,7 @@ QueryDataRangeResponse Alibabacloud_Quickbi-public20220101::Client::queryDataRan
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDataRangeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDataRangeResponse(execute(params, req, runtime));
-  }
+  return QueryDataRangeResponse(callApi(params, req, runtime));
 }
 
 QueryDataRangeResponse Alibabacloud_Quickbi-public20220101::Client::queryDataRange(shared_ptr<QueryDataRangeRequest> request) {
@@ -2500,12 +2225,7 @@ QueryDataServiceResponse Alibabacloud_Quickbi-public20220101::Client::queryDataS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDataServiceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDataServiceResponse(execute(params, req, runtime));
-  }
+  return QueryDataServiceResponse(callApi(params, req, runtime));
 }
 
 QueryDataServiceResponse Alibabacloud_Quickbi-public20220101::Client::queryDataService(shared_ptr<QueryDataServiceRequest> request) {
@@ -2542,12 +2262,7 @@ QueryDataServiceListResponse Alibabacloud_Quickbi-public20220101::Client::queryD
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDataServiceListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDataServiceListResponse(execute(params, req, runtime));
-  }
+  return QueryDataServiceListResponse(callApi(params, req, runtime));
 }
 
 QueryDataServiceListResponse Alibabacloud_Quickbi-public20220101::Client::queryDataServiceList(shared_ptr<QueryDataServiceListRequest> request) {
@@ -2575,12 +2290,7 @@ QueryDatasetDetailInfoResponse Alibabacloud_Quickbi-public20220101::Client::quer
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDatasetDetailInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDatasetDetailInfoResponse(execute(params, req, runtime));
-  }
+  return QueryDatasetDetailInfoResponse(callApi(params, req, runtime));
 }
 
 QueryDatasetDetailInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryDatasetDetailInfo(shared_ptr<QueryDatasetDetailInfoRequest> request) {
@@ -2608,12 +2318,7 @@ QueryDatasetInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryDatas
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDatasetInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDatasetInfoResponse(execute(params, req, runtime));
-  }
+  return QueryDatasetInfoResponse(callApi(params, req, runtime));
 }
 
 QueryDatasetInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryDatasetInfo(shared_ptr<QueryDatasetInfoRequest> request) {
@@ -2656,12 +2361,7 @@ QueryDatasetListResponse Alibabacloud_Quickbi-public20220101::Client::queryDatas
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDatasetListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDatasetListResponse(execute(params, req, runtime));
-  }
+  return QueryDatasetListResponse(callApi(params, req, runtime));
 }
 
 QueryDatasetListResponse Alibabacloud_Quickbi-public20220101::Client::queryDatasetList(shared_ptr<QueryDatasetListRequest> request) {
@@ -2689,12 +2389,7 @@ QueryDatasetSmartqStatusResponse Alibabacloud_Quickbi-public20220101::Client::qu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDatasetSmartqStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDatasetSmartqStatusResponse(execute(params, req, runtime));
-  }
+  return QueryDatasetSmartqStatusResponse(callApi(params, req, runtime));
 }
 
 QueryDatasetSmartqStatusResponse Alibabacloud_Quickbi-public20220101::Client::queryDatasetSmartqStatus(shared_ptr<QueryDatasetSmartqStatusRequest> request) {
@@ -2722,12 +2417,7 @@ QueryDatasetSwitchInfoResponse Alibabacloud_Quickbi-public20220101::Client::quer
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryDatasetSwitchInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryDatasetSwitchInfoResponse(execute(params, req, runtime));
-  }
+  return QueryDatasetSwitchInfoResponse(callApi(params, req, runtime));
 }
 
 QueryDatasetSwitchInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryDatasetSwitchInfo(shared_ptr<QueryDatasetSwitchInfoRequest> request) {
@@ -2748,12 +2438,7 @@ QueryEmbeddedInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryEmbe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryEmbeddedInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryEmbeddedInfoResponse(execute(params, req, runtime));
-  }
+  return QueryEmbeddedInfoResponse(callApi(params, req, runtime));
 }
 
 QueryEmbeddedInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryEmbeddedInfo() {
@@ -2781,12 +2466,7 @@ QueryEmbeddedStatusResponse Alibabacloud_Quickbi-public20220101::Client::queryEm
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryEmbeddedStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryEmbeddedStatusResponse(execute(params, req, runtime));
-  }
+  return QueryEmbeddedStatusResponse(callApi(params, req, runtime));
 }
 
 QueryEmbeddedStatusResponse Alibabacloud_Quickbi-public20220101::Client::queryEmbeddedStatus(shared_ptr<QueryEmbeddedStatusRequest> request) {
@@ -2814,12 +2494,7 @@ QueryLlmCubeWithThemeListByUserIdResponse Alibabacloud_Quickbi-public20220101::C
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryLlmCubeWithThemeListByUserIdResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryLlmCubeWithThemeListByUserIdResponse(execute(params, req, runtime));
-  }
+  return QueryLlmCubeWithThemeListByUserIdResponse(callApi(params, req, runtime));
 }
 
 QueryLlmCubeWithThemeListByUserIdResponse Alibabacloud_Quickbi-public20220101::Client::queryLlmCubeWithThemeListByUserId(shared_ptr<QueryLlmCubeWithThemeListByUserIdRequest> request) {
@@ -2847,12 +2522,7 @@ QueryOrganizationRoleConfigResponse Alibabacloud_Quickbi-public20220101::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryOrganizationRoleConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryOrganizationRoleConfigResponse(execute(params, req, runtime));
-  }
+  return QueryOrganizationRoleConfigResponse(callApi(params, req, runtime));
 }
 
 QueryOrganizationRoleConfigResponse Alibabacloud_Quickbi-public20220101::Client::queryOrganizationRoleConfig(shared_ptr<QueryOrganizationRoleConfigRequest> request) {
@@ -2889,12 +2559,7 @@ QueryOrganizationWorkspaceListResponse Alibabacloud_Quickbi-public20220101::Clie
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryOrganizationWorkspaceListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryOrganizationWorkspaceListResponse(execute(params, req, runtime));
-  }
+  return QueryOrganizationWorkspaceListResponse(callApi(params, req, runtime));
 }
 
 QueryOrganizationWorkspaceListResponse Alibabacloud_Quickbi-public20220101::Client::queryOrganizationWorkspaceList(shared_ptr<QueryOrganizationWorkspaceListRequest> request) {
@@ -2922,12 +2587,7 @@ QueryReadableResourcesListByUserIdResponse Alibabacloud_Quickbi-public20220101::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryReadableResourcesListByUserIdResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryReadableResourcesListByUserIdResponse(execute(params, req, runtime));
-  }
+  return QueryReadableResourcesListByUserIdResponse(callApi(params, req, runtime));
 }
 
 QueryReadableResourcesListByUserIdResponse Alibabacloud_Quickbi-public20220101::Client::queryReadableResourcesListByUserId(shared_ptr<QueryReadableResourcesListByUserIdRequest> request) {
@@ -2973,12 +2633,7 @@ QueryReportPerformanceResponse Alibabacloud_Quickbi-public20220101::Client::quer
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryReportPerformanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryReportPerformanceResponse(execute(params, req, runtime));
-  }
+  return QueryReportPerformanceResponse(callApi(params, req, runtime));
 }
 
 QueryReportPerformanceResponse Alibabacloud_Quickbi-public20220101::Client::queryReportPerformance(shared_ptr<QueryReportPerformanceRequest> request) {
@@ -3006,12 +2661,7 @@ QueryShareListResponse Alibabacloud_Quickbi-public20220101::Client::queryShareLi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryShareListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryShareListResponse(execute(params, req, runtime));
-  }
+  return QueryShareListResponse(callApi(params, req, runtime));
 }
 
 QueryShareListResponse Alibabacloud_Quickbi-public20220101::Client::queryShareList(shared_ptr<QueryShareListRequest> request) {
@@ -3039,12 +2689,7 @@ QuerySharesToUserListResponse Alibabacloud_Quickbi-public20220101::Client::query
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QuerySharesToUserListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QuerySharesToUserListResponse(execute(params, req, runtime));
-  }
+  return QuerySharesToUserListResponse(callApi(params, req, runtime));
 }
 
 QuerySharesToUserListResponse Alibabacloud_Quickbi-public20220101::Client::querySharesToUserList(shared_ptr<QuerySharesToUserListRequest> request) {
@@ -3075,12 +2720,7 @@ QuerySmartqPermissionByCubeIdResponse Alibabacloud_Quickbi-public20220101::Clien
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QuerySmartqPermissionByCubeIdResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QuerySmartqPermissionByCubeIdResponse(execute(params, req, runtime));
-  }
+  return QuerySmartqPermissionByCubeIdResponse(callApi(params, req, runtime));
 }
 
 QuerySmartqPermissionByCubeIdResponse Alibabacloud_Quickbi-public20220101::Client::querySmartqPermissionByCubeId(shared_ptr<QuerySmartqPermissionByCubeIdRequest> request) {
@@ -3108,12 +2748,7 @@ QueryTicketInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryTicket
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryTicketInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryTicketInfoResponse(execute(params, req, runtime));
-  }
+  return QueryTicketInfoResponse(callApi(params, req, runtime));
 }
 
 QueryTicketInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryTicketInfo(shared_ptr<QueryTicketInfoRequest> request) {
@@ -3141,12 +2776,7 @@ QueryUserGroupListByParentIdResponse Alibabacloud_Quickbi-public20220101::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryUserGroupListByParentIdResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryUserGroupListByParentIdResponse(execute(params, req, runtime));
-  }
+  return QueryUserGroupListByParentIdResponse(callApi(params, req, runtime));
 }
 
 QueryUserGroupListByParentIdResponse Alibabacloud_Quickbi-public20220101::Client::queryUserGroupListByParentId(shared_ptr<QueryUserGroupListByParentIdRequest> request) {
@@ -3177,12 +2807,7 @@ QueryUserGroupMemberResponse Alibabacloud_Quickbi-public20220101::Client::queryU
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryUserGroupMemberResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryUserGroupMemberResponse(execute(params, req, runtime));
-  }
+  return QueryUserGroupMemberResponse(callApi(params, req, runtime));
 }
 
 QueryUserGroupMemberResponse Alibabacloud_Quickbi-public20220101::Client::queryUserGroupMember(shared_ptr<QueryUserGroupMemberRequest> request) {
@@ -3213,12 +2838,7 @@ QueryUserInfoByAccountResponse Alibabacloud_Quickbi-public20220101::Client::quer
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryUserInfoByAccountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryUserInfoByAccountResponse(execute(params, req, runtime));
-  }
+  return QueryUserInfoByAccountResponse(callApi(params, req, runtime));
 }
 
 QueryUserInfoByAccountResponse Alibabacloud_Quickbi-public20220101::Client::queryUserInfoByAccount(shared_ptr<QueryUserInfoByAccountRequest> request) {
@@ -3246,12 +2866,7 @@ QueryUserInfoByUserIdResponse Alibabacloud_Quickbi-public20220101::Client::query
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryUserInfoByUserIdResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryUserInfoByUserIdResponse(execute(params, req, runtime));
-  }
+  return QueryUserInfoByUserIdResponse(callApi(params, req, runtime));
 }
 
 QueryUserInfoByUserIdResponse Alibabacloud_Quickbi-public20220101::Client::queryUserInfoByUserId(shared_ptr<QueryUserInfoByUserIdRequest> request) {
@@ -3276,12 +2891,7 @@ QueryUserListResponse Alibabacloud_Quickbi-public20220101::Client::queryUserList
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryUserListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryUserListResponse(execute(params, req, runtime));
-  }
+  return QueryUserListResponse(callApi(params, req, runtime));
 }
 
 QueryUserListResponse Alibabacloud_Quickbi-public20220101::Client::queryUserList(shared_ptr<QueryUserListRequest> request) {
@@ -3312,12 +2922,7 @@ QueryUserRoleInfoInWorkspaceResponse Alibabacloud_Quickbi-public20220101::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryUserRoleInfoInWorkspaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryUserRoleInfoInWorkspaceResponse(execute(params, req, runtime));
-  }
+  return QueryUserRoleInfoInWorkspaceResponse(callApi(params, req, runtime));
 }
 
 QueryUserRoleInfoInWorkspaceResponse Alibabacloud_Quickbi-public20220101::Client::queryUserRoleInfoInWorkspace(shared_ptr<QueryUserRoleInfoInWorkspaceRequest> request) {
@@ -3338,12 +2943,7 @@ QueryUserTagMetaListResponse Alibabacloud_Quickbi-public20220101::Client::queryU
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryUserTagMetaListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryUserTagMetaListResponse(execute(params, req, runtime));
-  }
+  return QueryUserTagMetaListResponse(callApi(params, req, runtime));
 }
 
 QueryUserTagMetaListResponse Alibabacloud_Quickbi-public20220101::Client::queryUserTagMetaList() {
@@ -3368,12 +2968,7 @@ QueryUserTagValueListResponse Alibabacloud_Quickbi-public20220101::Client::query
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryUserTagValueListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryUserTagValueListResponse(execute(params, req, runtime));
-  }
+  return QueryUserTagValueListResponse(callApi(params, req, runtime));
 }
 
 QueryUserTagValueListResponse Alibabacloud_Quickbi-public20220101::Client::queryUserTagValueList(shared_ptr<QueryUserTagValueListRequest> request) {
@@ -3401,12 +2996,7 @@ QueryWorksResponse Alibabacloud_Quickbi-public20220101::Client::queryWorksWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryWorksResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryWorksResponse(execute(params, req, runtime));
-  }
+  return QueryWorksResponse(callApi(params, req, runtime));
 }
 
 QueryWorksResponse Alibabacloud_Quickbi-public20220101::Client::queryWorks(shared_ptr<QueryWorksRequest> request) {
@@ -3434,12 +3024,7 @@ QueryWorksBloodRelationshipResponse Alibabacloud_Quickbi-public20220101::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryWorksBloodRelationshipResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryWorksBloodRelationshipResponse(execute(params, req, runtime));
-  }
+  return QueryWorksBloodRelationshipResponse(callApi(params, req, runtime));
 }
 
 QueryWorksBloodRelationshipResponse Alibabacloud_Quickbi-public20220101::Client::queryWorksBloodRelationship(shared_ptr<QueryWorksBloodRelationshipRequest> request) {
@@ -3479,12 +3064,7 @@ QueryWorksByOrganizationResponse Alibabacloud_Quickbi-public20220101::Client::qu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryWorksByOrganizationResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryWorksByOrganizationResponse(execute(params, req, runtime));
-  }
+  return QueryWorksByOrganizationResponse(callApi(params, req, runtime));
 }
 
 QueryWorksByOrganizationResponse Alibabacloud_Quickbi-public20220101::Client::queryWorksByOrganization(shared_ptr<QueryWorksByOrganizationRequest> request) {
@@ -3527,12 +3107,7 @@ QueryWorksByWorkspaceResponse Alibabacloud_Quickbi-public20220101::Client::query
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryWorksByWorkspaceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryWorksByWorkspaceResponse(execute(params, req, runtime));
-  }
+  return QueryWorksByWorkspaceResponse(callApi(params, req, runtime));
 }
 
 QueryWorksByWorkspaceResponse Alibabacloud_Quickbi-public20220101::Client::queryWorksByWorkspace(shared_ptr<QueryWorksByWorkspaceRequest> request) {
@@ -3560,12 +3135,7 @@ QueryWorkspaceRoleConfigResponse Alibabacloud_Quickbi-public20220101::Client::qu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryWorkspaceRoleConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryWorkspaceRoleConfigResponse(execute(params, req, runtime));
-  }
+  return QueryWorkspaceRoleConfigResponse(callApi(params, req, runtime));
 }
 
 QueryWorkspaceRoleConfigResponse Alibabacloud_Quickbi-public20220101::Client::queryWorkspaceRoleConfig(shared_ptr<QueryWorkspaceRoleConfigRequest> request) {
@@ -3602,12 +3172,7 @@ QueryWorkspaceUserListResponse Alibabacloud_Quickbi-public20220101::Client::quer
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return QueryWorkspaceUserListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return QueryWorkspaceUserListResponse(execute(params, req, runtime));
-  }
+  return QueryWorkspaceUserListResponse(callApi(params, req, runtime));
 }
 
 QueryWorkspaceUserListResponse Alibabacloud_Quickbi-public20220101::Client::queryWorkspaceUserList(shared_ptr<QueryWorkspaceUserListRequest> request) {
@@ -3641,12 +3206,7 @@ ResultCallbackResponse Alibabacloud_Quickbi-public20220101::Client::resultCallba
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ResultCallbackResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ResultCallbackResponse(execute(params, req, runtime));
-  }
+  return ResultCallbackResponse(callApi(params, req, runtime));
 }
 
 ResultCallbackResponse Alibabacloud_Quickbi-public20220101::Client::resultCallback(shared_ptr<ResultCallbackRequest> request) {
@@ -3677,12 +3237,7 @@ SaveFavoritesResponse Alibabacloud_Quickbi-public20220101::Client::saveFavorites
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SaveFavoritesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SaveFavoritesResponse(execute(params, req, runtime));
-  }
+  return SaveFavoritesResponse(callApi(params, req, runtime));
 }
 
 SaveFavoritesResponse Alibabacloud_Quickbi-public20220101::Client::saveFavorites(shared_ptr<SaveFavoritesRequest> request) {
@@ -3716,12 +3271,7 @@ SetDataLevelPermissionExtraConfigResponse Alibabacloud_Quickbi-public20220101::C
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetDataLevelPermissionExtraConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetDataLevelPermissionExtraConfigResponse(execute(params, req, runtime));
-  }
+  return SetDataLevelPermissionExtraConfigResponse(callApi(params, req, runtime));
 }
 
 SetDataLevelPermissionExtraConfigResponse Alibabacloud_Quickbi-public20220101::Client::setDataLevelPermissionExtraConfig(shared_ptr<SetDataLevelPermissionExtraConfigRequest> request) {
@@ -3749,12 +3299,7 @@ SetDataLevelPermissionRuleConfigResponse Alibabacloud_Quickbi-public20220101::Cl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetDataLevelPermissionRuleConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetDataLevelPermissionRuleConfigResponse(execute(params, req, runtime));
-  }
+  return SetDataLevelPermissionRuleConfigResponse(callApi(params, req, runtime));
 }
 
 SetDataLevelPermissionRuleConfigResponse Alibabacloud_Quickbi-public20220101::Client::setDataLevelPermissionRuleConfig(shared_ptr<SetDataLevelPermissionRuleConfigRequest> request) {
@@ -3782,12 +3327,7 @@ SetDataLevelPermissionWhiteListResponse Alibabacloud_Quickbi-public20220101::Cli
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SetDataLevelPermissionWhiteListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SetDataLevelPermissionWhiteListResponse(execute(params, req, runtime));
-  }
+  return SetDataLevelPermissionWhiteListResponse(callApi(params, req, runtime));
 }
 
 SetDataLevelPermissionWhiteListResponse Alibabacloud_Quickbi-public20220101::Client::setDataLevelPermissionWhiteList(shared_ptr<SetDataLevelPermissionWhiteListRequest> request) {
@@ -3818,12 +3358,7 @@ SmartqAuthTransferResponse Alibabacloud_Quickbi-public20220101::Client::smartqAu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SmartqAuthTransferResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SmartqAuthTransferResponse(execute(params, req, runtime));
-  }
+  return SmartqAuthTransferResponse(callApi(params, req, runtime));
 }
 
 SmartqAuthTransferResponse Alibabacloud_Quickbi-public20220101::Client::smartqAuthTransfer(shared_ptr<SmartqAuthTransferRequest> request) {
@@ -3834,6 +3369,9 @@ SmartqAuthTransferResponse Alibabacloud_Quickbi-public20220101::Client::smartqAu
 SmartqAuthorizeResponse Alibabacloud_Quickbi-public20220101::Client::smartqAuthorizeWithOptions(shared_ptr<SmartqAuthorizeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cubeIds)) {
+    query->insert(pair<string, string>("CubeIds", *request->cubeIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->expireDay)) {
     query->insert(pair<string, string>("ExpireDay", *request->expireDay));
   }
@@ -3863,12 +3401,7 @@ SmartqAuthorizeResponse Alibabacloud_Quickbi-public20220101::Client::smartqAutho
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SmartqAuthorizeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SmartqAuthorizeResponse(execute(params, req, runtime));
-  }
+  return SmartqAuthorizeResponse(callApi(params, req, runtime));
 }
 
 SmartqAuthorizeResponse Alibabacloud_Quickbi-public20220101::Client::smartqAuthorize(shared_ptr<SmartqAuthorizeRequest> request) {
@@ -3902,12 +3435,7 @@ SmartqQueryAbilityResponse Alibabacloud_Quickbi-public20220101::Client::smartqQu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SmartqQueryAbilityResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SmartqQueryAbilityResponse(execute(params, req, runtime));
-  }
+  return SmartqQueryAbilityResponse(callApi(params, req, runtime));
 }
 
 SmartqQueryAbilityResponse Alibabacloud_Quickbi-public20220101::Client::smartqQueryAbility(shared_ptr<SmartqQueryAbilityRequest> request) {
@@ -3941,12 +3469,7 @@ UpdateDataLevelPermissionStatusResponse Alibabacloud_Quickbi-public20220101::Cli
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateDataLevelPermissionStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateDataLevelPermissionStatusResponse(execute(params, req, runtime));
-  }
+  return UpdateDataLevelPermissionStatusResponse(callApi(params, req, runtime));
 }
 
 UpdateDataLevelPermissionStatusResponse Alibabacloud_Quickbi-public20220101::Client::updateDataLevelPermissionStatus(shared_ptr<UpdateDataLevelPermissionStatusRequest> request) {
@@ -3977,12 +3500,7 @@ UpdateEmbeddedStatusResponse Alibabacloud_Quickbi-public20220101::Client::update
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateEmbeddedStatusResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateEmbeddedStatusResponse(execute(params, req, runtime));
-  }
+  return UpdateEmbeddedStatusResponse(callApi(params, req, runtime));
 }
 
 UpdateEmbeddedStatusResponse Alibabacloud_Quickbi-public20220101::Client::updateEmbeddedStatus(shared_ptr<UpdateEmbeddedStatusRequest> request) {
@@ -4013,12 +3531,7 @@ UpdateTicketNumResponse Alibabacloud_Quickbi-public20220101::Client::updateTicke
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateTicketNumResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateTicketNumResponse(execute(params, req, runtime));
-  }
+  return UpdateTicketNumResponse(callApi(params, req, runtime));
 }
 
 UpdateTicketNumResponse Alibabacloud_Quickbi-public20220101::Client::updateTicketNum(shared_ptr<UpdateTicketNumRequest> request) {
@@ -4064,12 +3577,7 @@ UpdateUserResponse Alibabacloud_Quickbi-public20220101::Client::updateUserWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateUserResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateUserResponse(execute(params, req, runtime));
-  }
+  return UpdateUserResponse(callApi(params, req, runtime));
 }
 
 UpdateUserResponse Alibabacloud_Quickbi-public20220101::Client::updateUser(shared_ptr<UpdateUserRequest> request) {
@@ -4103,12 +3611,7 @@ UpdateUserGroupResponse Alibabacloud_Quickbi-public20220101::Client::updateUserG
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateUserGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateUserGroupResponse(execute(params, req, runtime));
-  }
+  return UpdateUserGroupResponse(callApi(params, req, runtime));
 }
 
 UpdateUserGroupResponse Alibabacloud_Quickbi-public20220101::Client::updateUserGroup(shared_ptr<UpdateUserGroupRequest> request) {
@@ -4142,12 +3645,7 @@ UpdateUserTagMetaResponse Alibabacloud_Quickbi-public20220101::Client::updateUse
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateUserTagMetaResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateUserTagMetaResponse(execute(params, req, runtime));
-  }
+  return UpdateUserTagMetaResponse(callApi(params, req, runtime));
 }
 
 UpdateUserTagMetaResponse Alibabacloud_Quickbi-public20220101::Client::updateUserTagMeta(shared_ptr<UpdateUserTagMetaRequest> request) {
@@ -4181,12 +3679,7 @@ UpdateUserTagValueResponse Alibabacloud_Quickbi-public20220101::Client::updateUs
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateUserTagValueResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateUserTagValueResponse(execute(params, req, runtime));
-  }
+  return UpdateUserTagValueResponse(callApi(params, req, runtime));
 }
 
 UpdateUserTagValueResponse Alibabacloud_Quickbi-public20220101::Client::updateUserTagValue(shared_ptr<UpdateUserTagValueRequest> request) {
@@ -4223,12 +3716,7 @@ UpdateWorkspaceUserRoleResponse Alibabacloud_Quickbi-public20220101::Client::upd
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateWorkspaceUserRoleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateWorkspaceUserRoleResponse(execute(params, req, runtime));
-  }
+  return UpdateWorkspaceUserRoleResponse(callApi(params, req, runtime));
 }
 
 UpdateWorkspaceUserRoleResponse Alibabacloud_Quickbi-public20220101::Client::updateWorkspaceUserRole(shared_ptr<UpdateWorkspaceUserRoleRequest> request) {
@@ -4262,12 +3750,7 @@ UpdateWorkspaceUsersRoleResponse Alibabacloud_Quickbi-public20220101::Client::up
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateWorkspaceUsersRoleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateWorkspaceUsersRoleResponse(execute(params, req, runtime));
-  }
+  return UpdateWorkspaceUsersRoleResponse(callApi(params, req, runtime));
 }
 
 UpdateWorkspaceUsersRoleResponse Alibabacloud_Quickbi-public20220101::Client::updateWorkspaceUsersRole(shared_ptr<UpdateWorkspaceUsersRoleRequest> request) {
@@ -4295,12 +3778,7 @@ WithdrawAllUserGroupsResponse Alibabacloud_Quickbi-public20220101::Client::withd
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return WithdrawAllUserGroupsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return WithdrawAllUserGroupsResponse(execute(params, req, runtime));
-  }
+  return WithdrawAllUserGroupsResponse(callApi(params, req, runtime));
 }
 
 WithdrawAllUserGroupsResponse Alibabacloud_Quickbi-public20220101::Client::withdrawAllUserGroups(shared_ptr<WithdrawAllUserGroupsRequest> request) {

@@ -3160,6 +3160,158 @@ public:
 
   virtual ~CreateUserGroupResponse() = default;
 };
+class DataInterpretationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> modelCode{};
+  shared_ptr<bool> promptForceOverride{};
+  shared_ptr<string> userPrompt{};
+  shared_ptr<string> userQuestion{};
+
+  DataInterpretationRequest() {}
+
+  explicit DataInterpretationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (modelCode) {
+      res["ModelCode"] = boost::any(*modelCode);
+    }
+    if (promptForceOverride) {
+      res["PromptForceOverride"] = boost::any(*promptForceOverride);
+    }
+    if (userPrompt) {
+      res["UserPrompt"] = boost::any(*userPrompt);
+    }
+    if (userQuestion) {
+      res["UserQuestion"] = boost::any(*userQuestion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ModelCode") != m.end() && !m["ModelCode"].empty()) {
+      modelCode = make_shared<string>(boost::any_cast<string>(m["ModelCode"]));
+    }
+    if (m.find("PromptForceOverride") != m.end() && !m["PromptForceOverride"].empty()) {
+      promptForceOverride = make_shared<bool>(boost::any_cast<bool>(m["PromptForceOverride"]));
+    }
+    if (m.find("UserPrompt") != m.end() && !m["UserPrompt"].empty()) {
+      userPrompt = make_shared<string>(boost::any_cast<string>(m["UserPrompt"]));
+    }
+    if (m.find("UserQuestion") != m.end() && !m["UserQuestion"].empty()) {
+      userQuestion = make_shared<string>(boost::any_cast<string>(m["UserQuestion"]));
+    }
+  }
+
+
+  virtual ~DataInterpretationRequest() = default;
+};
+class DataInterpretationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> result{};
+  shared_ptr<bool> success{};
+
+  DataInterpretationResponseBody() {}
+
+  explicit DataInterpretationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DataInterpretationResponseBody() = default;
+};
+class DataInterpretationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DataInterpretationResponseBody> body{};
+
+  DataInterpretationResponse() {}
+
+  explicit DataInterpretationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DataInterpretationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DataInterpretationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DataInterpretationResponse() = default;
+};
 class DataSetBloodRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dataSetIds{};
@@ -13833,6 +13985,7 @@ public:
   shared_ptr<string> dataType{};
   shared_ptr<string> dimensionType{};
   shared_ptr<string> expression{};
+  shared_ptr<string> expressionV2{};
   shared_ptr<string> factColumn{};
   shared_ptr<string> fieldDescription{};
   shared_ptr<string> granularity{};
@@ -13861,6 +14014,9 @@ public:
     }
     if (expression) {
       res["Expression"] = boost::any(*expression);
+    }
+    if (expressionV2) {
+      res["ExpressionV2"] = boost::any(*expressionV2);
     }
     if (factColumn) {
       res["FactColumn"] = boost::any(*factColumn);
@@ -13895,6 +14051,9 @@ public:
     }
     if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
       expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("ExpressionV2") != m.end() && !m["ExpressionV2"].empty()) {
+      expressionV2 = make_shared<string>(boost::any_cast<string>(m["ExpressionV2"]));
     }
     if (m.find("FactColumn") != m.end() && !m["FactColumn"].empty()) {
       factColumn = make_shared<string>(boost::any_cast<string>(m["FactColumn"]));
@@ -13974,6 +14133,7 @@ public:
   shared_ptr<string> caption{};
   shared_ptr<string> dataType{};
   shared_ptr<string> expression{};
+  shared_ptr<string> expressionV2{};
   shared_ptr<string> factColumn{};
   shared_ptr<string> fieldDescription{};
   shared_ptr<string> measureType{};
@@ -13998,6 +14158,9 @@ public:
     }
     if (expression) {
       res["Expression"] = boost::any(*expression);
+    }
+    if (expressionV2) {
+      res["ExpressionV2"] = boost::any(*expressionV2);
     }
     if (factColumn) {
       res["FactColumn"] = boost::any(*factColumn);
@@ -14026,6 +14189,9 @@ public:
     }
     if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
       expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("ExpressionV2") != m.end() && !m["ExpressionV2"].empty()) {
+      expressionV2 = make_shared<string>(boost::any_cast<string>(m["ExpressionV2"]));
     }
     if (m.find("FactColumn") != m.end() && !m["FactColumn"].empty()) {
       factColumn = make_shared<string>(boost::any_cast<string>(m["FactColumn"]));
@@ -22298,6 +22464,7 @@ public:
 };
 class SmartqAuthorizeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> cubeIds{};
   shared_ptr<string> expireDay{};
   shared_ptr<string> llmCubeThemes{};
   shared_ptr<string> llmCubes{};
@@ -22314,6 +22481,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cubeIds) {
+      res["CubeIds"] = boost::any(*cubeIds);
+    }
     if (expireDay) {
       res["ExpireDay"] = boost::any(*expireDay);
     }
@@ -22333,6 +22503,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CubeIds") != m.end() && !m["CubeIds"].empty()) {
+      cubeIds = make_shared<string>(boost::any_cast<string>(m["CubeIds"]));
+    }
     if (m.find("ExpireDay") != m.end() && !m["ExpireDay"].empty()) {
       expireDay = make_shared<string>(boost::any_cast<string>(m["ExpireDay"]));
     }
@@ -22558,6 +22731,7 @@ public:
 class SmartqQueryAbilityResponseBodyResultMetaType : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
+  shared_ptr<string> type{};
   shared_ptr<string> value{};
 
   SmartqQueryAbilityResponseBodyResultMetaType() {}
@@ -22573,6 +22747,9 @@ public:
     if (key) {
       res["Key"] = boost::any(*key);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     if (value) {
       res["Value"] = boost::any(*value);
     }
@@ -22582,6 +22759,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("Value") != m.end() && !m["Value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["Value"]));
@@ -24307,6 +24487,8 @@ public:
   CreateTicket4CopilotResponse createTicket4Copilot(shared_ptr<CreateTicket4CopilotRequest> request);
   CreateUserGroupResponse createUserGroupWithOptions(shared_ptr<CreateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserGroupResponse createUserGroup(shared_ptr<CreateUserGroupRequest> request);
+  DataInterpretationResponse dataInterpretationWithOptions(shared_ptr<DataInterpretationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DataInterpretationResponse dataInterpretation(shared_ptr<DataInterpretationRequest> request);
   DataSetBloodResponse dataSetBloodWithOptions(shared_ptr<DataSetBloodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DataSetBloodResponse dataSetBlood(shared_ptr<DataSetBloodRequest> request);
   DataSourceBloodResponse dataSourceBloodWithOptions(shared_ptr<DataSourceBloodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
