@@ -3182,6 +3182,42 @@ public:
 
   virtual ~GetServiceResponseBodyCommodity() = default;
 };
+class GetServiceResponseBodyComplianceMetadata : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> compliancePacks{};
+
+  GetServiceResponseBodyComplianceMetadata() {}
+
+  explicit GetServiceResponseBodyComplianceMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliancePacks) {
+      res["CompliancePacks"] = boost::any(*compliancePacks);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePacks") != m.end() && !m["CompliancePacks"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CompliancePacks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CompliancePacks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      compliancePacks = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetServiceResponseBodyComplianceMetadata() = default;
+};
 class GetServiceResponseBodyInstanceRoleInfos : public Darabonba::Model {
 public:
   shared_ptr<string> policyDocument{};
@@ -3523,6 +3559,7 @@ public:
   shared_ptr<string> alarmMetadata{};
   shared_ptr<string> categories{};
   shared_ptr<GetServiceResponseBodyCommodity> commodity{};
+  shared_ptr<GetServiceResponseBodyComplianceMetadata> complianceMetadata{};
   shared_ptr<string> deployFrom{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
@@ -3574,6 +3611,9 @@ public:
     }
     if (commodity) {
       res["Commodity"] = commodity ? boost::any(commodity->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (complianceMetadata) {
+      res["ComplianceMetadata"] = complianceMetadata ? boost::any(complianceMetadata->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deployFrom) {
       res["DeployFrom"] = boost::any(*deployFrom);
@@ -3706,6 +3746,13 @@ public:
         GetServiceResponseBodyCommodity model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Commodity"]));
         commodity = make_shared<GetServiceResponseBodyCommodity>(model1);
+      }
+    }
+    if (m.find("ComplianceMetadata") != m.end() && !m["ComplianceMetadata"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComplianceMetadata"].type()) {
+        GetServiceResponseBodyComplianceMetadata model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComplianceMetadata"]));
+        complianceMetadata = make_shared<GetServiceResponseBodyComplianceMetadata>(model1);
       }
     }
     if (m.find("DeployFrom") != m.end() && !m["DeployFrom"].empty()) {
