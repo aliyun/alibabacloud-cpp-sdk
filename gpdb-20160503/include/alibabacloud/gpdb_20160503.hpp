@@ -2643,6 +2643,7 @@ class CreateDBInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<CreateDBInstanceRequestAINodeSpecInfos>> AINodeSpecInfos{};
   shared_ptr<string> backupId{};
+  shared_ptr<string> cacheStorageSize{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> createSampleData{};
   shared_ptr<string> DBInstanceCategory{};
@@ -2706,6 +2707,9 @@ public:
     }
     if (backupId) {
       res["BackupId"] = boost::any(*backupId);
+    }
+    if (cacheStorageSize) {
+      res["CacheStorageSize"] = boost::any(*cacheStorageSize);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -2859,6 +2863,9 @@ public:
     }
     if (m.find("BackupId") != m.end() && !m["BackupId"].empty()) {
       backupId = make_shared<string>(boost::any_cast<string>(m["BackupId"]));
+    }
+    if (m.find("CacheStorageSize") != m.end() && !m["CacheStorageSize"].empty()) {
+      cacheStorageSize = make_shared<string>(boost::any_cast<string>(m["CacheStorageSize"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -11836,6 +11843,7 @@ public:
 class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute : public Darabonba::Model {
 public:
   shared_ptr<string> availabilityValue{};
+  shared_ptr<string> cacheStorageSize{};
   shared_ptr<string> connectionMode{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> coreVersion{};
@@ -11915,6 +11923,9 @@ public:
     map<string, boost::any> res;
     if (availabilityValue) {
       res["AvailabilityValue"] = boost::any(*availabilityValue);
+    }
+    if (cacheStorageSize) {
+      res["CacheStorageSize"] = boost::any(*cacheStorageSize);
     }
     if (connectionMode) {
       res["ConnectionMode"] = boost::any(*connectionMode);
@@ -12120,6 +12131,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AvailabilityValue") != m.end() && !m["AvailabilityValue"].empty()) {
       availabilityValue = make_shared<string>(boost::any_cast<string>(m["AvailabilityValue"]));
+    }
+    if (m.find("CacheStorageSize") != m.end() && !m["CacheStorageSize"].empty()) {
+      cacheStorageSize = make_shared<string>(boost::any_cast<string>(m["CacheStorageSize"]));
     }
     if (m.find("ConnectionMode") != m.end() && !m["ConnectionMode"].empty()) {
       connectionMode = make_shared<string>(boost::any_cast<string>(m["ConnectionMode"]));
@@ -39496,6 +39510,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<double> rerankFactor{};
   shared_ptr<long> topK{};
+  shared_ptr<string> urlExpiration{};
   shared_ptr<bool> useFullTextRetrieval{};
 
   QueryContentRequest() {}
@@ -39564,6 +39579,9 @@ public:
     }
     if (topK) {
       res["TopK"] = boost::any(*topK);
+    }
+    if (urlExpiration) {
+      res["UrlExpiration"] = boost::any(*urlExpiration);
     }
     if (useFullTextRetrieval) {
       res["UseFullTextRetrieval"] = boost::any(*useFullTextRetrieval);
@@ -39646,6 +39664,9 @@ public:
     if (m.find("TopK") != m.end() && !m["TopK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["TopK"]));
     }
+    if (m.find("UrlExpiration") != m.end() && !m["UrlExpiration"].empty()) {
+      urlExpiration = make_shared<string>(boost::any_cast<string>(m["UrlExpiration"]));
+    }
     if (m.find("UseFullTextRetrieval") != m.end() && !m["UseFullTextRetrieval"].empty()) {
       useFullTextRetrieval = make_shared<bool>(boost::any_cast<bool>(m["UseFullTextRetrieval"]));
     }
@@ -39675,6 +39696,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<double> rerankFactor{};
   shared_ptr<long> topK{};
+  shared_ptr<string> urlExpiration{};
   shared_ptr<bool> useFullTextRetrieval{};
 
   QueryContentAdvanceRequest() {}
@@ -39743,6 +39765,9 @@ public:
     }
     if (topK) {
       res["TopK"] = boost::any(*topK);
+    }
+    if (urlExpiration) {
+      res["UrlExpiration"] = boost::any(*urlExpiration);
     }
     if (useFullTextRetrieval) {
       res["UseFullTextRetrieval"] = boost::any(*useFullTextRetrieval);
@@ -39825,6 +39850,9 @@ public:
     if (m.find("TopK") != m.end() && !m["TopK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["TopK"]));
     }
+    if (m.find("UrlExpiration") != m.end() && !m["UrlExpiration"].empty()) {
+      urlExpiration = make_shared<string>(boost::any_cast<string>(m["UrlExpiration"]));
+    }
     if (m.find("UseFullTextRetrieval") != m.end() && !m["UseFullTextRetrieval"].empty()) {
       useFullTextRetrieval = make_shared<bool>(boost::any_cast<bool>(m["UseFullTextRetrieval"]));
     }
@@ -39854,6 +39882,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<double> rerankFactor{};
   shared_ptr<long> topK{};
+  shared_ptr<string> urlExpiration{};
   shared_ptr<bool> useFullTextRetrieval{};
 
   QueryContentShrinkRequest() {}
@@ -39923,6 +39952,9 @@ public:
     if (topK) {
       res["TopK"] = boost::any(*topK);
     }
+    if (urlExpiration) {
+      res["UrlExpiration"] = boost::any(*urlExpiration);
+    }
     if (useFullTextRetrieval) {
       res["UseFullTextRetrieval"] = boost::any(*useFullTextRetrieval);
     }
@@ -39986,6 +40018,9 @@ public:
     }
     if (m.find("TopK") != m.end() && !m["TopK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["TopK"]));
+    }
+    if (m.find("UrlExpiration") != m.end() && !m["UrlExpiration"].empty()) {
+      urlExpiration = make_shared<string>(boost::any_cast<string>(m["UrlExpiration"]));
     }
     if (m.find("UseFullTextRetrieval") != m.end() && !m["UseFullTextRetrieval"].empty()) {
       useFullTextRetrieval = make_shared<bool>(boost::any_cast<bool>(m["UseFullTextRetrieval"]));
@@ -42461,6 +42496,7 @@ public:
 class TextEmbeddingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<long> dimension{};
   shared_ptr<vector<string>> input{};
   shared_ptr<string> model{};
   shared_ptr<long> ownerId{};
@@ -42478,6 +42514,9 @@ public:
     map<string, boost::any> res;
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (dimension) {
+      res["Dimension"] = boost::any(*dimension);
     }
     if (input) {
       res["Input"] = boost::any(*input);
@@ -42497,6 +42536,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Dimension") != m.end() && !m["Dimension"].empty()) {
+      dimension = make_shared<long>(boost::any_cast<long>(m["Dimension"]));
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       vector<string> toVec1;
@@ -42525,6 +42567,7 @@ public:
 class TextEmbeddingShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<long> dimension{};
   shared_ptr<string> inputShrink{};
   shared_ptr<string> model{};
   shared_ptr<long> ownerId{};
@@ -42542,6 +42585,9 @@ public:
     map<string, boost::any> res;
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (dimension) {
+      res["Dimension"] = boost::any(*dimension);
     }
     if (inputShrink) {
       res["Input"] = boost::any(*inputShrink);
@@ -42561,6 +42607,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Dimension") != m.end() && !m["Dimension"].empty()) {
+      dimension = make_shared<long>(boost::any_cast<long>(m["Dimension"]));
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       inputShrink = make_shared<string>(boost::any_cast<string>(m["Input"]));
@@ -43804,6 +43853,7 @@ public:
 };
 class UpgradeDBInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> cacheStorageSize{};
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceGroupCount{};
   shared_ptr<string> DBInstanceId{};
@@ -43816,6 +43866,7 @@ public:
   shared_ptr<string> segDiskPerformanceLevel{};
   shared_ptr<string> segNodeNum{};
   shared_ptr<string> segStorageType{};
+  shared_ptr<string> serverlessResource{};
   shared_ptr<string> storageSize{};
   shared_ptr<long> upgradeType{};
 
@@ -43829,6 +43880,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cacheStorageSize) {
+      res["CacheStorageSize"] = boost::any(*cacheStorageSize);
+    }
     if (DBInstanceClass) {
       res["DBInstanceClass"] = boost::any(*DBInstanceClass);
     }
@@ -43865,6 +43919,9 @@ public:
     if (segStorageType) {
       res["SegStorageType"] = boost::any(*segStorageType);
     }
+    if (serverlessResource) {
+      res["ServerlessResource"] = boost::any(*serverlessResource);
+    }
     if (storageSize) {
       res["StorageSize"] = boost::any(*storageSize);
     }
@@ -43875,6 +43932,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheStorageSize") != m.end() && !m["CacheStorageSize"].empty()) {
+      cacheStorageSize = make_shared<string>(boost::any_cast<string>(m["CacheStorageSize"]));
+    }
     if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
       DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
     }
@@ -43910,6 +43970,9 @@ public:
     }
     if (m.find("SegStorageType") != m.end() && !m["SegStorageType"].empty()) {
       segStorageType = make_shared<string>(boost::any_cast<string>(m["SegStorageType"]));
+    }
+    if (m.find("ServerlessResource") != m.end() && !m["ServerlessResource"].empty()) {
+      serverlessResource = make_shared<string>(boost::any_cast<string>(m["ServerlessResource"]));
     }
     if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
       storageSize = make_shared<string>(boost::any_cast<string>(m["StorageSize"]));
@@ -44852,6 +44915,8 @@ public:
 class UpsertChunksRequestTextChunks : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> filter{};
+  shared_ptr<string> id{};
   shared_ptr<map<string, boost::any>> metadata{};
 
   UpsertChunksRequestTextChunks() {}
@@ -44867,6 +44932,12 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (filter) {
+      res["Filter"] = boost::any(*filter);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
     if (metadata) {
       res["Metadata"] = boost::any(*metadata);
     }
@@ -44876,6 +44947,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
     if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Metadata"]);
@@ -44899,6 +44976,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> shouldReplaceFile{};
   shared_ptr<vector<UpsertChunksRequestTextChunks>> textChunks{};
 
   UpsertChunksRequest() {}
@@ -44932,6 +45010,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (shouldReplaceFile) {
+      res["ShouldReplaceFile"] = boost::any(*shouldReplaceFile);
+    }
     if (textChunks) {
       vector<boost::any> temp1;
       for(auto item1:*textChunks){
@@ -44964,6 +45045,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ShouldReplaceFile") != m.end() && !m["ShouldReplaceFile"].empty()) {
+      shouldReplaceFile = make_shared<bool>(boost::any_cast<bool>(m["ShouldReplaceFile"]));
+    }
     if (m.find("TextChunks") != m.end() && !m["TextChunks"].empty()) {
       if (typeid(vector<boost::any>) == m["TextChunks"].type()) {
         vector<UpsertChunksRequestTextChunks> expect1;
@@ -44991,6 +45075,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> shouldReplaceFile{};
   shared_ptr<string> textChunksShrink{};
 
   UpsertChunksShrinkRequest() {}
@@ -45024,6 +45109,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (shouldReplaceFile) {
+      res["ShouldReplaceFile"] = boost::any(*shouldReplaceFile);
+    }
     if (textChunksShrink) {
       res["TextChunks"] = boost::any(*textChunksShrink);
     }
@@ -45051,6 +45139,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ShouldReplaceFile") != m.end() && !m["ShouldReplaceFile"].empty()) {
+      shouldReplaceFile = make_shared<bool>(boost::any_cast<bool>(m["ShouldReplaceFile"]));
     }
     if (m.find("TextChunks") != m.end() && !m["TextChunks"].empty()) {
       textChunksShrink = make_shared<string>(boost::any_cast<string>(m["TextChunks"]));

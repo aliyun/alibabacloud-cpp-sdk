@@ -639,6 +639,9 @@ CreateDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createDBInstanceWith
   if (!Darabonba_Util::Client::isUnset<string>(request->backupId)) {
     query->insert(pair<string, string>("BackupId", *request->backupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheStorageSize)) {
+    query->insert(pair<string, string>("CacheStorageSize", *request->cacheStorageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -7708,6 +7711,9 @@ QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(
   if (!Darabonba_Util::Client::isUnset<long>(request->topK)) {
     query->insert(pair<string, long>("TopK", *request->topK));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->urlExpiration)) {
+    query->insert(pair<string, string>("UrlExpiration", *request->urlExpiration));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->useFullTextRetrieval)) {
     query->insert(pair<string, bool>("UseFullTextRetrieval", *request->useFullTextRetrieval));
   }
@@ -8265,6 +8271,9 @@ TextEmbeddingResponse Alibabacloud_Gpdb20160503::Client::textEmbeddingWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dimension)) {
+    query->insert(pair<string, long>("Dimension", *request->dimension));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
@@ -8541,6 +8550,9 @@ UpdateDBInstancePlanResponse Alibabacloud_Gpdb20160503::Client::updateDBInstance
 UpgradeDBInstanceResponse Alibabacloud_Gpdb20160503::Client::upgradeDBInstanceWithOptions(shared_ptr<UpgradeDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheStorageSize)) {
+    query->insert(pair<string, string>("CacheStorageSize", *request->cacheStorageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceClass)) {
     query->insert(pair<string, string>("DBInstanceClass", *request->DBInstanceClass));
   }
@@ -8576,6 +8588,9 @@ UpgradeDBInstanceResponse Alibabacloud_Gpdb20160503::Client::upgradeDBInstanceWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->segStorageType)) {
     query->insert(pair<string, string>("SegStorageType", *request->segStorageType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessResource)) {
+    query->insert(pair<string, string>("ServerlessResource", *request->serverlessResource));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->storageSize)) {
     query->insert(pair<string, string>("StorageSize", *request->storageSize));
@@ -8871,6 +8886,9 @@ UpsertChunksResponse Alibabacloud_Gpdb20160503::Client::upsertChunksWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->shouldReplaceFile)) {
+    query->insert(pair<string, bool>("ShouldReplaceFile", *request->shouldReplaceFile));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->textChunksShrink)) {
