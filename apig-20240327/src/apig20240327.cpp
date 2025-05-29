@@ -343,6 +343,9 @@ CreateHttpApiRouteResponse Alibabacloud_APIG20240327::Client::createHttpApiRoute
   if (!Darabonba_Util::Client::isUnset<HttpRouteMatch>(request->match)) {
     body->insert(pair<string, HttpRouteMatch>("match", *request->match));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateHttpApiRouteRequestMcpRouteConfig>(request->mcpRouteConfig)) {
+    body->insert(pair<string, CreateHttpApiRouteRequestMcpRouteConfig>("mcpRouteConfig", *request->mcpRouteConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
   }

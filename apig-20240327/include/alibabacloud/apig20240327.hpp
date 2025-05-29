@@ -7772,6 +7772,42 @@ public:
 
   virtual ~CreateHttpApiRouteRequestBackendConfig() = default;
 };
+class CreateHttpApiRouteRequestMcpRouteConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> exposedUriPath{};
+  shared_ptr<string> protocol{};
+
+  CreateHttpApiRouteRequestMcpRouteConfig() {}
+
+  explicit CreateHttpApiRouteRequestMcpRouteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exposedUriPath) {
+      res["exposedUriPath"] = boost::any(*exposedUriPath);
+    }
+    if (protocol) {
+      res["protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("exposedUriPath") != m.end() && !m["exposedUriPath"].empty()) {
+      exposedUriPath = make_shared<string>(boost::any_cast<string>(m["exposedUriPath"]));
+    }
+    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+  }
+
+
+  virtual ~CreateHttpApiRouteRequestMcpRouteConfig() = default;
+};
 class CreateHttpApiRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateHttpApiRouteRequestBackendConfig> backendConfig{};
@@ -7780,6 +7816,7 @@ public:
   shared_ptr<vector<string>> domainIds{};
   shared_ptr<string> environmentId{};
   shared_ptr<HttpRouteMatch> match{};
+  shared_ptr<CreateHttpApiRouteRequestMcpRouteConfig> mcpRouteConfig{};
   shared_ptr<string> name{};
 
   CreateHttpApiRouteRequest() {}
@@ -7813,6 +7850,9 @@ public:
     }
     if (match) {
       res["match"] = match ? boost::any(match->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mcpRouteConfig) {
+      res["mcpRouteConfig"] = mcpRouteConfig ? boost::any(mcpRouteConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -7862,6 +7902,13 @@ public:
         HttpRouteMatch model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["match"]));
         match = make_shared<HttpRouteMatch>(model1);
+      }
+    }
+    if (m.find("mcpRouteConfig") != m.end() && !m["mcpRouteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["mcpRouteConfig"].type()) {
+        CreateHttpApiRouteRequestMcpRouteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["mcpRouteConfig"]));
+        mcpRouteConfig = make_shared<CreateHttpApiRouteRequestMcpRouteConfig>(model1);
       }
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
