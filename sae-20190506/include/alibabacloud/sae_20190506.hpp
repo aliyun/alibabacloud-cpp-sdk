@@ -9982,6 +9982,7 @@ public:
 };
 class PriceEstimateFeature : public Darabonba::Model {
 public:
+  shared_ptr<long> appCount{};
   shared_ptr<string> appType{};
   shared_ptr<double> cpuCore{};
   shared_ptr<string> cpuStrategy{};
@@ -10017,6 +10018,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appCount) {
+      res["AppCount"] = boost::any(*appCount);
+    }
     if (appType) {
       res["AppType"] = boost::any(*appType);
     }
@@ -10093,6 +10097,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppCount") != m.end() && !m["AppCount"].empty()) {
+      appCount = make_shared<long>(boost::any_cast<long>(m["AppCount"]));
+    }
     if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
       appType = make_shared<string>(boost::any_cast<string>(m["AppType"]));
     }
@@ -23207,6 +23214,8 @@ public:
   shared_ptr<bool> enableIdle{};
   shared_ptr<bool> enableNewArms{};
   shared_ptr<string> envs{};
+  shared_ptr<string> gpuCount{};
+  shared_ptr<string> gpuType{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataInitContainersConfig>> initContainersConfig{};
@@ -23355,6 +23364,12 @@ public:
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
+    }
+    if (gpuCount) {
+      res["GpuCount"] = boost::any(*gpuCount);
+    }
+    if (gpuType) {
+      res["GpuType"] = boost::any(*gpuType);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -23645,6 +23660,12 @@ public:
     }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
+    }
+    if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
+      gpuCount = make_shared<string>(boost::any_cast<string>(m["GpuCount"]));
+    }
+    if (m.find("GpuType") != m.end() && !m["GpuType"].empty()) {
+      gpuType = make_shared<string>(boost::any_cast<string>(m["GpuType"]));
     }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
