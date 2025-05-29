@@ -12273,6 +12273,7 @@ public:
 };
 class GetMemberResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accountType{};
   shared_ptr<string> displayName{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> memberId{};
@@ -12291,6 +12292,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountType) {
+      res["AccountType"] = boost::any(*accountType);
+    }
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
     }
@@ -12316,6 +12320,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountType") != m.end() && !m["AccountType"].empty()) {
+      accountType = make_shared<string>(boost::any_cast<string>(m["AccountType"]));
+    }
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
     }
@@ -16604,6 +16611,7 @@ public:
 class ListMembersResponseBodyMembers : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
+  shared_ptr<string> accountType{};
   shared_ptr<string> displayName{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> memberId{};
@@ -16623,6 +16631,9 @@ public:
     map<string, boost::any> res;
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
+    }
+    if (accountType) {
+      res["AccountType"] = boost::any(*accountType);
     }
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
@@ -16648,6 +16659,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AccountType") != m.end() && !m["AccountType"].empty()) {
+      accountType = make_shared<string>(boost::any_cast<string>(m["AccountType"]));
     }
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
