@@ -5778,7 +5778,9 @@ public:
   shared_ptr<double> hotValue{};
   shared_ptr<vector<RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages>> images{};
   shared_ptr<vector<RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews>> news{};
+  shared_ptr<string> pubTime{};
   shared_ptr<string> textSummary{};
+  shared_ptr<string> url{};
 
   RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries() {}
 
@@ -5819,8 +5821,14 @@ public:
       }
       res["news"] = boost::any(temp1);
     }
+    if (pubTime) {
+      res["pubTime"] = boost::any(*pubTime);
+    }
     if (textSummary) {
       res["textSummary"] = boost::any(*textSummary);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
     }
     return res;
   }
@@ -5867,8 +5875,14 @@ public:
         news = make_shared<vector<RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews>>(expect1);
       }
     }
+    if (m.find("pubTime") != m.end() && !m["pubTime"].empty()) {
+      pubTime = make_shared<string>(boost::any_cast<string>(m["pubTime"]));
+    }
     if (m.find("textSummary") != m.end() && !m["textSummary"].empty()) {
       textSummary = make_shared<string>(boost::any_cast<string>(m["textSummary"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
     }
   }
 
@@ -5921,7 +5935,10 @@ public:
 class RunHotTopicChatResponseBodyPayloadOutput : public Darabonba::Model {
 public:
   shared_ptr<vector<RunHotTopicChatResponseBodyPayloadOutputArticles>> articles{};
+  shared_ptr<string> category{};
   shared_ptr<vector<RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries>> hotTopicSummaries{};
+  shared_ptr<string> keyword{};
+  shared_ptr<string> location{};
   shared_ptr<vector<RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias>> multimodalMedias{};
   shared_ptr<vector<string>> recommendQueries{};
   shared_ptr<string> searchQuery{};
@@ -5944,12 +5961,21 @@ public:
       }
       res["articles"] = boost::any(temp1);
     }
+    if (category) {
+      res["category"] = boost::any(*category);
+    }
     if (hotTopicSummaries) {
       vector<boost::any> temp1;
       for(auto item1:*hotTopicSummaries){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotTopicSummaries"] = boost::any(temp1);
+    }
+    if (keyword) {
+      res["keyword"] = boost::any(*keyword);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
     }
     if (multimodalMedias) {
       vector<boost::any> temp1;
@@ -5984,6 +6010,9 @@ public:
         articles = make_shared<vector<RunHotTopicChatResponseBodyPayloadOutputArticles>>(expect1);
       }
     }
+    if (m.find("category") != m.end() && !m["category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
     if (m.find("hotTopicSummaries") != m.end() && !m["hotTopicSummaries"].empty()) {
       if (typeid(vector<boost::any>) == m["hotTopicSummaries"].type()) {
         vector<RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries> expect1;
@@ -5996,6 +6025,12 @@ public:
         }
         hotTopicSummaries = make_shared<vector<RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries>>(expect1);
       }
+    }
+    if (m.find("keyword") != m.end() && !m["keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["keyword"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
     }
     if (m.find("multimodalMedias") != m.end() && !m["multimodalMedias"].empty()) {
       if (typeid(vector<boost::any>) == m["multimodalMedias"].type()) {
