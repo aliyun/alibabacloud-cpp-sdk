@@ -2128,6 +2128,7 @@ public:
   shared_ptr<double> amountDiscount{};
   shared_ptr<double> amountDue{};
   shared_ptr<string> createdAt{};
+  shared_ptr<string> customerClassification{};
   shared_ptr<double> deductedAmountByCoupons{};
   shared_ptr<double> discountedPrice{};
   shared_ptr<long> orderId{};
@@ -2160,6 +2161,9 @@ public:
     }
     if (createdAt) {
       res["CreatedAt"] = boost::any(*createdAt);
+    }
+    if (customerClassification) {
+      res["CustomerClassification"] = boost::any(*customerClassification);
     }
     if (deductedAmountByCoupons) {
       res["DeductedAmountByCoupons"] = boost::any(*deductedAmountByCoupons);
@@ -2212,6 +2216,9 @@ public:
     }
     if (m.find("CreatedAt") != m.end() && !m["CreatedAt"].empty()) {
       createdAt = make_shared<string>(boost::any_cast<string>(m["CreatedAt"]));
+    }
+    if (m.find("CustomerClassification") != m.end() && !m["CustomerClassification"].empty()) {
+      customerClassification = make_shared<string>(boost::any_cast<string>(m["CustomerClassification"]));
     }
     if (m.find("DeductedAmountByCoupons") != m.end() && !m["DeductedAmountByCoupons"].empty()) {
       deductedAmountByCoupons = make_shared<double>(boost::any_cast<double>(m["DeductedAmountByCoupons"]));
