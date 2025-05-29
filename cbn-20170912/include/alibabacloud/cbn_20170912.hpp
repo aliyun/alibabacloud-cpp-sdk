@@ -11818,6 +11818,7 @@ public:
   shared_ptr<long> childInstanceOwnerId{};
   shared_ptr<string> childInstanceRegionId{};
   shared_ptr<string> childInstanceType{};
+  shared_ptr<string> managedService{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
 
@@ -11854,6 +11855,9 @@ public:
     }
     if (childInstanceType) {
       res["ChildInstanceType"] = boost::any(*childInstanceType);
+    }
+    if (managedService) {
+      res["ManagedService"] = boost::any(*managedService);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -11892,6 +11896,9 @@ public:
     }
     if (m.find("ChildInstanceType") != m.end() && !m["ChildInstanceType"].empty()) {
       childInstanceType = make_shared<string>(boost::any_cast<string>(m["ChildInstanceType"]));
+    }
+    if (m.find("ManagedService") != m.end() && !m["ManagedService"].empty()) {
+      managedService = make_shared<string>(boost::any_cast<string>(m["ManagedService"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -12049,6 +12056,7 @@ public:
   shared_ptr<long> childInstanceOwnerId{};
   shared_ptr<string> childInstanceRegionId{};
   shared_ptr<string> childInstanceType{};
+  shared_ptr<string> managedService{};
   shared_ptr<string> status{};
 
   DescribeCenAttachedChildInstancesResponseBodyChildInstancesChildInstance() {}
@@ -12079,6 +12087,9 @@ public:
     if (childInstanceType) {
       res["ChildInstanceType"] = boost::any(*childInstanceType);
     }
+    if (managedService) {
+      res["ManagedService"] = boost::any(*managedService);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -12103,6 +12114,9 @@ public:
     }
     if (m.find("ChildInstanceType") != m.end() && !m["ChildInstanceType"].empty()) {
       childInstanceType = make_shared<string>(boost::any_cast<string>(m["ChildInstanceType"]));
+    }
+    if (m.find("ManagedService") != m.end() && !m["ManagedService"].empty()) {
+      managedService = make_shared<string>(boost::any_cast<string>(m["ManagedService"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -30083,6 +30097,7 @@ public:
   shared_ptr<string> cenId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> creationTime{};
+  shared_ptr<string> managedService{};
   shared_ptr<string> orderType{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
@@ -30118,6 +30133,9 @@ public:
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (managedService) {
+      res["ManagedService"] = boost::any(*managedService);
     }
     if (orderType) {
       res["OrderType"] = boost::any(*orderType);
@@ -30181,6 +30199,9 @@ public:
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("ManagedService") != m.end() && !m["ManagedService"].empty()) {
+      managedService = make_shared<string>(boost::any_cast<string>(m["ManagedService"]));
     }
     if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
       orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
