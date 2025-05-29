@@ -11637,6 +11637,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<string> maxVersion{};
   shared_ptr<string> name{};
+  shared_ptr<string> permissionType{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListArtifactsResponseBodyArtifactsTags>> tags{};
@@ -11671,6 +11672,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (permissionType) {
+      res["PermissionType"] = boost::any(*permissionType);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -11709,6 +11713,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PermissionType") != m.end() && !m["PermissionType"].empty()) {
+      permissionType = make_shared<string>(boost::any_cast<string>(m["PermissionType"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
