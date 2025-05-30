@@ -918,6 +918,48 @@ CreateEditingProjectResponse Alibabacloud_ICE20201109::Client::createEditingProj
   return createEditingProjectWithOptions(request, runtime);
 }
 
+CreateHotwordLibraryResponse Alibabacloud_ICE20201109::Client::createHotwordLibraryWithOptions(shared_ptr<CreateHotwordLibraryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateHotwordLibraryShrinkRequest> request = make_shared<CreateHotwordLibraryShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<Hotword>>(tmpReq->hotwords)) {
+    request->hotwordsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hotwords, make_shared<string>("Hotwords"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hotwordsShrink)) {
+    query->insert(pair<string, string>("Hotwords", *request->hotwordsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usageScenario)) {
+    query->insert(pair<string, string>("UsageScenario", *request->usageScenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateHotwordLibrary"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateHotwordLibraryResponse(callApi(params, req, runtime));
+}
+
+CreateHotwordLibraryResponse Alibabacloud_ICE20201109::Client::createHotwordLibrary(shared_ptr<CreateHotwordLibraryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createHotwordLibraryWithOptions(request, runtime);
+}
+
 CreateLivePackageChannelResponse Alibabacloud_ICE20201109::Client::createLivePackageChannelWithOptions(shared_ptr<CreateLivePackageChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2150,6 +2192,34 @@ DeleteEditingProjectsResponse Alibabacloud_ICE20201109::Client::deleteEditingPro
 DeleteEditingProjectsResponse Alibabacloud_ICE20201109::Client::deleteEditingProjects(shared_ptr<DeleteEditingProjectsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteEditingProjectsWithOptions(request, runtime);
+}
+
+DeleteHotwordLibraryResponse Alibabacloud_ICE20201109::Client::deleteHotwordLibraryWithOptions(shared_ptr<DeleteHotwordLibraryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->hotwordLibraryId)) {
+    query->insert(pair<string, string>("HotwordLibraryId", *request->hotwordLibraryId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteHotwordLibrary"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteHotwordLibraryResponse(callApi(params, req, runtime));
+}
+
+DeleteHotwordLibraryResponse Alibabacloud_ICE20201109::Client::deleteHotwordLibrary(shared_ptr<DeleteHotwordLibraryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteHotwordLibraryWithOptions(request, runtime);
 }
 
 DeleteLivePackageChannelResponse Alibabacloud_ICE20201109::Client::deleteLivePackageChannelWithOptions(shared_ptr<DeleteLivePackageChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3973,6 +4043,34 @@ GetEventCallbackResponse Alibabacloud_ICE20201109::Client::getEventCallbackWithO
 GetEventCallbackResponse Alibabacloud_ICE20201109::Client::getEventCallback() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getEventCallbackWithOptions(runtime);
+}
+
+GetHotwordLibraryResponse Alibabacloud_ICE20201109::Client::getHotwordLibraryWithOptions(shared_ptr<GetHotwordLibraryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->hotwordLibraryId)) {
+    query->insert(pair<string, string>("HotwordLibraryId", *request->hotwordLibraryId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetHotwordLibrary"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetHotwordLibraryResponse(callApi(params, req, runtime));
+}
+
+GetHotwordLibraryResponse Alibabacloud_ICE20201109::Client::getHotwordLibrary(shared_ptr<GetHotwordLibraryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getHotwordLibraryWithOptions(request, runtime);
 }
 
 GetLiveEditingIndexFileResponse Alibabacloud_ICE20201109::Client::getLiveEditingIndexFileWithOptions(shared_ptr<GetLiveEditingIndexFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6098,6 +6196,58 @@ ListEditingProjectsResponse Alibabacloud_ICE20201109::Client::listEditingProject
 ListEditingProjectsResponse Alibabacloud_ICE20201109::Client::listEditingProjects(shared_ptr<ListEditingProjectsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listEditingProjectsWithOptions(request, runtime);
+}
+
+ListHotwordLibrariesResponse Alibabacloud_ICE20201109::Client::listHotwordLibrariesWithOptions(shared_ptr<ListHotwordLibrariesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
+    query->insert(pair<string, string>("SortBy", *request->sortBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usageScenario)) {
+    query->insert(pair<string, string>("UsageScenario", *request->usageScenario));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListHotwordLibraries"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListHotwordLibrariesResponse(callApi(params, req, runtime));
+}
+
+ListHotwordLibrariesResponse Alibabacloud_ICE20201109::Client::listHotwordLibraries(shared_ptr<ListHotwordLibrariesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listHotwordLibrariesWithOptions(request, runtime);
 }
 
 ListLivePackageChannelGroupsResponse Alibabacloud_ICE20201109::Client::listLivePackageChannelGroupsWithOptions(shared_ptr<ListLivePackageChannelGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -11440,6 +11590,48 @@ UpdateEditingProjectResponse Alibabacloud_ICE20201109::Client::updateEditingProj
 UpdateEditingProjectResponse Alibabacloud_ICE20201109::Client::updateEditingProject(shared_ptr<UpdateEditingProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateEditingProjectWithOptions(request, runtime);
+}
+
+UpdateHotwordLibraryResponse Alibabacloud_ICE20201109::Client::updateHotwordLibraryWithOptions(shared_ptr<UpdateHotwordLibraryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateHotwordLibraryShrinkRequest> request = make_shared<UpdateHotwordLibraryShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<Hotword>>(tmpReq->hotwords)) {
+    request->hotwordsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hotwords, make_shared<string>("Hotwords"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hotwordLibraryId)) {
+    query->insert(pair<string, string>("HotwordLibraryId", *request->hotwordLibraryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hotwordsShrink)) {
+    query->insert(pair<string, string>("Hotwords", *request->hotwordsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateHotwordLibrary"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateHotwordLibraryResponse(callApi(params, req, runtime));
+}
+
+UpdateHotwordLibraryResponse Alibabacloud_ICE20201109::Client::updateHotwordLibrary(shared_ptr<UpdateHotwordLibraryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateHotwordLibraryWithOptions(request, runtime);
 }
 
 UpdateLivePackageChannelResponse Alibabacloud_ICE20201109::Client::updateLivePackageChannelWithOptions(shared_ptr<UpdateLivePackageChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

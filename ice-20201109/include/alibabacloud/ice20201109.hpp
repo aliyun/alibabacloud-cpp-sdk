@@ -3016,6 +3016,106 @@ public:
 
   virtual ~ChannelAssemblySourceLocation() = default;
 };
+class TranspositionResult : public Darabonba::Model {
+public:
+  shared_ptr<string> targetLanguage{};
+  shared_ptr<string> translatedText{};
+
+  TranspositionResult() {}
+
+  explicit TranspositionResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (targetLanguage) {
+      res["TargetLanguage"] = boost::any(*targetLanguage);
+    }
+    if (translatedText) {
+      res["TranslatedText"] = boost::any(*translatedText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TargetLanguage") != m.end() && !m["TargetLanguage"].empty()) {
+      targetLanguage = make_shared<string>(boost::any_cast<string>(m["TargetLanguage"]));
+    }
+    if (m.find("TranslatedText") != m.end() && !m["TranslatedText"].empty()) {
+      translatedText = make_shared<string>(boost::any_cast<string>(m["TranslatedText"]));
+    }
+  }
+
+
+  virtual ~TranspositionResult() = default;
+};
+class Hotword : public Darabonba::Model {
+public:
+  shared_ptr<string> language{};
+  shared_ptr<string> text{};
+  shared_ptr<vector<TranspositionResult>> transpositionResultList{};
+  shared_ptr<long> weight{};
+
+  Hotword() {}
+
+  explicit Hotword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    if (transpositionResultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*transpositionResultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TranspositionResultList"] = boost::any(temp1);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("TranspositionResultList") != m.end() && !m["TranspositionResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TranspositionResultList"].type()) {
+        vector<TranspositionResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TranspositionResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TranspositionResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transpositionResultList = make_shared<vector<TranspositionResult>>(expect1);
+      }
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~Hotword() = default;
+};
 class LicenseInstanceAppDTOLicenseConfigs : public Darabonba::Model {
 public:
   shared_ptr<string> businessType{};
@@ -9981,6 +10081,208 @@ public:
 
   virtual ~CreateEditingProjectResponse() = default;
 };
+class CreateHotwordLibraryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<vector<Hotword>> hotwords{};
+  shared_ptr<string> name{};
+  shared_ptr<string> usageScenario{};
+
+  CreateHotwordLibraryRequest() {}
+
+  explicit CreateHotwordLibraryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (hotwords) {
+      vector<boost::any> temp1;
+      for(auto item1:*hotwords){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Hotwords"] = boost::any(temp1);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (usageScenario) {
+      res["UsageScenario"] = boost::any(*usageScenario);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Hotwords") != m.end() && !m["Hotwords"].empty()) {
+      if (typeid(vector<boost::any>) == m["Hotwords"].type()) {
+        vector<Hotword> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Hotwords"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Hotword model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hotwords = make_shared<vector<Hotword>>(expect1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("UsageScenario") != m.end() && !m["UsageScenario"].empty()) {
+      usageScenario = make_shared<string>(boost::any_cast<string>(m["UsageScenario"]));
+    }
+  }
+
+
+  virtual ~CreateHotwordLibraryRequest() = default;
+};
+class CreateHotwordLibraryShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> hotwordsShrink{};
+  shared_ptr<string> name{};
+  shared_ptr<string> usageScenario{};
+
+  CreateHotwordLibraryShrinkRequest() {}
+
+  explicit CreateHotwordLibraryShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (hotwordsShrink) {
+      res["Hotwords"] = boost::any(*hotwordsShrink);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (usageScenario) {
+      res["UsageScenario"] = boost::any(*usageScenario);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Hotwords") != m.end() && !m["Hotwords"].empty()) {
+      hotwordsShrink = make_shared<string>(boost::any_cast<string>(m["Hotwords"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("UsageScenario") != m.end() && !m["UsageScenario"].empty()) {
+      usageScenario = make_shared<string>(boost::any_cast<string>(m["UsageScenario"]));
+    }
+  }
+
+
+  virtual ~CreateHotwordLibraryShrinkRequest() = default;
+};
+class CreateHotwordLibraryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> hotwordLibraryId{};
+  shared_ptr<string> requestId{};
+
+  CreateHotwordLibraryResponseBody() {}
+
+  explicit CreateHotwordLibraryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotwordLibraryId) {
+      res["HotwordLibraryId"] = boost::any(*hotwordLibraryId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HotwordLibraryId") != m.end() && !m["HotwordLibraryId"].empty()) {
+      hotwordLibraryId = make_shared<string>(boost::any_cast<string>(m["HotwordLibraryId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateHotwordLibraryResponseBody() = default;
+};
+class CreateHotwordLibraryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateHotwordLibraryResponseBody> body{};
+
+  CreateHotwordLibraryResponse() {}
+
+  explicit CreateHotwordLibraryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateHotwordLibraryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateHotwordLibraryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateHotwordLibraryResponse() = default;
+};
 class CreateLivePackageChannelRequest : public Darabonba::Model {
 public:
   shared_ptr<string> channelName{};
@@ -16888,6 +17190,123 @@ public:
 
 
   virtual ~DeleteEditingProjectsResponse() = default;
+};
+class DeleteHotwordLibraryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> hotwordLibraryId{};
+
+  DeleteHotwordLibraryRequest() {}
+
+  explicit DeleteHotwordLibraryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotwordLibraryId) {
+      res["HotwordLibraryId"] = boost::any(*hotwordLibraryId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HotwordLibraryId") != m.end() && !m["HotwordLibraryId"].empty()) {
+      hotwordLibraryId = make_shared<string>(boost::any_cast<string>(m["HotwordLibraryId"]));
+    }
+  }
+
+
+  virtual ~DeleteHotwordLibraryRequest() = default;
+};
+class DeleteHotwordLibraryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteHotwordLibraryResponseBody() {}
+
+  explicit DeleteHotwordLibraryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteHotwordLibraryResponseBody() = default;
+};
+class DeleteHotwordLibraryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteHotwordLibraryResponseBody> body{};
+
+  DeleteHotwordLibraryResponse() {}
+
+  explicit DeleteHotwordLibraryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteHotwordLibraryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteHotwordLibraryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteHotwordLibraryResponse() = default;
 };
 class DeleteLivePackageChannelRequest : public Darabonba::Model {
 public:
@@ -27655,6 +28074,172 @@ public:
 
 
   virtual ~GetEventCallbackResponse() = default;
+};
+class GetHotwordLibraryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> hotwordLibraryId{};
+
+  GetHotwordLibraryRequest() {}
+
+  explicit GetHotwordLibraryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotwordLibraryId) {
+      res["HotwordLibraryId"] = boost::any(*hotwordLibraryId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HotwordLibraryId") != m.end() && !m["HotwordLibraryId"].empty()) {
+      hotwordLibraryId = make_shared<string>(boost::any_cast<string>(m["HotwordLibraryId"]));
+    }
+  }
+
+
+  virtual ~GetHotwordLibraryRequest() = default;
+};
+class GetHotwordLibraryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> hotwordLibraryId{};
+  shared_ptr<vector<Hotword>> hotwords{};
+  shared_ptr<string> name{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> usageScenario{};
+
+  GetHotwordLibraryResponseBody() {}
+
+  explicit GetHotwordLibraryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (hotwordLibraryId) {
+      res["HotwordLibraryId"] = boost::any(*hotwordLibraryId);
+    }
+    if (hotwords) {
+      vector<boost::any> temp1;
+      for(auto item1:*hotwords){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Hotwords"] = boost::any(temp1);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (usageScenario) {
+      res["UsageScenario"] = boost::any(*usageScenario);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("HotwordLibraryId") != m.end() && !m["HotwordLibraryId"].empty()) {
+      hotwordLibraryId = make_shared<string>(boost::any_cast<string>(m["HotwordLibraryId"]));
+    }
+    if (m.find("Hotwords") != m.end() && !m["Hotwords"].empty()) {
+      if (typeid(vector<boost::any>) == m["Hotwords"].type()) {
+        vector<Hotword> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Hotwords"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Hotword model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hotwords = make_shared<vector<Hotword>>(expect1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UsageScenario") != m.end() && !m["UsageScenario"].empty()) {
+      usageScenario = make_shared<string>(boost::any_cast<string>(m["UsageScenario"]));
+    }
+  }
+
+
+  virtual ~GetHotwordLibraryResponseBody() = default;
+};
+class GetHotwordLibraryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetHotwordLibraryResponseBody> body{};
+
+  GetHotwordLibraryResponse() {}
+
+  explicit GetHotwordLibraryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetHotwordLibraryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetHotwordLibraryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetHotwordLibraryResponse() = default;
 };
 class GetLiveEditingIndexFileRequest : public Darabonba::Model {
 public:
@@ -50605,6 +51190,278 @@ public:
 
 
   virtual ~ListEditingProjectsResponse() = default;
+};
+class ListHotwordLibrariesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> usageScenario{};
+
+  ListHotwordLibrariesRequest() {}
+
+  explicit ListHotwordLibrariesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (usageScenario) {
+      res["UsageScenario"] = boost::any(*usageScenario);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("UsageScenario") != m.end() && !m["UsageScenario"].empty()) {
+      usageScenario = make_shared<string>(boost::any_cast<string>(m["UsageScenario"]));
+    }
+  }
+
+
+  virtual ~ListHotwordLibrariesRequest() = default;
+};
+class ListHotwordLibrariesResponseBodyHotwordLibraryList : public Darabonba::Model {
+public:
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> hotwordLibraryId{};
+  shared_ptr<string> modifiedTime{};
+  shared_ptr<string> name{};
+  shared_ptr<string> usageScenario{};
+
+  ListHotwordLibrariesResponseBodyHotwordLibraryList() {}
+
+  explicit ListHotwordLibrariesResponseBodyHotwordLibraryList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (hotwordLibraryId) {
+      res["HotwordLibraryId"] = boost::any(*hotwordLibraryId);
+    }
+    if (modifiedTime) {
+      res["ModifiedTime"] = boost::any(*modifiedTime);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (usageScenario) {
+      res["UsageScenario"] = boost::any(*usageScenario);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("HotwordLibraryId") != m.end() && !m["HotwordLibraryId"].empty()) {
+      hotwordLibraryId = make_shared<string>(boost::any_cast<string>(m["HotwordLibraryId"]));
+    }
+    if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
+      modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("UsageScenario") != m.end() && !m["UsageScenario"].empty()) {
+      usageScenario = make_shared<string>(boost::any_cast<string>(m["UsageScenario"]));
+    }
+  }
+
+
+  virtual ~ListHotwordLibrariesResponseBodyHotwordLibraryList() = default;
+};
+class ListHotwordLibrariesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListHotwordLibrariesResponseBodyHotwordLibraryList>> hotwordLibraryList{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListHotwordLibrariesResponseBody() {}
+
+  explicit ListHotwordLibrariesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotwordLibraryList) {
+      vector<boost::any> temp1;
+      for(auto item1:*hotwordLibraryList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HotwordLibraryList"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HotwordLibraryList") != m.end() && !m["HotwordLibraryList"].empty()) {
+      if (typeid(vector<boost::any>) == m["HotwordLibraryList"].type()) {
+        vector<ListHotwordLibrariesResponseBodyHotwordLibraryList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HotwordLibraryList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHotwordLibrariesResponseBodyHotwordLibraryList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hotwordLibraryList = make_shared<vector<ListHotwordLibrariesResponseBodyHotwordLibraryList>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListHotwordLibrariesResponseBody() = default;
+};
+class ListHotwordLibrariesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListHotwordLibrariesResponseBody> body{};
+
+  ListHotwordLibrariesResponse() {}
+
+  explicit ListHotwordLibrariesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListHotwordLibrariesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListHotwordLibrariesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListHotwordLibrariesResponse() = default;
 };
 class ListLivePackageChannelGroupsRequest : public Darabonba::Model {
 public:
@@ -94757,6 +95614,208 @@ public:
 
   virtual ~UpdateEditingProjectResponse() = default;
 };
+class UpdateHotwordLibraryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> hotwordLibraryId{};
+  shared_ptr<vector<Hotword>> hotwords{};
+  shared_ptr<string> name{};
+
+  UpdateHotwordLibraryRequest() {}
+
+  explicit UpdateHotwordLibraryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (hotwordLibraryId) {
+      res["HotwordLibraryId"] = boost::any(*hotwordLibraryId);
+    }
+    if (hotwords) {
+      vector<boost::any> temp1;
+      for(auto item1:*hotwords){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Hotwords"] = boost::any(temp1);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("HotwordLibraryId") != m.end() && !m["HotwordLibraryId"].empty()) {
+      hotwordLibraryId = make_shared<string>(boost::any_cast<string>(m["HotwordLibraryId"]));
+    }
+    if (m.find("Hotwords") != m.end() && !m["Hotwords"].empty()) {
+      if (typeid(vector<boost::any>) == m["Hotwords"].type()) {
+        vector<Hotword> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Hotwords"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Hotword model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hotwords = make_shared<vector<Hotword>>(expect1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~UpdateHotwordLibraryRequest() = default;
+};
+class UpdateHotwordLibraryShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> hotwordLibraryId{};
+  shared_ptr<string> hotwordsShrink{};
+  shared_ptr<string> name{};
+
+  UpdateHotwordLibraryShrinkRequest() {}
+
+  explicit UpdateHotwordLibraryShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (hotwordLibraryId) {
+      res["HotwordLibraryId"] = boost::any(*hotwordLibraryId);
+    }
+    if (hotwordsShrink) {
+      res["Hotwords"] = boost::any(*hotwordsShrink);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("HotwordLibraryId") != m.end() && !m["HotwordLibraryId"].empty()) {
+      hotwordLibraryId = make_shared<string>(boost::any_cast<string>(m["HotwordLibraryId"]));
+    }
+    if (m.find("Hotwords") != m.end() && !m["Hotwords"].empty()) {
+      hotwordsShrink = make_shared<string>(boost::any_cast<string>(m["Hotwords"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~UpdateHotwordLibraryShrinkRequest() = default;
+};
+class UpdateHotwordLibraryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  UpdateHotwordLibraryResponseBody() {}
+
+  explicit UpdateHotwordLibraryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateHotwordLibraryResponseBody() = default;
+};
+class UpdateHotwordLibraryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateHotwordLibraryResponseBody> body{};
+
+  UpdateHotwordLibraryResponse() {}
+
+  explicit UpdateHotwordLibraryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateHotwordLibraryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateHotwordLibraryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateHotwordLibraryResponse() = default;
+};
 class UpdateLivePackageChannelRequest : public Darabonba::Model {
 public:
   shared_ptr<string> channelName{};
@@ -100784,6 +101843,8 @@ public:
   CreateDNADBResponse createDNADB(shared_ptr<CreateDNADBRequest> request);
   CreateEditingProjectResponse createEditingProjectWithOptions(shared_ptr<CreateEditingProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEditingProjectResponse createEditingProject(shared_ptr<CreateEditingProjectRequest> request);
+  CreateHotwordLibraryResponse createHotwordLibraryWithOptions(shared_ptr<CreateHotwordLibraryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateHotwordLibraryResponse createHotwordLibrary(shared_ptr<CreateHotwordLibraryRequest> request);
   CreateLivePackageChannelResponse createLivePackageChannelWithOptions(shared_ptr<CreateLivePackageChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateLivePackageChannelResponse createLivePackageChannel(shared_ptr<CreateLivePackageChannelRequest> request);
   CreateLivePackageChannelGroupResponse createLivePackageChannelGroupWithOptions(shared_ptr<CreateLivePackageChannelGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -100850,6 +101911,8 @@ public:
   DeleteEditingProjectMaterialsResponse deleteEditingProjectMaterials(shared_ptr<DeleteEditingProjectMaterialsRequest> request);
   DeleteEditingProjectsResponse deleteEditingProjectsWithOptions(shared_ptr<DeleteEditingProjectsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteEditingProjectsResponse deleteEditingProjects(shared_ptr<DeleteEditingProjectsRequest> request);
+  DeleteHotwordLibraryResponse deleteHotwordLibraryWithOptions(shared_ptr<DeleteHotwordLibraryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteHotwordLibraryResponse deleteHotwordLibrary(shared_ptr<DeleteHotwordLibraryRequest> request);
   DeleteLivePackageChannelResponse deleteLivePackageChannelWithOptions(shared_ptr<DeleteLivePackageChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteLivePackageChannelResponse deleteLivePackageChannel(shared_ptr<DeleteLivePackageChannelRequest> request);
   DeleteLivePackageChannelGroupResponse deleteLivePackageChannelGroupWithOptions(shared_ptr<DeleteLivePackageChannelGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -100968,6 +102031,8 @@ public:
   GetEditingProjectMaterialsResponse getEditingProjectMaterials(shared_ptr<GetEditingProjectMaterialsRequest> request);
   GetEventCallbackResponse getEventCallbackWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEventCallbackResponse getEventCallback();
+  GetHotwordLibraryResponse getHotwordLibraryWithOptions(shared_ptr<GetHotwordLibraryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetHotwordLibraryResponse getHotwordLibrary(shared_ptr<GetHotwordLibraryRequest> request);
   GetLiveEditingIndexFileResponse getLiveEditingIndexFileWithOptions(shared_ptr<GetLiveEditingIndexFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLiveEditingIndexFileResponse getLiveEditingIndexFile(shared_ptr<GetLiveEditingIndexFileRequest> request);
   GetLiveEditingJobResponse getLiveEditingJobWithOptions(shared_ptr<GetLiveEditingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -101096,6 +102161,8 @@ public:
   ListDynamicImageJobsResponse listDynamicImageJobs(shared_ptr<ListDynamicImageJobsRequest> request);
   ListEditingProjectsResponse listEditingProjectsWithOptions(shared_ptr<ListEditingProjectsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListEditingProjectsResponse listEditingProjects(shared_ptr<ListEditingProjectsRequest> request);
+  ListHotwordLibrariesResponse listHotwordLibrariesWithOptions(shared_ptr<ListHotwordLibrariesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListHotwordLibrariesResponse listHotwordLibraries(shared_ptr<ListHotwordLibrariesRequest> request);
   ListLivePackageChannelGroupsResponse listLivePackageChannelGroupsWithOptions(shared_ptr<ListLivePackageChannelGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListLivePackageChannelGroupsResponse listLivePackageChannelGroups(shared_ptr<ListLivePackageChannelGroupsRequest> request);
   ListLivePackageChannelsResponse listLivePackageChannelsWithOptions(shared_ptr<ListLivePackageChannelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -101354,6 +102421,8 @@ public:
   UpdateCustomizedVoiceResponse updateCustomizedVoice(shared_ptr<UpdateCustomizedVoiceRequest> request);
   UpdateEditingProjectResponse updateEditingProjectWithOptions(shared_ptr<UpdateEditingProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateEditingProjectResponse updateEditingProject(shared_ptr<UpdateEditingProjectRequest> request);
+  UpdateHotwordLibraryResponse updateHotwordLibraryWithOptions(shared_ptr<UpdateHotwordLibraryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateHotwordLibraryResponse updateHotwordLibrary(shared_ptr<UpdateHotwordLibraryRequest> request);
   UpdateLivePackageChannelResponse updateLivePackageChannelWithOptions(shared_ptr<UpdateLivePackageChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateLivePackageChannelResponse updateLivePackageChannel(shared_ptr<UpdateLivePackageChannelRequest> request);
   UpdateLivePackageChannelCredentialsResponse updateLivePackageChannelCredentialsWithOptions(shared_ptr<UpdateLivePackageChannelCredentialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
