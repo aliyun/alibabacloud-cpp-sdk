@@ -5583,6 +5583,7 @@ public:
 };
 class CreateClusterNodePoolRequestManagementAutoRepairPolicy : public Darabonba::Model {
 public:
+  shared_ptr<bool> approvalRequired{};
   shared_ptr<bool> restartNode{};
 
   CreateClusterNodePoolRequestManagementAutoRepairPolicy() {}
@@ -5595,6 +5596,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (approvalRequired) {
+      res["approval_required"] = boost::any(*approvalRequired);
+    }
     if (restartNode) {
       res["restart_node"] = boost::any(*restartNode);
     }
@@ -5602,6 +5606,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("approval_required") != m.end() && !m["approval_required"].empty()) {
+      approvalRequired = make_shared<bool>(boost::any_cast<bool>(m["approval_required"]));
+    }
     if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
       restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
     }
@@ -11199,6 +11206,7 @@ public:
 };
 class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy : public Darabonba::Model {
 public:
+  shared_ptr<bool> approvalRequired{};
   shared_ptr<bool> restartNode{};
 
   DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy() {}
@@ -11211,6 +11219,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (approvalRequired) {
+      res["approval_required"] = boost::any(*approvalRequired);
+    }
     if (restartNode) {
       res["restart_node"] = boost::any(*restartNode);
     }
@@ -11218,6 +11229,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("approval_required") != m.end() && !m["approval_required"].empty()) {
+      approvalRequired = make_shared<bool>(boost::any_cast<bool>(m["approval_required"]));
+    }
     if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
       restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
     }
@@ -12698,6 +12712,7 @@ public:
 };
 class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy : public Darabonba::Model {
 public:
+  shared_ptr<bool> approvalRequired{};
   shared_ptr<bool> restartNode{};
 
   DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy() {}
@@ -12710,6 +12725,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (approvalRequired) {
+      res["approval_required"] = boost::any(*approvalRequired);
+    }
     if (restartNode) {
       res["restart_node"] = boost::any(*restartNode);
     }
@@ -12717,6 +12735,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("approval_required") != m.end() && !m["approval_required"].empty()) {
+      approvalRequired = make_shared<bool>(boost::any_cast<bool>(m["approval_required"]));
+    }
     if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
       restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
     }
@@ -26990,6 +27011,7 @@ public:
 };
 class ModifyClusterNodePoolRequestManagementAutoRepairPolicy : public Darabonba::Model {
 public:
+  shared_ptr<bool> approvalRequired{};
   shared_ptr<bool> restartNode{};
 
   ModifyClusterNodePoolRequestManagementAutoRepairPolicy() {}
@@ -27002,6 +27024,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (approvalRequired) {
+      res["approval_required"] = boost::any(*approvalRequired);
+    }
     if (restartNode) {
       res["restart_node"] = boost::any(*restartNode);
     }
@@ -27009,6 +27034,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("approval_required") != m.end() && !m["approval_required"].empty()) {
+      approvalRequired = make_shared<bool>(boost::any_cast<bool>(m["approval_required"]));
+    }
     if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
       restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
     }
