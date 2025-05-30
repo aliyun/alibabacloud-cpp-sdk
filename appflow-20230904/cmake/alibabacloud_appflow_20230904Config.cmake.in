@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_appflow_20230904Targets.cmake")
+check_required_components("alibabacloud_appflow_20230904")
