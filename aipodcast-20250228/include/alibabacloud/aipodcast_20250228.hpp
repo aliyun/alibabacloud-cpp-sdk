@@ -231,6 +231,7 @@ class PodcastTaskSubmitRequest : public Darabonba::Model {
 public:
   shared_ptr<long> counts{};
   shared_ptr<vector<string>> fileUrls{};
+  shared_ptr<string> sourceLang{};
   shared_ptr<string> text{};
   shared_ptr<string> topic{};
   shared_ptr<vector<string>> voices{};
@@ -251,6 +252,9 @@ public:
     }
     if (fileUrls) {
       res["fileUrls"] = boost::any(*fileUrls);
+    }
+    if (sourceLang) {
+      res["sourceLang"] = boost::any(*sourceLang);
     }
     if (text) {
       res["text"] = boost::any(*text);
@@ -281,6 +285,9 @@ public:
       }
       fileUrls = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("sourceLang") != m.end() && !m["sourceLang"].empty()) {
+      sourceLang = make_shared<string>(boost::any_cast<string>(m["sourceLang"]));
+    }
     if (m.find("text") != m.end() && !m["text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["text"]));
     }
@@ -309,6 +316,7 @@ class PodcastTaskSubmitShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<long> counts{};
   shared_ptr<string> fileUrlsShrink{};
+  shared_ptr<string> sourceLang{};
   shared_ptr<string> text{};
   shared_ptr<string> topic{};
   shared_ptr<string> voicesShrink{};
@@ -329,6 +337,9 @@ public:
     }
     if (fileUrlsShrink) {
       res["fileUrls"] = boost::any(*fileUrlsShrink);
+    }
+    if (sourceLang) {
+      res["sourceLang"] = boost::any(*sourceLang);
     }
     if (text) {
       res["text"] = boost::any(*text);
@@ -351,6 +362,9 @@ public:
     }
     if (m.find("fileUrls") != m.end() && !m["fileUrls"].empty()) {
       fileUrlsShrink = make_shared<string>(boost::any_cast<string>(m["fileUrls"]));
+    }
+    if (m.find("sourceLang") != m.end() && !m["sourceLang"].empty()) {
+      sourceLang = make_shared<string>(boost::any_cast<string>(m["sourceLang"]));
     }
     if (m.find("text") != m.end() && !m["text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["text"]));

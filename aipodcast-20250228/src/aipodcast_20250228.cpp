@@ -87,6 +87,9 @@ PodcastTaskSubmitResponse Alibabacloud_AIPodcast20250228::Client::podcastTaskSub
   if (!Darabonba_Util::Client::isUnset<string>(request->fileUrlsShrink)) {
     body->insert(pair<string, string>("fileUrls", *request->fileUrlsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceLang)) {
+    body->insert(pair<string, string>("sourceLang", *request->sourceLang));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
     body->insert(pair<string, string>("text", *request->text));
   }
