@@ -4739,6 +4739,7 @@ class GetServiceInstanceResponseBodyService : public Darabonba::Model {
 public:
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
+  shared_ptr<string> operationMetadata{};
   shared_ptr<string> publishTime{};
   shared_ptr<string> serviceDocUrl{};
   shared_ptr<string> serviceId{};
@@ -4769,6 +4770,9 @@ public:
     }
     if (deployType) {
       res["DeployType"] = boost::any(*deployType);
+    }
+    if (operationMetadata) {
+      res["OperationMetadata"] = boost::any(*operationMetadata);
     }
     if (publishTime) {
       res["PublishTime"] = boost::any(*publishTime);
@@ -4829,6 +4833,9 @@ public:
     }
     if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
       deployType = make_shared<string>(boost::any_cast<string>(m["DeployType"]));
+    }
+    if (m.find("OperationMetadata") != m.end() && !m["OperationMetadata"].empty()) {
+      operationMetadata = make_shared<string>(boost::any_cast<string>(m["OperationMetadata"]));
     }
     if (m.find("PublishTime") != m.end() && !m["PublishTime"].empty()) {
       publishTime = make_shared<string>(boost::any_cast<string>(m["PublishTime"]));
