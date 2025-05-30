@@ -1192,6 +1192,7 @@ public:
   shared_ptr<bool> fileSystemMountEnabled{};
   shared_ptr<string> imageId{};
   shared_ptr<string> keyPairName{};
+  shared_ptr<string> loginPassword{};
   shared_ptr<string> machineType{};
   shared_ptr<string> nodeGroupDescription{};
   shared_ptr<string> nodeGroupName{};
@@ -1218,6 +1219,9 @@ public:
     }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
+    }
+    if (loginPassword) {
+      res["LoginPassword"] = boost::any(*loginPassword);
     }
     if (machineType) {
       res["MachineType"] = boost::any(*machineType);
@@ -1256,6 +1260,9 @@ public:
     }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
+    }
+    if (m.find("LoginPassword") != m.end() && !m["LoginPassword"].empty()) {
+      loginPassword = make_shared<string>(boost::any_cast<string>(m["LoginPassword"]));
     }
     if (m.find("MachineType") != m.end() && !m["MachineType"].empty()) {
       machineType = make_shared<string>(boost::any_cast<string>(m["MachineType"]));
@@ -2824,6 +2831,7 @@ public:
   shared_ptr<bool> fileSystemMountEnabled{};
   shared_ptr<string> imageId{};
   shared_ptr<string> keyPairName{};
+  shared_ptr<string> loginPassword{};
   shared_ptr<string> machineType{};
   shared_ptr<string> nodeGroupDescription{};
   shared_ptr<string> nodeGroupName{};
@@ -2851,6 +2859,9 @@ public:
     }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
+    }
+    if (loginPassword) {
+      res["LoginPassword"] = boost::any(*loginPassword);
     }
     if (machineType) {
       res["MachineType"] = boost::any(*machineType);
@@ -2882,6 +2893,9 @@ public:
     }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
+    }
+    if (m.find("LoginPassword") != m.end() && !m["LoginPassword"].empty()) {
+      loginPassword = make_shared<string>(boost::any_cast<string>(m["LoginPassword"]));
     }
     if (m.find("MachineType") != m.end() && !m["MachineType"].empty()) {
       machineType = make_shared<string>(boost::any_cast<string>(m["MachineType"]));
@@ -14056,6 +14070,7 @@ public:
   shared_ptr<bool> fileSystemMountEnabled{};
   shared_ptr<string> imageId{};
   shared_ptr<string> keyPairName{};
+  shared_ptr<string> loginPassword{};
   shared_ptr<string> newNodeGroupName{};
   shared_ptr<string> nodeGroupId{};
   shared_ptr<string> userData{};
@@ -14079,6 +14094,9 @@ public:
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
     }
+    if (loginPassword) {
+      res["LoginPassword"] = boost::any(*loginPassword);
+    }
     if (newNodeGroupName) {
       res["NewNodeGroupName"] = boost::any(*newNodeGroupName);
     }
@@ -14100,6 +14118,9 @@ public:
     }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
+    }
+    if (m.find("LoginPassword") != m.end() && !m["LoginPassword"].empty()) {
+      loginPassword = make_shared<string>(boost::any_cast<string>(m["LoginPassword"]));
     }
     if (m.find("NewNodeGroupName") != m.end() && !m["NewNodeGroupName"].empty()) {
       newNodeGroupName = make_shared<string>(boost::any_cast<string>(m["NewNodeGroupName"]));

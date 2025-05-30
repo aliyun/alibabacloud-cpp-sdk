@@ -1751,6 +1751,9 @@ UpdateNodeGroupResponse Alibabacloud_Eflo-controller20221215::Client::updateNode
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPairName)) {
     body->insert(pair<string, string>("KeyPairName", *request->keyPairName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loginPassword)) {
+    body->insert(pair<string, string>("LoginPassword", *request->loginPassword));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->newNodeGroupName)) {
     body->insert(pair<string, string>("NewNodeGroupName", *request->newNodeGroupName));
   }
