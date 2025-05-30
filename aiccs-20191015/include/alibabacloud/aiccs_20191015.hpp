@@ -27710,7 +27710,11 @@ public:
   shared_ptr<string> extension{};
   shared_ptr<string> outId{};
   shared_ptr<map<string, boost::any>> promptParam{};
+  shared_ptr<long> sessionTimeout{};
   shared_ptr<map<string, boost::any>> startWordParam{};
+  shared_ptr<long> ttsSpeed{};
+  shared_ptr<string> ttsVoiceCode{};
+  shared_ptr<long> ttsVolume{};
 
   LlmSmartCallRequest() {}
 
@@ -27743,8 +27747,20 @@ public:
     if (promptParam) {
       res["PromptParam"] = boost::any(*promptParam);
     }
+    if (sessionTimeout) {
+      res["SessionTimeout"] = boost::any(*sessionTimeout);
+    }
     if (startWordParam) {
       res["StartWordParam"] = boost::any(*startWordParam);
+    }
+    if (ttsSpeed) {
+      res["TtsSpeed"] = boost::any(*ttsSpeed);
+    }
+    if (ttsVoiceCode) {
+      res["TtsVoiceCode"] = boost::any(*ttsVoiceCode);
+    }
+    if (ttsVolume) {
+      res["TtsVolume"] = boost::any(*ttsVolume);
     }
     return res;
   }
@@ -27781,6 +27797,9 @@ public:
       }
       promptParam = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("SessionTimeout") != m.end() && !m["SessionTimeout"].empty()) {
+      sessionTimeout = make_shared<long>(boost::any_cast<long>(m["SessionTimeout"]));
+    }
     if (m.find("StartWordParam") != m.end() && !m["StartWordParam"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["StartWordParam"]);
       map<string, boost::any> toMap1;
@@ -27788,6 +27807,15 @@ public:
          toMap1[item.first] = item.second;
       }
       startWordParam = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("TtsSpeed") != m.end() && !m["TtsSpeed"].empty()) {
+      ttsSpeed = make_shared<long>(boost::any_cast<long>(m["TtsSpeed"]));
+    }
+    if (m.find("TtsVoiceCode") != m.end() && !m["TtsVoiceCode"].empty()) {
+      ttsVoiceCode = make_shared<string>(boost::any_cast<string>(m["TtsVoiceCode"]));
+    }
+    if (m.find("TtsVolume") != m.end() && !m["TtsVolume"].empty()) {
+      ttsVolume = make_shared<long>(boost::any_cast<long>(m["TtsVolume"]));
     }
   }
 
@@ -27803,7 +27831,11 @@ public:
   shared_ptr<string> extension{};
   shared_ptr<string> outId{};
   shared_ptr<string> promptParamShrink{};
+  shared_ptr<long> sessionTimeout{};
   shared_ptr<string> startWordParamShrink{};
+  shared_ptr<long> ttsSpeed{};
+  shared_ptr<string> ttsVoiceCode{};
+  shared_ptr<long> ttsVolume{};
 
   LlmSmartCallShrinkRequest() {}
 
@@ -27836,8 +27868,20 @@ public:
     if (promptParamShrink) {
       res["PromptParam"] = boost::any(*promptParamShrink);
     }
+    if (sessionTimeout) {
+      res["SessionTimeout"] = boost::any(*sessionTimeout);
+    }
     if (startWordParamShrink) {
       res["StartWordParam"] = boost::any(*startWordParamShrink);
+    }
+    if (ttsSpeed) {
+      res["TtsSpeed"] = boost::any(*ttsSpeed);
+    }
+    if (ttsVoiceCode) {
+      res["TtsVoiceCode"] = boost::any(*ttsVoiceCode);
+    }
+    if (ttsVolume) {
+      res["TtsVolume"] = boost::any(*ttsVolume);
     }
     return res;
   }
@@ -27864,8 +27908,20 @@ public:
     if (m.find("PromptParam") != m.end() && !m["PromptParam"].empty()) {
       promptParamShrink = make_shared<string>(boost::any_cast<string>(m["PromptParam"]));
     }
+    if (m.find("SessionTimeout") != m.end() && !m["SessionTimeout"].empty()) {
+      sessionTimeout = make_shared<long>(boost::any_cast<long>(m["SessionTimeout"]));
+    }
     if (m.find("StartWordParam") != m.end() && !m["StartWordParam"].empty()) {
       startWordParamShrink = make_shared<string>(boost::any_cast<string>(m["StartWordParam"]));
+    }
+    if (m.find("TtsSpeed") != m.end() && !m["TtsSpeed"].empty()) {
+      ttsSpeed = make_shared<long>(boost::any_cast<long>(m["TtsSpeed"]));
+    }
+    if (m.find("TtsVoiceCode") != m.end() && !m["TtsVoiceCode"].empty()) {
+      ttsVoiceCode = make_shared<string>(boost::any_cast<string>(m["TtsVoiceCode"]));
+    }
+    if (m.find("TtsVolume") != m.end() && !m["TtsVolume"].empty()) {
+      ttsVolume = make_shared<long>(boost::any_cast<long>(m["TtsVolume"]));
     }
   }
 

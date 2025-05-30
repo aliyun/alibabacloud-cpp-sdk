@@ -4249,8 +4249,20 @@ LlmSmartCallResponse Alibabacloud_Aiccs20191015::Client::llmSmartCallWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->promptParamShrink)) {
     query->insert(pair<string, string>("PromptParam", *request->promptParamShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sessionTimeout)) {
+    query->insert(pair<string, long>("SessionTimeout", *request->sessionTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->startWordParamShrink)) {
     query->insert(pair<string, string>("StartWordParam", *request->startWordParamShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ttsSpeed)) {
+    query->insert(pair<string, long>("TtsSpeed", *request->ttsSpeed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ttsVoiceCode)) {
+    query->insert(pair<string, string>("TtsVoiceCode", *request->ttsVoiceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ttsVolume)) {
+    query->insert(pair<string, long>("TtsVolume", *request->ttsVolume));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
