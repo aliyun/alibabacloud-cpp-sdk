@@ -7227,6 +7227,7 @@ public:
 };
 class RunMarketingInformationWritingResponseBodyPayloadOutput : public Darabonba::Model {
 public:
+  shared_ptr<string> reasonContent{};
   shared_ptr<string> text{};
 
   RunMarketingInformationWritingResponseBodyPayloadOutput() {}
@@ -7239,6 +7240,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (reasonContent) {
+      res["reasonContent"] = boost::any(*reasonContent);
+    }
     if (text) {
       res["text"] = boost::any(*text);
     }
@@ -7246,6 +7250,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("reasonContent") != m.end() && !m["reasonContent"].empty()) {
+      reasonContent = make_shared<string>(boost::any_cast<string>(m["reasonContent"]));
+    }
     if (m.find("text") != m.end() && !m["text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["text"]));
     }
