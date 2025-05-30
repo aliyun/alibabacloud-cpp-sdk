@@ -52,6 +52,7 @@ public:
 };
 class PodcastTaskResultQueryResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> extraResult{};
   shared_ptr<boost::any> resultUrl{};
   shared_ptr<string> script{};
   shared_ptr<string> taskId{};
@@ -67,6 +68,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (extraResult) {
+      res["extraResult"] = boost::any(*extraResult);
+    }
     if (resultUrl) {
       res["resultUrl"] = boost::any(*resultUrl);
     }
@@ -83,6 +87,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("extraResult") != m.end() && !m["extraResult"].empty()) {
+      extraResult = make_shared<boost::any>(boost::any_cast<boost::any>(m["extraResult"]));
+    }
     if (m.find("resultUrl") != m.end() && !m["resultUrl"].empty()) {
       resultUrl = make_shared<boost::any>(boost::any_cast<boost::any>(m["resultUrl"]));
     }

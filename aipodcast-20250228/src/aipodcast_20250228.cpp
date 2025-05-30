@@ -61,12 +61,7 @@ PodcastTaskResultQueryResponse Alibabacloud_AIPodcast20250228::Client::podcastTa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return PodcastTaskResultQueryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return PodcastTaskResultQueryResponse(execute(params, req, runtime));
-  }
+  return PodcastTaskResultQueryResponse(callApi(params, req, runtime));
 }
 
 PodcastTaskResultQueryResponse Alibabacloud_AIPodcast20250228::Client::podcastTaskResultQuery(shared_ptr<PodcastTaskResultQueryRequest> request) {
@@ -119,12 +114,7 @@ PodcastTaskSubmitResponse Alibabacloud_AIPodcast20250228::Client::podcastTaskSub
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return PodcastTaskSubmitResponse(callApi(params, req, runtime));
-  }
-  else {
-    return PodcastTaskSubmitResponse(execute(params, req, runtime));
-  }
+  return PodcastTaskSubmitResponse(callApi(params, req, runtime));
 }
 
 PodcastTaskSubmitResponse Alibabacloud_AIPodcast20250228::Client::podcastTaskSubmit(shared_ptr<PodcastTaskSubmitRequest> request) {
