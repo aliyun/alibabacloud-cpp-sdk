@@ -754,7 +754,10 @@ public:
 class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels : public Darabonba::Model {
 public:
   shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<string> appInstanceId{};
+  shared_ptr<string> errorCode{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> persistentAppInstanceId{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskStatus{};
   shared_ptr<string> ticket{};
@@ -772,8 +775,17 @@ public:
     if (appInstanceGroupId) {
       res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
     }
+    if (appInstanceId) {
+      res["AppInstanceId"] = boost::any(*appInstanceId);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (persistentAppInstanceId) {
+      res["PersistentAppInstanceId"] = boost::any(*persistentAppInstanceId);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -791,8 +803,17 @@ public:
     if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
       appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
     }
+    if (m.find("AppInstanceId") != m.end() && !m["AppInstanceId"].empty()) {
+      appInstanceId = make_shared<string>(boost::any_cast<string>(m["AppInstanceId"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PersistentAppInstanceId") != m.end() && !m["PersistentAppInstanceId"].empty()) {
+      persistentAppInstanceId = make_shared<string>(boost::any_cast<string>(m["PersistentAppInstanceId"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -5378,6 +5399,8 @@ public:
   shared_ptr<string> renderingType{};
   shared_ptr<string> sessionStatus{};
   shared_ptr<vector<DescribeAndroidInstancesResponseBodyInstanceModelTags>> tags{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> zoneId{};
 
   DescribeAndroidInstancesResponseBodyInstanceModel() {}
 
@@ -5504,6 +5527,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
     }
     return res;
   }
@@ -5644,6 +5673,12 @@ public:
         }
         tags = make_shared<vector<DescribeAndroidInstancesResponseBodyInstanceModelTags>>(expect1);
       }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
   }
 
@@ -6605,6 +6640,42 @@ public:
 
   virtual ~DescribeCloudPhoneNodesRequest() = default;
 };
+class DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> networkId{};
+  shared_ptr<string> vSwitchId{};
+
+  DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos() {}
+
+  explicit DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkId) {
+      res["NetworkId"] = boost::any(*networkId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
+      networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos() = default;
+};
 class DescribeCloudPhoneNodesResponseBodyNodeModel : public Darabonba::Model {
 public:
   shared_ptr<string> chargeType{};
@@ -6615,6 +6686,7 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<long> memory{};
   shared_ptr<string> networkId{};
+  shared_ptr<vector<DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos>> networkInfos{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<long> phoneCount{};
@@ -6659,6 +6731,13 @@ public:
     }
     if (networkId) {
       res["NetworkId"] = boost::any(*networkId);
+    }
+    if (networkInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkInfos"] = boost::any(temp1);
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
@@ -6717,6 +6796,19 @@ public:
     }
     if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
       networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("NetworkInfos") != m.end() && !m["NetworkInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkInfos"].type()) {
+        vector<DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkInfos = make_shared<vector<DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos>>(expect1);
+      }
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
@@ -13088,6 +13180,7 @@ class ResetAndroidInstancesInGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
   shared_ptr<string> saleMode{};
+  shared_ptr<long> settingResetType{};
 
   ResetAndroidInstancesInGroupRequest() {}
 
@@ -13105,6 +13198,9 @@ public:
     if (saleMode) {
       res["SaleMode"] = boost::any(*saleMode);
     }
+    if (settingResetType) {
+      res["SettingResetType"] = boost::any(*settingResetType);
+    }
     return res;
   }
 
@@ -13121,6 +13217,9 @@ public:
     }
     if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
       saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
+    }
+    if (m.find("SettingResetType") != m.end() && !m["SettingResetType"].empty()) {
+      settingResetType = make_shared<long>(boost::any_cast<long>(m["SettingResetType"]));
     }
   }
 

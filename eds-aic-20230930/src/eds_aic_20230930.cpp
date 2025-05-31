@@ -2304,6 +2304,9 @@ ResetAndroidInstancesInGroupResponse Alibabacloud_Eds-aic20230930::Client::reset
   if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
     query->insert(pair<string, string>("SaleMode", *request->saleMode));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->settingResetType)) {
+    query->insert(pair<string, long>("SettingResetType", *request->settingResetType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
