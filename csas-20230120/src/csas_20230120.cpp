@@ -254,6 +254,58 @@ CreateDynamicRouteResponse Alibabacloud_Csas20230120::Client::createDynamicRoute
   return createDynamicRouteWithOptions(request, runtime);
 }
 
+CreateEnterpriseAcceleratePolicyResponse Alibabacloud_Csas20230120::Client::createEnterpriseAcceleratePolicyWithOptions(shared_ptr<CreateEnterpriseAcceleratePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accelerationType)) {
+    body->insert(pair<string, string>("AccelerationType", *request->accelerationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->priority)) {
+    body->insert(pair<string, string>("Priority", *request->priority));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->showInClient)) {
+    body->insert(pair<string, long>("ShowInClient", *request->showInClient));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->upstreamHost)) {
+    body->insert(pair<string, string>("UpstreamHost", *request->upstreamHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->upstreamPort)) {
+    body->insert(pair<string, long>("UpstreamPort", *request->upstreamPort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->upstreamType)) {
+    body->insert(pair<string, string>("UpstreamType", *request->upstreamType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userAttributeGroup)) {
+    body->insert(pair<string, string>("UserAttributeGroup", *request->userAttributeGroup));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateEnterpriseAcceleratePolicy"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateEnterpriseAcceleratePolicyResponse(callApi(params, req, runtime));
+}
+
+CreateEnterpriseAcceleratePolicyResponse Alibabacloud_Csas20230120::Client::createEnterpriseAcceleratePolicy(shared_ptr<CreateEnterpriseAcceleratePolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createEnterpriseAcceleratePolicyWithOptions(request, runtime);
+}
+
 CreateIdpDepartmentResponse Alibabacloud_Csas20230120::Client::createIdpDepartmentWithOptions(shared_ptr<CreateIdpDepartmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -879,6 +931,34 @@ DeleteIdpDepartmentResponse Alibabacloud_Csas20230120::Client::deleteIdpDepartme
 DeleteIdpDepartmentResponse Alibabacloud_Csas20230120::Client::deleteIdpDepartment(shared_ptr<DeleteIdpDepartmentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteIdpDepartmentWithOptions(request, runtime);
+}
+
+DeleteOtpConfigResponse Alibabacloud_Csas20230120::Client::deleteOtpConfigWithOptions(shared_ptr<DeleteOtpConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    body->insert(pair<string, string>("Username", *request->username));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteOtpConfig"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteOtpConfigResponse(callApi(params, req, runtime));
+}
+
+DeleteOtpConfigResponse Alibabacloud_Csas20230120::Client::deleteOtpConfig(shared_ptr<DeleteOtpConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteOtpConfigWithOptions(request, runtime);
 }
 
 DeletePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::deletePrivateAccessApplicationWithOptions(shared_ptr<DeletePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

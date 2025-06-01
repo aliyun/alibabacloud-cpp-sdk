@@ -142,6 +142,120 @@ public:
 
   virtual ~DisposalContent() = default;
 };
+class OpenStructSaseUserSimpleDepartments : public Darabonba::Model {
+public:
+  shared_ptr<string> departmentId{};
+  shared_ptr<string> name{};
+
+  OpenStructSaseUserSimpleDepartments() {}
+
+  explicit OpenStructSaseUserSimpleDepartments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (departmentId) {
+      res["DepartmentId"] = boost::any(*departmentId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DepartmentId") != m.end() && !m["DepartmentId"].empty()) {
+      departmentId = make_shared<string>(boost::any_cast<string>(m["DepartmentId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~OpenStructSaseUserSimpleDepartments() = default;
+};
+class OpenStructSaseUserSimple : public Darabonba::Model {
+public:
+  shared_ptr<vector<OpenStructSaseUserSimpleDepartments>> departments{};
+  shared_ptr<string> email{};
+  shared_ptr<string> idpConfigId{};
+  shared_ptr<string> saseUserId{};
+  shared_ptr<string> telephone{};
+  shared_ptr<string> username{};
+
+  OpenStructSaseUserSimple() {}
+
+  explicit OpenStructSaseUserSimple(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (departments) {
+      vector<boost::any> temp1;
+      for(auto item1:*departments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Departments"] = boost::any(temp1);
+    }
+    if (email) {
+      res["Email"] = boost::any(*email);
+    }
+    if (idpConfigId) {
+      res["IdpConfigId"] = boost::any(*idpConfigId);
+    }
+    if (saseUserId) {
+      res["SaseUserId"] = boost::any(*saseUserId);
+    }
+    if (telephone) {
+      res["Telephone"] = boost::any(*telephone);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Departments") != m.end() && !m["Departments"].empty()) {
+      if (typeid(vector<boost::any>) == m["Departments"].type()) {
+        vector<OpenStructSaseUserSimpleDepartments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Departments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OpenStructSaseUserSimpleDepartments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        departments = make_shared<vector<OpenStructSaseUserSimpleDepartments>>(expect1);
+      }
+    }
+    if (m.find("Email") != m.end() && !m["Email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["Email"]));
+    }
+    if (m.find("IdpConfigId") != m.end() && !m["IdpConfigId"].empty()) {
+      idpConfigId = make_shared<string>(boost::any_cast<string>(m["IdpConfigId"]));
+    }
+    if (m.find("SaseUserId") != m.end() && !m["SaseUserId"].empty()) {
+      saseUserId = make_shared<string>(boost::any_cast<string>(m["SaseUserId"]));
+    }
+    if (m.find("Telephone") != m.end() && !m["Telephone"].empty()) {
+      telephone = make_shared<string>(boost::any_cast<string>(m["Telephone"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~OpenStructSaseUserSimple() = default;
+};
 class PAL7ConfigBypassConfigUrlBypassRules : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> froms{};
@@ -773,6 +887,56 @@ public:
 
 
   virtual ~RecoveryContent() = default;
+};
+class RiskSceneConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> detectChannel{};
+  shared_ptr<vector<string>> officeChannel{};
+
+  RiskSceneConfig() {}
+
+  explicit RiskSceneConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detectChannel) {
+      res["DetectChannel"] = boost::any(*detectChannel);
+    }
+    if (officeChannel) {
+      res["OfficeChannel"] = boost::any(*officeChannel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetectChannel") != m.end() && !m["DetectChannel"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DetectChannel"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DetectChannel"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      detectChannel = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OfficeChannel") != m.end() && !m["OfficeChannel"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OfficeChannel"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OfficeChannel"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      officeChannel = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RiskSceneConfig() = default;
 };
 class Rule : public Darabonba::Model {
 public:
@@ -2520,6 +2684,172 @@ public:
 
 
   virtual ~CreateDynamicRouteResponse() = default;
+};
+class CreateEnterpriseAcceleratePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accelerationType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> priority{};
+  shared_ptr<long> showInClient{};
+  shared_ptr<string> upstreamHost{};
+  shared_ptr<long> upstreamPort{};
+  shared_ptr<string> upstreamType{};
+  shared_ptr<string> userAttributeGroup{};
+
+  CreateEnterpriseAcceleratePolicyRequest() {}
+
+  explicit CreateEnterpriseAcceleratePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accelerationType) {
+      res["AccelerationType"] = boost::any(*accelerationType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (showInClient) {
+      res["ShowInClient"] = boost::any(*showInClient);
+    }
+    if (upstreamHost) {
+      res["UpstreamHost"] = boost::any(*upstreamHost);
+    }
+    if (upstreamPort) {
+      res["UpstreamPort"] = boost::any(*upstreamPort);
+    }
+    if (upstreamType) {
+      res["UpstreamType"] = boost::any(*upstreamType);
+    }
+    if (userAttributeGroup) {
+      res["UserAttributeGroup"] = boost::any(*userAttributeGroup);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccelerationType") != m.end() && !m["AccelerationType"].empty()) {
+      accelerationType = make_shared<string>(boost::any_cast<string>(m["AccelerationType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("ShowInClient") != m.end() && !m["ShowInClient"].empty()) {
+      showInClient = make_shared<long>(boost::any_cast<long>(m["ShowInClient"]));
+    }
+    if (m.find("UpstreamHost") != m.end() && !m["UpstreamHost"].empty()) {
+      upstreamHost = make_shared<string>(boost::any_cast<string>(m["UpstreamHost"]));
+    }
+    if (m.find("UpstreamPort") != m.end() && !m["UpstreamPort"].empty()) {
+      upstreamPort = make_shared<long>(boost::any_cast<long>(m["UpstreamPort"]));
+    }
+    if (m.find("UpstreamType") != m.end() && !m["UpstreamType"].empty()) {
+      upstreamType = make_shared<string>(boost::any_cast<string>(m["UpstreamType"]));
+    }
+    if (m.find("UserAttributeGroup") != m.end() && !m["UserAttributeGroup"].empty()) {
+      userAttributeGroup = make_shared<string>(boost::any_cast<string>(m["UserAttributeGroup"]));
+    }
+  }
+
+
+  virtual ~CreateEnterpriseAcceleratePolicyRequest() = default;
+};
+class CreateEnterpriseAcceleratePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateEnterpriseAcceleratePolicyResponseBody() {}
+
+  explicit CreateEnterpriseAcceleratePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateEnterpriseAcceleratePolicyResponseBody() = default;
+};
+class CreateEnterpriseAcceleratePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateEnterpriseAcceleratePolicyResponseBody> body{};
+
+  CreateEnterpriseAcceleratePolicyResponse() {}
+
+  explicit CreateEnterpriseAcceleratePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateEnterpriseAcceleratePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateEnterpriseAcceleratePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateEnterpriseAcceleratePolicyResponse() = default;
 };
 class CreateIdpDepartmentRequest : public Darabonba::Model {
 public:
@@ -6110,6 +6440,116 @@ public:
 
 
   virtual ~DeleteIdpDepartmentResponse() = default;
+};
+class DeleteOtpConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> username{};
+
+  DeleteOtpConfigRequest() {}
+
+  explicit DeleteOtpConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~DeleteOtpConfigRequest() = default;
+};
+class DeleteOtpConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteOtpConfigResponseBody() {}
+
+  explicit DeleteOtpConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteOtpConfigResponseBody() = default;
+};
+class DeleteOtpConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteOtpConfigResponseBody> body{};
+
+  DeleteOtpConfigResponse() {}
+
+  explicit DeleteOtpConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteOtpConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteOtpConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteOtpConfigResponse() = default;
 };
 class DeletePrivateAccessApplicationRequest : public Darabonba::Model {
 public:
@@ -11018,6 +11458,7 @@ public:
   shared_ptr<string> iaStatus{};
   shared_ptr<string> innerIP{};
   shared_ptr<string> mac{};
+  shared_ptr<vector<string>> matchDeviceGroupIds{};
   shared_ptr<string> memory{};
   shared_ptr<string> nacStatus{};
   shared_ptr<vector<GetUserDeviceResponseBodyDeviceNetInterfaceInfo>> netInterfaceInfo{};
@@ -11099,6 +11540,9 @@ public:
     }
     if (mac) {
       res["Mac"] = boost::any(*mac);
+    }
+    if (matchDeviceGroupIds) {
+      res["MatchDeviceGroupIds"] = boost::any(*matchDeviceGroupIds);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -11204,6 +11648,16 @@ public:
     }
     if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
       mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("MatchDeviceGroupIds") != m.end() && !m["MatchDeviceGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MatchDeviceGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MatchDeviceGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      matchDeviceGroupIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<string>(boost::any_cast<string>(m["Memory"]));
@@ -22492,6 +22946,7 @@ public:
   shared_ptr<long> currentPage{};
   shared_ptr<string> department{};
   shared_ptr<string> deviceBelong{};
+  shared_ptr<string> deviceGroupId{};
   shared_ptr<vector<string>> deviceStatuses{};
   shared_ptr<vector<string>> deviceTags{};
   shared_ptr<vector<string>> deviceTypes{};
@@ -22533,6 +22988,9 @@ public:
     }
     if (deviceBelong) {
       res["DeviceBelong"] = boost::any(*deviceBelong);
+    }
+    if (deviceGroupId) {
+      res["DeviceGroupId"] = boost::any(*deviceGroupId);
     }
     if (deviceStatuses) {
       res["DeviceStatuses"] = boost::any(*deviceStatuses);
@@ -22614,6 +23072,9 @@ public:
     }
     if (m.find("DeviceBelong") != m.end() && !m["DeviceBelong"].empty()) {
       deviceBelong = make_shared<string>(boost::any_cast<string>(m["DeviceBelong"]));
+    }
+    if (m.find("DeviceGroupId") != m.end() && !m["DeviceGroupId"].empty()) {
+      deviceGroupId = make_shared<string>(boost::any_cast<string>(m["DeviceGroupId"]));
     }
     if (m.find("DeviceStatuses") != m.end() && !m["DeviceStatuses"].empty()) {
       vector<string> toVec1;
@@ -22773,6 +23234,7 @@ public:
   shared_ptr<string> iaStatus{};
   shared_ptr<string> innerIP{};
   shared_ptr<string> mac{};
+  shared_ptr<vector<string>> matchDeviceGroupIds{};
   shared_ptr<string> memory{};
   shared_ptr<string> nacStatus{};
   shared_ptr<vector<ListUserDevicesResponseBodyDevicesNetInterfaceInfo>> netInterfaceInfo{};
@@ -22847,6 +23309,9 @@ public:
     }
     if (mac) {
       res["Mac"] = boost::any(*mac);
+    }
+    if (matchDeviceGroupIds) {
+      res["MatchDeviceGroupIds"] = boost::any(*matchDeviceGroupIds);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -22939,6 +23404,16 @@ public:
     }
     if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
       mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("MatchDeviceGroupIds") != m.end() && !m["MatchDeviceGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MatchDeviceGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MatchDeviceGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      matchDeviceGroupIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<string>(boost::any_cast<string>(m["Memory"]));
@@ -30714,6 +31189,8 @@ public:
   CreateClientUserResponse createClientUser(shared_ptr<CreateClientUserRequest> request);
   CreateDynamicRouteResponse createDynamicRouteWithOptions(shared_ptr<CreateDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDynamicRouteResponse createDynamicRoute(shared_ptr<CreateDynamicRouteRequest> request);
+  CreateEnterpriseAcceleratePolicyResponse createEnterpriseAcceleratePolicyWithOptions(shared_ptr<CreateEnterpriseAcceleratePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateEnterpriseAcceleratePolicyResponse createEnterpriseAcceleratePolicy(shared_ptr<CreateEnterpriseAcceleratePolicyRequest> request);
   CreateIdpDepartmentResponse createIdpDepartmentWithOptions(shared_ptr<CreateIdpDepartmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIdpDepartmentResponse createIdpDepartment(shared_ptr<CreateIdpDepartmentRequest> request);
   CreatePrivateAccessApplicationResponse createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -30742,6 +31219,8 @@ public:
   DeleteDynamicRouteResponse deleteDynamicRoute(shared_ptr<DeleteDynamicRouteRequest> request);
   DeleteIdpDepartmentResponse deleteIdpDepartmentWithOptions(shared_ptr<DeleteIdpDepartmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIdpDepartmentResponse deleteIdpDepartment(shared_ptr<DeleteIdpDepartmentRequest> request);
+  DeleteOtpConfigResponse deleteOtpConfigWithOptions(shared_ptr<DeleteOtpConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteOtpConfigResponse deleteOtpConfig(shared_ptr<DeleteOtpConfigRequest> request);
   DeletePrivateAccessApplicationResponse deletePrivateAccessApplicationWithOptions(shared_ptr<DeletePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletePrivateAccessApplicationResponse deletePrivateAccessApplication(shared_ptr<DeletePrivateAccessApplicationRequest> request);
   DeletePrivateAccessPolicyResponse deletePrivateAccessPolicyWithOptions(shared_ptr<DeletePrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
