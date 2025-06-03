@@ -1695,6 +1695,9 @@ ListPluginsResponse Alibabacloud_APIG20240327::Client::listPluginsWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayType)) {
     query->insert(pair<string, string>("gatewayType", *request->gatewayType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeBuiltinAiGateway)) {
+    query->insert(pair<string, bool>("includeBuiltinAiGateway", *request->includeBuiltinAiGateway));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("pageNumber", *request->pageNumber));
   }

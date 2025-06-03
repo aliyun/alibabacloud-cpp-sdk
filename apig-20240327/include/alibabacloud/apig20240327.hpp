@@ -16559,6 +16559,7 @@ public:
   shared_ptr<string> attachResourceType{};
   shared_ptr<string> gatewayId{};
   shared_ptr<string> gatewayType{};
+  shared_ptr<bool> includeBuiltinAiGateway{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> pluginClassId{};
@@ -16586,6 +16587,9 @@ public:
     }
     if (gatewayType) {
       res["gatewayType"] = boost::any(*gatewayType);
+    }
+    if (includeBuiltinAiGateway) {
+      res["includeBuiltinAiGateway"] = boost::any(*includeBuiltinAiGateway);
     }
     if (pageNumber) {
       res["pageNumber"] = boost::any(*pageNumber);
@@ -16617,6 +16621,9 @@ public:
     }
     if (m.find("gatewayType") != m.end() && !m["gatewayType"].empty()) {
       gatewayType = make_shared<string>(boost::any_cast<string>(m["gatewayType"]));
+    }
+    if (m.find("includeBuiltinAiGateway") != m.end() && !m["includeBuiltinAiGateway"].empty()) {
+      includeBuiltinAiGateway = make_shared<bool>(boost::any_cast<bool>(m["includeBuiltinAiGateway"]));
     }
     if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
