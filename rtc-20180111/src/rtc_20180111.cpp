@@ -282,6 +282,42 @@ CreateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::createAutoLiv
   return createAutoLiveStreamRuleWithOptions(request, runtime);
 }
 
+CreateCloudNotePhrasesResponse Alibabacloud_Rtc20180111::Client::createCloudNotePhrasesWithOptions(shared_ptr<CreateCloudNotePhrasesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateCloudNotePhrasesShrinkRequest> request = make_shared<CreateCloudNotePhrasesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateCloudNotePhrasesRequestPhrase>(tmpReq->phrase)) {
+    request->phraseShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->phrase, make_shared<string>("Phrase"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phraseShrink)) {
+    query->insert(pair<string, string>("Phrase", *request->phraseShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCloudNotePhrases"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCloudNotePhrasesResponse(callApi(params, req, runtime));
+}
+
+CreateCloudNotePhrasesResponse Alibabacloud_Rtc20180111::Client::createCloudNotePhrases(shared_ptr<CreateCloudNotePhrasesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCloudNotePhrasesWithOptions(request, runtime);
+}
+
 CreateEventSubscribeResponse Alibabacloud_Rtc20180111::Client::createEventSubscribeWithOptions(shared_ptr<CreateEventSubscribeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -554,6 +590,42 @@ DeleteChannelResponse Alibabacloud_Rtc20180111::Client::deleteChannelWithOptions
 DeleteChannelResponse Alibabacloud_Rtc20180111::Client::deleteChannel(shared_ptr<DeleteChannelRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteChannelWithOptions(request, runtime);
+}
+
+DeleteCloudNotePhrasesResponse Alibabacloud_Rtc20180111::Client::deleteCloudNotePhrasesWithOptions(shared_ptr<DeleteCloudNotePhrasesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteCloudNotePhrasesShrinkRequest> request = make_shared<DeleteCloudNotePhrasesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<DeleteCloudNotePhrasesRequestPhrase>(tmpReq->phrase)) {
+    request->phraseShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->phrase, make_shared<string>("Phrase"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phraseShrink)) {
+    query->insert(pair<string, string>("Phrase", *request->phraseShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCloudNotePhrases"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCloudNotePhrasesResponse(callApi(params, req, runtime));
+}
+
+DeleteCloudNotePhrasesResponse Alibabacloud_Rtc20180111::Client::deleteCloudNotePhrases(shared_ptr<DeleteCloudNotePhrasesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCloudNotePhrasesWithOptions(request, runtime);
 }
 
 DeleteEventSubscribeResponse Alibabacloud_Rtc20180111::Client::deleteEventSubscribeWithOptions(shared_ptr<DeleteEventSubscribeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1540,6 +1612,48 @@ DescribeChannelsResponse Alibabacloud_Rtc20180111::Client::describeChannels(shar
   return describeChannelsWithOptions(request, runtime);
 }
 
+DescribeCloudNotePhrasesResponse Alibabacloud_Rtc20180111::Client::describeCloudNotePhrasesWithOptions(shared_ptr<DescribeCloudNotePhrasesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeCloudNotePhrasesShrinkRequest> request = make_shared<DescribeCloudNotePhrasesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<DescribeCloudNotePhrasesRequestCondition>(tmpReq->condition)) {
+    request->conditionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->condition, make_shared<string>("Condition"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->conditionShrink)) {
+    query->insert(pair<string, string>("Condition", *request->conditionShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNum)) {
+    query->insert(pair<string, long>("PageNum", *request->pageNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudNotePhrases"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudNotePhrasesResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudNotePhrasesResponse Alibabacloud_Rtc20180111::Client::describeCloudNotePhrases(shared_ptr<DescribeCloudNotePhrasesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudNotePhrasesWithOptions(request, runtime);
+}
+
 DescribeCloudNotesResponse Alibabacloud_Rtc20180111::Client::describeCloudNotesWithOptions(shared_ptr<DescribeCloudNotesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DescribeCloudNotesShrinkRequest> request = make_shared<DescribeCloudNotesShrinkRequest>();
@@ -1568,6 +1682,40 @@ DescribeCloudNotesResponse Alibabacloud_Rtc20180111::Client::describeCloudNotesW
 DescribeCloudNotesResponse Alibabacloud_Rtc20180111::Client::describeCloudNotes(shared_ptr<DescribeCloudNotesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeCloudNotesWithOptions(request, runtime);
+}
+
+DescribeCloudRecordStatusResponse Alibabacloud_Rtc20180111::Client::describeCloudRecordStatusWithOptions(shared_ptr<DescribeCloudRecordStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
+    query->insert(pair<string, string>("ChannelId", *request->channelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudRecordStatus"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudRecordStatusResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudRecordStatusResponse Alibabacloud_Rtc20180111::Client::describeCloudRecordStatus(shared_ptr<DescribeCloudRecordStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudRecordStatusWithOptions(request, runtime);
 }
 
 DescribeEndPointEventListResponse Alibabacloud_Rtc20180111::Client::describeEndPointEventListWithOptions(shared_ptr<DescribeEndPointEventListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3026,6 +3174,42 @@ ModifyCallbackMetaResponse Alibabacloud_Rtc20180111::Client::modifyCallbackMeta(
   return modifyCallbackMetaWithOptions(request, runtime);
 }
 
+ModifyCloudNotePhrasesResponse Alibabacloud_Rtc20180111::Client::modifyCloudNotePhrasesWithOptions(shared_ptr<ModifyCloudNotePhrasesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyCloudNotePhrasesShrinkRequest> request = make_shared<ModifyCloudNotePhrasesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyCloudNotePhrasesRequestPhrase>(tmpReq->phrase)) {
+    request->phraseShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->phrase, make_shared<string>("Phrase"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phraseShrink)) {
+    query->insert(pair<string, string>("Phrase", *request->phraseShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyCloudNotePhrases"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyCloudNotePhrasesResponse(callApi(params, req, runtime));
+}
+
+ModifyCloudNotePhrasesResponse Alibabacloud_Rtc20180111::Client::modifyCloudNotePhrases(shared_ptr<ModifyCloudNotePhrasesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyCloudNotePhrasesWithOptions(request, runtime);
+}
+
 ModifyMPULayoutResponse Alibabacloud_Rtc20180111::Client::modifyMPULayoutWithOptions(shared_ptr<ModifyMPULayoutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3283,6 +3467,9 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   if (!Darabonba_Util::Client::isUnset<vector<StartCloudRecordShrinkRequestBackgrounds>>(request->backgrounds)) {
     query->insert(pair<string, vector<StartCloudRecordShrinkRequestBackgrounds>>("Backgrounds", *request->backgrounds));
   }
+  if (!Darabonba_Util::Client::isUnset<StartCloudRecordShrinkRequestBgColor>(request->bgColor)) {
+    query->insert(pair<string, StartCloudRecordShrinkRequestBgColor>("BgColor", *request->bgColor));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
   }
@@ -3312,6 +3499,9 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   }
   if (!Darabonba_Util::Client::isUnset<StartCloudRecordShrinkRequestStorageConfig>(request->storageConfig)) {
     query->insert(pair<string, StartCloudRecordShrinkRequestStorageConfig>("StorageConfig", *request->storageConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->subHighResolutionStream)) {
+    query->insert(pair<string, bool>("SubHighResolutionStream", *request->subHighResolutionStream));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
@@ -3562,6 +3752,9 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
   if (!Darabonba_Util::Client::isUnset<vector<StartStreamingOutShrinkRequestBackgrounds>>(request->backgrounds)) {
     query->insert(pair<string, vector<StartStreamingOutShrinkRequestBackgrounds>>("Backgrounds", *request->backgrounds));
   }
+  if (!Darabonba_Util::Client::isUnset<StartStreamingOutShrinkRequestBgColor>(request->bgColor)) {
+    query->insert(pair<string, StartStreamingOutShrinkRequestBgColor>("BgColor", *request->bgColor));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
   }
@@ -3594,6 +3787,9 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startWithoutChannelWaitTime)) {
     query->insert(pair<string, long>("StartWithoutChannelWaitTime", *request->startWithoutChannelWaitTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->subHighResolutionStream)) {
+    query->insert(pair<string, bool>("SubHighResolutionStream", *request->subHighResolutionStream));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
@@ -4244,11 +4440,17 @@ UpdateStreamingOutResponse Alibabacloud_Rtc20180111::Client::updateStreamingOutW
   if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutShrinkRequestBackgrounds>>(request->backgrounds)) {
     query->insert(pair<string, vector<UpdateStreamingOutShrinkRequestBackgrounds>>("Backgrounds", *request->backgrounds));
   }
+  if (!Darabonba_Util::Client::isUnset<UpdateStreamingOutShrinkRequestBgColor>(request->bgColor)) {
+    query->insert(pair<string, UpdateStreamingOutShrinkRequestBgColor>("BgColor", *request->bgColor));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutShrinkRequestClockWidgets>>(request->clockWidgets)) {
     query->insert(pair<string, vector<UpdateStreamingOutShrinkRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cropMode)) {
+    query->insert(pair<string, long>("CropMode", *request->cropMode));
   }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutShrinkRequestImages>>(request->images)) {
     query->insert(pair<string, vector<UpdateStreamingOutShrinkRequestImages>>("Images", *request->images));
@@ -4258,6 +4460,9 @@ UpdateStreamingOutResponse Alibabacloud_Rtc20180111::Client::updateStreamingOutW
   }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutShrinkRequestPanes>>(request->panes)) {
     query->insert(pair<string, vector<UpdateStreamingOutShrinkRequestPanes>>("Panes", *request->panes));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateStreamingOutShrinkRequestRegionColor>(request->regionColor)) {
+    query->insert(pair<string, UpdateStreamingOutShrinkRequestRegionColor>("RegionColor", *request->regionColor));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
