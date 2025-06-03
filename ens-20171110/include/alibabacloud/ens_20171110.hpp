@@ -2164,9 +2164,60 @@ public:
 
   virtual ~AttachEnsInstancesResponse() = default;
 };
+class AttachInstanceSDGRequestLoadOpt : public Darabonba::Model {
+public:
+  shared_ptr<bool> blockRwSplit{};
+  shared_ptr<long> blockRwSplitSize{};
+  shared_ptr<bool> cache{};
+  shared_ptr<long> cacheSize{};
+
+  AttachInstanceSDGRequestLoadOpt() {}
+
+  explicit AttachInstanceSDGRequestLoadOpt(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockRwSplit) {
+      res["BlockRwSplit"] = boost::any(*blockRwSplit);
+    }
+    if (blockRwSplitSize) {
+      res["BlockRwSplitSize"] = boost::any(*blockRwSplitSize);
+    }
+    if (cache) {
+      res["Cache"] = boost::any(*cache);
+    }
+    if (cacheSize) {
+      res["CacheSize"] = boost::any(*cacheSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockRwSplit") != m.end() && !m["BlockRwSplit"].empty()) {
+      blockRwSplit = make_shared<bool>(boost::any_cast<bool>(m["BlockRwSplit"]));
+    }
+    if (m.find("BlockRwSplitSize") != m.end() && !m["BlockRwSplitSize"].empty()) {
+      blockRwSplitSize = make_shared<long>(boost::any_cast<long>(m["BlockRwSplitSize"]));
+    }
+    if (m.find("Cache") != m.end() && !m["Cache"].empty()) {
+      cache = make_shared<bool>(boost::any_cast<bool>(m["Cache"]));
+    }
+    if (m.find("CacheSize") != m.end() && !m["CacheSize"].empty()) {
+      cacheSize = make_shared<long>(boost::any_cast<long>(m["CacheSize"]));
+    }
+  }
+
+
+  virtual ~AttachInstanceSDGRequestLoadOpt() = default;
+};
 class AttachInstanceSDGRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<AttachInstanceSDGRequestLoadOpt> loadOpt{};
   shared_ptr<string> SDGId{};
 
   AttachInstanceSDGRequest() {}
@@ -2181,6 +2232,9 @@ public:
     map<string, boost::any> res;
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (loadOpt) {
+      res["LoadOpt"] = loadOpt ? boost::any(loadOpt->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (SDGId) {
       res["SDGId"] = boost::any(*SDGId);
@@ -2199,6 +2253,13 @@ public:
       }
       instanceIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("LoadOpt") != m.end() && !m["LoadOpt"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LoadOpt"].type()) {
+        AttachInstanceSDGRequestLoadOpt model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LoadOpt"]));
+        loadOpt = make_shared<AttachInstanceSDGRequestLoadOpt>(model1);
+      }
+    }
     if (m.find("SDGId") != m.end() && !m["SDGId"].empty()) {
       SDGId = make_shared<string>(boost::any_cast<string>(m["SDGId"]));
     }
@@ -2210,6 +2271,7 @@ public:
 class AttachInstanceSDGShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceIdsShrink{};
+  shared_ptr<string> loadOptShrink{};
   shared_ptr<string> SDGId{};
 
   AttachInstanceSDGShrinkRequest() {}
@@ -2225,6 +2287,9 @@ public:
     if (instanceIdsShrink) {
       res["InstanceIds"] = boost::any(*instanceIdsShrink);
     }
+    if (loadOptShrink) {
+      res["LoadOpt"] = boost::any(*loadOptShrink);
+    }
     if (SDGId) {
       res["SDGId"] = boost::any(*SDGId);
     }
@@ -2234,6 +2299,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       instanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));
+    }
+    if (m.find("LoadOpt") != m.end() && !m["LoadOpt"].empty()) {
+      loadOptShrink = make_shared<string>(boost::any_cast<string>(m["LoadOpt"]));
     }
     if (m.find("SDGId") != m.end() && !m["SDGId"].empty()) {
       SDGId = make_shared<string>(boost::any_cast<string>(m["SDGId"]));
@@ -31309,6 +31377,8 @@ public:
 };
 class DescribeInstanceSDGStatusResponseBodyDeploymentStatus : public Darabonba::Model {
 public:
+  shared_ptr<long> blockRwSplitSize{};
+  shared_ptr<long> cacheSize{};
   shared_ptr<string> ensRegionId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> mountType{};
@@ -31327,6 +31397,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (blockRwSplitSize) {
+      res["BlockRwSplitSize"] = boost::any(*blockRwSplitSize);
+    }
+    if (cacheSize) {
+      res["CacheSize"] = boost::any(*cacheSize);
+    }
     if (ensRegionId) {
       res["EnsRegionId"] = boost::any(*ensRegionId);
     }
@@ -31352,6 +31428,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockRwSplitSize") != m.end() && !m["BlockRwSplitSize"].empty()) {
+      blockRwSplitSize = make_shared<long>(boost::any_cast<long>(m["BlockRwSplitSize"]));
+    }
+    if (m.find("CacheSize") != m.end() && !m["CacheSize"].empty()) {
+      cacheSize = make_shared<long>(boost::any_cast<long>(m["CacheSize"]));
+    }
     if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
       ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
     }
@@ -45447,6 +45529,8 @@ public:
 };
 class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus : public Darabonba::Model {
 public:
+  shared_ptr<long> blockRwSplitSize{};
+  shared_ptr<long> cacheSize{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> mountType{};
   shared_ptr<string> phase{};
@@ -45464,6 +45548,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (blockRwSplitSize) {
+      res["BlockRwSplitSize"] = boost::any(*blockRwSplitSize);
+    }
+    if (cacheSize) {
+      res["CacheSize"] = boost::any(*cacheSize);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -45486,6 +45576,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockRwSplitSize") != m.end() && !m["BlockRwSplitSize"].empty()) {
+      blockRwSplitSize = make_shared<long>(boost::any_cast<long>(m["BlockRwSplitSize"]));
+    }
+    if (m.find("CacheSize") != m.end() && !m["CacheSize"].empty()) {
+      cacheSize = make_shared<long>(boost::any_cast<long>(m["CacheSize"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }

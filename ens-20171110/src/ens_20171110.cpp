@@ -343,9 +343,15 @@ AttachInstanceSDGResponse Alibabacloud_Ens20171110::Client::attachInstanceSDGWit
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceIds)) {
     request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<AttachInstanceSDGRequestLoadOpt>(tmpReq->loadOpt)) {
+    request->loadOptShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->loadOpt, make_shared<string>("LoadOpt"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceIdsShrink)) {
     query->insert(pair<string, string>("InstanceIds", *request->instanceIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loadOptShrink)) {
+    query->insert(pair<string, string>("LoadOpt", *request->loadOptShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->SDGId)) {
     query->insert(pair<string, string>("SDGId", *request->SDGId));
