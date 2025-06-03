@@ -2076,17 +2076,17 @@ CreateMessageResponse Alibabacloud_Aliding20230426::Client::createMessageWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->assistantId)) {
     body->insert(pair<string, string>("assistantId", *request->assistantId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateMessageRequestContent>>(request->content)) {
-    body->insert(pair<string, vector<CreateMessageRequestContent>>("content", *request->content));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->metadata)) {
-    body->insert(pair<string, map<string, boost::any>>("metadata", *request->metadata));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateMessageRequestMessages>>(request->messages)) {
+    body->insert(pair<string, vector<CreateMessageRequestMessages>>("messages", *request->messages));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->originalAssistantId)) {
     body->insert(pair<string, string>("originalAssistantId", *request->originalAssistantId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->role)) {
-    body->insert(pair<string, string>("role", *request->role));
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIdOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceIdOfOriginalAssistantId", *request->sourceIdOfOriginalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceTypeOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceTypeOfOriginalAssistantId", *request->sourceTypeOfOriginalAssistantId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->threadId)) {
     body->insert(pair<string, string>("threadId", *request->threadId));
@@ -2472,14 +2472,14 @@ CreateRunResponse Alibabacloud_Aliding20230426::Client::createRunWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->assistantId)) {
     body->insert(pair<string, string>("assistantId", *request->assistantId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instructions)) {
-    body->insert(pair<string, string>("instructions", *request->instructions));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->metadata)) {
-    body->insert(pair<string, map<string, boost::any>>("metadata", *request->metadata));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->originalAssistantId)) {
     body->insert(pair<string, string>("originalAssistantId", *request->originalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIdOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceIdOfOriginalAssistantId", *request->sourceIdOfOriginalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceTypeOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceTypeOfOriginalAssistantId", *request->sourceTypeOfOriginalAssistantId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
     body->insert(pair<string, bool>("stream", *request->stream));
@@ -2927,11 +2927,14 @@ CreateThreadResponse Alibabacloud_Aliding20230426::Client::createThreadWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->assistantId)) {
     body->insert(pair<string, string>("assistantId", *request->assistantId));
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->metadata)) {
-    body->insert(pair<string, map<string, boost::any>>("metadata", *request->metadata));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->originalAssistantId)) {
     body->insert(pair<string, string>("originalAssistantId", *request->originalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIdOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceIdOfOriginalAssistantId", *request->sourceIdOfOriginalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sourceTypeOfOriginalAssistantId)) {
+    body->insert(pair<string, long>("sourceTypeOfOriginalAssistantId", *request->sourceTypeOfOriginalAssistantId));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -4853,20 +4856,20 @@ GetAssistantCapabilityResponse Alibabacloud_Aliding20230426::Client::getAssistan
   if (!Darabonba_Util::Client::isUnset<string>(request->assistantId)) {
     body->insert(pair<string, string>("assistantId", *request->assistantId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<GetAssistantCapabilityRequestContent>>(request->content)) {
-    body->insert(pair<string, vector<GetAssistantCapabilityRequestContent>>("content", *request->content));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("id", *request->id));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->metadata)) {
-    body->insert(pair<string, map<string, boost::any>>("metadata", *request->metadata));
+  if (!Darabonba_Util::Client::isUnset<vector<GetAssistantCapabilityRequestMessages>>(request->messages)) {
+    body->insert(pair<string, vector<GetAssistantCapabilityRequestMessages>>("messages", *request->messages));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->originalAssistantId)) {
     body->insert(pair<string, string>("originalAssistantId", *request->originalAssistantId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
     body->insert(pair<string, string>("protocol", *request->protocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIdOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceIdOfOriginalAssistantId", *request->sourceIdOfOriginalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceTypeOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceTypeOfOriginalAssistantId", *request->sourceTypeOfOriginalAssistantId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->threadId)) {
     body->insert(pair<string, string>("threadId", *request->threadId));
@@ -8606,14 +8609,20 @@ InvokeAssistantResponse Alibabacloud_Aliding20230426::Client::invokeAssistantWit
   if (!Darabonba_Util::Client::isUnset<string>(request->assistantId)) {
     body->insert(pair<string, string>("assistantId", *request->assistantId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<InvokeAssistantRequestContent>>(request->content)) {
-    body->insert(pair<string, vector<InvokeAssistantRequestContent>>("content", *request->content));
+  if (!Darabonba_Util::Client::isUnset<vector<InvokeAssistantRequestMessages>>(request->messages)) {
+    body->insert(pair<string, vector<InvokeAssistantRequestMessages>>("messages", *request->messages));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<InvokeAssistantRequestHistory>>(request->history)) {
-    body->insert(pair<string, vector<InvokeAssistantRequestHistory>>("history", *request->history));
+  if (!Darabonba_Util::Client::isUnset<string>(request->originalAssistantId)) {
+    body->insert(pair<string, string>("originalAssistantId", *request->originalAssistantId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     body->insert(pair<string, string>("sessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIdOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceIdOfOriginalAssistantId", *request->sourceIdOfOriginalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceTypeOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceTypeOfOriginalAssistantId", *request->sourceTypeOfOriginalAssistantId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
     body->insert(pair<string, bool>("stream", *request->stream));
@@ -9118,11 +9127,17 @@ ListMessageResponse Alibabacloud_Aliding20230426::Client::listMessageWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     body->insert(pair<string, string>("order", *request->order));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->originalAssistantid)) {
-    body->insert(pair<string, string>("originalAssistantid", *request->originalAssistantid));
+  if (!Darabonba_Util::Client::isUnset<string>(request->originalAssistantId)) {
+    body->insert(pair<string, string>("originalAssistantId", *request->originalAssistantId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->runId)) {
     body->insert(pair<string, string>("runId", *request->runId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIdOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceIdOfOriginalAssistantId", *request->sourceIdOfOriginalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceTypeOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceTypeOfOriginalAssistantId", *request->sourceTypeOfOriginalAssistantId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->threadId)) {
     body->insert(pair<string, string>("threadId", *request->threadId));
@@ -11597,8 +11612,11 @@ RetrieveRunResponse Alibabacloud_Aliding20230426::Client::retrieveRunWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->runId)) {
     body->insert(pair<string, string>("runId", *request->runId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->threadId)) {
-    body->insert(pair<string, string>("threadId", *request->threadId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIdOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceIdOfOriginalAssistantId", *request->sourceIdOfOriginalAssistantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceTypeOfOriginalAssistantId)) {
+    body->insert(pair<string, string>("sourceTypeOfOriginalAssistantId", *request->sourceTypeOfOriginalAssistantId));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
