@@ -24522,6 +24522,243 @@ public:
 
   virtual ~ListAiccsRobotResponse() = default;
 };
+class ListAvailableTtsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> ttsVoiceCode{};
+
+  ListAvailableTtsRequest() {}
+
+  explicit ListAvailableTtsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ttsVoiceCode) {
+      res["TtsVoiceCode"] = boost::any(*ttsVoiceCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TtsVoiceCode") != m.end() && !m["TtsVoiceCode"].empty()) {
+      ttsVoiceCode = make_shared<string>(boost::any_cast<string>(m["TtsVoiceCode"]));
+    }
+  }
+
+
+  virtual ~ListAvailableTtsRequest() = default;
+};
+class ListAvailableTtsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> ttsAuditionFileUrl{};
+  shared_ptr<string> ttsEngine{};
+  shared_ptr<string> ttsStyle{};
+  shared_ptr<string> ttsVoiceCode{};
+  shared_ptr<string> ttsVoiceName{};
+
+  ListAvailableTtsResponseBodyData() {}
+
+  explicit ListAvailableTtsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ttsAuditionFileUrl) {
+      res["TtsAuditionFileUrl"] = boost::any(*ttsAuditionFileUrl);
+    }
+    if (ttsEngine) {
+      res["TtsEngine"] = boost::any(*ttsEngine);
+    }
+    if (ttsStyle) {
+      res["TtsStyle"] = boost::any(*ttsStyle);
+    }
+    if (ttsVoiceCode) {
+      res["TtsVoiceCode"] = boost::any(*ttsVoiceCode);
+    }
+    if (ttsVoiceName) {
+      res["TtsVoiceName"] = boost::any(*ttsVoiceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TtsAuditionFileUrl") != m.end() && !m["TtsAuditionFileUrl"].empty()) {
+      ttsAuditionFileUrl = make_shared<string>(boost::any_cast<string>(m["TtsAuditionFileUrl"]));
+    }
+    if (m.find("TtsEngine") != m.end() && !m["TtsEngine"].empty()) {
+      ttsEngine = make_shared<string>(boost::any_cast<string>(m["TtsEngine"]));
+    }
+    if (m.find("TtsStyle") != m.end() && !m["TtsStyle"].empty()) {
+      ttsStyle = make_shared<string>(boost::any_cast<string>(m["TtsStyle"]));
+    }
+    if (m.find("TtsVoiceCode") != m.end() && !m["TtsVoiceCode"].empty()) {
+      ttsVoiceCode = make_shared<string>(boost::any_cast<string>(m["TtsVoiceCode"]));
+    }
+    if (m.find("TtsVoiceName") != m.end() && !m["TtsVoiceName"].empty()) {
+      ttsVoiceName = make_shared<string>(boost::any_cast<string>(m["TtsVoiceName"]));
+    }
+  }
+
+
+  virtual ~ListAvailableTtsResponseBodyData() = default;
+};
+class ListAvailableTtsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<vector<ListAvailableTtsResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListAvailableTtsResponseBody() {}
+
+  explicit ListAvailableTtsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListAvailableTtsResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAvailableTtsResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListAvailableTtsResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListAvailableTtsResponseBody() = default;
+};
+class ListAvailableTtsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAvailableTtsResponseBody> body{};
+
+  ListAvailableTtsResponse() {}
+
+  explicit ListAvailableTtsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAvailableTtsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAvailableTtsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAvailableTtsResponse() = default;
+};
 class ListChatRecordDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -36810,6 +37047,8 @@ public:
   ListAgentBySkillGroupIdResponse listAgentBySkillGroupId(shared_ptr<ListAgentBySkillGroupIdRequest> request);
   ListAiccsRobotResponse listAiccsRobotWithOptions(shared_ptr<ListAiccsRobotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAiccsRobotResponse listAiccsRobot(shared_ptr<ListAiccsRobotRequest> request);
+  ListAvailableTtsResponse listAvailableTtsWithOptions(shared_ptr<ListAvailableTtsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAvailableTtsResponse listAvailableTts(shared_ptr<ListAvailableTtsRequest> request);
   ListChatRecordDetailResponse listChatRecordDetailWithOptions(shared_ptr<ListChatRecordDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListChatRecordDetailResponse listChatRecordDetail(shared_ptr<ListChatRecordDetailRequest> request);
   ListDialogResponse listDialogWithOptions(shared_ptr<ListDialogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
