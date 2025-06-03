@@ -21601,7 +21601,9 @@ public:
   shared_ptr<long> ownType{};
   shared_ptr<string> payType{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<vector<string>> policyGroupIdList{};
   shared_ptr<string> policyGroupName{};
+  shared_ptr<vector<string>> policyGroupNameList{};
   shared_ptr<string> protocolType{};
   shared_ptr<double> ratioThreshold{};
   shared_ptr<long> resetType{};
@@ -21739,8 +21741,14 @@ public:
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
     }
+    if (policyGroupIdList) {
+      res["PolicyGroupIdList"] = boost::any(*policyGroupIdList);
+    }
     if (policyGroupName) {
       res["PolicyGroupName"] = boost::any(*policyGroupName);
+    }
+    if (policyGroupNameList) {
+      res["PolicyGroupNameList"] = boost::any(*policyGroupNameList);
     }
     if (protocolType) {
       res["ProtocolType"] = boost::any(*protocolType);
@@ -21910,8 +21918,28 @@ public:
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
     }
+    if (m.find("PolicyGroupIdList") != m.end() && !m["PolicyGroupIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyGroupIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyGroupIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyGroupIdList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
       policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
+    }
+    if (m.find("PolicyGroupNameList") != m.end() && !m["PolicyGroupNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyGroupNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyGroupNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyGroupNameList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
       protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
