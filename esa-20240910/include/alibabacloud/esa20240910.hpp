@@ -6865,6 +6865,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> name{};
   shared_ptr<string> objects{};
+  shared_ptr<string> siteIds{};
   shared_ptr<string> startTime{};
   shared_ptr<string> template_{};
 
@@ -6887,6 +6888,9 @@ public:
     if (objects) {
       res["Objects"] = boost::any(*objects);
     }
+    if (siteIds) {
+      res["SiteIds"] = boost::any(*siteIds);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -6906,6 +6910,9 @@ public:
     if (m.find("Objects") != m.end() && !m["Objects"].empty()) {
       objects = make_shared<string>(boost::any_cast<string>(m["Objects"]));
     }
+    if (m.find("SiteIds") != m.end() && !m["SiteIds"].empty()) {
+      siteIds = make_shared<string>(boost::any_cast<string>(m["SiteIds"]));
+    }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
@@ -6924,6 +6931,7 @@ public:
   shared_ptr<vector<string>> objects{};
   shared_ptr<long> policyId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> siteIds{};
   shared_ptr<string> startTime{};
   shared_ptr<string> template_{};
 
@@ -6951,6 +6959,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (siteIds) {
+      res["SiteIds"] = boost::any(*siteIds);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -6983,6 +6994,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SiteIds") != m.end() && !m["SiteIds"].empty()) {
+      siteIds = make_shared<string>(boost::any_cast<string>(m["SiteIds"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -8486,6 +8500,9 @@ public:
   shared_ptr<string> hstsPreload{};
   shared_ptr<string> httpsForce{};
   shared_ptr<string> httpsForceCode{};
+  shared_ptr<string> httpsNoSniDeny{};
+  shared_ptr<string> httpsSniVerify{};
+  shared_ptr<string> httpsSniWhitelist{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
   shared_ptr<string> ruleName{};
@@ -8532,6 +8549,15 @@ public:
     }
     if (httpsForceCode) {
       res["HttpsForceCode"] = boost::any(*httpsForceCode);
+    }
+    if (httpsNoSniDeny) {
+      res["HttpsNoSniDeny"] = boost::any(*httpsNoSniDeny);
+    }
+    if (httpsSniVerify) {
+      res["HttpsSniVerify"] = boost::any(*httpsSniVerify);
+    }
+    if (httpsSniWhitelist) {
+      res["HttpsSniWhitelist"] = boost::any(*httpsSniWhitelist);
     }
     if (rule) {
       res["Rule"] = boost::any(*rule);
@@ -8584,6 +8610,15 @@ public:
     }
     if (m.find("HttpsForceCode") != m.end() && !m["HttpsForceCode"].empty()) {
       httpsForceCode = make_shared<string>(boost::any_cast<string>(m["HttpsForceCode"]));
+    }
+    if (m.find("HttpsNoSniDeny") != m.end() && !m["HttpsNoSniDeny"].empty()) {
+      httpsNoSniDeny = make_shared<string>(boost::any_cast<string>(m["HttpsNoSniDeny"]));
+    }
+    if (m.find("HttpsSniVerify") != m.end() && !m["HttpsSniVerify"].empty()) {
+      httpsSniVerify = make_shared<string>(boost::any_cast<string>(m["HttpsSniVerify"]));
+    }
+    if (m.find("HttpsSniWhitelist") != m.end() && !m["HttpsSniWhitelist"].empty()) {
+      httpsSniWhitelist = make_shared<string>(boost::any_cast<string>(m["HttpsSniWhitelist"]));
     }
     if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
       rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
@@ -21586,6 +21621,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<vector<string>> objects{};
   shared_ptr<long> policyId{};
+  shared_ptr<string> siteIds{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> template_{};
@@ -21611,6 +21647,9 @@ public:
     }
     if (policyId) {
       res["PolicyId"] = boost::any(*policyId);
+    }
+    if (siteIds) {
+      res["SiteIds"] = boost::any(*siteIds);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -21643,6 +21682,9 @@ public:
     }
     if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
       policyId = make_shared<long>(boost::any_cast<long>(m["PolicyId"]));
+    }
+    if (m.find("SiteIds") != m.end() && !m["SiteIds"].empty()) {
+      siteIds = make_shared<string>(boost::any_cast<string>(m["SiteIds"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -30969,6 +31011,9 @@ public:
   shared_ptr<string> hstsPreload{};
   shared_ptr<string> httpsForce{};
   shared_ptr<string> httpsForceCode{};
+  shared_ptr<string> httpsNoSniDeny{};
+  shared_ptr<string> httpsSniVerify{};
+  shared_ptr<string> httpsSniWhitelist{};
   shared_ptr<string> requestId{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
@@ -31021,6 +31066,15 @@ public:
     }
     if (httpsForceCode) {
       res["HttpsForceCode"] = boost::any(*httpsForceCode);
+    }
+    if (httpsNoSniDeny) {
+      res["HttpsNoSniDeny"] = boost::any(*httpsNoSniDeny);
+    }
+    if (httpsSniVerify) {
+      res["HttpsSniVerify"] = boost::any(*httpsSniVerify);
+    }
+    if (httpsSniWhitelist) {
+      res["HttpsSniWhitelist"] = boost::any(*httpsSniWhitelist);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -31079,6 +31133,15 @@ public:
     }
     if (m.find("HttpsForceCode") != m.end() && !m["HttpsForceCode"].empty()) {
       httpsForceCode = make_shared<string>(boost::any_cast<string>(m["HttpsForceCode"]));
+    }
+    if (m.find("HttpsNoSniDeny") != m.end() && !m["HttpsNoSniDeny"].empty()) {
+      httpsNoSniDeny = make_shared<string>(boost::any_cast<string>(m["HttpsNoSniDeny"]));
+    }
+    if (m.find("HttpsSniVerify") != m.end() && !m["HttpsSniVerify"].empty()) {
+      httpsSniVerify = make_shared<string>(boost::any_cast<string>(m["HttpsSniVerify"]));
+    }
+    if (m.find("HttpsSniWhitelist") != m.end() && !m["HttpsSniWhitelist"].empty()) {
+      httpsSniWhitelist = make_shared<string>(boost::any_cast<string>(m["HttpsSniWhitelist"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -46383,6 +46446,9 @@ public:
   shared_ptr<string> hstsPreload{};
   shared_ptr<string> httpsForce{};
   shared_ptr<string> httpsForceCode{};
+  shared_ptr<string> httpsNoSniDeny{};
+  shared_ptr<string> httpsSniVerify{};
+  shared_ptr<string> httpsSniWhitelist{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
   shared_ptr<string> ruleName{};
@@ -46434,6 +46500,15 @@ public:
     }
     if (httpsForceCode) {
       res["HttpsForceCode"] = boost::any(*httpsForceCode);
+    }
+    if (httpsNoSniDeny) {
+      res["HttpsNoSniDeny"] = boost::any(*httpsNoSniDeny);
+    }
+    if (httpsSniVerify) {
+      res["HttpsSniVerify"] = boost::any(*httpsSniVerify);
+    }
+    if (httpsSniWhitelist) {
+      res["HttpsSniWhitelist"] = boost::any(*httpsSniWhitelist);
     }
     if (rule) {
       res["Rule"] = boost::any(*rule);
@@ -46489,6 +46564,15 @@ public:
     }
     if (m.find("HttpsForceCode") != m.end() && !m["HttpsForceCode"].empty()) {
       httpsForceCode = make_shared<string>(boost::any_cast<string>(m["HttpsForceCode"]));
+    }
+    if (m.find("HttpsNoSniDeny") != m.end() && !m["HttpsNoSniDeny"].empty()) {
+      httpsNoSniDeny = make_shared<string>(boost::any_cast<string>(m["HttpsNoSniDeny"]));
+    }
+    if (m.find("HttpsSniVerify") != m.end() && !m["HttpsSniVerify"].empty()) {
+      httpsSniVerify = make_shared<string>(boost::any_cast<string>(m["HttpsSniVerify"]));
+    }
+    if (m.find("HttpsSniWhitelist") != m.end() && !m["HttpsSniWhitelist"].empty()) {
+      httpsSniWhitelist = make_shared<string>(boost::any_cast<string>(m["HttpsSniWhitelist"]));
     }
     if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
       rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
@@ -64395,6 +64479,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> objects{};
   shared_ptr<long> policyId{};
+  shared_ptr<string> siteIds{};
   shared_ptr<string> startTime{};
   shared_ptr<string> template_{};
 
@@ -64420,6 +64505,9 @@ public:
     if (policyId) {
       res["PolicyId"] = boost::any(*policyId);
     }
+    if (siteIds) {
+      res["SiteIds"] = boost::any(*siteIds);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -64442,6 +64530,9 @@ public:
     if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
       policyId = make_shared<long>(boost::any_cast<long>(m["PolicyId"]));
     }
+    if (m.find("SiteIds") != m.end() && !m["SiteIds"].empty()) {
+      siteIds = make_shared<string>(boost::any_cast<string>(m["SiteIds"]));
+    }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
@@ -64460,6 +64551,7 @@ public:
   shared_ptr<vector<string>> objects{};
   shared_ptr<long> policyId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> siteIds{};
   shared_ptr<string> startTime{};
   shared_ptr<string> template_{};
 
@@ -64487,6 +64579,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (siteIds) {
+      res["SiteIds"] = boost::any(*siteIds);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -64519,6 +64614,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SiteIds") != m.end() && !m["SiteIds"].empty()) {
+      siteIds = make_shared<string>(boost::any_cast<string>(m["SiteIds"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -65762,6 +65860,9 @@ public:
   shared_ptr<string> hstsPreload{};
   shared_ptr<string> httpsForce{};
   shared_ptr<string> httpsForceCode{};
+  shared_ptr<string> httpsNoSniDeny{};
+  shared_ptr<string> httpsSniVerify{};
+  shared_ptr<string> httpsSniWhitelist{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
   shared_ptr<string> ruleName{};
@@ -65810,6 +65911,15 @@ public:
     }
     if (httpsForceCode) {
       res["HttpsForceCode"] = boost::any(*httpsForceCode);
+    }
+    if (httpsNoSniDeny) {
+      res["HttpsNoSniDeny"] = boost::any(*httpsNoSniDeny);
+    }
+    if (httpsSniVerify) {
+      res["HttpsSniVerify"] = boost::any(*httpsSniVerify);
+    }
+    if (httpsSniWhitelist) {
+      res["HttpsSniWhitelist"] = boost::any(*httpsSniWhitelist);
     }
     if (rule) {
       res["Rule"] = boost::any(*rule);
@@ -65862,6 +65972,15 @@ public:
     }
     if (m.find("HttpsForceCode") != m.end() && !m["HttpsForceCode"].empty()) {
       httpsForceCode = make_shared<string>(boost::any_cast<string>(m["HttpsForceCode"]));
+    }
+    if (m.find("HttpsNoSniDeny") != m.end() && !m["HttpsNoSniDeny"].empty()) {
+      httpsNoSniDeny = make_shared<string>(boost::any_cast<string>(m["HttpsNoSniDeny"]));
+    }
+    if (m.find("HttpsSniVerify") != m.end() && !m["HttpsSniVerify"].empty()) {
+      httpsSniVerify = make_shared<string>(boost::any_cast<string>(m["HttpsSniVerify"]));
+    }
+    if (m.find("HttpsSniWhitelist") != m.end() && !m["HttpsSniWhitelist"].empty()) {
+      httpsSniWhitelist = make_shared<string>(boost::any_cast<string>(m["HttpsSniWhitelist"]));
     }
     if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
       rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));

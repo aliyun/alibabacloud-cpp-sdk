@@ -965,6 +965,9 @@ CreateCustomScenePolicyResponse Alibabacloud_ESA20240910::Client::createCustomSc
   if (!Darabonba_Util::Client::isUnset<string>(request->objects)) {
     query->insert(pair<string, string>("Objects", *request->objects));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->siteIds)) {
+    query->insert(pair<string, string>("SiteIds", *request->siteIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
   }
@@ -1270,6 +1273,15 @@ CreateHttpsApplicationConfigurationResponse Alibabacloud_ESA20240910::Client::cr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->httpsForceCode)) {
     query->insert(pair<string, string>("HttpsForceCode", *request->httpsForceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsNoSniDeny)) {
+    query->insert(pair<string, string>("HttpsNoSniDeny", *request->httpsNoSniDeny));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsSniVerify)) {
+    query->insert(pair<string, string>("HttpsSniVerify", *request->httpsSniVerify));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsSniWhitelist)) {
+    query->insert(pair<string, string>("HttpsSniWhitelist", *request->httpsSniWhitelist));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rule)) {
     query->insert(pair<string, string>("Rule", *request->rule));
@@ -9440,6 +9452,9 @@ UpdateCustomScenePolicyResponse Alibabacloud_ESA20240910::Client::updateCustomSc
   if (!Darabonba_Util::Client::isUnset<long>(request->policyId)) {
     query->insert(pair<string, long>("PolicyId", *request->policyId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->siteIds)) {
+    query->insert(pair<string, string>("SiteIds", *request->siteIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
   }
@@ -9715,6 +9730,15 @@ UpdateHttpsApplicationConfigurationResponse Alibabacloud_ESA20240910::Client::up
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->httpsForceCode)) {
     query->insert(pair<string, string>("HttpsForceCode", *request->httpsForceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsNoSniDeny)) {
+    query->insert(pair<string, string>("HttpsNoSniDeny", *request->httpsNoSniDeny));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsSniVerify)) {
+    query->insert(pair<string, string>("HttpsSniVerify", *request->httpsSniVerify));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsSniWhitelist)) {
+    query->insert(pair<string, string>("HttpsSniWhitelist", *request->httpsSniWhitelist));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rule)) {
     query->insert(pair<string, string>("Rule", *request->rule));
