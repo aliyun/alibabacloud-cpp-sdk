@@ -602,6 +602,7 @@ public:
   shared_ptr<string> dataType{};
   shared_ptr<string> datasetId{};
   shared_ptr<string> description{};
+  shared_ptr<string> edition{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> importInfo{};
@@ -647,6 +648,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
     }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
@@ -730,6 +734,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
     }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
@@ -4189,6 +4196,7 @@ public:
   shared_ptr<string> dataSourceType{};
   shared_ptr<string> dataType{};
   shared_ptr<string> description{};
+  shared_ptr<string> edition{};
   shared_ptr<string> importInfo{};
   shared_ptr<vector<Label>> labels{};
   shared_ptr<vector<string>> mountAccessReadWriteRoleIdList{};
@@ -4234,6 +4242,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
     }
     if (importInfo) {
       res["ImportInfo"] = boost::any(*importInfo);
@@ -4315,6 +4326,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
     }
     if (m.find("ImportInfo") != m.end() && !m["ImportInfo"].empty()) {
       importInfo = make_shared<string>(boost::any_cast<string>(m["ImportInfo"]));
@@ -10456,6 +10470,7 @@ public:
   shared_ptr<string> dataType{};
   shared_ptr<string> datasetId{};
   shared_ptr<string> description{};
+  shared_ptr<string> edition{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> importInfo{};
@@ -10503,6 +10518,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
     }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
@@ -10592,6 +10610,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
     }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
@@ -21696,6 +21717,7 @@ public:
 class UpdateDatasetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> edition{};
   shared_ptr<vector<string>> mountAccessReadWriteRoleIdList{};
   shared_ptr<string> name{};
   shared_ptr<string> options{};
@@ -21713,6 +21735,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
+    }
     if (mountAccessReadWriteRoleIdList) {
       res["MountAccessReadWriteRoleIdList"] = boost::any(*mountAccessReadWriteRoleIdList);
     }
@@ -21728,6 +21753,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
     }
     if (m.find("MountAccessReadWriteRoleIdList") != m.end() && !m["MountAccessReadWriteRoleIdList"].empty()) {
       vector<string> toVec1;

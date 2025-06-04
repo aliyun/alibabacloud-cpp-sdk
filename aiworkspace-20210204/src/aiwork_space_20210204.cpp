@@ -356,6 +356,9 @@ CreateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetWit
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->edition)) {
+    body->insert(pair<string, string>("Edition", *request->edition));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->importInfo)) {
     body->insert(pair<string, string>("ImportInfo", *request->importInfo));
   }
@@ -4085,6 +4088,9 @@ UpdateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::updateDatasetWit
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->edition)) {
+    body->insert(pair<string, string>("Edition", *request->edition));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->mountAccessReadWriteRoleIdList)) {
     body->insert(pair<string, vector<string>>("MountAccessReadWriteRoleIdList", *request->mountAccessReadWriteRoleIdList));
