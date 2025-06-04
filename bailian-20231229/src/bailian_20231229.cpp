@@ -1000,6 +1000,9 @@ ListIndexDocumentsResponse Alibabacloud_Bailian20231229::Client::listIndexDocume
   if (!Darabonba_Util::Client::isUnset<string>(request->documentStatus)) {
     query->insert(pair<string, string>("DocumentStatus", *request->documentStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableNameLike)) {
+    query->insert(pair<string, string>("EnableNameLike", *request->enableNameLike));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->indexId)) {
     query->insert(pair<string, string>("IndexId", *request->indexId));
   }

@@ -5963,6 +5963,7 @@ class ListIndexDocumentsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> documentName{};
   shared_ptr<string> documentStatus{};
+  shared_ptr<string> enableNameLike{};
   shared_ptr<string> indexId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -5983,6 +5984,9 @@ public:
     if (documentStatus) {
       res["DocumentStatus"] = boost::any(*documentStatus);
     }
+    if (enableNameLike) {
+      res["EnableNameLike"] = boost::any(*enableNameLike);
+    }
     if (indexId) {
       res["IndexId"] = boost::any(*indexId);
     }
@@ -6001,6 +6005,9 @@ public:
     }
     if (m.find("DocumentStatus") != m.end() && !m["DocumentStatus"].empty()) {
       documentStatus = make_shared<string>(boost::any_cast<string>(m["DocumentStatus"]));
+    }
+    if (m.find("EnableNameLike") != m.end() && !m["EnableNameLike"].empty()) {
+      enableNameLike = make_shared<string>(boost::any_cast<string>(m["EnableNameLike"]));
     }
     if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
       indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));
