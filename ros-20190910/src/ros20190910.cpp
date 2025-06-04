@@ -274,6 +274,9 @@ CreateChangeSetResponse Alibabacloud_ROS20190910::Client::createChangeSetWithOpt
   if (!Darabonba_Util::Client::isUnset<vector<CreateChangeSetRequestTags>>(request->tags)) {
     query->insert(pair<string, vector<CreateChangeSetRequestTags>>("Tags", *request->tags));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->taintResources)) {
+    query->insert(pair<string, vector<string>>("TaintResources", *request->taintResources));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -3109,6 +3112,9 @@ PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->stackPolicyURL)) {
     query->insert(pair<string, string>("StackPolicyURL", *request->stackPolicyURL));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->taintResources)) {
+    query->insert(pair<string, vector<string>>("TaintResources", *request->taintResources));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -3548,6 +3554,9 @@ UpdateStackResponse Alibabacloud_ROS20190910::Client::updateStackWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateStackRequestTags>>(request->tags)) {
     query->insert(pair<string, vector<UpdateStackRequestTags>>("Tags", *request->tags));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->taintResources)) {
+    query->insert(pair<string, vector<string>>("TaintResources", *request->taintResources));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));

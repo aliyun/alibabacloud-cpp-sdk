@@ -919,6 +919,7 @@ public:
   shared_ptr<string> stackPolicyDuringUpdateURL{};
   shared_ptr<string> stackPolicyURL{};
   shared_ptr<vector<CreateChangeSetRequestTags>> tags{};
+  shared_ptr<vector<string>> taintResources{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateScratchId{};
@@ -1008,6 +1009,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (taintResources) {
+      res["TaintResources"] = boost::any(*taintResources);
     }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
@@ -1130,6 +1134,16 @@ public:
         }
         tags = make_shared<vector<CreateChangeSetRequestTags>>(expect1);
       }
+    }
+    if (m.find("TaintResources") != m.end() && !m["TaintResources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TaintResources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaintResources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taintResources = make_shared<vector<string>>(toVec1);
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
@@ -21735,6 +21749,7 @@ public:
   shared_ptr<string> stackName{};
   shared_ptr<string> stackPolicyBody{};
   shared_ptr<string> stackPolicyURL{};
+  shared_ptr<vector<string>> taintResources{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateScratchId{};
@@ -21786,6 +21801,9 @@ public:
     }
     if (stackPolicyURL) {
       res["StackPolicyURL"] = boost::any(*stackPolicyURL);
+    }
+    if (taintResources) {
+      res["TaintResources"] = boost::any(*taintResources);
     }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
@@ -21851,6 +21869,16 @@ public:
     }
     if (m.find("StackPolicyURL") != m.end() && !m["StackPolicyURL"].empty()) {
       stackPolicyURL = make_shared<string>(boost::any_cast<string>(m["StackPolicyURL"]));
+    }
+    if (m.find("TaintResources") != m.end() && !m["TaintResources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TaintResources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaintResources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taintResources = make_shared<vector<string>>(toVec1);
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
@@ -23705,6 +23733,7 @@ public:
   shared_ptr<string> stackPolicyDuringUpdateURL{};
   shared_ptr<string> stackPolicyURL{};
   shared_ptr<vector<UpdateStackRequestTags>> tags{};
+  shared_ptr<vector<string>> taintResources{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateURL{};
@@ -23777,6 +23806,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (taintResources) {
+      res["TaintResources"] = boost::any(*taintResources);
     }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
@@ -23874,6 +23906,16 @@ public:
         }
         tags = make_shared<vector<UpdateStackRequestTags>>(expect1);
       }
+    }
+    if (m.find("TaintResources") != m.end() && !m["TaintResources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TaintResources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaintResources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taintResources = make_shared<vector<string>>(toVec1);
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
