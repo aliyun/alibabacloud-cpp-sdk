@@ -958,6 +958,9 @@ CreateFeatureConsistencyCheckJobConfigResponse Alibabacloud_PaiRecService2022121
   if (!Darabonba_Util::Client::isUnset<long>(request->predictWorkerMemory)) {
     body->insert(pair<string, long>("PredictWorkerMemory", *request->predictWorkerMemory));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceConfig)) {
+    body->insert(pair<string, string>("ResourceConfig", *request->resourceConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<double>(request->sampleRate)) {
     body->insert(pair<string, double>("SampleRate", *request->sampleRate));
   }
@@ -5322,6 +5325,9 @@ UpdateFeatureConsistencyCheckJobConfigResponse Alibabacloud_PaiRecService2022121
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->predictWorkerMemory)) {
     body->insert(pair<string, long>("PredictWorkerMemory", *request->predictWorkerMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceConfig)) {
+    body->insert(pair<string, string>("ResourceConfig", *request->resourceConfig));
   }
   if (!Darabonba_Util::Client::isUnset<double>(request->sampleRate)) {
     body->insert(pair<string, double>("SampleRate", *request->sampleRate));

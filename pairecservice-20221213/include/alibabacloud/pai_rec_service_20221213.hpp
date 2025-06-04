@@ -2957,6 +2957,7 @@ public:
   shared_ptr<long> predictWorkerCount{};
   shared_ptr<long> predictWorkerCpu{};
   shared_ptr<long> predictWorkerMemory{};
+  shared_ptr<string> resourceConfig{};
   shared_ptr<double> sampleRate{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> securityGroupId{};
@@ -3076,6 +3077,9 @@ public:
     }
     if (predictWorkerMemory) {
       res["PredictWorkerMemory"] = boost::any(*predictWorkerMemory);
+    }
+    if (resourceConfig) {
+      res["ResourceConfig"] = boost::any(*resourceConfig);
     }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
@@ -3215,6 +3219,9 @@ public:
     }
     if (m.find("PredictWorkerMemory") != m.end() && !m["PredictWorkerMemory"].empty()) {
       predictWorkerMemory = make_shared<long>(boost::any_cast<long>(m["PredictWorkerMemory"]));
+    }
+    if (m.find("ResourceConfig") != m.end() && !m["ResourceConfig"].empty()) {
+      resourceConfig = make_shared<string>(boost::any_cast<string>(m["ResourceConfig"]));
     }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<double>(boost::any_cast<double>(m["SampleRate"]));
@@ -9545,6 +9552,7 @@ public:
   shared_ptr<long> predictWorkerCpu{};
   shared_ptr<long> predictWorkerMemory{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceConfig{};
   shared_ptr<string> sampleRate{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
@@ -9688,6 +9696,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceConfig) {
+      res["ResourceConfig"] = boost::any(*resourceConfig);
     }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
@@ -9857,6 +9868,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceConfig") != m.end() && !m["ResourceConfig"].empty()) {
+      resourceConfig = make_shared<string>(boost::any_cast<string>(m["ResourceConfig"]));
     }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
@@ -15434,6 +15448,7 @@ public:
   shared_ptr<long> predictWorkerCount{};
   shared_ptr<long> predictWorkerCpu{};
   shared_ptr<long> predictWorkerMemory{};
+  shared_ptr<string> resourceConfig{};
   shared_ptr<string> sampleRate{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
@@ -15577,6 +15592,9 @@ public:
     }
     if (predictWorkerMemory) {
       res["PredictWorkerMemory"] = boost::any(*predictWorkerMemory);
+    }
+    if (resourceConfig) {
+      res["ResourceConfig"] = boost::any(*resourceConfig);
     }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
@@ -15746,6 +15764,9 @@ public:
     }
     if (m.find("PredictWorkerMemory") != m.end() && !m["PredictWorkerMemory"].empty()) {
       predictWorkerMemory = make_shared<long>(boost::any_cast<long>(m["PredictWorkerMemory"]));
+    }
+    if (m.find("ResourceConfig") != m.end() && !m["ResourceConfig"].empty()) {
+      resourceConfig = make_shared<string>(boost::any_cast<string>(m["ResourceConfig"]));
     }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
@@ -24810,6 +24831,7 @@ public:
   shared_ptr<long> predictWorkerCount{};
   shared_ptr<long> predictWorkerCpu{};
   shared_ptr<long> predictWorkerMemory{};
+  shared_ptr<string> resourceConfig{};
   shared_ptr<double> sampleRate{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> securityGroupId{};
@@ -24931,6 +24953,9 @@ public:
     }
     if (predictWorkerMemory) {
       res["PredictWorkerMemory"] = boost::any(*predictWorkerMemory);
+    }
+    if (resourceConfig) {
+      res["ResourceConfig"] = boost::any(*resourceConfig);
     }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
@@ -25070,6 +25095,9 @@ public:
     }
     if (m.find("PredictWorkerMemory") != m.end() && !m["PredictWorkerMemory"].empty()) {
       predictWorkerMemory = make_shared<long>(boost::any_cast<long>(m["PredictWorkerMemory"]));
+    }
+    if (m.find("ResourceConfig") != m.end() && !m["ResourceConfig"].empty()) {
+      resourceConfig = make_shared<string>(boost::any_cast<string>(m["ResourceConfig"]));
     }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<double>(boost::any_cast<double>(m["SampleRate"]));
