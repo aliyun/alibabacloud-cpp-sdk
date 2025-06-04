@@ -187,6 +187,9 @@ CreateJobResponse Alibabacloud_SchedulerX320240624::Client::createJobWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->routeStrategy)) {
     body->insert(pair<string, long>("RouteStrategy", *request->routeStrategy));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->script)) {
+    body->insert(pair<string, string>("Script", *request->script));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
   }
@@ -412,6 +415,43 @@ GetDesigateInfoResponse Alibabacloud_SchedulerX320240624::Client::getDesigateInf
 GetDesigateInfoResponse Alibabacloud_SchedulerX320240624::Client::getDesigateInfo(shared_ptr<GetDesigateInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getDesigateInfoWithOptions(request, runtime);
+}
+
+GetJobExecutionResponse Alibabacloud_SchedulerX320240624::Client::getJobExecutionWithOptions(shared_ptr<GetJobExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobExecutionId)) {
+    query->insert(pair<string, string>("JobExecutionId", *request->jobExecutionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
+    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJobExecution"))},
+    {"version", boost::any(string("2024-06-24"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetJobExecutionResponse(callApi(params, req, runtime));
+}
+
+GetJobExecutionResponse Alibabacloud_SchedulerX320240624::Client::getJobExecution(shared_ptr<GetJobExecutionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getJobExecutionWithOptions(request, runtime);
 }
 
 GetJobExecutionProgressResponse Alibabacloud_SchedulerX320240624::Client::getJobExecutionProgressWithOptions(shared_ptr<GetJobExecutionProgressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1286,6 +1326,9 @@ UpdateJobResponse Alibabacloud_SchedulerX320240624::Client::updateJobWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->routeStrategy)) {
     body->insert(pair<string, long>("RouteStrategy", *request->routeStrategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->script)) {
+    body->insert(pair<string, string>("Script", *request->script));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
