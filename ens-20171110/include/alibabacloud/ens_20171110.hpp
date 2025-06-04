@@ -3411,6 +3411,7 @@ public:
   shared_ptr<vector<string>> destinationRegionIds{};
   shared_ptr<string> destinationSnapshotDescription{};
   shared_ptr<string> destinationSnapshotName{};
+  shared_ptr<string> instanceBillingCycle{};
   shared_ptr<string> snapshotId{};
 
   CopySnapshotRequest() {}
@@ -3431,6 +3432,9 @@ public:
     }
     if (destinationSnapshotName) {
       res["DestinationSnapshotName"] = boost::any(*destinationSnapshotName);
+    }
+    if (instanceBillingCycle) {
+      res["InstanceBillingCycle"] = boost::any(*instanceBillingCycle);
     }
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
@@ -3455,6 +3459,9 @@ public:
     if (m.find("DestinationSnapshotName") != m.end() && !m["DestinationSnapshotName"].empty()) {
       destinationSnapshotName = make_shared<string>(boost::any_cast<string>(m["DestinationSnapshotName"]));
     }
+    if (m.find("InstanceBillingCycle") != m.end() && !m["InstanceBillingCycle"].empty()) {
+      instanceBillingCycle = make_shared<string>(boost::any_cast<string>(m["InstanceBillingCycle"]));
+    }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
     }
@@ -3468,6 +3475,7 @@ public:
   shared_ptr<string> destinationRegionIdsShrink{};
   shared_ptr<string> destinationSnapshotDescription{};
   shared_ptr<string> destinationSnapshotName{};
+  shared_ptr<string> instanceBillingCycle{};
   shared_ptr<string> snapshotId{};
 
   CopySnapshotShrinkRequest() {}
@@ -3489,6 +3497,9 @@ public:
     if (destinationSnapshotName) {
       res["DestinationSnapshotName"] = boost::any(*destinationSnapshotName);
     }
+    if (instanceBillingCycle) {
+      res["InstanceBillingCycle"] = boost::any(*instanceBillingCycle);
+    }
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
     }
@@ -3504,6 +3515,9 @@ public:
     }
     if (m.find("DestinationSnapshotName") != m.end() && !m["DestinationSnapshotName"].empty()) {
       destinationSnapshotName = make_shared<string>(boost::any_cast<string>(m["DestinationSnapshotName"]));
+    }
+    if (m.find("InstanceBillingCycle") != m.end() && !m["InstanceBillingCycle"].empty()) {
+      instanceBillingCycle = make_shared<string>(boost::any_cast<string>(m["InstanceBillingCycle"]));
     }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));

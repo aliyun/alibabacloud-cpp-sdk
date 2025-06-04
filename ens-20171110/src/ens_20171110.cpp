@@ -585,6 +585,9 @@ CopySnapshotResponse Alibabacloud_Ens20171110::Client::copySnapshotWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationSnapshotName)) {
     query->insert(pair<string, string>("DestinationSnapshotName", *request->destinationSnapshotName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceBillingCycle)) {
+    query->insert(pair<string, string>("InstanceBillingCycle", *request->instanceBillingCycle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
     query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
   }
