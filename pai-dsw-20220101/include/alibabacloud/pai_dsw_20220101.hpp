@@ -1415,6 +1415,7 @@ public:
   shared_ptr<string> imageUrl{};
   shared_ptr<string> instanceName{};
   shared_ptr<vector<CreateInstanceRequestLabels>> labels{};
+  shared_ptr<string> oversoldType{};
   shared_ptr<long> priority{};
   shared_ptr<CreateInstanceRequestRequestedResource> requestedResource{};
   shared_ptr<string> resourceId{};
@@ -1487,6 +1488,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Labels"] = boost::any(temp1);
+    }
+    if (oversoldType) {
+      res["OversoldType"] = boost::any(*oversoldType);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -1608,6 +1612,9 @@ public:
         }
         labels = make_shared<vector<CreateInstanceRequestLabels>>(expect1);
       }
+    }
+    if (m.find("OversoldType") != m.end() && !m["OversoldType"].empty()) {
+      oversoldType = make_shared<string>(boost::any_cast<string>(m["OversoldType"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -6061,6 +6068,7 @@ public:
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> sortBy{};
 
   ListEcsSpecsRequest() {}
@@ -6085,6 +6093,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (sortBy) {
       res["SortBy"] = boost::any(*sortBy);
     }
@@ -6103,6 +6114,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
@@ -9290,6 +9304,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> instanceName{};
+  shared_ptr<string> oversoldType{};
   shared_ptr<long> priority{};
   shared_ptr<UpdateInstanceRequestRequestedResource> requestedResource{};
   shared_ptr<string> userId{};
@@ -9364,6 +9379,9 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (oversoldType) {
+      res["OversoldType"] = boost::any(*oversoldType);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -9466,6 +9484,9 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("OversoldType") != m.end() && !m["OversoldType"].empty()) {
+      oversoldType = make_shared<string>(boost::any_cast<string>(m["OversoldType"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));

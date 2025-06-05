@@ -121,6 +121,9 @@ CreateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::createInstanceWithO
   if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestLabels>>(request->labels)) {
     body->insert(pair<string, vector<CreateInstanceRequestLabels>>("Labels", *request->labels));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->oversoldType)) {
+    body->insert(pair<string, string>("OversoldType", *request->oversoldType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
     body->insert(pair<string, long>("Priority", *request->priority));
   }
@@ -790,6 +793,9 @@ ListEcsSpecsResponse Alibabacloud_Pai-dsw20220101::Client::listEcsSpecsWithOptio
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
     query->insert(pair<string, string>("SortBy", *request->sortBy));
   }
@@ -1118,6 +1124,9 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->oversoldType)) {
+    body->insert(pair<string, string>("OversoldType", *request->oversoldType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
     body->insert(pair<string, long>("Priority", *request->priority));
