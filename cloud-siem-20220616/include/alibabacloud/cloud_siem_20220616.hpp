@@ -15453,6 +15453,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> playbookUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> responseRuleType{};
   shared_ptr<long> roleFor{};
   shared_ptr<long> roleType{};
   shared_ptr<string> ruleName{};
@@ -15489,6 +15490,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (responseRuleType) {
+      res["ResponseRuleType"] = boost::any(*responseRuleType);
     }
     if (roleFor) {
       res["RoleFor"] = boost::any(*roleFor);
@@ -15529,6 +15533,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResponseRuleType") != m.end() && !m["ResponseRuleType"].empty()) {
+      responseRuleType = make_shared<string>(boost::any_cast<string>(m["ResponseRuleType"]));
     }
     if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
       roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
@@ -15604,6 +15611,7 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<long> id{};
+  shared_ptr<string> responseRuleType{};
   shared_ptr<string> ruleName{};
   shared_ptr<long> status{};
   shared_ptr<long> subUserId{};
@@ -15645,6 +15653,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (responseRuleType) {
+      res["ResponseRuleType"] = boost::any(*responseRuleType);
+    }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
     }
@@ -15684,6 +15695,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("ResponseRuleType") != m.end() && !m["ResponseRuleType"].empty()) {
+      responseRuleType = make_shared<string>(boost::any_cast<string>(m["ResponseRuleType"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));

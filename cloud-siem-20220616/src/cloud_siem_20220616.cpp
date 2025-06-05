@@ -2414,6 +2414,9 @@ ListAutomateResponseConfigsResponse Alibabacloud_Cloud-siem20220616::Client::lis
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseRuleType)) {
+    body->insert(pair<string, string>("ResponseRuleType", *request->responseRuleType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
     body->insert(pair<string, long>("RoleFor", *request->roleFor));
   }
