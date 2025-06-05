@@ -10023,6 +10023,8 @@ public:
   shared_ptr<string> categoryName{};
   shared_ptr<string> configKey{};
   shared_ptr<string> configValue{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
   shared_ptr<vector<GetConfigResponseBodyLabels>> labels{};
   shared_ptr<string> requestId{};
   shared_ptr<string> workspaceId{};
@@ -10045,6 +10047,12 @@ public:
     }
     if (configValue) {
       res["ConfigValue"] = boost::any(*configValue);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
     }
     if (labels) {
       vector<boost::any> temp1;
@@ -10071,6 +10079,12 @@ public:
     }
     if (m.find("ConfigValue") != m.end() && !m["ConfigValue"].empty()) {
       configValue = make_shared<string>(boost::any_cast<string>(m["ConfigValue"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       if (typeid(vector<boost::any>) == m["Labels"].type()) {
@@ -13820,6 +13834,8 @@ class ListConfigsResponseBodyConfigs : public Darabonba::Model {
 public:
   shared_ptr<string> configKey{};
   shared_ptr<string> configValue{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
   shared_ptr<vector<ListConfigsResponseBodyConfigsLabels>> labels{};
 
   ListConfigsResponseBodyConfigs() {}
@@ -13838,6 +13854,12 @@ public:
     if (configValue) {
       res["ConfigValue"] = boost::any(*configValue);
     }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
     if (labels) {
       vector<boost::any> temp1;
       for(auto item1:*labels){
@@ -13854,6 +13876,12 @@ public:
     }
     if (m.find("ConfigValue") != m.end() && !m["ConfigValue"].empty()) {
       configValue = make_shared<string>(boost::any_cast<string>(m["ConfigValue"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       if (typeid(vector<boost::any>) == m["Labels"].type()) {
