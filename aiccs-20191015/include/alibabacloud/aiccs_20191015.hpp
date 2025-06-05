@@ -31197,6 +31197,382 @@ public:
 
   virtual ~QueryAiCallTaskPageResponse() = default;
 };
+class QueryConversationDetailInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> batchId{};
+  shared_ptr<string> detailId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> taskId{};
+
+  QueryConversationDetailInfoRequest() {}
+
+  explicit QueryConversationDetailInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (batchId) {
+      res["BatchId"] = boost::any(*batchId);
+    }
+    if (detailId) {
+      res["DetailId"] = boost::any(*detailId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BatchId") != m.end() && !m["BatchId"].empty()) {
+      batchId = make_shared<string>(boost::any_cast<string>(m["BatchId"]));
+    }
+    if (m.find("DetailId") != m.end() && !m["DetailId"].empty()) {
+      detailId = make_shared<string>(boost::any_cast<string>(m["DetailId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~QueryConversationDetailInfoRequest() = default;
+};
+class QueryConversationDetailInfoResponseBodyDataOutputTags : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> outputTagDescription{};
+  shared_ptr<string> outputTagName{};
+  shared_ptr<string> outputTagValue{};
+
+  QueryConversationDetailInfoResponseBodyDataOutputTags() {}
+
+  explicit QueryConversationDetailInfoResponseBodyDataOutputTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (outputTagDescription) {
+      res["OutputTagDescription"] = boost::any(*outputTagDescription);
+    }
+    if (outputTagName) {
+      res["OutputTagName"] = boost::any(*outputTagName);
+    }
+    if (outputTagValue) {
+      res["OutputTagValue"] = boost::any(*outputTagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("OutputTagDescription") != m.end() && !m["OutputTagDescription"].empty()) {
+      outputTagDescription = make_shared<string>(boost::any_cast<string>(m["OutputTagDescription"]));
+    }
+    if (m.find("OutputTagName") != m.end() && !m["OutputTagName"].empty()) {
+      outputTagName = make_shared<string>(boost::any_cast<string>(m["OutputTagName"]));
+    }
+    if (m.find("OutputTagValue") != m.end() && !m["OutputTagValue"].empty()) {
+      outputTagValue = make_shared<string>(boost::any_cast<string>(m["OutputTagValue"]));
+    }
+  }
+
+
+  virtual ~QueryConversationDetailInfoResponseBodyDataOutputTags() = default;
+};
+class QueryConversationDetailInfoResponseBodyDataVariables : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> key{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> required{};
+  shared_ptr<string> value{};
+
+  QueryConversationDetailInfoResponseBodyDataVariables() {}
+
+  explicit QueryConversationDetailInfoResponseBodyDataVariables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (required) {
+      res["Required"] = boost::any(*required);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Required") != m.end() && !m["Required"].empty()) {
+      required = make_shared<bool>(boost::any_cast<bool>(m["Required"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~QueryConversationDetailInfoResponseBodyDataVariables() = default;
+};
+class QueryConversationDetailInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> conversationRecord{};
+  shared_ptr<vector<QueryConversationDetailInfoResponseBodyDataOutputTags>> outputTags{};
+  shared_ptr<long> pickUpTime{};
+  shared_ptr<string> recordingFileDownloadUrl{};
+  shared_ptr<vector<QueryConversationDetailInfoResponseBodyDataVariables>> variables{};
+
+  QueryConversationDetailInfoResponseBodyData() {}
+
+  explicit QueryConversationDetailInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conversationRecord) {
+      res["ConversationRecord"] = boost::any(*conversationRecord);
+    }
+    if (outputTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*outputTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OutputTags"] = boost::any(temp1);
+    }
+    if (pickUpTime) {
+      res["PickUpTime"] = boost::any(*pickUpTime);
+    }
+    if (recordingFileDownloadUrl) {
+      res["RecordingFileDownloadUrl"] = boost::any(*recordingFileDownloadUrl);
+    }
+    if (variables) {
+      vector<boost::any> temp1;
+      for(auto item1:*variables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Variables"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConversationRecord") != m.end() && !m["ConversationRecord"].empty()) {
+      conversationRecord = make_shared<string>(boost::any_cast<string>(m["ConversationRecord"]));
+    }
+    if (m.find("OutputTags") != m.end() && !m["OutputTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["OutputTags"].type()) {
+        vector<QueryConversationDetailInfoResponseBodyDataOutputTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OutputTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryConversationDetailInfoResponseBodyDataOutputTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outputTags = make_shared<vector<QueryConversationDetailInfoResponseBodyDataOutputTags>>(expect1);
+      }
+    }
+    if (m.find("PickUpTime") != m.end() && !m["PickUpTime"].empty()) {
+      pickUpTime = make_shared<long>(boost::any_cast<long>(m["PickUpTime"]));
+    }
+    if (m.find("RecordingFileDownloadUrl") != m.end() && !m["RecordingFileDownloadUrl"].empty()) {
+      recordingFileDownloadUrl = make_shared<string>(boost::any_cast<string>(m["RecordingFileDownloadUrl"]));
+    }
+    if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
+      if (typeid(vector<boost::any>) == m["Variables"].type()) {
+        vector<QueryConversationDetailInfoResponseBodyDataVariables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Variables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryConversationDetailInfoResponseBodyDataVariables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        variables = make_shared<vector<QueryConversationDetailInfoResponseBodyDataVariables>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryConversationDetailInfoResponseBodyData() = default;
+};
+class QueryConversationDetailInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<QueryConversationDetailInfoResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryConversationDetailInfoResponseBody() {}
+
+  explicit QueryConversationDetailInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryConversationDetailInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryConversationDetailInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryConversationDetailInfoResponseBody() = default;
+};
+class QueryConversationDetailInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryConversationDetailInfoResponseBody> body{};
+
+  QueryConversationDetailInfoResponse() {}
+
+  explicit QueryConversationDetailInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryConversationDetailInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryConversationDetailInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryConversationDetailInfoResponse() = default;
+};
 class QueryHotlineInQueueRequest : public Darabonba::Model {
 public:
   shared_ptr<string> outerGroupId{};
@@ -40024,6 +40400,8 @@ public:
   QueryAiCallTaskDetailResponse queryAiCallTaskDetail(shared_ptr<QueryAiCallTaskDetailRequest> request);
   QueryAiCallTaskPageResponse queryAiCallTaskPageWithOptions(shared_ptr<QueryAiCallTaskPageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryAiCallTaskPageResponse queryAiCallTaskPage(shared_ptr<QueryAiCallTaskPageRequest> request);
+  QueryConversationDetailInfoResponse queryConversationDetailInfoWithOptions(shared_ptr<QueryConversationDetailInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryConversationDetailInfoResponse queryConversationDetailInfo(shared_ptr<QueryConversationDetailInfoRequest> request);
   QueryHotlineInQueueResponse queryHotlineInQueueWithOptions(shared_ptr<QueryHotlineInQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryHotlineInQueueResponse queryHotlineInQueue(shared_ptr<QueryHotlineInQueueRequest> request);
   QueryHotlineNumberResponse queryHotlineNumberWithOptions(shared_ptr<QueryHotlineNumberRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
