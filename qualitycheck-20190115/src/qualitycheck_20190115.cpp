@@ -1492,6 +1492,37 @@ GetRulesCountListResponse Alibabacloud_Qualitycheck20190115::Client::getRulesCou
   return getRulesCountListWithOptions(request, runtime);
 }
 
+GetSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::getSchemeTaskConfigWithOptions(shared_ptr<GetSchemeTaskConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
+    query->insert(pair<string, string>("JsonStr", *request->jsonStr));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSchemeTaskConfig"))},
+    {"version", boost::any(string("2019-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSchemeTaskConfigResponse(callApi(params, req, runtime));
+}
+
+GetSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::getSchemeTaskConfig(shared_ptr<GetSchemeTaskConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSchemeTaskConfigWithOptions(request, runtime);
+}
+
 GetScoreInfoResponse Alibabacloud_Qualitycheck20190115::Client::getScoreInfoWithOptions(shared_ptr<GetScoreInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

@@ -17059,6 +17059,507 @@ public:
 
   virtual ~GetRulesCountListResponse() = default;
 };
+class GetSchemeTaskConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> baseMeAgentId{};
+  shared_ptr<string> jsonStr{};
+
+  GetSchemeTaskConfigRequest() {}
+
+  explicit GetSchemeTaskConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseMeAgentId) {
+      res["BaseMeAgentId"] = boost::any(*baseMeAgentId);
+    }
+    if (jsonStr) {
+      res["JsonStr"] = boost::any(*jsonStr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseMeAgentId") != m.end() && !m["BaseMeAgentId"].empty()) {
+      baseMeAgentId = make_shared<long>(boost::any_cast<long>(m["BaseMeAgentId"]));
+    }
+    if (m.find("JsonStr") != m.end() && !m["JsonStr"].empty()) {
+      jsonStr = make_shared<string>(boost::any_cast<string>(m["JsonStr"]));
+    }
+  }
+
+
+  virtual ~GetSchemeTaskConfigRequest() = default;
+};
+class GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests : public Darabonba::Model {
+public:
+  shared_ptr<long> dataType{};
+  shared_ptr<vector<boost::any>> listObject{};
+  shared_ptr<string> name{};
+  shared_ptr<long> symbol{};
+  shared_ptr<string> value{};
+
+  GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests() {}
+
+  explicit GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    if (listObject) {
+      res["ListObject"] = boost::any(*listObject);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (symbol) {
+      res["Symbol"] = boost::any(*symbol);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<long>(boost::any_cast<long>(m["DataType"]));
+    }
+    if (m.find("ListObject") != m.end() && !m["ListObject"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["ListObject"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ListObject"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      listObject = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Symbol") != m.end() && !m["Symbol"].empty()) {
+      symbol = make_shared<long>(boost::any_cast<long>(m["Symbol"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests() = default;
+};
+class GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests>> assignConfigContests{};
+
+  GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs() {}
+
+  explicit GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assignConfigContests) {
+      vector<boost::any> temp1;
+      for(auto item1:*assignConfigContests){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AssignConfigContests"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssignConfigContests") != m.end() && !m["AssignConfigContests"].empty()) {
+      if (typeid(vector<boost::any>) == m["AssignConfigContests"].type()) {
+        vector<GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AssignConfigContests"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        assignConfigContests = make_shared<vector<GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs() = default;
+};
+class GetSchemeTaskConfigResponseBodyDataDataConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs>> assignConfigs{};
+  shared_ptr<string> dataSets{};
+  shared_ptr<long> index{};
+  shared_ptr<string> resultParam{};
+
+  GetSchemeTaskConfigResponseBodyDataDataConfig() {}
+
+  explicit GetSchemeTaskConfigResponseBodyDataDataConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assignConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*assignConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AssignConfigs"] = boost::any(temp1);
+    }
+    if (dataSets) {
+      res["DataSets"] = boost::any(*dataSets);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (resultParam) {
+      res["ResultParam"] = boost::any(*resultParam);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssignConfigs") != m.end() && !m["AssignConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["AssignConfigs"].type()) {
+        vector<GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AssignConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        assignConfigs = make_shared<vector<GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs>>(expect1);
+      }
+    }
+    if (m.find("DataSets") != m.end() && !m["DataSets"].empty()) {
+      dataSets = make_shared<string>(boost::any_cast<string>(m["DataSets"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("ResultParam") != m.end() && !m["ResultParam"].empty()) {
+      resultParam = make_shared<string>(boost::any_cast<string>(m["ResultParam"]));
+    }
+  }
+
+
+  virtual ~GetSchemeTaskConfigResponseBodyDataDataConfig() = default;
+};
+class GetSchemeTaskConfigResponseBodyDataSchemeList : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<long> schemeId{};
+
+  GetSchemeTaskConfigResponseBodyDataSchemeList() {}
+
+  explicit GetSchemeTaskConfigResponseBodyDataSchemeList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (schemeId) {
+      res["SchemeId"] = boost::any(*schemeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SchemeId") != m.end() && !m["SchemeId"].empty()) {
+      schemeId = make_shared<long>(boost::any_cast<long>(m["SchemeId"]));
+    }
+  }
+
+
+  virtual ~GetSchemeTaskConfigResponseBodyDataSchemeList() = default;
+};
+class GetSchemeTaskConfigResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> asrTaskPriority{};
+  shared_ptr<long> assignType{};
+  shared_ptr<GetSchemeTaskConfigResponseBodyDataDataConfig> dataConfig{};
+  shared_ptr<long> id{};
+  shared_ptr<long> manualReview{};
+  shared_ptr<string> modeCustomizationId{};
+  shared_ptr<string> modelName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<long>> schemeIdList{};
+  shared_ptr<vector<GetSchemeTaskConfigResponseBodyDataSchemeList>> schemeList{};
+  shared_ptr<long> schemeTaskConfigId{};
+  shared_ptr<string> sourceDataType{};
+  shared_ptr<string> status{};
+
+  GetSchemeTaskConfigResponseBodyData() {}
+
+  explicit GetSchemeTaskConfigResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asrTaskPriority) {
+      res["AsrTaskPriority"] = boost::any(*asrTaskPriority);
+    }
+    if (assignType) {
+      res["AssignType"] = boost::any(*assignType);
+    }
+    if (dataConfig) {
+      res["DataConfig"] = dataConfig ? boost::any(dataConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (manualReview) {
+      res["ManualReview"] = boost::any(*manualReview);
+    }
+    if (modeCustomizationId) {
+      res["ModeCustomizationId"] = boost::any(*modeCustomizationId);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (schemeIdList) {
+      res["SchemeIdList"] = boost::any(*schemeIdList);
+    }
+    if (schemeList) {
+      vector<boost::any> temp1;
+      for(auto item1:*schemeList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SchemeList"] = boost::any(temp1);
+    }
+    if (schemeTaskConfigId) {
+      res["SchemeTaskConfigId"] = boost::any(*schemeTaskConfigId);
+    }
+    if (sourceDataType) {
+      res["SourceDataType"] = boost::any(*sourceDataType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrTaskPriority") != m.end() && !m["AsrTaskPriority"].empty()) {
+      asrTaskPriority = make_shared<long>(boost::any_cast<long>(m["AsrTaskPriority"]));
+    }
+    if (m.find("AssignType") != m.end() && !m["AssignType"].empty()) {
+      assignType = make_shared<long>(boost::any_cast<long>(m["AssignType"]));
+    }
+    if (m.find("DataConfig") != m.end() && !m["DataConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataConfig"].type()) {
+        GetSchemeTaskConfigResponseBodyDataDataConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataConfig"]));
+        dataConfig = make_shared<GetSchemeTaskConfigResponseBodyDataDataConfig>(model1);
+      }
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("ManualReview") != m.end() && !m["ManualReview"].empty()) {
+      manualReview = make_shared<long>(boost::any_cast<long>(m["ManualReview"]));
+    }
+    if (m.find("ModeCustomizationId") != m.end() && !m["ModeCustomizationId"].empty()) {
+      modeCustomizationId = make_shared<string>(boost::any_cast<string>(m["ModeCustomizationId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SchemeIdList") != m.end() && !m["SchemeIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SchemeIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SchemeIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schemeIdList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("SchemeList") != m.end() && !m["SchemeList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SchemeList"].type()) {
+        vector<GetSchemeTaskConfigResponseBodyDataSchemeList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SchemeList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSchemeTaskConfigResponseBodyDataSchemeList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        schemeList = make_shared<vector<GetSchemeTaskConfigResponseBodyDataSchemeList>>(expect1);
+      }
+    }
+    if (m.find("SchemeTaskConfigId") != m.end() && !m["SchemeTaskConfigId"].empty()) {
+      schemeTaskConfigId = make_shared<long>(boost::any_cast<long>(m["SchemeTaskConfigId"]));
+    }
+    if (m.find("SourceDataType") != m.end() && !m["SourceDataType"].empty()) {
+      sourceDataType = make_shared<string>(boost::any_cast<string>(m["SourceDataType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetSchemeTaskConfigResponseBodyData() = default;
+};
+class GetSchemeTaskConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetSchemeTaskConfigResponseBodyData> data{};
+  shared_ptr<string> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  GetSchemeTaskConfigResponseBody() {}
+
+  explicit GetSchemeTaskConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetSchemeTaskConfigResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetSchemeTaskConfigResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetSchemeTaskConfigResponseBody() = default;
+};
+class GetSchemeTaskConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSchemeTaskConfigResponseBody> body{};
+
+  GetSchemeTaskConfigResponse() {}
+
+  explicit GetSchemeTaskConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSchemeTaskConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSchemeTaskConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSchemeTaskConfigResponse() = default;
+};
 class GetScoreInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<long> baseMeAgentId{};
@@ -33682,6 +34183,8 @@ public:
   GetRuleV4Response getRuleV4(shared_ptr<GetRuleV4Request> request);
   GetRulesCountListResponse getRulesCountListWithOptions(shared_ptr<GetRulesCountListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetRulesCountListResponse getRulesCountList(shared_ptr<GetRulesCountListRequest> request);
+  GetSchemeTaskConfigResponse getSchemeTaskConfigWithOptions(shared_ptr<GetSchemeTaskConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSchemeTaskConfigResponse getSchemeTaskConfig(shared_ptr<GetSchemeTaskConfigRequest> request);
   GetScoreInfoResponse getScoreInfoWithOptions(shared_ptr<GetScoreInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetScoreInfoResponse getScoreInfo(shared_ptr<GetScoreInfoRequest> request);
   GetSkillGroupConfigResponse getSkillGroupConfigWithOptions(shared_ptr<GetSkillGroupConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
