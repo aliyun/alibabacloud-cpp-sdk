@@ -13895,6 +13895,99 @@ public:
 
   virtual ~GetPropertiesResponseBodyDataIntelligentSearchConfig() = default;
 };
+class GetPropertiesResponseBodyDataMiaosouConfigModelInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> modelId{};
+  shared_ptr<string> modelName{};
+
+  GetPropertiesResponseBodyDataMiaosouConfigModelInfos() {}
+
+  explicit GetPropertiesResponseBodyDataMiaosouConfigModelInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
+    }
+  }
+
+
+  virtual ~GetPropertiesResponseBodyDataMiaosouConfigModelInfos() = default;
+};
+class GetPropertiesResponseBodyDataMiaosouConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> maxDocSize{};
+  shared_ptr<vector<GetPropertiesResponseBodyDataMiaosouConfigModelInfos>> modelInfos{};
+  shared_ptr<long> useDocSize{};
+
+  GetPropertiesResponseBodyDataMiaosouConfig() {}
+
+  explicit GetPropertiesResponseBodyDataMiaosouConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxDocSize) {
+      res["MaxDocSize"] = boost::any(*maxDocSize);
+    }
+    if (modelInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*modelInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ModelInfos"] = boost::any(temp1);
+    }
+    if (useDocSize) {
+      res["UseDocSize"] = boost::any(*useDocSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxDocSize") != m.end() && !m["MaxDocSize"].empty()) {
+      maxDocSize = make_shared<long>(boost::any_cast<long>(m["MaxDocSize"]));
+    }
+    if (m.find("ModelInfos") != m.end() && !m["ModelInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ModelInfos"].type()) {
+        vector<GetPropertiesResponseBodyDataMiaosouConfigModelInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ModelInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetPropertiesResponseBodyDataMiaosouConfigModelInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        modelInfos = make_shared<vector<GetPropertiesResponseBodyDataMiaosouConfigModelInfos>>(expect1);
+      }
+    }
+    if (m.find("UseDocSize") != m.end() && !m["UseDocSize"].empty()) {
+      useDocSize = make_shared<long>(boost::any_cast<long>(m["UseDocSize"]));
+    }
+  }
+
+
+  virtual ~GetPropertiesResponseBodyDataMiaosouConfig() = default;
+};
 class GetPropertiesResponseBodyDataSearchSourceList : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
@@ -14109,6 +14202,7 @@ public:
   shared_ptr<GetPropertiesResponseBodyDataConsoleConfig> consoleConfig{};
   shared_ptr<map<string, boost::any>> generalConfigMap{};
   shared_ptr<GetPropertiesResponseBodyDataIntelligentSearchConfig> intelligentSearchConfig{};
+  shared_ptr<GetPropertiesResponseBodyDataMiaosouConfig> miaosouConfig{};
   shared_ptr<vector<GetPropertiesResponseBodyDataSearchSourceList>> searchSourceList{};
   shared_ptr<vector<GetPropertiesResponseBodyDataSearchSources>> searchSources{};
   shared_ptr<bool> slrAuthorized{};
@@ -14137,6 +14231,9 @@ public:
     }
     if (intelligentSearchConfig) {
       res["IntelligentSearchConfig"] = intelligentSearchConfig ? boost::any(intelligentSearchConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (miaosouConfig) {
+      res["MiaosouConfig"] = miaosouConfig ? boost::any(miaosouConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (searchSourceList) {
       vector<boost::any> temp1;
@@ -14204,6 +14301,13 @@ public:
         GetPropertiesResponseBodyDataIntelligentSearchConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IntelligentSearchConfig"]));
         intelligentSearchConfig = make_shared<GetPropertiesResponseBodyDataIntelligentSearchConfig>(model1);
+      }
+    }
+    if (m.find("MiaosouConfig") != m.end() && !m["MiaosouConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MiaosouConfig"].type()) {
+        GetPropertiesResponseBodyDataMiaosouConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MiaosouConfig"]));
+        miaosouConfig = make_shared<GetPropertiesResponseBodyDataMiaosouConfig>(model1);
       }
     }
     if (m.find("SearchSourceList") != m.end() && !m["SearchSourceList"].empty()) {
@@ -39689,6 +39793,7 @@ public:
 };
 class RunSearchGenerationRequestChatConfig : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableThinking{};
   shared_ptr<string> generateLevel{};
   shared_ptr<string> generateTechnology{};
   shared_ptr<vector<string>> searchModels{};
@@ -39704,6 +39809,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableThinking) {
+      res["EnableThinking"] = boost::any(*enableThinking);
+    }
     if (generateLevel) {
       res["GenerateLevel"] = boost::any(*generateLevel);
     }
@@ -39720,6 +39828,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableThinking") != m.end() && !m["EnableThinking"].empty()) {
+      enableThinking = make_shared<bool>(boost::any_cast<bool>(m["EnableThinking"]));
+    }
     if (m.find("GenerateLevel") != m.end() && !m["GenerateLevel"].empty()) {
       generateLevel = make_shared<string>(boost::any_cast<string>(m["GenerateLevel"]));
     }
