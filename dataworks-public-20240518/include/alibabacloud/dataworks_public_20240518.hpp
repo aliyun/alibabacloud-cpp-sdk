@@ -47871,6 +47871,7 @@ public:
 };
 class ListFunctionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> name{};
   shared_ptr<string> owner{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -47887,6 +47888,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (owner) {
       res["Owner"] = boost::any(*owner);
     }
@@ -47906,6 +47910,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
     }
@@ -50780,6 +50787,7 @@ public:
 class ListNodesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> containerId{};
+  shared_ptr<string> name{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> projectId{};
@@ -50799,6 +50807,9 @@ public:
     map<string, boost::any> res;
     if (containerId) {
       res["ContainerId"] = boost::any(*containerId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -50824,6 +50835,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ContainerId") != m.end() && !m["ContainerId"].empty()) {
       containerId = make_shared<long>(boost::any_cast<long>(m["ContainerId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -54807,6 +54821,7 @@ public:
 };
 class ListResourcesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> name{};
   shared_ptr<string> owner{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -54823,6 +54838,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (owner) {
       res["Owner"] = boost::any(*owner);
     }
@@ -54842,6 +54860,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
     }
@@ -60230,6 +60251,7 @@ public:
 };
 class ListWorkflowDefinitionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> name{};
   shared_ptr<string> owner{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -60246,6 +60268,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (owner) {
       res["Owner"] = boost::any(*owner);
     }
@@ -60265,6 +60290,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
     }
