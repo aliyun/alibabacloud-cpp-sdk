@@ -294,6 +294,9 @@ CreateContainerGroupResponse Alibabacloud_Eci20180808::Client::createContainerGr
   if (!Darabonba_Util::Client::isUnset<bool>(request->ipv6GatewayBandwidthEnable)) {
     query->insert(pair<string, bool>("Ipv6GatewayBandwidthEnable", *request->ipv6GatewayBandwidthEnable));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxPendingMinute)) {
+    query->insert(pair<string, long>("MaxPendingMinute", *request->maxPendingMinute));
+  }
   if (!Darabonba_Util::Client::isUnset<double>(request->memory)) {
     query->insert(pair<string, double>("Memory", *request->memory));
   }
@@ -302,9 +305,6 @@ CreateContainerGroupResponse Alibabacloud_Eci20180808::Client::createContainerGr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
     query->insert(pair<string, string>("OsType", *request->osType));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateContainerGroupRequestOverheadReservationOption>(request->overheadReservationOption)) {
-    query->insert(pair<string, CreateContainerGroupRequestOverheadReservationOption>("OverheadReservationOption", *request->overheadReservationOption));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
