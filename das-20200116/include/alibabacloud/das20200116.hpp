@@ -12404,6 +12404,7 @@ public:
   shared_ptr<long> hotSqlSize{};
   shared_ptr<long> importSqlSize{};
   shared_ptr<long> timestamp{};
+  shared_ptr<long> totalSqlSize{};
 
   DescribeSqlLogStatisticResponseBodyData() {}
 
@@ -12433,6 +12434,9 @@ public:
     if (timestamp) {
       res["Timestamp"] = boost::any(*timestamp);
     }
+    if (totalSqlSize) {
+      res["TotalSqlSize"] = boost::any(*totalSqlSize);
+    }
     return res;
   }
 
@@ -12454,6 +12458,9 @@ public:
     }
     if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
       timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+    if (m.find("TotalSqlSize") != m.end() && !m["TotalSqlSize"].empty()) {
+      totalSqlSize = make_shared<long>(boost::any_cast<long>(m["TotalSqlSize"]));
     }
   }
 
@@ -13331,6 +13338,7 @@ public:
   shared_ptr<long> end{};
   shared_ptr<bool> expire{};
   shared_ptr<vector<DescribeSqlLogTasksResponseBodyDataListFilters>> filters{};
+  shared_ptr<string> innerResult{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> logCount{};
   shared_ptr<string> name{};
@@ -13373,6 +13381,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Filters"] = boost::any(temp1);
+    }
+    if (innerResult) {
+      res["InnerResult"] = boost::any(*innerResult);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -13435,6 +13446,9 @@ public:
         }
         filters = make_shared<vector<DescribeSqlLogTasksResponseBodyDataListFilters>>(expect1);
       }
+    }
+    if (m.find("InnerResult") != m.end() && !m["InnerResult"].empty()) {
+      innerResult = make_shared<string>(boost::any_cast<string>(m["InnerResult"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
