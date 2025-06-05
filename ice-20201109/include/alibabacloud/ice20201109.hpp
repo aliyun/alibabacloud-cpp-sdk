@@ -14010,6 +14010,504 @@ public:
 
   virtual ~CreateProgramResponse() = default;
 };
+class CreateRecognitionEntityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> entityInfo{};
+  shared_ptr<string> entityName{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  CreateRecognitionEntityRequest() {}
+
+  explicit CreateRecognitionEntityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (entityInfo) {
+      res["EntityInfo"] = boost::any(*entityInfo);
+    }
+    if (entityName) {
+      res["EntityName"] = boost::any(*entityName);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("EntityInfo") != m.end() && !m["EntityInfo"].empty()) {
+      entityInfo = make_shared<string>(boost::any_cast<string>(m["EntityInfo"]));
+    }
+    if (m.find("EntityName") != m.end() && !m["EntityName"].empty()) {
+      entityName = make_shared<string>(boost::any_cast<string>(m["EntityName"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~CreateRecognitionEntityRequest() = default;
+};
+class CreateRecognitionEntityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> entityId{};
+  shared_ptr<string> requestId{};
+
+  CreateRecognitionEntityResponseBody() {}
+
+  explicit CreateRecognitionEntityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateRecognitionEntityResponseBody() = default;
+};
+class CreateRecognitionEntityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateRecognitionEntityResponseBody> body{};
+
+  CreateRecognitionEntityResponse() {}
+
+  explicit CreateRecognitionEntityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateRecognitionEntityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateRecognitionEntityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateRecognitionEntityResponse() = default;
+};
+class CreateRecognitionLibRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> libDescription{};
+  shared_ptr<string> libName{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  CreateRecognitionLibRequest() {}
+
+  explicit CreateRecognitionLibRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (libDescription) {
+      res["LibDescription"] = boost::any(*libDescription);
+    }
+    if (libName) {
+      res["LibName"] = boost::any(*libName);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("LibDescription") != m.end() && !m["LibDescription"].empty()) {
+      libDescription = make_shared<string>(boost::any_cast<string>(m["LibDescription"]));
+    }
+    if (m.find("LibName") != m.end() && !m["LibName"].empty()) {
+      libName = make_shared<string>(boost::any_cast<string>(m["LibName"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~CreateRecognitionLibRequest() = default;
+};
+class CreateRecognitionLibResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> libId{};
+  shared_ptr<string> requestId{};
+
+  CreateRecognitionLibResponseBody() {}
+
+  explicit CreateRecognitionLibResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateRecognitionLibResponseBody() = default;
+};
+class CreateRecognitionLibResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateRecognitionLibResponseBody> body{};
+
+  CreateRecognitionLibResponse() {}
+
+  explicit CreateRecognitionLibResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateRecognitionLibResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateRecognitionLibResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateRecognitionLibResponse() = default;
+};
+class CreateRecognitionSampleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> entityId{};
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> labelPrompt{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  CreateRecognitionSampleRequest() {}
+
+  explicit CreateRecognitionSampleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (labelPrompt) {
+      res["LabelPrompt"] = boost::any(*labelPrompt);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("LabelPrompt") != m.end() && !m["LabelPrompt"].empty()) {
+      labelPrompt = make_shared<string>(boost::any_cast<string>(m["LabelPrompt"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~CreateRecognitionSampleRequest() = default;
+};
+class CreateRecognitionSampleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sampleId{};
+
+  CreateRecognitionSampleResponseBody() {}
+
+  explicit CreateRecognitionSampleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sampleId) {
+      res["SampleId"] = boost::any(*sampleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SampleId") != m.end() && !m["SampleId"].empty()) {
+      sampleId = make_shared<string>(boost::any_cast<string>(m["SampleId"]));
+    }
+  }
+
+
+  virtual ~CreateRecognitionSampleResponseBody() = default;
+};
+class CreateRecognitionSampleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateRecognitionSampleResponseBody> body{};
+
+  CreateRecognitionSampleResponse() {}
+
+  explicit CreateRecognitionSampleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateRecognitionSampleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateRecognitionSampleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateRecognitionSampleResponse() = default;
+};
 class CreateSearchIndexRequest : public Darabonba::Model {
 public:
   shared_ptr<string> indexConfig{};
@@ -20082,6 +20580,462 @@ public:
 
 
   virtual ~DeleteProgramResponse() = default;
+};
+class DeleteRecognitionEntityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> entityId{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteRecognitionEntityRequest() {}
+
+  explicit DeleteRecognitionEntityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteRecognitionEntityRequest() = default;
+};
+class DeleteRecognitionEntityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteRecognitionEntityResponseBody() {}
+
+  explicit DeleteRecognitionEntityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteRecognitionEntityResponseBody() = default;
+};
+class DeleteRecognitionEntityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteRecognitionEntityResponseBody> body{};
+
+  DeleteRecognitionEntityResponse() {}
+
+  explicit DeleteRecognitionEntityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteRecognitionEntityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteRecognitionEntityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteRecognitionEntityResponse() = default;
+};
+class DeleteRecognitionLibRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteRecognitionLibRequest() {}
+
+  explicit DeleteRecognitionLibRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteRecognitionLibRequest() = default;
+};
+class DeleteRecognitionLibResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteRecognitionLibResponseBody() {}
+
+  explicit DeleteRecognitionLibResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteRecognitionLibResponseBody() = default;
+};
+class DeleteRecognitionLibResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteRecognitionLibResponseBody> body{};
+
+  DeleteRecognitionLibResponse() {}
+
+  explicit DeleteRecognitionLibResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteRecognitionLibResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteRecognitionLibResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteRecognitionLibResponse() = default;
+};
+class DeleteRecognitionSampleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> entityId{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> sampleId{};
+
+  DeleteRecognitionSampleRequest() {}
+
+  explicit DeleteRecognitionSampleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (sampleId) {
+      res["SampleId"] = boost::any(*sampleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SampleId") != m.end() && !m["SampleId"].empty()) {
+      sampleId = make_shared<string>(boost::any_cast<string>(m["SampleId"]));
+    }
+  }
+
+
+  virtual ~DeleteRecognitionSampleRequest() = default;
+};
+class DeleteRecognitionSampleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteRecognitionSampleResponseBody() {}
+
+  explicit DeleteRecognitionSampleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteRecognitionSampleResponseBody() = default;
+};
+class DeleteRecognitionSampleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteRecognitionSampleResponseBody> body{};
+
+  DeleteRecognitionSampleResponse() {}
+
+  explicit DeleteRecognitionSampleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteRecognitionSampleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteRecognitionSampleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteRecognitionSampleResponse() = default;
 };
 class DeleteSmartJobRequest : public Darabonba::Model {
 public:
@@ -60102,6 +61056,830 @@ public:
 
 
   virtual ~ListPublicMediaBasicInfosResponse() = default;
+};
+class ListRecognitionEntitiesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ListRecognitionEntitiesRequest() {}
+
+  explicit ListRecognitionEntitiesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionEntitiesRequest() = default;
+};
+class ListRecognitionEntitiesResponseBodyEntitiesEntity : public Darabonba::Model {
+public:
+  shared_ptr<string> entityId{};
+  shared_ptr<string> entityInfo{};
+  shared_ptr<string> entityName{};
+
+  ListRecognitionEntitiesResponseBodyEntitiesEntity() {}
+
+  explicit ListRecognitionEntitiesResponseBodyEntitiesEntity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (entityInfo) {
+      res["EntityInfo"] = boost::any(*entityInfo);
+    }
+    if (entityName) {
+      res["EntityName"] = boost::any(*entityName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("EntityInfo") != m.end() && !m["EntityInfo"].empty()) {
+      entityInfo = make_shared<string>(boost::any_cast<string>(m["EntityInfo"]));
+    }
+    if (m.find("EntityName") != m.end() && !m["EntityName"].empty()) {
+      entityName = make_shared<string>(boost::any_cast<string>(m["EntityName"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionEntitiesResponseBodyEntitiesEntity() = default;
+};
+class ListRecognitionEntitiesResponseBodyEntities : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListRecognitionEntitiesResponseBodyEntitiesEntity>> entity{};
+
+  ListRecognitionEntitiesResponseBodyEntities() {}
+
+  explicit ListRecognitionEntitiesResponseBodyEntities(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entity) {
+      vector<boost::any> temp1;
+      for(auto item1:*entity){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Entity"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Entity") != m.end() && !m["Entity"].empty()) {
+      if (typeid(vector<boost::any>) == m["Entity"].type()) {
+        vector<ListRecognitionEntitiesResponseBodyEntitiesEntity> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Entity"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRecognitionEntitiesResponseBodyEntitiesEntity model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        entity = make_shared<vector<ListRecognitionEntitiesResponseBodyEntitiesEntity>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListRecognitionEntitiesResponseBodyEntities() = default;
+};
+class ListRecognitionEntitiesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListRecognitionEntitiesResponseBodyEntities> entities{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListRecognitionEntitiesResponseBody() {}
+
+  explicit ListRecognitionEntitiesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entities) {
+      res["Entities"] = entities ? boost::any(entities->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Entities") != m.end() && !m["Entities"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Entities"].type()) {
+        ListRecognitionEntitiesResponseBodyEntities model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Entities"]));
+        entities = make_shared<ListRecognitionEntitiesResponseBodyEntities>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionEntitiesResponseBody() = default;
+};
+class ListRecognitionEntitiesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListRecognitionEntitiesResponseBody> body{};
+
+  ListRecognitionEntitiesResponse() {}
+
+  explicit ListRecognitionEntitiesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListRecognitionEntitiesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListRecognitionEntitiesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListRecognitionEntitiesResponse() = default;
+};
+class ListRecognitionLibsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ListRecognitionLibsRequest() {}
+
+  explicit ListRecognitionLibsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionLibsRequest() = default;
+};
+class ListRecognitionLibsResponseBodyLibsLib : public Darabonba::Model {
+public:
+  shared_ptr<string> libDescription{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> libName{};
+
+  ListRecognitionLibsResponseBodyLibsLib() {}
+
+  explicit ListRecognitionLibsResponseBodyLibsLib(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (libDescription) {
+      res["LibDescription"] = boost::any(*libDescription);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (libName) {
+      res["LibName"] = boost::any(*libName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LibDescription") != m.end() && !m["LibDescription"].empty()) {
+      libDescription = make_shared<string>(boost::any_cast<string>(m["LibDescription"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("LibName") != m.end() && !m["LibName"].empty()) {
+      libName = make_shared<string>(boost::any_cast<string>(m["LibName"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionLibsResponseBodyLibsLib() = default;
+};
+class ListRecognitionLibsResponseBodyLibs : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListRecognitionLibsResponseBodyLibsLib>> lib{};
+
+  ListRecognitionLibsResponseBodyLibs() {}
+
+  explicit ListRecognitionLibsResponseBodyLibs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lib) {
+      vector<boost::any> temp1;
+      for(auto item1:*lib){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Lib"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lib") != m.end() && !m["Lib"].empty()) {
+      if (typeid(vector<boost::any>) == m["Lib"].type()) {
+        vector<ListRecognitionLibsResponseBodyLibsLib> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Lib"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRecognitionLibsResponseBodyLibsLib model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        lib = make_shared<vector<ListRecognitionLibsResponseBodyLibsLib>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListRecognitionLibsResponseBodyLibs() = default;
+};
+class ListRecognitionLibsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListRecognitionLibsResponseBodyLibs> libs{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListRecognitionLibsResponseBody() {}
+
+  explicit ListRecognitionLibsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (libs) {
+      res["Libs"] = libs ? boost::any(libs->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Libs") != m.end() && !m["Libs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Libs"].type()) {
+        ListRecognitionLibsResponseBodyLibs model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Libs"]));
+        libs = make_shared<ListRecognitionLibsResponseBodyLibs>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionLibsResponseBody() = default;
+};
+class ListRecognitionLibsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListRecognitionLibsResponseBody> body{};
+
+  ListRecognitionLibsResponse() {}
+
+  explicit ListRecognitionLibsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListRecognitionLibsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListRecognitionLibsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListRecognitionLibsResponse() = default;
+};
+class ListRecognitionSamplesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> entityId{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ListRecognitionSamplesRequest() {}
+
+  explicit ListRecognitionSamplesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionSamplesRequest() = default;
+};
+class ListRecognitionSamplesResponseBodySamplesSample : public Darabonba::Model {
+public:
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> sampleId{};
+
+  ListRecognitionSamplesResponseBodySamplesSample() {}
+
+  explicit ListRecognitionSamplesResponseBodySamplesSample(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (sampleId) {
+      res["SampleId"] = boost::any(*sampleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("SampleId") != m.end() && !m["SampleId"].empty()) {
+      sampleId = make_shared<string>(boost::any_cast<string>(m["SampleId"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionSamplesResponseBodySamplesSample() = default;
+};
+class ListRecognitionSamplesResponseBodySamples : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListRecognitionSamplesResponseBodySamplesSample>> sample{};
+
+  ListRecognitionSamplesResponseBodySamples() {}
+
+  explicit ListRecognitionSamplesResponseBodySamples(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sample) {
+      vector<boost::any> temp1;
+      for(auto item1:*sample){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Sample"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Sample") != m.end() && !m["Sample"].empty()) {
+      if (typeid(vector<boost::any>) == m["Sample"].type()) {
+        vector<ListRecognitionSamplesResponseBodySamplesSample> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Sample"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRecognitionSamplesResponseBodySamplesSample model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sample = make_shared<vector<ListRecognitionSamplesResponseBodySamplesSample>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListRecognitionSamplesResponseBodySamples() = default;
+};
+class ListRecognitionSamplesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<ListRecognitionSamplesResponseBodySamples> samples{};
+  shared_ptr<long> totalCount{};
+
+  ListRecognitionSamplesResponseBody() {}
+
+  explicit ListRecognitionSamplesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (samples) {
+      res["Samples"] = samples ? boost::any(samples->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Samples") != m.end() && !m["Samples"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Samples"].type()) {
+        ListRecognitionSamplesResponseBodySamples model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Samples"]));
+        samples = make_shared<ListRecognitionSamplesResponseBodySamples>(model1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListRecognitionSamplesResponseBody() = default;
+};
+class ListRecognitionSamplesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListRecognitionSamplesResponseBody> body{};
+
+  ListRecognitionSamplesResponse() {}
+
+  explicit ListRecognitionSamplesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListRecognitionSamplesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListRecognitionSamplesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListRecognitionSamplesResponse() = default;
 };
 class ListSchedulesRequest : public Darabonba::Model {
 public:
@@ -101869,6 +103647,12 @@ public:
   CreatePipelineResponse createPipeline(shared_ptr<CreatePipelineRequest> request);
   CreateProgramResponse createProgramWithOptions(shared_ptr<CreateProgramRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateProgramResponse createProgram(shared_ptr<CreateProgramRequest> request);
+  CreateRecognitionEntityResponse createRecognitionEntityWithOptions(shared_ptr<CreateRecognitionEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateRecognitionEntityResponse createRecognitionEntity(shared_ptr<CreateRecognitionEntityRequest> request);
+  CreateRecognitionLibResponse createRecognitionLibWithOptions(shared_ptr<CreateRecognitionLibRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateRecognitionLibResponse createRecognitionLib(shared_ptr<CreateRecognitionLibRequest> request);
+  CreateRecognitionSampleResponse createRecognitionSampleWithOptions(shared_ptr<CreateRecognitionSampleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateRecognitionSampleResponse createRecognitionSample(shared_ptr<CreateRecognitionSampleRequest> request);
   CreateSearchIndexResponse createSearchIndexWithOptions(shared_ptr<CreateSearchIndexRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSearchIndexResponse createSearchIndex(shared_ptr<CreateSearchIndexRequest> request);
   CreateSearchLibResponse createSearchLibWithOptions(shared_ptr<CreateSearchLibRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -101955,6 +103739,12 @@ public:
   DeletePlayInfoResponse deletePlayInfo(shared_ptr<DeletePlayInfoRequest> request);
   DeleteProgramResponse deleteProgramWithOptions(shared_ptr<DeleteProgramRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteProgramResponse deleteProgram(shared_ptr<DeleteProgramRequest> request);
+  DeleteRecognitionEntityResponse deleteRecognitionEntityWithOptions(shared_ptr<DeleteRecognitionEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteRecognitionEntityResponse deleteRecognitionEntity(shared_ptr<DeleteRecognitionEntityRequest> request);
+  DeleteRecognitionLibResponse deleteRecognitionLibWithOptions(shared_ptr<DeleteRecognitionLibRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteRecognitionLibResponse deleteRecognitionLib(shared_ptr<DeleteRecognitionLibRequest> request);
+  DeleteRecognitionSampleResponse deleteRecognitionSampleWithOptions(shared_ptr<DeleteRecognitionSampleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteRecognitionSampleResponse deleteRecognitionSample(shared_ptr<DeleteRecognitionSampleRequest> request);
   DeleteSmartJobResponse deleteSmartJobWithOptions(shared_ptr<DeleteSmartJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSmartJobResponse deleteSmartJob(shared_ptr<DeleteSmartJobRequest> request);
   DeleteSourceResponse deleteSourceWithOptions(shared_ptr<DeleteSourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -102207,6 +103997,12 @@ public:
   ListProgramsResponse listPrograms(shared_ptr<ListProgramsRequest> request);
   ListPublicMediaBasicInfosResponse listPublicMediaBasicInfosWithOptions(shared_ptr<ListPublicMediaBasicInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPublicMediaBasicInfosResponse listPublicMediaBasicInfos(shared_ptr<ListPublicMediaBasicInfosRequest> request);
+  ListRecognitionEntitiesResponse listRecognitionEntitiesWithOptions(shared_ptr<ListRecognitionEntitiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRecognitionEntitiesResponse listRecognitionEntities(shared_ptr<ListRecognitionEntitiesRequest> request);
+  ListRecognitionLibsResponse listRecognitionLibsWithOptions(shared_ptr<ListRecognitionLibsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRecognitionLibsResponse listRecognitionLibs(shared_ptr<ListRecognitionLibsRequest> request);
+  ListRecognitionSamplesResponse listRecognitionSamplesWithOptions(shared_ptr<ListRecognitionSamplesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRecognitionSamplesResponse listRecognitionSamples(shared_ptr<ListRecognitionSamplesRequest> request);
   ListSchedulesResponse listSchedulesWithOptions(shared_ptr<ListSchedulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSchedulesResponse listSchedules(shared_ptr<ListSchedulesRequest> request);
   ListSearchLibResponse listSearchLibWithOptions(shared_ptr<ListSearchLibRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
