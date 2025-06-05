@@ -787,6 +787,53 @@ AssignTicketResponse Alibabacloud_Aliding20230426::Client::assignTicket(shared_p
   return assignTicketWithOptions(request, headers, runtime);
 }
 
+AuthorizeSkillResponse Alibabacloud_Aliding20230426::Client::authorizeSkillWithOptions(shared_ptr<AuthorizeSkillRequest> tmpReq, shared_ptr<AuthorizeSkillHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AuthorizeSkillShrinkRequest> request = make_shared<AuthorizeSkillShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<AuthorizeSkillShrinkHeaders> headers = make_shared<AuthorizeSkillShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<AuthorizeSkillHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->permissionCodes)) {
+    request->permissionCodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->permissionCodes, make_shared<string>("PermissionCodes"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->permissionCodesShrink)) {
+    body->insert(pair<string, string>("PermissionCodes", *request->permissionCodesShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthorizeSkill"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/ai/v1/skill/authorizeSkill"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AuthorizeSkillResponse(callApi(params, req, runtime));
+}
+
+AuthorizeSkillResponse Alibabacloud_Aliding20230426::Client::authorizeSkill(shared_ptr<AuthorizeSkillRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AuthorizeSkillHeaders> headers = make_shared<AuthorizeSkillHeaders>();
+  return authorizeSkillWithOptions(request, headers, runtime);
+}
+
 BatchGetFormDataByIdListResponse Alibabacloud_Aliding20230426::Client::batchGetFormDataByIdListWithOptions(shared_ptr<BatchGetFormDataByIdListRequest> tmpReq, shared_ptr<BatchGetFormDataByIdListHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<BatchGetFormDataByIdListShrinkRequest> request = make_shared<BatchGetFormDataByIdListShrinkRequest>();
@@ -8677,6 +8724,9 @@ InvokeSkillResponse Alibabacloud_Aliding20230426::Client::invokeSkillWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->skillId)) {
     body->insert(pair<string, string>("SkillId", *request->skillId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
+    body->insert(pair<string, bool>("Stream", *request->stream));
+  }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
     realHeaders = headers->commonHeaders;
@@ -9470,6 +9520,48 @@ ListReportResponse Alibabacloud_Aliding20230426::Client::listReport(shared_ptr<L
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<ListReportHeaders> headers = make_shared<ListReportHeaders>();
   return listReportWithOptions(request, headers, runtime);
+}
+
+ListSkillResponse Alibabacloud_Aliding20230426::Client::listSkillWithOptions(shared_ptr<ListSkillRequest> request, shared_ptr<ListSkillHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<ListSkillShrinkHeaders> headers = make_shared<ListSkillShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<ListSkillHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    body->insert(pair<string, string>("groupId", *request->groupId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSkill"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/ai/v1/skill/listSkill"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSkillResponse(callApi(params, req, runtime));
+}
+
+ListSkillResponse Alibabacloud_Aliding20230426::Client::listSkill(shared_ptr<ListSkillRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ListSkillHeaders> headers = make_shared<ListSkillHeaders>();
+  return listSkillWithOptions(request, headers, runtime);
 }
 
 ListTableDataByFormInstanceIdTableIdResponse Alibabacloud_Aliding20230426::Client::listTableDataByFormInstanceIdTableIdWithOptions(shared_ptr<ListTableDataByFormInstanceIdTableIdRequest> request, shared_ptr<ListTableDataByFormInstanceIdTableIdHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -5649,6 +5649,274 @@ public:
 
   virtual ~AssignTicketResponse() = default;
 };
+class AuthorizeSkillHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  AuthorizeSkillHeadersAccountContext() {}
+
+  explicit AuthorizeSkillHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~AuthorizeSkillHeadersAccountContext() = default;
+};
+class AuthorizeSkillHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<AuthorizeSkillHeadersAccountContext> accountContext{};
+
+  AuthorizeSkillHeaders() {}
+
+  explicit AuthorizeSkillHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        AuthorizeSkillHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<AuthorizeSkillHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AuthorizeSkillHeaders() = default;
+};
+class AuthorizeSkillShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  AuthorizeSkillShrinkHeaders() {}
+
+  explicit AuthorizeSkillShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~AuthorizeSkillShrinkHeaders() = default;
+};
+class AuthorizeSkillRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> permissionCodes{};
+
+  AuthorizeSkillRequest() {}
+
+  explicit AuthorizeSkillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (permissionCodes) {
+      res["PermissionCodes"] = boost::any(*permissionCodes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PermissionCodes") != m.end() && !m["PermissionCodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PermissionCodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PermissionCodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      permissionCodes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AuthorizeSkillRequest() = default;
+};
+class AuthorizeSkillShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> permissionCodesShrink{};
+
+  AuthorizeSkillShrinkRequest() {}
+
+  explicit AuthorizeSkillShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (permissionCodesShrink) {
+      res["PermissionCodes"] = boost::any(*permissionCodesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PermissionCodes") != m.end() && !m["PermissionCodes"].empty()) {
+      permissionCodesShrink = make_shared<string>(boost::any_cast<string>(m["PermissionCodes"]));
+    }
+  }
+
+
+  virtual ~AuthorizeSkillShrinkRequest() = default;
+};
+class AuthorizeSkillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> requestId{};
+
+  AuthorizeSkillResponseBody() {}
+
+  explicit AuthorizeSkillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AuthorizeSkillResponseBody() = default;
+};
+class AuthorizeSkillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AuthorizeSkillResponseBody> body{};
+
+  AuthorizeSkillResponse() {}
+
+  explicit AuthorizeSkillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AuthorizeSkillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AuthorizeSkillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AuthorizeSkillResponse() = default;
+};
 class BatchGetFormDataByIdListHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -71184,6 +71452,7 @@ class InvokeSkillRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> params{};
   shared_ptr<string> skillId{};
+  shared_ptr<bool> stream{};
 
   InvokeSkillRequest() {}
 
@@ -71201,6 +71470,9 @@ public:
     if (skillId) {
       res["SkillId"] = boost::any(*skillId);
     }
+    if (stream) {
+      res["Stream"] = boost::any(*stream);
+    }
     return res;
   }
 
@@ -71216,6 +71488,9 @@ public:
     if (m.find("SkillId") != m.end() && !m["SkillId"].empty()) {
       skillId = make_shared<string>(boost::any_cast<string>(m["SkillId"]));
     }
+    if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
+      stream = make_shared<bool>(boost::any_cast<bool>(m["Stream"]));
+    }
   }
 
 
@@ -71225,6 +71500,7 @@ class InvokeSkillShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> paramsShrink{};
   shared_ptr<string> skillId{};
+  shared_ptr<bool> stream{};
 
   InvokeSkillShrinkRequest() {}
 
@@ -71242,6 +71518,9 @@ public:
     if (skillId) {
       res["SkillId"] = boost::any(*skillId);
     }
+    if (stream) {
+      res["Stream"] = boost::any(*stream);
+    }
     return res;
   }
 
@@ -71252,6 +71531,9 @@ public:
     if (m.find("SkillId") != m.end() && !m["SkillId"].empty()) {
       skillId = make_shared<string>(boost::any_cast<string>(m["SkillId"]));
     }
+    if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
+      stream = make_shared<bool>(boost::any_cast<bool>(m["Stream"]));
+    }
   }
 
 
@@ -71259,8 +71541,13 @@ public:
 };
 class InvokeSkillResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<bool> finished{};
+  shared_ptr<boost::any> metadata{};
   shared_ptr<string> requestId{};
-  shared_ptr<map<string, boost::any>> data{};
+  shared_ptr<bool> success{};
 
   InvokeSkillResponseBody() {}
 
@@ -71272,26 +71559,51 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (finished) {
+      res["Finished"] = boost::any(*finished);
+    }
+    if (metadata) {
+      res["Metadata"] = boost::any(*metadata);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (data) {
-      res["data"] = boost::any(*data);
+    if (success) {
+      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Finished") != m.end() && !m["Finished"].empty()) {
+      finished = make_shared<bool>(boost::any_cast<bool>(m["Finished"]));
+    }
+    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
+      metadata = make_shared<boost::any>(boost::any_cast<boost::any>(m["Metadata"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("data") != m.end() && !m["data"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["data"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      data = make_shared<map<string, boost::any>>(toMap1);
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -79944,6 +80256,238 @@ public:
 
 
   virtual ~ListReportResponse() = default;
+};
+class ListSkillHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  ListSkillHeadersAccountContext() {}
+
+  explicit ListSkillHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~ListSkillHeadersAccountContext() = default;
+};
+class ListSkillHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<ListSkillHeadersAccountContext> accountContext{};
+
+  ListSkillHeaders() {}
+
+  explicit ListSkillHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        ListSkillHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<ListSkillHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSkillHeaders() = default;
+};
+class ListSkillShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  ListSkillShrinkHeaders() {}
+
+  explicit ListSkillShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~ListSkillShrinkHeaders() = default;
+};
+class ListSkillRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+
+  ListSkillRequest() {}
+
+  explicit ListSkillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["groupId"] = boost::any(*groupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("groupId") != m.end() && !m["groupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["groupId"]));
+    }
+  }
+
+
+  virtual ~ListSkillRequest() = default;
+};
+class ListSkillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> requestId{};
+
+  ListSkillResponseBody() {}
+
+  explicit ListSkillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListSkillResponseBody() = default;
+};
+class ListSkillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSkillResponseBody> body{};
+
+  ListSkillResponse() {}
+
+  explicit ListSkillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSkillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSkillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSkillResponse() = default;
 };
 class ListTableDataByFormInstanceIdTableIdHeadersAccountContext : public Darabonba::Model {
 public:
@@ -119499,6 +120043,8 @@ public:
   AddWorkspaceMembersResponse addWorkspaceMembers(shared_ptr<AddWorkspaceMembersRequest> request);
   AssignTicketResponse assignTicketWithOptions(shared_ptr<AssignTicketRequest> tmpReq, shared_ptr<AssignTicketHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssignTicketResponse assignTicket(shared_ptr<AssignTicketRequest> request);
+  AuthorizeSkillResponse authorizeSkillWithOptions(shared_ptr<AuthorizeSkillRequest> tmpReq, shared_ptr<AuthorizeSkillHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AuthorizeSkillResponse authorizeSkill(shared_ptr<AuthorizeSkillRequest> request);
   BatchGetFormDataByIdListResponse batchGetFormDataByIdListWithOptions(shared_ptr<BatchGetFormDataByIdListRequest> tmpReq, shared_ptr<BatchGetFormDataByIdListHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchGetFormDataByIdListResponse batchGetFormDataByIdList(shared_ptr<BatchGetFormDataByIdListRequest> request);
   BatchRemovalByFormInstanceIdListResponse batchRemovalByFormInstanceIdListWithOptions(shared_ptr<BatchRemovalByFormInstanceIdListRequest> tmpReq, shared_ptr<BatchRemovalByFormInstanceIdListHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -119795,6 +120341,8 @@ public:
   ListPermissionsResponse listPermissions(shared_ptr<ListPermissionsRequest> request);
   ListReportResponse listReportWithOptions(shared_ptr<ListReportRequest> tmpReq, shared_ptr<ListReportHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListReportResponse listReport(shared_ptr<ListReportRequest> request);
+  ListSkillResponse listSkillWithOptions(shared_ptr<ListSkillRequest> request, shared_ptr<ListSkillHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSkillResponse listSkill(shared_ptr<ListSkillRequest> request);
   ListTableDataByFormInstanceIdTableIdResponse listTableDataByFormInstanceIdTableIdWithOptions(shared_ptr<ListTableDataByFormInstanceIdTableIdRequest> request, shared_ptr<ListTableDataByFormInstanceIdTableIdHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTableDataByFormInstanceIdTableIdResponse listTableDataByFormInstanceIdTableId(shared_ptr<ListTableDataByFormInstanceIdTableIdRequest> request);
   ListTeamsResponse listTeamsWithOptions(shared_ptr<ListTeamsRequest> tmpReq, shared_ptr<ListTeamsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
