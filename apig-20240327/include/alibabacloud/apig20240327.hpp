@@ -4910,6 +4910,110 @@ public:
 
   virtual ~HttpRouteEnvironmentInfo() = default;
 };
+class HttpRouteMcpServerInfoMcpRouteConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> exposedUriPath{};
+  shared_ptr<string> protocol{};
+
+  HttpRouteMcpServerInfoMcpRouteConfig() {}
+
+  explicit HttpRouteMcpServerInfoMcpRouteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exposedUriPath) {
+      res["exposedUriPath"] = boost::any(*exposedUriPath);
+    }
+    if (protocol) {
+      res["protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("exposedUriPath") != m.end() && !m["exposedUriPath"].empty()) {
+      exposedUriPath = make_shared<string>(boost::any_cast<string>(m["exposedUriPath"]));
+    }
+    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+  }
+
+
+  virtual ~HttpRouteMcpServerInfoMcpRouteConfig() = default;
+};
+class HttpRouteMcpServerInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> createFromType{};
+  shared_ptr<string> importInstanceId{};
+  shared_ptr<string> importMcpServerId{};
+  shared_ptr<string> importNamespace{};
+  shared_ptr<HttpRouteMcpServerInfoMcpRouteConfig> mcpRouteConfig{};
+  shared_ptr<string> mcpServerConfig{};
+
+  HttpRouteMcpServerInfo() {}
+
+  explicit HttpRouteMcpServerInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createFromType) {
+      res["createFromType"] = boost::any(*createFromType);
+    }
+    if (importInstanceId) {
+      res["importInstanceId"] = boost::any(*importInstanceId);
+    }
+    if (importMcpServerId) {
+      res["importMcpServerId"] = boost::any(*importMcpServerId);
+    }
+    if (importNamespace) {
+      res["importNamespace"] = boost::any(*importNamespace);
+    }
+    if (mcpRouteConfig) {
+      res["mcpRouteConfig"] = mcpRouteConfig ? boost::any(mcpRouteConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mcpServerConfig) {
+      res["mcpServerConfig"] = boost::any(*mcpServerConfig);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createFromType") != m.end() && !m["createFromType"].empty()) {
+      createFromType = make_shared<string>(boost::any_cast<string>(m["createFromType"]));
+    }
+    if (m.find("importInstanceId") != m.end() && !m["importInstanceId"].empty()) {
+      importInstanceId = make_shared<string>(boost::any_cast<string>(m["importInstanceId"]));
+    }
+    if (m.find("importMcpServerId") != m.end() && !m["importMcpServerId"].empty()) {
+      importMcpServerId = make_shared<string>(boost::any_cast<string>(m["importMcpServerId"]));
+    }
+    if (m.find("importNamespace") != m.end() && !m["importNamespace"].empty()) {
+      importNamespace = make_shared<string>(boost::any_cast<string>(m["importNamespace"]));
+    }
+    if (m.find("mcpRouteConfig") != m.end() && !m["mcpRouteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["mcpRouteConfig"].type()) {
+        HttpRouteMcpServerInfoMcpRouteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["mcpRouteConfig"]));
+        mcpRouteConfig = make_shared<HttpRouteMcpServerInfoMcpRouteConfig>(model1);
+      }
+    }
+    if (m.find("mcpServerConfig") != m.end() && !m["mcpServerConfig"].empty()) {
+      mcpServerConfig = make_shared<string>(boost::any_cast<string>(m["mcpServerConfig"]));
+    }
+  }
+
+
+  virtual ~HttpRouteMcpServerInfo() = default;
+};
 class HttpRoute : public Darabonba::Model {
 public:
   shared_ptr<Backend> backend{};
@@ -4920,6 +5024,7 @@ public:
   shared_ptr<HttpRouteEnvironmentInfo> environmentInfo{};
   shared_ptr<map<string, string>> gatewayStatus{};
   shared_ptr<HttpRouteMatch> match{};
+  shared_ptr<HttpRouteMcpServerInfo> mcpServerInfo{};
   shared_ptr<string> name{};
   shared_ptr<string> routeId{};
   shared_ptr<long> updateTimestamp{};
@@ -4961,6 +5066,9 @@ public:
     }
     if (match) {
       res["match"] = match ? boost::any(match->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mcpServerInfo) {
+      res["mcpServerInfo"] = mcpServerInfo ? boost::any(mcpServerInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -5024,6 +5132,13 @@ public:
         HttpRouteMatch model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["match"]));
         match = make_shared<HttpRouteMatch>(model1);
+      }
+    }
+    if (m.find("mcpServerInfo") != m.end() && !m["mcpServerInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["mcpServerInfo"].type()) {
+        HttpRouteMcpServerInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["mcpServerInfo"]));
+        mcpServerInfo = make_shared<HttpRouteMcpServerInfo>(model1);
       }
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
