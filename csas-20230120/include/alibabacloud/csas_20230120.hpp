@@ -56,6 +56,7 @@ public:
   shared_ptr<string> alertContentEn{};
   shared_ptr<string> alertTitle{};
   shared_ptr<string> alertTitleEn{};
+  shared_ptr<vector<string>> nacDemotionPolicyIds{};
   shared_ptr<string> noticeContent{};
   shared_ptr<string> noticeContentEn{};
   shared_ptr<vector<string>> notifyActions{};
@@ -82,6 +83,9 @@ public:
     }
     if (alertTitleEn) {
       res["AlertTitleEn"] = boost::any(*alertTitleEn);
+    }
+    if (nacDemotionPolicyIds) {
+      res["NacDemotionPolicyIds"] = boost::any(*nacDemotionPolicyIds);
     }
     if (noticeContent) {
       res["NoticeContent"] = boost::any(*noticeContent);
@@ -110,6 +114,16 @@ public:
     }
     if (m.find("AlertTitleEn") != m.end() && !m["AlertTitleEn"].empty()) {
       alertTitleEn = make_shared<string>(boost::any_cast<string>(m["AlertTitleEn"]));
+    }
+    if (m.find("NacDemotionPolicyIds") != m.end() && !m["NacDemotionPolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NacDemotionPolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NacDemotionPolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nacDemotionPolicyIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("NoticeContent") != m.end() && !m["NoticeContent"].empty()) {
       noticeContent = make_shared<string>(boost::any_cast<string>(m["NoticeContent"]));
@@ -2851,6 +2865,130 @@ public:
 
   virtual ~CreateEnterpriseAcceleratePolicyResponse() = default;
 };
+class CreateEnterpriseAccelerateTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eapId{};
+  shared_ptr<vector<string>> target{};
+
+  CreateEnterpriseAccelerateTargetRequest() {}
+
+  explicit CreateEnterpriseAccelerateTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Target"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Target"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      target = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateEnterpriseAccelerateTargetRequest() = default;
+};
+class CreateEnterpriseAccelerateTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateEnterpriseAccelerateTargetResponseBody() {}
+
+  explicit CreateEnterpriseAccelerateTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateEnterpriseAccelerateTargetResponseBody() = default;
+};
+class CreateEnterpriseAccelerateTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateEnterpriseAccelerateTargetResponseBody> body{};
+
+  CreateEnterpriseAccelerateTargetResponse() {}
+
+  explicit CreateEnterpriseAccelerateTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateEnterpriseAccelerateTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateEnterpriseAccelerateTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateEnterpriseAccelerateTargetResponse() = default;
+};
 class CreateIdpDepartmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> departmentName{};
@@ -5548,6 +5686,7 @@ public:
   shared_ptr<bool> documentIsCapture{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filename{};
+  shared_ptr<bool> isClientEmbed{};
   shared_ptr<bool> videoIsLong{};
   shared_ptr<string> videoSpeed{};
   shared_ptr<long> wmInfoSize{};
@@ -5574,6 +5713,9 @@ public:
     }
     if (filename) {
       res["Filename"] = boost::any(*filename);
+    }
+    if (isClientEmbed) {
+      res["IsClientEmbed"] = boost::any(*isClientEmbed);
     }
     if (videoIsLong) {
       res["VideoIsLong"] = boost::any(*videoIsLong);
@@ -5607,6 +5749,9 @@ public:
     if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
       filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
     }
+    if (m.find("IsClientEmbed") != m.end() && !m["IsClientEmbed"].empty()) {
+      isClientEmbed = make_shared<bool>(boost::any_cast<bool>(m["IsClientEmbed"]));
+    }
     if (m.find("VideoIsLong") != m.end() && !m["VideoIsLong"].empty()) {
       videoIsLong = make_shared<bool>(boost::any_cast<bool>(m["VideoIsLong"]));
     }
@@ -5630,6 +5775,7 @@ public:
   shared_ptr<bool> documentIsCapture{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filename{};
+  shared_ptr<bool> isClientEmbed{};
   shared_ptr<bool> videoIsLong{};
   shared_ptr<string> videoSpeed{};
   shared_ptr<long> wmInfoSize{};
@@ -5656,6 +5802,9 @@ public:
     }
     if (filename) {
       res["Filename"] = boost::any(*filename);
+    }
+    if (isClientEmbed) {
+      res["IsClientEmbed"] = boost::any(*isClientEmbed);
     }
     if (videoIsLong) {
       res["VideoIsLong"] = boost::any(*videoIsLong);
@@ -5684,6 +5833,9 @@ public:
     }
     if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
       filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("IsClientEmbed") != m.end() && !m["IsClientEmbed"].empty()) {
+      isClientEmbed = make_shared<bool>(boost::any_cast<bool>(m["IsClientEmbed"]));
     }
     if (m.find("VideoIsLong") != m.end() && !m["VideoIsLong"].empty()) {
       videoIsLong = make_shared<bool>(boost::any_cast<bool>(m["VideoIsLong"]));
@@ -6323,6 +6475,240 @@ public:
 
 
   virtual ~DeleteDynamicRouteResponse() = default;
+};
+class DeleteEnterpriseAcceleratePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eapId{};
+
+  DeleteEnterpriseAcceleratePolicyRequest() {}
+
+  explicit DeleteEnterpriseAcceleratePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+  }
+
+
+  virtual ~DeleteEnterpriseAcceleratePolicyRequest() = default;
+};
+class DeleteEnterpriseAcceleratePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteEnterpriseAcceleratePolicyResponseBody() {}
+
+  explicit DeleteEnterpriseAcceleratePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteEnterpriseAcceleratePolicyResponseBody() = default;
+};
+class DeleteEnterpriseAcceleratePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteEnterpriseAcceleratePolicyResponseBody> body{};
+
+  DeleteEnterpriseAcceleratePolicyResponse() {}
+
+  explicit DeleteEnterpriseAcceleratePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteEnterpriseAcceleratePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteEnterpriseAcceleratePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteEnterpriseAcceleratePolicyResponse() = default;
+};
+class DeleteEnterpriseAccelerateTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eapId{};
+  shared_ptr<vector<string>> target{};
+
+  DeleteEnterpriseAccelerateTargetRequest() {}
+
+  explicit DeleteEnterpriseAccelerateTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Target"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Target"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      target = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeleteEnterpriseAccelerateTargetRequest() = default;
+};
+class DeleteEnterpriseAccelerateTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteEnterpriseAccelerateTargetResponseBody() {}
+
+  explicit DeleteEnterpriseAccelerateTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteEnterpriseAccelerateTargetResponseBody() = default;
+};
+class DeleteEnterpriseAccelerateTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteEnterpriseAccelerateTargetResponseBody> body{};
+
+  DeleteEnterpriseAccelerateTargetResponse() {}
+
+  explicit DeleteEnterpriseAccelerateTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteEnterpriseAccelerateTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteEnterpriseAccelerateTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteEnterpriseAccelerateTargetResponse() = default;
 };
 class DeleteIdpDepartmentRequest : public Darabonba::Model {
 public:
@@ -7508,6 +7894,226 @@ public:
 
 
   virtual ~DetachPolicy2ApprovalProcessResponse() = default;
+};
+class DisableEnterpriseAcceleratePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eapId{};
+
+  DisableEnterpriseAcceleratePolicyRequest() {}
+
+  explicit DisableEnterpriseAcceleratePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+  }
+
+
+  virtual ~DisableEnterpriseAcceleratePolicyRequest() = default;
+};
+class DisableEnterpriseAcceleratePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DisableEnterpriseAcceleratePolicyResponseBody() {}
+
+  explicit DisableEnterpriseAcceleratePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DisableEnterpriseAcceleratePolicyResponseBody() = default;
+};
+class DisableEnterpriseAcceleratePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisableEnterpriseAcceleratePolicyResponseBody> body{};
+
+  DisableEnterpriseAcceleratePolicyResponse() {}
+
+  explicit DisableEnterpriseAcceleratePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableEnterpriseAcceleratePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableEnterpriseAcceleratePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableEnterpriseAcceleratePolicyResponse() = default;
+};
+class EnableEnterpriseAcceleratePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eapId{};
+
+  EnableEnterpriseAcceleratePolicyRequest() {}
+
+  explicit EnableEnterpriseAcceleratePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+  }
+
+
+  virtual ~EnableEnterpriseAcceleratePolicyRequest() = default;
+};
+class EnableEnterpriseAcceleratePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  EnableEnterpriseAcceleratePolicyResponseBody() {}
+
+  explicit EnableEnterpriseAcceleratePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnableEnterpriseAcceleratePolicyResponseBody() = default;
+};
+class EnableEnterpriseAcceleratePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableEnterpriseAcceleratePolicyResponseBody> body{};
+
+  EnableEnterpriseAcceleratePolicyResponse() {}
+
+  explicit EnableEnterpriseAcceleratePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableEnterpriseAcceleratePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableEnterpriseAcceleratePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableEnterpriseAcceleratePolicyResponse() = default;
 };
 class ExportUserDevicesRequest : public Darabonba::Model {
 public:
@@ -12429,6 +13035,130 @@ public:
 
   virtual ~GetWmExtractTaskResponse() = default;
 };
+class ImportEnterpriseAccelerateTargetsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eapId{};
+  shared_ptr<string> fileUrl{};
+
+  ImportEnterpriseAccelerateTargetsRequest() {}
+
+  explicit ImportEnterpriseAccelerateTargetsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~ImportEnterpriseAccelerateTargetsRequest() = default;
+};
+class ImportEnterpriseAccelerateTargetsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+
+  ImportEnterpriseAccelerateTargetsResponseBody() {}
+
+  explicit ImportEnterpriseAccelerateTargetsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ImportEnterpriseAccelerateTargetsResponseBody() = default;
+};
+class ImportEnterpriseAccelerateTargetsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ImportEnterpriseAccelerateTargetsResponseBody> body{};
+
+  ImportEnterpriseAccelerateTargetsResponse() {}
+
+  explicit ImportEnterpriseAccelerateTargetsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ImportEnterpriseAccelerateTargetsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ImportEnterpriseAccelerateTargetsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImportEnterpriseAccelerateTargetsResponse() = default;
+};
 class ListApplicationsForPrivateAccessPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> policyIds{};
@@ -16894,6 +17624,695 @@ public:
 
 
   virtual ~ListDynamicRoutesResponse() = default;
+};
+class ListEnterpriseAccelerateLogsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> department{};
+  shared_ptr<string> dstAddr{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> searchMode{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> username{};
+
+  ListEnterpriseAccelerateLogsRequest() {}
+
+  explicit ListEnterpriseAccelerateLogsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (department) {
+      res["Department"] = boost::any(*department);
+    }
+    if (dstAddr) {
+      res["DstAddr"] = boost::any(*dstAddr);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (searchMode) {
+      res["SearchMode"] = boost::any(*searchMode);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("Department") != m.end() && !m["Department"].empty()) {
+      department = make_shared<string>(boost::any_cast<string>(m["Department"]));
+    }
+    if (m.find("DstAddr") != m.end() && !m["DstAddr"].empty()) {
+      dstAddr = make_shared<string>(boost::any_cast<string>(m["DstAddr"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchMode") != m.end() && !m["SearchMode"].empty()) {
+      searchMode = make_shared<string>(boost::any_cast<string>(m["SearchMode"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseAccelerateLogsRequest() = default;
+};
+class ListEnterpriseAccelerateLogsResponseBodyLogs : public Darabonba::Model {
+public:
+  shared_ptr<string> department{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> dstAddr{};
+  shared_ptr<string> inBytes{};
+  shared_ptr<string> outBytes{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> proxyAddr{};
+  shared_ptr<string> unixTime{};
+  shared_ptr<string> username{};
+
+  ListEnterpriseAccelerateLogsResponseBodyLogs() {}
+
+  explicit ListEnterpriseAccelerateLogsResponseBodyLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (department) {
+      res["Department"] = boost::any(*department);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (dstAddr) {
+      res["DstAddr"] = boost::any(*dstAddr);
+    }
+    if (inBytes) {
+      res["InBytes"] = boost::any(*inBytes);
+    }
+    if (outBytes) {
+      res["OutBytes"] = boost::any(*outBytes);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (proxyAddr) {
+      res["ProxyAddr"] = boost::any(*proxyAddr);
+    }
+    if (unixTime) {
+      res["UnixTime"] = boost::any(*unixTime);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Department") != m.end() && !m["Department"].empty()) {
+      department = make_shared<string>(boost::any_cast<string>(m["Department"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("DstAddr") != m.end() && !m["DstAddr"].empty()) {
+      dstAddr = make_shared<string>(boost::any_cast<string>(m["DstAddr"]));
+    }
+    if (m.find("InBytes") != m.end() && !m["InBytes"].empty()) {
+      inBytes = make_shared<string>(boost::any_cast<string>(m["InBytes"]));
+    }
+    if (m.find("OutBytes") != m.end() && !m["OutBytes"].empty()) {
+      outBytes = make_shared<string>(boost::any_cast<string>(m["OutBytes"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("ProxyAddr") != m.end() && !m["ProxyAddr"].empty()) {
+      proxyAddr = make_shared<string>(boost::any_cast<string>(m["ProxyAddr"]));
+    }
+    if (m.find("UnixTime") != m.end() && !m["UnixTime"].empty()) {
+      unixTime = make_shared<string>(boost::any_cast<string>(m["UnixTime"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseAccelerateLogsResponseBodyLogs() = default;
+};
+class ListEnterpriseAccelerateLogsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListEnterpriseAccelerateLogsResponseBodyLogs>> logs{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalNumber{};
+
+  ListEnterpriseAccelerateLogsResponseBody() {}
+
+  explicit ListEnterpriseAccelerateLogsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logs) {
+      vector<boost::any> temp1;
+      for(auto item1:*logs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Logs"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalNumber) {
+      res["TotalNumber"] = boost::any(*totalNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Logs") != m.end() && !m["Logs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Logs"].type()) {
+        vector<ListEnterpriseAccelerateLogsResponseBodyLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Logs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListEnterpriseAccelerateLogsResponseBodyLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        logs = make_shared<vector<ListEnterpriseAccelerateLogsResponseBodyLogs>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalNumber") != m.end() && !m["TotalNumber"].empty()) {
+      totalNumber = make_shared<long>(boost::any_cast<long>(m["TotalNumber"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseAccelerateLogsResponseBody() = default;
+};
+class ListEnterpriseAccelerateLogsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListEnterpriseAccelerateLogsResponseBody> body{};
+
+  ListEnterpriseAccelerateLogsResponse() {}
+
+  explicit ListEnterpriseAccelerateLogsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListEnterpriseAccelerateLogsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListEnterpriseAccelerateLogsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListEnterpriseAccelerateLogsResponse() = default;
+};
+class ListEnterpriseAcceleratePoliciesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> name{};
+  shared_ptr<long> pageSize{};
+
+  ListEnterpriseAcceleratePoliciesRequest() {}
+
+  explicit ListEnterpriseAcceleratePoliciesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseAcceleratePoliciesRequest() = default;
+};
+class ListEnterpriseAcceleratePoliciesResponseBodyPolicies : public Darabonba::Model {
+public:
+  shared_ptr<string> accelerationType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> eapId{};
+  shared_ptr<long> enabled{};
+  shared_ptr<string> name{};
+  shared_ptr<long> onTls{};
+  shared_ptr<long> priority{};
+  shared_ptr<long> showInClient{};
+  shared_ptr<string> upstreamHost{};
+  shared_ptr<long> upstreamPort{};
+  shared_ptr<string> upstreamType{};
+  shared_ptr<string> userAttributeGroup{};
+
+  ListEnterpriseAcceleratePoliciesResponseBodyPolicies() {}
+
+  explicit ListEnterpriseAcceleratePoliciesResponseBodyPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accelerationType) {
+      res["AccelerationType"] = boost::any(*accelerationType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (onTls) {
+      res["OnTls"] = boost::any(*onTls);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (showInClient) {
+      res["ShowInClient"] = boost::any(*showInClient);
+    }
+    if (upstreamHost) {
+      res["UpstreamHost"] = boost::any(*upstreamHost);
+    }
+    if (upstreamPort) {
+      res["UpstreamPort"] = boost::any(*upstreamPort);
+    }
+    if (upstreamType) {
+      res["UpstreamType"] = boost::any(*upstreamType);
+    }
+    if (userAttributeGroup) {
+      res["UserAttributeGroup"] = boost::any(*userAttributeGroup);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccelerationType") != m.end() && !m["AccelerationType"].empty()) {
+      accelerationType = make_shared<string>(boost::any_cast<string>(m["AccelerationType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<long>(boost::any_cast<long>(m["Enabled"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OnTls") != m.end() && !m["OnTls"].empty()) {
+      onTls = make_shared<long>(boost::any_cast<long>(m["OnTls"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ShowInClient") != m.end() && !m["ShowInClient"].empty()) {
+      showInClient = make_shared<long>(boost::any_cast<long>(m["ShowInClient"]));
+    }
+    if (m.find("UpstreamHost") != m.end() && !m["UpstreamHost"].empty()) {
+      upstreamHost = make_shared<string>(boost::any_cast<string>(m["UpstreamHost"]));
+    }
+    if (m.find("UpstreamPort") != m.end() && !m["UpstreamPort"].empty()) {
+      upstreamPort = make_shared<long>(boost::any_cast<long>(m["UpstreamPort"]));
+    }
+    if (m.find("UpstreamType") != m.end() && !m["UpstreamType"].empty()) {
+      upstreamType = make_shared<string>(boost::any_cast<string>(m["UpstreamType"]));
+    }
+    if (m.find("UserAttributeGroup") != m.end() && !m["UserAttributeGroup"].empty()) {
+      userAttributeGroup = make_shared<string>(boost::any_cast<string>(m["UserAttributeGroup"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseAcceleratePoliciesResponseBodyPolicies() = default;
+};
+class ListEnterpriseAcceleratePoliciesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListEnterpriseAcceleratePoliciesResponseBodyPolicies>> policies{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> total{};
+
+  ListEnterpriseAcceleratePoliciesResponseBody() {}
+
+  explicit ListEnterpriseAcceleratePoliciesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policies) {
+      vector<boost::any> temp1;
+      for(auto item1:*policies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Policies"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Policies") != m.end() && !m["Policies"].empty()) {
+      if (typeid(vector<boost::any>) == m["Policies"].type()) {
+        vector<ListEnterpriseAcceleratePoliciesResponseBodyPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Policies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListEnterpriseAcceleratePoliciesResponseBodyPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policies = make_shared<vector<ListEnterpriseAcceleratePoliciesResponseBodyPolicies>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseAcceleratePoliciesResponseBody() = default;
+};
+class ListEnterpriseAcceleratePoliciesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListEnterpriseAcceleratePoliciesResponseBody> body{};
+
+  ListEnterpriseAcceleratePoliciesResponse() {}
+
+  explicit ListEnterpriseAcceleratePoliciesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListEnterpriseAcceleratePoliciesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListEnterpriseAcceleratePoliciesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListEnterpriseAcceleratePoliciesResponse() = default;
+};
+class ListEnterpriseAccelerateTargetsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> eapId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> target{};
+
+  ListEnterpriseAccelerateTargetsRequest() {}
+
+  explicit ListEnterpriseAccelerateTargetsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseAccelerateTargetsRequest() = default;
+};
+class ListEnterpriseAccelerateTargetsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> eapId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> targets{};
+  shared_ptr<long> total{};
+
+  ListEnterpriseAccelerateTargetsResponseBody() {}
+
+  explicit ListEnterpriseAccelerateTargetsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (targets) {
+      res["Targets"] = boost::any(*targets);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Targets") != m.end() && !m["Targets"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Targets"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Targets"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      targets = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseAccelerateTargetsResponseBody() = default;
+};
+class ListEnterpriseAccelerateTargetsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListEnterpriseAccelerateTargetsResponseBody> body{};
+
+  ListEnterpriseAccelerateTargetsResponse() {}
+
+  explicit ListEnterpriseAccelerateTargetsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListEnterpriseAccelerateTargetsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListEnterpriseAccelerateTargetsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListEnterpriseAccelerateTargetsResponse() = default;
 };
 class ListExcessiveDeviceRegistrationApplicationsRequest : public Darabonba::Model {
 public:
@@ -25211,6 +26630,186 @@ public:
 
   virtual ~LookupWmInfoMappingResponse() = default;
 };
+class ModifyEnterpriseAcceleratePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accelerationType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> eapId{};
+  shared_ptr<string> name{};
+  shared_ptr<long> onTls{};
+  shared_ptr<long> priority{};
+  shared_ptr<long> showInClient{};
+  shared_ptr<string> upstreamHost{};
+  shared_ptr<long> upstreamPort{};
+  shared_ptr<string> upstreamType{};
+  shared_ptr<string> userAttributeGroup{};
+
+  ModifyEnterpriseAcceleratePolicyRequest() {}
+
+  explicit ModifyEnterpriseAcceleratePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accelerationType) {
+      res["AccelerationType"] = boost::any(*accelerationType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (eapId) {
+      res["EapId"] = boost::any(*eapId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (onTls) {
+      res["OnTls"] = boost::any(*onTls);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (showInClient) {
+      res["ShowInClient"] = boost::any(*showInClient);
+    }
+    if (upstreamHost) {
+      res["UpstreamHost"] = boost::any(*upstreamHost);
+    }
+    if (upstreamPort) {
+      res["UpstreamPort"] = boost::any(*upstreamPort);
+    }
+    if (upstreamType) {
+      res["UpstreamType"] = boost::any(*upstreamType);
+    }
+    if (userAttributeGroup) {
+      res["UserAttributeGroup"] = boost::any(*userAttributeGroup);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccelerationType") != m.end() && !m["AccelerationType"].empty()) {
+      accelerationType = make_shared<string>(boost::any_cast<string>(m["AccelerationType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EapId") != m.end() && !m["EapId"].empty()) {
+      eapId = make_shared<string>(boost::any_cast<string>(m["EapId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OnTls") != m.end() && !m["OnTls"].empty()) {
+      onTls = make_shared<long>(boost::any_cast<long>(m["OnTls"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ShowInClient") != m.end() && !m["ShowInClient"].empty()) {
+      showInClient = make_shared<long>(boost::any_cast<long>(m["ShowInClient"]));
+    }
+    if (m.find("UpstreamHost") != m.end() && !m["UpstreamHost"].empty()) {
+      upstreamHost = make_shared<string>(boost::any_cast<string>(m["UpstreamHost"]));
+    }
+    if (m.find("UpstreamPort") != m.end() && !m["UpstreamPort"].empty()) {
+      upstreamPort = make_shared<long>(boost::any_cast<long>(m["UpstreamPort"]));
+    }
+    if (m.find("UpstreamType") != m.end() && !m["UpstreamType"].empty()) {
+      upstreamType = make_shared<string>(boost::any_cast<string>(m["UpstreamType"]));
+    }
+    if (m.find("UserAttributeGroup") != m.end() && !m["UserAttributeGroup"].empty()) {
+      userAttributeGroup = make_shared<string>(boost::any_cast<string>(m["UserAttributeGroup"]));
+    }
+  }
+
+
+  virtual ~ModifyEnterpriseAcceleratePolicyRequest() = default;
+};
+class ModifyEnterpriseAcceleratePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyEnterpriseAcceleratePolicyResponseBody() {}
+
+  explicit ModifyEnterpriseAcceleratePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyEnterpriseAcceleratePolicyResponseBody() = default;
+};
+class ModifyEnterpriseAcceleratePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyEnterpriseAcceleratePolicyResponseBody> body{};
+
+  ModifyEnterpriseAcceleratePolicyResponse() {}
+
+  explicit ModifyEnterpriseAcceleratePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyEnterpriseAcceleratePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyEnterpriseAcceleratePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyEnterpriseAcceleratePolicyResponse() = default;
+};
 class RevokeUserSessionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> externalIds{};
@@ -31191,6 +32790,8 @@ public:
   CreateDynamicRouteResponse createDynamicRoute(shared_ptr<CreateDynamicRouteRequest> request);
   CreateEnterpriseAcceleratePolicyResponse createEnterpriseAcceleratePolicyWithOptions(shared_ptr<CreateEnterpriseAcceleratePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEnterpriseAcceleratePolicyResponse createEnterpriseAcceleratePolicy(shared_ptr<CreateEnterpriseAcceleratePolicyRequest> request);
+  CreateEnterpriseAccelerateTargetResponse createEnterpriseAccelerateTargetWithOptions(shared_ptr<CreateEnterpriseAccelerateTargetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateEnterpriseAccelerateTargetResponse createEnterpriseAccelerateTarget(shared_ptr<CreateEnterpriseAccelerateTargetRequest> request);
   CreateIdpDepartmentResponse createIdpDepartmentWithOptions(shared_ptr<CreateIdpDepartmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIdpDepartmentResponse createIdpDepartment(shared_ptr<CreateIdpDepartmentRequest> request);
   CreatePrivateAccessApplicationResponse createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31217,6 +32818,10 @@ public:
   DeleteClientUserResponse deleteClientUser(shared_ptr<DeleteClientUserRequest> request);
   DeleteDynamicRouteResponse deleteDynamicRouteWithOptions(shared_ptr<DeleteDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDynamicRouteResponse deleteDynamicRoute(shared_ptr<DeleteDynamicRouteRequest> request);
+  DeleteEnterpriseAcceleratePolicyResponse deleteEnterpriseAcceleratePolicyWithOptions(shared_ptr<DeleteEnterpriseAcceleratePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteEnterpriseAcceleratePolicyResponse deleteEnterpriseAcceleratePolicy(shared_ptr<DeleteEnterpriseAcceleratePolicyRequest> request);
+  DeleteEnterpriseAccelerateTargetResponse deleteEnterpriseAccelerateTargetWithOptions(shared_ptr<DeleteEnterpriseAccelerateTargetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteEnterpriseAccelerateTargetResponse deleteEnterpriseAccelerateTarget(shared_ptr<DeleteEnterpriseAccelerateTargetRequest> request);
   DeleteIdpDepartmentResponse deleteIdpDepartmentWithOptions(shared_ptr<DeleteIdpDepartmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIdpDepartmentResponse deleteIdpDepartment(shared_ptr<DeleteIdpDepartmentRequest> request);
   DeleteOtpConfigResponse deleteOtpConfigWithOptions(shared_ptr<DeleteOtpConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31237,6 +32842,10 @@ public:
   DetachApplication2ConnectorResponse detachApplication2Connector(shared_ptr<DetachApplication2ConnectorRequest> request);
   DetachPolicy2ApprovalProcessResponse detachPolicy2ApprovalProcessWithOptions(shared_ptr<DetachPolicy2ApprovalProcessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachPolicy2ApprovalProcessResponse detachPolicy2ApprovalProcess(shared_ptr<DetachPolicy2ApprovalProcessRequest> request);
+  DisableEnterpriseAcceleratePolicyResponse disableEnterpriseAcceleratePolicyWithOptions(shared_ptr<DisableEnterpriseAcceleratePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableEnterpriseAcceleratePolicyResponse disableEnterpriseAcceleratePolicy(shared_ptr<DisableEnterpriseAcceleratePolicyRequest> request);
+  EnableEnterpriseAcceleratePolicyResponse enableEnterpriseAcceleratePolicyWithOptions(shared_ptr<EnableEnterpriseAcceleratePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableEnterpriseAcceleratePolicyResponse enableEnterpriseAcceleratePolicy(shared_ptr<EnableEnterpriseAcceleratePolicyRequest> request);
   ExportUserDevicesResponse exportUserDevicesWithOptions(shared_ptr<ExportUserDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportUserDevicesResponse exportUserDevices(shared_ptr<ExportUserDevicesRequest> request);
   GetActiveIdpConfigResponse getActiveIdpConfigWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31269,6 +32878,8 @@ public:
   GetWmEmbedTaskResponse getWmEmbedTask(shared_ptr<GetWmEmbedTaskRequest> request);
   GetWmExtractTaskResponse getWmExtractTaskWithOptions(shared_ptr<GetWmExtractTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetWmExtractTaskResponse getWmExtractTask(shared_ptr<GetWmExtractTaskRequest> request);
+  ImportEnterpriseAccelerateTargetsResponse importEnterpriseAccelerateTargetsWithOptions(shared_ptr<ImportEnterpriseAccelerateTargetsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ImportEnterpriseAccelerateTargetsResponse importEnterpriseAccelerateTargets(shared_ptr<ImportEnterpriseAccelerateTargetsRequest> request);
   ListApplicationsForPrivateAccessPolicyResponse listApplicationsForPrivateAccessPolicyWithOptions(shared_ptr<ListApplicationsForPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListApplicationsForPrivateAccessPolicyResponse listApplicationsForPrivateAccessPolicy(shared_ptr<ListApplicationsForPrivateAccessPolicyRequest> request);
   ListApplicationsForPrivateAccessTagResponse listApplicationsForPrivateAccessTagWithOptions(shared_ptr<ListApplicationsForPrivateAccessTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31293,6 +32904,12 @@ public:
   ListDynamicRouteRegionsResponse listDynamicRouteRegions();
   ListDynamicRoutesResponse listDynamicRoutesWithOptions(shared_ptr<ListDynamicRoutesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDynamicRoutesResponse listDynamicRoutes(shared_ptr<ListDynamicRoutesRequest> request);
+  ListEnterpriseAccelerateLogsResponse listEnterpriseAccelerateLogsWithOptions(shared_ptr<ListEnterpriseAccelerateLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListEnterpriseAccelerateLogsResponse listEnterpriseAccelerateLogs(shared_ptr<ListEnterpriseAccelerateLogsRequest> request);
+  ListEnterpriseAcceleratePoliciesResponse listEnterpriseAcceleratePoliciesWithOptions(shared_ptr<ListEnterpriseAcceleratePoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListEnterpriseAcceleratePoliciesResponse listEnterpriseAcceleratePolicies(shared_ptr<ListEnterpriseAcceleratePoliciesRequest> request);
+  ListEnterpriseAccelerateTargetsResponse listEnterpriseAccelerateTargetsWithOptions(shared_ptr<ListEnterpriseAccelerateTargetsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListEnterpriseAccelerateTargetsResponse listEnterpriseAccelerateTargets(shared_ptr<ListEnterpriseAccelerateTargetsRequest> request);
   ListExcessiveDeviceRegistrationApplicationsResponse listExcessiveDeviceRegistrationApplicationsWithOptions(shared_ptr<ListExcessiveDeviceRegistrationApplicationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListExcessiveDeviceRegistrationApplicationsResponse listExcessiveDeviceRegistrationApplications(shared_ptr<ListExcessiveDeviceRegistrationApplicationsRequest> request);
   ListIdpConfigsResponse listIdpConfigsWithOptions(shared_ptr<ListIdpConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31347,6 +32964,8 @@ public:
   ListUsersResponse listUsers(shared_ptr<ListUsersRequest> request);
   LookupWmInfoMappingResponse lookupWmInfoMappingWithOptions(shared_ptr<LookupWmInfoMappingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   LookupWmInfoMappingResponse lookupWmInfoMapping(shared_ptr<LookupWmInfoMappingRequest> request);
+  ModifyEnterpriseAcceleratePolicyResponse modifyEnterpriseAcceleratePolicyWithOptions(shared_ptr<ModifyEnterpriseAcceleratePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyEnterpriseAcceleratePolicyResponse modifyEnterpriseAcceleratePolicy(shared_ptr<ModifyEnterpriseAcceleratePolicyRequest> request);
   RevokeUserSessionResponse revokeUserSessionWithOptions(shared_ptr<RevokeUserSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RevokeUserSessionResponse revokeUserSession(shared_ptr<RevokeUserSessionRequest> request);
   UpdateApprovalProcessResponse updateApprovalProcessWithOptions(shared_ptr<UpdateApprovalProcessRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
