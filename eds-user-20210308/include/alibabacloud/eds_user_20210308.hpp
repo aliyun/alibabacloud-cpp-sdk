@@ -3276,6 +3276,7 @@ public:
   shared_ptr<string> orgId{};
   shared_ptr<map<string, boost::any>> showExtras{};
   shared_ptr<string> solutionId{};
+  shared_ptr<long> status{};
 
   DescribeUsersRequest() {}
 
@@ -3325,6 +3326,9 @@ public:
     }
     if (solutionId) {
       res["SolutionId"] = boost::any(*solutionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     return res;
   }
@@ -3398,6 +3402,9 @@ public:
     if (m.find("SolutionId") != m.end() && !m["SolutionId"].empty()) {
       solutionId = make_shared<string>(boost::any_cast<string>(m["SolutionId"]));
     }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
   }
 
 
@@ -3418,6 +3425,7 @@ public:
   shared_ptr<string> orgId{};
   shared_ptr<string> showExtrasShrink{};
   shared_ptr<string> solutionId{};
+  shared_ptr<long> status{};
 
   DescribeUsersShrinkRequest() {}
 
@@ -3467,6 +3475,9 @@ public:
     }
     if (solutionId) {
       res["SolutionId"] = boost::any(*solutionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     return res;
   }
@@ -3524,6 +3535,9 @@ public:
     }
     if (m.find("SolutionId") != m.end() && !m["SolutionId"].empty()) {
       solutionId = make_shared<string>(boost::any_cast<string>(m["SolutionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
     }
   }
 
@@ -3604,6 +3618,7 @@ class DescribeUsersResponseBodyUsersOrgs : public Darabonba::Model {
 public:
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
+  shared_ptr<string> orgNamePath{};
 
   DescribeUsersResponseBodyUsersOrgs() {}
 
@@ -3621,6 +3636,9 @@ public:
     if (orgName) {
       res["OrgName"] = boost::any(*orgName);
     }
+    if (orgNamePath) {
+      res["OrgNamePath"] = boost::any(*orgNamePath);
+    }
     return res;
   }
 
@@ -3630,6 +3648,9 @@ public:
     }
     if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
       orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("OrgNamePath") != m.end() && !m["OrgNamePath"].empty()) {
+      orgNamePath = make_shared<string>(boost::any_cast<string>(m["OrgNamePath"]));
     }
   }
 
@@ -4537,6 +4558,7 @@ class FilterUsersResponseBodyUsersOrgList : public Darabonba::Model {
 public:
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
+  shared_ptr<string> orgNamePath{};
 
   FilterUsersResponseBodyUsersOrgList() {}
 
@@ -4554,6 +4576,9 @@ public:
     if (orgName) {
       res["OrgName"] = boost::any(*orgName);
     }
+    if (orgNamePath) {
+      res["OrgNamePath"] = boost::any(*orgNamePath);
+    }
     return res;
   }
 
@@ -4563,6 +4588,9 @@ public:
     }
     if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
       orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("OrgNamePath") != m.end() && !m["OrgNamePath"].empty()) {
+      orgNamePath = make_shared<string>(boost::any_cast<string>(m["OrgNamePath"]));
     }
   }
 
