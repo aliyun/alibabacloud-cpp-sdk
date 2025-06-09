@@ -900,6 +900,9 @@ CreateClusterNodePoolResponse Alibabacloud_CS20151215::Client::createClusterNode
   if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
     body->insert(pair<string, long>("count", *request->count));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestEfloNodeGroup>(request->efloNodeGroup)) {
+    body->insert(pair<string, CreateClusterNodePoolRequestEfloNodeGroup>("eflo_node_group", *request->efloNodeGroup));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->hostNetwork)) {
     body->insert(pair<string, bool>("host_network", *request->hostNetwork));
   }

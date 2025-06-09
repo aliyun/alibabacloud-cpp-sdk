@@ -14,6 +14,35 @@
 using namespace std;
 
 namespace Alibabacloud_CS20151215 {
+class InstanceMetadataOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> httpTokens{};
+
+  InstanceMetadataOptions() {}
+
+  explicit InstanceMetadataOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (httpTokens) {
+      res["http_tokens"] = boost::any(*httpTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("http_tokens") != m.end() && !m["http_tokens"].empty()) {
+      httpTokens = make_shared<string>(boost::any_cast<string>(m["http_tokens"]));
+    }
+  }
+
+
+  virtual ~InstanceMetadataOptions() = default;
+};
 class Addon : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
@@ -5404,6 +5433,42 @@ public:
 
   virtual ~CreateClusterNodePoolRequestAutoScaling() = default;
 };
+class CreateClusterNodePoolRequestEfloNodeGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> groupId{};
+
+  CreateClusterNodePoolRequestEfloNodeGroup() {}
+
+  explicit CreateClusterNodePoolRequestEfloNodeGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["cluster_id"] = boost::any(*clusterId);
+    }
+    if (groupId) {
+      res["group_id"] = boost::any(*groupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
+    if (m.find("group_id") != m.end() && !m["group_id"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["group_id"]));
+    }
+  }
+
+
+  virtual ~CreateClusterNodePoolRequestEfloNodeGroup() = default;
+};
 class CreateClusterNodePoolRequestInterconnectConfig : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -6496,6 +6561,7 @@ class CreateClusterNodePoolRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateClusterNodePoolRequestAutoScaling> autoScaling{};
   shared_ptr<long> count{};
+  shared_ptr<CreateClusterNodePoolRequestEfloNodeGroup> efloNodeGroup{};
   shared_ptr<bool> hostNetwork{};
   shared_ptr<CreateClusterNodePoolRequestInterconnectConfig> interconnectConfig{};
   shared_ptr<string> interconnectMode{};
@@ -6523,6 +6589,9 @@ public:
     }
     if (count) {
       res["count"] = boost::any(*count);
+    }
+    if (efloNodeGroup) {
+      res["eflo_node_group"] = efloNodeGroup ? boost::any(efloNodeGroup->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (hostNetwork) {
       res["host_network"] = boost::any(*hostNetwork);
@@ -6570,6 +6639,13 @@ public:
     }
     if (m.find("count") != m.end() && !m["count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["count"]));
+    }
+    if (m.find("eflo_node_group") != m.end() && !m["eflo_node_group"].empty()) {
+      if (typeid(map<string, boost::any>) == m["eflo_node_group"].type()) {
+        CreateClusterNodePoolRequestEfloNodeGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["eflo_node_group"]));
+        efloNodeGroup = make_shared<CreateClusterNodePoolRequestEfloNodeGroup>(model1);
+      }
     }
     if (m.find("host_network") != m.end() && !m["host_network"].empty()) {
       hostNetwork = make_shared<bool>(boost::any_cast<bool>(m["host_network"]));
