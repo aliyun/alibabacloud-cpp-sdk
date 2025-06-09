@@ -13446,6 +13446,7 @@ public:
   shared_ptr<string> mode{};
   shared_ptr<string> order{};
   shared_ptr<long> parallelism{};
+  shared_ptr<long> priority{};
   shared_ptr<vector<long>> rootTaskIds{};
   shared_ptr<CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy> runPolicy{};
   shared_ptr<string> runtimeResource{};
@@ -13486,6 +13487,9 @@ public:
     }
     if (parallelism) {
       res["Parallelism"] = boost::any(*parallelism);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (rootTaskIds) {
       res["RootTaskIds"] = boost::any(*rootTaskIds);
@@ -13562,6 +13566,9 @@ public:
     }
     if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
       parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
     if (m.find("RootTaskIds") != m.end() && !m["RootTaskIds"].empty()) {
       vector<long> toVec1;
