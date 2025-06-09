@@ -11801,8 +11801,10 @@ public:
   shared_ptr<vector<string>> locations{};
   shared_ptr<vector<GetHotTopicBroadcastResponseBodyDataDataNews>> news{};
   shared_ptr<long> outputToken{};
+  shared_ptr<string> pubTime{};
   shared_ptr<GetHotTopicBroadcastResponseBodyDataDataSummary> summary{};
   shared_ptr<string> textSummary{};
+  shared_ptr<string> url{};
 
   GetHotTopicBroadcastResponseBodyDataData() {}
 
@@ -11861,11 +11863,17 @@ public:
     if (outputToken) {
       res["OutputToken"] = boost::any(*outputToken);
     }
+    if (pubTime) {
+      res["PubTime"] = boost::any(*pubTime);
+    }
     if (summary) {
       res["Summary"] = summary ? boost::any(summary->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (textSummary) {
       res["TextSummary"] = boost::any(*textSummary);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
     }
     return res;
   }
@@ -11937,6 +11945,9 @@ public:
     if (m.find("OutputToken") != m.end() && !m["OutputToken"].empty()) {
       outputToken = make_shared<long>(boost::any_cast<long>(m["OutputToken"]));
     }
+    if (m.find("PubTime") != m.end() && !m["PubTime"].empty()) {
+      pubTime = make_shared<string>(boost::any_cast<string>(m["PubTime"]));
+    }
     if (m.find("Summary") != m.end() && !m["Summary"].empty()) {
       if (typeid(map<string, boost::any>) == m["Summary"].type()) {
         GetHotTopicBroadcastResponseBodyDataDataSummary model1;
@@ -11946,6 +11957,9 @@ public:
     }
     if (m.find("TextSummary") != m.end() && !m["TextSummary"].empty()) {
       textSummary = make_shared<string>(boost::any_cast<string>(m["TextSummary"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
   }
 
