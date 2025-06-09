@@ -3309,6 +3309,191 @@ public:
 
   virtual ~DeleteFaceVerifyResultResponse() = default;
 };
+class DescribeCardVerifyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> certifyId{};
+
+  DescribeCardVerifyRequest() {}
+
+  explicit DescribeCardVerifyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certifyId) {
+      res["CertifyId"] = boost::any(*certifyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertifyId") != m.end() && !m["CertifyId"].empty()) {
+      certifyId = make_shared<string>(boost::any_cast<string>(m["CertifyId"]));
+    }
+  }
+
+
+  virtual ~DescribeCardVerifyRequest() = default;
+};
+class DescribeCardVerifyResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> cardInfo{};
+  shared_ptr<string> ocrCardInfo{};
+  shared_ptr<string> pictureInfo{};
+
+  DescribeCardVerifyResponseBodyResultObject() {}
+
+  explicit DescribeCardVerifyResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (cardInfo) {
+      res["CardInfo"] = boost::any(*cardInfo);
+    }
+    if (ocrCardInfo) {
+      res["OcrCardInfo"] = boost::any(*ocrCardInfo);
+    }
+    if (pictureInfo) {
+      res["PictureInfo"] = boost::any(*pictureInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("CardInfo") != m.end() && !m["CardInfo"].empty()) {
+      cardInfo = make_shared<string>(boost::any_cast<string>(m["CardInfo"]));
+    }
+    if (m.find("OcrCardInfo") != m.end() && !m["OcrCardInfo"].empty()) {
+      ocrCardInfo = make_shared<string>(boost::any_cast<string>(m["OcrCardInfo"]));
+    }
+    if (m.find("PictureInfo") != m.end() && !m["PictureInfo"].empty()) {
+      pictureInfo = make_shared<string>(boost::any_cast<string>(m["PictureInfo"]));
+    }
+  }
+
+
+  virtual ~DescribeCardVerifyResponseBodyResultObject() = default;
+};
+class DescribeCardVerifyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeCardVerifyResponseBodyResultObject> resultObject{};
+
+  DescribeCardVerifyResponseBody() {}
+
+  explicit DescribeCardVerifyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        DescribeCardVerifyResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<DescribeCardVerifyResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCardVerifyResponseBody() = default;
+};
+class DescribeCardVerifyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCardVerifyResponseBody> body{};
+
+  DescribeCardVerifyResponse() {}
+
+  explicit DescribeCardVerifyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCardVerifyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCardVerifyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCardVerifyResponse() = default;
+};
 class DescribeDeviceInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizType{};
@@ -6771,6 +6956,233 @@ public:
 
 
   virtual ~Id2MetaVerifyWithOCRResponse() = default;
+};
+class InitCardVerifyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> callbackToken{};
+  shared_ptr<string> callbackUrl{};
+  shared_ptr<string> cardPageNumber{};
+  shared_ptr<string> cardType{};
+  shared_ptr<string> docScanMode{};
+  shared_ptr<string> merchantBizId{};
+  shared_ptr<string> metaInfo{};
+  shared_ptr<string> model{};
+  shared_ptr<string> pictureSave{};
+  shared_ptr<string> verifyMeta{};
+
+  InitCardVerifyRequest() {}
+
+  explicit InitCardVerifyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callbackToken) {
+      res["CallbackToken"] = boost::any(*callbackToken);
+    }
+    if (callbackUrl) {
+      res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (cardPageNumber) {
+      res["CardPageNumber"] = boost::any(*cardPageNumber);
+    }
+    if (cardType) {
+      res["CardType"] = boost::any(*cardType);
+    }
+    if (docScanMode) {
+      res["DocScanMode"] = boost::any(*docScanMode);
+    }
+    if (merchantBizId) {
+      res["MerchantBizId"] = boost::any(*merchantBizId);
+    }
+    if (metaInfo) {
+      res["MetaInfo"] = boost::any(*metaInfo);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (pictureSave) {
+      res["PictureSave"] = boost::any(*pictureSave);
+    }
+    if (verifyMeta) {
+      res["VerifyMeta"] = boost::any(*verifyMeta);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CallbackToken") != m.end() && !m["CallbackToken"].empty()) {
+      callbackToken = make_shared<string>(boost::any_cast<string>(m["CallbackToken"]));
+    }
+    if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
+      callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("CardPageNumber") != m.end() && !m["CardPageNumber"].empty()) {
+      cardPageNumber = make_shared<string>(boost::any_cast<string>(m["CardPageNumber"]));
+    }
+    if (m.find("CardType") != m.end() && !m["CardType"].empty()) {
+      cardType = make_shared<string>(boost::any_cast<string>(m["CardType"]));
+    }
+    if (m.find("DocScanMode") != m.end() && !m["DocScanMode"].empty()) {
+      docScanMode = make_shared<string>(boost::any_cast<string>(m["DocScanMode"]));
+    }
+    if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
+      merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
+    }
+    if (m.find("MetaInfo") != m.end() && !m["MetaInfo"].empty()) {
+      metaInfo = make_shared<string>(boost::any_cast<string>(m["MetaInfo"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("PictureSave") != m.end() && !m["PictureSave"].empty()) {
+      pictureSave = make_shared<string>(boost::any_cast<string>(m["PictureSave"]));
+    }
+    if (m.find("VerifyMeta") != m.end() && !m["VerifyMeta"].empty()) {
+      verifyMeta = make_shared<string>(boost::any_cast<string>(m["VerifyMeta"]));
+    }
+  }
+
+
+  virtual ~InitCardVerifyRequest() = default;
+};
+class InitCardVerifyResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> certifyId{};
+
+  InitCardVerifyResponseBodyResultObject() {}
+
+  explicit InitCardVerifyResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certifyId) {
+      res["CertifyId"] = boost::any(*certifyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertifyId") != m.end() && !m["CertifyId"].empty()) {
+      certifyId = make_shared<string>(boost::any_cast<string>(m["CertifyId"]));
+    }
+  }
+
+
+  virtual ~InitCardVerifyResponseBodyResultObject() = default;
+};
+class InitCardVerifyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<InitCardVerifyResponseBodyResultObject> resultObject{};
+
+  InitCardVerifyResponseBody() {}
+
+  explicit InitCardVerifyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        InitCardVerifyResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<InitCardVerifyResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InitCardVerifyResponseBody() = default;
+};
+class InitCardVerifyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InitCardVerifyResponseBody> body{};
+
+  InitCardVerifyResponse() {}
+
+  explicit InitCardVerifyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InitCardVerifyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InitCardVerifyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InitCardVerifyResponse() = default;
 };
 class InitFaceVerifyRequest : public Darabonba::Model {
 public:
@@ -11292,6 +11704,8 @@ public:
   DeepfakeDetectResponse deepfakeDetect(shared_ptr<DeepfakeDetectRequest> request);
   DeleteFaceVerifyResultResponse deleteFaceVerifyResultWithOptions(shared_ptr<DeleteFaceVerifyResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFaceVerifyResultResponse deleteFaceVerifyResult(shared_ptr<DeleteFaceVerifyResultRequest> request);
+  DescribeCardVerifyResponse describeCardVerifyWithOptions(shared_ptr<DescribeCardVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCardVerifyResponse describeCardVerify(shared_ptr<DescribeCardVerifyRequest> request);
   DescribeDeviceInfoResponse describeDeviceInfoWithOptions(shared_ptr<DescribeDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDeviceInfoResponse describeDeviceInfo(shared_ptr<DescribeDeviceInfoRequest> request);
   DescribeFaceGuardRiskResponse describeFaceGuardRiskWithOptions(shared_ptr<DescribeFaceGuardRiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11321,6 +11735,8 @@ public:
   Id2MetaVerifyWithOCRResponse id2MetaVerifyWithOCRWithOptions(shared_ptr<Id2MetaVerifyWithOCRRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Id2MetaVerifyWithOCRResponse id2MetaVerifyWithOCR(shared_ptr<Id2MetaVerifyWithOCRRequest> request);
   Id2MetaVerifyWithOCRResponse id2MetaVerifyWithOCRAdvance(shared_ptr<Id2MetaVerifyWithOCRAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InitCardVerifyResponse initCardVerifyWithOptions(shared_ptr<InitCardVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InitCardVerifyResponse initCardVerify(shared_ptr<InitCardVerifyRequest> request);
   InitFaceVerifyResponse initFaceVerifyWithOptions(shared_ptr<InitFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InitFaceVerifyResponse initFaceVerify(shared_ptr<InitFaceVerifyRequest> request);
   InsertWhiteListSettingResponse insertWhiteListSettingWithOptions(shared_ptr<InsertWhiteListSettingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
