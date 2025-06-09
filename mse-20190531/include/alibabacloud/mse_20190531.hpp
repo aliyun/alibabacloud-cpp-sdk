@@ -64006,6 +64006,7 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> aclEntryList{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> networkType{};
 
   UpdateAclRequest() {}
 
@@ -64026,6 +64027,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
     return res;
   }
 
@@ -64038,6 +64042,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
   }
 
