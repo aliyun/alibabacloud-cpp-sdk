@@ -1303,6 +1303,68 @@ public:
 
   virtual ~CreateInstanceRequestTag() = default;
 };
+class CreateInstanceRequestUserCommandOnStart : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+
+  CreateInstanceRequestUserCommandOnStart() {}
+
+  explicit CreateInstanceRequestUserCommandOnStart(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestUserCommandOnStart() = default;
+};
+class CreateInstanceRequestUserCommand : public Darabonba::Model {
+public:
+  shared_ptr<CreateInstanceRequestUserCommandOnStart> onStart{};
+
+  CreateInstanceRequestUserCommand() {}
+
+  explicit CreateInstanceRequestUserCommand(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (onStart) {
+      res["OnStart"] = onStart ? boost::any(onStart->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OnStart") != m.end() && !m["OnStart"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OnStart"].type()) {
+        CreateInstanceRequestUserCommandOnStart model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OnStart"]));
+        onStart = make_shared<CreateInstanceRequestUserCommandOnStart>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestUserCommand() = default;
+};
 class CreateInstanceRequestUserVpc : public Darabonba::Model {
 public:
   shared_ptr<BandwidthLimit> bandwidthLimit{};
@@ -1420,6 +1482,7 @@ public:
   shared_ptr<CreateInstanceRequestRequestedResource> requestedResource{};
   shared_ptr<string> resourceId{};
   shared_ptr<vector<CreateInstanceRequestTag>> tag{};
+  shared_ptr<CreateInstanceRequestUserCommand> userCommand{};
   shared_ptr<string> userId{};
   shared_ptr<CreateInstanceRequestUserVpc> userVpc{};
   shared_ptr<string> workspaceId{};
@@ -1507,6 +1570,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tag"] = boost::any(temp1);
+    }
+    if (userCommand) {
+      res["UserCommand"] = userCommand ? boost::any(userCommand->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
@@ -1640,6 +1706,13 @@ public:
           }
         }
         tag = make_shared<vector<CreateInstanceRequestTag>>(expect1);
+      }
+    }
+    if (m.find("UserCommand") != m.end() && !m["UserCommand"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserCommand"].type()) {
+        CreateInstanceRequestUserCommand model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserCommand"]));
+        userCommand = make_shared<CreateInstanceRequestUserCommand>(model1);
       }
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
@@ -3702,6 +3775,7 @@ public:
   shared_ptr<bool> success{};
   shared_ptr<vector<GetInstanceResponseBodyTags>> tags{};
   shared_ptr<string> terminalUrl{};
+  shared_ptr<string> userCommandId{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
   shared_ptr<GetInstanceResponseBodyUserVpc> userVpc{};
@@ -3868,6 +3942,9 @@ public:
     }
     if (terminalUrl) {
       res["TerminalUrl"] = boost::any(*terminalUrl);
+    }
+    if (userCommandId) {
+      res["UserCommandId"] = boost::any(*userCommandId);
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
@@ -4109,6 +4186,9 @@ public:
     }
     if (m.find("TerminalUrl") != m.end() && !m["TerminalUrl"].empty()) {
       terminalUrl = make_shared<string>(boost::any_cast<string>(m["TerminalUrl"]));
+    }
+    if (m.find("UserCommandId") != m.end() && !m["UserCommandId"].empty()) {
+      userCommandId = make_shared<string>(boost::any_cast<string>(m["UserCommandId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -9189,6 +9269,68 @@ public:
 
   virtual ~UpdateInstanceRequestRequestedResource() = default;
 };
+class UpdateInstanceRequestUserCommandOnStart : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+
+  UpdateInstanceRequestUserCommandOnStart() {}
+
+  explicit UpdateInstanceRequestUserCommandOnStart(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceRequestUserCommandOnStart() = default;
+};
+class UpdateInstanceRequestUserCommand : public Darabonba::Model {
+public:
+  shared_ptr<UpdateInstanceRequestUserCommandOnStart> onStart{};
+
+  UpdateInstanceRequestUserCommand() {}
+
+  explicit UpdateInstanceRequestUserCommand(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (onStart) {
+      res["OnStart"] = onStart ? boost::any(onStart->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OnStart") != m.end() && !m["OnStart"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OnStart"].type()) {
+        UpdateInstanceRequestUserCommandOnStart model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OnStart"]));
+        onStart = make_shared<UpdateInstanceRequestUserCommandOnStart>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateInstanceRequestUserCommand() = default;
+};
 class UpdateInstanceRequestUserVpc : public Darabonba::Model {
 public:
   shared_ptr<BandwidthLimit> bandwidthLimit{};
@@ -9295,11 +9437,14 @@ public:
   shared_ptr<bool> disassociateCredential{};
   shared_ptr<bool> disassociateDatasets{};
   shared_ptr<bool> disassociateDriver{};
+  shared_ptr<bool> disassociateEnvironmentVariables{};
   shared_ptr<bool> disassociateForwardInfos{};
+  shared_ptr<bool> disassociateUserCommand{};
   shared_ptr<bool> disassociateVpc{};
   shared_ptr<string> driver{};
   shared_ptr<DynamicMount> dynamicMount{};
   shared_ptr<string> ecsSpec{};
+  shared_ptr<map<string, boost::any>> environmentVariables{};
   shared_ptr<string> imageAuth{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageUrl{};
@@ -9307,6 +9452,7 @@ public:
   shared_ptr<string> oversoldType{};
   shared_ptr<long> priority{};
   shared_ptr<UpdateInstanceRequestRequestedResource> requestedResource{};
+  shared_ptr<UpdateInstanceRequestUserCommand> userCommand{};
   shared_ptr<string> userId{};
   shared_ptr<UpdateInstanceRequestUserVpc> userVpc{};
   shared_ptr<string> workspaceSource{};
@@ -9353,8 +9499,14 @@ public:
     if (disassociateDriver) {
       res["DisassociateDriver"] = boost::any(*disassociateDriver);
     }
+    if (disassociateEnvironmentVariables) {
+      res["DisassociateEnvironmentVariables"] = boost::any(*disassociateEnvironmentVariables);
+    }
     if (disassociateForwardInfos) {
       res["DisassociateForwardInfos"] = boost::any(*disassociateForwardInfos);
+    }
+    if (disassociateUserCommand) {
+      res["DisassociateUserCommand"] = boost::any(*disassociateUserCommand);
     }
     if (disassociateVpc) {
       res["DisassociateVpc"] = boost::any(*disassociateVpc);
@@ -9367,6 +9519,9 @@ public:
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
+    }
+    if (environmentVariables) {
+      res["EnvironmentVariables"] = boost::any(*environmentVariables);
     }
     if (imageAuth) {
       res["ImageAuth"] = boost::any(*imageAuth);
@@ -9388,6 +9543,9 @@ public:
     }
     if (requestedResource) {
       res["RequestedResource"] = requestedResource ? boost::any(requestedResource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userCommand) {
+      res["UserCommand"] = userCommand ? boost::any(userCommand->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
@@ -9454,8 +9612,14 @@ public:
     if (m.find("DisassociateDriver") != m.end() && !m["DisassociateDriver"].empty()) {
       disassociateDriver = make_shared<bool>(boost::any_cast<bool>(m["DisassociateDriver"]));
     }
+    if (m.find("DisassociateEnvironmentVariables") != m.end() && !m["DisassociateEnvironmentVariables"].empty()) {
+      disassociateEnvironmentVariables = make_shared<bool>(boost::any_cast<bool>(m["DisassociateEnvironmentVariables"]));
+    }
     if (m.find("DisassociateForwardInfos") != m.end() && !m["DisassociateForwardInfos"].empty()) {
       disassociateForwardInfos = make_shared<bool>(boost::any_cast<bool>(m["DisassociateForwardInfos"]));
+    }
+    if (m.find("DisassociateUserCommand") != m.end() && !m["DisassociateUserCommand"].empty()) {
+      disassociateUserCommand = make_shared<bool>(boost::any_cast<bool>(m["DisassociateUserCommand"]));
     }
     if (m.find("DisassociateVpc") != m.end() && !m["DisassociateVpc"].empty()) {
       disassociateVpc = make_shared<bool>(boost::any_cast<bool>(m["DisassociateVpc"]));
@@ -9472,6 +9636,14 @@ public:
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
+    }
+    if (m.find("EnvironmentVariables") != m.end() && !m["EnvironmentVariables"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EnvironmentVariables"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      environmentVariables = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("ImageAuth") != m.end() && !m["ImageAuth"].empty()) {
       imageAuth = make_shared<string>(boost::any_cast<string>(m["ImageAuth"]));
@@ -9496,6 +9668,13 @@ public:
         UpdateInstanceRequestRequestedResource model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestedResource"]));
         requestedResource = make_shared<UpdateInstanceRequestRequestedResource>(model1);
+      }
+    }
+    if (m.find("UserCommand") != m.end() && !m["UserCommand"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserCommand"].type()) {
+        UpdateInstanceRequestUserCommand model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserCommand"]));
+        userCommand = make_shared<UpdateInstanceRequestUserCommand>(model1);
       }
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {

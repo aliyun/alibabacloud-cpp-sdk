@@ -136,6 +136,9 @@ CreateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::createInstanceWithO
   if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestTag>>(request->tag)) {
     body->insert(pair<string, vector<CreateInstanceRequestTag>>("Tag", *request->tag));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestUserCommand>(request->userCommand)) {
+    body->insert(pair<string, CreateInstanceRequestUserCommand>("UserCommand", *request->userCommand));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     body->insert(pair<string, string>("UserId", *request->userId));
   }
@@ -1098,8 +1101,14 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateDriver)) {
     body->insert(pair<string, bool>("DisassociateDriver", *request->disassociateDriver));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateEnvironmentVariables)) {
+    body->insert(pair<string, bool>("DisassociateEnvironmentVariables", *request->disassociateEnvironmentVariables));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateForwardInfos)) {
     body->insert(pair<string, bool>("DisassociateForwardInfos", *request->disassociateForwardInfos));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateUserCommand)) {
+    body->insert(pair<string, bool>("DisassociateUserCommand", *request->disassociateUserCommand));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateVpc)) {
     body->insert(pair<string, bool>("DisassociateVpc", *request->disassociateVpc));
@@ -1112,6 +1121,9 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsSpec)) {
     body->insert(pair<string, string>("EcsSpec", *request->ecsSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->environmentVariables)) {
+    body->insert(pair<string, map<string, boost::any>>("EnvironmentVariables", *request->environmentVariables));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageAuth)) {
     body->insert(pair<string, string>("ImageAuth", *request->imageAuth));
@@ -1133,6 +1145,9 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestRequestedResource>(request->requestedResource)) {
     body->insert(pair<string, UpdateInstanceRequestRequestedResource>("RequestedResource", *request->requestedResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestUserCommand>(request->userCommand)) {
+    body->insert(pair<string, UpdateInstanceRequestUserCommand>("UserCommand", *request->userCommand));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     body->insert(pair<string, string>("UserId", *request->userId));
