@@ -3033,6 +3033,9 @@ UpgradeLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::upgradeLindo
 UpgradeLindormV2StreamEngineResponse Alibabacloud_Hitsdb20200615::Client::upgradeLindormV2StreamEngineWithOptions(shared_ptr<UpgradeLindormV2StreamEngineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->customConfig)) {
+    query->insert(pair<string, string>("CustomConfig", *request->customConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }

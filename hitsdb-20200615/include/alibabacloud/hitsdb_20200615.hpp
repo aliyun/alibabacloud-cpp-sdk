@@ -14416,6 +14416,7 @@ public:
 };
 class UpgradeLindormV2StreamEngineRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> customConfig{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -14438,6 +14439,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (customConfig) {
+      res["CustomConfig"] = boost::any(*customConfig);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -14475,6 +14479,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomConfig") != m.end() && !m["CustomConfig"].empty()) {
+      customConfig = make_shared<string>(boost::any_cast<string>(m["CustomConfig"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
