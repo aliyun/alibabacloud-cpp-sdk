@@ -3031,6 +3031,42 @@ public:
 
   virtual ~ListAppsRequest() = default;
 };
+class ListAppsResponseBodyResultTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListAppsResponseBodyResultTags() {}
+
+  explicit ListAppsResponseBodyResultTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~ListAppsResponseBodyResultTags() = default;
+};
 class ListAppsResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -3043,6 +3079,7 @@ public:
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListAppsResponseBodyResultTags>> tags{};
   shared_ptr<string> version{};
 
   ListAppsResponseBodyResult() {}
@@ -3085,6 +3122,13 @@ public:
     if (status) {
       res["status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
     if (version) {
       res["version"] = boost::any(*version);
     }
@@ -3121,6 +3165,19 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<ListAppsResponseBodyResultTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAppsResponseBodyResultTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListAppsResponseBodyResultTags>>(expect1);
+      }
     }
     if (m.find("version") != m.end() && !m["version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["version"]));
