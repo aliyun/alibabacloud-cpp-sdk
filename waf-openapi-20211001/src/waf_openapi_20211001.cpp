@@ -339,6 +339,9 @@ CreateDefenseRuleResponse Alibabacloud_Waf-openapi20211001::Client::createDefens
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
+    query->insert(pair<string, string>("Resource", *request->resource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
     query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
   }
@@ -874,6 +877,9 @@ DeleteDefenseRuleResponse Alibabacloud_Waf-openapi20211001::Client::deleteDefens
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
+    query->insert(pair<string, string>("Resource", *request->resource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
     query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
   }
@@ -1063,6 +1069,40 @@ DeleteMemberAccountResponse Alibabacloud_Waf-openapi20211001::Client::deleteMemb
 DeleteMemberAccountResponse Alibabacloud_Waf-openapi20211001::Client::deleteMemberAccount(shared_ptr<DeleteMemberAccountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteMemberAccountWithOptions(request, runtime);
+}
+
+DescribeAbnormalCloudResourcesResponse Alibabacloud_Waf-openapi20211001::Client::describeAbnormalCloudResourcesWithOptions(shared_ptr<DescribeAbnormalCloudResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeAbnormalCloudResources"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeAbnormalCloudResourcesResponse(callApi(params, req, runtime));
+}
+
+DescribeAbnormalCloudResourcesResponse Alibabacloud_Waf-openapi20211001::Client::describeAbnormalCloudResources(shared_ptr<DescribeAbnormalCloudResourcesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeAbnormalCloudResourcesWithOptions(request, runtime);
 }
 
 DescribeAccountDelegatedStatusResponse Alibabacloud_Waf-openapi20211001::Client::describeAccountDelegatedStatusWithOptions(shared_ptr<DescribeAccountDelegatedStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2688,6 +2728,9 @@ DescribeDefenseRuleResponse Alibabacloud_Waf-openapi20211001::Client::describeDe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
+    query->insert(pair<string, string>("Resource", *request->resource));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
     query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
@@ -6362,6 +6405,9 @@ ModifyDefenseRuleResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefens
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
+    query->insert(pair<string, string>("Resource", *request->resource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
     query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
   }
@@ -7166,6 +7212,49 @@ ModifyTemplateResourcesResponse Alibabacloud_Waf-openapi20211001::Client::modify
 ModifyTemplateResourcesResponse Alibabacloud_Waf-openapi20211001::Client::modifyTemplateResources(shared_ptr<ModifyTemplateResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyTemplateResourcesWithOptions(request, runtime);
+}
+
+ReCreateCloudResourceResponse Alibabacloud_Waf-openapi20211001::Client::reCreateCloudResourceWithOptions(shared_ptr<ReCreateCloudResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->port)) {
+    query->insert(pair<string, long>("Port", *request->port));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceInstanceId)) {
+    query->insert(pair<string, string>("ResourceInstanceId", *request->resourceInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceProduct)) {
+    query->insert(pair<string, string>("ResourceProduct", *request->resourceProduct));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReCreateCloudResource"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReCreateCloudResourceResponse(callApi(params, req, runtime));
+}
+
+ReCreateCloudResourceResponse Alibabacloud_Waf-openapi20211001::Client::reCreateCloudResource(shared_ptr<ReCreateCloudResourceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return reCreateCloudResourceWithOptions(request, runtime);
 }
 
 ReleaseInstanceResponse Alibabacloud_Waf-openapi20211001::Client::releaseInstanceWithOptions(shared_ptr<ReleaseInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
