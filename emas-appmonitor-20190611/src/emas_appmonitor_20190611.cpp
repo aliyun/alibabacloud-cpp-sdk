@@ -75,12 +75,7 @@ GetErrorResponse Alibabacloud_Emas-appmonitor20190611::Client::getErrorWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetErrorResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetErrorResponse(execute(params, req, runtime));
-  }
+  return GetErrorResponse(callApi(params, req, runtime));
 }
 
 GetErrorResponse Alibabacloud_Emas-appmonitor20190611::Client::getError(shared_ptr<GetErrorRequest> request) {
@@ -139,12 +134,7 @@ GetErrorsResponse Alibabacloud_Emas-appmonitor20190611::Client::getErrorsWithOpt
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetErrorsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetErrorsResponse(execute(params, req, runtime));
-  }
+  return GetErrorsResponse(callApi(params, req, runtime));
 }
 
 GetErrorsResponse Alibabacloud_Emas-appmonitor20190611::Client::getErrors(shared_ptr<GetErrorsRequest> request) {
@@ -194,12 +184,7 @@ GetIssueResponse Alibabacloud_Emas-appmonitor20190611::Client::getIssueWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetIssueResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetIssueResponse(execute(params, req, runtime));
-  }
+  return GetIssueResponse(callApi(params, req, runtime));
 }
 
 GetIssueResponse Alibabacloud_Emas-appmonitor20190611::Client::getIssue(shared_ptr<GetIssueRequest> request) {
@@ -264,12 +249,7 @@ GetIssuesResponse Alibabacloud_Emas-appmonitor20190611::Client::getIssuesWithOpt
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetIssuesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetIssuesResponse(execute(params, req, runtime));
-  }
+  return GetIssuesResponse(callApi(params, req, runtime));
 }
 
 GetIssuesResponse Alibabacloud_Emas-appmonitor20190611::Client::getIssues(shared_ptr<GetIssuesRequest> request) {
@@ -285,6 +265,9 @@ GetSymbolicFilesResponse Alibabacloud_Emas-appmonitor20190611::Client::getSymbol
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->appVersion)) {
     body->insert(pair<string, string>("AppVersion", *request->appVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->buildId)) {
+    body->insert(pair<string, string>("BuildId", *request->buildId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     body->insert(pair<string, long>("EndTime", *request->endTime));
@@ -327,12 +310,7 @@ GetSymbolicFilesResponse Alibabacloud_Emas-appmonitor20190611::Client::getSymbol
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetSymbolicFilesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetSymbolicFilesResponse(execute(params, req, runtime));
-  }
+  return GetSymbolicFilesResponse(callApi(params, req, runtime));
 }
 
 GetSymbolicFilesResponse Alibabacloud_Emas-appmonitor20190611::Client::getSymbolicFiles(shared_ptr<GetSymbolicFilesRequest> request) {
@@ -363,12 +341,7 @@ RequestUploadTokenResponse Alibabacloud_Emas-appmonitor20190611::Client::request
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RequestUploadTokenResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RequestUploadTokenResponse(execute(params, req, runtime));
-  }
+  return RequestUploadTokenResponse(callApi(params, req, runtime));
 }
 
 RequestUploadTokenResponse Alibabacloud_Emas-appmonitor20190611::Client::requestUploadToken(shared_ptr<RequestUploadTokenRequest> request) {
@@ -417,12 +390,7 @@ SubmitSymbolicResponse Alibabacloud_Emas-appmonitor20190611::Client::submitSymbo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SubmitSymbolicResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SubmitSymbolicResponse(execute(params, req, runtime));
-  }
+  return SubmitSymbolicResponse(callApi(params, req, runtime));
 }
 
 SubmitSymbolicResponse Alibabacloud_Emas-appmonitor20190611::Client::submitSymbolic(shared_ptr<SubmitSymbolicRequest> request) {

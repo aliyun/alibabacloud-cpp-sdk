@@ -3540,6 +3540,7 @@ class GetSymbolicFilesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> appKey{};
   shared_ptr<string> appVersion{};
+  shared_ptr<string> buildId{};
   shared_ptr<long> endTime{};
   shared_ptr<string> exportStatus{};
   shared_ptr<string> fileName{};
@@ -3565,6 +3566,9 @@ public:
     }
     if (appVersion) {
       res["AppVersion"] = boost::any(*appVersion);
+    }
+    if (buildId) {
+      res["BuildId"] = boost::any(*buildId);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -3602,6 +3606,9 @@ public:
     }
     if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
       appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
+    }
+    if (m.find("BuildId") != m.end() && !m["BuildId"].empty()) {
+      buildId = make_shared<string>(boost::any_cast<string>(m["BuildId"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
