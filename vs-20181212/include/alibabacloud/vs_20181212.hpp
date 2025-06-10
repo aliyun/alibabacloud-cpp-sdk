@@ -14333,6 +14333,99 @@ public:
 
   virtual ~DescribeRenderingInstanceRequest() = default;
 };
+class DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings : public Darabonba::Model {
+public:
+  shared_ptr<string> externalPort{};
+  shared_ptr<string> internalPort{};
+
+  DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings() {}
+
+  explicit DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (externalPort) {
+      res["ExternalPort"] = boost::any(*externalPort);
+    }
+    if (internalPort) {
+      res["InternalPort"] = boost::any(*internalPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExternalPort") != m.end() && !m["ExternalPort"].empty()) {
+      externalPort = make_shared<string>(boost::any_cast<string>(m["ExternalPort"]));
+    }
+    if (m.find("InternalPort") != m.end() && !m["InternalPort"].empty()) {
+      internalPort = make_shared<string>(boost::any_cast<string>(m["InternalPort"]));
+    }
+  }
+
+
+  virtual ~DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings() = default;
+};
+class DescribeRenderingInstanceResponseBodyAdditionalIngresses : public Darabonba::Model {
+public:
+  shared_ptr<string> hostname{};
+  shared_ptr<string> isp{};
+  shared_ptr<vector<DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings>> portMappings{};
+
+  DescribeRenderingInstanceResponseBodyAdditionalIngresses() {}
+
+  explicit DescribeRenderingInstanceResponseBodyAdditionalIngresses(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostname) {
+      res["Hostname"] = boost::any(*hostname);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
+    }
+    if (portMappings) {
+      vector<boost::any> temp1;
+      for(auto item1:*portMappings){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortMappings"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
+    }
+    if (m.find("PortMappings") != m.end() && !m["PortMappings"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortMappings"].type()) {
+        vector<DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortMappings"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portMappings = make_shared<vector<DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRenderingInstanceResponseBodyAdditionalIngresses() = default;
+};
 class DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttributes : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -14640,10 +14733,12 @@ public:
 };
 class DescribeRenderingInstanceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<vector<DescribeRenderingInstanceResponseBodyAdditionalIngresses>> additionalIngresses{};
   shared_ptr<DescribeRenderingInstanceResponseBodyConfigInfo> configInfo{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> egressIp{};
   shared_ptr<string> hostname{};
+  shared_ptr<string> isp{};
   shared_ptr<vector<DescribeRenderingInstanceResponseBodyPortMappings>> portMappings{};
   shared_ptr<string> renderingInstanceId{};
   shared_ptr<string> renderingSpec{};
@@ -14662,6 +14757,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalIngresses) {
+      vector<boost::any> temp1;
+      for(auto item1:*additionalIngresses){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AdditionalIngresses"] = boost::any(temp1);
+    }
     if (configInfo) {
       res["ConfigInfo"] = configInfo ? boost::any(configInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -14673,6 +14775,9 @@ public:
     }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
     }
     if (portMappings) {
       vector<boost::any> temp1;
@@ -14703,6 +14808,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalIngresses") != m.end() && !m["AdditionalIngresses"].empty()) {
+      if (typeid(vector<boost::any>) == m["AdditionalIngresses"].type()) {
+        vector<DescribeRenderingInstanceResponseBodyAdditionalIngresses> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AdditionalIngresses"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRenderingInstanceResponseBodyAdditionalIngresses model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        additionalIngresses = make_shared<vector<DescribeRenderingInstanceResponseBodyAdditionalIngresses>>(expect1);
+      }
+    }
     if (m.find("ConfigInfo") != m.end() && !m["ConfigInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["ConfigInfo"].type()) {
         DescribeRenderingInstanceResponseBodyConfigInfo model1;
@@ -14718,6 +14836,9 @@ public:
     }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
     }
     if (m.find("PortMappings") != m.end() && !m["PortMappings"].empty()) {
       if (typeid(vector<boost::any>) == m["PortMappings"].type()) {
@@ -15392,6 +15513,99 @@ public:
 
   virtual ~DescribeRenderingSessionRequest() = default;
 };
+class DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings : public Darabonba::Model {
+public:
+  shared_ptr<string> externalPort{};
+  shared_ptr<string> internalPort{};
+
+  DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings() {}
+
+  explicit DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (externalPort) {
+      res["ExternalPort"] = boost::any(*externalPort);
+    }
+    if (internalPort) {
+      res["InternalPort"] = boost::any(*internalPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExternalPort") != m.end() && !m["ExternalPort"].empty()) {
+      externalPort = make_shared<string>(boost::any_cast<string>(m["ExternalPort"]));
+    }
+    if (m.find("InternalPort") != m.end() && !m["InternalPort"].empty()) {
+      internalPort = make_shared<string>(boost::any_cast<string>(m["InternalPort"]));
+    }
+  }
+
+
+  virtual ~DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings() = default;
+};
+class DescribeRenderingSessionResponseBodyAdditionalIngresses : public Darabonba::Model {
+public:
+  shared_ptr<string> hostname{};
+  shared_ptr<string> isp{};
+  shared_ptr<vector<DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings>> portMappings{};
+
+  DescribeRenderingSessionResponseBodyAdditionalIngresses() {}
+
+  explicit DescribeRenderingSessionResponseBodyAdditionalIngresses(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostname) {
+      res["Hostname"] = boost::any(*hostname);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
+    }
+    if (portMappings) {
+      vector<boost::any> temp1;
+      for(auto item1:*portMappings){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortMappings"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
+    }
+    if (m.find("PortMappings") != m.end() && !m["PortMappings"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortMappings"].type()) {
+        vector<DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortMappings"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portMappings = make_shared<vector<DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRenderingSessionResponseBodyAdditionalIngresses() = default;
+};
 class DescribeRenderingSessionResponseBodyLocation : public Darabonba::Model {
 public:
   shared_ptr<string> provinceCode{};
@@ -15502,9 +15716,11 @@ public:
 };
 class DescribeRenderingSessionResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<vector<DescribeRenderingSessionResponseBodyAdditionalIngresses>> additionalIngresses{};
   shared_ptr<string> appId{};
   shared_ptr<string> clientId{};
   shared_ptr<string> hostname{};
+  shared_ptr<string> isp{};
   shared_ptr<DescribeRenderingSessionResponseBodyLocation> location{};
   shared_ptr<vector<DescribeRenderingSessionResponseBodyPortMappings>> portMappings{};
   shared_ptr<string> requestId{};
@@ -15522,6 +15738,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalIngresses) {
+      vector<boost::any> temp1;
+      for(auto item1:*additionalIngresses){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AdditionalIngresses"] = boost::any(temp1);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -15530,6 +15753,9 @@ public:
     }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
     }
     if (location) {
       res["Location"] = location ? boost::any(location->toMap()) : boost::any(map<string,boost::any>({}));
@@ -15557,6 +15783,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalIngresses") != m.end() && !m["AdditionalIngresses"].empty()) {
+      if (typeid(vector<boost::any>) == m["AdditionalIngresses"].type()) {
+        vector<DescribeRenderingSessionResponseBodyAdditionalIngresses> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AdditionalIngresses"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRenderingSessionResponseBodyAdditionalIngresses model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        additionalIngresses = make_shared<vector<DescribeRenderingSessionResponseBodyAdditionalIngresses>>(expect1);
+      }
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -15565,6 +15804,9 @@ public:
     }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
     }
     if (m.find("Location") != m.end() && !m["Location"].empty()) {
       if (typeid(map<string, boost::any>) == m["Location"].type()) {
