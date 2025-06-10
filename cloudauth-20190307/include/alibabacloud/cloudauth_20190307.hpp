@@ -3631,6 +3631,7 @@ class DescribeCardVerifyResponseBodyResultObject : public Darabonba::Model {
 public:
   shared_ptr<string> bizCode{};
   shared_ptr<string> cardInfo{};
+  shared_ptr<string> faceDetail{};
   shared_ptr<string> ocrCardInfo{};
   shared_ptr<string> pictureInfo{};
 
@@ -3650,6 +3651,9 @@ public:
     if (cardInfo) {
       res["CardInfo"] = boost::any(*cardInfo);
     }
+    if (faceDetail) {
+      res["FaceDetail"] = boost::any(*faceDetail);
+    }
     if (ocrCardInfo) {
       res["OcrCardInfo"] = boost::any(*ocrCardInfo);
     }
@@ -3665,6 +3669,9 @@ public:
     }
     if (m.find("CardInfo") != m.end() && !m["CardInfo"].empty()) {
       cardInfo = make_shared<string>(boost::any_cast<string>(m["CardInfo"]));
+    }
+    if (m.find("FaceDetail") != m.end() && !m["FaceDetail"].empty()) {
+      faceDetail = make_shared<string>(boost::any_cast<string>(m["FaceDetail"]));
     }
     if (m.find("OcrCardInfo") != m.end() && !m["OcrCardInfo"].empty()) {
       ocrCardInfo = make_shared<string>(boost::any_cast<string>(m["OcrCardInfo"]));
