@@ -111344,6 +111344,377 @@ public:
 
   virtual ~UnsubscribeEventResponse() = default;
 };
+class UpdateConvExtensionHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  UpdateConvExtensionHeadersAccountContext() {}
+
+  explicit UpdateConvExtensionHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~UpdateConvExtensionHeadersAccountContext() = default;
+};
+class UpdateConvExtensionHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<UpdateConvExtensionHeadersAccountContext> accountContext{};
+
+  UpdateConvExtensionHeaders() {}
+
+  explicit UpdateConvExtensionHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        UpdateConvExtensionHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<UpdateConvExtensionHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateConvExtensionHeaders() = default;
+};
+class UpdateConvExtensionShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  UpdateConvExtensionShrinkHeaders() {}
+
+  explicit UpdateConvExtensionShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~UpdateConvExtensionShrinkHeaders() = default;
+};
+class UpdateConvExtensionRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  UpdateConvExtensionRequestTenantContext() {}
+
+  explicit UpdateConvExtensionRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~UpdateConvExtensionRequestTenantContext() = default;
+};
+class UpdateConvExtensionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mobileUrl{};
+  shared_ptr<string> pcUrl{};
+  shared_ptr<vector<string>> staffIdList{};
+  shared_ptr<string> systemUid{};
+  shared_ptr<UpdateConvExtensionRequestTenantContext> tenantContext{};
+
+  UpdateConvExtensionRequest() {}
+
+  explicit UpdateConvExtensionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mobileUrl) {
+      res["MobileUrl"] = boost::any(*mobileUrl);
+    }
+    if (pcUrl) {
+      res["PcUrl"] = boost::any(*pcUrl);
+    }
+    if (staffIdList) {
+      res["StaffIdList"] = boost::any(*staffIdList);
+    }
+    if (systemUid) {
+      res["SystemUid"] = boost::any(*systemUid);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MobileUrl") != m.end() && !m["MobileUrl"].empty()) {
+      mobileUrl = make_shared<string>(boost::any_cast<string>(m["MobileUrl"]));
+    }
+    if (m.find("PcUrl") != m.end() && !m["PcUrl"].empty()) {
+      pcUrl = make_shared<string>(boost::any_cast<string>(m["PcUrl"]));
+    }
+    if (m.find("StaffIdList") != m.end() && !m["StaffIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["StaffIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["StaffIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      staffIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SystemUid") != m.end() && !m["SystemUid"].empty()) {
+      systemUid = make_shared<string>(boost::any_cast<string>(m["SystemUid"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        UpdateConvExtensionRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<UpdateConvExtensionRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateConvExtensionRequest() = default;
+};
+class UpdateConvExtensionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mobileUrl{};
+  shared_ptr<string> pcUrl{};
+  shared_ptr<string> staffIdListShrink{};
+  shared_ptr<string> systemUid{};
+  shared_ptr<string> tenantContextShrink{};
+
+  UpdateConvExtensionShrinkRequest() {}
+
+  explicit UpdateConvExtensionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mobileUrl) {
+      res["MobileUrl"] = boost::any(*mobileUrl);
+    }
+    if (pcUrl) {
+      res["PcUrl"] = boost::any(*pcUrl);
+    }
+    if (staffIdListShrink) {
+      res["StaffIdList"] = boost::any(*staffIdListShrink);
+    }
+    if (systemUid) {
+      res["SystemUid"] = boost::any(*systemUid);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MobileUrl") != m.end() && !m["MobileUrl"].empty()) {
+      mobileUrl = make_shared<string>(boost::any_cast<string>(m["MobileUrl"]));
+    }
+    if (m.find("PcUrl") != m.end() && !m["PcUrl"].empty()) {
+      pcUrl = make_shared<string>(boost::any_cast<string>(m["PcUrl"]));
+    }
+    if (m.find("StaffIdList") != m.end() && !m["StaffIdList"].empty()) {
+      staffIdListShrink = make_shared<string>(boost::any_cast<string>(m["StaffIdList"]));
+    }
+    if (m.find("SystemUid") != m.end() && !m["SystemUid"].empty()) {
+      systemUid = make_shared<string>(boost::any_cast<string>(m["SystemUid"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~UpdateConvExtensionShrinkRequest() = default;
+};
+class UpdateConvExtensionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  UpdateConvExtensionResponseBody() {}
+
+  explicit UpdateConvExtensionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~UpdateConvExtensionResponseBody() = default;
+};
+class UpdateConvExtensionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateConvExtensionResponseBody> body{};
+
+  UpdateConvExtensionResponse() {}
+
+  explicit UpdateConvExtensionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateConvExtensionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateConvExtensionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateConvExtensionResponse() = default;
+};
 class UpdateFormDataHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -120483,6 +120854,8 @@ public:
   UnsubscribeCalendarResponse unsubscribeCalendar(shared_ptr<UnsubscribeCalendarRequest> request);
   UnsubscribeEventResponse unsubscribeEventWithOptions(shared_ptr<UnsubscribeEventRequest> tmpReq, shared_ptr<UnsubscribeEventHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnsubscribeEventResponse unsubscribeEvent(shared_ptr<UnsubscribeEventRequest> request);
+  UpdateConvExtensionResponse updateConvExtensionWithOptions(shared_ptr<UpdateConvExtensionRequest> tmpReq, shared_ptr<UpdateConvExtensionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateConvExtensionResponse updateConvExtension(shared_ptr<UpdateConvExtensionRequest> request);
   UpdateFormDataResponse updateFormDataWithOptions(shared_ptr<UpdateFormDataRequest> request, shared_ptr<UpdateFormDataHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateFormDataResponse updateFormData(shared_ptr<UpdateFormDataRequest> request);
   UpdateInstanceResponse updateInstanceWithOptions(shared_ptr<UpdateInstanceRequest> request, shared_ptr<UpdateInstanceHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
