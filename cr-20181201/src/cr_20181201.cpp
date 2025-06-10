@@ -624,11 +624,19 @@ CreateInstanceVpcEndpointLinkedVpcResponse Alibabacloud_Cr20181201::Client::crea
   return createInstanceVpcEndpointLinkedVpcWithOptions(request, runtime);
 }
 
-CreateNamespaceResponse Alibabacloud_Cr20181201::Client::createNamespaceWithOptions(shared_ptr<CreateNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateNamespaceResponse Alibabacloud_Cr20181201::Client::createNamespaceWithOptions(shared_ptr<CreateNamespaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateNamespaceShrinkRequest> request = make_shared<CreateNamespaceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<RepoConfiguration>(tmpReq->defaultRepoConfiguration)) {
+    request->defaultRepoConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->defaultRepoConfiguration, make_shared<string>("DefaultRepoConfiguration"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoCreateRepo)) {
     query->insert(pair<string, bool>("AutoCreateRepo", *request->autoCreateRepo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultRepoConfigurationShrink)) {
+    query->insert(pair<string, string>("DefaultRepoConfiguration", *request->defaultRepoConfigurationShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->defaultRepoType)) {
     query->insert(pair<string, string>("DefaultRepoType", *request->defaultRepoType));
@@ -3720,11 +3728,19 @@ UpdateInstanceEndpointStatusResponse Alibabacloud_Cr20181201::Client::updateInst
   return updateInstanceEndpointStatusWithOptions(request, runtime);
 }
 
-UpdateNamespaceResponse Alibabacloud_Cr20181201::Client::updateNamespaceWithOptions(shared_ptr<UpdateNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateNamespaceResponse Alibabacloud_Cr20181201::Client::updateNamespaceWithOptions(shared_ptr<UpdateNamespaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateNamespaceShrinkRequest> request = make_shared<UpdateNamespaceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<RepoConfiguration>(tmpReq->defaultRepoConfiguration)) {
+    request->defaultRepoConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->defaultRepoConfiguration, make_shared<string>("DefaultRepoConfiguration"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoCreateRepo)) {
     query->insert(pair<string, bool>("AutoCreateRepo", *request->autoCreateRepo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultRepoConfigurationShrink)) {
+    query->insert(pair<string, string>("DefaultRepoConfiguration", *request->defaultRepoConfigurationShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->defaultRepoType)) {
     query->insert(pair<string, string>("DefaultRepoType", *request->defaultRepoType));

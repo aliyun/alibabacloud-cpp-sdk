@@ -14,6 +14,89 @@
 using namespace std;
 
 namespace Alibabacloud_Cr20181201 {
+class RepoConfigurationArtifactBuildRuleParameters : public Darabonba::Model {
+public:
+  shared_ptr<bool> imageIndexOnly{};
+  shared_ptr<string> priorityFile{};
+
+  RepoConfigurationArtifactBuildRuleParameters() {}
+
+  explicit RepoConfigurationArtifactBuildRuleParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageIndexOnly) {
+      res["ImageIndexOnly"] = boost::any(*imageIndexOnly);
+    }
+    if (priorityFile) {
+      res["PriorityFile"] = boost::any(*priorityFile);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageIndexOnly") != m.end() && !m["ImageIndexOnly"].empty()) {
+      imageIndexOnly = make_shared<bool>(boost::any_cast<bool>(m["ImageIndexOnly"]));
+    }
+    if (m.find("PriorityFile") != m.end() && !m["PriorityFile"].empty()) {
+      priorityFile = make_shared<string>(boost::any_cast<string>(m["PriorityFile"]));
+    }
+  }
+
+
+  virtual ~RepoConfigurationArtifactBuildRuleParameters() = default;
+};
+class RepoConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<RepoConfigurationArtifactBuildRuleParameters> artifactBuildRuleParameters{};
+  shared_ptr<string> repoType{};
+  shared_ptr<bool> tagImmutability{};
+
+  RepoConfiguration() {}
+
+  explicit RepoConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (artifactBuildRuleParameters) {
+      res["ArtifactBuildRuleParameters"] = artifactBuildRuleParameters ? boost::any(artifactBuildRuleParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (repoType) {
+      res["RepoType"] = boost::any(*repoType);
+    }
+    if (tagImmutability) {
+      res["TagImmutability"] = boost::any(*tagImmutability);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArtifactBuildRuleParameters") != m.end() && !m["ArtifactBuildRuleParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ArtifactBuildRuleParameters"].type()) {
+        RepoConfigurationArtifactBuildRuleParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ArtifactBuildRuleParameters"]));
+        artifactBuildRuleParameters = make_shared<RepoConfigurationArtifactBuildRuleParameters>(model1);
+      }
+    }
+    if (m.find("RepoType") != m.end() && !m["RepoType"].empty()) {
+      repoType = make_shared<string>(boost::any_cast<string>(m["RepoType"]));
+    }
+    if (m.find("TagImmutability") != m.end() && !m["TagImmutability"].empty()) {
+      tagImmutability = make_shared<bool>(boost::any_cast<bool>(m["TagImmutability"]));
+    }
+  }
+
+
+  virtual ~RepoConfiguration() = default;
+};
 class CancelArtifactBuildTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> buildTaskId{};
@@ -2373,6 +2456,7 @@ public:
 class CreateNamespaceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoCreateRepo{};
+  shared_ptr<RepoConfiguration> defaultRepoConfiguration{};
   shared_ptr<string> defaultRepoType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespaceName{};
@@ -2390,6 +2474,9 @@ public:
     if (autoCreateRepo) {
       res["AutoCreateRepo"] = boost::any(*autoCreateRepo);
     }
+    if (defaultRepoConfiguration) {
+      res["DefaultRepoConfiguration"] = defaultRepoConfiguration ? boost::any(defaultRepoConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (defaultRepoType) {
       res["DefaultRepoType"] = boost::any(*defaultRepoType);
     }
@@ -2406,6 +2493,13 @@ public:
     if (m.find("AutoCreateRepo") != m.end() && !m["AutoCreateRepo"].empty()) {
       autoCreateRepo = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateRepo"]));
     }
+    if (m.find("DefaultRepoConfiguration") != m.end() && !m["DefaultRepoConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DefaultRepoConfiguration"].type()) {
+        RepoConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefaultRepoConfiguration"]));
+        defaultRepoConfiguration = make_shared<RepoConfiguration>(model1);
+      }
+    }
     if (m.find("DefaultRepoType") != m.end() && !m["DefaultRepoType"].empty()) {
       defaultRepoType = make_shared<string>(boost::any_cast<string>(m["DefaultRepoType"]));
     }
@@ -2419,6 +2513,63 @@ public:
 
 
   virtual ~CreateNamespaceRequest() = default;
+};
+class CreateNamespaceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoCreateRepo{};
+  shared_ptr<string> defaultRepoConfigurationShrink{};
+  shared_ptr<string> defaultRepoType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> namespaceName{};
+
+  CreateNamespaceShrinkRequest() {}
+
+  explicit CreateNamespaceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoCreateRepo) {
+      res["AutoCreateRepo"] = boost::any(*autoCreateRepo);
+    }
+    if (defaultRepoConfigurationShrink) {
+      res["DefaultRepoConfiguration"] = boost::any(*defaultRepoConfigurationShrink);
+    }
+    if (defaultRepoType) {
+      res["DefaultRepoType"] = boost::any(*defaultRepoType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (namespaceName) {
+      res["NamespaceName"] = boost::any(*namespaceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoCreateRepo") != m.end() && !m["AutoCreateRepo"].empty()) {
+      autoCreateRepo = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateRepo"]));
+    }
+    if (m.find("DefaultRepoConfiguration") != m.end() && !m["DefaultRepoConfiguration"].empty()) {
+      defaultRepoConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["DefaultRepoConfiguration"]));
+    }
+    if (m.find("DefaultRepoType") != m.end() && !m["DefaultRepoType"].empty()) {
+      defaultRepoType = make_shared<string>(boost::any_cast<string>(m["DefaultRepoType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NamespaceName") != m.end() && !m["NamespaceName"].empty()) {
+      namespaceName = make_shared<string>(boost::any_cast<string>(m["NamespaceName"]));
+    }
+  }
+
+
+  virtual ~CreateNamespaceShrinkRequest() = default;
 };
 class CreateNamespaceResponseBody : public Darabonba::Model {
 public:
@@ -9838,6 +9989,7 @@ class GetNamespaceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> autoCreateRepo{};
   shared_ptr<string> code{};
+  shared_ptr<RepoConfiguration> defaultRepoConfiguration{};
   shared_ptr<string> defaultRepoType{};
   shared_ptr<string> instanceId{};
   shared_ptr<bool> isSuccess{};
@@ -9862,6 +10014,9 @@ public:
     }
     if (code) {
       res["Code"] = boost::any(*code);
+    }
+    if (defaultRepoConfiguration) {
+      res["DefaultRepoConfiguration"] = defaultRepoConfiguration ? boost::any(defaultRepoConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (defaultRepoType) {
       res["DefaultRepoType"] = boost::any(*defaultRepoType);
@@ -9896,6 +10051,13 @@ public:
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DefaultRepoConfiguration") != m.end() && !m["DefaultRepoConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DefaultRepoConfiguration"].type()) {
+        RepoConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefaultRepoConfiguration"]));
+        defaultRepoConfiguration = make_shared<RepoConfiguration>(model1);
+      }
     }
     if (m.find("DefaultRepoType") != m.end() && !m["DefaultRepoType"].empty()) {
       defaultRepoType = make_shared<string>(boost::any_cast<string>(m["DefaultRepoType"]));
@@ -15752,6 +15914,7 @@ public:
 class ListNamespaceResponseBodyNamespaces : public Darabonba::Model {
 public:
   shared_ptr<bool> autoCreateRepo{};
+  shared_ptr<RepoConfiguration> defaultRepoConfiguration{};
   shared_ptr<string> defaultRepoType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespaceId{};
@@ -15771,6 +15934,9 @@ public:
     map<string, boost::any> res;
     if (autoCreateRepo) {
       res["AutoCreateRepo"] = boost::any(*autoCreateRepo);
+    }
+    if (defaultRepoConfiguration) {
+      res["DefaultRepoConfiguration"] = defaultRepoConfiguration ? boost::any(defaultRepoConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (defaultRepoType) {
       res["DefaultRepoType"] = boost::any(*defaultRepoType);
@@ -15796,6 +15962,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoCreateRepo") != m.end() && !m["AutoCreateRepo"].empty()) {
       autoCreateRepo = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateRepo"]));
+    }
+    if (m.find("DefaultRepoConfiguration") != m.end() && !m["DefaultRepoConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DefaultRepoConfiguration"].type()) {
+        RepoConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefaultRepoConfiguration"]));
+        defaultRepoConfiguration = make_shared<RepoConfiguration>(model1);
+      }
     }
     if (m.find("DefaultRepoType") != m.end() && !m["DefaultRepoType"].empty()) {
       defaultRepoType = make_shared<string>(boost::any_cast<string>(m["DefaultRepoType"]));
@@ -21404,6 +21577,7 @@ public:
 class UpdateNamespaceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoCreateRepo{};
+  shared_ptr<RepoConfiguration> defaultRepoConfiguration{};
   shared_ptr<string> defaultRepoType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespaceName{};
@@ -21421,6 +21595,9 @@ public:
     if (autoCreateRepo) {
       res["AutoCreateRepo"] = boost::any(*autoCreateRepo);
     }
+    if (defaultRepoConfiguration) {
+      res["DefaultRepoConfiguration"] = defaultRepoConfiguration ? boost::any(defaultRepoConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (defaultRepoType) {
       res["DefaultRepoType"] = boost::any(*defaultRepoType);
     }
@@ -21437,6 +21614,13 @@ public:
     if (m.find("AutoCreateRepo") != m.end() && !m["AutoCreateRepo"].empty()) {
       autoCreateRepo = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateRepo"]));
     }
+    if (m.find("DefaultRepoConfiguration") != m.end() && !m["DefaultRepoConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DefaultRepoConfiguration"].type()) {
+        RepoConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefaultRepoConfiguration"]));
+        defaultRepoConfiguration = make_shared<RepoConfiguration>(model1);
+      }
+    }
     if (m.find("DefaultRepoType") != m.end() && !m["DefaultRepoType"].empty()) {
       defaultRepoType = make_shared<string>(boost::any_cast<string>(m["DefaultRepoType"]));
     }
@@ -21450,6 +21634,63 @@ public:
 
 
   virtual ~UpdateNamespaceRequest() = default;
+};
+class UpdateNamespaceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoCreateRepo{};
+  shared_ptr<string> defaultRepoConfigurationShrink{};
+  shared_ptr<string> defaultRepoType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> namespaceName{};
+
+  UpdateNamespaceShrinkRequest() {}
+
+  explicit UpdateNamespaceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoCreateRepo) {
+      res["AutoCreateRepo"] = boost::any(*autoCreateRepo);
+    }
+    if (defaultRepoConfigurationShrink) {
+      res["DefaultRepoConfiguration"] = boost::any(*defaultRepoConfigurationShrink);
+    }
+    if (defaultRepoType) {
+      res["DefaultRepoType"] = boost::any(*defaultRepoType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (namespaceName) {
+      res["NamespaceName"] = boost::any(*namespaceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoCreateRepo") != m.end() && !m["AutoCreateRepo"].empty()) {
+      autoCreateRepo = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateRepo"]));
+    }
+    if (m.find("DefaultRepoConfiguration") != m.end() && !m["DefaultRepoConfiguration"].empty()) {
+      defaultRepoConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["DefaultRepoConfiguration"]));
+    }
+    if (m.find("DefaultRepoType") != m.end() && !m["DefaultRepoType"].empty()) {
+      defaultRepoType = make_shared<string>(boost::any_cast<string>(m["DefaultRepoType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NamespaceName") != m.end() && !m["NamespaceName"].empty()) {
+      namespaceName = make_shared<string>(boost::any_cast<string>(m["NamespaceName"]));
+    }
+  }
+
+
+  virtual ~UpdateNamespaceShrinkRequest() = default;
 };
 class UpdateNamespaceResponseBody : public Darabonba::Model {
 public:
@@ -22313,7 +22554,7 @@ public:
   CreateInstanceEndpointAclPolicyResponse createInstanceEndpointAclPolicy(shared_ptr<CreateInstanceEndpointAclPolicyRequest> request);
   CreateInstanceVpcEndpointLinkedVpcResponse createInstanceVpcEndpointLinkedVpcWithOptions(shared_ptr<CreateInstanceVpcEndpointLinkedVpcRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateInstanceVpcEndpointLinkedVpcResponse createInstanceVpcEndpointLinkedVpc(shared_ptr<CreateInstanceVpcEndpointLinkedVpcRequest> request);
-  CreateNamespaceResponse createNamespaceWithOptions(shared_ptr<CreateNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateNamespaceResponse createNamespaceWithOptions(shared_ptr<CreateNamespaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateNamespaceResponse createNamespace(shared_ptr<CreateNamespaceRequest> request);
   CreateRepoBuildRuleResponse createRepoBuildRuleWithOptions(shared_ptr<CreateRepoBuildRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateRepoBuildRuleResponse createRepoBuildRule(shared_ptr<CreateRepoBuildRuleRequest> request);
@@ -22485,7 +22726,7 @@ public:
   UpdateEventCenterRuleResponse updateEventCenterRule(shared_ptr<UpdateEventCenterRuleRequest> request);
   UpdateInstanceEndpointStatusResponse updateInstanceEndpointStatusWithOptions(shared_ptr<UpdateInstanceEndpointStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateInstanceEndpointStatusResponse updateInstanceEndpointStatus(shared_ptr<UpdateInstanceEndpointStatusRequest> request);
-  UpdateNamespaceResponse updateNamespaceWithOptions(shared_ptr<UpdateNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateNamespaceResponse updateNamespaceWithOptions(shared_ptr<UpdateNamespaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateNamespaceResponse updateNamespace(shared_ptr<UpdateNamespaceRequest> request);
   UpdateRepoBuildRuleResponse updateRepoBuildRuleWithOptions(shared_ptr<UpdateRepoBuildRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateRepoBuildRuleResponse updateRepoBuildRule(shared_ptr<UpdateRepoBuildRuleRequest> request);
