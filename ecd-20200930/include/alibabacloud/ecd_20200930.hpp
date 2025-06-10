@@ -23547,6 +23547,7 @@ public:
   shared_ptr<string> orderType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> scope{};
+  shared_ptr<vector<string>> scopeSet{};
   shared_ptr<string> sortType{};
   shared_ptr<long> supportMinSessionCount{};
   shared_ptr<string> zoneId{};
@@ -23605,6 +23606,9 @@ public:
     }
     if (scope) {
       res["Scope"] = boost::any(*scope);
+    }
+    if (scopeSet) {
+      res["ScopeSet"] = boost::any(*scopeSet);
     }
     if (sortType) {
       res["SortType"] = boost::any(*sortType);
@@ -23670,6 +23674,16 @@ public:
     }
     if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("ScopeSet") != m.end() && !m["ScopeSet"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScopeSet"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScopeSet"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scopeSet = make_shared<vector<string>>(toVec1);
     }
     if (m.find("SortType") != m.end() && !m["SortType"].empty()) {
       sortType = make_shared<string>(boost::any_cast<string>(m["SortType"]));

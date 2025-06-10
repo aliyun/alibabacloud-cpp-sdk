@@ -4602,6 +4602,9 @@ DescribeDesktopTypesResponse Alibabacloud_Ecd20200930::Client::describeDesktopTy
   if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
     query->insert(pair<string, string>("Scope", *request->scope));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->scopeSet)) {
+    query->insert(pair<string, vector<string>>("ScopeSet", *request->scopeSet));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortType)) {
     query->insert(pair<string, string>("SortType", *request->sortType));
   }
