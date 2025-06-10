@@ -504,6 +504,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<CreateClusterRequestAuditLogConfig>(request->auditLogConfig)) {
     body->insert(pair<string, CreateClusterRequestAuditLogConfig>("audit_log_config", *request->auditLogConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateClusterRequestAutoMode>(request->autoMode)) {
+    body->insert(pair<string, CreateClusterRequestAutoMode>("auto_mode", *request->autoMode));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     body->insert(pair<string, bool>("auto_renew", *request->autoRenew));
   }
@@ -894,6 +897,9 @@ CreateClusterNodePoolResponse Alibabacloud_CS20151215::Client::createClusterNode
                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestAutoMode>(request->autoMode)) {
+    body->insert(pair<string, CreateClusterNodePoolRequestAutoMode>("auto_mode", *request->autoMode));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestAutoScaling>(request->autoScaling)) {
     body->insert(pair<string, CreateClusterNodePoolRequestAutoScaling>("auto_scaling", *request->autoScaling));
   }

@@ -3795,6 +3795,35 @@ public:
 
   virtual ~CreateClusterRequestAuditLogConfig() = default;
 };
+class CreateClusterRequestAutoMode : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  CreateClusterRequestAutoMode() {}
+
+  explicit CreateClusterRequestAutoMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestAutoMode() = default;
+};
 class CreateClusterRequestControlPlaneConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenew{};
@@ -4117,6 +4146,7 @@ public:
   shared_ptr<vector<Addon>> addons{};
   shared_ptr<string> apiAudiences{};
   shared_ptr<CreateClusterRequestAuditLogConfig> auditLogConfig{};
+  shared_ptr<CreateClusterRequestAutoMode> autoMode{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<string> chargeType{};
@@ -4238,6 +4268,9 @@ public:
     }
     if (auditLogConfig) {
       res["audit_log_config"] = auditLogConfig ? boost::any(auditLogConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoMode) {
+      res["auto_mode"] = autoMode ? boost::any(autoMode->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (autoRenew) {
       res["auto_renew"] = boost::any(*autoRenew);
@@ -4575,6 +4608,13 @@ public:
         CreateClusterRequestAuditLogConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["audit_log_config"]));
         auditLogConfig = make_shared<CreateClusterRequestAuditLogConfig>(model1);
+      }
+    }
+    if (m.find("auto_mode") != m.end() && !m["auto_mode"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_mode"].type()) {
+        CreateClusterRequestAutoMode model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_mode"]));
+        autoMode = make_shared<CreateClusterRequestAutoMode>(model1);
       }
     }
     if (m.find("auto_renew") != m.end() && !m["auto_renew"].empty()) {
@@ -5361,6 +5401,35 @@ public:
 
 
   virtual ~CreateClusterInspectConfigResponse() = default;
+};
+class CreateClusterNodePoolRequestAutoMode : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  CreateClusterNodePoolRequestAutoMode() {}
+
+  explicit CreateClusterNodePoolRequestAutoMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+  }
+
+
+  virtual ~CreateClusterNodePoolRequestAutoMode() = default;
 };
 class CreateClusterNodePoolRequestAutoScaling : public Darabonba::Model {
 public:
@@ -6559,6 +6628,7 @@ public:
 };
 class CreateClusterNodePoolRequest : public Darabonba::Model {
 public:
+  shared_ptr<CreateClusterNodePoolRequestAutoMode> autoMode{};
   shared_ptr<CreateClusterNodePoolRequestAutoScaling> autoScaling{};
   shared_ptr<long> count{};
   shared_ptr<CreateClusterNodePoolRequestEfloNodeGroup> efloNodeGroup{};
@@ -6584,6 +6654,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoMode) {
+      res["auto_mode"] = autoMode ? boost::any(autoMode->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (autoScaling) {
       res["auto_scaling"] = autoScaling ? boost::any(autoScaling->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -6630,6 +6703,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_mode") != m.end() && !m["auto_mode"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_mode"].type()) {
+        CreateClusterNodePoolRequestAutoMode model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_mode"]));
+        autoMode = make_shared<CreateClusterNodePoolRequestAutoMode>(model1);
+      }
+    }
     if (m.find("auto_scaling") != m.end() && !m["auto_scaling"].empty()) {
       if (typeid(map<string, boost::any>) == m["auto_scaling"].type()) {
         CreateClusterNodePoolRequestAutoScaling model1;
@@ -9923,6 +10003,35 @@ public:
 
   virtual ~DescribeClusterAttachScriptsResponse() = default;
 };
+class DescribeClusterDetailResponseBodyAutoMode : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  DescribeClusterDetailResponseBodyAutoMode() {}
+
+  explicit DescribeClusterDetailResponseBodyAutoMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterDetailResponseBodyAutoMode() = default;
+};
 class DescribeClusterDetailResponseBodyControlPlaneConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenew{};
@@ -10184,6 +10293,7 @@ public:
 };
 class DescribeClusterDetailResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<DescribeClusterDetailResponseBodyAutoMode> autoMode{};
   shared_ptr<string> clusterDomain{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterSpec{};
@@ -10235,6 +10345,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoMode) {
+      res["auto_mode"] = autoMode ? boost::any(autoMode->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (clusterDomain) {
       res["cluster_domain"] = boost::any(*clusterDomain);
     }
@@ -10363,6 +10476,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_mode") != m.end() && !m["auto_mode"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_mode"].type()) {
+        DescribeClusterDetailResponseBodyAutoMode model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_mode"]));
+        autoMode = make_shared<DescribeClusterDetailResponseBodyAutoMode>(model1);
+      }
+    }
     if (m.find("cluster_domain") != m.end() && !m["cluster_domain"].empty()) {
       clusterDomain = make_shared<string>(boost::any_cast<string>(m["cluster_domain"]));
     }
