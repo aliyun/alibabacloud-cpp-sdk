@@ -9910,6 +9910,510 @@ public:
 
   virtual ~ReadSchedulerxDesignateDetailResponse() = default;
 };
+class ReadSchedulerxDesignateInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+  shared_ptr<long> jobId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespaceSource{};
+  shared_ptr<string> regionId{};
+
+  ReadSchedulerxDesignateInfoRequest() {}
+
+  explicit ReadSchedulerxDesignateInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespaceSource) {
+      res["NamespaceSource"] = boost::any(*namespaceSource);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespaceSource") != m.end() && !m["NamespaceSource"].empty()) {
+      namespaceSource = make_shared<string>(boost::any_cast<string>(m["NamespaceSource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateInfoRequest() = default;
+};
+class ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> authAction{};
+  shared_ptr<string> authPrincipalDisplayName{};
+  shared_ptr<string> authPrincipalOwnerId{};
+  shared_ptr<string> authPrincipalType{};
+  shared_ptr<string> encodedDiagnosticMessage{};
+  shared_ptr<string> noPermissionType{};
+  shared_ptr<string> policyType{};
+
+  ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail() {}
+
+  explicit ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authAction) {
+      res["AuthAction"] = boost::any(*authAction);
+    }
+    if (authPrincipalDisplayName) {
+      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
+    }
+    if (authPrincipalOwnerId) {
+      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
+    }
+    if (authPrincipalType) {
+      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
+    }
+    if (encodedDiagnosticMessage) {
+      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
+    }
+    if (noPermissionType) {
+      res["NoPermissionType"] = boost::any(*noPermissionType);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
+      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
+    }
+    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
+      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
+    }
+    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
+      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
+    }
+    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
+      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
+    }
+    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
+      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
+    }
+    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
+      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail() = default;
+};
+class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics : public Darabonba::Model {
+public:
+  shared_ptr<double> cpuLoad1{};
+  shared_ptr<double> cpuLoad5{};
+  shared_ptr<long> cpuProcessors{};
+  shared_ptr<long> diskMax{};
+  shared_ptr<double> diskUsage{};
+  shared_ptr<long> diskUsed{};
+  shared_ptr<long> execCount{};
+  shared_ptr<double> heap1Usage{};
+  shared_ptr<double> heap1Used{};
+  shared_ptr<double> heap5Usage{};
+  shared_ptr<long> heapMax{};
+  shared_ptr<long> sharePoolAvailableSize{};
+  shared_ptr<long> sharePoolQueueSize{};
+
+  ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics() {}
+
+  explicit ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuLoad1) {
+      res["CpuLoad1"] = boost::any(*cpuLoad1);
+    }
+    if (cpuLoad5) {
+      res["CpuLoad5"] = boost::any(*cpuLoad5);
+    }
+    if (cpuProcessors) {
+      res["CpuProcessors"] = boost::any(*cpuProcessors);
+    }
+    if (diskMax) {
+      res["DiskMax"] = boost::any(*diskMax);
+    }
+    if (diskUsage) {
+      res["DiskUsage"] = boost::any(*diskUsage);
+    }
+    if (diskUsed) {
+      res["DiskUsed"] = boost::any(*diskUsed);
+    }
+    if (execCount) {
+      res["ExecCount"] = boost::any(*execCount);
+    }
+    if (heap1Usage) {
+      res["Heap1Usage"] = boost::any(*heap1Usage);
+    }
+    if (heap1Used) {
+      res["Heap1Used"] = boost::any(*heap1Used);
+    }
+    if (heap5Usage) {
+      res["Heap5Usage"] = boost::any(*heap5Usage);
+    }
+    if (heapMax) {
+      res["HeapMax"] = boost::any(*heapMax);
+    }
+    if (sharePoolAvailableSize) {
+      res["SharePoolAvailableSize"] = boost::any(*sharePoolAvailableSize);
+    }
+    if (sharePoolQueueSize) {
+      res["SharePoolQueueSize"] = boost::any(*sharePoolQueueSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CpuLoad1") != m.end() && !m["CpuLoad1"].empty()) {
+      cpuLoad1 = make_shared<double>(boost::any_cast<double>(m["CpuLoad1"]));
+    }
+    if (m.find("CpuLoad5") != m.end() && !m["CpuLoad5"].empty()) {
+      cpuLoad5 = make_shared<double>(boost::any_cast<double>(m["CpuLoad5"]));
+    }
+    if (m.find("CpuProcessors") != m.end() && !m["CpuProcessors"].empty()) {
+      cpuProcessors = make_shared<long>(boost::any_cast<long>(m["CpuProcessors"]));
+    }
+    if (m.find("DiskMax") != m.end() && !m["DiskMax"].empty()) {
+      diskMax = make_shared<long>(boost::any_cast<long>(m["DiskMax"]));
+    }
+    if (m.find("DiskUsage") != m.end() && !m["DiskUsage"].empty()) {
+      diskUsage = make_shared<double>(boost::any_cast<double>(m["DiskUsage"]));
+    }
+    if (m.find("DiskUsed") != m.end() && !m["DiskUsed"].empty()) {
+      diskUsed = make_shared<long>(boost::any_cast<long>(m["DiskUsed"]));
+    }
+    if (m.find("ExecCount") != m.end() && !m["ExecCount"].empty()) {
+      execCount = make_shared<long>(boost::any_cast<long>(m["ExecCount"]));
+    }
+    if (m.find("Heap1Usage") != m.end() && !m["Heap1Usage"].empty()) {
+      heap1Usage = make_shared<double>(boost::any_cast<double>(m["Heap1Usage"]));
+    }
+    if (m.find("Heap1Used") != m.end() && !m["Heap1Used"].empty()) {
+      heap1Used = make_shared<double>(boost::any_cast<double>(m["Heap1Used"]));
+    }
+    if (m.find("Heap5Usage") != m.end() && !m["Heap5Usage"].empty()) {
+      heap5Usage = make_shared<double>(boost::any_cast<double>(m["Heap5Usage"]));
+    }
+    if (m.find("HeapMax") != m.end() && !m["HeapMax"].empty()) {
+      heapMax = make_shared<long>(boost::any_cast<long>(m["HeapMax"]));
+    }
+    if (m.find("SharePoolAvailableSize") != m.end() && !m["SharePoolAvailableSize"].empty()) {
+      sharePoolAvailableSize = make_shared<long>(boost::any_cast<long>(m["SharePoolAvailableSize"]));
+    }
+    if (m.find("SharePoolQueueSize") != m.end() && !m["SharePoolQueueSize"].empty()) {
+      sharePoolQueueSize = make_shared<long>(boost::any_cast<long>(m["SharePoolQueueSize"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics() = default;
+};
+class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos : public Darabonba::Model {
+public:
+  shared_ptr<string> busy{};
+  shared_ptr<bool> checked{};
+  shared_ptr<string> key{};
+  shared_ptr<ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics> metrics{};
+  shared_ptr<bool> offline{};
+  shared_ptr<long> size{};
+  shared_ptr<string> starter{};
+  shared_ptr<string> version{};
+
+  ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos() {}
+
+  explicit ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (busy) {
+      res["Busy"] = boost::any(*busy);
+    }
+    if (checked) {
+      res["Checked"] = boost::any(*checked);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (metrics) {
+      res["Metrics"] = metrics ? boost::any(metrics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (offline) {
+      res["Offline"] = boost::any(*offline);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (starter) {
+      res["Starter"] = boost::any(*starter);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Busy") != m.end() && !m["Busy"].empty()) {
+      busy = make_shared<string>(boost::any_cast<string>(m["Busy"]));
+    }
+    if (m.find("Checked") != m.end() && !m["Checked"].empty()) {
+      checked = make_shared<bool>(boost::any_cast<bool>(m["Checked"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Metrics"].type()) {
+        ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Metrics"]));
+        metrics = make_shared<ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics>(model1);
+      }
+    }
+    if (m.find("Offline") != m.end() && !m["Offline"].empty()) {
+      offline = make_shared<bool>(boost::any_cast<bool>(m["Offline"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Starter") != m.end() && !m["Starter"].empty()) {
+      starter = make_shared<string>(boost::any_cast<string>(m["Starter"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos() = default;
+};
+class ReadSchedulerxDesignateInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos>> designateDetailVos{};
+  shared_ptr<long> designateType{};
+  shared_ptr<bool> transferable{};
+
+  ReadSchedulerxDesignateInfoResponseBodyData() {}
+
+  explicit ReadSchedulerxDesignateInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (designateDetailVos) {
+      vector<boost::any> temp1;
+      for(auto item1:*designateDetailVos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DesignateDetailVos"] = boost::any(temp1);
+    }
+    if (designateType) {
+      res["DesignateType"] = boost::any(*designateType);
+    }
+    if (transferable) {
+      res["Transferable"] = boost::any(*transferable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesignateDetailVos") != m.end() && !m["DesignateDetailVos"].empty()) {
+      if (typeid(vector<boost::any>) == m["DesignateDetailVos"].type()) {
+        vector<ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DesignateDetailVos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        designateDetailVos = make_shared<vector<ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos>>(expect1);
+      }
+    }
+    if (m.find("DesignateType") != m.end() && !m["DesignateType"].empty()) {
+      designateType = make_shared<long>(boost::any_cast<long>(m["DesignateType"]));
+    }
+    if (m.find("Transferable") != m.end() && !m["Transferable"].empty()) {
+      transferable = make_shared<bool>(boost::any_cast<bool>(m["Transferable"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateInfoResponseBodyData() = default;
+};
+class ReadSchedulerxDesignateInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail> accessDeniedDetail{};
+  shared_ptr<long> code{};
+  shared_ptr<ReadSchedulerxDesignateInfoResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ReadSchedulerxDesignateInfoResponseBody() {}
+
+  explicit ReadSchedulerxDesignateInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
+        ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
+        accessDeniedDetail = make_shared<ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail>(model1);
+      }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ReadSchedulerxDesignateInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ReadSchedulerxDesignateInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateInfoResponseBody() = default;
+};
+class ReadSchedulerxDesignateInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ReadSchedulerxDesignateInfoResponseBody> body{};
+
+  ReadSchedulerxDesignateInfoResponse() {}
+
+  explicit ReadSchedulerxDesignateInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReadSchedulerxDesignateInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReadSchedulerxDesignateInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReadSchedulerxDesignateInfoResponse() = default;
+};
 class RerunJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dataTime{};
@@ -12311,6 +12815,8 @@ public:
   ListWorkflowInstanceResponse listWorkflowInstance(shared_ptr<ListWorkflowInstanceRequest> request);
   ReadSchedulerxDesignateDetailResponse readSchedulerxDesignateDetailWithOptions(shared_ptr<ReadSchedulerxDesignateDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReadSchedulerxDesignateDetailResponse readSchedulerxDesignateDetail(shared_ptr<ReadSchedulerxDesignateDetailRequest> request);
+  ReadSchedulerxDesignateInfoResponse readSchedulerxDesignateInfoWithOptions(shared_ptr<ReadSchedulerxDesignateInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReadSchedulerxDesignateInfoResponse readSchedulerxDesignateInfo(shared_ptr<ReadSchedulerxDesignateInfoRequest> request);
   RerunJobResponse rerunJobWithOptions(shared_ptr<RerunJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RerunJobResponse rerunJob(shared_ptr<RerunJobRequest> request);
   RetryJobInstanceResponse retryJobInstanceWithOptions(shared_ptr<RetryJobInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
