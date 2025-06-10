@@ -2485,6 +2485,67 @@ CreateUserDeliveryTaskResponse Alibabacloud_ESA20240910::Client::createUserDeliv
   return createUserDeliveryTaskWithOptions(request, runtime);
 }
 
+CreateVideoProcessingResponse Alibabacloud_ESA20240910::Client::createVideoProcessingWithOptions(shared_ptr<CreateVideoProcessingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->flvSeekEnd)) {
+    query->insert(pair<string, string>("FlvSeekEnd", *request->flvSeekEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flvSeekStart)) {
+    query->insert(pair<string, string>("FlvSeekStart", *request->flvSeekStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flvVideoSeekMode)) {
+    query->insert(pair<string, string>("FlvVideoSeekMode", *request->flvVideoSeekMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mp4SeekEnd)) {
+    query->insert(pair<string, string>("Mp4SeekEnd", *request->mp4SeekEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mp4SeekStart)) {
+    query->insert(pair<string, string>("Mp4SeekStart", *request->mp4SeekStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rule)) {
+    query->insert(pair<string, string>("Rule", *request->rule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleEnable)) {
+    query->insert(pair<string, string>("RuleEnable", *request->ruleEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
+    query->insert(pair<string, string>("RuleName", *request->ruleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sequence)) {
+    query->insert(pair<string, long>("Sequence", *request->sequence));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteVersion)) {
+    query->insert(pair<string, long>("SiteVersion", *request->siteVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoSeekEnable)) {
+    query->insert(pair<string, string>("VideoSeekEnable", *request->videoSeekEnable));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateVideoProcessing"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateVideoProcessingResponse(callApi(params, req, runtime));
+}
+
+CreateVideoProcessingResponse Alibabacloud_ESA20240910::Client::createVideoProcessing(shared_ptr<CreateVideoProcessingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createVideoProcessingWithOptions(request, runtime);
+}
+
 CreateWafRuleResponse Alibabacloud_ESA20240910::Client::createWafRuleWithOptions(shared_ptr<CreateWafRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateWafRuleShrinkRequest> request = make_shared<CreateWafRuleShrinkRequest>();
@@ -3920,6 +3981,37 @@ DeleteUserDeliveryTaskResponse Alibabacloud_ESA20240910::Client::deleteUserDeliv
 DeleteUserDeliveryTaskResponse Alibabacloud_ESA20240910::Client::deleteUserDeliveryTask(shared_ptr<DeleteUserDeliveryTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteUserDeliveryTaskWithOptions(request, runtime);
+}
+
+DeleteVideoProcessingResponse Alibabacloud_ESA20240910::Client::deleteVideoProcessingWithOptions(shared_ptr<DeleteVideoProcessingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->configId)) {
+    query->insert(pair<string, long>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteVideoProcessing"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteVideoProcessingResponse(callApi(params, req, runtime));
+}
+
+DeleteVideoProcessingResponse Alibabacloud_ESA20240910::Client::deleteVideoProcessing(shared_ptr<DeleteVideoProcessingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteVideoProcessingWithOptions(request, runtime);
 }
 
 DeleteWafRuleResponse Alibabacloud_ESA20240910::Client::deleteWafRuleWithOptions(shared_ptr<DeleteWafRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6396,6 +6488,37 @@ GetUserLogDeliveryQuotaResponse Alibabacloud_ESA20240910::Client::getUserLogDeli
   return getUserLogDeliveryQuotaWithOptions(request, runtime);
 }
 
+GetVideoProcessingResponse Alibabacloud_ESA20240910::Client::getVideoProcessingWithOptions(shared_ptr<GetVideoProcessingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->configId)) {
+    query->insert(pair<string, long>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetVideoProcessing"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetVideoProcessingResponse(callApi(params, req, runtime));
+}
+
+GetVideoProcessingResponse Alibabacloud_ESA20240910::Client::getVideoProcessing(shared_ptr<GetVideoProcessingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getVideoProcessingWithOptions(request, runtime);
+}
+
 GetWafBotAppKeyResponse Alibabacloud_ESA20240910::Client::getWafBotAppKeyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -7928,6 +8051,52 @@ ListUserRoutinesResponse Alibabacloud_ESA20240910::Client::listUserRoutinesWithO
 ListUserRoutinesResponse Alibabacloud_ESA20240910::Client::listUserRoutines(shared_ptr<ListUserRoutinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listUserRoutinesWithOptions(request, runtime);
+}
+
+ListVideoProcessingsResponse Alibabacloud_ESA20240910::Client::listVideoProcessingsWithOptions(shared_ptr<ListVideoProcessingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->configId)) {
+    query->insert(pair<string, long>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configType)) {
+    query->insert(pair<string, string>("ConfigType", *request->configType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
+    query->insert(pair<string, string>("RuleName", *request->ruleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteVersion)) {
+    query->insert(pair<string, long>("SiteVersion", *request->siteVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListVideoProcessings"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListVideoProcessingsResponse(callApi(params, req, runtime));
+}
+
+ListVideoProcessingsResponse Alibabacloud_ESA20240910::Client::listVideoProcessings(shared_ptr<ListVideoProcessingsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listVideoProcessingsWithOptions(request, runtime);
 }
 
 ListWafManagedRulesResponse Alibabacloud_ESA20240910::Client::listWafManagedRulesWithOptions(shared_ptr<ListWafManagedRulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -10470,6 +10639,9 @@ UpdateRecordResponse Alibabacloud_ESA20240910::Client::updateRecordWithOptions(s
   if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
     query->insert(pair<string, long>("Ttl", *request->ttl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -11086,6 +11258,67 @@ UpdateUserDeliveryTaskStatusResponse Alibabacloud_ESA20240910::Client::updateUse
 UpdateUserDeliveryTaskStatusResponse Alibabacloud_ESA20240910::Client::updateUserDeliveryTaskStatus(shared_ptr<UpdateUserDeliveryTaskStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateUserDeliveryTaskStatusWithOptions(request, runtime);
+}
+
+UpdateVideoProcessingResponse Alibabacloud_ESA20240910::Client::updateVideoProcessingWithOptions(shared_ptr<UpdateVideoProcessingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->configId)) {
+    query->insert(pair<string, long>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flvSeekEnd)) {
+    query->insert(pair<string, string>("FlvSeekEnd", *request->flvSeekEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flvSeekStart)) {
+    query->insert(pair<string, string>("FlvSeekStart", *request->flvSeekStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flvVideoSeekMode)) {
+    query->insert(pair<string, string>("FlvVideoSeekMode", *request->flvVideoSeekMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mp4SeekEnd)) {
+    query->insert(pair<string, string>("Mp4SeekEnd", *request->mp4SeekEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mp4SeekStart)) {
+    query->insert(pair<string, string>("Mp4SeekStart", *request->mp4SeekStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rule)) {
+    query->insert(pair<string, string>("Rule", *request->rule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleEnable)) {
+    query->insert(pair<string, string>("RuleEnable", *request->ruleEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
+    query->insert(pair<string, string>("RuleName", *request->ruleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sequence)) {
+    query->insert(pair<string, long>("Sequence", *request->sequence));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoSeekEnable)) {
+    query->insert(pair<string, string>("VideoSeekEnable", *request->videoSeekEnable));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateVideoProcessing"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateVideoProcessingResponse(callApi(params, req, runtime));
+}
+
+UpdateVideoProcessingResponse Alibabacloud_ESA20240910::Client::updateVideoProcessing(shared_ptr<UpdateVideoProcessingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateVideoProcessingWithOptions(request, runtime);
 }
 
 UpdateWafRuleResponse Alibabacloud_ESA20240910::Client::updateWafRuleWithOptions(shared_ptr<UpdateWafRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

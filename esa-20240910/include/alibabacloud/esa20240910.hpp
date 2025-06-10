@@ -15125,6 +15125,200 @@ public:
 
   virtual ~CreateUserDeliveryTaskResponse() = default;
 };
+class CreateVideoProcessingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> flvSeekEnd{};
+  shared_ptr<string> flvSeekStart{};
+  shared_ptr<string> flvVideoSeekMode{};
+  shared_ptr<string> mp4SeekEnd{};
+  shared_ptr<string> mp4SeekStart{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<long> sequence{};
+  shared_ptr<long> siteId{};
+  shared_ptr<long> siteVersion{};
+  shared_ptr<string> videoSeekEnable{};
+
+  CreateVideoProcessingRequest() {}
+
+  explicit CreateVideoProcessingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (flvSeekEnd) {
+      res["FlvSeekEnd"] = boost::any(*flvSeekEnd);
+    }
+    if (flvSeekStart) {
+      res["FlvSeekStart"] = boost::any(*flvSeekStart);
+    }
+    if (flvVideoSeekMode) {
+      res["FlvVideoSeekMode"] = boost::any(*flvVideoSeekMode);
+    }
+    if (mp4SeekEnd) {
+      res["Mp4SeekEnd"] = boost::any(*mp4SeekEnd);
+    }
+    if (mp4SeekStart) {
+      res["Mp4SeekStart"] = boost::any(*mp4SeekStart);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteVersion) {
+      res["SiteVersion"] = boost::any(*siteVersion);
+    }
+    if (videoSeekEnable) {
+      res["VideoSeekEnable"] = boost::any(*videoSeekEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FlvSeekEnd") != m.end() && !m["FlvSeekEnd"].empty()) {
+      flvSeekEnd = make_shared<string>(boost::any_cast<string>(m["FlvSeekEnd"]));
+    }
+    if (m.find("FlvSeekStart") != m.end() && !m["FlvSeekStart"].empty()) {
+      flvSeekStart = make_shared<string>(boost::any_cast<string>(m["FlvSeekStart"]));
+    }
+    if (m.find("FlvVideoSeekMode") != m.end() && !m["FlvVideoSeekMode"].empty()) {
+      flvVideoSeekMode = make_shared<string>(boost::any_cast<string>(m["FlvVideoSeekMode"]));
+    }
+    if (m.find("Mp4SeekEnd") != m.end() && !m["Mp4SeekEnd"].empty()) {
+      mp4SeekEnd = make_shared<string>(boost::any_cast<string>(m["Mp4SeekEnd"]));
+    }
+    if (m.find("Mp4SeekStart") != m.end() && !m["Mp4SeekStart"].empty()) {
+      mp4SeekStart = make_shared<string>(boost::any_cast<string>(m["Mp4SeekStart"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<long>(boost::any_cast<long>(m["Sequence"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
+      siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+    if (m.find("VideoSeekEnable") != m.end() && !m["VideoSeekEnable"].empty()) {
+      videoSeekEnable = make_shared<string>(boost::any_cast<string>(m["VideoSeekEnable"]));
+    }
+  }
+
+
+  virtual ~CreateVideoProcessingRequest() = default;
+};
+class CreateVideoProcessingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> requestId{};
+
+  CreateVideoProcessingResponseBody() {}
+
+  explicit CreateVideoProcessingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateVideoProcessingResponseBody() = default;
+};
+class CreateVideoProcessingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateVideoProcessingResponseBody> body{};
+
+  CreateVideoProcessingResponse() {}
+
+  explicit CreateVideoProcessingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateVideoProcessingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateVideoProcessingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateVideoProcessingResponse() = default;
+};
 class CreateWafRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<WafRuleConfig> config{};
@@ -20972,6 +21166,123 @@ public:
 
 
   virtual ~DeleteUserDeliveryTaskResponse() = default;
+};
+class DeleteVideoProcessingRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<long> siteId{};
+
+  DeleteVideoProcessingRequest() {}
+
+  explicit DeleteVideoProcessingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~DeleteVideoProcessingRequest() = default;
+};
+class DeleteVideoProcessingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteVideoProcessingResponseBody() {}
+
+  explicit DeleteVideoProcessingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteVideoProcessingResponseBody() = default;
+};
+class DeleteVideoProcessingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteVideoProcessingResponseBody> body{};
+
+  DeleteVideoProcessingResponse() {}
+
+  explicit DeleteVideoProcessingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteVideoProcessingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteVideoProcessingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteVideoProcessingResponse() = default;
 };
 class DeleteWafRuleRequest : public Darabonba::Model {
 public:
@@ -39852,6 +40163,214 @@ public:
 
   virtual ~GetUserLogDeliveryQuotaResponse() = default;
 };
+class GetVideoProcessingRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<long> siteId{};
+
+  GetVideoProcessingRequest() {}
+
+  explicit GetVideoProcessingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~GetVideoProcessingRequest() = default;
+};
+class GetVideoProcessingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> configType{};
+  shared_ptr<string> flvSeekEnd{};
+  shared_ptr<string> flvSeekStart{};
+  shared_ptr<string> flvVideoSeekMode{};
+  shared_ptr<string> mp4SeekEnd{};
+  shared_ptr<string> mp4SeekStart{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<long> sequence{};
+  shared_ptr<long> siteVersion{};
+  shared_ptr<string> videoSeekEnable{};
+
+  GetVideoProcessingResponseBody() {}
+
+  explicit GetVideoProcessingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (configType) {
+      res["ConfigType"] = boost::any(*configType);
+    }
+    if (flvSeekEnd) {
+      res["FlvSeekEnd"] = boost::any(*flvSeekEnd);
+    }
+    if (flvSeekStart) {
+      res["FlvSeekStart"] = boost::any(*flvSeekStart);
+    }
+    if (flvVideoSeekMode) {
+      res["FlvVideoSeekMode"] = boost::any(*flvVideoSeekMode);
+    }
+    if (mp4SeekEnd) {
+      res["Mp4SeekEnd"] = boost::any(*mp4SeekEnd);
+    }
+    if (mp4SeekStart) {
+      res["Mp4SeekStart"] = boost::any(*mp4SeekStart);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (siteVersion) {
+      res["SiteVersion"] = boost::any(*siteVersion);
+    }
+    if (videoSeekEnable) {
+      res["VideoSeekEnable"] = boost::any(*videoSeekEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("FlvSeekEnd") != m.end() && !m["FlvSeekEnd"].empty()) {
+      flvSeekEnd = make_shared<string>(boost::any_cast<string>(m["FlvSeekEnd"]));
+    }
+    if (m.find("FlvSeekStart") != m.end() && !m["FlvSeekStart"].empty()) {
+      flvSeekStart = make_shared<string>(boost::any_cast<string>(m["FlvSeekStart"]));
+    }
+    if (m.find("FlvVideoSeekMode") != m.end() && !m["FlvVideoSeekMode"].empty()) {
+      flvVideoSeekMode = make_shared<string>(boost::any_cast<string>(m["FlvVideoSeekMode"]));
+    }
+    if (m.find("Mp4SeekEnd") != m.end() && !m["Mp4SeekEnd"].empty()) {
+      mp4SeekEnd = make_shared<string>(boost::any_cast<string>(m["Mp4SeekEnd"]));
+    }
+    if (m.find("Mp4SeekStart") != m.end() && !m["Mp4SeekStart"].empty()) {
+      mp4SeekStart = make_shared<string>(boost::any_cast<string>(m["Mp4SeekStart"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<long>(boost::any_cast<long>(m["Sequence"]));
+    }
+    if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
+      siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+    if (m.find("VideoSeekEnable") != m.end() && !m["VideoSeekEnable"].empty()) {
+      videoSeekEnable = make_shared<string>(boost::any_cast<string>(m["VideoSeekEnable"]));
+    }
+  }
+
+
+  virtual ~GetVideoProcessingResponseBody() = default;
+};
+class GetVideoProcessingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetVideoProcessingResponseBody> body{};
+
+  GetVideoProcessingResponse() {}
+
+  explicit GetVideoProcessingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetVideoProcessingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetVideoProcessingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetVideoProcessingResponse() = default;
+};
 class GetWafBotAppKeyResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> appKey{};
@@ -56905,6 +57424,320 @@ public:
 
   virtual ~ListUserRoutinesResponse() = default;
 };
+class ListVideoProcessingsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> configType{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<long> siteId{};
+  shared_ptr<long> siteVersion{};
+
+  ListVideoProcessingsRequest() {}
+
+  explicit ListVideoProcessingsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (configType) {
+      res["ConfigType"] = boost::any(*configType);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteVersion) {
+      res["SiteVersion"] = boost::any(*siteVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
+      siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+  }
+
+
+  virtual ~ListVideoProcessingsRequest() = default;
+};
+class ListVideoProcessingsResponseBodyConfigs : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> configType{};
+  shared_ptr<string> flvSeekEnd{};
+  shared_ptr<string> flvSeekStart{};
+  shared_ptr<string> flvVideoSeekMode{};
+  shared_ptr<string> mp4SeekEnd{};
+  shared_ptr<string> mp4SeekStart{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<long> sequence{};
+  shared_ptr<long> siteVersion{};
+  shared_ptr<string> videoSeekEnable{};
+
+  ListVideoProcessingsResponseBodyConfigs() {}
+
+  explicit ListVideoProcessingsResponseBodyConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (configType) {
+      res["ConfigType"] = boost::any(*configType);
+    }
+    if (flvSeekEnd) {
+      res["FlvSeekEnd"] = boost::any(*flvSeekEnd);
+    }
+    if (flvSeekStart) {
+      res["FlvSeekStart"] = boost::any(*flvSeekStart);
+    }
+    if (flvVideoSeekMode) {
+      res["FlvVideoSeekMode"] = boost::any(*flvVideoSeekMode);
+    }
+    if (mp4SeekEnd) {
+      res["Mp4SeekEnd"] = boost::any(*mp4SeekEnd);
+    }
+    if (mp4SeekStart) {
+      res["Mp4SeekStart"] = boost::any(*mp4SeekStart);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (siteVersion) {
+      res["SiteVersion"] = boost::any(*siteVersion);
+    }
+    if (videoSeekEnable) {
+      res["VideoSeekEnable"] = boost::any(*videoSeekEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("FlvSeekEnd") != m.end() && !m["FlvSeekEnd"].empty()) {
+      flvSeekEnd = make_shared<string>(boost::any_cast<string>(m["FlvSeekEnd"]));
+    }
+    if (m.find("FlvSeekStart") != m.end() && !m["FlvSeekStart"].empty()) {
+      flvSeekStart = make_shared<string>(boost::any_cast<string>(m["FlvSeekStart"]));
+    }
+    if (m.find("FlvVideoSeekMode") != m.end() && !m["FlvVideoSeekMode"].empty()) {
+      flvVideoSeekMode = make_shared<string>(boost::any_cast<string>(m["FlvVideoSeekMode"]));
+    }
+    if (m.find("Mp4SeekEnd") != m.end() && !m["Mp4SeekEnd"].empty()) {
+      mp4SeekEnd = make_shared<string>(boost::any_cast<string>(m["Mp4SeekEnd"]));
+    }
+    if (m.find("Mp4SeekStart") != m.end() && !m["Mp4SeekStart"].empty()) {
+      mp4SeekStart = make_shared<string>(boost::any_cast<string>(m["Mp4SeekStart"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<long>(boost::any_cast<long>(m["Sequence"]));
+    }
+    if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
+      siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+    if (m.find("VideoSeekEnable") != m.end() && !m["VideoSeekEnable"].empty()) {
+      videoSeekEnable = make_shared<string>(boost::any_cast<string>(m["VideoSeekEnable"]));
+    }
+  }
+
+
+  virtual ~ListVideoProcessingsResponseBodyConfigs() = default;
+};
+class ListVideoProcessingsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListVideoProcessingsResponseBodyConfigs>> configs{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<long> totalPage{};
+
+  ListVideoProcessingsResponseBody() {}
+
+  explicit ListVideoProcessingsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configs) {
+      vector<boost::any> temp1;
+      for(auto item1:*configs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Configs"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (totalPage) {
+      res["TotalPage"] = boost::any(*totalPage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Configs") != m.end() && !m["Configs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Configs"].type()) {
+        vector<ListVideoProcessingsResponseBodyConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Configs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVideoProcessingsResponseBodyConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        configs = make_shared<vector<ListVideoProcessingsResponseBodyConfigs>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("TotalPage") != m.end() && !m["TotalPage"].empty()) {
+      totalPage = make_shared<long>(boost::any_cast<long>(m["TotalPage"]));
+    }
+  }
+
+
+  virtual ~ListVideoProcessingsResponseBody() = default;
+};
+class ListVideoProcessingsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListVideoProcessingsResponseBody> body{};
+
+  ListVideoProcessingsResponse() {}
+
+  explicit ListVideoProcessingsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListVideoProcessingsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListVideoProcessingsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListVideoProcessingsResponse() = default;
+};
 class ListWafManagedRulesRequestQueryArgs : public Darabonba::Model {
 public:
   shared_ptr<string> action{};
@@ -69045,6 +69878,7 @@ public:
   shared_ptr<long> recordId{};
   shared_ptr<string> sourceType{};
   shared_ptr<long> ttl{};
+  shared_ptr<string> type{};
 
   UpdateRecordRequest() {}
 
@@ -69082,6 +69916,9 @@ public:
     }
     if (ttl) {
       res["Ttl"] = boost::any(*ttl);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     return res;
   }
@@ -69122,6 +69959,9 @@ public:
     if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
       ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
     }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
   }
 
 
@@ -69138,6 +69978,7 @@ public:
   shared_ptr<long> recordId{};
   shared_ptr<string> sourceType{};
   shared_ptr<long> ttl{};
+  shared_ptr<string> type{};
 
   UpdateRecordShrinkRequest() {}
 
@@ -69176,6 +70017,9 @@ public:
     if (ttl) {
       res["Ttl"] = boost::any(*ttl);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -69206,6 +70050,9 @@ public:
     }
     if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
       ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -71557,6 +72404,193 @@ public:
 
 
   virtual ~UpdateUserDeliveryTaskStatusResponse() = default;
+};
+class UpdateVideoProcessingRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> flvSeekEnd{};
+  shared_ptr<string> flvSeekStart{};
+  shared_ptr<string> flvVideoSeekMode{};
+  shared_ptr<string> mp4SeekEnd{};
+  shared_ptr<string> mp4SeekStart{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<long> sequence{};
+  shared_ptr<long> siteId{};
+  shared_ptr<string> videoSeekEnable{};
+
+  UpdateVideoProcessingRequest() {}
+
+  explicit UpdateVideoProcessingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (flvSeekEnd) {
+      res["FlvSeekEnd"] = boost::any(*flvSeekEnd);
+    }
+    if (flvSeekStart) {
+      res["FlvSeekStart"] = boost::any(*flvSeekStart);
+    }
+    if (flvVideoSeekMode) {
+      res["FlvVideoSeekMode"] = boost::any(*flvVideoSeekMode);
+    }
+    if (mp4SeekEnd) {
+      res["Mp4SeekEnd"] = boost::any(*mp4SeekEnd);
+    }
+    if (mp4SeekStart) {
+      res["Mp4SeekStart"] = boost::any(*mp4SeekStart);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (videoSeekEnable) {
+      res["VideoSeekEnable"] = boost::any(*videoSeekEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("FlvSeekEnd") != m.end() && !m["FlvSeekEnd"].empty()) {
+      flvSeekEnd = make_shared<string>(boost::any_cast<string>(m["FlvSeekEnd"]));
+    }
+    if (m.find("FlvSeekStart") != m.end() && !m["FlvSeekStart"].empty()) {
+      flvSeekStart = make_shared<string>(boost::any_cast<string>(m["FlvSeekStart"]));
+    }
+    if (m.find("FlvVideoSeekMode") != m.end() && !m["FlvVideoSeekMode"].empty()) {
+      flvVideoSeekMode = make_shared<string>(boost::any_cast<string>(m["FlvVideoSeekMode"]));
+    }
+    if (m.find("Mp4SeekEnd") != m.end() && !m["Mp4SeekEnd"].empty()) {
+      mp4SeekEnd = make_shared<string>(boost::any_cast<string>(m["Mp4SeekEnd"]));
+    }
+    if (m.find("Mp4SeekStart") != m.end() && !m["Mp4SeekStart"].empty()) {
+      mp4SeekStart = make_shared<string>(boost::any_cast<string>(m["Mp4SeekStart"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<long>(boost::any_cast<long>(m["Sequence"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("VideoSeekEnable") != m.end() && !m["VideoSeekEnable"].empty()) {
+      videoSeekEnable = make_shared<string>(boost::any_cast<string>(m["VideoSeekEnable"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoProcessingRequest() = default;
+};
+class UpdateVideoProcessingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateVideoProcessingResponseBody() {}
+
+  explicit UpdateVideoProcessingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoProcessingResponseBody() = default;
+};
+class UpdateVideoProcessingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateVideoProcessingResponseBody> body{};
+
+  UpdateVideoProcessingResponse() {}
+
+  explicit UpdateVideoProcessingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateVideoProcessingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateVideoProcessingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVideoProcessingResponse() = default;
 };
 class UpdateWafRuleRequest : public Darabonba::Model {
 public:
@@ -73931,6 +74965,8 @@ public:
   CreateSlrRoleForRealtimeLogResponse createSlrRoleForRealtimeLog();
   CreateUserDeliveryTaskResponse createUserDeliveryTaskWithOptions(shared_ptr<CreateUserDeliveryTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserDeliveryTaskResponse createUserDeliveryTask(shared_ptr<CreateUserDeliveryTaskRequest> request);
+  CreateVideoProcessingResponse createVideoProcessingWithOptions(shared_ptr<CreateVideoProcessingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateVideoProcessingResponse createVideoProcessing(shared_ptr<CreateVideoProcessingRequest> request);
   CreateWafRuleResponse createWafRuleWithOptions(shared_ptr<CreateWafRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWafRuleResponse createWafRule(shared_ptr<CreateWafRuleRequest> request);
   CreateWafRulesetResponse createWafRulesetWithOptions(shared_ptr<CreateWafRulesetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -74019,6 +75055,8 @@ public:
   DeleteSiteOriginClientCertificateResponse deleteSiteOriginClientCertificate(shared_ptr<DeleteSiteOriginClientCertificateRequest> request);
   DeleteUserDeliveryTaskResponse deleteUserDeliveryTaskWithOptions(shared_ptr<DeleteUserDeliveryTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteUserDeliveryTaskResponse deleteUserDeliveryTask(shared_ptr<DeleteUserDeliveryTaskRequest> request);
+  DeleteVideoProcessingResponse deleteVideoProcessingWithOptions(shared_ptr<DeleteVideoProcessingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteVideoProcessingResponse deleteVideoProcessing(shared_ptr<DeleteVideoProcessingRequest> request);
   DeleteWafRuleResponse deleteWafRuleWithOptions(shared_ptr<DeleteWafRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteWafRuleResponse deleteWafRule(shared_ptr<DeleteWafRuleRequest> request);
   DeleteWafRulesetResponse deleteWafRulesetWithOptions(shared_ptr<DeleteWafRulesetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -74201,6 +75239,8 @@ public:
   GetUserDeliveryTaskResponse getUserDeliveryTask(shared_ptr<GetUserDeliveryTaskRequest> request);
   GetUserLogDeliveryQuotaResponse getUserLogDeliveryQuotaWithOptions(shared_ptr<GetUserLogDeliveryQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUserLogDeliveryQuotaResponse getUserLogDeliveryQuota(shared_ptr<GetUserLogDeliveryQuotaRequest> request);
+  GetVideoProcessingResponse getVideoProcessingWithOptions(shared_ptr<GetVideoProcessingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetVideoProcessingResponse getVideoProcessing(shared_ptr<GetVideoProcessingRequest> request);
   GetWafBotAppKeyResponse getWafBotAppKeyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetWafBotAppKeyResponse getWafBotAppKey();
   GetWafFilterResponse getWafFilterWithOptions(shared_ptr<GetWafFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -74311,6 +75351,8 @@ public:
   ListUserRatePlanInstancesResponse listUserRatePlanInstances(shared_ptr<ListUserRatePlanInstancesRequest> request);
   ListUserRoutinesResponse listUserRoutinesWithOptions(shared_ptr<ListUserRoutinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUserRoutinesResponse listUserRoutines(shared_ptr<ListUserRoutinesRequest> request);
+  ListVideoProcessingsResponse listVideoProcessingsWithOptions(shared_ptr<ListVideoProcessingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListVideoProcessingsResponse listVideoProcessings(shared_ptr<ListVideoProcessingsRequest> request);
   ListWafManagedRulesResponse listWafManagedRulesWithOptions(shared_ptr<ListWafManagedRulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListWafManagedRulesResponse listWafManagedRules(shared_ptr<ListWafManagedRulesRequest> request);
   ListWafPhasesResponse listWafPhasesWithOptions(shared_ptr<ListWafPhasesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -74458,6 +75500,8 @@ public:
   UpdateUserDeliveryTaskResponse updateUserDeliveryTask(shared_ptr<UpdateUserDeliveryTaskRequest> request);
   UpdateUserDeliveryTaskStatusResponse updateUserDeliveryTaskStatusWithOptions(shared_ptr<UpdateUserDeliveryTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateUserDeliveryTaskStatusResponse updateUserDeliveryTaskStatus(shared_ptr<UpdateUserDeliveryTaskStatusRequest> request);
+  UpdateVideoProcessingResponse updateVideoProcessingWithOptions(shared_ptr<UpdateVideoProcessingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateVideoProcessingResponse updateVideoProcessing(shared_ptr<UpdateVideoProcessingRequest> request);
   UpdateWafRuleResponse updateWafRuleWithOptions(shared_ptr<UpdateWafRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateWafRuleResponse updateWafRule(shared_ptr<UpdateWafRuleRequest> request);
   UpdateWafRulesetResponse updateWafRulesetWithOptions(shared_ptr<UpdateWafRulesetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
