@@ -6339,6 +6339,10 @@ public:
 class DescribeDBClusterAttributeResponseBodyDBCluster : public Darabonba::Model {
 public:
   shared_ptr<string> aliUid{};
+  shared_ptr<bool> appointmentElectZookeeperDisableWrite{};
+  shared_ptr<string> appointmentElectZookeeperTime{};
+  shared_ptr<string> appointmentRestartNodeList{};
+  shared_ptr<string> appointmentRestartNodeTime{};
   shared_ptr<string> appointmentRestartTime{};
   shared_ptr<map<string, boost::any>> availableUpgradeMajorVersion{};
   shared_ptr<string> bid{};
@@ -6403,6 +6407,18 @@ public:
     map<string, boost::any> res;
     if (aliUid) {
       res["AliUid"] = boost::any(*aliUid);
+    }
+    if (appointmentElectZookeeperDisableWrite) {
+      res["AppointmentElectZookeeperDisableWrite"] = boost::any(*appointmentElectZookeeperDisableWrite);
+    }
+    if (appointmentElectZookeeperTime) {
+      res["AppointmentElectZookeeperTime"] = boost::any(*appointmentElectZookeeperTime);
+    }
+    if (appointmentRestartNodeList) {
+      res["AppointmentRestartNodeList"] = boost::any(*appointmentRestartNodeList);
+    }
+    if (appointmentRestartNodeTime) {
+      res["AppointmentRestartNodeTime"] = boost::any(*appointmentRestartNodeTime);
     }
     if (appointmentRestartTime) {
       res["AppointmentRestartTime"] = boost::any(*appointmentRestartTime);
@@ -6563,6 +6579,18 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
       aliUid = make_shared<string>(boost::any_cast<string>(m["AliUid"]));
+    }
+    if (m.find("AppointmentElectZookeeperDisableWrite") != m.end() && !m["AppointmentElectZookeeperDisableWrite"].empty()) {
+      appointmentElectZookeeperDisableWrite = make_shared<bool>(boost::any_cast<bool>(m["AppointmentElectZookeeperDisableWrite"]));
+    }
+    if (m.find("AppointmentElectZookeeperTime") != m.end() && !m["AppointmentElectZookeeperTime"].empty()) {
+      appointmentElectZookeeperTime = make_shared<string>(boost::any_cast<string>(m["AppointmentElectZookeeperTime"]));
+    }
+    if (m.find("AppointmentRestartNodeList") != m.end() && !m["AppointmentRestartNodeList"].empty()) {
+      appointmentRestartNodeList = make_shared<string>(boost::any_cast<string>(m["AppointmentRestartNodeList"]));
+    }
+    if (m.find("AppointmentRestartNodeTime") != m.end() && !m["AppointmentRestartNodeTime"].empty()) {
+      appointmentRestartNodeTime = make_shared<string>(boost::any_cast<string>(m["AppointmentRestartNodeTime"]));
     }
     if (m.find("AppointmentRestartTime") != m.end() && !m["AppointmentRestartTime"].empty()) {
       appointmentRestartTime = make_shared<string>(boost::any_cast<string>(m["AppointmentRestartTime"]));

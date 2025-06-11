@@ -119,12 +119,7 @@ AllocateClusterPublicConnectionResponse Alibabacloud_Clickhouse20191111::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AllocateClusterPublicConnectionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AllocateClusterPublicConnectionResponse(execute(params, req, runtime));
-  }
+  return AllocateClusterPublicConnectionResponse(callApi(params, req, runtime));
 }
 
 AllocateClusterPublicConnectionResponse Alibabacloud_Clickhouse20191111::Client::allocateClusterPublicConnection(shared_ptr<AllocateClusterPublicConnectionRequest> request) {
@@ -191,12 +186,7 @@ CheckClickhouseToRDSResponse Alibabacloud_Clickhouse20191111::Client::checkClick
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckClickhouseToRDSResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckClickhouseToRDSResponse(execute(params, req, runtime));
-  }
+  return CheckClickhouseToRDSResponse(callApi(params, req, runtime));
 }
 
 CheckClickhouseToRDSResponse Alibabacloud_Clickhouse20191111::Client::checkClickhouseToRDS(shared_ptr<CheckClickhouseToRDSRequest> request) {
@@ -227,12 +217,7 @@ CheckModifyConfigNeedRestartResponse Alibabacloud_Clickhouse20191111::Client::ch
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckModifyConfigNeedRestartResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckModifyConfigNeedRestartResponse(execute(params, req, runtime));
-  }
+  return CheckModifyConfigNeedRestartResponse(callApi(params, req, runtime));
 }
 
 CheckModifyConfigNeedRestartResponse Alibabacloud_Clickhouse20191111::Client::checkModifyConfigNeedRestart(shared_ptr<CheckModifyConfigNeedRestartRequest> request) {
@@ -275,12 +260,7 @@ CheckMonitorAlertResponse Alibabacloud_Clickhouse20191111::Client::checkMonitorA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckMonitorAlertResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckMonitorAlertResponse(execute(params, req, runtime));
-  }
+  return CheckMonitorAlertResponse(callApi(params, req, runtime));
 }
 
 CheckMonitorAlertResponse Alibabacloud_Clickhouse20191111::Client::checkMonitorAlert(shared_ptr<CheckMonitorAlertRequest> request) {
@@ -329,12 +309,7 @@ CheckScaleOutBalancedResponse Alibabacloud_Clickhouse20191111::Client::checkScal
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckScaleOutBalancedResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckScaleOutBalancedResponse(execute(params, req, runtime));
-  }
+  return CheckScaleOutBalancedResponse(callApi(params, req, runtime));
 }
 
 CheckScaleOutBalancedResponse Alibabacloud_Clickhouse20191111::Client::checkScaleOutBalanced(shared_ptr<CheckScaleOutBalancedRequest> request) {
@@ -371,12 +346,7 @@ CheckServiceLinkedRoleResponse Alibabacloud_Clickhouse20191111::Client::checkSer
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckServiceLinkedRoleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckServiceLinkedRoleResponse(execute(params, req, runtime));
-  }
+  return CheckServiceLinkedRoleResponse(callApi(params, req, runtime));
 }
 
 CheckServiceLinkedRoleResponse Alibabacloud_Clickhouse20191111::Client::checkServiceLinkedRole(shared_ptr<CheckServiceLinkedRoleRequest> request) {
@@ -425,12 +395,7 @@ CreateAccountResponse Alibabacloud_Clickhouse20191111::Client::createAccountWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateAccountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateAccountResponse(execute(params, req, runtime));
-  }
+  return CreateAccountResponse(callApi(params, req, runtime));
 }
 
 CreateAccountResponse Alibabacloud_Clickhouse20191111::Client::createAccount(shared_ptr<CreateAccountRequest> request) {
@@ -500,12 +465,7 @@ CreateAccountAndAuthorityResponse Alibabacloud_Clickhouse20191111::Client::creat
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateAccountAndAuthorityResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateAccountAndAuthorityResponse(execute(params, req, runtime));
-  }
+  return CreateAccountAndAuthorityResponse(callApi(params, req, runtime));
 }
 
 CreateAccountAndAuthorityResponse Alibabacloud_Clickhouse20191111::Client::createAccountAndAuthority(shared_ptr<CreateAccountAndAuthorityRequest> request) {
@@ -557,12 +517,7 @@ CreateBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::createBackup
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateBackupPolicyResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateBackupPolicyResponse(execute(params, req, runtime));
-  }
+  return CreateBackupPolicyResponse(callApi(params, req, runtime));
 }
 
 CreateBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::createBackupPolicy(shared_ptr<CreateBackupPolicyRequest> request) {
@@ -677,12 +632,7 @@ CreateDBInstanceResponse Alibabacloud_Clickhouse20191111::Client::createDBInstan
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateDBInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateDBInstanceResponse(execute(params, req, runtime));
-  }
+  return CreateDBInstanceResponse(callApi(params, req, runtime));
 }
 
 CreateDBInstanceResponse Alibabacloud_Clickhouse20191111::Client::createDBInstance(shared_ptr<CreateDBInstanceRequest> request) {
@@ -725,12 +675,7 @@ CreateMonitorDataReportResponse Alibabacloud_Clickhouse20191111::Client::createM
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateMonitorDataReportResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateMonitorDataReportResponse(execute(params, req, runtime));
-  }
+  return CreateMonitorDataReportResponse(callApi(params, req, runtime));
 }
 
 CreateMonitorDataReportResponse Alibabacloud_Clickhouse20191111::Client::createMonitorDataReport(shared_ptr<CreateMonitorDataReportRequest> request) {
@@ -773,12 +718,7 @@ CreateOSSStorageResponse Alibabacloud_Clickhouse20191111::Client::createOSSStora
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateOSSStorageResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateOSSStorageResponse(execute(params, req, runtime));
-  }
+  return CreateOSSStorageResponse(callApi(params, req, runtime));
 }
 
 CreateOSSStorageResponse Alibabacloud_Clickhouse20191111::Client::createOSSStorage(shared_ptr<CreateOSSStorageRequest> request) {
@@ -824,12 +764,7 @@ CreatePortsForClickHouseResponse Alibabacloud_Clickhouse20191111::Client::create
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreatePortsForClickHouseResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreatePortsForClickHouseResponse(execute(params, req, runtime));
-  }
+  return CreatePortsForClickHouseResponse(callApi(params, req, runtime));
 }
 
 CreatePortsForClickHouseResponse Alibabacloud_Clickhouse20191111::Client::createPortsForClickHouse(shared_ptr<CreatePortsForClickHouseRequest> request) {
@@ -905,12 +840,7 @@ CreateRDSToClickhouseDbResponse Alibabacloud_Clickhouse20191111::Client::createR
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateRDSToClickhouseDbResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateRDSToClickhouseDbResponse(execute(params, req, runtime));
-  }
+  return CreateRDSToClickhouseDbResponse(callApi(params, req, runtime));
 }
 
 CreateRDSToClickhouseDbResponse Alibabacloud_Clickhouse20191111::Client::createRDSToClickhouseDb(shared_ptr<CreateRDSToClickhouseDbRequest> request) {
@@ -962,12 +892,7 @@ CreateSQLAccountResponse Alibabacloud_Clickhouse20191111::Client::createSQLAccou
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateSQLAccountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateSQLAccountResponse(execute(params, req, runtime));
-  }
+  return CreateSQLAccountResponse(callApi(params, req, runtime));
 }
 
 CreateSQLAccountResponse Alibabacloud_Clickhouse20191111::Client::createSQLAccount(shared_ptr<CreateSQLAccountRequest> request) {
@@ -1004,12 +929,7 @@ CreateServiceLinkedRoleResponse Alibabacloud_Clickhouse20191111::Client::createS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateServiceLinkedRoleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateServiceLinkedRoleResponse(execute(params, req, runtime));
-  }
+  return CreateServiceLinkedRoleResponse(callApi(params, req, runtime));
 }
 
 CreateServiceLinkedRoleResponse Alibabacloud_Clickhouse20191111::Client::createServiceLinkedRole(shared_ptr<CreateServiceLinkedRoleRequest> request) {
@@ -1052,12 +972,7 @@ DeleteAccountResponse Alibabacloud_Clickhouse20191111::Client::deleteAccountWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteAccountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteAccountResponse(execute(params, req, runtime));
-  }
+  return DeleteAccountResponse(callApi(params, req, runtime));
 }
 
 DeleteAccountResponse Alibabacloud_Clickhouse20191111::Client::deleteAccount(shared_ptr<DeleteAccountRequest> request) {
@@ -1097,12 +1012,7 @@ DeleteDBClusterResponse Alibabacloud_Clickhouse20191111::Client::deleteDBCluster
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteDBClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteDBClusterResponse(execute(params, req, runtime));
-  }
+  return DeleteDBClusterResponse(callApi(params, req, runtime));
 }
 
 DeleteDBClusterResponse Alibabacloud_Clickhouse20191111::Client::deleteDBCluster(shared_ptr<DeleteDBClusterRequest> request) {
@@ -1145,12 +1055,7 @@ DeleteSyndbResponse Alibabacloud_Clickhouse20191111::Client::deleteSyndbWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteSyndbResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteSyndbResponse(execute(params, req, runtime));
-  }
+  return DeleteSyndbResponse(callApi(params, req, runtime));
 }
 
 DeleteSyndbResponse Alibabacloud_Clickhouse20191111::Client::deleteSyndb(shared_ptr<DeleteSyndbRequest> request) {
@@ -1196,12 +1101,7 @@ DescribeAccountAuthorityResponse Alibabacloud_Clickhouse20191111::Client::descri
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeAccountAuthorityResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeAccountAuthorityResponse(execute(params, req, runtime));
-  }
+  return DescribeAccountAuthorityResponse(callApi(params, req, runtime));
 }
 
 DescribeAccountAuthorityResponse Alibabacloud_Clickhouse20191111::Client::describeAccountAuthority(shared_ptr<DescribeAccountAuthorityRequest> request) {
@@ -1250,12 +1150,7 @@ DescribeAccountsResponse Alibabacloud_Clickhouse20191111::Client::describeAccoun
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeAccountsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeAccountsResponse(execute(params, req, runtime));
-  }
+  return DescribeAccountsResponse(callApi(params, req, runtime));
 }
 
 DescribeAccountsResponse Alibabacloud_Clickhouse20191111::Client::describeAccounts(shared_ptr<DescribeAccountsRequest> request) {
@@ -1301,12 +1196,7 @@ DescribeAllDataSourceResponse Alibabacloud_Clickhouse20191111::Client::describeA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeAllDataSourceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeAllDataSourceResponse(execute(params, req, runtime));
-  }
+  return DescribeAllDataSourceResponse(callApi(params, req, runtime));
 }
 
 DescribeAllDataSourceResponse Alibabacloud_Clickhouse20191111::Client::describeAllDataSource(shared_ptr<DescribeAllDataSourceRequest> request) {
@@ -1352,12 +1242,7 @@ DescribeAllDataSourcesResponse Alibabacloud_Clickhouse20191111::Client::describe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeAllDataSourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeAllDataSourcesResponse(execute(params, req, runtime));
-  }
+  return DescribeAllDataSourcesResponse(callApi(params, req, runtime));
 }
 
 DescribeAllDataSourcesResponse Alibabacloud_Clickhouse20191111::Client::describeAllDataSources(shared_ptr<DescribeAllDataSourcesRequest> request) {
@@ -1397,12 +1282,7 @@ DescribeBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::describeBa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeBackupPolicyResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeBackupPolicyResponse(execute(params, req, runtime));
-  }
+  return DescribeBackupPolicyResponse(callApi(params, req, runtime));
 }
 
 DescribeBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::describeBackupPolicy(shared_ptr<DescribeBackupPolicyRequest> request) {
@@ -1457,12 +1337,7 @@ DescribeBackupsResponse Alibabacloud_Clickhouse20191111::Client::describeBackups
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeBackupsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeBackupsResponse(execute(params, req, runtime));
-  }
+  return DescribeBackupsResponse(callApi(params, req, runtime));
 }
 
 DescribeBackupsResponse Alibabacloud_Clickhouse20191111::Client::describeBackups(shared_ptr<DescribeBackupsRequest> request) {
@@ -1508,12 +1383,7 @@ DescribeColumnsResponse Alibabacloud_Clickhouse20191111::Client::describeColumns
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeColumnsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeColumnsResponse(execute(params, req, runtime));
-  }
+  return DescribeColumnsResponse(callApi(params, req, runtime));
 }
 
 DescribeColumnsResponse Alibabacloud_Clickhouse20191111::Client::describeColumns(shared_ptr<DescribeColumnsRequest> request) {
@@ -1538,12 +1408,7 @@ DescribeConfigHistoryResponse Alibabacloud_Clickhouse20191111::Client::describeC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeConfigHistoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeConfigHistoryResponse(execute(params, req, runtime));
-  }
+  return DescribeConfigHistoryResponse(callApi(params, req, runtime));
 }
 
 DescribeConfigHistoryResponse Alibabacloud_Clickhouse20191111::Client::describeConfigHistory(shared_ptr<DescribeConfigHistoryRequest> request) {
@@ -1568,12 +1433,7 @@ DescribeConfigVersionDifferenceResponse Alibabacloud_Clickhouse20191111::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeConfigVersionDifferenceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeConfigVersionDifferenceResponse(execute(params, req, runtime));
-  }
+  return DescribeConfigVersionDifferenceResponse(callApi(params, req, runtime));
 }
 
 DescribeConfigVersionDifferenceResponse Alibabacloud_Clickhouse20191111::Client::describeConfigVersionDifference(shared_ptr<DescribeConfigVersionDifferenceRequest> request) {
@@ -1613,12 +1473,7 @@ DescribeDBClusterAccessWhiteListResponse Alibabacloud_Clickhouse20191111::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClusterAccessWhiteListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClusterAccessWhiteListResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClusterAccessWhiteListResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClusterAccessWhiteListResponse Alibabacloud_Clickhouse20191111::Client::describeDBClusterAccessWhiteList(shared_ptr<DescribeDBClusterAccessWhiteListRequest> request) {
@@ -1658,12 +1513,7 @@ DescribeDBClusterAttributeResponse Alibabacloud_Clickhouse20191111::Client::desc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClusterAttributeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClusterAttributeResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClusterAttributeResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClusterAttributeResponse Alibabacloud_Clickhouse20191111::Client::describeDBClusterAttribute(shared_ptr<DescribeDBClusterAttributeRequest> request) {
@@ -1706,12 +1556,7 @@ DescribeDBClusterConfigResponse Alibabacloud_Clickhouse20191111::Client::describ
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClusterConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClusterConfigResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClusterConfigResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClusterConfigResponse Alibabacloud_Clickhouse20191111::Client::describeDBClusterConfig(shared_ptr<DescribeDBClusterConfigRequest> request) {
@@ -1742,12 +1587,7 @@ DescribeDBClusterConfigInXMLResponse Alibabacloud_Clickhouse20191111::Client::de
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClusterConfigInXMLResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClusterConfigInXMLResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClusterConfigInXMLResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClusterConfigInXMLResponse Alibabacloud_Clickhouse20191111::Client::describeDBClusterConfigInXML(shared_ptr<DescribeDBClusterConfigInXMLRequest> request) {
@@ -1787,12 +1627,7 @@ DescribeDBClusterNetInfoItemsResponse Alibabacloud_Clickhouse20191111::Client::d
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClusterNetInfoItemsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClusterNetInfoItemsResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClusterNetInfoItemsResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClusterNetInfoItemsResponse Alibabacloud_Clickhouse20191111::Client::describeDBClusterNetInfoItems(shared_ptr<DescribeDBClusterNetInfoItemsRequest> request) {
@@ -1841,12 +1676,7 @@ DescribeDBClusterPerformanceResponse Alibabacloud_Clickhouse20191111::Client::de
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClusterPerformanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClusterPerformanceResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClusterPerformanceResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClusterPerformanceResponse Alibabacloud_Clickhouse20191111::Client::describeDBClusterPerformance(shared_ptr<DescribeDBClusterPerformanceRequest> request) {
@@ -1907,12 +1737,7 @@ DescribeDBClustersResponse Alibabacloud_Clickhouse20191111::Client::describeDBCl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBClustersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBClustersResponse(execute(params, req, runtime));
-  }
+  return DescribeDBClustersResponse(callApi(params, req, runtime));
 }
 
 DescribeDBClustersResponse Alibabacloud_Clickhouse20191111::Client::describeDBClusters(shared_ptr<DescribeDBClustersRequest> request) {
@@ -1955,12 +1780,7 @@ DescribeDBConfigResponse Alibabacloud_Clickhouse20191111::Client::describeDBConf
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBConfigResponse(execute(params, req, runtime));
-  }
+  return DescribeDBConfigResponse(callApi(params, req, runtime));
 }
 
 DescribeDBConfigResponse Alibabacloud_Clickhouse20191111::Client::describeDBConfig(shared_ptr<DescribeDBConfigRequest> request) {
@@ -2003,12 +1823,7 @@ DescribeOSSStorageResponse Alibabacloud_Clickhouse20191111::Client::describeOSSS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeOSSStorageResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeOSSStorageResponse(execute(params, req, runtime));
-  }
+  return DescribeOSSStorageResponse(callApi(params, req, runtime));
 }
 
 DescribeOSSStorageResponse Alibabacloud_Clickhouse20191111::Client::describeOSSStorage(shared_ptr<DescribeOSSStorageRequest> request) {
@@ -2072,12 +1887,7 @@ DescribeProcessListResponse Alibabacloud_Clickhouse20191111::Client::describePro
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeProcessListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeProcessListResponse(execute(params, req, runtime));
-  }
+  return DescribeProcessListResponse(callApi(params, req, runtime));
 }
 
 DescribeProcessListResponse Alibabacloud_Clickhouse20191111::Client::describeProcessList(shared_ptr<DescribeProcessListRequest> request) {
@@ -2114,12 +1924,7 @@ DescribeRegionsResponse Alibabacloud_Clickhouse20191111::Client::describeRegions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeRegionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeRegionsResponse(execute(params, req, runtime));
-  }
+  return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
 DescribeRegionsResponse Alibabacloud_Clickhouse20191111::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
@@ -2159,12 +1964,7 @@ DescribeSchemasResponse Alibabacloud_Clickhouse20191111::Client::describeSchemas
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeSchemasResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeSchemasResponse(execute(params, req, runtime));
-  }
+  return DescribeSchemasResponse(callApi(params, req, runtime));
 }
 
 DescribeSchemasResponse Alibabacloud_Clickhouse20191111::Client::describeSchemas(shared_ptr<DescribeSchemasRequest> request) {
@@ -2222,12 +2022,7 @@ DescribeSlowLogRecordsResponse Alibabacloud_Clickhouse20191111::Client::describe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeSlowLogRecordsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeSlowLogRecordsResponse(execute(params, req, runtime));
-  }
+  return DescribeSlowLogRecordsResponse(callApi(params, req, runtime));
 }
 
 DescribeSlowLogRecordsResponse Alibabacloud_Clickhouse20191111::Client::describeSlowLogRecords(shared_ptr<DescribeSlowLogRecordsRequest> request) {
@@ -2270,12 +2065,7 @@ DescribeSynDbTablesResponse Alibabacloud_Clickhouse20191111::Client::describeSyn
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeSynDbTablesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeSynDbTablesResponse(execute(params, req, runtime));
-  }
+  return DescribeSynDbTablesResponse(callApi(params, req, runtime));
 }
 
 DescribeSynDbTablesResponse Alibabacloud_Clickhouse20191111::Client::describeSynDbTables(shared_ptr<DescribeSynDbTablesRequest> request) {
@@ -2321,12 +2111,7 @@ DescribeSynDbsResponse Alibabacloud_Clickhouse20191111::Client::describeSynDbsWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeSynDbsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeSynDbsResponse(execute(params, req, runtime));
-  }
+  return DescribeSynDbsResponse(callApi(params, req, runtime));
 }
 
 DescribeSynDbsResponse Alibabacloud_Clickhouse20191111::Client::describeSynDbs(shared_ptr<DescribeSynDbsRequest> request) {
@@ -2369,12 +2154,7 @@ DescribeTablesResponse Alibabacloud_Clickhouse20191111::Client::describeTablesWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeTablesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeTablesResponse(execute(params, req, runtime));
-  }
+  return DescribeTablesResponse(callApi(params, req, runtime));
 }
 
 DescribeTablesResponse Alibabacloud_Clickhouse20191111::Client::describeTables(shared_ptr<DescribeTablesRequest> request) {
@@ -2414,12 +2194,7 @@ DescribeTransferHistoryResponse Alibabacloud_Clickhouse20191111::Client::describ
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeTransferHistoryResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeTransferHistoryResponse(execute(params, req, runtime));
-  }
+  return DescribeTransferHistoryResponse(callApi(params, req, runtime));
 }
 
 DescribeTransferHistoryResponse Alibabacloud_Clickhouse20191111::Client::describeTransferHistory(shared_ptr<DescribeTransferHistoryRequest> request) {
@@ -2465,12 +2240,7 @@ KillProcessResponse Alibabacloud_Clickhouse20191111::Client::killProcessWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return KillProcessResponse(callApi(params, req, runtime));
-  }
-  else {
-    return KillProcessResponse(execute(params, req, runtime));
-  }
+  return KillProcessResponse(callApi(params, req, runtime));
 }
 
 KillProcessResponse Alibabacloud_Clickhouse20191111::Client::killProcess(shared_ptr<KillProcessRequest> request) {
@@ -2534,12 +2304,7 @@ ModifyAccountAuthorityResponse Alibabacloud_Clickhouse20191111::Client::modifyAc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyAccountAuthorityResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyAccountAuthorityResponse(execute(params, req, runtime));
-  }
+  return ModifyAccountAuthorityResponse(callApi(params, req, runtime));
 }
 
 ModifyAccountAuthorityResponse Alibabacloud_Clickhouse20191111::Client::modifyAccountAuthority(shared_ptr<ModifyAccountAuthorityRequest> request) {
@@ -2585,12 +2350,7 @@ ModifyAccountDescriptionResponse Alibabacloud_Clickhouse20191111::Client::modify
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyAccountDescriptionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyAccountDescriptionResponse(execute(params, req, runtime));
-  }
+  return ModifyAccountDescriptionResponse(callApi(params, req, runtime));
 }
 
 ModifyAccountDescriptionResponse Alibabacloud_Clickhouse20191111::Client::modifyAccountDescription(shared_ptr<ModifyAccountDescriptionRequest> request) {
@@ -2639,12 +2399,7 @@ ModifyBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::modifyBackup
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyBackupPolicyResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyBackupPolicyResponse(execute(params, req, runtime));
-  }
+  return ModifyBackupPolicyResponse(callApi(params, req, runtime));
 }
 
 ModifyBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::modifyBackupPolicy(shared_ptr<ModifyBackupPolicyRequest> request) {
@@ -2702,12 +2457,7 @@ ModifyDBClusterResponse Alibabacloud_Clickhouse20191111::Client::modifyDBCluster
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBClusterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBClusterResponse(execute(params, req, runtime));
-  }
+  return ModifyDBClusterResponse(callApi(params, req, runtime));
 }
 
 ModifyDBClusterResponse Alibabacloud_Clickhouse20191111::Client::modifyDBCluster(shared_ptr<ModifyDBClusterRequest> request) {
@@ -2759,12 +2509,7 @@ ModifyDBClusterAccessWhiteListResponse Alibabacloud_Clickhouse20191111::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBClusterAccessWhiteListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBClusterAccessWhiteListResponse(execute(params, req, runtime));
-  }
+  return ModifyDBClusterAccessWhiteListResponse(callApi(params, req, runtime));
 }
 
 ModifyDBClusterAccessWhiteListResponse Alibabacloud_Clickhouse20191111::Client::modifyDBClusterAccessWhiteList(shared_ptr<ModifyDBClusterAccessWhiteListRequest> request) {
@@ -2813,12 +2558,7 @@ ModifyDBClusterConfigResponse Alibabacloud_Clickhouse20191111::Client::modifyDBC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBClusterConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBClusterConfigResponse(execute(params, req, runtime));
-  }
+  return ModifyDBClusterConfigResponse(callApi(params, req, runtime));
 }
 
 ModifyDBClusterConfigResponse Alibabacloud_Clickhouse20191111::Client::modifyDBClusterConfig(shared_ptr<ModifyDBClusterConfigRequest> request) {
@@ -2855,12 +2595,7 @@ ModifyDBClusterConfigInXMLResponse Alibabacloud_Clickhouse20191111::Client::modi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBClusterConfigInXMLResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBClusterConfigInXMLResponse(execute(params, req, runtime));
-  }
+  return ModifyDBClusterConfigInXMLResponse(callApi(params, req, runtime));
 }
 
 ModifyDBClusterConfigInXMLResponse Alibabacloud_Clickhouse20191111::Client::modifyDBClusterConfigInXML(shared_ptr<ModifyDBClusterConfigInXMLRequest> request) {
@@ -2903,12 +2638,7 @@ ModifyDBClusterDescriptionResponse Alibabacloud_Clickhouse20191111::Client::modi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBClusterDescriptionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBClusterDescriptionResponse(execute(params, req, runtime));
-  }
+  return ModifyDBClusterDescriptionResponse(callApi(params, req, runtime));
 }
 
 ModifyDBClusterDescriptionResponse Alibabacloud_Clickhouse20191111::Client::modifyDBClusterDescription(shared_ptr<ModifyDBClusterDescriptionRequest> request) {
@@ -2951,12 +2681,7 @@ ModifyDBClusterMaintainTimeResponse Alibabacloud_Clickhouse20191111::Client::mod
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBClusterMaintainTimeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBClusterMaintainTimeResponse(execute(params, req, runtime));
-  }
+  return ModifyDBClusterMaintainTimeResponse(callApi(params, req, runtime));
 }
 
 ModifyDBClusterMaintainTimeResponse Alibabacloud_Clickhouse20191111::Client::modifyDBClusterMaintainTime(shared_ptr<ModifyDBClusterMaintainTimeRequest> request) {
@@ -3002,12 +2727,7 @@ ModifyDBConfigResponse Alibabacloud_Clickhouse20191111::Client::modifyDBConfigWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBConfigResponse(execute(params, req, runtime));
-  }
+  return ModifyDBConfigResponse(callApi(params, req, runtime));
 }
 
 ModifyDBConfigResponse Alibabacloud_Clickhouse20191111::Client::modifyDBConfig(shared_ptr<ModifyDBConfigRequest> request) {
@@ -3050,12 +2770,7 @@ ModifyMinorVersionGreadeTypeResponse Alibabacloud_Clickhouse20191111::Client::mo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyMinorVersionGreadeTypeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyMinorVersionGreadeTypeResponse(execute(params, req, runtime));
-  }
+  return ModifyMinorVersionGreadeTypeResponse(callApi(params, req, runtime));
 }
 
 ModifyMinorVersionGreadeTypeResponse Alibabacloud_Clickhouse20191111::Client::modifyMinorVersionGreadeType(shared_ptr<ModifyMinorVersionGreadeTypeRequest> request) {
@@ -3131,12 +2846,7 @@ ModifyRDSToClickhouseDbResponse Alibabacloud_Clickhouse20191111::Client::modifyR
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyRDSToClickhouseDbResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyRDSToClickhouseDbResponse(execute(params, req, runtime));
-  }
+  return ModifyRDSToClickhouseDbResponse(callApi(params, req, runtime));
 }
 
 ModifyRDSToClickhouseDbResponse Alibabacloud_Clickhouse20191111::Client::modifyRDSToClickhouseDb(shared_ptr<ModifyRDSToClickhouseDbRequest> request) {
@@ -3176,12 +2886,7 @@ ReleaseClusterPublicConnectionResponse Alibabacloud_Clickhouse20191111::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ReleaseClusterPublicConnectionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ReleaseClusterPublicConnectionResponse(execute(params, req, runtime));
-  }
+  return ReleaseClusterPublicConnectionResponse(callApi(params, req, runtime));
 }
 
 ReleaseClusterPublicConnectionResponse Alibabacloud_Clickhouse20191111::Client::releaseClusterPublicConnection(shared_ptr<ReleaseClusterPublicConnectionRequest> request) {
@@ -3227,12 +2932,7 @@ ResetAccountPasswordResponse Alibabacloud_Clickhouse20191111::Client::resetAccou
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ResetAccountPasswordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ResetAccountPasswordResponse(execute(params, req, runtime));
-  }
+  return ResetAccountPasswordResponse(callApi(params, req, runtime));
 }
 
 ResetAccountPasswordResponse Alibabacloud_Clickhouse20191111::Client::resetAccountPassword(shared_ptr<ResetAccountPasswordRequest> request) {
@@ -3284,12 +2984,7 @@ RestartInstanceResponse Alibabacloud_Clickhouse20191111::Client::restartInstance
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RestartInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RestartInstanceResponse(execute(params, req, runtime));
-  }
+  return RestartInstanceResponse(callApi(params, req, runtime));
 }
 
 RestartInstanceResponse Alibabacloud_Clickhouse20191111::Client::restartInstance(shared_ptr<RestartInstanceRequest> request) {
@@ -3362,12 +3057,7 @@ TransferVersionResponse Alibabacloud_Clickhouse20191111::Client::transferVersion
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return TransferVersionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return TransferVersionResponse(execute(params, req, runtime));
-  }
+  return TransferVersionResponse(callApi(params, req, runtime));
 }
 
 TransferVersionResponse Alibabacloud_Clickhouse20191111::Client::transferVersion(shared_ptr<TransferVersionRequest> request) {
@@ -3416,12 +3106,7 @@ UpgradeMinorVersionResponse Alibabacloud_Clickhouse20191111::Client::upgradeMino
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpgradeMinorVersionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpgradeMinorVersionResponse(execute(params, req, runtime));
-  }
+  return UpgradeMinorVersionResponse(callApi(params, req, runtime));
 }
 
 UpgradeMinorVersionResponse Alibabacloud_Clickhouse20191111::Client::upgradeMinorVersion(shared_ptr<UpgradeMinorVersionRequest> request) {
