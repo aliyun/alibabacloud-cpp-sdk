@@ -778,6 +778,42 @@ public:
 
   virtual ~CreateAccessAssignmentResponse() = default;
 };
+class CreateAccessConfigurationRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateAccessConfigurationRequestTags() {}
+
+  explicit CreateAccessConfigurationRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateAccessConfigurationRequestTags() = default;
+};
 class CreateAccessConfigurationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessConfigurationName{};
@@ -785,6 +821,7 @@ public:
   shared_ptr<string> directoryId{};
   shared_ptr<string> relayState{};
   shared_ptr<long> sessionDuration{};
+  shared_ptr<vector<CreateAccessConfigurationRequestTags>> tags{};
 
   CreateAccessConfigurationRequest() {}
 
@@ -811,6 +848,13 @@ public:
     if (sessionDuration) {
       res["SessionDuration"] = boost::any(*sessionDuration);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -830,10 +874,59 @@ public:
     if (m.find("SessionDuration") != m.end() && !m["SessionDuration"].empty()) {
       sessionDuration = make_shared<long>(boost::any_cast<long>(m["SessionDuration"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateAccessConfigurationRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAccessConfigurationRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateAccessConfigurationRequestTags>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateAccessConfigurationRequest() = default;
+};
+class CreateAccessConfigurationResponseBodyAccessConfigurationTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateAccessConfigurationResponseBodyAccessConfigurationTags() {}
+
+  explicit CreateAccessConfigurationResponseBodyAccessConfigurationTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateAccessConfigurationResponseBodyAccessConfigurationTags() = default;
 };
 class CreateAccessConfigurationResponseBodyAccessConfiguration : public Darabonba::Model {
 public:
@@ -844,6 +937,7 @@ public:
   shared_ptr<string> relayState{};
   shared_ptr<long> sessionDuration{};
   shared_ptr<vector<string>> statusNotifications{};
+  shared_ptr<vector<CreateAccessConfigurationResponseBodyAccessConfigurationTags>> tags{};
   shared_ptr<string> updateTime{};
 
   CreateAccessConfigurationResponseBodyAccessConfiguration() {}
@@ -876,6 +970,13 @@ public:
     }
     if (statusNotifications) {
       res["StatusNotifications"] = boost::any(*statusNotifications);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -911,6 +1012,19 @@ public:
         }
       }
       statusNotifications = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateAccessConfigurationResponseBodyAccessConfigurationTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAccessConfigurationResponseBodyAccessConfigurationTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateAccessConfigurationResponseBodyAccessConfigurationTags>>(expect1);
+      }
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -1581,6 +1695,42 @@ public:
 
   virtual ~CreateSCIMServerCredentialResponse() = default;
 };
+class CreateUserRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateUserRequestTags() {}
+
+  explicit CreateUserRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateUserRequestTags() = default;
+};
 class CreateUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -1590,6 +1740,7 @@ public:
   shared_ptr<string> firstName{};
   shared_ptr<string> lastName{};
   shared_ptr<string> status{};
+  shared_ptr<vector<CreateUserRequestTags>> tags{};
   shared_ptr<string> userName{};
 
   CreateUserRequest() {}
@@ -1623,6 +1774,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (userName) {
       res["UserName"] = boost::any(*userName);
     }
@@ -1651,6 +1809,19 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateUserRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateUserRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateUserRequestTags>>(expect1);
+      }
+    }
     if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
     }
@@ -1658,6 +1829,42 @@ public:
 
 
   virtual ~CreateUserRequest() = default;
+};
+class CreateUserResponseBodyUserTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateUserResponseBodyUserTags() {}
+
+  explicit CreateUserResponseBodyUserTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateUserResponseBodyUserTags() = default;
 };
 class CreateUserResponseBodyUser : public Darabonba::Model {
 public:
@@ -1669,6 +1876,7 @@ public:
   shared_ptr<string> lastName{};
   shared_ptr<string> provisionType{};
   shared_ptr<string> status{};
+  shared_ptr<vector<CreateUserResponseBodyUserTags>> tags{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
@@ -1707,6 +1915,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -1743,6 +1958,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateUserResponseBodyUserTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateUserResponseBodyUserTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateUserResponseBodyUserTags>>(expect1);
+      }
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -4049,6 +4277,42 @@ public:
 
   virtual ~GetAccessConfigurationRequest() = default;
 };
+class GetAccessConfigurationResponseBodyAccessConfigurationTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetAccessConfigurationResponseBodyAccessConfigurationTags() {}
+
+  explicit GetAccessConfigurationResponseBodyAccessConfigurationTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetAccessConfigurationResponseBodyAccessConfigurationTags() = default;
+};
 class GetAccessConfigurationResponseBodyAccessConfiguration : public Darabonba::Model {
 public:
   shared_ptr<string> accessConfigurationId{};
@@ -4058,6 +4322,7 @@ public:
   shared_ptr<string> relayState{};
   shared_ptr<long> sessionDuration{};
   shared_ptr<vector<string>> statusNotifications{};
+  shared_ptr<vector<GetAccessConfigurationResponseBodyAccessConfigurationTags>> tags{};
   shared_ptr<string> updateTime{};
 
   GetAccessConfigurationResponseBodyAccessConfiguration() {}
@@ -4090,6 +4355,13 @@ public:
     }
     if (statusNotifications) {
       res["StatusNotifications"] = boost::any(*statusNotifications);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -4125,6 +4397,19 @@ public:
         }
       }
       statusNotifications = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetAccessConfigurationResponseBodyAccessConfigurationTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAccessConfigurationResponseBodyAccessConfigurationTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetAccessConfigurationResponseBodyAccessConfigurationTags>>(expect1);
+      }
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -6830,6 +7115,42 @@ public:
 
   virtual ~GetUserResponseBodyUserExternalId() = default;
 };
+class GetUserResponseBodyUserTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetUserResponseBodyUserTags() {}
+
+  explicit GetUserResponseBodyUserTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetUserResponseBodyUserTags() = default;
+};
 class GetUserResponseBodyUser : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
@@ -6841,6 +7162,7 @@ public:
   shared_ptr<string> lastName{};
   shared_ptr<string> provisionType{};
   shared_ptr<string> status{};
+  shared_ptr<vector<GetUserResponseBodyUserTags>> tags{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
@@ -6881,6 +7203,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -6925,6 +7254,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetUserResponseBodyUserTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetUserResponseBodyUserTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetUserResponseBodyUserTags>>(expect1);
+      }
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -9084,6 +9426,42 @@ public:
 
   virtual ~ListAccessConfigurationProvisioningsResponse() = default;
 };
+class ListAccessConfigurationsRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListAccessConfigurationsRequestTags() {}
+
+  explicit ListAccessConfigurationsRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListAccessConfigurationsRequestTags() = default;
+};
 class ListAccessConfigurationsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> directoryId{};
@@ -9091,6 +9469,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> statusNotifications{};
+  shared_ptr<vector<ListAccessConfigurationsRequestTags>> tags{};
 
   ListAccessConfigurationsRequest() {}
 
@@ -9117,6 +9496,13 @@ public:
     if (statusNotifications) {
       res["StatusNotifications"] = boost::any(*statusNotifications);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -9136,10 +9522,59 @@ public:
     if (m.find("StatusNotifications") != m.end() && !m["StatusNotifications"].empty()) {
       statusNotifications = make_shared<string>(boost::any_cast<string>(m["StatusNotifications"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListAccessConfigurationsRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAccessConfigurationsRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListAccessConfigurationsRequestTags>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListAccessConfigurationsRequest() = default;
+};
+class ListAccessConfigurationsResponseBodyAccessConfigurationsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListAccessConfigurationsResponseBodyAccessConfigurationsTags() {}
+
+  explicit ListAccessConfigurationsResponseBodyAccessConfigurationsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListAccessConfigurationsResponseBodyAccessConfigurationsTags() = default;
 };
 class ListAccessConfigurationsResponseBodyAccessConfigurations : public Darabonba::Model {
 public:
@@ -9150,6 +9585,7 @@ public:
   shared_ptr<string> relayState{};
   shared_ptr<long> sessionDuration{};
   shared_ptr<vector<string>> statusNotifications{};
+  shared_ptr<vector<ListAccessConfigurationsResponseBodyAccessConfigurationsTags>> tags{};
   shared_ptr<string> updateTime{};
 
   ListAccessConfigurationsResponseBodyAccessConfigurations() {}
@@ -9182,6 +9618,13 @@ public:
     }
     if (statusNotifications) {
       res["StatusNotifications"] = boost::any(*statusNotifications);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -9217,6 +9660,19 @@ public:
         }
       }
       statusNotifications = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListAccessConfigurationsResponseBodyAccessConfigurationsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAccessConfigurationsResponseBodyAccessConfigurationsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListAccessConfigurationsResponseBodyAccessConfigurationsTags>>(expect1);
+      }
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -12144,6 +12600,42 @@ public:
 
   virtual ~ListUserProvisioningsResponse() = default;
 };
+class ListUsersRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListUsersRequestTags() {}
+
+  explicit ListUsersRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListUsersRequestTags() = default;
+};
 class ListUsersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> directoryId{};
@@ -12152,6 +12644,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> provisionType{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListUsersRequestTags>> tags{};
 
   ListUsersRequest() {}
 
@@ -12181,6 +12674,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -12202,6 +12702,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListUsersRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListUsersRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListUsersRequestTags>>(expect1);
+      }
     }
   }
 
@@ -12244,6 +12757,42 @@ public:
 
   virtual ~ListUsersResponseBodyUsersExternalId() = default;
 };
+class ListUsersResponseBodyUsersTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListUsersResponseBodyUsersTags() {}
+
+  explicit ListUsersResponseBodyUsersTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListUsersResponseBodyUsersTags() = default;
+};
 class ListUsersResponseBodyUsers : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
@@ -12255,6 +12804,7 @@ public:
   shared_ptr<string> lastName{};
   shared_ptr<string> provisionType{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListUsersResponseBodyUsersTags>> tags{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
@@ -12295,6 +12845,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -12339,6 +12896,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListUsersResponseBodyUsersTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListUsersResponseBodyUsersTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListUsersResponseBodyUsersTags>>(expect1);
+      }
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));

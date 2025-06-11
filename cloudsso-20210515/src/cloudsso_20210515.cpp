@@ -231,6 +231,9 @@ CreateAccessConfigurationResponse Alibabacloud_Cloudsso20210515::Client::createA
   if (!Darabonba_Util::Client::isUnset<long>(request->sessionDuration)) {
     query->insert(pair<string, long>("SessionDuration", *request->sessionDuration));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAccessConfigurationRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateAccessConfigurationRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -366,6 +369,9 @@ CreateUserResponse Alibabacloud_Cloudsso20210515::Client::createUserWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateUserRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateUserRequestTags>>("Tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
     query->insert(pair<string, string>("UserName", *request->userName));
@@ -1667,6 +1673,9 @@ ListAccessConfigurationsResponse Alibabacloud_Cloudsso20210515::Client::listAcce
   if (!Darabonba_Util::Client::isUnset<string>(request->statusNotifications)) {
     query->insert(pair<string, string>("StatusNotifications", *request->statusNotifications));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListAccessConfigurationsRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<ListAccessConfigurationsRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2106,6 +2115,9 @@ ListUsersResponse Alibabacloud_Cloudsso20210515::Client::listUsersWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListUsersRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<ListUsersRequestTags>>("Tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
