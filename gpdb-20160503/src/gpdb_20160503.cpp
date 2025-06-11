@@ -8915,6 +8915,9 @@ UpsertChunksResponse Alibabacloud_Gpdb20160503::Client::upsertChunksWithOptions(
     request->textChunksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->textChunks, make_shared<string>("TextChunks"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allowInsertWithFilter)) {
+    query->insert(pair<string, bool>("AllowInsertWithFilter", *request->allowInsertWithFilter));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->collection)) {
     query->insert(pair<string, string>("Collection", *request->collection));
   }

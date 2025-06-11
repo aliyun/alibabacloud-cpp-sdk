@@ -45149,6 +45149,7 @@ public:
 };
 class UpsertChunksRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowInsertWithFilter{};
   shared_ptr<string> collection{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> fileName{};
@@ -45169,6 +45170,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowInsertWithFilter) {
+      res["AllowInsertWithFilter"] = boost::any(*allowInsertWithFilter);
+    }
     if (collection) {
       res["Collection"] = boost::any(*collection);
     }
@@ -45204,6 +45208,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowInsertWithFilter") != m.end() && !m["AllowInsertWithFilter"].empty()) {
+      allowInsertWithFilter = make_shared<bool>(boost::any_cast<bool>(m["AllowInsertWithFilter"]));
+    }
     if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
       collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
     }
@@ -45248,6 +45255,7 @@ public:
 };
 class UpsertChunksShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowInsertWithFilter{};
   shared_ptr<string> collection{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> fileName{};
@@ -45268,6 +45276,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowInsertWithFilter) {
+      res["AllowInsertWithFilter"] = boost::any(*allowInsertWithFilter);
+    }
     if (collection) {
       res["Collection"] = boost::any(*collection);
     }
@@ -45299,6 +45310,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowInsertWithFilter") != m.end() && !m["AllowInsertWithFilter"].empty()) {
+      allowInsertWithFilter = make_shared<bool>(boost::any_cast<bool>(m["AllowInsertWithFilter"]));
+    }
     if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
       collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
     }
