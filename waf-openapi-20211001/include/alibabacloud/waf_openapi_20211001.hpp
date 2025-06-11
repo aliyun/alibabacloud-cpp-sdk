@@ -1364,6 +1364,7 @@ public:
 class CreateDefenseRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> defenseScene{};
+  shared_ptr<string> defenseType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
@@ -1383,6 +1384,9 @@ public:
     map<string, boost::any> res;
     if (defenseScene) {
       res["DefenseScene"] = boost::any(*defenseScene);
+    }
+    if (defenseType) {
+      res["DefenseType"] = boost::any(*defenseType);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -1408,6 +1412,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DefenseScene") != m.end() && !m["DefenseScene"].empty()) {
       defenseScene = make_shared<string>(boost::any_cast<string>(m["DefenseScene"]));
+    }
+    if (m.find("DefenseType") != m.end() && !m["DefenseType"].empty()) {
+      defenseType = make_shared<string>(boost::any_cast<string>(m["DefenseType"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -3808,6 +3815,7 @@ public:
 };
 class DeleteDefenseRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> defenseType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
@@ -3825,6 +3833,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (defenseType) {
+      res["DefenseType"] = boost::any(*defenseType);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -3847,6 +3858,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefenseType") != m.end() && !m["DefenseType"].empty()) {
+      defenseType = make_shared<string>(boost::any_cast<string>(m["DefenseType"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -13661,6 +13675,7 @@ public:
 };
 class DescribeDefenseRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> defenseType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
@@ -13678,6 +13693,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (defenseType) {
+      res["DefenseType"] = boost::any(*defenseType);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -13700,6 +13718,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefenseType") != m.end() && !m["DefenseType"].empty()) {
+      defenseType = make_shared<string>(boost::any_cast<string>(m["DefenseType"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -34917,6 +34938,7 @@ public:
 class ModifyDefenseRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> defenseScene{};
+  shared_ptr<string> defenseType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
@@ -34936,6 +34958,9 @@ public:
     map<string, boost::any> res;
     if (defenseScene) {
       res["DefenseScene"] = boost::any(*defenseScene);
+    }
+    if (defenseType) {
+      res["DefenseType"] = boost::any(*defenseType);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -34961,6 +34986,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DefenseScene") != m.end() && !m["DefenseScene"].empty()) {
       defenseScene = make_shared<string>(boost::any_cast<string>(m["DefenseScene"]));
+    }
+    if (m.find("DefenseType") != m.end() && !m["DefenseType"].empty()) {
+      defenseType = make_shared<string>(boost::any_cast<string>(m["DefenseType"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
