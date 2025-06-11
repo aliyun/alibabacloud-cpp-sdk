@@ -5693,6 +5693,9 @@ GetWorkflowTaskResponse Alibabacloud_ICE20201109::Client::getWorkflowTask(shared
 InsertMediaToSearchLibResponse Alibabacloud_ICE20201109::Client::insertMediaToSearchLibWithOptions(shared_ptr<InsertMediaToSearchLibRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imagesInput)) {
+    query->insert(pair<string, string>("ImagesInput", *request->imagesInput));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
     query->insert(pair<string, string>("Input", *request->input));
   }
@@ -8822,6 +8825,9 @@ SearchMediaByAILabelResponse Alibabacloud_ICE20201109::Client::searchMediaByAILa
   if (!Darabonba_Util::Client::isUnset<string>(request->multimodalSearchType)) {
     query->insert(pair<string, string>("MultimodalSearchType", *request->multimodalSearchType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("PageNo", *request->pageNo));
   }
@@ -8874,6 +8880,9 @@ SearchMediaByFaceResponse Alibabacloud_ICE20201109::Client::searchMediaByFaceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
     query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("PageNo", *request->pageNo));
   }
@@ -8917,6 +8926,9 @@ SearchMediaByHybridResponse Alibabacloud_ICE20201109::Client::searchMediaByHybri
   if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
     query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("PageNo", *request->pageNo));
   }
@@ -8956,6 +8968,9 @@ SearchMediaByMultimodalResponse Alibabacloud_ICE20201109::Client::searchMediaByM
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
     query->insert(pair<string, string>("MediaType", *request->mediaType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("PageNo", *request->pageNo));

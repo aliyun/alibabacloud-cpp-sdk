@@ -46926,6 +46926,7 @@ public:
 };
 class InsertMediaToSearchLibRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> imagesInput{};
   shared_ptr<string> input{};
   shared_ptr<string> mediaId{};
   shared_ptr<string> mediaType{};
@@ -46942,6 +46943,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (imagesInput) {
+      res["ImagesInput"] = boost::any(*imagesInput);
+    }
     if (input) {
       res["Input"] = boost::any(*input);
     }
@@ -46961,6 +46965,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImagesInput") != m.end() && !m["ImagesInput"].empty()) {
+      imagesInput = make_shared<string>(boost::any_cast<string>(m["ImagesInput"]));
+    }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
     }
@@ -73596,6 +73603,7 @@ public:
   shared_ptr<string> fileUrl{};
   shared_ptr<string> formatName{};
   shared_ptr<string> height{};
+  shared_ptr<string> imagesInput{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> region{};
   shared_ptr<string> width{};
@@ -73640,6 +73648,9 @@ public:
     if (height) {
       res["Height"] = boost::any(*height);
     }
+    if (imagesInput) {
+      res["ImagesInput"] = boost::any(*imagesInput);
+    }
     if (modifiedTime) {
       res["ModifiedTime"] = boost::any(*modifiedTime);
     }
@@ -73682,6 +73693,9 @@ public:
     }
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
       height = make_shared<string>(boost::any_cast<string>(m["Height"]));
+    }
+    if (m.find("ImagesInput") != m.end() && !m["ImagesInput"].empty()) {
+      imagesInput = make_shared<string>(boost::any_cast<string>(m["ImagesInput"]));
     }
     if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
       modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
@@ -73782,6 +73796,7 @@ public:
   shared_ptr<string> mediaTags{};
   shared_ptr<string> mediaType{};
   shared_ptr<string> modifiedTime{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> referenceId{};
   shared_ptr<string> snapshots{};
   shared_ptr<string> source{};
@@ -73791,6 +73806,7 @@ public:
   shared_ptr<string> transcodeStatus{};
   shared_ptr<string> uploadSource{};
   shared_ptr<string> userData{};
+  shared_ptr<string> visionDescription{};
 
   SearchMediaResponseBodyMediaInfoListMediaBasicInfo() {}
 
@@ -73844,6 +73860,9 @@ public:
     if (modifiedTime) {
       res["ModifiedTime"] = boost::any(*modifiedTime);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (referenceId) {
       res["ReferenceId"] = boost::any(*referenceId);
     }
@@ -73870,6 +73889,9 @@ public:
     }
     if (userData) {
       res["UserData"] = boost::any(*userData);
+    }
+    if (visionDescription) {
+      res["VisionDescription"] = boost::any(*visionDescription);
     }
     return res;
   }
@@ -73917,6 +73939,9 @@ public:
     if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
       modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
     }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
     if (m.find("ReferenceId") != m.end() && !m["ReferenceId"].empty()) {
       referenceId = make_shared<string>(boost::any_cast<string>(m["ReferenceId"]));
     }
@@ -73943,6 +73968,9 @@ public:
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("VisionDescription") != m.end() && !m["VisionDescription"].empty()) {
+      visionDescription = make_shared<string>(boost::any_cast<string>(m["VisionDescription"]));
     }
   }
 
@@ -74189,6 +74217,7 @@ public:
   shared_ptr<string> mediaId{};
   shared_ptr<string> mediaType{};
   shared_ptr<string> multimodalSearchType{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> searchLibName{};
@@ -74217,6 +74246,9 @@ public:
     }
     if (multimodalSearchType) {
       res["MultimodalSearchType"] = boost::any(*multimodalSearchType);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (pageNo) {
       res["PageNo"] = boost::any(*pageNo);
@@ -74251,6 +74283,9 @@ public:
     }
     if (m.find("MultimodalSearchType") != m.end() && !m["MultimodalSearchType"].empty()) {
       multimodalSearchType = make_shared<string>(boost::any_cast<string>(m["MultimodalSearchType"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
       pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
@@ -74967,6 +75002,7 @@ public:
   shared_ptr<string> entityId{};
   shared_ptr<string> faceSearchToken{};
   shared_ptr<string> mediaType{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> personImageUrl{};
@@ -74990,6 +75026,9 @@ public:
     }
     if (mediaType) {
       res["MediaType"] = boost::any(*mediaType);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (pageNo) {
       res["PageNo"] = boost::any(*pageNo);
@@ -75015,6 +75054,9 @@ public:
     }
     if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
       mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
       pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
@@ -75189,6 +75231,7 @@ class SearchMediaByHybridRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mediaId{};
   shared_ptr<string> mediaType{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> searchLibName{};
@@ -75209,6 +75252,9 @@ public:
     }
     if (mediaType) {
       res["MediaType"] = boost::any(*mediaType);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (pageNo) {
       res["PageNo"] = boost::any(*pageNo);
@@ -75231,6 +75277,9 @@ public:
     }
     if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
       mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
       pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
@@ -75468,6 +75517,7 @@ public:
 class SearchMediaByMultimodalRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mediaType{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> searchLibName{};
@@ -75485,6 +75535,9 @@ public:
     map<string, boost::any> res;
     if (mediaType) {
       res["MediaType"] = boost::any(*mediaType);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (pageNo) {
       res["PageNo"] = boost::any(*pageNo);
@@ -75504,6 +75557,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
       mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
       pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
