@@ -615,20 +615,49 @@ CreateDBClusterResponse Alibabacloud_Adb20190315::Client::createDBCluster(shared
   return createDBClusterWithOptions(request, runtime);
 }
 
-CreateDBResourceGroupResponse Alibabacloud_Adb20190315::Client::createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDBResourceGroupResponse Alibabacloud_Adb20190315::Client::createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDBResourceGroupShrinkRequest> request = make_shared<CreateDBResourceGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->engineParams)) {
+    request->engineParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->engineParams, make_shared<string>("EngineParams"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterMode)) {
+    query->insert(pair<string, string>("ClusterMode", *request->clusterMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterSizeResource)) {
+    query->insert(pair<string, string>("ClusterSizeResource", *request->clusterSizeResource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineParamsShrink)) {
+    query->insert(pair<string, string>("EngineParams", *request->engineParamsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupType)) {
     query->insert(pair<string, string>("GroupType", *request->groupType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxClusterCount)) {
+    query->insert(pair<string, long>("MaxClusterCount", *request->maxClusterCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeResource)) {
+    query->insert(pair<string, string>("MaxComputeResource", *request->maxComputeResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minClusterCount)) {
+    query->insert(pair<string, long>("MinClusterCount", *request->minClusterCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->minComputeResource)) {
+    query->insert(pair<string, string>("MinComputeResource", *request->minComputeResource));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->nodeNum)) {
     query->insert(pair<string, long>("NodeNum", *request->nodeNum));
@@ -2225,6 +2254,9 @@ DescribeDBClusterNetInfoResponse Alibabacloud_Adb20190315::Client::describeDBClu
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -6327,6 +6359,9 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20190315::Client::modifyDBResource
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ModifyDBResourceGroupShrinkRequest> request = make_shared<ModifyDBResourceGroupShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->engineParams)) {
+    request->engineParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->engineParams, make_shared<string>("EngineParams"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->poolUserList)) {
     request->poolUserListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->poolUserList, make_shared<string>("PoolUserList"), make_shared<string>("json")));
   }
@@ -6334,14 +6369,35 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20190315::Client::modifyDBResource
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterMode)) {
+    query->insert(pair<string, string>("ClusterMode", *request->clusterMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterSizeResource)) {
+    query->insert(pair<string, string>("ClusterSizeResource", *request->clusterSizeResource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineParamsShrink)) {
+    query->insert(pair<string, string>("EngineParams", *request->engineParamsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupType)) {
     query->insert(pair<string, string>("GroupType", *request->groupType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxClusterCount)) {
+    query->insert(pair<string, long>("MaxClusterCount", *request->maxClusterCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeResource)) {
+    query->insert(pair<string, string>("MaxComputeResource", *request->maxComputeResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minClusterCount)) {
+    query->insert(pair<string, long>("MinClusterCount", *request->minClusterCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->minComputeResource)) {
+    query->insert(pair<string, string>("MinComputeResource", *request->minComputeResource));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->nodeNum)) {
     query->insert(pair<string, long>("NodeNum", *request->nodeNum));

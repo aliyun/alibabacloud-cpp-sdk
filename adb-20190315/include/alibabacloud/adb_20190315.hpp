@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_ADB20190315_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1945,9 +1946,17 @@ public:
 class CreateDBResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> engine{};
+  shared_ptr<map<string, boost::any>> engineParams{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
+  shared_ptr<long> maxClusterCount{};
+  shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
+  shared_ptr<string> minComputeResource{};
   shared_ptr<long> nodeNum{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -1967,14 +1976,38 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineParams) {
+      res["EngineParams"] = boost::any(*engineParams);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
     if (groupType) {
       res["GroupType"] = boost::any(*groupType);
+    }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
+    if (maxComputeResource) {
+      res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
+    }
+    if (minComputeResource) {
+      res["MinComputeResource"] = boost::any(*minComputeResource);
     }
     if (nodeNum) {
       res["NodeNum"] = boost::any(*nodeNum);
@@ -1998,14 +2031,43 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EngineParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      engineParams = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
     if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
       groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
+    if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
+      maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
+    }
+    if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
+      minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
     }
     if (m.find("NodeNum") != m.end() && !m["NodeNum"].empty()) {
       nodeNum = make_shared<long>(boost::any_cast<long>(m["NodeNum"]));
@@ -2026,6 +2088,147 @@ public:
 
 
   virtual ~CreateDBResourceGroupRequest() = default;
+};
+class CreateDBResourceGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> engine{};
+  shared_ptr<string> engineParamsShrink{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> groupType{};
+  shared_ptr<long> maxClusterCount{};
+  shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
+  shared_ptr<string> minComputeResource{};
+  shared_ptr<long> nodeNum{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  CreateDBResourceGroupShrinkRequest() {}
+
+  explicit CreateDBResourceGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineParamsShrink) {
+      res["EngineParams"] = boost::any(*engineParamsShrink);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (groupType) {
+      res["GroupType"] = boost::any(*groupType);
+    }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
+    if (maxComputeResource) {
+      res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
+    }
+    if (minComputeResource) {
+      res["MinComputeResource"] = boost::any(*minComputeResource);
+    }
+    if (nodeNum) {
+      res["NodeNum"] = boost::any(*nodeNum);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      engineParamsShrink = make_shared<string>(boost::any_cast<string>(m["EngineParams"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
+      groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
+    if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
+      maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
+    }
+    if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
+      minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("NodeNum") != m.end() && !m["NodeNum"].empty()) {
+      nodeNum = make_shared<long>(boost::any_cast<long>(m["NodeNum"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~CreateDBResourceGroupShrinkRequest() = default;
 };
 class CreateDBResourceGroupResponseBody : public Darabonba::Model {
 public:
@@ -11456,6 +11659,7 @@ public:
 class DescribeDBClusterNetInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> engine{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -11474,6 +11678,9 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -11496,6 +11703,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -14233,12 +14443,25 @@ public:
 };
 class DescribeDBResourceGroupResponseBodyGroupsInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
+  shared_ptr<string> connectionString{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> elasticMinComputeResource{};
+  shared_ptr<string> engine{};
+  shared_ptr<map<string, boost::any>> engineParams{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
   shared_ptr<vector<string>> groupUserList{};
   shared_ptr<string> groupUsers{};
+  shared_ptr<long> maxClusterCount{};
+  shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
+  shared_ptr<string> minComputeResource{};
   shared_ptr<long> nodeNum{};
+  shared_ptr<string> port{};
+  shared_ptr<long> runningClusterCount{};
+  shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
   DescribeDBResourceGroupResponseBodyGroupsInfo() {}
@@ -14251,8 +14474,26 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
+    if (connectionString) {
+      res["ConnectionString"] = boost::any(*connectionString);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (elasticMinComputeResource) {
+      res["ElasticMinComputeResource"] = boost::any(*elasticMinComputeResource);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineParams) {
+      res["EngineParams"] = boost::any(*engineParams);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -14266,8 +14507,29 @@ public:
     if (groupUsers) {
       res["GroupUsers"] = boost::any(*groupUsers);
     }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
+    if (maxComputeResource) {
+      res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
+    }
+    if (minComputeResource) {
+      res["MinComputeResource"] = boost::any(*minComputeResource);
+    }
     if (nodeNum) {
       res["NodeNum"] = boost::any(*nodeNum);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (runningClusterCount) {
+      res["RunningClusterCount"] = boost::any(*runningClusterCount);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -14276,8 +14538,31 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
+    if (m.find("ConnectionString") != m.end() && !m["ConnectionString"].empty()) {
+      connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ElasticMinComputeResource") != m.end() && !m["ElasticMinComputeResource"].empty()) {
+      elasticMinComputeResource = make_shared<string>(boost::any_cast<string>(m["ElasticMinComputeResource"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EngineParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      engineParams = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -14298,8 +14583,29 @@ public:
     if (m.find("GroupUsers") != m.end() && !m["GroupUsers"].empty()) {
       groupUsers = make_shared<string>(boost::any_cast<string>(m["GroupUsers"]));
     }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
+    if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
+      maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
+    }
+    if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
+      minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
     if (m.find("NodeNum") != m.end() && !m["NodeNum"].empty()) {
       nodeNum = make_shared<long>(boost::any_cast<long>(m["NodeNum"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("RunningClusterCount") != m.end() && !m["RunningClusterCount"].empty()) {
+      runningClusterCount = make_shared<long>(boost::any_cast<long>(m["RunningClusterCount"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -34876,9 +35182,16 @@ public:
 class ModifyDBResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
+  shared_ptr<map<string, boost::any>> engineParams{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
+  shared_ptr<long> maxClusterCount{};
+  shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
+  shared_ptr<string> minComputeResource{};
   shared_ptr<long> nodeNum{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -34899,14 +35212,35 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (engineParams) {
+      res["EngineParams"] = boost::any(*engineParams);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
     if (groupType) {
       res["GroupType"] = boost::any(*groupType);
+    }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
+    if (maxComputeResource) {
+      res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
+    }
+    if (minComputeResource) {
+      res["MinComputeResource"] = boost::any(*minComputeResource);
     }
     if (nodeNum) {
       res["NodeNum"] = boost::any(*nodeNum);
@@ -34933,14 +35267,40 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EngineParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      engineParams = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
     if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
       groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
+    if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
+      maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
+    }
+    if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
+      minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
     }
     if (m.find("NodeNum") != m.end() && !m["NodeNum"].empty()) {
       nodeNum = make_shared<long>(boost::any_cast<long>(m["NodeNum"]));
@@ -34975,9 +35335,16 @@ public:
 class ModifyDBResourceGroupShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> engineParamsShrink{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
+  shared_ptr<long> maxClusterCount{};
+  shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
+  shared_ptr<string> minComputeResource{};
   shared_ptr<long> nodeNum{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -34998,14 +35365,35 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (engineParamsShrink) {
+      res["EngineParams"] = boost::any(*engineParamsShrink);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
     if (groupType) {
       res["GroupType"] = boost::any(*groupType);
+    }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
+    if (maxComputeResource) {
+      res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
+    }
+    if (minComputeResource) {
+      res["MinComputeResource"] = boost::any(*minComputeResource);
     }
     if (nodeNum) {
       res["NodeNum"] = boost::any(*nodeNum);
@@ -35032,14 +35420,35 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      engineParamsShrink = make_shared<string>(boost::any_cast<string>(m["EngineParams"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
     if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
       groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
+    if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
+      maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
+    }
+    if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
+      minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
     }
     if (m.find("NodeNum") != m.end() && !m["NodeNum"].empty()) {
       nodeNum = make_shared<long>(boost::any_cast<long>(m["NodeNum"]));
@@ -38324,7 +38733,7 @@ public:
   CreateAccountResponse createAccount(shared_ptr<CreateAccountRequest> request);
   CreateDBClusterResponse createDBClusterWithOptions(shared_ptr<CreateDBClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBClusterResponse createDBCluster(shared_ptr<CreateDBClusterRequest> request);
-  CreateDBResourceGroupResponse createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDBResourceGroupResponse createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBResourceGroupResponse createDBResourceGroup(shared_ptr<CreateDBResourceGroupRequest> request);
   CreateDBResourcePoolResponse createDBResourcePoolWithOptions(shared_ptr<CreateDBResourcePoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBResourcePoolResponse createDBResourcePool(shared_ptr<CreateDBResourcePoolRequest> request);
