@@ -3363,6 +3363,46 @@ EditLogicDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::editLogic
   return editLogicDatabaseWithOptions(request, runtime);
 }
 
+EditMetaKnowledgeAssetResponse Alibabacloud_Dms-enterprise20181101::Client::editMetaKnowledgeAssetWithOptions(shared_ptr<EditMetaKnowledgeAssetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assetDescription)) {
+    query->insert(pair<string, string>("AssetDescription", *request->assetDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->columnName)) {
+    query->insert(pair<string, string>("ColumnName", *request->columnName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dbId)) {
+    query->insert(pair<string, long>("DbId", *request->dbId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableName)) {
+    query->insert(pair<string, string>("TableName", *request->tableName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableSchemaName)) {
+    query->insert(pair<string, string>("TableSchemaName", *request->tableSchemaName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EditMetaKnowledgeAsset"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EditMetaKnowledgeAssetResponse(callApi(params, req, runtime));
+}
+
+EditMetaKnowledgeAssetResponse Alibabacloud_Dms-enterprise20181101::Client::editMetaKnowledgeAsset(shared_ptr<EditMetaKnowledgeAssetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return editMetaKnowledgeAssetWithOptions(request, runtime);
+}
+
 EnableUserResponse Alibabacloud_Dms-enterprise20181101::Client::enableUserWithOptions(shared_ptr<EnableUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5519,6 +5559,40 @@ GetTableDesignProjectInfoResponse Alibabacloud_Dms-enterprise20181101::Client::g
 GetTableDesignProjectInfoResponse Alibabacloud_Dms-enterprise20181101::Client::getTableDesignProjectInfo(shared_ptr<GetTableDesignProjectInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getTableDesignProjectInfoWithOptions(request, runtime);
+}
+
+GetTableKnowledgeInfoResponse Alibabacloud_Dms-enterprise20181101::Client::getTableKnowledgeInfoWithOptions(shared_ptr<GetTableKnowledgeInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->dbId)) {
+    query->insert(pair<string, long>("DbId", *request->dbId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableName)) {
+    query->insert(pair<string, string>("TableName", *request->tableName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableSchemaName)) {
+    query->insert(pair<string, string>("TableSchemaName", *request->tableSchemaName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTableKnowledgeInfo"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTableKnowledgeInfoResponse(callApi(params, req, runtime));
+}
+
+GetTableKnowledgeInfoResponse Alibabacloud_Dms-enterprise20181101::Client::getTableKnowledgeInfo(shared_ptr<GetTableKnowledgeInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTableKnowledgeInfoWithOptions(request, runtime);
 }
 
 GetTableTopologyResponse Alibabacloud_Dms-enterprise20181101::Client::getTableTopologyWithOptions(shared_ptr<GetTableTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -8143,6 +8217,43 @@ ListStandardGroupsResponse Alibabacloud_Dms-enterprise20181101::Client::listStan
 ListStandardGroupsResponse Alibabacloud_Dms-enterprise20181101::Client::listStandardGroups(shared_ptr<ListStandardGroupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listStandardGroupsWithOptions(request, runtime);
+}
+
+ListTableColumnsResponse Alibabacloud_Dms-enterprise20181101::Client::listTableColumnsWithOptions(shared_ptr<ListTableColumnsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->dbId)) {
+    query->insert(pair<string, long>("DbId", *request->dbId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableName)) {
+    query->insert(pair<string, string>("TableName", *request->tableName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableSchemaName)) {
+    query->insert(pair<string, string>("TableSchemaName", *request->tableSchemaName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
+    query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTableColumns"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTableColumnsResponse(callApi(params, req, runtime));
+}
+
+ListTableColumnsResponse Alibabacloud_Dms-enterprise20181101::Client::listTableColumns(shared_ptr<ListTableColumnsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listTableColumnsWithOptions(request, runtime);
 }
 
 ListTablesResponse Alibabacloud_Dms-enterprise20181101::Client::listTablesWithOptions(shared_ptr<ListTablesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
