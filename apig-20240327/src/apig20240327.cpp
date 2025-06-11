@@ -1680,6 +1680,60 @@ ListHttpApisResponse Alibabacloud_APIG20240327::Client::listHttpApis(shared_ptr<
   return listHttpApisWithOptions(request, headers, runtime);
 }
 
+ListPluginAttachmentsResponse Alibabacloud_APIG20240327::Client::listPluginAttachmentsWithOptions(shared_ptr<ListPluginAttachmentsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->attachResourceId)) {
+    query->insert(pair<string, string>("attachResourceId", *request->attachResourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->attachResourceType)) {
+    query->insert(pair<string, string>("attachResourceType", *request->attachResourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->attachResourceTypes)) {
+    query->insert(pair<string, string>("attachResourceTypes", *request->attachResourceTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
+    query->insert(pair<string, string>("environmentId", *request->environmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayId)) {
+    query->insert(pair<string, string>("gatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pluginId)) {
+    query->insert(pair<string, string>("pluginId", *request->pluginId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withParentResource)) {
+    query->insert(pair<string, bool>("withParentResource", *request->withParentResource));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListPluginAttachments"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/plugin-attachments"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListPluginAttachmentsResponse(callApi(params, req, runtime));
+}
+
+ListPluginAttachmentsResponse Alibabacloud_APIG20240327::Client::listPluginAttachments(shared_ptr<ListPluginAttachmentsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listPluginAttachmentsWithOptions(request, headers, runtime);
+}
+
 ListPluginsResponse Alibabacloud_APIG20240327::Client::listPluginsWithOptions(shared_ptr<ListPluginsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

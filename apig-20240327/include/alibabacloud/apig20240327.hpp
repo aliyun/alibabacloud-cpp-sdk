@@ -12032,6 +12032,7 @@ public:
   shared_ptr<vector<GetGatewayResponseBodyDataEnvironments>> environments{};
   shared_ptr<long> expireTimestamp{};
   shared_ptr<string> gatewayId{};
+  shared_ptr<string> gatewayType{};
   shared_ptr<vector<GetGatewayResponseBodyDataLoadBalancers>> loadBalancers{};
   shared_ptr<string> name{};
   shared_ptr<string> replicas{};
@@ -12078,6 +12079,9 @@ public:
     }
     if (gatewayId) {
       res["gatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayType) {
+      res["gatewayType"] = boost::any(*gatewayType);
     }
     if (loadBalancers) {
       vector<boost::any> temp1;
@@ -12164,6 +12168,9 @@ public:
     }
     if (m.find("gatewayId") != m.end() && !m["gatewayId"].empty()) {
       gatewayId = make_shared<string>(boost::any_cast<string>(m["gatewayId"]));
+    }
+    if (m.find("gatewayType") != m.end() && !m["gatewayType"].empty()) {
+      gatewayType = make_shared<string>(boost::any_cast<string>(m["gatewayType"]));
     }
     if (m.find("loadBalancers") != m.end() && !m["loadBalancers"].empty()) {
       if (typeid(vector<boost::any>) == m["loadBalancers"].type()) {
@@ -16668,6 +16675,372 @@ public:
 
   virtual ~ListHttpApisResponse() = default;
 };
+class ListPluginAttachmentsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> attachResourceId{};
+  shared_ptr<string> attachResourceType{};
+  shared_ptr<string> attachResourceTypes{};
+  shared_ptr<string> environmentId{};
+  shared_ptr<string> gatewayId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> pluginId{};
+  shared_ptr<bool> withParentResource{};
+
+  ListPluginAttachmentsRequest() {}
+
+  explicit ListPluginAttachmentsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachResourceId) {
+      res["attachResourceId"] = boost::any(*attachResourceId);
+    }
+    if (attachResourceType) {
+      res["attachResourceType"] = boost::any(*attachResourceType);
+    }
+    if (attachResourceTypes) {
+      res["attachResourceTypes"] = boost::any(*attachResourceTypes);
+    }
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (gatewayId) {
+      res["gatewayId"] = boost::any(*gatewayId);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (pluginId) {
+      res["pluginId"] = boost::any(*pluginId);
+    }
+    if (withParentResource) {
+      res["withParentResource"] = boost::any(*withParentResource);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("attachResourceId") != m.end() && !m["attachResourceId"].empty()) {
+      attachResourceId = make_shared<string>(boost::any_cast<string>(m["attachResourceId"]));
+    }
+    if (m.find("attachResourceType") != m.end() && !m["attachResourceType"].empty()) {
+      attachResourceType = make_shared<string>(boost::any_cast<string>(m["attachResourceType"]));
+    }
+    if (m.find("attachResourceTypes") != m.end() && !m["attachResourceTypes"].empty()) {
+      attachResourceTypes = make_shared<string>(boost::any_cast<string>(m["attachResourceTypes"]));
+    }
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("gatewayId") != m.end() && !m["gatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["gatewayId"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("pluginId") != m.end() && !m["pluginId"].empty()) {
+      pluginId = make_shared<string>(boost::any_cast<string>(m["pluginId"]));
+    }
+    if (m.find("withParentResource") != m.end() && !m["withParentResource"].empty()) {
+      withParentResource = make_shared<bool>(boost::any_cast<bool>(m["withParentResource"]));
+    }
+  }
+
+
+  virtual ~ListPluginAttachmentsRequest() = default;
+};
+class ListPluginAttachmentsResponseBodyDataItems : public Darabonba::Model {
+public:
+  shared_ptr<string> attachResourceType{};
+  shared_ptr<bool> enable{};
+  shared_ptr<EnvironmentInfo> environmentInfo{};
+  shared_ptr<ParentResourceInfo> parentResourceInfo{};
+  shared_ptr<string> pluginAttachmentId{};
+  shared_ptr<PluginClassInfo> pluginClassInfo{};
+  shared_ptr<string> pluginConfig{};
+  shared_ptr<string> pluginId{};
+  shared_ptr<vector<ResourceInfo>> resourceInfos{};
+
+  ListPluginAttachmentsResponseBodyDataItems() {}
+
+  explicit ListPluginAttachmentsResponseBodyDataItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachResourceType) {
+      res["attachResourceType"] = boost::any(*attachResourceType);
+    }
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (environmentInfo) {
+      res["environmentInfo"] = environmentInfo ? boost::any(environmentInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (parentResourceInfo) {
+      res["parentResourceInfo"] = parentResourceInfo ? boost::any(parentResourceInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pluginAttachmentId) {
+      res["pluginAttachmentId"] = boost::any(*pluginAttachmentId);
+    }
+    if (pluginClassInfo) {
+      res["pluginClassInfo"] = pluginClassInfo ? boost::any(pluginClassInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pluginConfig) {
+      res["pluginConfig"] = boost::any(*pluginConfig);
+    }
+    if (pluginId) {
+      res["pluginId"] = boost::any(*pluginId);
+    }
+    if (resourceInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["resourceInfos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("attachResourceType") != m.end() && !m["attachResourceType"].empty()) {
+      attachResourceType = make_shared<string>(boost::any_cast<string>(m["attachResourceType"]));
+    }
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("environmentInfo") != m.end() && !m["environmentInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["environmentInfo"].type()) {
+        EnvironmentInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["environmentInfo"]));
+        environmentInfo = make_shared<EnvironmentInfo>(model1);
+      }
+    }
+    if (m.find("parentResourceInfo") != m.end() && !m["parentResourceInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["parentResourceInfo"].type()) {
+        ParentResourceInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parentResourceInfo"]));
+        parentResourceInfo = make_shared<ParentResourceInfo>(model1);
+      }
+    }
+    if (m.find("pluginAttachmentId") != m.end() && !m["pluginAttachmentId"].empty()) {
+      pluginAttachmentId = make_shared<string>(boost::any_cast<string>(m["pluginAttachmentId"]));
+    }
+    if (m.find("pluginClassInfo") != m.end() && !m["pluginClassInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["pluginClassInfo"].type()) {
+        PluginClassInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["pluginClassInfo"]));
+        pluginClassInfo = make_shared<PluginClassInfo>(model1);
+      }
+    }
+    if (m.find("pluginConfig") != m.end() && !m["pluginConfig"].empty()) {
+      pluginConfig = make_shared<string>(boost::any_cast<string>(m["pluginConfig"]));
+    }
+    if (m.find("pluginId") != m.end() && !m["pluginId"].empty()) {
+      pluginId = make_shared<string>(boost::any_cast<string>(m["pluginId"]));
+    }
+    if (m.find("resourceInfos") != m.end() && !m["resourceInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["resourceInfos"].type()) {
+        vector<ResourceInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["resourceInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ResourceInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceInfos = make_shared<vector<ResourceInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListPluginAttachmentsResponseBodyDataItems() = default;
+};
+class ListPluginAttachmentsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPluginAttachmentsResponseBodyDataItems>> items{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalSize{};
+
+  ListPluginAttachmentsResponseBodyData() {}
+
+  explicit ListPluginAttachmentsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["items"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (totalSize) {
+      res["totalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("items") != m.end() && !m["items"].empty()) {
+      if (typeid(vector<boost::any>) == m["items"].type()) {
+        vector<ListPluginAttachmentsResponseBodyDataItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPluginAttachmentsResponseBodyDataItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<ListPluginAttachmentsResponseBodyDataItems>>(expect1);
+      }
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("totalSize") != m.end() && !m["totalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["totalSize"]));
+    }
+  }
+
+
+  virtual ~ListPluginAttachmentsResponseBodyData() = default;
+};
+class ListPluginAttachmentsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListPluginAttachmentsResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ListPluginAttachmentsResponseBody() {}
+
+  explicit ListPluginAttachmentsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ListPluginAttachmentsResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ListPluginAttachmentsResponseBodyData>(model1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListPluginAttachmentsResponseBody() = default;
+};
+class ListPluginAttachmentsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPluginAttachmentsResponseBody> body{};
+
+  ListPluginAttachmentsResponse() {}
+
+  explicit ListPluginAttachmentsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPluginAttachmentsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPluginAttachmentsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPluginAttachmentsResponse() = default;
+};
 class ListPluginsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> attachResourceId{};
@@ -20114,6 +20487,8 @@ public:
   ListHttpApiRoutesResponse listHttpApiRoutes(shared_ptr<string> httpApiId, shared_ptr<ListHttpApiRoutesRequest> request);
   ListHttpApisResponse listHttpApisWithOptions(shared_ptr<ListHttpApisRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListHttpApisResponse listHttpApis(shared_ptr<ListHttpApisRequest> request);
+  ListPluginAttachmentsResponse listPluginAttachmentsWithOptions(shared_ptr<ListPluginAttachmentsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPluginAttachmentsResponse listPluginAttachments(shared_ptr<ListPluginAttachmentsRequest> request);
   ListPluginsResponse listPluginsWithOptions(shared_ptr<ListPluginsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPluginsResponse listPlugins(shared_ptr<ListPluginsRequest> request);
   ListPolicyClassesResponse listPolicyClassesWithOptions(shared_ptr<ListPolicyClassesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
