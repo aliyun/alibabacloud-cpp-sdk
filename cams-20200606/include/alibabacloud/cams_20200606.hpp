@@ -3587,6 +3587,7 @@ class CreateChatappTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allowCategoryChange{};
   shared_ptr<string> category{};
+  shared_ptr<bool> categoryChangePaused{};
   shared_ptr<vector<CreateChatappTemplateRequestComponents>> components{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
@@ -3612,6 +3613,9 @@ public:
     }
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (categoryChangePaused) {
+      res["CategoryChangePaused"] = boost::any(*categoryChangePaused);
     }
     if (components) {
       vector<boost::any> temp1;
@@ -3653,6 +3657,9 @@ public:
     }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("CategoryChangePaused") != m.end() && !m["CategoryChangePaused"].empty()) {
+      categoryChangePaused = make_shared<bool>(boost::any_cast<bool>(m["CategoryChangePaused"]));
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       if (typeid(vector<boost::any>) == m["Components"].type()) {
@@ -3705,6 +3712,7 @@ class CreateChatappTemplateShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allowCategoryChange{};
   shared_ptr<string> category{};
+  shared_ptr<bool> categoryChangePaused{};
   shared_ptr<string> componentsShrink{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
@@ -3730,6 +3738,9 @@ public:
     }
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (categoryChangePaused) {
+      res["CategoryChangePaused"] = boost::any(*categoryChangePaused);
     }
     if (componentsShrink) {
       res["Components"] = boost::any(*componentsShrink);
@@ -3767,6 +3778,9 @@ public:
     }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("CategoryChangePaused") != m.end() && !m["CategoryChangePaused"].empty()) {
+      categoryChangePaused = make_shared<bool>(boost::any_cast<bool>(m["CategoryChangePaused"]));
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       componentsShrink = make_shared<string>(boost::any_cast<string>(m["Components"]));
@@ -6073,8 +6087,10 @@ public:
 };
 class GetChatappTemplateDetailResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowSend{};
   shared_ptr<string> auditStatus{};
   shared_ptr<string> category{};
+  shared_ptr<bool> categoryChangePaused{};
   shared_ptr<vector<GetChatappTemplateDetailResponseBodyDataComponents>> components{};
   shared_ptr<map<string, string>> example{};
   shared_ptr<string> language{};
@@ -6095,11 +6111,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowSend) {
+      res["AllowSend"] = boost::any(*allowSend);
+    }
     if (auditStatus) {
       res["AuditStatus"] = boost::any(*auditStatus);
     }
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (categoryChangePaused) {
+      res["CategoryChangePaused"] = boost::any(*categoryChangePaused);
     }
     if (components) {
       vector<boost::any> temp1;
@@ -6136,11 +6158,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowSend") != m.end() && !m["AllowSend"].empty()) {
+      allowSend = make_shared<bool>(boost::any_cast<bool>(m["AllowSend"]));
+    }
     if (m.find("AuditStatus") != m.end() && !m["AuditStatus"].empty()) {
       auditStatus = make_shared<string>(boost::any_cast<string>(m["AuditStatus"]));
     }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("CategoryChangePaused") != m.end() && !m["CategoryChangePaused"].empty()) {
+      categoryChangePaused = make_shared<bool>(boost::any_cast<bool>(m["CategoryChangePaused"]));
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       if (typeid(vector<boost::any>) == m["Components"].type()) {
@@ -11913,6 +11941,7 @@ public:
 class ModifyChatappTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
+  shared_ptr<bool> categoryChangePaused{};
   shared_ptr<vector<ModifyChatappTemplateRequestComponents>> components{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
@@ -11936,6 +11965,9 @@ public:
     map<string, boost::any> res;
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (categoryChangePaused) {
+      res["CategoryChangePaused"] = boost::any(*categoryChangePaused);
     }
     if (components) {
       vector<boost::any> temp1;
@@ -11977,6 +12009,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("CategoryChangePaused") != m.end() && !m["CategoryChangePaused"].empty()) {
+      categoryChangePaused = make_shared<bool>(boost::any_cast<bool>(m["CategoryChangePaused"]));
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       if (typeid(vector<boost::any>) == m["Components"].type()) {
@@ -12031,6 +12066,7 @@ public:
 class ModifyChatappTemplateShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
+  shared_ptr<bool> categoryChangePaused{};
   shared_ptr<string> componentsShrink{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
@@ -12054,6 +12090,9 @@ public:
     map<string, boost::any> res;
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (categoryChangePaused) {
+      res["CategoryChangePaused"] = boost::any(*categoryChangePaused);
     }
     if (componentsShrink) {
       res["Components"] = boost::any(*componentsShrink);
@@ -12091,6 +12130,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("CategoryChangePaused") != m.end() && !m["CategoryChangePaused"].empty()) {
+      categoryChangePaused = make_shared<bool>(boost::any_cast<bool>(m["CategoryChangePaused"]));
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       componentsShrink = make_shared<string>(boost::any_cast<string>(m["Components"]));
@@ -12275,6 +12317,212 @@ public:
 
 
   virtual ~ModifyChatappTemplateResponse() = default;
+};
+class ModifyChatappTemplatePropertiesRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> allowSend{};
+  shared_ptr<bool> categoryChangePaused{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> language{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateType{};
+
+  ModifyChatappTemplatePropertiesRequest() {}
+
+  explicit ModifyChatappTemplatePropertiesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowSend) {
+      res["AllowSend"] = boost::any(*allowSend);
+    }
+    if (categoryChangePaused) {
+      res["CategoryChangePaused"] = boost::any(*categoryChangePaused);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowSend") != m.end() && !m["AllowSend"].empty()) {
+      allowSend = make_shared<bool>(boost::any_cast<bool>(m["AllowSend"]));
+    }
+    if (m.find("CategoryChangePaused") != m.end() && !m["CategoryChangePaused"].empty()) {
+      categoryChangePaused = make_shared<bool>(boost::any_cast<bool>(m["CategoryChangePaused"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
+    }
+  }
+
+
+  virtual ~ModifyChatappTemplatePropertiesRequest() = default;
+};
+class ModifyChatappTemplatePropertiesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<map<string, boost::any>> model{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ModifyChatappTemplatePropertiesResponseBody() {}
+
+  explicit ModifyChatappTemplatePropertiesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Model"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      model = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyChatappTemplatePropertiesResponseBody() = default;
+};
+class ModifyChatappTemplatePropertiesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyChatappTemplatePropertiesResponseBody> body{};
+
+  ModifyChatappTemplatePropertiesResponse() {}
+
+  explicit ModifyChatappTemplatePropertiesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyChatappTemplatePropertiesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyChatappTemplatePropertiesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyChatappTemplatePropertiesResponse() = default;
 };
 class ModifyFlowRequest : public Darabonba::Model {
 public:
@@ -13063,6 +13311,7 @@ public:
   shared_ptr<string> businessName{};
   shared_ptr<string> currency{};
   shared_ptr<string> id{};
+  shared_ptr<string> marketingMessageLiteStatus{};
   shared_ptr<string> messageTemplateNamespace{};
   shared_ptr<string> name{};
   shared_ptr<string> primaryBusinessLocation{};
@@ -13094,6 +13343,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (marketingMessageLiteStatus) {
+      res["MarketingMessageLiteStatus"] = boost::any(*marketingMessageLiteStatus);
     }
     if (messageTemplateNamespace) {
       res["MessageTemplateNamespace"] = boost::any(*messageTemplateNamespace);
@@ -13130,6 +13382,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MarketingMessageLiteStatus") != m.end() && !m["MarketingMessageLiteStatus"].empty()) {
+      marketingMessageLiteStatus = make_shared<string>(boost::any_cast<string>(m["MarketingMessageLiteStatus"]));
     }
     if (m.find("MessageTemplateNamespace") != m.end() && !m["MessageTemplateNamespace"].empty()) {
       messageTemplateNamespace = make_shared<string>(boost::any_cast<string>(m["MessageTemplateNamespace"]));
@@ -17336,6 +17591,8 @@ public:
   ListProductCatalogResponse listProductCatalog(shared_ptr<ListProductCatalogRequest> request);
   ModifyChatappTemplateResponse modifyChatappTemplateWithOptions(shared_ptr<ModifyChatappTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyChatappTemplateResponse modifyChatappTemplate(shared_ptr<ModifyChatappTemplateRequest> request);
+  ModifyChatappTemplatePropertiesResponse modifyChatappTemplatePropertiesWithOptions(shared_ptr<ModifyChatappTemplatePropertiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyChatappTemplatePropertiesResponse modifyChatappTemplateProperties(shared_ptr<ModifyChatappTemplatePropertiesRequest> request);
   ModifyFlowResponse modifyFlowWithOptions(shared_ptr<ModifyFlowRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyFlowResponse modifyFlow(shared_ptr<ModifyFlowRequest> request);
   ModifyPhoneBusinessProfileResponse modifyPhoneBusinessProfileWithOptions(shared_ptr<ModifyPhoneBusinessProfileRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
