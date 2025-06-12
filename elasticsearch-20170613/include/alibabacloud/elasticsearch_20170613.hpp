@@ -17914,6 +17914,7 @@ public:
 class InstallUserPluginsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> body{};
+  shared_ptr<bool> force{};
 
   InstallUserPluginsRequest() {}
 
@@ -17928,12 +17929,18 @@ public:
     if (body) {
       res["body"] = boost::any(*body);
     }
+    if (force) {
+      res["force"] = boost::any(*force);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("body") != m.end() && !m["body"].empty()) {
       body = make_shared<string>(boost::any_cast<string>(m["body"]));
+    }
+    if (m.find("force") != m.end() && !m["force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["force"]));
     }
   }
 
@@ -25019,6 +25026,7 @@ public:
   shared_ptr<string> paymentType{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> size{};
+  shared_ptr<string> status{};
   shared_ptr<string> tags{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -25057,6 +25065,9 @@ public:
     if (size) {
       res["size"] = boost::any(*size);
     }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
     if (tags) {
       res["tags"] = boost::any(*tags);
     }
@@ -25093,6 +25104,9 @@ public:
     }
     if (m.find("size") != m.end() && !m["size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
     }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["tags"]));
@@ -40325,6 +40339,7 @@ class UpdateInstanceSettingsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> body{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> force{};
   shared_ptr<string> updateStrategy{};
 
   UpdateInstanceSettingsRequest() {}
@@ -40343,6 +40358,9 @@ public:
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
+    if (force) {
+      res["force"] = boost::any(*force);
+    }
     if (updateStrategy) {
       res["updateStrategy"] = boost::any(*updateStrategy);
     }
@@ -40355,6 +40373,9 @@ public:
     }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
+    }
+    if (m.find("force") != m.end() && !m["force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["force"]));
     }
     if (m.find("updateStrategy") != m.end() && !m["updateStrategy"].empty()) {
       updateStrategy = make_shared<string>(boost::any_cast<string>(m["updateStrategy"]));
