@@ -4298,6 +4298,7 @@ public:
   shared_ptr<long> orderType{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceId{};
+  shared_ptr<bool> showHide{};
   shared_ptr<string> status{};
   shared_ptr<string> templateId{};
 
@@ -4329,6 +4330,9 @@ public:
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
+    if (showHide) {
+      res["ShowHide"] = boost::any(*showHide);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -4356,6 +4360,9 @@ public:
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ShowHide") != m.end() && !m["ShowHide"].empty()) {
+      showHide = make_shared<bool>(boost::any_cast<bool>(m["ShowHide"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
