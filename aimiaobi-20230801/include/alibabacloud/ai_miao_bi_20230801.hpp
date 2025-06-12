@@ -4900,6 +4900,158 @@ public:
 
   virtual ~ExportAnalysisTagDetailByTaskIdResponse() = default;
 };
+class ExportCustomSourceAnalysisTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+  shared_ptr<string> workspaceId{};
+
+  ExportCustomSourceAnalysisTaskRequest() {}
+
+  explicit ExportCustomSourceAnalysisTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~ExportCustomSourceAnalysisTaskRequest() = default;
+};
+class ExportCustomSourceAnalysisTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ExportCustomSourceAnalysisTaskResponseBody() {}
+
+  explicit ExportCustomSourceAnalysisTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ExportCustomSourceAnalysisTaskResponseBody() = default;
+};
+class ExportCustomSourceAnalysisTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExportCustomSourceAnalysisTaskResponseBody> body{};
+
+  ExportCustomSourceAnalysisTaskResponse() {}
+
+  explicit ExportCustomSourceAnalysisTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExportCustomSourceAnalysisTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExportCustomSourceAnalysisTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExportCustomSourceAnalysisTaskResponse() = default;
+};
 class ExportGeneratedContentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -7626,6 +7778,326 @@ public:
 
 
   virtual ~GetCustomHotTopicBroadcastJobResponse() = default;
+};
+class GetCustomSourceTopicAnalysisTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+  shared_ptr<string> workspaceId{};
+
+  GetCustomSourceTopicAnalysisTaskRequest() {}
+
+  explicit GetCustomSourceTopicAnalysisTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~GetCustomSourceTopicAnalysisTaskRequest() = default;
+};
+class GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResultsClusterNews : public Darabonba::Model {
+public:
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+
+  GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResultsClusterNews() {}
+
+  explicit GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResultsClusterNews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResultsClusterNews() = default;
+};
+class GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResults : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResultsClusterNews>> clusterNews{};
+  shared_ptr<string> topic{};
+
+  GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResults() {}
+
+  explicit GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterNews) {
+      vector<boost::any> temp1;
+      for(auto item1:*clusterNews){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClusterNews"] = boost::any(temp1);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterNews") != m.end() && !m["ClusterNews"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClusterNews"].type()) {
+        vector<GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResultsClusterNews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClusterNews"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResultsClusterNews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clusterNews = make_shared<vector<GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResultsClusterNews>>(expect1);
+      }
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResults() = default;
+};
+class GetCustomSourceTopicAnalysisTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> clusterCount{};
+  shared_ptr<vector<GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResults>> clusterResults{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> maxClusteredTopicNewsSize{};
+  shared_ptr<long> parsedNewsSize{};
+  shared_ptr<string> status{};
+
+  GetCustomSourceTopicAnalysisTaskResponseBodyData() {}
+
+  explicit GetCustomSourceTopicAnalysisTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterCount) {
+      res["ClusterCount"] = boost::any(*clusterCount);
+    }
+    if (clusterResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*clusterResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClusterResults"] = boost::any(temp1);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (maxClusteredTopicNewsSize) {
+      res["MaxClusteredTopicNewsSize"] = boost::any(*maxClusteredTopicNewsSize);
+    }
+    if (parsedNewsSize) {
+      res["ParsedNewsSize"] = boost::any(*parsedNewsSize);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterCount") != m.end() && !m["ClusterCount"].empty()) {
+      clusterCount = make_shared<long>(boost::any_cast<long>(m["ClusterCount"]));
+    }
+    if (m.find("ClusterResults") != m.end() && !m["ClusterResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClusterResults"].type()) {
+        vector<GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClusterResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clusterResults = make_shared<vector<GetCustomSourceTopicAnalysisTaskResponseBodyDataClusterResults>>(expect1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("MaxClusteredTopicNewsSize") != m.end() && !m["MaxClusteredTopicNewsSize"].empty()) {
+      maxClusteredTopicNewsSize = make_shared<long>(boost::any_cast<long>(m["MaxClusteredTopicNewsSize"]));
+    }
+    if (m.find("ParsedNewsSize") != m.end() && !m["ParsedNewsSize"].empty()) {
+      parsedNewsSize = make_shared<long>(boost::any_cast<long>(m["ParsedNewsSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetCustomSourceTopicAnalysisTaskResponseBodyData() = default;
+};
+class GetCustomSourceTopicAnalysisTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetCustomSourceTopicAnalysisTaskResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetCustomSourceTopicAnalysisTaskResponseBody() {}
+
+  explicit GetCustomSourceTopicAnalysisTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetCustomSourceTopicAnalysisTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetCustomSourceTopicAnalysisTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetCustomSourceTopicAnalysisTaskResponseBody() = default;
+};
+class GetCustomSourceTopicAnalysisTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetCustomSourceTopicAnalysisTaskResponseBody> body{};
+
+  GetCustomSourceTopicAnalysisTaskResponse() {}
+
+  explicit GetCustomSourceTopicAnalysisTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetCustomSourceTopicAnalysisTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetCustomSourceTopicAnalysisTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetCustomSourceTopicAnalysisTaskResponse() = default;
 };
 class GetCustomTextRequest : public Darabonba::Model {
 public:
@@ -53353,6 +53825,390 @@ public:
 
   virtual ~SubmitCustomHotTopicBroadcastJobResponse() = default;
 };
+class SubmitCustomSourceTopicAnalysisRequestNewsComments : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  SubmitCustomSourceTopicAnalysisRequestNewsComments() {}
+
+  explicit SubmitCustomSourceTopicAnalysisRequestNewsComments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~SubmitCustomSourceTopicAnalysisRequestNewsComments() = default;
+};
+class SubmitCustomSourceTopicAnalysisRequestNews : public Darabonba::Model {
+public:
+  shared_ptr<vector<SubmitCustomSourceTopicAnalysisRequestNewsComments>> comments{};
+  shared_ptr<string> content{};
+  shared_ptr<string> pubTime{};
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+
+  SubmitCustomSourceTopicAnalysisRequestNews() {}
+
+  explicit SubmitCustomSourceTopicAnalysisRequestNews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comments) {
+      vector<boost::any> temp1;
+      for(auto item1:*comments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Comments"] = boost::any(temp1);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (pubTime) {
+      res["PubTime"] = boost::any(*pubTime);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comments") != m.end() && !m["Comments"].empty()) {
+      if (typeid(vector<boost::any>) == m["Comments"].type()) {
+        vector<SubmitCustomSourceTopicAnalysisRequestNewsComments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Comments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitCustomSourceTopicAnalysisRequestNewsComments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        comments = make_shared<vector<SubmitCustomSourceTopicAnalysisRequestNewsComments>>(expect1);
+      }
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("PubTime") != m.end() && !m["PubTime"].empty()) {
+      pubTime = make_shared<string>(boost::any_cast<string>(m["PubTime"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~SubmitCustomSourceTopicAnalysisRequestNews() = default;
+};
+class SubmitCustomSourceTopicAnalysisRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileType{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<long> maxTopicSize{};
+  shared_ptr<vector<SubmitCustomSourceTopicAnalysisRequestNews>> news{};
+  shared_ptr<string> workspaceId{};
+
+  SubmitCustomSourceTopicAnalysisRequest() {}
+
+  explicit SubmitCustomSourceTopicAnalysisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (maxTopicSize) {
+      res["MaxTopicSize"] = boost::any(*maxTopicSize);
+    }
+    if (news) {
+      vector<boost::any> temp1;
+      for(auto item1:*news){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["News"] = boost::any(temp1);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<string>(boost::any_cast<string>(m["FileType"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("MaxTopicSize") != m.end() && !m["MaxTopicSize"].empty()) {
+      maxTopicSize = make_shared<long>(boost::any_cast<long>(m["MaxTopicSize"]));
+    }
+    if (m.find("News") != m.end() && !m["News"].empty()) {
+      if (typeid(vector<boost::any>) == m["News"].type()) {
+        vector<SubmitCustomSourceTopicAnalysisRequestNews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["News"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitCustomSourceTopicAnalysisRequestNews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        news = make_shared<vector<SubmitCustomSourceTopicAnalysisRequestNews>>(expect1);
+      }
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~SubmitCustomSourceTopicAnalysisRequest() = default;
+};
+class SubmitCustomSourceTopicAnalysisShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileType{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<long> maxTopicSize{};
+  shared_ptr<string> newsShrink{};
+  shared_ptr<string> workspaceId{};
+
+  SubmitCustomSourceTopicAnalysisShrinkRequest() {}
+
+  explicit SubmitCustomSourceTopicAnalysisShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (maxTopicSize) {
+      res["MaxTopicSize"] = boost::any(*maxTopicSize);
+    }
+    if (newsShrink) {
+      res["News"] = boost::any(*newsShrink);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<string>(boost::any_cast<string>(m["FileType"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("MaxTopicSize") != m.end() && !m["MaxTopicSize"].empty()) {
+      maxTopicSize = make_shared<long>(boost::any_cast<long>(m["MaxTopicSize"]));
+    }
+    if (m.find("News") != m.end() && !m["News"].empty()) {
+      newsShrink = make_shared<string>(boost::any_cast<string>(m["News"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~SubmitCustomSourceTopicAnalysisShrinkRequest() = default;
+};
+class SubmitCustomSourceTopicAnalysisResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskName{};
+
+  SubmitCustomSourceTopicAnalysisResponseBodyData() {}
+
+  explicit SubmitCustomSourceTopicAnalysisResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+  }
+
+
+  virtual ~SubmitCustomSourceTopicAnalysisResponseBodyData() = default;
+};
+class SubmitCustomSourceTopicAnalysisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<SubmitCustomSourceTopicAnalysisResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SubmitCustomSourceTopicAnalysisResponseBody() {}
+
+  explicit SubmitCustomSourceTopicAnalysisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SubmitCustomSourceTopicAnalysisResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SubmitCustomSourceTopicAnalysisResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SubmitCustomSourceTopicAnalysisResponseBody() = default;
+};
+class SubmitCustomSourceTopicAnalysisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitCustomSourceTopicAnalysisResponseBody> body{};
+
+  SubmitCustomSourceTopicAnalysisResponse() {}
+
+  explicit SubmitCustomSourceTopicAnalysisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitCustomSourceTopicAnalysisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitCustomSourceTopicAnalysisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitCustomSourceTopicAnalysisResponse() = default;
+};
 class SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments : public Darabonba::Model {
 public:
   shared_ptr<string> author{};
@@ -58869,6 +59725,8 @@ public:
   DocumentExtractionResponse documentExtraction(shared_ptr<DocumentExtractionRequest> request);
   ExportAnalysisTagDetailByTaskIdResponse exportAnalysisTagDetailByTaskIdWithOptions(shared_ptr<ExportAnalysisTagDetailByTaskIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportAnalysisTagDetailByTaskIdResponse exportAnalysisTagDetailByTaskId(shared_ptr<ExportAnalysisTagDetailByTaskIdRequest> request);
+  ExportCustomSourceAnalysisTaskResponse exportCustomSourceAnalysisTaskWithOptions(shared_ptr<ExportCustomSourceAnalysisTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExportCustomSourceAnalysisTaskResponse exportCustomSourceAnalysisTask(shared_ptr<ExportCustomSourceAnalysisTaskRequest> request);
   ExportGeneratedContentResponse exportGeneratedContentWithOptions(shared_ptr<ExportGeneratedContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportGeneratedContentResponse exportGeneratedContent(shared_ptr<ExportGeneratedContentRequest> request);
   ExportHotTopicPlanningProposalsResponse exportHotTopicPlanningProposalsWithOptions(shared_ptr<ExportHotTopicPlanningProposalsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -58891,6 +59749,8 @@ public:
   GetCategoriesByTaskIdResponse getCategoriesByTaskId(shared_ptr<GetCategoriesByTaskIdRequest> request);
   GetCustomHotTopicBroadcastJobResponse getCustomHotTopicBroadcastJobWithOptions(shared_ptr<GetCustomHotTopicBroadcastJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCustomHotTopicBroadcastJobResponse getCustomHotTopicBroadcastJob(shared_ptr<GetCustomHotTopicBroadcastJobRequest> request);
+  GetCustomSourceTopicAnalysisTaskResponse getCustomSourceTopicAnalysisTaskWithOptions(shared_ptr<GetCustomSourceTopicAnalysisTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCustomSourceTopicAnalysisTaskResponse getCustomSourceTopicAnalysisTask(shared_ptr<GetCustomSourceTopicAnalysisTaskRequest> request);
   GetCustomTextResponse getCustomTextWithOptions(shared_ptr<GetCustomTextRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCustomTextResponse getCustomText(shared_ptr<GetCustomTextRequest> request);
   GetCustomTopicSelectionPerspectiveAnalysisTaskResponse getCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(shared_ptr<GetCustomTopicSelectionPerspectiveAnalysisTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -59087,6 +59947,8 @@ public:
   SubmitAuditTaskResponse submitAuditTask(shared_ptr<SubmitAuditTaskRequest> request);
   SubmitCustomHotTopicBroadcastJobResponse submitCustomHotTopicBroadcastJobWithOptions(shared_ptr<SubmitCustomHotTopicBroadcastJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitCustomHotTopicBroadcastJobResponse submitCustomHotTopicBroadcastJob(shared_ptr<SubmitCustomHotTopicBroadcastJobRequest> request);
+  SubmitCustomSourceTopicAnalysisResponse submitCustomSourceTopicAnalysisWithOptions(shared_ptr<SubmitCustomSourceTopicAnalysisRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitCustomSourceTopicAnalysisResponse submitCustomSourceTopicAnalysis(shared_ptr<SubmitCustomSourceTopicAnalysisRequest> request);
   SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(shared_ptr<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse submitCustomTopicSelectionPerspectiveAnalysisTask(shared_ptr<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest> request);
   SubmitDocClusterTaskResponse submitDocClusterTaskWithOptions(shared_ptr<SubmitDocClusterTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

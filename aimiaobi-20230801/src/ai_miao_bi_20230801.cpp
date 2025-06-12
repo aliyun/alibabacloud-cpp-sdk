@@ -739,6 +739,37 @@ ExportAnalysisTagDetailByTaskIdResponse Alibabacloud_AiMiaoBi20230801::Client::e
   return exportAnalysisTagDetailByTaskIdWithOptions(request, runtime);
 }
 
+ExportCustomSourceAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::exportCustomSourceAnalysisTaskWithOptions(shared_ptr<ExportCustomSourceAnalysisTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExportCustomSourceAnalysisTask"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExportCustomSourceAnalysisTaskResponse(callApi(params, req, runtime));
+}
+
+ExportCustomSourceAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::exportCustomSourceAnalysisTask(shared_ptr<ExportCustomSourceAnalysisTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return exportCustomSourceAnalysisTaskWithOptions(request, runtime);
+}
+
 ExportGeneratedContentResponse Alibabacloud_AiMiaoBi20230801::Client::exportGeneratedContentWithOptions(shared_ptr<ExportGeneratedContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1170,6 +1201,37 @@ GetCustomHotTopicBroadcastJobResponse Alibabacloud_AiMiaoBi20230801::Client::get
 GetCustomHotTopicBroadcastJobResponse Alibabacloud_AiMiaoBi20230801::Client::getCustomHotTopicBroadcastJob(shared_ptr<GetCustomHotTopicBroadcastJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getCustomHotTopicBroadcastJobWithOptions(request, runtime);
+}
+
+GetCustomSourceTopicAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::getCustomSourceTopicAnalysisTaskWithOptions(shared_ptr<GetCustomSourceTopicAnalysisTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCustomSourceTopicAnalysisTask"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCustomSourceTopicAnalysisTaskResponse(callApi(params, req, runtime));
+}
+
+GetCustomSourceTopicAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::getCustomSourceTopicAnalysisTask(shared_ptr<GetCustomSourceTopicAnalysisTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCustomSourceTopicAnalysisTaskWithOptions(request, runtime);
 }
 
 GetCustomTextResponse Alibabacloud_AiMiaoBi20230801::Client::getCustomTextWithOptions(shared_ptr<GetCustomTextRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5450,6 +5512,51 @@ SubmitCustomHotTopicBroadcastJobResponse Alibabacloud_AiMiaoBi20230801::Client::
 SubmitCustomHotTopicBroadcastJobResponse Alibabacloud_AiMiaoBi20230801::Client::submitCustomHotTopicBroadcastJob(shared_ptr<SubmitCustomHotTopicBroadcastJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitCustomHotTopicBroadcastJobWithOptions(request, runtime);
+}
+
+SubmitCustomSourceTopicAnalysisResponse Alibabacloud_AiMiaoBi20230801::Client::submitCustomSourceTopicAnalysisWithOptions(shared_ptr<SubmitCustomSourceTopicAnalysisRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitCustomSourceTopicAnalysisShrinkRequest> request = make_shared<SubmitCustomSourceTopicAnalysisShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitCustomSourceTopicAnalysisRequestNews>>(tmpReq->news)) {
+    request->newsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->news, make_shared<string>("News"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileType)) {
+    body->insert(pair<string, string>("FileType", *request->fileType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
+    body->insert(pair<string, string>("FileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxTopicSize)) {
+    body->insert(pair<string, long>("MaxTopicSize", *request->maxTopicSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newsShrink)) {
+    body->insert(pair<string, string>("News", *request->newsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitCustomSourceTopicAnalysis"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitCustomSourceTopicAnalysisResponse(callApi(params, req, runtime));
+}
+
+SubmitCustomSourceTopicAnalysisResponse Alibabacloud_AiMiaoBi20230801::Client::submitCustomSourceTopicAnalysis(shared_ptr<SubmitCustomSourceTopicAnalysisRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitCustomSourceTopicAnalysisWithOptions(request, runtime);
 }
 
 SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(shared_ptr<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
