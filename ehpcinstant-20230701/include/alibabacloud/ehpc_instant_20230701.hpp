@@ -461,6 +461,8 @@ public:
   shared_ptr<string> allocationSpec{};
   shared_ptr<string> level{};
   shared_ptr<CreateJobRequestDeploymentPolicyNetwork> network{};
+  shared_ptr<string> pool{};
+  shared_ptr<long> priority{};
   shared_ptr<vector<CreateJobRequestDeploymentPolicyTag>> tag{};
 
   CreateJobRequestDeploymentPolicy() {}
@@ -481,6 +483,12 @@ public:
     }
     if (network) {
       res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pool) {
+      res["Pool"] = boost::any(*pool);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -505,6 +513,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
         network = make_shared<CreateJobRequestDeploymentPolicyNetwork>(model1);
       }
+    }
+    if (m.find("Pool") != m.end() && !m["Pool"].empty()) {
+      pool = make_shared<string>(boost::any_cast<string>(m["Pool"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -716,6 +730,7 @@ class CreateJobRequestTasksTaskSpecResource : public Darabonba::Model {
 public:
   shared_ptr<double> cores{};
   shared_ptr<vector<CreateJobRequestTasksTaskSpecResourceDisks>> disks{};
+  shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<double> memory{};
 
   CreateJobRequestTasksTaskSpecResource() {}
@@ -737,6 +752,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Disks"] = boost::any(temp1);
+    }
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -760,6 +778,16 @@ public:
         }
         disks = make_shared<vector<CreateJobRequestTasksTaskSpecResourceDisks>>(expect1);
       }
+    }
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
@@ -808,6 +836,7 @@ public:
 class CreateJobRequestTasksTaskSpecTaskExecutorContainer : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<vector<string>> arg{};
   shared_ptr<vector<string>> command{};
   shared_ptr<vector<CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars>> environmentVars{};
   shared_ptr<string> image{};
@@ -825,6 +854,9 @@ public:
     map<string, boost::any> res;
     if (appId) {
       res["AppId"] = boost::any(*appId);
+    }
+    if (arg) {
+      res["Arg"] = boost::any(*arg);
     }
     if (command) {
       res["Command"] = boost::any(*command);
@@ -848,6 +880,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Arg") != m.end() && !m["Arg"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Arg"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Arg"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      arg = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Command") != m.end() && !m["Command"].empty()) {
       vector<string> toVec1;
@@ -887,6 +929,7 @@ class CreateJobRequestTasksTaskSpecTaskExecutorVM : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> image{};
+  shared_ptr<string> password{};
   shared_ptr<string> prologScript{};
   shared_ptr<string> script{};
 
@@ -906,6 +949,9 @@ public:
     if (image) {
       res["Image"] = boost::any(*image);
     }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
     if (prologScript) {
       res["PrologScript"] = boost::any(*prologScript);
     }
@@ -921,6 +967,9 @@ public:
     }
     if (m.find("Image") != m.end() && !m["Image"].empty()) {
       image = make_shared<string>(boost::any_cast<string>(m["Image"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
     }
     if (m.find("PrologScript") != m.end() && !m["PrologScript"].empty()) {
       prologScript = make_shared<string>(boost::any_cast<string>(m["PrologScript"]));
@@ -981,6 +1030,7 @@ class CreateJobRequestTasksTaskSpecVolumeMount : public Darabonba::Model {
 public:
   shared_ptr<string> mountOptions{};
   shared_ptr<string> mountPath{};
+  shared_ptr<bool> readOnly{};
   shared_ptr<string> volumeDriver{};
 
   CreateJobRequestTasksTaskSpecVolumeMount() {}
@@ -999,6 +1049,9 @@ public:
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
+    if (readOnly) {
+      res["ReadOnly"] = boost::any(*readOnly);
+    }
     if (volumeDriver) {
       res["VolumeDriver"] = boost::any(*volumeDriver);
     }
@@ -1011,6 +1064,9 @@ public:
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("ReadOnly") != m.end() && !m["ReadOnly"].empty()) {
+      readOnly = make_shared<bool>(boost::any_cast<bool>(m["ReadOnly"]));
     }
     if (m.find("VolumeDriver") != m.end() && !m["VolumeDriver"].empty()) {
       volumeDriver = make_shared<string>(boost::any_cast<string>(m["VolumeDriver"]));
@@ -3543,6 +3599,7 @@ class GetJobResponseBodyJobInfoTasksTaskSpecResource : public Darabonba::Model {
 public:
   shared_ptr<double> cores{};
   shared_ptr<vector<GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks>> disks{};
+  shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<long> memory{};
 
   GetJobResponseBodyJobInfoTasksTaskSpecResource() {}
@@ -3564,6 +3621,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Disks"] = boost::any(temp1);
+    }
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -3588,6 +3648,16 @@ public:
         disks = make_shared<vector<GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks>>(expect1);
       }
     }
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
     }
@@ -3601,6 +3671,7 @@ public:
   shared_ptr<string> image{};
   shared_ptr<string> prologScript{};
   shared_ptr<string> script{};
+  shared_ptr<string> userName{};
 
   GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM() {}
 
@@ -3621,6 +3692,9 @@ public:
     if (script) {
       res["Script"] = boost::any(*script);
     }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
     return res;
   }
 
@@ -3633,6 +3707,9 @@ public:
     }
     if (m.find("Script") != m.end() && !m["Script"].empty()) {
       script = make_shared<string>(boost::any_cast<string>(m["Script"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
     }
   }
 
