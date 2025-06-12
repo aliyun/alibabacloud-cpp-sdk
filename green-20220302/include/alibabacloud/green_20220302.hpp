@@ -897,6 +897,7 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> frame{};
   shared_ptr<long> frameNum{};
+  shared_ptr<string> manualTaskId{};
   shared_ptr<string> reqId{};
   shared_ptr<vector<DescribeImageModerationResultResponseBodyDataResult>> result{};
   shared_ptr<string> riskLevel{};
@@ -919,6 +920,9 @@ public:
     }
     if (frameNum) {
       res["FrameNum"] = boost::any(*frameNum);
+    }
+    if (manualTaskId) {
+      res["ManualTaskId"] = boost::any(*manualTaskId);
     }
     if (reqId) {
       res["ReqId"] = boost::any(*reqId);
@@ -945,6 +949,9 @@ public:
     }
     if (m.find("FrameNum") != m.end() && !m["FrameNum"].empty()) {
       frameNum = make_shared<long>(boost::any_cast<long>(m["FrameNum"]));
+    }
+    if (m.find("ManualTaskId") != m.end() && !m["ManualTaskId"].empty()) {
+      manualTaskId = make_shared<string>(boost::any_cast<string>(m["ManualTaskId"]));
     }
     if (m.find("ReqId") != m.end() && !m["ReqId"].empty()) {
       reqId = make_shared<string>(boost::any_cast<string>(m["ReqId"]));
@@ -3081,6 +3088,7 @@ public:
 class ImageBatchModerationResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> dataId{};
+  shared_ptr<string> manualTaskId{};
   shared_ptr<vector<ImageBatchModerationResponseBodyDataResult>> result{};
   shared_ptr<vector<ImageBatchModerationResponseBodyDataResults>> results{};
   shared_ptr<string> riskLevel{};
@@ -3097,6 +3105,9 @@ public:
     map<string, boost::any> res;
     if (dataId) {
       res["DataId"] = boost::any(*dataId);
+    }
+    if (manualTaskId) {
+      res["ManualTaskId"] = boost::any(*manualTaskId);
     }
     if (result) {
       vector<boost::any> temp1;
@@ -3121,6 +3132,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
       dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
+    if (m.find("ManualTaskId") != m.end() && !m["ManualTaskId"].empty()) {
+      manualTaskId = make_shared<string>(boost::any_cast<string>(m["ManualTaskId"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(vector<boost::any>) == m["Result"].type()) {
@@ -4639,6 +4653,7 @@ class ImageModerationResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> dataId{};
   shared_ptr<ImageModerationResponseBodyDataExt> ext{};
+  shared_ptr<string> manualTaskId{};
   shared_ptr<vector<ImageModerationResponseBodyDataResult>> result{};
   shared_ptr<string> riskLevel{};
 
@@ -4657,6 +4672,9 @@ public:
     }
     if (ext) {
       res["Ext"] = ext ? boost::any(ext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (manualTaskId) {
+      res["ManualTaskId"] = boost::any(*manualTaskId);
     }
     if (result) {
       vector<boost::any> temp1;
@@ -4681,6 +4699,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Ext"]));
         ext = make_shared<ImageModerationResponseBodyDataExt>(model1);
       }
+    }
+    if (m.find("ManualTaskId") != m.end() && !m["ManualTaskId"].empty()) {
+      manualTaskId = make_shared<string>(boost::any_cast<string>(m["ManualTaskId"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(vector<boost::any>) == m["Result"].type()) {
@@ -5424,6 +5445,7 @@ public:
   shared_ptr<string> descriptions{};
   shared_ptr<string> deviceId{};
   shared_ptr<string> labels{};
+  shared_ptr<string> manualTaskId{};
   shared_ptr<string> reason{};
 
   TextModerationResponseBodyData() {}
@@ -5451,6 +5473,9 @@ public:
     if (labels) {
       res["labels"] = boost::any(*labels);
     }
+    if (manualTaskId) {
+      res["manualTaskId"] = boost::any(*manualTaskId);
+    }
     if (reason) {
       res["reason"] = boost::any(*reason);
     }
@@ -5472,6 +5497,9 @@ public:
     }
     if (m.find("labels") != m.end() && !m["labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["labels"]));
+    }
+    if (m.find("manualTaskId") != m.end() && !m["manualTaskId"].empty()) {
+      manualTaskId = make_shared<string>(boost::any_cast<string>(m["manualTaskId"]));
     }
     if (m.find("reason") != m.end() && !m["reason"].empty()) {
       reason = make_shared<string>(boost::any_cast<string>(m["reason"]));
@@ -5886,6 +5914,7 @@ public:
   shared_ptr<string> attackLevel{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataAttackResult>> attackResult{};
   shared_ptr<string> dataId{};
+  shared_ptr<string> manualTaskId{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataResult>> result{};
   shared_ptr<string> riskLevel{};
   shared_ptr<double> score{};
@@ -5921,6 +5950,9 @@ public:
     }
     if (dataId) {
       res["DataId"] = boost::any(*dataId);
+    }
+    if (manualTaskId) {
+      res["ManualTaskId"] = boost::any(*manualTaskId);
     }
     if (result) {
       vector<boost::any> temp1;
@@ -5980,6 +6012,9 @@ public:
     }
     if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
       dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
+    if (m.find("ManualTaskId") != m.end() && !m["ManualTaskId"].empty()) {
+      manualTaskId = make_shared<string>(boost::any_cast<string>(m["ManualTaskId"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(vector<boost::any>) == m["Result"].type()) {
@@ -7455,6 +7490,7 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<VideoModerationResultResponseBodyDataFrameResult> frameResult{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> manualTaskId{};
   shared_ptr<string> riskLevel{};
   shared_ptr<string> taskId{};
 
@@ -7479,6 +7515,9 @@ public:
     }
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
+    }
+    if (manualTaskId) {
+      res["ManualTaskId"] = boost::any(*manualTaskId);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -7509,6 +7548,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("ManualTaskId") != m.end() && !m["ManualTaskId"].empty()) {
+      manualTaskId = make_shared<string>(boost::any_cast<string>(m["ManualTaskId"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
@@ -8101,6 +8143,7 @@ class VoiceModerationResultResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> dataId{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> manualTaskId{};
   shared_ptr<string> riskLevel{};
   shared_ptr<vector<VoiceModerationResultResponseBodyDataSliceDetails>> sliceDetails{};
   shared_ptr<string> taskId{};
@@ -8121,6 +8164,9 @@ public:
     }
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
+    }
+    if (manualTaskId) {
+      res["ManualTaskId"] = boost::any(*manualTaskId);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -8147,6 +8193,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("ManualTaskId") != m.end() && !m["ManualTaskId"].empty()) {
+      manualTaskId = make_shared<string>(boost::any_cast<string>(m["ManualTaskId"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
