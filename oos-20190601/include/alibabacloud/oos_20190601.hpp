@@ -6470,6 +6470,8 @@ public:
   shared_ptr<string> deployParameters{};
   shared_ptr<string> deployRegionId{};
   shared_ptr<string> description{};
+  shared_ptr<string> errorDetail{};
+  shared_ptr<string> errorType{};
   shared_ptr<string> importTagKey{};
   shared_ptr<string> importTagValue{};
   shared_ptr<string> name{};
@@ -6512,6 +6514,12 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (errorDetail) {
+      res["ErrorDetail"] = boost::any(*errorDetail);
+    }
+    if (errorType) {
+      res["ErrorType"] = boost::any(*errorType);
     }
     if (importTagKey) {
       res["ImportTagKey"] = boost::any(*importTagKey);
@@ -6564,6 +6572,12 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ErrorDetail") != m.end() && !m["ErrorDetail"].empty()) {
+      errorDetail = make_shared<string>(boost::any_cast<string>(m["ErrorDetail"]));
+    }
+    if (m.find("ErrorType") != m.end() && !m["ErrorType"].empty()) {
+      errorType = make_shared<string>(boost::any_cast<string>(m["ErrorType"]));
     }
     if (m.find("ImportTagKey") != m.end() && !m["ImportTagKey"].empty()) {
       importTagKey = make_shared<string>(boost::any_cast<string>(m["ImportTagKey"]));
@@ -10513,6 +10527,8 @@ public:
   shared_ptr<string> deployParameters{};
   shared_ptr<string> deployRegionId{};
   shared_ptr<string> description{};
+  shared_ptr<string> errorDetail{};
+  shared_ptr<string> errorType{};
   shared_ptr<string> importTagKey{};
   shared_ptr<string> importTagValue{};
   shared_ptr<string> name{};
@@ -10547,6 +10563,12 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (errorDetail) {
+      res["ErrorDetail"] = boost::any(*errorDetail);
+    }
+    if (errorType) {
+      res["ErrorType"] = boost::any(*errorType);
     }
     if (importTagKey) {
       res["ImportTagKey"] = boost::any(*importTagKey);
@@ -10587,6 +10609,12 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ErrorDetail") != m.end() && !m["ErrorDetail"].empty()) {
+      errorDetail = make_shared<string>(boost::any_cast<string>(m["ErrorDetail"]));
+    }
+    if (m.find("ErrorType") != m.end() && !m["ErrorType"].empty()) {
+      errorType = make_shared<string>(boost::any_cast<string>(m["ErrorType"]));
     }
     if (m.find("ImportTagKey") != m.end() && !m["ImportTagKey"].empty()) {
       importTagKey = make_shared<string>(boost::any_cast<string>(m["ImportTagKey"]));
