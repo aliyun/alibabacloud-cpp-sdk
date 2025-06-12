@@ -4988,6 +4988,9 @@ ModifyScriptResponse Alibabacloud_OutboundBot20191226::Client::modifyScriptWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelConfig)) {
+    query->insert(pair<string, string>("LabelConfig", *request->labelConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->longWaitEnable)) {
     query->insert(pair<string, bool>("LongWaitEnable", *request->longWaitEnable));
   }

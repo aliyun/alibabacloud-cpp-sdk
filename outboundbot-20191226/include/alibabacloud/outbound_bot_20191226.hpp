@@ -14289,6 +14289,7 @@ public:
   shared_ptr<string> industry{};
   shared_ptr<bool> isDebugDrafted{};
   shared_ptr<bool> isDrafted{};
+  shared_ptr<string> labelConfig{};
   shared_ptr<bool> longWaitEnable{};
   shared_ptr<bool> miniPlaybackEnable{};
   shared_ptr<bool> newBargeInEnable{};
@@ -14344,6 +14345,9 @@ public:
     }
     if (isDrafted) {
       res["IsDrafted"] = boost::any(*isDrafted);
+    }
+    if (labelConfig) {
+      res["LabelConfig"] = boost::any(*labelConfig);
     }
     if (longWaitEnable) {
       res["LongWaitEnable"] = boost::any(*longWaitEnable);
@@ -14417,6 +14421,9 @@ public:
     }
     if (m.find("IsDrafted") != m.end() && !m["IsDrafted"].empty()) {
       isDrafted = make_shared<bool>(boost::any_cast<bool>(m["IsDrafted"]));
+    }
+    if (m.find("LabelConfig") != m.end() && !m["LabelConfig"].empty()) {
+      labelConfig = make_shared<string>(boost::any_cast<string>(m["LabelConfig"]));
     }
     if (m.find("LongWaitEnable") != m.end() && !m["LongWaitEnable"].empty()) {
       longWaitEnable = make_shared<bool>(boost::any_cast<bool>(m["LongWaitEnable"]));
@@ -37470,6 +37477,7 @@ public:
   shared_ptr<bool> emotionEnable{};
   shared_ptr<string> industry{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> labelConfig{};
   shared_ptr<bool> longWaitEnable{};
   shared_ptr<string> miniPlaybackConfigListJsonString{};
   shared_ptr<bool> miniPlaybackEnable{};
@@ -37521,6 +37529,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (labelConfig) {
+      res["LabelConfig"] = boost::any(*labelConfig);
     }
     if (longWaitEnable) {
       res["LongWaitEnable"] = boost::any(*longWaitEnable);
@@ -37594,6 +37605,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LabelConfig") != m.end() && !m["LabelConfig"].empty()) {
+      labelConfig = make_shared<string>(boost::any_cast<string>(m["LabelConfig"]));
     }
     if (m.find("LongWaitEnable") != m.end() && !m["LongWaitEnable"].empty()) {
       longWaitEnable = make_shared<bool>(boost::any_cast<bool>(m["LongWaitEnable"]));
