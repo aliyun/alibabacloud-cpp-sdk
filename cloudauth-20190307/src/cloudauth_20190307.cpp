@@ -717,6 +717,9 @@ CredentialVerifyV2Response Alibabacloud_Cloudauth20190307::Client::credentialVer
     query->insert(pair<string, string>("UserName", *request->userName));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageContext)) {
+    body->insert(pair<string, string>("ImageContext", *request->imageContext));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageFile)) {
     body->insert(pair<string, string>("ImageFile", *request->imageFile));
   }

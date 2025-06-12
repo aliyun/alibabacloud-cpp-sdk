@@ -2562,6 +2562,7 @@ public:
   shared_ptr<string> credName{};
   shared_ptr<string> credType{};
   shared_ptr<string> identifyNum{};
+  shared_ptr<string> imageContext{};
   shared_ptr<string> imageFile{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> isCheck{};
@@ -2594,6 +2595,9 @@ public:
     }
     if (identifyNum) {
       res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (imageContext) {
+      res["ImageContext"] = boost::any(*imageContext);
     }
     if (imageFile) {
       res["ImageFile"] = boost::any(*imageFile);
@@ -2644,6 +2648,9 @@ public:
     }
     if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
       identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("ImageContext") != m.end() && !m["ImageContext"].empty()) {
+      imageContext = make_shared<string>(boost::any_cast<string>(m["ImageContext"]));
     }
     if (m.find("ImageFile") != m.end() && !m["ImageFile"].empty()) {
       imageFile = make_shared<string>(boost::any_cast<string>(m["ImageFile"]));
@@ -2732,6 +2739,7 @@ public:
   shared_ptr<string> credName{};
   shared_ptr<string> credType{};
   shared_ptr<string> identifyNum{};
+  shared_ptr<string> imageContext{};
   shared_ptr<Darabonba::Stream> imageFileObject{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> isCheck{};
@@ -2764,6 +2772,9 @@ public:
     }
     if (identifyNum) {
       res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (imageContext) {
+      res["ImageContext"] = boost::any(*imageContext);
     }
     if (imageFileObject) {
       res["ImageFile"] = boost::any(*imageFileObject);
@@ -2814,6 +2825,9 @@ public:
     }
     if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
       identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("ImageContext") != m.end() && !m["ImageContext"].empty()) {
+      imageContext = make_shared<string>(boost::any_cast<string>(m["ImageContext"]));
     }
     if (m.find("ImageFile") != m.end() && !m["ImageFile"].empty()) {
       imageFileObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageFile"]));
@@ -2866,6 +2880,7 @@ public:
   shared_ptr<string> credName{};
   shared_ptr<string> credType{};
   shared_ptr<string> identifyNum{};
+  shared_ptr<string> imageContext{};
   shared_ptr<string> imageFile{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> isCheck{};
@@ -2898,6 +2913,9 @@ public:
     }
     if (identifyNum) {
       res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (imageContext) {
+      res["ImageContext"] = boost::any(*imageContext);
     }
     if (imageFile) {
       res["ImageFile"] = boost::any(*imageFile);
@@ -2944,6 +2962,9 @@ public:
     }
     if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
       identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("ImageContext") != m.end() && !m["ImageContext"].empty()) {
+      imageContext = make_shared<string>(boost::any_cast<string>(m["ImageContext"]));
     }
     if (m.find("ImageFile") != m.end() && !m["ImageFile"].empty()) {
       imageFile = make_shared<string>(boost::any_cast<string>(m["ImageFile"]));
