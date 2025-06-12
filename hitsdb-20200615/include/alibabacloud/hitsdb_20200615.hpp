@@ -8667,6 +8667,264 @@ public:
 
   virtual ~GetLindormV2StorageUsageResponse() = default;
 };
+class GetLindormV2StreamEngineInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  GetLindormV2StreamEngineInfoRequest() {}
+
+  explicit GetLindormV2StreamEngineInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~GetLindormV2StreamEngineInfoRequest() = default;
+};
+class GetLindormV2StreamEngineInfoResponseBodyResourceGroupList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> jmIpList{};
+  shared_ptr<long> quantity{};
+  shared_ptr<string> resourceGroupName{};
+  shared_ptr<vector<string>> sgIpList{};
+  shared_ptr<string> spec{};
+  shared_ptr<string> specId{};
+  shared_ptr<string> status{};
+
+  GetLindormV2StreamEngineInfoResponseBodyResourceGroupList() {}
+
+  explicit GetLindormV2StreamEngineInfoResponseBodyResourceGroupList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jmIpList) {
+      res["JmIpList"] = boost::any(*jmIpList);
+    }
+    if (quantity) {
+      res["Quantity"] = boost::any(*quantity);
+    }
+    if (resourceGroupName) {
+      res["ResourceGroupName"] = boost::any(*resourceGroupName);
+    }
+    if (sgIpList) {
+      res["SgIpList"] = boost::any(*sgIpList);
+    }
+    if (spec) {
+      res["Spec"] = boost::any(*spec);
+    }
+    if (specId) {
+      res["SpecId"] = boost::any(*specId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JmIpList") != m.end() && !m["JmIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["JmIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["JmIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      jmIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Quantity") != m.end() && !m["Quantity"].empty()) {
+      quantity = make_shared<long>(boost::any_cast<long>(m["Quantity"]));
+    }
+    if (m.find("ResourceGroupName") != m.end() && !m["ResourceGroupName"].empty()) {
+      resourceGroupName = make_shared<string>(boost::any_cast<string>(m["ResourceGroupName"]));
+    }
+    if (m.find("SgIpList") != m.end() && !m["SgIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SgIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SgIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sgIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
+      spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+    if (m.find("SpecId") != m.end() && !m["SpecId"].empty()) {
+      specId = make_shared<string>(boost::any_cast<string>(m["SpecId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetLindormV2StreamEngineInfoResponseBodyResourceGroupList() = default;
+};
+class GetLindormV2StreamEngineInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetLindormV2StreamEngineInfoResponseBodyResourceGroupList>> resourceGroupList{};
+
+  GetLindormV2StreamEngineInfoResponseBody() {}
+
+  explicit GetLindormV2StreamEngineInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceGroupList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceGroupList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupList") != m.end() && !m["ResourceGroupList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceGroupList"].type()) {
+        vector<GetLindormV2StreamEngineInfoResponseBodyResourceGroupList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceGroupList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetLindormV2StreamEngineInfoResponseBodyResourceGroupList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceGroupList = make_shared<vector<GetLindormV2StreamEngineInfoResponseBodyResourceGroupList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetLindormV2StreamEngineInfoResponseBody() = default;
+};
+class GetLindormV2StreamEngineInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetLindormV2StreamEngineInfoResponseBody> body{};
+
+  GetLindormV2StreamEngineInfoResponse() {}
+
+  explicit GetLindormV2StreamEngineInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetLindormV2StreamEngineInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetLindormV2StreamEngineInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetLindormV2StreamEngineInfoResponse() = default;
+};
 class ListAutoScalingConfigsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -14676,6 +14934,8 @@ public:
   GetLindormV2InstanceEngineListResponse getLindormV2InstanceEngineList(shared_ptr<GetLindormV2InstanceEngineListRequest> request);
   GetLindormV2StorageUsageResponse getLindormV2StorageUsageWithOptions(shared_ptr<GetLindormV2StorageUsageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLindormV2StorageUsageResponse getLindormV2StorageUsage(shared_ptr<GetLindormV2StorageUsageRequest> request);
+  GetLindormV2StreamEngineInfoResponse getLindormV2StreamEngineInfoWithOptions(shared_ptr<GetLindormV2StreamEngineInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetLindormV2StreamEngineInfoResponse getLindormV2StreamEngineInfo(shared_ptr<GetLindormV2StreamEngineInfoRequest> request);
   ListAutoScalingConfigsResponse listAutoScalingConfigsWithOptions(shared_ptr<ListAutoScalingConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAutoScalingConfigsResponse listAutoScalingConfigs(shared_ptr<ListAutoScalingConfigsRequest> request);
   ListAutoScalingRecordsResponse listAutoScalingRecordsWithOptions(shared_ptr<ListAutoScalingRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
