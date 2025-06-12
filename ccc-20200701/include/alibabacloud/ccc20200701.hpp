@@ -16053,6 +16053,7 @@ public:
   shared_ptr<long> establishedTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<vector<GetCallDetailRecordResponseBodyDataIvrEvents>> ivrEvents{};
+  shared_ptr<string> outsideNumberReleaseReason{};
   shared_ptr<vector<GetCallDetailRecordResponseBodyDataQueueEvents>> queueEvents{};
   shared_ptr<bool> recordingReady{};
   shared_ptr<string> releaseInitiator{};
@@ -16140,6 +16141,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["IvrEvents"] = boost::any(temp1);
+    }
+    if (outsideNumberReleaseReason) {
+      res["OutsideNumberReleaseReason"] = boost::any(*outsideNumberReleaseReason);
     }
     if (queueEvents) {
       vector<boost::any> temp1;
@@ -16269,6 +16273,9 @@ public:
         }
         ivrEvents = make_shared<vector<GetCallDetailRecordResponseBodyDataIvrEvents>>(expect1);
       }
+    }
+    if (m.find("OutsideNumberReleaseReason") != m.end() && !m["OutsideNumberReleaseReason"].empty()) {
+      outsideNumberReleaseReason = make_shared<string>(boost::any_cast<string>(m["OutsideNumberReleaseReason"]));
     }
     if (m.find("QueueEvents") != m.end() && !m["QueueEvents"].empty()) {
       if (typeid(vector<boost::any>) == m["QueueEvents"].type()) {
@@ -33725,6 +33732,35 @@ public:
 
   virtual ~ListCallDetailRecordsV2ResponseBodyDataListAnalyticsReport() = default;
 };
+class ListCallDetailRecordsV2ResponseBodyDataListSummaryIndex : public Darabonba::Model {
+public:
+  shared_ptr<string> keywords{};
+
+  ListCallDetailRecordsV2ResponseBodyDataListSummaryIndex() {}
+
+  explicit ListCallDetailRecordsV2ResponseBodyDataListSummaryIndex(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keywords) {
+      res["Keywords"] = boost::any(*keywords);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keywords") != m.end() && !m["Keywords"].empty()) {
+      keywords = make_shared<string>(boost::any_cast<string>(m["Keywords"]));
+    }
+  }
+
+
+  virtual ~ListCallDetailRecordsV2ResponseBodyDataListSummaryIndex() = default;
+};
 class ListCallDetailRecordsV2ResponseBodyDataList : public Darabonba::Model {
 public:
   shared_ptr<string> accessChannelName{};
@@ -33765,6 +33801,7 @@ public:
   shared_ptr<string> offSiteAgentIds{};
   shared_ptr<string> offsiteAgentDestinationNumbers{};
   shared_ptr<string> offsiteAgentOriginatorNumbers{};
+  shared_ptr<string> outsideNumberReleaseReason{};
   shared_ptr<long> queueTime{};
   shared_ptr<long> recordingDuration{};
   shared_ptr<bool> recordingReady{};
@@ -33779,6 +33816,7 @@ public:
   shared_ptr<string> skillGroupIds{};
   shared_ptr<string> skillGroupNames{};
   shared_ptr<long> startTime{};
+  shared_ptr<ListCallDetailRecordsV2ResponseBodyDataListSummaryIndex> summaryIndex{};
   shared_ptr<long> talkTime{};
   shared_ptr<long> transferCount{};
   shared_ptr<long> waitTime{};
@@ -33907,6 +33945,9 @@ public:
     if (offsiteAgentOriginatorNumbers) {
       res["OffsiteAgentOriginatorNumbers"] = boost::any(*offsiteAgentOriginatorNumbers);
     }
+    if (outsideNumberReleaseReason) {
+      res["OutsideNumberReleaseReason"] = boost::any(*outsideNumberReleaseReason);
+    }
     if (queueTime) {
       res["QueueTime"] = boost::any(*queueTime);
     }
@@ -33948,6 +33989,9 @@ public:
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
+    }
+    if (summaryIndex) {
+      res["SummaryIndex"] = summaryIndex ? boost::any(summaryIndex->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (talkTime) {
       res["TalkTime"] = boost::any(*talkTime);
@@ -34080,6 +34124,9 @@ public:
     if (m.find("OffsiteAgentOriginatorNumbers") != m.end() && !m["OffsiteAgentOriginatorNumbers"].empty()) {
       offsiteAgentOriginatorNumbers = make_shared<string>(boost::any_cast<string>(m["OffsiteAgentOriginatorNumbers"]));
     }
+    if (m.find("OutsideNumberReleaseReason") != m.end() && !m["OutsideNumberReleaseReason"].empty()) {
+      outsideNumberReleaseReason = make_shared<string>(boost::any_cast<string>(m["OutsideNumberReleaseReason"]));
+    }
     if (m.find("QueueTime") != m.end() && !m["QueueTime"].empty()) {
       queueTime = make_shared<long>(boost::any_cast<long>(m["QueueTime"]));
     }
@@ -34121,6 +34168,13 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("SummaryIndex") != m.end() && !m["SummaryIndex"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SummaryIndex"].type()) {
+        ListCallDetailRecordsV2ResponseBodyDataListSummaryIndex model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SummaryIndex"]));
+        summaryIndex = make_shared<ListCallDetailRecordsV2ResponseBodyDataListSummaryIndex>(model1);
+      }
     }
     if (m.find("TalkTime") != m.end() && !m["TalkTime"].empty()) {
       talkTime = make_shared<long>(boost::any_cast<long>(m["TalkTime"]));
@@ -51664,6 +51718,9 @@ class ListOutboundNumbersOfUserResponseBodyDataList : public Darabonba::Model {
 public:
   shared_ptr<string> city{};
   shared_ptr<string> number{};
+  shared_ptr<string> provider{};
+  shared_ptr<string> providerCode{};
+  shared_ptr<string> providerDisplayName{};
   shared_ptr<string> province{};
 
   ListOutboundNumbersOfUserResponseBodyDataList() {}
@@ -51682,6 +51739,15 @@ public:
     if (number) {
       res["Number"] = boost::any(*number);
     }
+    if (provider) {
+      res["Provider"] = boost::any(*provider);
+    }
+    if (providerCode) {
+      res["ProviderCode"] = boost::any(*providerCode);
+    }
+    if (providerDisplayName) {
+      res["ProviderDisplayName"] = boost::any(*providerDisplayName);
+    }
     if (province) {
       res["Province"] = boost::any(*province);
     }
@@ -51694,6 +51760,15 @@ public:
     }
     if (m.find("Number") != m.end() && !m["Number"].empty()) {
       number = make_shared<string>(boost::any_cast<string>(m["Number"]));
+    }
+    if (m.find("Provider") != m.end() && !m["Provider"].empty()) {
+      provider = make_shared<string>(boost::any_cast<string>(m["Provider"]));
+    }
+    if (m.find("ProviderCode") != m.end() && !m["ProviderCode"].empty()) {
+      providerCode = make_shared<string>(boost::any_cast<string>(m["ProviderCode"]));
+    }
+    if (m.find("ProviderDisplayName") != m.end() && !m["ProviderDisplayName"].empty()) {
+      providerDisplayName = make_shared<string>(boost::any_cast<string>(m["ProviderDisplayName"]));
     }
     if (m.find("Province") != m.end() && !m["Province"].empty()) {
       province = make_shared<string>(boost::any_cast<string>(m["Province"]));
