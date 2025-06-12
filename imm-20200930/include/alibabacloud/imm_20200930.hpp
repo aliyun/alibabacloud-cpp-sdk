@@ -3448,6 +3448,122 @@ public:
 
   virtual ~Image() = default;
 };
+class ImageInsight : public Darabonba::Model {
+public:
+  shared_ptr<string> caption{};
+  shared_ptr<string> description{};
+
+  ImageInsight() {}
+
+  explicit ImageInsight(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (caption) {
+      res["Caption"] = boost::any(*caption);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Caption") != m.end() && !m["Caption"].empty()) {
+      caption = make_shared<string>(boost::any_cast<string>(m["Caption"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+  }
+
+
+  virtual ~ImageInsight() = default;
+};
+class VideoInsight : public Darabonba::Model {
+public:
+  shared_ptr<string> caption{};
+  shared_ptr<string> description{};
+
+  VideoInsight() {}
+
+  explicit VideoInsight(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (caption) {
+      res["Caption"] = boost::any(*caption);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Caption") != m.end() && !m["Caption"].empty()) {
+      caption = make_shared<string>(boost::any_cast<string>(m["Caption"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+  }
+
+
+  virtual ~VideoInsight() = default;
+};
+class Insights : public Darabonba::Model {
+public:
+  shared_ptr<ImageInsight> image{};
+  shared_ptr<VideoInsight> video{};
+
+  Insights() {}
+
+  explicit Insights(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (image) {
+      res["Image"] = image ? boost::any(image->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (video) {
+      res["Video"] = video ? boost::any(video->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Image") != m.end() && !m["Image"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Image"].type()) {
+        ImageInsight model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Image"]));
+        image = make_shared<ImageInsight>(model1);
+      }
+    }
+    if (m.find("Video") != m.end() && !m["Video"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Video"].type()) {
+        VideoInsight model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Video"]));
+        video = make_shared<VideoInsight>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Insights() = default;
+};
 class Label : public Darabonba::Model {
 public:
   shared_ptr<double> centricScore{};
@@ -3925,6 +4041,7 @@ public:
   shared_ptr<long> imageHeight{};
   shared_ptr<ImageScore> imageScore{};
   shared_ptr<long> imageWidth{};
+  shared_ptr<Insights> insights{};
   shared_ptr<vector<Label>> labels{};
   shared_ptr<string> language{};
   shared_ptr<string> latLong{};
@@ -4116,6 +4233,9 @@ public:
     }
     if (imageWidth) {
       res["ImageWidth"] = boost::any(*imageWidth);
+    }
+    if (insights) {
+      res["Insights"] = insights ? boost::any(insights->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (labels) {
       vector<boost::any> temp1;
@@ -4458,6 +4578,13 @@ public:
     }
     if (m.find("ImageWidth") != m.end() && !m["ImageWidth"].empty()) {
       imageWidth = make_shared<long>(boost::any_cast<long>(m["ImageWidth"]));
+    }
+    if (m.find("Insights") != m.end() && !m["Insights"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Insights"].type()) {
+        Insights model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Insights"]));
+        insights = make_shared<Insights>(model1);
+      }
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       if (typeid(vector<boost::any>) == m["Labels"].type()) {
@@ -8172,6 +8299,42 @@ public:
 
 
   virtual ~WebofficeWatermark() = default;
+};
+class WorkflowParameter : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  WorkflowParameter() {}
+
+  explicit WorkflowParameter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~WorkflowParameter() = default;
 };
 class AddImageMosaicRequestTargetsBoundary : public Darabonba::Model {
 public:
@@ -12043,6 +12206,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> projectName{};
   shared_ptr<string> templateId{};
+  shared_ptr<vector<WorkflowParameter>> workflowParameters{};
 
   CreateDatasetRequest() {}
 
@@ -12081,6 +12245,13 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (workflowParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*workflowParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WorkflowParameters"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -12112,10 +12283,115 @@ public:
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
+    if (m.find("WorkflowParameters") != m.end() && !m["WorkflowParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["WorkflowParameters"].type()) {
+        vector<WorkflowParameter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WorkflowParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            WorkflowParameter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        workflowParameters = make_shared<vector<WorkflowParameter>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateDatasetRequest() = default;
+};
+class CreateDatasetShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> datasetMaxBindCount{};
+  shared_ptr<long> datasetMaxEntityCount{};
+  shared_ptr<long> datasetMaxFileCount{};
+  shared_ptr<long> datasetMaxRelationCount{};
+  shared_ptr<long> datasetMaxTotalFileSize{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> workflowParametersShrink{};
+
+  CreateDatasetShrinkRequest() {}
+
+  explicit CreateDatasetShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetMaxBindCount) {
+      res["DatasetMaxBindCount"] = boost::any(*datasetMaxBindCount);
+    }
+    if (datasetMaxEntityCount) {
+      res["DatasetMaxEntityCount"] = boost::any(*datasetMaxEntityCount);
+    }
+    if (datasetMaxFileCount) {
+      res["DatasetMaxFileCount"] = boost::any(*datasetMaxFileCount);
+    }
+    if (datasetMaxRelationCount) {
+      res["DatasetMaxRelationCount"] = boost::any(*datasetMaxRelationCount);
+    }
+    if (datasetMaxTotalFileSize) {
+      res["DatasetMaxTotalFileSize"] = boost::any(*datasetMaxTotalFileSize);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (workflowParametersShrink) {
+      res["WorkflowParameters"] = boost::any(*workflowParametersShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetMaxBindCount") != m.end() && !m["DatasetMaxBindCount"].empty()) {
+      datasetMaxBindCount = make_shared<long>(boost::any_cast<long>(m["DatasetMaxBindCount"]));
+    }
+    if (m.find("DatasetMaxEntityCount") != m.end() && !m["DatasetMaxEntityCount"].empty()) {
+      datasetMaxEntityCount = make_shared<long>(boost::any_cast<long>(m["DatasetMaxEntityCount"]));
+    }
+    if (m.find("DatasetMaxFileCount") != m.end() && !m["DatasetMaxFileCount"].empty()) {
+      datasetMaxFileCount = make_shared<long>(boost::any_cast<long>(m["DatasetMaxFileCount"]));
+    }
+    if (m.find("DatasetMaxRelationCount") != m.end() && !m["DatasetMaxRelationCount"].empty()) {
+      datasetMaxRelationCount = make_shared<long>(boost::any_cast<long>(m["DatasetMaxRelationCount"]));
+    }
+    if (m.find("DatasetMaxTotalFileSize") != m.end() && !m["DatasetMaxTotalFileSize"].empty()) {
+      datasetMaxTotalFileSize = make_shared<long>(boost::any_cast<long>(m["DatasetMaxTotalFileSize"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("WorkflowParameters") != m.end() && !m["WorkflowParameters"].empty()) {
+      workflowParametersShrink = make_shared<string>(boost::any_cast<string>(m["WorkflowParameters"]));
+    }
+  }
+
+
+  virtual ~CreateDatasetShrinkRequest() = default;
 };
 class CreateDatasetResponseBody : public Darabonba::Model {
 public:
@@ -30936,6 +31212,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> projectName{};
   shared_ptr<string> templateId{};
+  shared_ptr<vector<WorkflowParameter>> workflowParameters{};
 
   UpdateDatasetRequest() {}
 
@@ -30974,6 +31251,13 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (workflowParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*workflowParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WorkflowParameters"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -31005,10 +31289,115 @@ public:
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
+    if (m.find("WorkflowParameters") != m.end() && !m["WorkflowParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["WorkflowParameters"].type()) {
+        vector<WorkflowParameter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WorkflowParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            WorkflowParameter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        workflowParameters = make_shared<vector<WorkflowParameter>>(expect1);
+      }
+    }
   }
 
 
   virtual ~UpdateDatasetRequest() = default;
+};
+class UpdateDatasetShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> datasetMaxBindCount{};
+  shared_ptr<long> datasetMaxEntityCount{};
+  shared_ptr<long> datasetMaxFileCount{};
+  shared_ptr<long> datasetMaxRelationCount{};
+  shared_ptr<long> datasetMaxTotalFileSize{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> workflowParametersShrink{};
+
+  UpdateDatasetShrinkRequest() {}
+
+  explicit UpdateDatasetShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetMaxBindCount) {
+      res["DatasetMaxBindCount"] = boost::any(*datasetMaxBindCount);
+    }
+    if (datasetMaxEntityCount) {
+      res["DatasetMaxEntityCount"] = boost::any(*datasetMaxEntityCount);
+    }
+    if (datasetMaxFileCount) {
+      res["DatasetMaxFileCount"] = boost::any(*datasetMaxFileCount);
+    }
+    if (datasetMaxRelationCount) {
+      res["DatasetMaxRelationCount"] = boost::any(*datasetMaxRelationCount);
+    }
+    if (datasetMaxTotalFileSize) {
+      res["DatasetMaxTotalFileSize"] = boost::any(*datasetMaxTotalFileSize);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (workflowParametersShrink) {
+      res["WorkflowParameters"] = boost::any(*workflowParametersShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetMaxBindCount") != m.end() && !m["DatasetMaxBindCount"].empty()) {
+      datasetMaxBindCount = make_shared<long>(boost::any_cast<long>(m["DatasetMaxBindCount"]));
+    }
+    if (m.find("DatasetMaxEntityCount") != m.end() && !m["DatasetMaxEntityCount"].empty()) {
+      datasetMaxEntityCount = make_shared<long>(boost::any_cast<long>(m["DatasetMaxEntityCount"]));
+    }
+    if (m.find("DatasetMaxFileCount") != m.end() && !m["DatasetMaxFileCount"].empty()) {
+      datasetMaxFileCount = make_shared<long>(boost::any_cast<long>(m["DatasetMaxFileCount"]));
+    }
+    if (m.find("DatasetMaxRelationCount") != m.end() && !m["DatasetMaxRelationCount"].empty()) {
+      datasetMaxRelationCount = make_shared<long>(boost::any_cast<long>(m["DatasetMaxRelationCount"]));
+    }
+    if (m.find("DatasetMaxTotalFileSize") != m.end() && !m["DatasetMaxTotalFileSize"].empty()) {
+      datasetMaxTotalFileSize = make_shared<long>(boost::any_cast<long>(m["DatasetMaxTotalFileSize"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("WorkflowParameters") != m.end() && !m["WorkflowParameters"].empty()) {
+      workflowParametersShrink = make_shared<string>(boost::any_cast<string>(m["WorkflowParameters"]));
+    }
+  }
+
+
+  virtual ~UpdateDatasetShrinkRequest() = default;
 };
 class UpdateDatasetResponseBody : public Darabonba::Model {
 public:
@@ -32562,7 +32951,7 @@ public:
   CreateCompressPointCloudTaskResponse createCompressPointCloudTask(shared_ptr<CreateCompressPointCloudTaskRequest> request);
   CreateCustomizedStoryResponse createCustomizedStoryWithOptions(shared_ptr<CreateCustomizedStoryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCustomizedStoryResponse createCustomizedStory(shared_ptr<CreateCustomizedStoryRequest> request);
-  CreateDatasetResponse createDatasetWithOptions(shared_ptr<CreateDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDatasetResponse createDatasetWithOptions(shared_ptr<CreateDatasetRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDatasetResponse createDataset(shared_ptr<CreateDatasetRequest> request);
   CreateDecodeBlindWatermarkTaskResponse createDecodeBlindWatermarkTaskWithOptions(shared_ptr<CreateDecodeBlindWatermarkTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDecodeBlindWatermarkTaskResponse createDecodeBlindWatermarkTask(shared_ptr<CreateDecodeBlindWatermarkTaskRequest> request);
@@ -32722,7 +33111,7 @@ public:
   SuspendTriggerResponse suspendTrigger(shared_ptr<SuspendTriggerRequest> request);
   UpdateBatchResponse updateBatchWithOptions(shared_ptr<UpdateBatchRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateBatchResponse updateBatch(shared_ptr<UpdateBatchRequest> request);
-  UpdateDatasetResponse updateDatasetWithOptions(shared_ptr<UpdateDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDatasetResponse updateDatasetWithOptions(shared_ptr<UpdateDatasetRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDatasetResponse updateDataset(shared_ptr<UpdateDatasetRequest> request);
   UpdateFigureClusterResponse updateFigureClusterWithOptions(shared_ptr<UpdateFigureClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateFigureClusterResponse updateFigureCluster(shared_ptr<UpdateFigureClusterRequest> request);

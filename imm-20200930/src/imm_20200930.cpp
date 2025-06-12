@@ -800,8 +800,13 @@ CreateCustomizedStoryResponse Alibabacloud_Imm20200930::Client::createCustomized
   return createCustomizedStoryWithOptions(request, runtime);
 }
 
-CreateDatasetResponse Alibabacloud_Imm20200930::Client::createDatasetWithOptions(shared_ptr<CreateDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDatasetResponse Alibabacloud_Imm20200930::Client::createDatasetWithOptions(shared_ptr<CreateDatasetRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDatasetShrinkRequest> request = make_shared<CreateDatasetShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<WorkflowParameter>>(tmpReq->workflowParameters)) {
+    request->workflowParametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->workflowParameters, make_shared<string>("WorkflowParameters"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->datasetMaxBindCount)) {
     query->insert(pair<string, long>("DatasetMaxBindCount", *request->datasetMaxBindCount));
@@ -829,6 +834,9 @@ CreateDatasetResponse Alibabacloud_Imm20200930::Client::createDatasetWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workflowParametersShrink)) {
+    query->insert(pair<string, string>("WorkflowParameters", *request->workflowParametersShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4601,8 +4609,13 @@ UpdateBatchResponse Alibabacloud_Imm20200930::Client::updateBatch(shared_ptr<Upd
   return updateBatchWithOptions(request, runtime);
 }
 
-UpdateDatasetResponse Alibabacloud_Imm20200930::Client::updateDatasetWithOptions(shared_ptr<UpdateDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateDatasetResponse Alibabacloud_Imm20200930::Client::updateDatasetWithOptions(shared_ptr<UpdateDatasetRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateDatasetShrinkRequest> request = make_shared<UpdateDatasetShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<WorkflowParameter>>(tmpReq->workflowParameters)) {
+    request->workflowParametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->workflowParameters, make_shared<string>("WorkflowParameters"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->datasetMaxBindCount)) {
     query->insert(pair<string, long>("DatasetMaxBindCount", *request->datasetMaxBindCount));
@@ -4630,6 +4643,9 @@ UpdateDatasetResponse Alibabacloud_Imm20200930::Client::updateDatasetWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workflowParametersShrink)) {
+    query->insert(pair<string, string>("WorkflowParameters", *request->workflowParametersShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
