@@ -20834,6 +20834,9 @@ StartTerminalSessionResponse Alibabacloud_Ecs20140526::Client::startTerminalSess
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->passwordName)) {
+    query->insert(pair<string, string>("PasswordName", *request->passwordName));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->portNumber)) {
     query->insert(pair<string, long>("PortNumber", *request->portNumber));
   }
