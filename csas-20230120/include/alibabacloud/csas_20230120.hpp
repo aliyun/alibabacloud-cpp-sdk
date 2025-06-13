@@ -855,6 +855,134 @@ public:
 
   virtual ~PAL7Config() = default;
 };
+class ProcessItem : public Darabonba::Model {
+public:
+  shared_ptr<string> bundleId{};
+  shared_ptr<string> devType{};
+  shared_ptr<string> directory{};
+  shared_ptr<string> process{};
+
+  ProcessItem() {}
+
+  explicit ProcessItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bundleId) {
+      res["BundleId"] = boost::any(*bundleId);
+    }
+    if (devType) {
+      res["DevType"] = boost::any(*devType);
+    }
+    if (directory) {
+      res["Directory"] = boost::any(*directory);
+    }
+    if (process) {
+      res["Process"] = boost::any(*process);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BundleId") != m.end() && !m["BundleId"].empty()) {
+      bundleId = make_shared<string>(boost::any_cast<string>(m["BundleId"]));
+    }
+    if (m.find("DevType") != m.end() && !m["DevType"].empty()) {
+      devType = make_shared<string>(boost::any_cast<string>(m["DevType"]));
+    }
+    if (m.find("Directory") != m.end() && !m["Directory"].empty()) {
+      directory = make_shared<string>(boost::any_cast<string>(m["Directory"]));
+    }
+    if (m.find("Process") != m.end() && !m["Process"].empty()) {
+      process = make_shared<string>(boost::any_cast<string>(m["Process"]));
+    }
+  }
+
+
+  virtual ~ProcessItem() = default;
+};
+class ProcessGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> name{};
+  shared_ptr<string> processGroupId{};
+  shared_ptr<vector<ProcessItem>> processes{};
+
+  ProcessGroup() {}
+
+  explicit ProcessGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (processGroupId) {
+      res["ProcessGroupId"] = boost::any(*processGroupId);
+    }
+    if (processes) {
+      vector<boost::any> temp1;
+      for(auto item1:*processes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Processes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProcessGroupId") != m.end() && !m["ProcessGroupId"].empty()) {
+      processGroupId = make_shared<string>(boost::any_cast<string>(m["ProcessGroupId"]));
+    }
+    if (m.find("Processes") != m.end() && !m["Processes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Processes"].type()) {
+        vector<ProcessItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Processes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ProcessItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        processes = make_shared<vector<ProcessItem>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ProcessGroup() = default;
+};
 class RecoveryContent : public Darabonba::Model {
 public:
   shared_ptr<AuthReportInterval> authReportInterval{};
@@ -3595,6 +3723,9 @@ public:
   shared_ptr<string> status{};
   shared_ptr<vector<string>> tagIds{};
   shared_ptr<string> triggerTemplateId{};
+  shared_ptr<vector<string>> trustedProcessGroupIds{};
+  shared_ptr<string> trustedProcessStatus{};
+  shared_ptr<vector<string>> trustedSoftwareIds{};
   shared_ptr<vector<string>> userGroupIds{};
   shared_ptr<string> userGroupMode{};
 
@@ -3647,6 +3778,15 @@ public:
     }
     if (triggerTemplateId) {
       res["TriggerTemplateId"] = boost::any(*triggerTemplateId);
+    }
+    if (trustedProcessGroupIds) {
+      res["TrustedProcessGroupIds"] = boost::any(*trustedProcessGroupIds);
+    }
+    if (trustedProcessStatus) {
+      res["TrustedProcessStatus"] = boost::any(*trustedProcessStatus);
+    }
+    if (trustedSoftwareIds) {
+      res["TrustedSoftwareIds"] = boost::any(*trustedSoftwareIds);
     }
     if (userGroupIds) {
       res["UserGroupIds"] = boost::any(*userGroupIds);
@@ -3717,6 +3857,29 @@ public:
     }
     if (m.find("TriggerTemplateId") != m.end() && !m["TriggerTemplateId"].empty()) {
       triggerTemplateId = make_shared<string>(boost::any_cast<string>(m["TriggerTemplateId"]));
+    }
+    if (m.find("TrustedProcessGroupIds") != m.end() && !m["TrustedProcessGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedProcessGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedProcessGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedProcessGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TrustedProcessStatus") != m.end() && !m["TrustedProcessStatus"].empty()) {
+      trustedProcessStatus = make_shared<string>(boost::any_cast<string>(m["TrustedProcessStatus"]));
+    }
+    if (m.find("TrustedSoftwareIds") != m.end() && !m["TrustedSoftwareIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedSoftwareIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedSoftwareIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedSoftwareIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
       vector<string> toVec1;
@@ -11399,6 +11562,9 @@ public:
   shared_ptr<string> status{};
   shared_ptr<vector<string>> tagIds{};
   shared_ptr<string> triggerTemplateId{};
+  shared_ptr<vector<string>> trustedProcessGroupIds{};
+  shared_ptr<string> trustedProcessStatus{};
+  shared_ptr<vector<string>> trustedSoftwareIds{};
   shared_ptr<vector<string>> userGroupIds{};
   shared_ptr<string> userGroupMode{};
 
@@ -11457,6 +11623,15 @@ public:
     }
     if (triggerTemplateId) {
       res["TriggerTemplateId"] = boost::any(*triggerTemplateId);
+    }
+    if (trustedProcessGroupIds) {
+      res["TrustedProcessGroupIds"] = boost::any(*trustedProcessGroupIds);
+    }
+    if (trustedProcessStatus) {
+      res["TrustedProcessStatus"] = boost::any(*trustedProcessStatus);
+    }
+    if (trustedSoftwareIds) {
+      res["TrustedSoftwareIds"] = boost::any(*trustedSoftwareIds);
     }
     if (userGroupIds) {
       res["UserGroupIds"] = boost::any(*userGroupIds);
@@ -11533,6 +11708,29 @@ public:
     }
     if (m.find("TriggerTemplateId") != m.end() && !m["TriggerTemplateId"].empty()) {
       triggerTemplateId = make_shared<string>(boost::any_cast<string>(m["TriggerTemplateId"]));
+    }
+    if (m.find("TrustedProcessGroupIds") != m.end() && !m["TrustedProcessGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedProcessGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedProcessGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedProcessGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TrustedProcessStatus") != m.end() && !m["TrustedProcessStatus"].empty()) {
+      trustedProcessStatus = make_shared<string>(boost::any_cast<string>(m["TrustedProcessStatus"]));
+    }
+    if (m.find("TrustedSoftwareIds") != m.end() && !m["TrustedSoftwareIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedSoftwareIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedSoftwareIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedSoftwareIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
       vector<string> toVec1;
@@ -21491,6 +21689,9 @@ public:
   shared_ptr<string> status{};
   shared_ptr<vector<string>> tagIds{};
   shared_ptr<string> triggerTemplateId{};
+  shared_ptr<vector<string>> trustedProcessGroupIds{};
+  shared_ptr<string> trustedProcessStatus{};
+  shared_ptr<vector<string>> trustedSoftwareIds{};
   shared_ptr<vector<string>> userGroupIds{};
   shared_ptr<string> userGroupMode{};
 
@@ -21549,6 +21750,15 @@ public:
     }
     if (triggerTemplateId) {
       res["TriggerTemplateId"] = boost::any(*triggerTemplateId);
+    }
+    if (trustedProcessGroupIds) {
+      res["TrustedProcessGroupIds"] = boost::any(*trustedProcessGroupIds);
+    }
+    if (trustedProcessStatus) {
+      res["TrustedProcessStatus"] = boost::any(*trustedProcessStatus);
+    }
+    if (trustedSoftwareIds) {
+      res["TrustedSoftwareIds"] = boost::any(*trustedSoftwareIds);
     }
     if (userGroupIds) {
       res["UserGroupIds"] = boost::any(*userGroupIds);
@@ -21625,6 +21835,29 @@ public:
     }
     if (m.find("TriggerTemplateId") != m.end() && !m["TriggerTemplateId"].empty()) {
       triggerTemplateId = make_shared<string>(boost::any_cast<string>(m["TriggerTemplateId"]));
+    }
+    if (m.find("TrustedProcessGroupIds") != m.end() && !m["TrustedProcessGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedProcessGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedProcessGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedProcessGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TrustedProcessStatus") != m.end() && !m["TrustedProcessStatus"].empty()) {
+      trustedProcessStatus = make_shared<string>(boost::any_cast<string>(m["TrustedProcessStatus"]));
+    }
+    if (m.find("TrustedSoftwareIds") != m.end() && !m["TrustedSoftwareIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedSoftwareIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedSoftwareIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedSoftwareIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
       vector<string> toVec1;
@@ -26016,6 +26249,8 @@ public:
   shared_ptr<string> policyAction{};
   shared_ptr<string> policyId{};
   shared_ptr<long> priority{};
+  shared_ptr<vector<string>> trustedProcessGroupIds{};
+  shared_ptr<vector<string>> trustedSoftwareIds{};
   shared_ptr<string> userGroupMode{};
 
   ListUserPrivateAccessPoliciesResponseBodyPolices() {}
@@ -26052,6 +26287,12 @@ public:
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
+    }
+    if (trustedProcessGroupIds) {
+      res["TrustedProcessGroupIds"] = boost::any(*trustedProcessGroupIds);
+    }
+    if (trustedSoftwareIds) {
+      res["TrustedSoftwareIds"] = boost::any(*trustedSoftwareIds);
     }
     if (userGroupMode) {
       res["UserGroupMode"] = boost::any(*userGroupMode);
@@ -26090,6 +26331,26 @@ public:
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("TrustedProcessGroupIds") != m.end() && !m["TrustedProcessGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedProcessGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedProcessGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedProcessGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TrustedSoftwareIds") != m.end() && !m["TrustedSoftwareIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedSoftwareIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedSoftwareIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedSoftwareIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("UserGroupMode") != m.end() && !m["UserGroupMode"].empty()) {
       userGroupMode = make_shared<string>(boost::any_cast<string>(m["UserGroupMode"]));
@@ -30529,6 +30790,9 @@ public:
   shared_ptr<string> status{};
   shared_ptr<vector<string>> tagIds{};
   shared_ptr<string> triggerTemplateId{};
+  shared_ptr<vector<string>> trustedProcessGroupIds{};
+  shared_ptr<string> trustedProcessStatus{};
+  shared_ptr<vector<string>> trustedSoftwareIds{};
   shared_ptr<vector<string>> userGroupIds{};
   shared_ptr<string> userGroupMode{};
 
@@ -30584,6 +30848,15 @@ public:
     }
     if (triggerTemplateId) {
       res["TriggerTemplateId"] = boost::any(*triggerTemplateId);
+    }
+    if (trustedProcessGroupIds) {
+      res["TrustedProcessGroupIds"] = boost::any(*trustedProcessGroupIds);
+    }
+    if (trustedProcessStatus) {
+      res["TrustedProcessStatus"] = boost::any(*trustedProcessStatus);
+    }
+    if (trustedSoftwareIds) {
+      res["TrustedSoftwareIds"] = boost::any(*trustedSoftwareIds);
     }
     if (userGroupIds) {
       res["UserGroupIds"] = boost::any(*userGroupIds);
@@ -30657,6 +30930,29 @@ public:
     }
     if (m.find("TriggerTemplateId") != m.end() && !m["TriggerTemplateId"].empty()) {
       triggerTemplateId = make_shared<string>(boost::any_cast<string>(m["TriggerTemplateId"]));
+    }
+    if (m.find("TrustedProcessGroupIds") != m.end() && !m["TrustedProcessGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedProcessGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedProcessGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedProcessGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TrustedProcessStatus") != m.end() && !m["TrustedProcessStatus"].empty()) {
+      trustedProcessStatus = make_shared<string>(boost::any_cast<string>(m["TrustedProcessStatus"]));
+    }
+    if (m.find("TrustedSoftwareIds") != m.end() && !m["TrustedSoftwareIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TrustedSoftwareIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TrustedSoftwareIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      trustedSoftwareIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
       vector<string> toVec1;

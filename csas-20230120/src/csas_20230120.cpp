@@ -475,6 +475,15 @@ CreatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::createPriva
   if (!Darabonba_Util::Client::isUnset<string>(request->triggerTemplateId)) {
     body->insert(pair<string, string>("TriggerTemplateId", *request->triggerTemplateId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->trustedProcessGroupIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("TrustedProcessGroupIds", *request->trustedProcessGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trustedProcessStatus)) {
+    body->insert(pair<string, string>("TrustedProcessStatus", *request->trustedProcessStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->trustedSoftwareIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("TrustedSoftwareIds", *request->trustedSoftwareIds));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->userGroupIds)) {
     bodyFlat->insert(pair<string, vector<string>>("UserGroupIds", *request->userGroupIds));
   }
@@ -3491,6 +3500,15 @@ UpdatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::updatePriva
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->triggerTemplateId)) {
     body->insert(pair<string, string>("TriggerTemplateId", *request->triggerTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->trustedProcessGroupIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("TrustedProcessGroupIds", *request->trustedProcessGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trustedProcessStatus)) {
+    body->insert(pair<string, string>("TrustedProcessStatus", *request->trustedProcessStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->trustedSoftwareIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("TrustedSoftwareIds", *request->trustedSoftwareIds));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->userGroupIds)) {
     bodyFlat->insert(pair<string, vector<string>>("UserGroupIds", *request->userGroupIds));
