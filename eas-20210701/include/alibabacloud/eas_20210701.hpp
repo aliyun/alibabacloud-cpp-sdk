@@ -6965,6 +6965,7 @@ public:
 };
 class DescribeGatewayResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> chargeType{};
   shared_ptr<string> createTime{};
   shared_ptr<string> externalClusterId{};
   shared_ptr<string> gatewayId{};
@@ -6991,6 +6992,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -7040,6 +7044,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -11546,9 +11553,15 @@ public:
 };
 class ListGatewayDomainsResponseBodyCustomDomains : public Darabonba::Model {
 public:
+  shared_ptr<string> certificateEndDate{};
   shared_ptr<string> certificateId{};
+  shared_ptr<string> certificateName{};
+  shared_ptr<string> certificateStartDate{};
+  shared_ptr<string> certificateStatus{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> domain{};
   shared_ptr<string> type{};
+  shared_ptr<string> updateTime{};
 
   ListGatewayDomainsResponseBodyCustomDomains() {}
 
@@ -11560,8 +11573,23 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certificateEndDate) {
+      res["CertificateEndDate"] = boost::any(*certificateEndDate);
+    }
     if (certificateId) {
       res["CertificateId"] = boost::any(*certificateId);
+    }
+    if (certificateName) {
+      res["CertificateName"] = boost::any(*certificateName);
+    }
+    if (certificateStartDate) {
+      res["CertificateStartDate"] = boost::any(*certificateStartDate);
+    }
+    if (certificateStatus) {
+      res["CertificateStatus"] = boost::any(*certificateStatus);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
     }
     if (domain) {
       res["Domain"] = boost::any(*domain);
@@ -11569,18 +11597,39 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertificateEndDate") != m.end() && !m["CertificateEndDate"].empty()) {
+      certificateEndDate = make_shared<string>(boost::any_cast<string>(m["CertificateEndDate"]));
+    }
     if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
       certificateId = make_shared<string>(boost::any_cast<string>(m["CertificateId"]));
+    }
+    if (m.find("CertificateName") != m.end() && !m["CertificateName"].empty()) {
+      certificateName = make_shared<string>(boost::any_cast<string>(m["CertificateName"]));
+    }
+    if (m.find("CertificateStartDate") != m.end() && !m["CertificateStartDate"].empty()) {
+      certificateStartDate = make_shared<string>(boost::any_cast<string>(m["CertificateStartDate"]));
+    }
+    if (m.find("CertificateStatus") != m.end() && !m["CertificateStatus"].empty()) {
+      certificateStatus = make_shared<string>(boost::any_cast<string>(m["CertificateStatus"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
     }
   }
 
@@ -11908,6 +11957,7 @@ public:
 class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs : public Darabonba::Model {
 public:
   shared_ptr<string> region{};
+  shared_ptr<string> status{};
   shared_ptr<string> vpcId{};
 
   ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs() {}
@@ -11923,6 +11973,9 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -11932,6 +11985,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
