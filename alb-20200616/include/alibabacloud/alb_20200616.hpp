@@ -1263,6 +1263,7 @@ public:
   shared_ptr<bool> enabled{};
   shared_ptr<bool> extAttributeEnabled{};
   shared_ptr<vector<CreateAScriptsRequestAScriptsExtAttributes>> extAttributes{};
+  shared_ptr<string> position{};
   shared_ptr<string> scriptContent{};
 
   CreateAScriptsRequestAScripts() {}
@@ -1290,6 +1291,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExtAttributes"] = boost::any(temp1);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
     }
     if (scriptContent) {
       res["ScriptContent"] = boost::any(*scriptContent);
@@ -1319,6 +1323,9 @@ public:
         }
         extAttributes = make_shared<vector<CreateAScriptsRequestAScriptsExtAttributes>>(expect1);
       }
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      position = make_shared<string>(boost::any_cast<string>(m["Position"]));
     }
     if (m.find("ScriptContent") != m.end() && !m["ScriptContent"].empty()) {
       scriptContent = make_shared<string>(boost::any_cast<string>(m["ScriptContent"]));
@@ -15695,6 +15702,7 @@ public:
   shared_ptr<string> loadBalancerStatus{};
   shared_ptr<ListLoadBalancersResponseBodyLoadBalancersModificationProtectionConfig> modificationProtectionConfig{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<string>> securityGroupIds{};
   shared_ptr<vector<ListLoadBalancersResponseBodyLoadBalancersTags>> tags{};
   shared_ptr<string> vpcId{};
 
@@ -15765,6 +15773,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -15859,6 +15870,16 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
