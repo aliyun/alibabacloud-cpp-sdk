@@ -2851,11 +2851,17 @@ UpdateScanResultFeedbackResponse Alibabacloud_Green20220926::Client::updateScanR
   if (!Darabonba_Util::Client::isUnset<string>(request->feedback)) {
     body->insert(pair<string, string>("Feedback", *request->feedback));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labels)) {
+    body->insert(pair<string, string>("Labels", *request->labels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->queryRequestId)) {
     body->insert(pair<string, string>("QueryRequestId", *request->queryRequestId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     body->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->riskLevel)) {
+    body->insert(pair<string, string>("RiskLevel", *request->riskLevel));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -2895,6 +2901,9 @@ UpdateServiceConfigResponse Alibabacloud_Green20220926::Client::updateServiceCon
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keywordHitLibs)) {
     body->insert(pair<string, string>("KeywordHitLibs", *request->keywordHitLibs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->manualMachineConfig)) {
+    body->insert(pair<string, string>("ManualMachineConfig", *request->manualMachineConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     body->insert(pair<string, string>("ResourceType", *request->resourceType));

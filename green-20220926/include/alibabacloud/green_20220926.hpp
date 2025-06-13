@@ -8921,6 +8921,11 @@ public:
 };
 class GetScanResultResponseBodyDataItems : public Darabonba::Model {
 public:
+  shared_ptr<string> apiLabels{};
+  shared_ptr<string> apiRequestTime{};
+  shared_ptr<string> apiRiskLevel{};
+  shared_ptr<string> apiService{};
+  shared_ptr<string> apiTaskId{};
   shared_ptr<string> attackLevel{};
   shared_ptr<string> content{};
   shared_ptr<string> dataId{};
@@ -8933,13 +8938,20 @@ public:
   shared_ptr<string> imageService{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> labels{};
+  shared_ptr<bool> manualOnly{};
   shared_ptr<vector<string>> noLabels{};
   shared_ptr<long> offset{};
   shared_ptr<long> pageNum{};
   shared_ptr<string> requestFrom{};
   shared_ptr<string> requestId{};
   shared_ptr<string> requestTime{};
+  shared_ptr<string> resourceType{};
   shared_ptr<vector<GetScanResultResponseBodyDataItemsResult>> result{};
+  shared_ptr<string> reviewLabels{};
+  shared_ptr<string> reviewRiskLevel{};
+  shared_ptr<string> reviewTime{};
+  shared_ptr<string> reviewUid{};
+  shared_ptr<bool> reviewed{};
   shared_ptr<string> riskLevel{};
   shared_ptr<string> riskTips{};
   shared_ptr<string> riskWords{};
@@ -8968,6 +8980,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiLabels) {
+      res["ApiLabels"] = boost::any(*apiLabels);
+    }
+    if (apiRequestTime) {
+      res["ApiRequestTime"] = boost::any(*apiRequestTime);
+    }
+    if (apiRiskLevel) {
+      res["ApiRiskLevel"] = boost::any(*apiRiskLevel);
+    }
+    if (apiService) {
+      res["ApiService"] = boost::any(*apiService);
+    }
+    if (apiTaskId) {
+      res["ApiTaskId"] = boost::any(*apiTaskId);
+    }
     if (attackLevel) {
       res["AttackLevel"] = boost::any(*attackLevel);
     }
@@ -9004,6 +9031,9 @@ public:
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
+    if (manualOnly) {
+      res["ManualOnly"] = boost::any(*manualOnly);
+    }
     if (noLabels) {
       res["NoLabels"] = boost::any(*noLabels);
     }
@@ -9022,12 +9052,30 @@ public:
     if (requestTime) {
       res["RequestTime"] = boost::any(*requestTime);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (result) {
       vector<boost::any> temp1;
       for(auto item1:*result){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Result"] = boost::any(temp1);
+    }
+    if (reviewLabels) {
+      res["ReviewLabels"] = boost::any(*reviewLabels);
+    }
+    if (reviewRiskLevel) {
+      res["ReviewRiskLevel"] = boost::any(*reviewRiskLevel);
+    }
+    if (reviewTime) {
+      res["ReviewTime"] = boost::any(*reviewTime);
+    }
+    if (reviewUid) {
+      res["ReviewUid"] = boost::any(*reviewUid);
+    }
+    if (reviewed) {
+      res["Reviewed"] = boost::any(*reviewed);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -9084,6 +9132,21 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiLabels") != m.end() && !m["ApiLabels"].empty()) {
+      apiLabels = make_shared<string>(boost::any_cast<string>(m["ApiLabels"]));
+    }
+    if (m.find("ApiRequestTime") != m.end() && !m["ApiRequestTime"].empty()) {
+      apiRequestTime = make_shared<string>(boost::any_cast<string>(m["ApiRequestTime"]));
+    }
+    if (m.find("ApiRiskLevel") != m.end() && !m["ApiRiskLevel"].empty()) {
+      apiRiskLevel = make_shared<string>(boost::any_cast<string>(m["ApiRiskLevel"]));
+    }
+    if (m.find("ApiService") != m.end() && !m["ApiService"].empty()) {
+      apiService = make_shared<string>(boost::any_cast<string>(m["ApiService"]));
+    }
+    if (m.find("ApiTaskId") != m.end() && !m["ApiTaskId"].empty()) {
+      apiTaskId = make_shared<string>(boost::any_cast<string>(m["ApiTaskId"]));
+    }
     if (m.find("AttackLevel") != m.end() && !m["AttackLevel"].empty()) {
       attackLevel = make_shared<string>(boost::any_cast<string>(m["AttackLevel"]));
     }
@@ -9137,6 +9200,9 @@ public:
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
+    if (m.find("ManualOnly") != m.end() && !m["ManualOnly"].empty()) {
+      manualOnly = make_shared<bool>(boost::any_cast<bool>(m["ManualOnly"]));
+    }
     if (m.find("NoLabels") != m.end() && !m["NoLabels"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["NoLabels"].type()) {
@@ -9162,6 +9228,9 @@ public:
     if (m.find("RequestTime") != m.end() && !m["RequestTime"].empty()) {
       requestTime = make_shared<string>(boost::any_cast<string>(m["RequestTime"]));
     }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(vector<boost::any>) == m["Result"].type()) {
         vector<GetScanResultResponseBodyDataItemsResult> expect1;
@@ -9174,6 +9243,21 @@ public:
         }
         result = make_shared<vector<GetScanResultResponseBodyDataItemsResult>>(expect1);
       }
+    }
+    if (m.find("ReviewLabels") != m.end() && !m["ReviewLabels"].empty()) {
+      reviewLabels = make_shared<string>(boost::any_cast<string>(m["ReviewLabels"]));
+    }
+    if (m.find("ReviewRiskLevel") != m.end() && !m["ReviewRiskLevel"].empty()) {
+      reviewRiskLevel = make_shared<string>(boost::any_cast<string>(m["ReviewRiskLevel"]));
+    }
+    if (m.find("ReviewTime") != m.end() && !m["ReviewTime"].empty()) {
+      reviewTime = make_shared<string>(boost::any_cast<string>(m["ReviewTime"]));
+    }
+    if (m.find("ReviewUid") != m.end() && !m["ReviewUid"].empty()) {
+      reviewUid = make_shared<string>(boost::any_cast<string>(m["ReviewUid"]));
+    }
+    if (m.find("Reviewed") != m.end() && !m["Reviewed"].empty()) {
+      reviewed = make_shared<bool>(boost::any_cast<bool>(m["Reviewed"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
@@ -9700,10 +9784,68 @@ public:
 
   virtual ~GetServiceConfigRequest() = default;
 };
+class GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> auditRiskLevels{};
+  shared_ptr<long> callbackId{};
+  shared_ptr<bool> enable{};
+  shared_ptr<string> manualService{};
+
+  GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig() {}
+
+  explicit GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auditRiskLevels) {
+      res["AuditRiskLevels"] = boost::any(*auditRiskLevels);
+    }
+    if (callbackId) {
+      res["CallbackId"] = boost::any(*callbackId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (manualService) {
+      res["ManualService"] = boost::any(*manualService);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditRiskLevels") != m.end() && !m["AuditRiskLevels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuditRiskLevels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuditRiskLevels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      auditRiskLevels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CallbackId") != m.end() && !m["CallbackId"].empty()) {
+      callbackId = make_shared<long>(boost::any_cast<long>(m["CallbackId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("ManualService") != m.end() && !m["ManualService"].empty()) {
+      manualService = make_shared<string>(boost::any_cast<string>(m["ManualService"]));
+    }
+  }
+
+
+  virtual ~GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig() = default;
+};
 class GetServiceConfigResponseBodyDataCustomServiceConf : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> keywordFilterLibs{};
   shared_ptr<vector<string>> keywordHitLibs{};
+  shared_ptr<GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig> manualMachineConfig{};
   shared_ptr<vector<string>> similarTextHitLibs{};
 
   GetServiceConfigResponseBodyDataCustomServiceConf() {}
@@ -9721,6 +9863,9 @@ public:
     }
     if (keywordHitLibs) {
       res["KeywordHitLibs"] = boost::any(*keywordHitLibs);
+    }
+    if (manualMachineConfig) {
+      res["ManualMachineConfig"] = manualMachineConfig ? boost::any(manualMachineConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (similarTextHitLibs) {
       res["SimilarTextHitLibs"] = boost::any(*similarTextHitLibs);
@@ -9748,6 +9893,13 @@ public:
         }
       }
       keywordHitLibs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ManualMachineConfig") != m.end() && !m["ManualMachineConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ManualMachineConfig"].type()) {
+        GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ManualMachineConfig"]));
+        manualMachineConfig = make_shared<GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig>(model1);
+      }
     }
     if (m.find("SimilarTextHitLibs") != m.end() && !m["SimilarTextHitLibs"].empty()) {
       vector<string> toVec1;
@@ -16300,9 +16452,11 @@ public:
 class UpdateScanResultFeedbackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> feedback{};
+  shared_ptr<string> labels{};
   shared_ptr<string> queryRequestId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> riskLevel{};
 
   UpdateScanResultFeedbackRequest() {}
 
@@ -16317,6 +16471,9 @@ public:
     if (feedback) {
       res["Feedback"] = boost::any(*feedback);
     }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
     if (queryRequestId) {
       res["QueryRequestId"] = boost::any(*queryRequestId);
     }
@@ -16326,12 +16483,18 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Feedback") != m.end() && !m["Feedback"].empty()) {
       feedback = make_shared<string>(boost::any_cast<string>(m["Feedback"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
     if (m.find("QueryRequestId") != m.end() && !m["QueryRequestId"].empty()) {
       queryRequestId = make_shared<string>(boost::any_cast<string>(m["QueryRequestId"]));
@@ -16341,6 +16504,9 @@ public:
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
   }
 
@@ -16440,6 +16606,7 @@ public:
   shared_ptr<string> fileConfig{};
   shared_ptr<string> keywordFilterLibs{};
   shared_ptr<string> keywordHitLibs{};
+  shared_ptr<string> manualMachineConfig{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> scene{};
@@ -16465,6 +16632,9 @@ public:
     }
     if (keywordHitLibs) {
       res["KeywordHitLibs"] = boost::any(*keywordHitLibs);
+    }
+    if (manualMachineConfig) {
+      res["ManualMachineConfig"] = boost::any(*manualMachineConfig);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -16496,6 +16666,9 @@ public:
     }
     if (m.find("KeywordHitLibs") != m.end() && !m["KeywordHitLibs"].empty()) {
       keywordHitLibs = make_shared<string>(boost::any_cast<string>(m["KeywordHitLibs"]));
+    }
+    if (m.find("ManualMachineConfig") != m.end() && !m["ManualMachineConfig"].empty()) {
+      manualMachineConfig = make_shared<string>(boost::any_cast<string>(m["ManualMachineConfig"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
