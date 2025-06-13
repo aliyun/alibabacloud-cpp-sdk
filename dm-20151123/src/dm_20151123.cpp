@@ -908,8 +908,17 @@ GetTrackListResponse Alibabacloud_Dm20151123::Client::getTrackListWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->accountName)) {
     query->insert(pair<string, string>("AccountName", *request->accountName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedIp)) {
+    query->insert(pair<string, string>("DedicatedIp", *request->dedicatedIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedIpPoolId)) {
+    query->insert(pair<string, string>("DedicatedIpPoolId", *request->dedicatedIpPoolId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->esp)) {
+    query->insert(pair<string, string>("Esp", *request->esp));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->offset)) {
     query->insert(pair<string, string>("Offset", *request->offset));
@@ -972,8 +981,17 @@ GetTrackListByMailFromAndTagNameResponse Alibabacloud_Dm20151123::Client::getTra
   if (!Darabonba_Util::Client::isUnset<string>(request->accountName)) {
     query->insert(pair<string, string>("AccountName", *request->accountName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedIp)) {
+    query->insert(pair<string, string>("DedicatedIp", *request->dedicatedIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedIpPoolId)) {
+    query->insert(pair<string, string>("DedicatedIpPoolId", *request->dedicatedIpPoolId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->esp)) {
+    query->insert(pair<string, string>("Esp", *request->esp));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->offset)) {
     query->insert(pair<string, string>("Offset", *request->offset));
@@ -1695,8 +1713,17 @@ SenderStatisticsByTagNameAndBatchIDResponse Alibabacloud_Dm20151123::Client::sen
   if (!Darabonba_Util::Client::isUnset<string>(request->accountName)) {
     query->insert(pair<string, string>("AccountName", *request->accountName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedIp)) {
+    query->insert(pair<string, string>("DedicatedIp", *request->dedicatedIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedIpPoolId)) {
+    query->insert(pair<string, string>("DedicatedIpPoolId", *request->dedicatedIpPoolId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->esp)) {
+    query->insert(pair<string, string>("Esp", *request->esp));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));

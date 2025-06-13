@@ -3520,7 +3520,10 @@ public:
 class GetTrackListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
+  shared_ptr<string> dedicatedIp{};
+  shared_ptr<string> dedicatedIpPoolId{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> esp{};
   shared_ptr<string> offset{};
   shared_ptr<string> offsetCreateTime{};
   shared_ptr<string> offsetCreateTimeDesc{};
@@ -3546,8 +3549,17 @@ public:
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
     }
+    if (dedicatedIp) {
+      res["DedicatedIp"] = boost::any(*dedicatedIp);
+    }
+    if (dedicatedIpPoolId) {
+      res["DedicatedIpPoolId"] = boost::any(*dedicatedIpPoolId);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (esp) {
+      res["Esp"] = boost::any(*esp);
     }
     if (offset) {
       res["Offset"] = boost::any(*offset);
@@ -3589,8 +3601,17 @@ public:
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
     }
+    if (m.find("DedicatedIp") != m.end() && !m["DedicatedIp"].empty()) {
+      dedicatedIp = make_shared<string>(boost::any_cast<string>(m["DedicatedIp"]));
+    }
+    if (m.find("DedicatedIpPoolId") != m.end() && !m["DedicatedIpPoolId"].empty()) {
+      dedicatedIpPoolId = make_shared<string>(boost::any_cast<string>(m["DedicatedIpPoolId"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Esp") != m.end() && !m["Esp"].empty()) {
+      esp = make_shared<string>(boost::any_cast<string>(m["Esp"]));
     }
     if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
       offset = make_shared<string>(boost::any_cast<string>(m["Offset"]));
@@ -3773,6 +3794,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<long> total{};
+  shared_ptr<long> totalPages{};
   shared_ptr<GetTrackListResponseBodyData> data{};
 
   GetTrackListResponseBody() {}
@@ -3803,6 +3825,9 @@ public:
     if (total) {
       res["Total"] = boost::any(*total);
     }
+    if (totalPages) {
+      res["TotalPages"] = boost::any(*totalPages);
+    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3827,6 +3852,9 @@ public:
     }
     if (m.find("Total") != m.end() && !m["Total"].empty()) {
       total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+    if (m.find("TotalPages") != m.end() && !m["TotalPages"].empty()) {
+      totalPages = make_shared<long>(boost::any_cast<long>(m["TotalPages"]));
     }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
@@ -3895,7 +3923,10 @@ public:
 class GetTrackListByMailFromAndTagNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
+  shared_ptr<string> dedicatedIp{};
+  shared_ptr<string> dedicatedIpPoolId{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> esp{};
   shared_ptr<string> offset{};
   shared_ptr<string> offsetCreateTime{};
   shared_ptr<string> offsetCreateTimeDesc{};
@@ -3921,8 +3952,17 @@ public:
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
     }
+    if (dedicatedIp) {
+      res["DedicatedIp"] = boost::any(*dedicatedIp);
+    }
+    if (dedicatedIpPoolId) {
+      res["DedicatedIpPoolId"] = boost::any(*dedicatedIpPoolId);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (esp) {
+      res["Esp"] = boost::any(*esp);
     }
     if (offset) {
       res["Offset"] = boost::any(*offset);
@@ -3964,8 +4004,17 @@ public:
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
     }
+    if (m.find("DedicatedIp") != m.end() && !m["DedicatedIp"].empty()) {
+      dedicatedIp = make_shared<string>(boost::any_cast<string>(m["DedicatedIp"]));
+    }
+    if (m.find("DedicatedIpPoolId") != m.end() && !m["DedicatedIpPoolId"].empty()) {
+      dedicatedIpPoolId = make_shared<string>(boost::any_cast<string>(m["DedicatedIpPoolId"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Esp") != m.end() && !m["Esp"].empty()) {
+      esp = make_shared<string>(boost::any_cast<string>(m["Esp"]));
     }
     if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
       offset = make_shared<string>(boost::any_cast<string>(m["Offset"]));
@@ -4148,6 +4197,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<long> total{};
+  shared_ptr<string> totalPages{};
   shared_ptr<GetTrackListByMailFromAndTagNameResponseBodyTrackList> trackList{};
 
   GetTrackListByMailFromAndTagNameResponseBody() {}
@@ -4178,6 +4228,9 @@ public:
     if (total) {
       res["Total"] = boost::any(*total);
     }
+    if (totalPages) {
+      res["TotalPages"] = boost::any(*totalPages);
+    }
     if (trackList) {
       res["TrackList"] = trackList ? boost::any(trackList->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -4202,6 +4255,9 @@ public:
     }
     if (m.find("Total") != m.end() && !m["Total"].empty()) {
       total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+    if (m.find("TotalPages") != m.end() && !m["TotalPages"].empty()) {
+      totalPages = make_shared<string>(boost::any_cast<string>(m["TotalPages"]));
     }
     if (m.find("TrackList") != m.end() && !m["TrackList"].empty()) {
       if (typeid(map<string, boost::any>) == m["TrackList"].type()) {
@@ -7777,7 +7833,10 @@ public:
 class SenderStatisticsByTagNameAndBatchIDRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
+  shared_ptr<string> dedicatedIp{};
+  shared_ptr<string> dedicatedIpPoolId{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> esp{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -7797,8 +7856,17 @@ public:
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
     }
+    if (dedicatedIp) {
+      res["DedicatedIp"] = boost::any(*dedicatedIp);
+    }
+    if (dedicatedIpPoolId) {
+      res["DedicatedIpPoolId"] = boost::any(*dedicatedIpPoolId);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (esp) {
+      res["Esp"] = boost::any(*esp);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -7822,8 +7890,17 @@ public:
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
     }
+    if (m.find("DedicatedIp") != m.end() && !m["DedicatedIp"].empty()) {
+      dedicatedIp = make_shared<string>(boost::any_cast<string>(m["DedicatedIp"]));
+    }
+    if (m.find("DedicatedIpPoolId") != m.end() && !m["DedicatedIpPoolId"].empty()) {
+      dedicatedIpPoolId = make_shared<string>(boost::any_cast<string>(m["DedicatedIpPoolId"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Esp") != m.end() && !m["Esp"].empty()) {
+      esp = make_shared<string>(boost::any_cast<string>(m["Esp"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
