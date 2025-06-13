@@ -7922,6 +7922,9 @@ DescribeDiagnosticReportsResponse Alibabacloud_Ecs20140526::Client::describeDiag
 DescribeDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::describeDiskDefaultKMSKeyIdWithOptions(shared_ptr<DescribeDiskDefaultKMSKeyIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -7953,6 +7956,9 @@ DescribeDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::describeDi
 DescribeDiskEncryptionByDefaultStatusResponse Alibabacloud_Ecs20140526::Client::describeDiskEncryptionByDefaultStatusWithOptions(shared_ptr<DescribeDiskEncryptionByDefaultStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -13920,6 +13926,9 @@ DisableActivationResponse Alibabacloud_Ecs20140526::Client::disableActivation(sh
 DisableDiskEncryptionByDefaultResponse Alibabacloud_Ecs20140526::Client::disableDiskEncryptionByDefaultWithOptions(shared_ptr<DisableDiskEncryptionByDefaultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -15692,6 +15701,9 @@ ModifyDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::modifyDiskDe
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->KMSKeyId)) {
     query->insert(pair<string, string>("KMSKeyId", *request->KMSKeyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -19867,6 +19879,9 @@ ResetDiskResponse Alibabacloud_Ecs20140526::Client::resetDisk(shared_ptr<ResetDi
 ResetDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::resetDiskDefaultKMSKeyIdWithOptions(shared_ptr<ResetDiskDefaultKMSKeyIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
