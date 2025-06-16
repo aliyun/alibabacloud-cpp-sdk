@@ -8779,6 +8779,35 @@ public:
 
   virtual ~EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList() = default;
 };
+class EnrichResponseBodyDataSolutionListSolutionAttribute : public Darabonba::Model {
+public:
+  shared_ptr<string> supplySourceType{};
+
+  EnrichResponseBodyDataSolutionListSolutionAttribute() {}
+
+  explicit EnrichResponseBodyDataSolutionListSolutionAttribute(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (supplySourceType) {
+      res["supply_source_type"] = boost::any(*supplySourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("supply_source_type") != m.end() && !m["supply_source_type"].empty()) {
+      supplySourceType = make_shared<string>(boost::any_cast<string>(m["supply_source_type"]));
+    }
+  }
+
+
+  virtual ~EnrichResponseBodyDataSolutionListSolutionAttribute() = default;
+};
 class EnrichResponseBodyDataSolutionList : public Darabonba::Model {
 public:
   shared_ptr<double> adultPrice{};
@@ -8793,6 +8822,7 @@ public:
   shared_ptr<vector<EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList>> segmentBaggageCheckInInfoList{};
   shared_ptr<vector<EnrichResponseBodyDataSolutionListSegmentBaggageMappingList>> segmentBaggageMappingList{};
   shared_ptr<vector<EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList>> segmentRefundChangeRuleMappingList{};
+  shared_ptr<EnrichResponseBodyDataSolutionListSolutionAttribute> solutionAttribute{};
   shared_ptr<string> solutionId{};
 
   EnrichResponseBodyDataSolutionList() {}
@@ -8856,6 +8886,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["segment_refund_change_rule_mapping_list"] = boost::any(temp1);
+    }
+    if (solutionAttribute) {
+      res["solution_attribute"] = solutionAttribute ? boost::any(solutionAttribute->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (solutionId) {
       res["solution_id"] = boost::any(*solutionId);
@@ -8938,6 +8971,13 @@ public:
           }
         }
         segmentRefundChangeRuleMappingList = make_shared<vector<EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList>>(expect1);
+      }
+    }
+    if (m.find("solution_attribute") != m.end() && !m["solution_attribute"].empty()) {
+      if (typeid(map<string, boost::any>) == m["solution_attribute"].type()) {
+        EnrichResponseBodyDataSolutionListSolutionAttribute model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["solution_attribute"]));
+        solutionAttribute = make_shared<EnrichResponseBodyDataSolutionListSolutionAttribute>(model1);
       }
     }
     if (m.find("solution_id") != m.end() && !m["solution_id"].empty()) {
@@ -16322,6 +16362,35 @@ public:
 
   virtual ~SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList() = default;
 };
+class SearchResponseBodyDataSolutionListSolutionAttribute : public Darabonba::Model {
+public:
+  shared_ptr<string> supplySourceType{};
+
+  SearchResponseBodyDataSolutionListSolutionAttribute() {}
+
+  explicit SearchResponseBodyDataSolutionListSolutionAttribute(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (supplySourceType) {
+      res["supply_source_type"] = boost::any(*supplySourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("supply_source_type") != m.end() && !m["supply_source_type"].empty()) {
+      supplySourceType = make_shared<string>(boost::any_cast<string>(m["supply_source_type"]));
+    }
+  }
+
+
+  virtual ~SearchResponseBodyDataSolutionListSolutionAttribute() = default;
+};
 class SearchResponseBodyDataSolutionList : public Darabonba::Model {
 public:
   shared_ptr<double> adultPrice{};
@@ -16336,6 +16405,7 @@ public:
   shared_ptr<vector<SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList>> segmentBaggageCheckInInfoList{};
   shared_ptr<vector<SearchResponseBodyDataSolutionListSegmentBaggageMappingList>> segmentBaggageMappingList{};
   shared_ptr<vector<SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList>> segmentRefundChangeRuleMappingList{};
+  shared_ptr<SearchResponseBodyDataSolutionListSolutionAttribute> solutionAttribute{};
   shared_ptr<string> solutionId{};
 
   SearchResponseBodyDataSolutionList() {}
@@ -16399,6 +16469,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["segment_refund_change_rule_mapping_list"] = boost::any(temp1);
+    }
+    if (solutionAttribute) {
+      res["solution_attribute"] = solutionAttribute ? boost::any(solutionAttribute->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (solutionId) {
       res["solution_id"] = boost::any(*solutionId);
@@ -16481,6 +16554,13 @@ public:
           }
         }
         segmentRefundChangeRuleMappingList = make_shared<vector<SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList>>(expect1);
+      }
+    }
+    if (m.find("solution_attribute") != m.end() && !m["solution_attribute"].empty()) {
+      if (typeid(map<string, boost::any>) == m["solution_attribute"].type()) {
+        SearchResponseBodyDataSolutionListSolutionAttribute model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["solution_attribute"]));
+        solutionAttribute = make_shared<SearchResponseBodyDataSolutionListSolutionAttribute>(model1);
       }
     }
     if (m.find("solution_id") != m.end() && !m["solution_id"].empty()) {
