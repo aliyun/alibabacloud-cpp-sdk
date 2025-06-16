@@ -70650,6 +70650,7 @@ public:
 class GetDhcpOptionsSetResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<GetDhcpOptionsSetResponseBodyAssociateVpcs>> associateVpcs{};
+  shared_ptr<string> creationTime{};
   shared_ptr<GetDhcpOptionsSetResponseBodyDhcpOptions> dhcpOptions{};
   shared_ptr<string> dhcpOptionsSetDescription{};
   shared_ptr<string> dhcpOptionsSetId{};
@@ -70676,6 +70677,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["AssociateVpcs"] = boost::any(temp1);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
     }
     if (dhcpOptions) {
       res["DhcpOptions"] = dhcpOptions ? boost::any(dhcpOptions->toMap()) : boost::any(map<string,boost::any>({}));
@@ -70724,6 +70728,9 @@ public:
         }
         associateVpcs = make_shared<vector<GetDhcpOptionsSetResponseBodyAssociateVpcs>>(expect1);
       }
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
     }
     if (m.find("DhcpOptions") != m.end() && !m["DhcpOptions"].empty()) {
       if (typeid(map<string, boost::any>) == m["DhcpOptions"].type()) {
@@ -74862,6 +74869,7 @@ public:
 class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets : public Darabonba::Model {
 public:
   shared_ptr<long> associateVpcCount{};
+  shared_ptr<string> creationTime{};
   shared_ptr<ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions> dhcpOptions{};
   shared_ptr<string> dhcpOptionsSetDescription{};
   shared_ptr<string> dhcpOptionsSetId{};
@@ -74883,6 +74891,9 @@ public:
     map<string, boost::any> res;
     if (associateVpcCount) {
       res["AssociateVpcCount"] = boost::any(*associateVpcCount);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
     }
     if (dhcpOptions) {
       res["DhcpOptions"] = dhcpOptions ? boost::any(dhcpOptions->toMap()) : boost::any(map<string,boost::any>({}));
@@ -74918,6 +74929,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AssociateVpcCount") != m.end() && !m["AssociateVpcCount"].empty()) {
       associateVpcCount = make_shared<long>(boost::any_cast<long>(m["AssociateVpcCount"]));
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
     }
     if (m.find("DhcpOptions") != m.end() && !m["DhcpOptions"].empty()) {
       if (typeid(map<string, boost::any>) == m["DhcpOptions"].type()) {
