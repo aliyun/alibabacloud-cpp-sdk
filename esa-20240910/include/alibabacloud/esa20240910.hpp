@@ -9483,6 +9483,7 @@ public:
   shared_ptr<boost::any> header{};
   shared_ptr<long> interval{};
   shared_ptr<string> method{};
+  shared_ptr<string> monitoringRegion{};
   shared_ptr<string> path{};
   shared_ptr<long> port{};
   shared_ptr<long> timeout{};
@@ -9518,6 +9519,9 @@ public:
     }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (monitoringRegion) {
+      res["MonitoringRegion"] = boost::any(*monitoringRegion);
     }
     if (path) {
       res["Path"] = boost::any(*path);
@@ -9555,6 +9559,9 @@ public:
     }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("MonitoringRegion") != m.end() && !m["MonitoringRegion"].empty()) {
+      monitoringRegion = make_shared<string>(boost::any_cast<string>(m["MonitoringRegion"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -32814,6 +32821,7 @@ public:
   shared_ptr<boost::any> header{};
   shared_ptr<long> interval{};
   shared_ptr<string> method{};
+  shared_ptr<string> monitoringRegion{};
   shared_ptr<string> path{};
   shared_ptr<long> port{};
   shared_ptr<long> timeout{};
@@ -32849,6 +32857,9 @@ public:
     }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (monitoringRegion) {
+      res["MonitoringRegion"] = boost::any(*monitoringRegion);
     }
     if (path) {
       res["Path"] = boost::any(*path);
@@ -32886,6 +32897,9 @@ public:
     }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("MonitoringRegion") != m.end() && !m["MonitoringRegion"].empty()) {
+      monitoringRegion = make_shared<string>(boost::any_cast<string>(m["MonitoringRegion"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -49473,6 +49487,7 @@ public:
   shared_ptr<boost::any> header{};
   shared_ptr<long> interval{};
   shared_ptr<string> method{};
+  shared_ptr<string> monitoringRegion{};
   shared_ptr<string> path{};
   shared_ptr<long> port{};
   shared_ptr<long> timeout{};
@@ -49508,6 +49523,9 @@ public:
     }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (monitoringRegion) {
+      res["MonitoringRegion"] = boost::any(*monitoringRegion);
     }
     if (path) {
       res["Path"] = boost::any(*path);
@@ -49545,6 +49563,9 @@ public:
     }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("MonitoringRegion") != m.end() && !m["MonitoringRegion"].empty()) {
+      monitoringRegion = make_shared<string>(boost::any_cast<string>(m["MonitoringRegion"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -67633,6 +67654,7 @@ public:
   shared_ptr<boost::any> header{};
   shared_ptr<long> interval{};
   shared_ptr<string> method{};
+  shared_ptr<string> monitoringRegion{};
   shared_ptr<string> path{};
   shared_ptr<long> port{};
   shared_ptr<long> timeout{};
@@ -67668,6 +67690,9 @@ public:
     }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (monitoringRegion) {
+      res["MonitoringRegion"] = boost::any(*monitoringRegion);
     }
     if (path) {
       res["Path"] = boost::any(*path);
@@ -67705,6 +67730,9 @@ public:
     }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("MonitoringRegion") != m.end() && !m["MonitoringRegion"].empty()) {
+      monitoringRegion = make_shared<string>(boost::any_cast<string>(m["MonitoringRegion"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
