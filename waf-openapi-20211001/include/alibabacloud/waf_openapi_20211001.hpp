@@ -20386,6 +20386,307 @@ public:
 
   virtual ~DescribeInstanceResponse() = default;
 };
+class DescribeIpAbroadCountryInfosRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> abroadRegion{};
+  shared_ptr<string> country{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> language{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeIpAbroadCountryInfosRequest() {}
+
+  explicit DescribeIpAbroadCountryInfosRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abroadRegion) {
+      res["AbroadRegion"] = boost::any(*abroadRegion);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbroadRegion") != m.end() && !m["AbroadRegion"].empty()) {
+      abroadRegion = make_shared<string>(boost::any_cast<string>(m["AbroadRegion"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeIpAbroadCountryInfosRequest() = default;
+};
+class DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions : public Darabonba::Model {
+public:
+  shared_ptr<string> abroadRegionId{};
+  shared_ptr<string> abroadRegionName{};
+
+  DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions() {}
+
+  explicit DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abroadRegionId) {
+      res["AbroadRegionId"] = boost::any(*abroadRegionId);
+    }
+    if (abroadRegionName) {
+      res["AbroadRegionName"] = boost::any(*abroadRegionName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbroadRegionId") != m.end() && !m["AbroadRegionId"].empty()) {
+      abroadRegionId = make_shared<string>(boost::any_cast<string>(m["AbroadRegionId"]));
+    }
+    if (m.find("AbroadRegionName") != m.end() && !m["AbroadRegionName"].empty()) {
+      abroadRegionName = make_shared<string>(boost::any_cast<string>(m["AbroadRegionName"]));
+    }
+  }
+
+
+  virtual ~DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions() = default;
+};
+class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> continent{};
+  shared_ptr<string> country{};
+  shared_ptr<string> countryName{};
+  shared_ptr<vector<DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions>> regions{};
+
+  DescribeIpAbroadCountryInfosResponseBodyAbroadInfos() {}
+
+  explicit DescribeIpAbroadCountryInfosResponseBodyAbroadInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (continent) {
+      res["Continent"] = boost::any(*continent);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    if (countryName) {
+      res["CountryName"] = boost::any(*countryName);
+    }
+    if (regions) {
+      vector<boost::any> temp1;
+      for(auto item1:*regions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Regions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Continent") != m.end() && !m["Continent"].empty()) {
+      continent = make_shared<string>(boost::any_cast<string>(m["Continent"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+    if (m.find("CountryName") != m.end() && !m["CountryName"].empty()) {
+      countryName = make_shared<string>(boost::any_cast<string>(m["CountryName"]));
+    }
+    if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Regions"].type()) {
+        vector<DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Regions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        regions = make_shared<vector<DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIpAbroadCountryInfosResponseBodyAbroadInfos() = default;
+};
+class DescribeIpAbroadCountryInfosResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeIpAbroadCountryInfosResponseBodyAbroadInfos>> abroadInfos{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeIpAbroadCountryInfosResponseBody() {}
+
+  explicit DescribeIpAbroadCountryInfosResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abroadInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*abroadInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AbroadInfos"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbroadInfos") != m.end() && !m["AbroadInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["AbroadInfos"].type()) {
+        vector<DescribeIpAbroadCountryInfosResponseBodyAbroadInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AbroadInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIpAbroadCountryInfosResponseBodyAbroadInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        abroadInfos = make_shared<vector<DescribeIpAbroadCountryInfosResponseBodyAbroadInfos>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeIpAbroadCountryInfosResponseBody() = default;
+};
+class DescribeIpAbroadCountryInfosResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeIpAbroadCountryInfosResponseBody> body{};
+
+  DescribeIpAbroadCountryInfosResponse() {}
+
+  explicit DescribeIpAbroadCountryInfosResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeIpAbroadCountryInfosResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeIpAbroadCountryInfosResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIpAbroadCountryInfosResponse() = default;
+};
 class DescribeMajorProtectionBlackIpsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -39123,6 +39424,8 @@ public:
   DescribeHybridCloudUserResponse describeHybridCloudUser(shared_ptr<DescribeHybridCloudUserRequest> request);
   DescribeInstanceResponse describeInstanceWithOptions(shared_ptr<DescribeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceResponse describeInstance(shared_ptr<DescribeInstanceRequest> request);
+  DescribeIpAbroadCountryInfosResponse describeIpAbroadCountryInfosWithOptions(shared_ptr<DescribeIpAbroadCountryInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeIpAbroadCountryInfosResponse describeIpAbroadCountryInfos(shared_ptr<DescribeIpAbroadCountryInfosRequest> request);
   DescribeMajorProtectionBlackIpsResponse describeMajorProtectionBlackIpsWithOptions(shared_ptr<DescribeMajorProtectionBlackIpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeMajorProtectionBlackIpsResponse describeMajorProtectionBlackIps(shared_ptr<DescribeMajorProtectionBlackIpsRequest> request);
   DescribeMemberAccountsResponse describeMemberAccountsWithOptions(shared_ptr<DescribeMemberAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
