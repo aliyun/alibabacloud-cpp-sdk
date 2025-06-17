@@ -11872,6 +11872,7 @@ public:
   shared_ptr<string> hostType{};
   shared_ptr<long> idleTime{};
   shared_ptr<string> instanceNetworkType{};
+  shared_ptr<string> instanceSpec{};
   shared_ptr<string> lockMode{};
   shared_ptr<string> lockReason{};
   shared_ptr<string> maintainEndTime{};
@@ -12010,6 +12011,9 @@ public:
     }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
+    }
+    if (instanceSpec) {
+      res["InstanceSpec"] = boost::any(*instanceSpec);
     }
     if (lockMode) {
       res["LockMode"] = boost::any(*lockMode);
@@ -12218,6 +12222,9 @@ public:
     }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
+    }
+    if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
+      instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
     }
     if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
       lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
