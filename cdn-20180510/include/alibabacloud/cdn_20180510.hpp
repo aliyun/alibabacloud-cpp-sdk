@@ -3481,6 +3481,116 @@ public:
 
   virtual ~DeleteCdnSubTaskResponse() = default;
 };
+class DeleteCustomDomainSampleRateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domainNames{};
+
+  DeleteCustomDomainSampleRateRequest() {}
+
+  explicit DeleteCustomDomainSampleRateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainNames) {
+      res["DomainNames"] = boost::any(*domainNames);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainNames") != m.end() && !m["DomainNames"].empty()) {
+      domainNames = make_shared<string>(boost::any_cast<string>(m["DomainNames"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomDomainSampleRateRequest() = default;
+};
+class DeleteCustomDomainSampleRateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteCustomDomainSampleRateResponseBody() {}
+
+  explicit DeleteCustomDomainSampleRateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomDomainSampleRateResponseBody() = default;
+};
+class DeleteCustomDomainSampleRateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomDomainSampleRateResponseBody> body{};
+
+  DeleteCustomDomainSampleRateResponse() {}
+
+  explicit DeleteCustomDomainSampleRateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomDomainSampleRateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomDomainSampleRateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomDomainSampleRateResponse() = default;
+};
 class DeleteFCTriggerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> triggerARN{};
@@ -10512,6 +10622,8 @@ class DescribeCdnServiceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> changingAffectTime{};
   shared_ptr<string> changingChargeType{};
+  shared_ptr<string> changingDynamicBillingType{};
+  shared_ptr<string> dynamicBillingType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<string> openingTime{};
@@ -10533,6 +10645,12 @@ public:
     }
     if (changingChargeType) {
       res["ChangingChargeType"] = boost::any(*changingChargeType);
+    }
+    if (changingDynamicBillingType) {
+      res["ChangingDynamicBillingType"] = boost::any(*changingDynamicBillingType);
+    }
+    if (dynamicBillingType) {
+      res["DynamicBillingType"] = boost::any(*dynamicBillingType);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -10558,6 +10676,12 @@ public:
     }
     if (m.find("ChangingChargeType") != m.end() && !m["ChangingChargeType"].empty()) {
       changingChargeType = make_shared<string>(boost::any_cast<string>(m["ChangingChargeType"]));
+    }
+    if (m.find("ChangingDynamicBillingType") != m.end() && !m["ChangingDynamicBillingType"].empty()) {
+      changingDynamicBillingType = make_shared<string>(boost::any_cast<string>(m["ChangingDynamicBillingType"]));
+    }
+    if (m.find("DynamicBillingType") != m.end() && !m["DynamicBillingType"].empty()) {
+      dynamicBillingType = make_shared<string>(boost::any_cast<string>(m["DynamicBillingType"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -12563,10 +12687,17 @@ class DescribeCdnUserResourcePackageResponseBodyResourcePackageInfosResourcePack
 public:
   shared_ptr<string> commodityCode{};
   shared_ptr<string> currCapacity{};
+  shared_ptr<string> currCapacityBaseUnit{};
+  shared_ptr<string> currCapacityShowUnit{};
+  shared_ptr<string> currCapacityShowValue{};
   shared_ptr<string> displayName{};
   shared_ptr<string> endTime{};
   shared_ptr<string> initCapacity{};
+  shared_ptr<string> initCapacityBaseUnit{};
+  shared_ptr<string> initCapacityShowUnit{};
+  shared_ptr<string> initCapacityShowValue{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> region{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> templateName{};
@@ -12587,6 +12718,15 @@ public:
     if (currCapacity) {
       res["CurrCapacity"] = boost::any(*currCapacity);
     }
+    if (currCapacityBaseUnit) {
+      res["CurrCapacityBaseUnit"] = boost::any(*currCapacityBaseUnit);
+    }
+    if (currCapacityShowUnit) {
+      res["CurrCapacityShowUnit"] = boost::any(*currCapacityShowUnit);
+    }
+    if (currCapacityShowValue) {
+      res["CurrCapacityShowValue"] = boost::any(*currCapacityShowValue);
+    }
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
     }
@@ -12596,8 +12736,20 @@ public:
     if (initCapacity) {
       res["InitCapacity"] = boost::any(*initCapacity);
     }
+    if (initCapacityBaseUnit) {
+      res["InitCapacityBaseUnit"] = boost::any(*initCapacityBaseUnit);
+    }
+    if (initCapacityShowUnit) {
+      res["InitCapacityShowUnit"] = boost::any(*initCapacityShowUnit);
+    }
+    if (initCapacityShowValue) {
+      res["InitCapacityShowValue"] = boost::any(*initCapacityShowValue);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -12618,6 +12770,15 @@ public:
     if (m.find("CurrCapacity") != m.end() && !m["CurrCapacity"].empty()) {
       currCapacity = make_shared<string>(boost::any_cast<string>(m["CurrCapacity"]));
     }
+    if (m.find("CurrCapacityBaseUnit") != m.end() && !m["CurrCapacityBaseUnit"].empty()) {
+      currCapacityBaseUnit = make_shared<string>(boost::any_cast<string>(m["CurrCapacityBaseUnit"]));
+    }
+    if (m.find("CurrCapacityShowUnit") != m.end() && !m["CurrCapacityShowUnit"].empty()) {
+      currCapacityShowUnit = make_shared<string>(boost::any_cast<string>(m["CurrCapacityShowUnit"]));
+    }
+    if (m.find("CurrCapacityShowValue") != m.end() && !m["CurrCapacityShowValue"].empty()) {
+      currCapacityShowValue = make_shared<string>(boost::any_cast<string>(m["CurrCapacityShowValue"]));
+    }
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
     }
@@ -12627,8 +12788,20 @@ public:
     if (m.find("InitCapacity") != m.end() && !m["InitCapacity"].empty()) {
       initCapacity = make_shared<string>(boost::any_cast<string>(m["InitCapacity"]));
     }
+    if (m.find("InitCapacityBaseUnit") != m.end() && !m["InitCapacityBaseUnit"].empty()) {
+      initCapacityBaseUnit = make_shared<string>(boost::any_cast<string>(m["InitCapacityBaseUnit"]));
+    }
+    if (m.find("InitCapacityShowUnit") != m.end() && !m["InitCapacityShowUnit"].empty()) {
+      initCapacityShowUnit = make_shared<string>(boost::any_cast<string>(m["InitCapacityShowUnit"]));
+    }
+    if (m.find("InitCapacityShowValue") != m.end() && !m["InitCapacityShowValue"].empty()) {
+      initCapacityShowValue = make_shared<string>(boost::any_cast<string>(m["InitCapacityShowValue"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -13225,7 +13398,9 @@ public:
 };
 class DescribeCustomDomainSampleRateRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> domainName{};
+  shared_ptr<string> domainNames{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
 
   DescribeCustomDomainSampleRateRequest() {}
 
@@ -13237,15 +13412,27 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (domainName) {
-      res["DomainName"] = boost::any(*domainName);
+    if (domainNames) {
+      res["DomainNames"] = boost::any(*domainNames);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
-      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    if (m.find("DomainNames") != m.end() && !m["DomainNames"].empty()) {
+      domainNames = make_shared<string>(boost::any_cast<string>(m["DomainNames"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
   }
 
@@ -13291,6 +13478,9 @@ public:
 class DescribeCustomDomainSampleRateResponseBodyContent : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeCustomDomainSampleRateResponseBodyContentDomainContent>> domainContent{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
 
   DescribeCustomDomainSampleRateResponseBodyContent() {}
 
@@ -13309,6 +13499,15 @@ public:
       }
       res["DomainContent"] = boost::any(temp1);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -13325,6 +13524,15 @@ public:
         }
         domainContent = make_shared<vector<DescribeCustomDomainSampleRateResponseBodyContentDomainContent>>(expect1);
       }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
@@ -15244,6 +15452,8 @@ class DescribeDomainCnameResponseBodyCnameDatasData : public Darabonba::Model {
 public:
   shared_ptr<string> cname{};
   shared_ptr<string> domain{};
+  shared_ptr<string> errMsg{};
+  shared_ptr<string> passed{};
   shared_ptr<long> status{};
 
   DescribeDomainCnameResponseBodyCnameDatasData() {}
@@ -15262,6 +15472,12 @@ public:
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
+    if (errMsg) {
+      res["ErrMsg"] = boost::any(*errMsg);
+    }
+    if (passed) {
+      res["Passed"] = boost::any(*passed);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -15274,6 +15490,12 @@ public:
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("ErrMsg") != m.end() && !m["ErrMsg"].empty()) {
+      errMsg = make_shared<string>(boost::any_cast<string>(m["ErrMsg"]));
+    }
+    if (m.find("Passed") != m.end() && !m["Passed"].empty()) {
+      passed = make_shared<string>(boost::any_cast<string>(m["Passed"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
@@ -20509,8 +20731,6 @@ class DescribeDomainRealTimeSrcHttpCodeDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
   shared_ptr<string> endTime{};
-  shared_ptr<string> ispNameEn{};
-  shared_ptr<string> locationNameEn{};
   shared_ptr<string> startTime{};
 
   DescribeDomainRealTimeSrcHttpCodeDataRequest() {}
@@ -20529,12 +20749,6 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
-    if (ispNameEn) {
-      res["IspNameEn"] = boost::any(*ispNameEn);
-    }
-    if (locationNameEn) {
-      res["LocationNameEn"] = boost::any(*locationNameEn);
-    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -20547,12 +20761,6 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
-    }
-    if (m.find("IspNameEn") != m.end() && !m["IspNameEn"].empty()) {
-      ispNameEn = make_shared<string>(boost::any_cast<string>(m["IspNameEn"]));
-    }
-    if (m.find("LocationNameEn") != m.end() && !m["LocationNameEn"].empty()) {
-      locationNameEn = make_shared<string>(boost::any_cast<string>(m["LocationNameEn"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -34541,7 +34749,7 @@ public:
 class ModifyCustomDomainSampleRateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> baseConfigID{};
-  shared_ptr<string> domainName{};
+  shared_ptr<string> domainNames{};
   shared_ptr<double> sampleRate{};
   shared_ptr<long> sinkID{};
 
@@ -34558,8 +34766,8 @@ public:
     if (baseConfigID) {
       res["BaseConfigID"] = boost::any(*baseConfigID);
     }
-    if (domainName) {
-      res["DomainName"] = boost::any(*domainName);
+    if (domainNames) {
+      res["DomainNames"] = boost::any(*domainNames);
     }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
@@ -34574,8 +34782,8 @@ public:
     if (m.find("BaseConfigID") != m.end() && !m["BaseConfigID"].empty()) {
       baseConfigID = make_shared<string>(boost::any_cast<string>(m["BaseConfigID"]));
     }
-    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
-      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    if (m.find("DomainNames") != m.end() && !m["DomainNames"].empty()) {
+      domainNames = make_shared<string>(boost::any_cast<string>(m["DomainNames"]));
     }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<double>(boost::any_cast<double>(m["SampleRate"]));
@@ -34588,8 +34796,95 @@ public:
 
   virtual ~ModifyCustomDomainSampleRateRequest() = default;
 };
+class ModifyCustomDomainSampleRateResponseBodyContentContent : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<double> sampleRate{};
+
+  ModifyCustomDomainSampleRateResponseBodyContentContent() {}
+
+  explicit ModifyCustomDomainSampleRateResponseBodyContentContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<double>(boost::any_cast<double>(m["SampleRate"]));
+    }
+  }
+
+
+  virtual ~ModifyCustomDomainSampleRateResponseBodyContentContent() = default;
+};
+class ModifyCustomDomainSampleRateResponseBodyContent : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyCustomDomainSampleRateResponseBodyContentContent>> content{};
+
+  ModifyCustomDomainSampleRateResponseBodyContent() {}
+
+  explicit ModifyCustomDomainSampleRateResponseBodyContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      vector<boost::any> temp1;
+      for(auto item1:*content){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["content"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      if (typeid(vector<boost::any>) == m["content"].type()) {
+        vector<ModifyCustomDomainSampleRateResponseBodyContentContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["content"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCustomDomainSampleRateResponseBodyContentContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        content = make_shared<vector<ModifyCustomDomainSampleRateResponseBodyContentContent>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyCustomDomainSampleRateResponseBodyContent() = default;
+};
 class ModifyCustomDomainSampleRateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<ModifyCustomDomainSampleRateResponseBodyContent> content{};
   shared_ptr<string> requestId{};
 
   ModifyCustomDomainSampleRateResponseBody() {}
@@ -34602,6 +34897,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (content) {
+      res["Content"] = content ? boost::any(content->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -34609,6 +34907,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Content"].type()) {
+        ModifyCustomDomainSampleRateResponseBodyContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Content"]));
+        content = make_shared<ModifyCustomDomainSampleRateResponseBodyContent>(model1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -37936,6 +38241,8 @@ public:
   DeleteCdnDomainResponse deleteCdnDomain(shared_ptr<DeleteCdnDomainRequest> request);
   DeleteCdnSubTaskResponse deleteCdnSubTaskWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteCdnSubTaskResponse deleteCdnSubTask();
+  DeleteCustomDomainSampleRateResponse deleteCustomDomainSampleRateWithOptions(shared_ptr<DeleteCustomDomainSampleRateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomDomainSampleRateResponse deleteCustomDomainSampleRate(shared_ptr<DeleteCustomDomainSampleRateRequest> request);
   DeleteFCTriggerResponse deleteFCTriggerWithOptions(shared_ptr<DeleteFCTriggerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFCTriggerResponse deleteFCTrigger(shared_ptr<DeleteFCTriggerRequest> request);
   DeleteRealTimeLogLogstoreResponse deleteRealTimeLogLogstoreWithOptions(shared_ptr<DeleteRealTimeLogLogstoreRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
