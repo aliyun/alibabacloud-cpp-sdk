@@ -68,6 +68,39 @@ AcceptDemandResponse Alibabacloud_Domain20180208::Client::acceptDemand(shared_pt
   return acceptDemandWithOptions(request, runtime);
 }
 
+BatchIntrudeDomainsResponse Alibabacloud_Domain20180208::Client::batchIntrudeDomainsWithOptions(shared_ptr<BatchIntrudeDomainsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<BatchIntrudeDomainsShrinkRequest> request = make_shared<BatchIntrudeDomainsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->domainNames)) {
+    request->domainNamesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->domainNames, make_shared<string>("DomainNames"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainNamesShrink)) {
+    query->insert(pair<string, string>("DomainNames", *request->domainNamesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchIntrudeDomains"))},
+    {"version", boost::any(string("2018-02-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchIntrudeDomainsResponse(callApi(params, req, runtime));
+}
+
+BatchIntrudeDomainsResponse Alibabacloud_Domain20180208::Client::batchIntrudeDomains(shared_ptr<BatchIntrudeDomainsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchIntrudeDomainsWithOptions(request, runtime);
+}
+
 BidDomainResponse Alibabacloud_Domain20180208::Client::bidDomainWithOptions(shared_ptr<BidDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -656,6 +689,34 @@ QueryExchangeRateResponse Alibabacloud_Domain20180208::Client::queryExchangeRate
 QueryExchangeRateResponse Alibabacloud_Domain20180208::Client::queryExchangeRate(shared_ptr<QueryExchangeRateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryExchangeRateWithOptions(request, runtime);
+}
+
+QueryExportAuctionDetailResponse Alibabacloud_Domain20180208::Client::queryExportAuctionDetailWithOptions(shared_ptr<QueryExportAuctionDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->auctionId)) {
+    query->insert(pair<string, string>("AuctionId", *request->auctionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryExportAuctionDetail"))},
+    {"version", boost::any(string("2018-02-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryExportAuctionDetailResponse(callApi(params, req, runtime));
+}
+
+QueryExportAuctionDetailResponse Alibabacloud_Domain20180208::Client::queryExportAuctionDetail(shared_ptr<QueryExportAuctionDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryExportAuctionDetailWithOptions(request, runtime);
 }
 
 QueryExportDomainExpireSnatchsResponse Alibabacloud_Domain20180208::Client::queryExportDomainExpireSnatchsWithOptions(shared_ptr<QueryExportDomainExpireSnatchsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

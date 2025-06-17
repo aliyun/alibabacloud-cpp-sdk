@@ -138,6 +138,341 @@ public:
 
   virtual ~AcceptDemandResponse() = default;
 };
+class BatchIntrudeDomainsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> domainNames{};
+
+  BatchIntrudeDomainsRequest() {}
+
+  explicit BatchIntrudeDomainsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainNames) {
+      res["DomainNames"] = boost::any(*domainNames);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainNames") != m.end() && !m["DomainNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DomainNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DomainNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      domainNames = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~BatchIntrudeDomainsRequest() = default;
+};
+class BatchIntrudeDomainsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domainNamesShrink{};
+
+  BatchIntrudeDomainsShrinkRequest() {}
+
+  explicit BatchIntrudeDomainsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainNamesShrink) {
+      res["DomainNames"] = boost::any(*domainNamesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainNames") != m.end() && !m["DomainNames"].empty()) {
+      domainNamesShrink = make_shared<string>(boost::any_cast<string>(m["DomainNames"]));
+    }
+  }
+
+
+  virtual ~BatchIntrudeDomainsShrinkRequest() = default;
+};
+class BatchIntrudeDomainsResponseBodyDataFailureList : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<bool> success{};
+
+  BatchIntrudeDomainsResponseBodyDataFailureList() {}
+
+  explicit BatchIntrudeDomainsResponseBodyDataFailureList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BatchIntrudeDomainsResponseBodyDataFailureList() = default;
+};
+class BatchIntrudeDomainsResponseBodyDataSuccessList : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<bool> success{};
+
+  BatchIntrudeDomainsResponseBodyDataSuccessList() {}
+
+  explicit BatchIntrudeDomainsResponseBodyDataSuccessList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BatchIntrudeDomainsResponseBodyDataSuccessList() = default;
+};
+class BatchIntrudeDomainsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> failureCount{};
+  shared_ptr<vector<BatchIntrudeDomainsResponseBodyDataFailureList>> failureList{};
+  shared_ptr<long> successCount{};
+  shared_ptr<vector<BatchIntrudeDomainsResponseBodyDataSuccessList>> successList{};
+
+  BatchIntrudeDomainsResponseBodyData() {}
+
+  explicit BatchIntrudeDomainsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failureCount) {
+      res["FailureCount"] = boost::any(*failureCount);
+    }
+    if (failureList) {
+      vector<boost::any> temp1;
+      for(auto item1:*failureList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailureList"] = boost::any(temp1);
+    }
+    if (successCount) {
+      res["SuccessCount"] = boost::any(*successCount);
+    }
+    if (successList) {
+      vector<boost::any> temp1;
+      for(auto item1:*successList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SuccessList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailureCount") != m.end() && !m["FailureCount"].empty()) {
+      failureCount = make_shared<long>(boost::any_cast<long>(m["FailureCount"]));
+    }
+    if (m.find("FailureList") != m.end() && !m["FailureList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailureList"].type()) {
+        vector<BatchIntrudeDomainsResponseBodyDataFailureList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailureList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchIntrudeDomainsResponseBodyDataFailureList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failureList = make_shared<vector<BatchIntrudeDomainsResponseBodyDataFailureList>>(expect1);
+      }
+    }
+    if (m.find("SuccessCount") != m.end() && !m["SuccessCount"].empty()) {
+      successCount = make_shared<long>(boost::any_cast<long>(m["SuccessCount"]));
+    }
+    if (m.find("SuccessList") != m.end() && !m["SuccessList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SuccessList"].type()) {
+        vector<BatchIntrudeDomainsResponseBodyDataSuccessList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SuccessList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchIntrudeDomainsResponseBodyDataSuccessList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        successList = make_shared<vector<BatchIntrudeDomainsResponseBodyDataSuccessList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BatchIntrudeDomainsResponseBodyData() = default;
+};
+class BatchIntrudeDomainsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<BatchIntrudeDomainsResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  BatchIntrudeDomainsResponseBody() {}
+
+  explicit BatchIntrudeDomainsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        BatchIntrudeDomainsResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<BatchIntrudeDomainsResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~BatchIntrudeDomainsResponseBody() = default;
+};
+class BatchIntrudeDomainsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchIntrudeDomainsResponseBody> body{};
+
+  BatchIntrudeDomainsResponse() {}
+
+  explicit BatchIntrudeDomainsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchIntrudeDomainsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchIntrudeDomainsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchIntrudeDomainsResponse() = default;
+};
 class BidDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> auctionId{};
@@ -3987,6 +4322,193 @@ public:
 
   virtual ~QueryExchangeRateResponse() = default;
 };
+class QueryExportAuctionDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> auctionId{};
+
+  QueryExportAuctionDetailRequest() {}
+
+  explicit QueryExportAuctionDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auctionId) {
+      res["AuctionId"] = boost::any(*auctionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuctionId") != m.end() && !m["AuctionId"].empty()) {
+      auctionId = make_shared<string>(boost::any_cast<string>(m["AuctionId"]));
+    }
+  }
+
+
+  virtual ~QueryExportAuctionDetailRequest() = default;
+};
+class QueryExportAuctionDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> auctionEndTime{};
+  shared_ptr<string> auctionId{};
+  shared_ptr<string> auctionStatus{};
+  shared_ptr<string> bookEndTime{};
+  shared_ptr<string> buyerStatus{};
+  shared_ptr<double> currentPrice{};
+  shared_ptr<double> increasePrice{};
+  shared_ptr<double> myPrice{};
+  shared_ptr<double> myProxyPrice{};
+  shared_ptr<double> othersMaxProxyPrice{};
+  shared_ptr<double> proxyPrice{};
+  shared_ptr<string> requestId{};
+
+  QueryExportAuctionDetailResponseBody() {}
+
+  explicit QueryExportAuctionDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auctionEndTime) {
+      res["AuctionEndTime"] = boost::any(*auctionEndTime);
+    }
+    if (auctionId) {
+      res["AuctionId"] = boost::any(*auctionId);
+    }
+    if (auctionStatus) {
+      res["AuctionStatus"] = boost::any(*auctionStatus);
+    }
+    if (bookEndTime) {
+      res["BookEndTime"] = boost::any(*bookEndTime);
+    }
+    if (buyerStatus) {
+      res["BuyerStatus"] = boost::any(*buyerStatus);
+    }
+    if (currentPrice) {
+      res["CurrentPrice"] = boost::any(*currentPrice);
+    }
+    if (increasePrice) {
+      res["IncreasePrice"] = boost::any(*increasePrice);
+    }
+    if (myPrice) {
+      res["MyPrice"] = boost::any(*myPrice);
+    }
+    if (myProxyPrice) {
+      res["MyProxyPrice"] = boost::any(*myProxyPrice);
+    }
+    if (othersMaxProxyPrice) {
+      res["OthersMaxProxyPrice"] = boost::any(*othersMaxProxyPrice);
+    }
+    if (proxyPrice) {
+      res["ProxyPrice"] = boost::any(*proxyPrice);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuctionEndTime") != m.end() && !m["AuctionEndTime"].empty()) {
+      auctionEndTime = make_shared<string>(boost::any_cast<string>(m["AuctionEndTime"]));
+    }
+    if (m.find("AuctionId") != m.end() && !m["AuctionId"].empty()) {
+      auctionId = make_shared<string>(boost::any_cast<string>(m["AuctionId"]));
+    }
+    if (m.find("AuctionStatus") != m.end() && !m["AuctionStatus"].empty()) {
+      auctionStatus = make_shared<string>(boost::any_cast<string>(m["AuctionStatus"]));
+    }
+    if (m.find("BookEndTime") != m.end() && !m["BookEndTime"].empty()) {
+      bookEndTime = make_shared<string>(boost::any_cast<string>(m["BookEndTime"]));
+    }
+    if (m.find("BuyerStatus") != m.end() && !m["BuyerStatus"].empty()) {
+      buyerStatus = make_shared<string>(boost::any_cast<string>(m["BuyerStatus"]));
+    }
+    if (m.find("CurrentPrice") != m.end() && !m["CurrentPrice"].empty()) {
+      currentPrice = make_shared<double>(boost::any_cast<double>(m["CurrentPrice"]));
+    }
+    if (m.find("IncreasePrice") != m.end() && !m["IncreasePrice"].empty()) {
+      increasePrice = make_shared<double>(boost::any_cast<double>(m["IncreasePrice"]));
+    }
+    if (m.find("MyPrice") != m.end() && !m["MyPrice"].empty()) {
+      myPrice = make_shared<double>(boost::any_cast<double>(m["MyPrice"]));
+    }
+    if (m.find("MyProxyPrice") != m.end() && !m["MyProxyPrice"].empty()) {
+      myProxyPrice = make_shared<double>(boost::any_cast<double>(m["MyProxyPrice"]));
+    }
+    if (m.find("OthersMaxProxyPrice") != m.end() && !m["OthersMaxProxyPrice"].empty()) {
+      othersMaxProxyPrice = make_shared<double>(boost::any_cast<double>(m["OthersMaxProxyPrice"]));
+    }
+    if (m.find("ProxyPrice") != m.end() && !m["ProxyPrice"].empty()) {
+      proxyPrice = make_shared<double>(boost::any_cast<double>(m["ProxyPrice"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~QueryExportAuctionDetailResponseBody() = default;
+};
+class QueryExportAuctionDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryExportAuctionDetailResponseBody> body{};
+
+  QueryExportAuctionDetailResponse() {}
+
+  explicit QueryExportAuctionDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryExportAuctionDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryExportAuctionDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryExportAuctionDetailResponse() = default;
+};
 class QueryExportDomainExpireSnatchsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> currentId{};
@@ -4067,11 +4589,13 @@ public:
   shared_ptr<string> productId{};
   shared_ptr<string> publishTime{};
   shared_ptr<string> regDate{};
+  shared_ptr<double> renewPrice{};
   shared_ptr<bool> reserved{};
   shared_ptr<double> rmbPrice{};
   shared_ptr<long> s360Weight{};
   shared_ptr<string> seoAttributes{};
   shared_ptr<string> shortName{};
+  shared_ptr<string> snatchNo{};
   shared_ptr<string> snatchTypeDesc{};
   shared_ptr<long> sougouAntiLink{};
   shared_ptr<long> sougouIndex{};
@@ -4173,6 +4697,9 @@ public:
     if (regDate) {
       res["RegDate"] = boost::any(*regDate);
     }
+    if (renewPrice) {
+      res["RenewPrice"] = boost::any(*renewPrice);
+    }
     if (reserved) {
       res["Reserved"] = boost::any(*reserved);
     }
@@ -4187,6 +4714,9 @@ public:
     }
     if (shortName) {
       res["ShortName"] = boost::any(*shortName);
+    }
+    if (snatchNo) {
+      res["SnatchNo"] = boost::any(*snatchNo);
     }
     if (snatchTypeDesc) {
       res["SnatchTypeDesc"] = boost::any(*snatchTypeDesc);
@@ -4294,6 +4824,9 @@ public:
     if (m.find("RegDate") != m.end() && !m["RegDate"].empty()) {
       regDate = make_shared<string>(boost::any_cast<string>(m["RegDate"]));
     }
+    if (m.find("RenewPrice") != m.end() && !m["RenewPrice"].empty()) {
+      renewPrice = make_shared<double>(boost::any_cast<double>(m["RenewPrice"]));
+    }
     if (m.find("Reserved") != m.end() && !m["Reserved"].empty()) {
       reserved = make_shared<bool>(boost::any_cast<bool>(m["Reserved"]));
     }
@@ -4308,6 +4841,9 @@ public:
     }
     if (m.find("ShortName") != m.end() && !m["ShortName"].empty()) {
       shortName = make_shared<string>(boost::any_cast<string>(m["ShortName"]));
+    }
+    if (m.find("SnatchNo") != m.end() && !m["SnatchNo"].empty()) {
+      snatchNo = make_shared<string>(boost::any_cast<string>(m["SnatchNo"]));
     }
     if (m.find("SnatchTypeDesc") != m.end() && !m["SnatchTypeDesc"].empty()) {
       snatchTypeDesc = make_shared<string>(boost::any_cast<string>(m["SnatchTypeDesc"]));
@@ -5925,6 +6461,8 @@ public:
                      shared_ptr<string> endpoint);
   AcceptDemandResponse acceptDemandWithOptions(shared_ptr<AcceptDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AcceptDemandResponse acceptDemand(shared_ptr<AcceptDemandRequest> request);
+  BatchIntrudeDomainsResponse batchIntrudeDomainsWithOptions(shared_ptr<BatchIntrudeDomainsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchIntrudeDomainsResponse batchIntrudeDomains(shared_ptr<BatchIntrudeDomainsRequest> request);
   BidDomainResponse bidDomainWithOptions(shared_ptr<BidDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BidDomainResponse bidDomain(shared_ptr<BidDomainRequest> request);
   ChangeAuctionResponse changeAuctionWithOptions(shared_ptr<ChangeAuctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5963,6 +6501,8 @@ public:
   QueryDomainTransferStatusResponse queryDomainTransferStatus(shared_ptr<QueryDomainTransferStatusRequest> request);
   QueryExchangeRateResponse queryExchangeRateWithOptions(shared_ptr<QueryExchangeRateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryExchangeRateResponse queryExchangeRate(shared_ptr<QueryExchangeRateRequest> request);
+  QueryExportAuctionDetailResponse queryExportAuctionDetailWithOptions(shared_ptr<QueryExportAuctionDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryExportAuctionDetailResponse queryExportAuctionDetail(shared_ptr<QueryExportAuctionDetailRequest> request);
   QueryExportDomainExpireSnatchsResponse queryExportDomainExpireSnatchsWithOptions(shared_ptr<QueryExportDomainExpireSnatchsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryExportDomainExpireSnatchsResponse queryExportDomainExpireSnatchs(shared_ptr<QueryExportDomainExpireSnatchsRequest> request);
   QueryPurchasedDomainsResponse queryPurchasedDomainsWithOptions(shared_ptr<QueryPurchasedDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
