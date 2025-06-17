@@ -288,6 +288,7 @@ public:
   shared_ptr<long> addressType{};
   shared_ptr<string> clickTrace{};
   shared_ptr<string> headers{};
+  shared_ptr<string> ipPoolId{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> receiversName{};
   shared_ptr<string> replyAddress{};
@@ -320,6 +321,9 @@ public:
     }
     if (headers) {
       res["Headers"] = boost::any(*headers);
+    }
+    if (ipPoolId) {
+      res["IpPoolId"] = boost::any(*ipPoolId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -366,6 +370,9 @@ public:
     }
     if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
       headers = make_shared<string>(boost::any_cast<string>(m["Headers"]));
+    }
+    if (m.find("IpPoolId") != m.end() && !m["IpPoolId"].empty()) {
+      ipPoolId = make_shared<string>(boost::any_cast<string>(m["IpPoolId"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -7047,6 +7054,8 @@ class QueryTaskByParamResponseBodyDataTask : public Darabonba::Model {
 public:
   shared_ptr<string> addressType{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> ipPoolId{};
+  shared_ptr<string> ipPoolName{};
   shared_ptr<string> receiversName{};
   shared_ptr<string> requestCount{};
   shared_ptr<string> tagName{};
@@ -7070,6 +7079,12 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (ipPoolId) {
+      res["IpPoolId"] = boost::any(*ipPoolId);
+    }
+    if (ipPoolName) {
+      res["IpPoolName"] = boost::any(*ipPoolName);
     }
     if (receiversName) {
       res["ReceiversName"] = boost::any(*receiversName);
@@ -7101,6 +7116,12 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("IpPoolId") != m.end() && !m["IpPoolId"].empty()) {
+      ipPoolId = make_shared<string>(boost::any_cast<string>(m["IpPoolId"]));
+    }
+    if (m.find("IpPoolName") != m.end() && !m["IpPoolName"].empty()) {
+      ipPoolName = make_shared<string>(boost::any_cast<string>(m["IpPoolName"]));
     }
     if (m.find("ReceiversName") != m.end() && !m["ReceiversName"].empty()) {
       receiversName = make_shared<string>(boost::any_cast<string>(m["ReceiversName"]));
@@ -8600,6 +8621,7 @@ public:
   shared_ptr<string> fromAlias{};
   shared_ptr<string> headers{};
   shared_ptr<string> htmlBody{};
+  shared_ptr<string> ipPoolId{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> replyAddress{};
   shared_ptr<string> replyAddressAlias{};
@@ -8640,6 +8662,9 @@ public:
     }
     if (htmlBody) {
       res["HtmlBody"] = boost::any(*htmlBody);
+    }
+    if (ipPoolId) {
+      res["IpPoolId"] = boost::any(*ipPoolId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -8698,6 +8723,9 @@ public:
     }
     if (m.find("HtmlBody") != m.end() && !m["HtmlBody"].empty()) {
       htmlBody = make_shared<string>(boost::any_cast<string>(m["HtmlBody"]));
+    }
+    if (m.find("IpPoolId") != m.end() && !m["IpPoolId"].empty()) {
+      ipPoolId = make_shared<string>(boost::any_cast<string>(m["IpPoolId"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
