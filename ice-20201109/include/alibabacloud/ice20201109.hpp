@@ -3692,200 +3692,6 @@ public:
 
   virtual ~MediaConvertInput() = default;
 };
-class MediaConvertSegment : public Darabonba::Model {
-public:
-  shared_ptr<long> duration{};
-  shared_ptr<string> forceSegTime{};
-
-  MediaConvertSegment() {}
-
-  explicit MediaConvertSegment(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (duration) {
-      res["Duration"] = boost::any(*duration);
-    }
-    if (forceSegTime) {
-      res["ForceSegTime"] = boost::any(*forceSegTime);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
-      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
-    }
-    if (m.find("ForceSegTime") != m.end() && !m["ForceSegTime"].empty()) {
-      forceSegTime = make_shared<string>(boost::any_cast<string>(m["ForceSegTime"]));
-    }
-  }
-
-
-  virtual ~MediaConvertSegment() = default;
-};
-class MediaConvertMuxConfig : public Darabonba::Model {
-public:
-  shared_ptr<MediaConvertSegment> segment{};
-
-  MediaConvertMuxConfig() {}
-
-  explicit MediaConvertMuxConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (segment) {
-      res["Segment"] = segment ? boost::any(segment->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Segment") != m.end() && !m["Segment"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Segment"].type()) {
-        MediaConvertSegment model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Segment"]));
-        segment = make_shared<MediaConvertSegment>(model1);
-      }
-    }
-  }
-
-
-  virtual ~MediaConvertMuxConfig() = default;
-};
-class MediaConvertOutput : public Darabonba::Model {
-public:
-  shared_ptr<string> features{};
-  shared_ptr<string> name{};
-  shared_ptr<MediaObject> outputFile{};
-  shared_ptr<string> overrideParams{};
-  shared_ptr<long> priority{};
-  shared_ptr<string> templateId{};
-
-  MediaConvertOutput() {}
-
-  explicit MediaConvertOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (features) {
-      res["Features"] = boost::any(*features);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (outputFile) {
-      res["OutputFile"] = outputFile ? boost::any(outputFile->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (overrideParams) {
-      res["OverrideParams"] = boost::any(*overrideParams);
-    }
-    if (priority) {
-      res["Priority"] = boost::any(*priority);
-    }
-    if (templateId) {
-      res["TemplateId"] = boost::any(*templateId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Features") != m.end() && !m["Features"].empty()) {
-      features = make_shared<string>(boost::any_cast<string>(m["Features"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("OutputFile") != m.end() && !m["OutputFile"].empty()) {
-      if (typeid(map<string, boost::any>) == m["OutputFile"].type()) {
-        MediaObject model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OutputFile"]));
-        outputFile = make_shared<MediaObject>(model1);
-      }
-    }
-    if (m.find("OverrideParams") != m.end() && !m["OverrideParams"].empty()) {
-      overrideParams = make_shared<string>(boost::any_cast<string>(m["OverrideParams"]));
-    }
-    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
-      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
-    }
-    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
-      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
-    }
-  }
-
-
-  virtual ~MediaConvertOutput() = default;
-};
-class MediaConvertOutputDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
-  shared_ptr<string> name{};
-  shared_ptr<string> status{};
-  shared_ptr<string> taskId{};
-
-  MediaConvertOutputDetail() {}
-
-  explicit MediaConvertOutputDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (taskId) {
-      res["TaskId"] = boost::any(*taskId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
-      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
-    }
-  }
-
-
-  virtual ~MediaConvertOutputDetail() = default;
-};
 class MediaConvertOutputGroupConfig : public Darabonba::Model {
 public:
   shared_ptr<string> manifestName{};
@@ -4058,9 +3864,831 @@ public:
 
   virtual ~MediaConvertOutputGroup() = default;
 };
+class MediaConvertOutput : public Darabonba::Model {
+public:
+  shared_ptr<string> features{};
+  shared_ptr<string> name{};
+  shared_ptr<MediaObject> outputFile{};
+  shared_ptr<string> overrideParams{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> templateId{};
+
+  MediaConvertOutput() {}
+
+  explicit MediaConvertOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (features) {
+      res["Features"] = boost::any(*features);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (outputFile) {
+      res["OutputFile"] = outputFile ? boost::any(outputFile->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (overrideParams) {
+      res["OverrideParams"] = boost::any(*overrideParams);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Features") != m.end() && !m["Features"].empty()) {
+      features = make_shared<string>(boost::any_cast<string>(m["Features"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OutputFile") != m.end() && !m["OutputFile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OutputFile"].type()) {
+        MediaObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OutputFile"]));
+        outputFile = make_shared<MediaObject>(model1);
+      }
+    }
+    if (m.find("OverrideParams") != m.end() && !m["OverrideParams"].empty()) {
+      overrideParams = make_shared<string>(boost::any_cast<string>(m["OverrideParams"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~MediaConvertOutput() = default;
+};
+class MediaConvertJobConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<MediaConvertInput>> inputs{};
+  shared_ptr<string> jobName{};
+  shared_ptr<vector<MediaConvertOutputGroup>> outputGroups{};
+  shared_ptr<vector<MediaConvertOutput>> outputs{};
+
+  MediaConvertJobConfig() {}
+
+  explicit MediaConvertJobConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputs) {
+      vector<boost::any> temp1;
+      for(auto item1:*inputs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Inputs"] = boost::any(temp1);
+    }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
+    }
+    if (outputGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*outputGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OutputGroups"] = boost::any(temp1);
+    }
+    if (outputs) {
+      vector<boost::any> temp1;
+      for(auto item1:*outputs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Outputs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Inputs") != m.end() && !m["Inputs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Inputs"].type()) {
+        vector<MediaConvertInput> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Inputs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertInput model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inputs = make_shared<vector<MediaConvertInput>>(expect1);
+      }
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("OutputGroups") != m.end() && !m["OutputGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["OutputGroups"].type()) {
+        vector<MediaConvertOutputGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OutputGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertOutputGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outputGroups = make_shared<vector<MediaConvertOutputGroup>>(expect1);
+      }
+    }
+    if (m.find("Outputs") != m.end() && !m["Outputs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Outputs"].type()) {
+        vector<MediaConvertOutput> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Outputs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertOutput model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outputs = make_shared<vector<MediaConvertOutput>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~MediaConvertJobConfig() = default;
+};
+class MediaConvertOutputDetailResultOutputFile : public Darabonba::Model {
+public:
+  shared_ptr<string> media{};
+  shared_ptr<string> type{};
+  shared_ptr<string> url{};
+
+  MediaConvertOutputDetailResultOutputFile() {}
+
+  explicit MediaConvertOutputDetailResultOutputFile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (media) {
+      res["Media"] = boost::any(*media);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Media") != m.end() && !m["Media"].empty()) {
+      media = make_shared<string>(boost::any_cast<string>(m["Media"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~MediaConvertOutputDetailResultOutputFile() = default;
+};
+class MediaConvertOutputDetailFileMetaAudioStreamInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> bitrate{};
+  shared_ptr<string> channelLayout{};
+  shared_ptr<string> channels{};
+  shared_ptr<string> codecLongName{};
+  shared_ptr<string> codecName{};
+  shared_ptr<string> codecTag{};
+  shared_ptr<string> codecTagString{};
+  shared_ptr<string> codecTimeBase{};
+  shared_ptr<string> duration{};
+  shared_ptr<string> index{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> sampleFmt{};
+  shared_ptr<string> sampleRate{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> timebase{};
+
+  MediaConvertOutputDetailFileMetaAudioStreamInfoList() {}
+
+  explicit MediaConvertOutputDetailFileMetaAudioStreamInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bitrate) {
+      res["Bitrate"] = boost::any(*bitrate);
+    }
+    if (channelLayout) {
+      res["ChannelLayout"] = boost::any(*channelLayout);
+    }
+    if (channels) {
+      res["Channels"] = boost::any(*channels);
+    }
+    if (codecLongName) {
+      res["CodecLongName"] = boost::any(*codecLongName);
+    }
+    if (codecName) {
+      res["CodecName"] = boost::any(*codecName);
+    }
+    if (codecTag) {
+      res["CodecTag"] = boost::any(*codecTag);
+    }
+    if (codecTagString) {
+      res["CodecTagString"] = boost::any(*codecTagString);
+    }
+    if (codecTimeBase) {
+      res["CodecTimeBase"] = boost::any(*codecTimeBase);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (sampleFmt) {
+      res["SampleFmt"] = boost::any(*sampleFmt);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (timebase) {
+      res["Timebase"] = boost::any(*timebase);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
+      bitrate = make_shared<string>(boost::any_cast<string>(m["Bitrate"]));
+    }
+    if (m.find("ChannelLayout") != m.end() && !m["ChannelLayout"].empty()) {
+      channelLayout = make_shared<string>(boost::any_cast<string>(m["ChannelLayout"]));
+    }
+    if (m.find("Channels") != m.end() && !m["Channels"].empty()) {
+      channels = make_shared<string>(boost::any_cast<string>(m["Channels"]));
+    }
+    if (m.find("CodecLongName") != m.end() && !m["CodecLongName"].empty()) {
+      codecLongName = make_shared<string>(boost::any_cast<string>(m["CodecLongName"]));
+    }
+    if (m.find("CodecName") != m.end() && !m["CodecName"].empty()) {
+      codecName = make_shared<string>(boost::any_cast<string>(m["CodecName"]));
+    }
+    if (m.find("CodecTag") != m.end() && !m["CodecTag"].empty()) {
+      codecTag = make_shared<string>(boost::any_cast<string>(m["CodecTag"]));
+    }
+    if (m.find("CodecTagString") != m.end() && !m["CodecTagString"].empty()) {
+      codecTagString = make_shared<string>(boost::any_cast<string>(m["CodecTagString"]));
+    }
+    if (m.find("CodecTimeBase") != m.end() && !m["CodecTimeBase"].empty()) {
+      codecTimeBase = make_shared<string>(boost::any_cast<string>(m["CodecTimeBase"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["Index"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("SampleFmt") != m.end() && !m["SampleFmt"].empty()) {
+      sampleFmt = make_shared<string>(boost::any_cast<string>(m["SampleFmt"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Timebase") != m.end() && !m["Timebase"].empty()) {
+      timebase = make_shared<string>(boost::any_cast<string>(m["Timebase"]));
+    }
+  }
+
+
+  virtual ~MediaConvertOutputDetailFileMetaAudioStreamInfoList() = default;
+};
+class MediaConvertOutputDetailFileMetaFileBasicInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> bitrate{};
+  shared_ptr<string> duration{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileSize{};
+  shared_ptr<string> fileStatus{};
+  shared_ptr<string> fileType{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> formatName{};
+  shared_ptr<string> height{};
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> region{};
+  shared_ptr<string> width{};
+
+  MediaConvertOutputDetailFileMetaFileBasicInfo() {}
+
+  explicit MediaConvertOutputDetailFileMetaFileBasicInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bitrate) {
+      res["Bitrate"] = boost::any(*bitrate);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileSize) {
+      res["FileSize"] = boost::any(*fileSize);
+    }
+    if (fileStatus) {
+      res["FileStatus"] = boost::any(*fileStatus);
+    }
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (formatName) {
+      res["FormatName"] = boost::any(*formatName);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
+      bitrate = make_shared<string>(boost::any_cast<string>(m["Bitrate"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileSize") != m.end() && !m["FileSize"].empty()) {
+      fileSize = make_shared<string>(boost::any_cast<string>(m["FileSize"]));
+    }
+    if (m.find("FileStatus") != m.end() && !m["FileStatus"].empty()) {
+      fileStatus = make_shared<string>(boost::any_cast<string>(m["FileStatus"]));
+    }
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<string>(boost::any_cast<string>(m["FileType"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("FormatName") != m.end() && !m["FormatName"].empty()) {
+      formatName = make_shared<string>(boost::any_cast<string>(m["FormatName"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<string>(boost::any_cast<string>(m["Height"]));
+    }
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<string>(boost::any_cast<string>(m["Width"]));
+    }
+  }
+
+
+  virtual ~MediaConvertOutputDetailFileMetaFileBasicInfo() = default;
+};
+class MediaConvertOutputDetailFileMetaVideoStreamInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> avgFps{};
+  shared_ptr<string> bitRate{};
+  shared_ptr<string> codecLongName{};
+  shared_ptr<string> codecName{};
+  shared_ptr<string> codecTag{};
+  shared_ptr<string> codecTagString{};
+  shared_ptr<string> codecTimeBase{};
+  shared_ptr<string> dar{};
+  shared_ptr<string> duration{};
+  shared_ptr<string> fps{};
+  shared_ptr<string> hasBFrames{};
+  shared_ptr<string> height{};
+  shared_ptr<string> index{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> level{};
+  shared_ptr<string> numFrames{};
+  shared_ptr<string> pixFmt{};
+  shared_ptr<string> profile{};
+  shared_ptr<string> rotate{};
+  shared_ptr<string> sar{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> timeBase{};
+  shared_ptr<string> width{};
+
+  MediaConvertOutputDetailFileMetaVideoStreamInfoList() {}
+
+  explicit MediaConvertOutputDetailFileMetaVideoStreamInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (avgFps) {
+      res["Avg_fps"] = boost::any(*avgFps);
+    }
+    if (bitRate) {
+      res["Bit_rate"] = boost::any(*bitRate);
+    }
+    if (codecLongName) {
+      res["Codec_long_name"] = boost::any(*codecLongName);
+    }
+    if (codecName) {
+      res["Codec_name"] = boost::any(*codecName);
+    }
+    if (codecTag) {
+      res["Codec_tag"] = boost::any(*codecTag);
+    }
+    if (codecTagString) {
+      res["Codec_tag_string"] = boost::any(*codecTagString);
+    }
+    if (codecTimeBase) {
+      res["Codec_time_base"] = boost::any(*codecTimeBase);
+    }
+    if (dar) {
+      res["Dar"] = boost::any(*dar);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (fps) {
+      res["Fps"] = boost::any(*fps);
+    }
+    if (hasBFrames) {
+      res["Has_b_frames"] = boost::any(*hasBFrames);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (numFrames) {
+      res["NumFrames"] = boost::any(*numFrames);
+    }
+    if (pixFmt) {
+      res["PixFmt"] = boost::any(*pixFmt);
+    }
+    if (profile) {
+      res["Profile"] = boost::any(*profile);
+    }
+    if (rotate) {
+      res["Rotate"] = boost::any(*rotate);
+    }
+    if (sar) {
+      res["Sar"] = boost::any(*sar);
+    }
+    if (startTime) {
+      res["Start_time"] = boost::any(*startTime);
+    }
+    if (timeBase) {
+      res["Time_base"] = boost::any(*timeBase);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Avg_fps") != m.end() && !m["Avg_fps"].empty()) {
+      avgFps = make_shared<string>(boost::any_cast<string>(m["Avg_fps"]));
+    }
+    if (m.find("Bit_rate") != m.end() && !m["Bit_rate"].empty()) {
+      bitRate = make_shared<string>(boost::any_cast<string>(m["Bit_rate"]));
+    }
+    if (m.find("Codec_long_name") != m.end() && !m["Codec_long_name"].empty()) {
+      codecLongName = make_shared<string>(boost::any_cast<string>(m["Codec_long_name"]));
+    }
+    if (m.find("Codec_name") != m.end() && !m["Codec_name"].empty()) {
+      codecName = make_shared<string>(boost::any_cast<string>(m["Codec_name"]));
+    }
+    if (m.find("Codec_tag") != m.end() && !m["Codec_tag"].empty()) {
+      codecTag = make_shared<string>(boost::any_cast<string>(m["Codec_tag"]));
+    }
+    if (m.find("Codec_tag_string") != m.end() && !m["Codec_tag_string"].empty()) {
+      codecTagString = make_shared<string>(boost::any_cast<string>(m["Codec_tag_string"]));
+    }
+    if (m.find("Codec_time_base") != m.end() && !m["Codec_time_base"].empty()) {
+      codecTimeBase = make_shared<string>(boost::any_cast<string>(m["Codec_time_base"]));
+    }
+    if (m.find("Dar") != m.end() && !m["Dar"].empty()) {
+      dar = make_shared<string>(boost::any_cast<string>(m["Dar"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("Fps") != m.end() && !m["Fps"].empty()) {
+      fps = make_shared<string>(boost::any_cast<string>(m["Fps"]));
+    }
+    if (m.find("Has_b_frames") != m.end() && !m["Has_b_frames"].empty()) {
+      hasBFrames = make_shared<string>(boost::any_cast<string>(m["Has_b_frames"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<string>(boost::any_cast<string>(m["Height"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["Index"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("NumFrames") != m.end() && !m["NumFrames"].empty()) {
+      numFrames = make_shared<string>(boost::any_cast<string>(m["NumFrames"]));
+    }
+    if (m.find("PixFmt") != m.end() && !m["PixFmt"].empty()) {
+      pixFmt = make_shared<string>(boost::any_cast<string>(m["PixFmt"]));
+    }
+    if (m.find("Profile") != m.end() && !m["Profile"].empty()) {
+      profile = make_shared<string>(boost::any_cast<string>(m["Profile"]));
+    }
+    if (m.find("Rotate") != m.end() && !m["Rotate"].empty()) {
+      rotate = make_shared<string>(boost::any_cast<string>(m["Rotate"]));
+    }
+    if (m.find("Sar") != m.end() && !m["Sar"].empty()) {
+      sar = make_shared<string>(boost::any_cast<string>(m["Sar"]));
+    }
+    if (m.find("Start_time") != m.end() && !m["Start_time"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["Start_time"]));
+    }
+    if (m.find("Time_base") != m.end() && !m["Time_base"].empty()) {
+      timeBase = make_shared<string>(boost::any_cast<string>(m["Time_base"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<string>(boost::any_cast<string>(m["Width"]));
+    }
+  }
+
+
+  virtual ~MediaConvertOutputDetailFileMetaVideoStreamInfoList() = default;
+};
+class MediaConvertOutputDetailFileMeta : public Darabonba::Model {
+public:
+  shared_ptr<vector<MediaConvertOutputDetailFileMetaAudioStreamInfoList>> audioStreamInfoList{};
+  shared_ptr<MediaConvertOutputDetailFileMetaFileBasicInfo> fileBasicInfo{};
+  shared_ptr<vector<MediaConvertOutputDetailFileMetaVideoStreamInfoList>> videoStreamInfoList{};
+
+  MediaConvertOutputDetailFileMeta() {}
+
+  explicit MediaConvertOutputDetailFileMeta(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (audioStreamInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*audioStreamInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AudioStreamInfoList"] = boost::any(temp1);
+    }
+    if (fileBasicInfo) {
+      res["FileBasicInfo"] = fileBasicInfo ? boost::any(fileBasicInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (videoStreamInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*videoStreamInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VideoStreamInfoList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AudioStreamInfoList") != m.end() && !m["AudioStreamInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AudioStreamInfoList"].type()) {
+        vector<MediaConvertOutputDetailFileMetaAudioStreamInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AudioStreamInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertOutputDetailFileMetaAudioStreamInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        audioStreamInfoList = make_shared<vector<MediaConvertOutputDetailFileMetaAudioStreamInfoList>>(expect1);
+      }
+    }
+    if (m.find("FileBasicInfo") != m.end() && !m["FileBasicInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FileBasicInfo"].type()) {
+        MediaConvertOutputDetailFileMetaFileBasicInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FileBasicInfo"]));
+        fileBasicInfo = make_shared<MediaConvertOutputDetailFileMetaFileBasicInfo>(model1);
+      }
+    }
+    if (m.find("VideoStreamInfoList") != m.end() && !m["VideoStreamInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["VideoStreamInfoList"].type()) {
+        vector<MediaConvertOutputDetailFileMetaVideoStreamInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VideoStreamInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertOutputDetailFileMetaVideoStreamInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        videoStreamInfoList = make_shared<vector<MediaConvertOutputDetailFileMetaVideoStreamInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~MediaConvertOutputDetailFileMeta() = default;
+};
+class MediaConvertOutputDetailResult : public Darabonba::Model {
+public:
+  shared_ptr<MediaConvertOutputDetailFileMeta> outFileMeta{};
+  shared_ptr<MediaConvertOutputDetailResultOutputFile> outputFile{};
+
+  MediaConvertOutputDetailResult() {}
+
+  explicit MediaConvertOutputDetailResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (outFileMeta) {
+      res["OutFileMeta"] = outFileMeta ? boost::any(outFileMeta->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (outputFile) {
+      res["OutputFile"] = outputFile ? boost::any(outputFile->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutFileMeta") != m.end() && !m["OutFileMeta"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OutFileMeta"].type()) {
+        MediaConvertOutputDetailFileMeta model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OutFileMeta"]));
+        outFileMeta = make_shared<MediaConvertOutputDetailFileMeta>(model1);
+      }
+    }
+    if (m.find("OutputFile") != m.end() && !m["OutputFile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OutputFile"].type()) {
+        MediaConvertOutputDetailResultOutputFile model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OutputFile"]));
+        outputFile = make_shared<MediaConvertOutputDetailResultOutputFile>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MediaConvertOutputDetailResult() = default;
+};
+class MediaConvertOutputDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> finishTime{};
+  shared_ptr<string> message{};
+  shared_ptr<string> name{};
+  shared_ptr<MediaConvertOutputDetailResult> result{};
+  shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
+
+  MediaConvertOutputDetail() {}
+
+  explicit MediaConvertOutputDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (finishTime) {
+      res["FinishTime"] = boost::any(*finishTime);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FinishTime") != m.end() && !m["FinishTime"].empty()) {
+      finishTime = make_shared<string>(boost::any_cast<string>(m["FinishTime"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        MediaConvertOutputDetailResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<MediaConvertOutputDetailResult>(model1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~MediaConvertOutputDetail() = default;
+};
 class MediaConvertOutputGroupDetail : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> finishTime{};
   shared_ptr<string> message{};
   shared_ptr<string> name{};
   shared_ptr<vector<MediaConvertOutputDetail>> outputs{};
@@ -4079,6 +4707,12 @@ public:
     map<string, boost::any> res;
     if (code) {
       res["Code"] = boost::any(*code);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (finishTime) {
+      res["FinishTime"] = boost::any(*finishTime);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -4105,6 +4739,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FinishTime") != m.end() && !m["FinishTime"].empty()) {
+      finishTime = make_shared<string>(boost::any_cast<string>(m["FinishTime"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -4135,6 +4775,422 @@ public:
 
 
   virtual ~MediaConvertOutputGroupDetail() = default;
+};
+class MediaConvertJob : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> code{};
+  shared_ptr<MediaConvertJobConfig> config{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> finishTime{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<MediaConvertOutputDetail>> outputDetails{};
+  shared_ptr<vector<MediaConvertOutputGroupDetail>> outputGroupDetails{};
+  shared_ptr<long> percent{};
+  shared_ptr<string> pipelineId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> state{};
+  shared_ptr<string> userData{};
+
+  MediaConvertJob() {}
+
+  explicit MediaConvertJob(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (config) {
+      res["Config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (finishTime) {
+      res["FinishTime"] = boost::any(*finishTime);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (outputDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*outputDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OutputDetails"] = boost::any(temp1);
+    }
+    if (outputGroupDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*outputGroupDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OutputGroupDetails"] = boost::any(temp1);
+    }
+    if (percent) {
+      res["Percent"] = boost::any(*percent);
+    }
+    if (pipelineId) {
+      res["PipelineId"] = boost::any(*pipelineId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Config"].type()) {
+        MediaConvertJobConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Config"]));
+        config = make_shared<MediaConvertJobConfig>(model1);
+      }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FinishTime") != m.end() && !m["FinishTime"].empty()) {
+      finishTime = make_shared<string>(boost::any_cast<string>(m["FinishTime"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("OutputDetails") != m.end() && !m["OutputDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["OutputDetails"].type()) {
+        vector<MediaConvertOutputDetail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OutputDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertOutputDetail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outputDetails = make_shared<vector<MediaConvertOutputDetail>>(expect1);
+      }
+    }
+    if (m.find("OutputGroupDetails") != m.end() && !m["OutputGroupDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["OutputGroupDetails"].type()) {
+        vector<MediaConvertOutputGroupDetail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OutputGroupDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertOutputGroupDetail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outputGroupDetails = make_shared<vector<MediaConvertOutputGroupDetail>>(expect1);
+      }
+    }
+    if (m.find("Percent") != m.end() && !m["Percent"].empty()) {
+      percent = make_shared<long>(boost::any_cast<long>(m["Percent"]));
+    }
+    if (m.find("PipelineId") != m.end() && !m["PipelineId"].empty()) {
+      pipelineId = make_shared<string>(boost::any_cast<string>(m["PipelineId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~MediaConvertJob() = default;
+};
+class MediaConvertJobWithoutDetailConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<MediaConvertInput>> inputs{};
+  shared_ptr<string> jobName{};
+  shared_ptr<vector<MediaConvertOutputGroup>> outputGroups{};
+  shared_ptr<vector<MediaConvertOutput>> outputs{};
+
+  MediaConvertJobWithoutDetailConfig() {}
+
+  explicit MediaConvertJobWithoutDetailConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputs) {
+      vector<boost::any> temp1;
+      for(auto item1:*inputs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Inputs"] = boost::any(temp1);
+    }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
+    }
+    if (outputGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*outputGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OutputGroups"] = boost::any(temp1);
+    }
+    if (outputs) {
+      vector<boost::any> temp1;
+      for(auto item1:*outputs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Outputs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Inputs") != m.end() && !m["Inputs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Inputs"].type()) {
+        vector<MediaConvertInput> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Inputs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertInput model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inputs = make_shared<vector<MediaConvertInput>>(expect1);
+      }
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("OutputGroups") != m.end() && !m["OutputGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["OutputGroups"].type()) {
+        vector<MediaConvertOutputGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OutputGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertOutputGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outputGroups = make_shared<vector<MediaConvertOutputGroup>>(expect1);
+      }
+    }
+    if (m.find("Outputs") != m.end() && !m["Outputs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Outputs"].type()) {
+        vector<MediaConvertOutput> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Outputs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertOutput model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outputs = make_shared<vector<MediaConvertOutput>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~MediaConvertJobWithoutDetailConfig() = default;
+};
+class MediaConvertJobWithoutDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> code{};
+  shared_ptr<MediaConvertJobWithoutDetailConfig> config{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> finishTime{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> pipelineId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> state{};
+  shared_ptr<string> userData{};
+
+  MediaConvertJobWithoutDetail() {}
+
+  explicit MediaConvertJobWithoutDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (config) {
+      res["Config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (finishTime) {
+      res["FinishTime"] = boost::any(*finishTime);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (pipelineId) {
+      res["PipelineId"] = boost::any(*pipelineId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Config"].type()) {
+        MediaConvertJobWithoutDetailConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Config"]));
+        config = make_shared<MediaConvertJobWithoutDetailConfig>(model1);
+      }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FinishTime") != m.end() && !m["FinishTime"].empty()) {
+      finishTime = make_shared<string>(boost::any_cast<string>(m["FinishTime"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PipelineId") != m.end() && !m["PipelineId"].empty()) {
+      pipelineId = make_shared<string>(boost::any_cast<string>(m["PipelineId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~MediaConvertJobWithoutDetail() = default;
+};
+class MediaConvertSegment : public Darabonba::Model {
+public:
+  shared_ptr<long> duration{};
+  shared_ptr<string> forceSegTime{};
+
+  MediaConvertSegment() {}
+
+  explicit MediaConvertSegment(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (forceSegTime) {
+      res["ForceSegTime"] = boost::any(*forceSegTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("ForceSegTime") != m.end() && !m["ForceSegTime"].empty()) {
+      forceSegTime = make_shared<string>(boost::any_cast<string>(m["ForceSegTime"]));
+    }
+  }
+
+
+  virtual ~MediaConvertSegment() = default;
+};
+class MediaConvertMuxConfig : public Darabonba::Model {
+public:
+  shared_ptr<MediaConvertSegment> segment{};
+
+  MediaConvertMuxConfig() {}
+
+  explicit MediaConvertMuxConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (segment) {
+      res["Segment"] = segment ? boost::any(segment->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Segment") != m.end() && !m["Segment"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Segment"].type()) {
+        MediaConvertSegment model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Segment"]));
+        segment = make_shared<MediaConvertSegment>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MediaConvertMuxConfig() = default;
 };
 class MediaConvertTransConfig : public Darabonba::Model {
 public:
@@ -32940,6 +33996,7 @@ public:
 class GetMediaConvertJobResponseBodyJobConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<MediaConvertInput>> inputs{};
+  shared_ptr<string> jobName{};
   shared_ptr<vector<MediaConvertOutputGroup>> outputGroups{};
   shared_ptr<vector<MediaConvertOutput>> outputs{};
 
@@ -32959,6 +34016,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Inputs"] = boost::any(temp1);
+    }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
     }
     if (outputGroups) {
       vector<boost::any> temp1;
@@ -32990,6 +34050,9 @@ public:
         }
         inputs = make_shared<vector<MediaConvertInput>>(expect1);
       }
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
     }
     if (m.find("OutputGroups") != m.end() && !m["OutputGroups"].empty()) {
       if (typeid(vector<boost::any>) == m["OutputGroups"].type()) {
@@ -33027,10 +34090,13 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> code{};
   shared_ptr<GetMediaConvertJobResponseBodyJobConfig> config{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> finishTime{};
   shared_ptr<string> jobId{};
   shared_ptr<string> message{};
   shared_ptr<vector<MediaConvertOutputDetail>> outputDetails{};
   shared_ptr<vector<MediaConvertOutputGroupDetail>> outputGroupDetails{};
+  shared_ptr<long> percent{};
   shared_ptr<string> pipelineId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> state{};
@@ -33055,6 +34121,12 @@ public:
     if (config) {
       res["Config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (finishTime) {
+      res["FinishTime"] = boost::any(*finishTime);
+    }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
@@ -33074,6 +34146,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["OutputGroupDetails"] = boost::any(temp1);
+    }
+    if (percent) {
+      res["Percent"] = boost::any(*percent);
     }
     if (pipelineId) {
       res["PipelineId"] = boost::any(*pipelineId);
@@ -33103,6 +34178,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Config"]));
         config = make_shared<GetMediaConvertJobResponseBodyJobConfig>(model1);
       }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FinishTime") != m.end() && !m["FinishTime"].empty()) {
+      finishTime = make_shared<string>(boost::any_cast<string>(m["FinishTime"]));
     }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
@@ -33135,6 +34216,9 @@ public:
         }
         outputGroupDetails = make_shared<vector<MediaConvertOutputGroupDetail>>(expect1);
       }
+    }
+    if (m.find("Percent") != m.end() && !m["Percent"].empty()) {
+      percent = make_shared<long>(boost::any_cast<long>(m["Percent"]));
     }
     if (m.find("PipelineId") != m.end() && !m["PipelineId"].empty()) {
       pipelineId = make_shared<string>(boost::any_cast<string>(m["PipelineId"]));
@@ -84876,6 +85960,7 @@ public:
 class SubmitMediaConvertJobResponseBodyJobConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<MediaConvertInput>> inputs{};
+  shared_ptr<string> jobName{};
   shared_ptr<vector<MediaConvertOutputGroup>> outputGroups{};
   shared_ptr<vector<MediaConvertOutput>> outputs{};
 
@@ -84895,6 +85980,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Inputs"] = boost::any(temp1);
+    }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
     }
     if (outputGroups) {
       vector<boost::any> temp1;
@@ -84926,6 +86014,9 @@ public:
         }
         inputs = make_shared<vector<MediaConvertInput>>(expect1);
       }
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
     }
     if (m.find("OutputGroups") != m.end() && !m["OutputGroups"].empty()) {
       if (typeid(vector<boost::any>) == m["OutputGroups"].type()) {
