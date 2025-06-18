@@ -1720,6 +1720,9 @@ DeleteContactFlowResponse Alibabacloud_CCC20200701::Client::deleteContactFlowWit
   if (!Darabonba_Util::Client::isUnset<string>(request->contactFlowId)) {
     query->insert(pair<string, string>("ContactFlowId", *request->contactFlowId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -4871,6 +4874,9 @@ ListContactFlowsResponse Alibabacloud_CCC20200701::Client::listContactFlowsWithO
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->searchPattern)) {
+    query->insert(pair<string, string>("SearchPattern", *request->searchPattern));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortOrder)) {
     query->insert(pair<string, string>("SortOrder", *request->sortOrder));

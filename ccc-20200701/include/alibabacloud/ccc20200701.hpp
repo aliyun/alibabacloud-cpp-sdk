@@ -11052,6 +11052,7 @@ public:
 class DeleteContactFlowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> contactFlowId{};
+  shared_ptr<bool> force{};
   shared_ptr<string> instanceId{};
 
   DeleteContactFlowRequest() {}
@@ -11067,6 +11068,9 @@ public:
     if (contactFlowId) {
       res["ContactFlowId"] = boost::any(*contactFlowId);
     }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -11076,6 +11080,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ContactFlowId") != m.end() && !m["ContactFlowId"].empty()) {
       contactFlowId = make_shared<string>(boost::any_cast<string>(m["ContactFlowId"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -36596,6 +36603,7 @@ public:
   shared_ptr<string> orderByField{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> searchPattern{};
   shared_ptr<string> sortOrder{};
   shared_ptr<string> type{};
 
@@ -36621,6 +36629,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (searchPattern) {
+      res["SearchPattern"] = boost::any(*searchPattern);
+    }
     if (sortOrder) {
       res["SortOrder"] = boost::any(*sortOrder);
     }
@@ -36642,6 +36653,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchPattern") != m.end() && !m["SearchPattern"].empty()) {
+      searchPattern = make_shared<string>(boost::any_cast<string>(m["SearchPattern"]));
     }
     if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
       sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
