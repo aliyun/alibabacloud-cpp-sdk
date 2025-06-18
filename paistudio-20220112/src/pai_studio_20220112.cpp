@@ -1194,6 +1194,9 @@ ListNodesResponse Alibabacloud_PaiStudio20220112::Client::listNodesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorType)) {
     query->insert(pair<string, string>("AcceleratorType", *request->acceleratorType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->availabilityZone)) {
+    query->insert(pair<string, string>("AvailabilityZone", *request->availabilityZone));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->filterByQuotaId)) {
     query->insert(pair<string, string>("FilterByQuotaId", *request->filterByQuotaId));
   }
@@ -1202,6 +1205,9 @@ ListNodesResponse Alibabacloud_PaiStudio20220112::Client::listNodesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->GPUType)) {
     query->insert(pair<string, string>("GPUType", *request->GPUType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hyperZone)) {
+    query->insert(pair<string, string>("HyperZone", *request->hyperZone));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->machineGroupIds)) {
     query->insert(pair<string, string>("MachineGroupIds", *request->machineGroupIds));

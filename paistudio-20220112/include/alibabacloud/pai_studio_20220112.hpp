@@ -1030,6 +1030,277 @@ public:
 
   virtual ~AllocateStrategySpec() = default;
 };
+class CacheInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> mountPoint{};
+  shared_ptr<string> port{};
+
+  CacheInfo() {}
+
+  explicit CacheInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mountPoint) {
+      res["MountPoint"] = boost::any(*mountPoint);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MountPoint") != m.end() && !m["MountPoint"].empty()) {
+      mountPoint = make_shared<string>(boost::any_cast<string>(m["MountPoint"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+  }
+
+
+  virtual ~CacheInfo() = default;
+};
+class ForwardInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> eipAllocationId{};
+  shared_ptr<string> natGatewayId{};
+
+  ForwardInfo() {}
+
+  explicit ForwardInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eipAllocationId) {
+      res["EipAllocationId"] = boost::any(*eipAllocationId);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EipAllocationId") != m.end() && !m["EipAllocationId"].empty()) {
+      eipAllocationId = make_shared<string>(boost::any_cast<string>(m["EipAllocationId"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+  }
+
+
+  virtual ~ForwardInfo() = default;
+};
+class UserVpc : public Darabonba::Model {
+public:
+  shared_ptr<ForwardInfo> defaultForwardInfo{};
+  shared_ptr<string> defaultRoute{};
+  shared_ptr<vector<string>> extendedCIDRs{};
+  shared_ptr<string> roleArn{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> switchId{};
+  shared_ptr<string> vpcId{};
+
+  UserVpc() {}
+
+  explicit UserVpc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultForwardInfo) {
+      res["DefaultForwardInfo"] = defaultForwardInfo ? boost::any(defaultForwardInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (defaultRoute) {
+      res["DefaultRoute"] = boost::any(*defaultRoute);
+    }
+    if (extendedCIDRs) {
+      res["ExtendedCIDRs"] = boost::any(*extendedCIDRs);
+    }
+    if (roleArn) {
+      res["RoleArn"] = boost::any(*roleArn);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (switchId) {
+      res["SwitchId"] = boost::any(*switchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultForwardInfo") != m.end() && !m["DefaultForwardInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DefaultForwardInfo"].type()) {
+        ForwardInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefaultForwardInfo"]));
+        defaultForwardInfo = make_shared<ForwardInfo>(model1);
+      }
+    }
+    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
+      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
+    }
+    if (m.find("ExtendedCIDRs") != m.end() && !m["ExtendedCIDRs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExtendedCIDRs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExtendedCIDRs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      extendedCIDRs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
+      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
+      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~UserVpc() = default;
+};
+class CacheService : public Darabonba::Model {
+public:
+  shared_ptr<vector<CacheInfo>> cacheInfos{};
+  shared_ptr<string> cacheServiceId{};
+  shared_ptr<string> createdBy{};
+  shared_ptr<string> gmtCreated{};
+  shared_ptr<string> quotaId{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<string>> supportedClientQuotaIds{};
+  shared_ptr<string> tenantId{};
+  shared_ptr<string> userId{};
+  shared_ptr<UserVpc> userVpc{};
+
+  CacheService() {}
+
+  explicit CacheService(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheInfos"] = boost::any(temp1);
+    }
+    if (cacheServiceId) {
+      res["CacheServiceId"] = boost::any(*cacheServiceId);
+    }
+    if (createdBy) {
+      res["CreatedBy"] = boost::any(*createdBy);
+    }
+    if (gmtCreated) {
+      res["GmtCreated"] = boost::any(*gmtCreated);
+    }
+    if (quotaId) {
+      res["QuotaId"] = boost::any(*quotaId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (supportedClientQuotaIds) {
+      res["SupportedClientQuotaIds"] = boost::any(*supportedClientQuotaIds);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (userVpc) {
+      res["UserVpc"] = userVpc ? boost::any(userVpc->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheInfos") != m.end() && !m["CacheInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheInfos"].type()) {
+        vector<CacheInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CacheInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheInfos = make_shared<vector<CacheInfo>>(expect1);
+      }
+    }
+    if (m.find("CacheServiceId") != m.end() && !m["CacheServiceId"].empty()) {
+      cacheServiceId = make_shared<string>(boost::any_cast<string>(m["CacheServiceId"]));
+    }
+    if (m.find("CreatedBy") != m.end() && !m["CreatedBy"].empty()) {
+      createdBy = make_shared<string>(boost::any_cast<string>(m["CreatedBy"]));
+    }
+    if (m.find("GmtCreated") != m.end() && !m["GmtCreated"].empty()) {
+      gmtCreated = make_shared<string>(boost::any_cast<string>(m["GmtCreated"]));
+    }
+    if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
+      quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SupportedClientQuotaIds") != m.end() && !m["SupportedClientQuotaIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SupportedClientQuotaIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportedClientQuotaIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportedClientQuotaIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("UserVpc") != m.end() && !m["UserVpc"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserVpc"].type()) {
+        UserVpc model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserVpc"]));
+        userVpc = make_shared<UserVpc>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CacheService() = default;
+};
 class ChannelProperty : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -1286,42 +1557,6 @@ public:
 
 
   virtual ~Features() = default;
-};
-class ForwardInfo : public Darabonba::Model {
-public:
-  shared_ptr<string> eipAllocationId{};
-  shared_ptr<string> natGatewayId{};
-
-  ForwardInfo() {}
-
-  explicit ForwardInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (eipAllocationId) {
-      res["EipAllocationId"] = boost::any(*eipAllocationId);
-    }
-    if (natGatewayId) {
-      res["NatGatewayId"] = boost::any(*natGatewayId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("EipAllocationId") != m.end() && !m["EipAllocationId"].empty()) {
-      eipAllocationId = make_shared<string>(boost::any_cast<string>(m["EipAllocationId"]));
-    }
-    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
-      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
-    }
-  }
-
-
-  virtual ~ForwardInfo() = default;
 };
 class GPUInfo : public Darabonba::Model {
 public:
@@ -1748,6 +1983,8 @@ class MachineGroup : public Darabonba::Model {
 public:
   shared_ptr<string> creatorID{};
   shared_ptr<string> defaultDriver{};
+  shared_ptr<long> diskCapacity{};
+  shared_ptr<string> diskPL{};
   shared_ptr<long> ecsCount{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<string> gmtCreatedTime{};
@@ -1780,6 +2017,12 @@ public:
     }
     if (defaultDriver) {
       res["DefaultDriver"] = boost::any(*defaultDriver);
+    }
+    if (diskCapacity) {
+      res["DiskCapacity"] = boost::any(*diskCapacity);
+    }
+    if (diskPL) {
+      res["DiskPL"] = boost::any(*diskPL);
     }
     if (ecsCount) {
       res["EcsCount"] = boost::any(*ecsCount);
@@ -1838,6 +2081,12 @@ public:
     }
     if (m.find("DefaultDriver") != m.end() && !m["DefaultDriver"].empty()) {
       defaultDriver = make_shared<string>(boost::any_cast<string>(m["DefaultDriver"]));
+    }
+    if (m.find("DiskCapacity") != m.end() && !m["DiskCapacity"].empty()) {
+      diskCapacity = make_shared<long>(boost::any_cast<long>(m["DiskCapacity"]));
+    }
+    if (m.find("DiskPL") != m.end() && !m["DiskPL"].empty()) {
+      diskPL = make_shared<string>(boost::any_cast<string>(m["DiskPL"]));
     }
     if (m.find("EcsCount") != m.end() && !m["EcsCount"].empty()) {
       ecsCount = make_shared<long>(boost::any_cast<long>(m["EcsCount"]));
@@ -2010,6 +2259,7 @@ public:
 class Node : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorType{};
+  shared_ptr<string> availabilityZone{};
   shared_ptr<vector<QuotaIdName>> boundQuotas{};
   shared_ptr<string> CPU{};
   shared_ptr<string> creatorId{};
@@ -2019,6 +2269,7 @@ public:
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtExpiredTime{};
   shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> hyperZone{};
   shared_ptr<bool> isBound{};
   shared_ptr<string> limitCPU{};
   shared_ptr<string> limitGPU{};
@@ -2053,6 +2304,9 @@ public:
     if (acceleratorType) {
       res["AcceleratorType"] = boost::any(*acceleratorType);
     }
+    if (availabilityZone) {
+      res["AvailabilityZone"] = boost::any(*availabilityZone);
+    }
     if (boundQuotas) {
       vector<boost::any> temp1;
       for(auto item1:*boundQuotas){
@@ -2083,6 +2337,9 @@ public:
     }
     if (gmtModifiedTime) {
       res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (hyperZone) {
+      res["HyperZone"] = boost::any(*hyperZone);
     }
     if (isBound) {
       res["IsBound"] = boost::any(*isBound);
@@ -2155,6 +2412,9 @@ public:
     if (m.find("AcceleratorType") != m.end() && !m["AcceleratorType"].empty()) {
       acceleratorType = make_shared<string>(boost::any_cast<string>(m["AcceleratorType"]));
     }
+    if (m.find("AvailabilityZone") != m.end() && !m["AvailabilityZone"].empty()) {
+      availabilityZone = make_shared<string>(boost::any_cast<string>(m["AvailabilityZone"]));
+    }
     if (m.find("BoundQuotas") != m.end() && !m["BoundQuotas"].empty()) {
       if (typeid(vector<boost::any>) == m["BoundQuotas"].type()) {
         vector<QuotaIdName> expect1;
@@ -2191,6 +2451,9 @@ public:
     }
     if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
       gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("HyperZone") != m.end() && !m["HyperZone"].empty()) {
+      hyperZone = make_shared<string>(boost::any_cast<string>(m["HyperZone"]));
     }
     if (m.find("IsBound") != m.end() && !m["IsBound"].empty()) {
       isBound = make_shared<bool>(boost::any_cast<bool>(m["IsBound"]));
@@ -3035,6 +3298,42 @@ public:
 
   virtual ~NodeViewMetric() = default;
 };
+class OversoldUsageConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> disabled{};
+  shared_ptr<string> disabledBy{};
+
+  OversoldUsageConfig() {}
+
+  explicit OversoldUsageConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disabled) {
+      res["Disabled"] = boost::any(*disabled);
+    }
+    if (disabledBy) {
+      res["DisabledBy"] = boost::any(*disabledBy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Disabled") != m.end() && !m["Disabled"].empty()) {
+      disabled = make_shared<string>(boost::any_cast<string>(m["Disabled"]));
+    }
+    if (m.find("DisabledBy") != m.end() && !m["DisabledBy"].empty()) {
+      disabledBy = make_shared<string>(boost::any_cast<string>(m["DisabledBy"]));
+    }
+  }
+
+
+  virtual ~OversoldUsageConfig() = default;
+};
 class Permission : public Darabonba::Model {
 public:
   shared_ptr<bool> isEnabled{};
@@ -3087,6 +3386,7 @@ public:
   shared_ptr<string> reason{};
   shared_ptr<ResourceAmount> resource{};
   shared_ptr<string> status{};
+  shared_ptr<bool> useOversoldResource{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
   shared_ptr<string> workloadId{};
@@ -3094,6 +3394,7 @@ public:
   shared_ptr<string> workloadStatus{};
   shared_ptr<string> workloadType{};
   shared_ptr<string> workspaceId{};
+  shared_ptr<string> workspaceName{};
 
   QueueInfo() {}
 
@@ -3147,6 +3448,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (useOversoldResource) {
+      res["UseOversoldResource"] = boost::any(*useOversoldResource);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -3167,6 +3471,9 @@ public:
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    if (workspaceName) {
+      res["WorkspaceName"] = boost::any(*workspaceName);
     }
     return res;
   }
@@ -3218,6 +3525,9 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("UseOversoldResource") != m.end() && !m["UseOversoldResource"].empty()) {
+      useOversoldResource = make_shared<bool>(boost::any_cast<bool>(m["UseOversoldResource"]));
+    }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
@@ -3238,6 +3548,9 @@ public:
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+    if (m.find("WorkspaceName") != m.end() && !m["WorkspaceName"].empty()) {
+      workspaceName = make_shared<string>(boost::any_cast<string>(m["WorkspaceName"]));
     }
   }
 
@@ -3419,6 +3732,70 @@ public:
 
   virtual ~WorkspaceSpecs() = default;
 };
+class SelfQuotaPreemptionConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> preemptedPriorities{};
+  shared_ptr<vector<string>> preemptedProducts{};
+  shared_ptr<vector<long>> preemptorPriorities{};
+
+  SelfQuotaPreemptionConfig() {}
+
+  explicit SelfQuotaPreemptionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (preemptedPriorities) {
+      res["PreemptedPriorities"] = boost::any(*preemptedPriorities);
+    }
+    if (preemptedProducts) {
+      res["PreemptedProducts"] = boost::any(*preemptedProducts);
+    }
+    if (preemptorPriorities) {
+      res["PreemptorPriorities"] = boost::any(*preemptorPriorities);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PreemptedPriorities") != m.end() && !m["PreemptedPriorities"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["PreemptedPriorities"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PreemptedPriorities"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      preemptedPriorities = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("PreemptedProducts") != m.end() && !m["PreemptedProducts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PreemptedProducts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PreemptedProducts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      preemptedProducts = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PreemptorPriorities") != m.end() && !m["PreemptorPriorities"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["PreemptorPriorities"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PreemptorPriorities"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      preemptorPriorities = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~SelfQuotaPreemptionConfig() = default;
+};
 class SubQuotaPreemptionConfig : public Darabonba::Model {
 public:
   shared_ptr<long> preemptedPriorityUpperBound{};
@@ -3462,96 +3839,17 @@ public:
 
   virtual ~SubQuotaPreemptionConfig() = default;
 };
-class UserVpc : public Darabonba::Model {
-public:
-  shared_ptr<ForwardInfo> defaultForwardInfo{};
-  shared_ptr<string> defaultRoute{};
-  shared_ptr<vector<string>> extendedCIDRs{};
-  shared_ptr<string> roleArn{};
-  shared_ptr<string> securityGroupId{};
-  shared_ptr<string> switchId{};
-  shared_ptr<string> vpcId{};
-
-  UserVpc() {}
-
-  explicit UserVpc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (defaultForwardInfo) {
-      res["DefaultForwardInfo"] = defaultForwardInfo ? boost::any(defaultForwardInfo->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (defaultRoute) {
-      res["DefaultRoute"] = boost::any(*defaultRoute);
-    }
-    if (extendedCIDRs) {
-      res["ExtendedCIDRs"] = boost::any(*extendedCIDRs);
-    }
-    if (roleArn) {
-      res["RoleArn"] = boost::any(*roleArn);
-    }
-    if (securityGroupId) {
-      res["SecurityGroupId"] = boost::any(*securityGroupId);
-    }
-    if (switchId) {
-      res["SwitchId"] = boost::any(*switchId);
-    }
-    if (vpcId) {
-      res["VpcId"] = boost::any(*vpcId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DefaultForwardInfo") != m.end() && !m["DefaultForwardInfo"].empty()) {
-      if (typeid(map<string, boost::any>) == m["DefaultForwardInfo"].type()) {
-        ForwardInfo model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefaultForwardInfo"]));
-        defaultForwardInfo = make_shared<ForwardInfo>(model1);
-      }
-    }
-    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
-      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
-    }
-    if (m.find("ExtendedCIDRs") != m.end() && !m["ExtendedCIDRs"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["ExtendedCIDRs"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExtendedCIDRs"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      extendedCIDRs = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
-      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
-    }
-    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
-      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
-    }
-    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
-      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
-    }
-    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
-      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
-    }
-  }
-
-
-  virtual ~UserVpc() = default;
-};
 class QuotaConfig : public Darabonba::Model {
 public:
   shared_ptr<ACS> ACS{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> defaultGPUDriver{};
+  shared_ptr<bool> enableGPUShare{};
   shared_ptr<bool> enablePreemptSubquotaWorkloads{};
   shared_ptr<bool> enableSubQuotaPreemption{};
+  shared_ptr<OversoldUsageConfig> oversoldUsageInfo{};
   shared_ptr<vector<WorkspaceSpecs>> resourceSpecs{};
+  shared_ptr<SelfQuotaPreemptionConfig> selfQuotaPreemptionConfig{};
   shared_ptr<SubQuotaPreemptionConfig> subQuotaPreemptionConfig{};
   shared_ptr<vector<string>> supportGPUDrivers{};
   shared_ptr<bool> supportRDMA{};
@@ -3576,11 +3874,17 @@ public:
     if (defaultGPUDriver) {
       res["DefaultGPUDriver"] = boost::any(*defaultGPUDriver);
     }
+    if (enableGPUShare) {
+      res["EnableGPUShare"] = boost::any(*enableGPUShare);
+    }
     if (enablePreemptSubquotaWorkloads) {
       res["EnablePreemptSubquotaWorkloads"] = boost::any(*enablePreemptSubquotaWorkloads);
     }
     if (enableSubQuotaPreemption) {
       res["EnableSubQuotaPreemption"] = boost::any(*enableSubQuotaPreemption);
+    }
+    if (oversoldUsageInfo) {
+      res["OversoldUsageInfo"] = oversoldUsageInfo ? boost::any(oversoldUsageInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (resourceSpecs) {
       vector<boost::any> temp1;
@@ -3588,6 +3892,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ResourceSpecs"] = boost::any(temp1);
+    }
+    if (selfQuotaPreemptionConfig) {
+      res["SelfQuotaPreemptionConfig"] = selfQuotaPreemptionConfig ? boost::any(selfQuotaPreemptionConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (subQuotaPreemptionConfig) {
       res["SubQuotaPreemptionConfig"] = subQuotaPreemptionConfig ? boost::any(subQuotaPreemptionConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3618,11 +3925,21 @@ public:
     if (m.find("DefaultGPUDriver") != m.end() && !m["DefaultGPUDriver"].empty()) {
       defaultGPUDriver = make_shared<string>(boost::any_cast<string>(m["DefaultGPUDriver"]));
     }
+    if (m.find("EnableGPUShare") != m.end() && !m["EnableGPUShare"].empty()) {
+      enableGPUShare = make_shared<bool>(boost::any_cast<bool>(m["EnableGPUShare"]));
+    }
     if (m.find("EnablePreemptSubquotaWorkloads") != m.end() && !m["EnablePreemptSubquotaWorkloads"].empty()) {
       enablePreemptSubquotaWorkloads = make_shared<bool>(boost::any_cast<bool>(m["EnablePreemptSubquotaWorkloads"]));
     }
     if (m.find("EnableSubQuotaPreemption") != m.end() && !m["EnableSubQuotaPreemption"].empty()) {
       enableSubQuotaPreemption = make_shared<bool>(boost::any_cast<bool>(m["EnableSubQuotaPreemption"]));
+    }
+    if (m.find("OversoldUsageInfo") != m.end() && !m["OversoldUsageInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OversoldUsageInfo"].type()) {
+        OversoldUsageConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OversoldUsageInfo"]));
+        oversoldUsageInfo = make_shared<OversoldUsageConfig>(model1);
+      }
     }
     if (m.find("ResourceSpecs") != m.end() && !m["ResourceSpecs"].empty()) {
       if (typeid(vector<boost::any>) == m["ResourceSpecs"].type()) {
@@ -3635,6 +3952,13 @@ public:
           }
         }
         resourceSpecs = make_shared<vector<WorkspaceSpecs>>(expect1);
+      }
+    }
+    if (m.find("SelfQuotaPreemptionConfig") != m.end() && !m["SelfQuotaPreemptionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SelfQuotaPreemptionConfig"].type()) {
+        SelfQuotaPreemptionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SelfQuotaPreemptionConfig"]));
+        selfQuotaPreemptionConfig = make_shared<SelfQuotaPreemptionConfig>(model1);
       }
     }
     if (m.find("SubQuotaPreemptionConfig") != m.end() && !m["SubQuotaPreemptionConfig"].empty()) {
@@ -3678,6 +4002,7 @@ public:
   shared_ptr<ResourceAmount> desiredMinQuota{};
   shared_ptr<ResourceAmount> requestedQuota{};
   shared_ptr<ResourceAmount> selfAllocatedQuota{};
+  shared_ptr<ResourceAmount> selfSubmittedQuota{};
   shared_ptr<ResourceAmount> usedQuota{};
 
   QuotaDetails() {}
@@ -3710,6 +4035,9 @@ public:
     }
     if (selfAllocatedQuota) {
       res["SelfAllocatedQuota"] = selfAllocatedQuota ? boost::any(selfAllocatedQuota->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (selfSubmittedQuota) {
+      res["SelfSubmittedQuota"] = selfSubmittedQuota ? boost::any(selfSubmittedQuota->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (usedQuota) {
       res["UsedQuota"] = usedQuota ? boost::any(usedQuota->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3765,6 +4093,13 @@ public:
         ResourceAmount model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SelfAllocatedQuota"]));
         selfAllocatedQuota = make_shared<ResourceAmount>(model1);
+      }
+    }
+    if (m.find("SelfSubmittedQuota") != m.end() && !m["SelfSubmittedQuota"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SelfSubmittedQuota"].type()) {
+        ResourceAmount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SelfSubmittedQuota"]));
+        selfSubmittedQuota = make_shared<ResourceAmount>(model1);
       }
     }
     if (m.find("UsedQuota") != m.end() && !m["UsedQuota"].empty()) {
@@ -13087,9 +13422,11 @@ public:
 class ListNodesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorType{};
+  shared_ptr<string> availabilityZone{};
   shared_ptr<string> filterByQuotaId{};
   shared_ptr<string> filterByResourceGroupIds{};
   shared_ptr<string> GPUType{};
+  shared_ptr<string> hyperZone{};
   shared_ptr<string> machineGroupIds{};
   shared_ptr<string> nodeNames{};
   shared_ptr<string> nodeStatuses{};
@@ -13117,6 +13454,9 @@ public:
     if (acceleratorType) {
       res["AcceleratorType"] = boost::any(*acceleratorType);
     }
+    if (availabilityZone) {
+      res["AvailabilityZone"] = boost::any(*availabilityZone);
+    }
     if (filterByQuotaId) {
       res["FilterByQuotaId"] = boost::any(*filterByQuotaId);
     }
@@ -13125,6 +13465,9 @@ public:
     }
     if (GPUType) {
       res["GPUType"] = boost::any(*GPUType);
+    }
+    if (hyperZone) {
+      res["HyperZone"] = boost::any(*hyperZone);
     }
     if (machineGroupIds) {
       res["MachineGroupIds"] = boost::any(*machineGroupIds);
@@ -13172,6 +13515,9 @@ public:
     if (m.find("AcceleratorType") != m.end() && !m["AcceleratorType"].empty()) {
       acceleratorType = make_shared<string>(boost::any_cast<string>(m["AcceleratorType"]));
     }
+    if (m.find("AvailabilityZone") != m.end() && !m["AvailabilityZone"].empty()) {
+      availabilityZone = make_shared<string>(boost::any_cast<string>(m["AvailabilityZone"]));
+    }
     if (m.find("FilterByQuotaId") != m.end() && !m["FilterByQuotaId"].empty()) {
       filterByQuotaId = make_shared<string>(boost::any_cast<string>(m["FilterByQuotaId"]));
     }
@@ -13180,6 +13526,9 @@ public:
     }
     if (m.find("GPUType") != m.end() && !m["GPUType"].empty()) {
       GPUType = make_shared<string>(boost::any_cast<string>(m["GPUType"]));
+    }
+    if (m.find("HyperZone") != m.end() && !m["HyperZone"].empty()) {
+      hyperZone = make_shared<string>(boost::any_cast<string>(m["HyperZone"]));
     }
     if (m.find("MachineGroupIds") != m.end() && !m["MachineGroupIds"].empty()) {
       machineGroupIds = make_shared<string>(boost::any_cast<string>(m["MachineGroupIds"]));
