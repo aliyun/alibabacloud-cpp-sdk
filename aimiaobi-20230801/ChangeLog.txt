@@ -1,3 +1,11 @@
+2025-06-18 Version: 1.8.0
+- Support API AsyncCreateClipsTask.
+- Support API AsyncCreateClipsTimeLine.
+- Support API AsyncEditTimeline.
+- Support API AsyncUploadVideo.
+- Support API GetAutoClipsTaskInfo.
+
+
 2025-06-16 Version: 1.7.0
 - Support API ExportAuditContentResult.
 - Support API FetchExportWordTask.
