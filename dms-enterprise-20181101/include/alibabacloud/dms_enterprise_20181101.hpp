@@ -30531,6 +30531,7 @@ public:
   shared_ptr<long> queryTimeout{};
   shared_ptr<string> safeRuleId{};
   shared_ptr<string> sellSitd{};
+  shared_ptr<string> sellTrust{};
   shared_ptr<string> sid{};
   shared_ptr<GetInstanceResponseBodyInstanceStandardGroup> standardGroup{};
   shared_ptr<string> state{};
@@ -30609,6 +30610,9 @@ public:
     }
     if (sellSitd) {
       res["SellSitd"] = boost::any(*sellSitd);
+    }
+    if (sellTrust) {
+      res["SellTrust"] = boost::any(*sellTrust);
     }
     if (sid) {
       res["Sid"] = boost::any(*sid);
@@ -30699,6 +30703,9 @@ public:
     }
     if (m.find("SellSitd") != m.end() && !m["SellSitd"].empty()) {
       sellSitd = make_shared<string>(boost::any_cast<string>(m["SellSitd"]));
+    }
+    if (m.find("SellTrust") != m.end() && !m["SellTrust"].empty()) {
+      sellTrust = make_shared<string>(boost::any_cast<string>(m["SellTrust"]));
     }
     if (m.find("Sid") != m.end() && !m["Sid"].empty()) {
       sid = make_shared<string>(boost::any_cast<string>(m["Sid"]));
@@ -51477,6 +51484,7 @@ public:
   shared_ptr<long> queryTimeout{};
   shared_ptr<string> safeRuleId{};
   shared_ptr<bool> sellSitd{};
+  shared_ptr<string> sellTrust{};
   shared_ptr<string> sid{};
   shared_ptr<ListInstancesResponseBodyInstanceListInstanceStandardGroup> standardGroup{};
   shared_ptr<string> state{};
@@ -51555,6 +51563,9 @@ public:
     }
     if (sellSitd) {
       res["SellSitd"] = boost::any(*sellSitd);
+    }
+    if (sellTrust) {
+      res["SellTrust"] = boost::any(*sellTrust);
     }
     if (sid) {
       res["Sid"] = boost::any(*sid);
@@ -51645,6 +51656,9 @@ public:
     }
     if (m.find("SellSitd") != m.end() && !m["SellSitd"].empty()) {
       sellSitd = make_shared<bool>(boost::any_cast<bool>(m["SellSitd"]));
+    }
+    if (m.find("SellTrust") != m.end() && !m["SellTrust"].empty()) {
+      sellTrust = make_shared<string>(boost::any_cast<string>(m["SellTrust"]));
     }
     if (m.find("Sid") != m.end() && !m["Sid"].empty()) {
       sid = make_shared<string>(boost::any_cast<string>(m["Sid"]));
@@ -65612,6 +65626,7 @@ public:
   shared_ptr<string> networkType{};
   shared_ptr<long> port{};
   shared_ptr<long> queryTimeout{};
+  shared_ptr<string> resourceGroup{};
   shared_ptr<string> safeRule{};
   shared_ptr<string> sid{};
   shared_ptr<bool> skipTest{};
@@ -65684,6 +65699,9 @@ public:
     }
     if (queryTimeout) {
       res["QueryTimeout"] = boost::any(*queryTimeout);
+    }
+    if (resourceGroup) {
+      res["ResourceGroup"] = boost::any(*resourceGroup);
     }
     if (safeRule) {
       res["SafeRule"] = boost::any(*safeRule);
@@ -65766,6 +65784,9 @@ public:
     }
     if (m.find("QueryTimeout") != m.end() && !m["QueryTimeout"].empty()) {
       queryTimeout = make_shared<long>(boost::any_cast<long>(m["QueryTimeout"]));
+    }
+    if (m.find("ResourceGroup") != m.end() && !m["ResourceGroup"].empty()) {
+      resourceGroup = make_shared<string>(boost::any_cast<string>(m["ResourceGroup"]));
     }
     if (m.find("SafeRule") != m.end() && !m["SafeRule"].empty()) {
       safeRule = make_shared<string>(boost::any_cast<string>(m["SafeRule"]));

@@ -9451,6 +9451,9 @@ RegisterInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::registerIn
   if (!Darabonba_Util::Client::isUnset<long>(request->queryTimeout)) {
     query->insert(pair<string, long>("QueryTimeout", *request->queryTimeout));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroup)) {
+    query->insert(pair<string, string>("ResourceGroup", *request->resourceGroup));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->safeRule)) {
     query->insert(pair<string, string>("SafeRule", *request->safeRule));
   }
