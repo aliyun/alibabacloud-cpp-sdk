@@ -2740,6 +2740,49 @@ public:
 
   virtual ~CreateEventStreamingRequestRunOptionsBatchWindow() = default;
 };
+class CreateEventStreamingRequestRunOptionsBusinessOption : public Darabonba::Model {
+public:
+  shared_ptr<string> businessMode{};
+  shared_ptr<long> maxCapacityUnitCount{};
+  shared_ptr<long> minCapacityUnitCount{};
+
+  CreateEventStreamingRequestRunOptionsBusinessOption() {}
+
+  explicit CreateEventStreamingRequestRunOptionsBusinessOption(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessMode) {
+      res["BusinessMode"] = boost::any(*businessMode);
+    }
+    if (maxCapacityUnitCount) {
+      res["MaxCapacityUnitCount"] = boost::any(*maxCapacityUnitCount);
+    }
+    if (minCapacityUnitCount) {
+      res["MinCapacityUnitCount"] = boost::any(*minCapacityUnitCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessMode") != m.end() && !m["BusinessMode"].empty()) {
+      businessMode = make_shared<string>(boost::any_cast<string>(m["BusinessMode"]));
+    }
+    if (m.find("MaxCapacityUnitCount") != m.end() && !m["MaxCapacityUnitCount"].empty()) {
+      maxCapacityUnitCount = make_shared<long>(boost::any_cast<long>(m["MaxCapacityUnitCount"]));
+    }
+    if (m.find("MinCapacityUnitCount") != m.end() && !m["MinCapacityUnitCount"].empty()) {
+      minCapacityUnitCount = make_shared<long>(boost::any_cast<long>(m["MinCapacityUnitCount"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestRunOptionsBusinessOption() = default;
+};
 class CreateEventStreamingRequestRunOptionsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
@@ -2843,6 +2886,7 @@ public:
 class CreateEventStreamingRequestRunOptions : public Darabonba::Model {
 public:
   shared_ptr<CreateEventStreamingRequestRunOptionsBatchWindow> batchWindow{};
+  shared_ptr<CreateEventStreamingRequestRunOptionsBusinessOption> businessOption{};
   shared_ptr<CreateEventStreamingRequestRunOptionsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> errorsTolerance{};
   shared_ptr<long> maximumTasks{};
@@ -2861,6 +2905,9 @@ public:
     map<string, boost::any> res;
     if (batchWindow) {
       res["BatchWindow"] = batchWindow ? boost::any(batchWindow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (businessOption) {
+      res["BusinessOption"] = businessOption ? boost::any(businessOption->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deadLetterQueue) {
       res["DeadLetterQueue"] = deadLetterQueue ? boost::any(deadLetterQueue->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2886,6 +2933,13 @@ public:
         CreateEventStreamingRequestRunOptionsBatchWindow model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BatchWindow"]));
         batchWindow = make_shared<CreateEventStreamingRequestRunOptionsBatchWindow>(model1);
+      }
+    }
+    if (m.find("BusinessOption") != m.end() && !m["BusinessOption"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BusinessOption"].type()) {
+        CreateEventStreamingRequestRunOptionsBusinessOption model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BusinessOption"]));
+        businessOption = make_shared<CreateEventStreamingRequestRunOptionsBusinessOption>(model1);
       }
     }
     if (m.find("DeadLetterQueue") != m.end() && !m["DeadLetterQueue"].empty()) {
@@ -3889,6 +3943,676 @@ public:
 
 
   virtual ~CreateEventStreamingRequestSinkSinkDataHubParameters() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersBody : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersBody() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersBody() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersDatabase : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersDatabase() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersDatabase(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersDatabase() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersNetworkType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersNetworkType() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersNetworkType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersNetworkType() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersPassword : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersPassword() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersPassword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersPassword() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersTable : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersTable() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersTable(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersTable() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersUserName : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersUserName() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersUserName(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersUserName() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersVSwitchIds() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersVSwitchIds() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkDorisParametersVpcId() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParametersVpcId() = default;
+};
+class CreateEventStreamingRequestSinkSinkDorisParameters : public Darabonba::Model {
+public:
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint> beHttpEndpoint{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersBody> body{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersDatabase> database{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint> feHttpEndpoint{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersNetworkType> networkType{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersPassword> password{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint> queryEndpoint{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersTable> table{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersUserName> userName{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersVSwitchIds> vSwitchIds{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParametersVpcId> vpcId{};
+
+  CreateEventStreamingRequestSinkSinkDorisParameters() {}
+
+  explicit CreateEventStreamingRequestSinkSinkDorisParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beHttpEndpoint) {
+      res["BeHttpEndpoint"] = beHttpEndpoint ? boost::any(beHttpEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (body) {
+      res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (database) {
+      res["Database"] = database ? boost::any(database->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (feHttpEndpoint) {
+      res["FeHttpEndpoint"] = feHttpEndpoint ? boost::any(feHttpEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (password) {
+      res["Password"] = password ? boost::any(password->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (queryEndpoint) {
+      res["QueryEndpoint"] = queryEndpoint ? boost::any(queryEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (table) {
+      res["Table"] = table ? boost::any(table->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userName) {
+      res["UserName"] = userName ? boost::any(userName->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeHttpEndpoint") != m.end() && !m["BeHttpEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BeHttpEndpoint"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BeHttpEndpoint"]));
+        beHttpEndpoint = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint>(model1);
+      }
+    }
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Body"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
+        body = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersBody>(model1);
+      }
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Database"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersDatabase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Database"]));
+        database = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersDatabase>(model1);
+      }
+    }
+    if (m.find("FeHttpEndpoint") != m.end() && !m["FeHttpEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FeHttpEndpoint"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FeHttpEndpoint"]));
+        feHttpEndpoint = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkType"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersNetworkType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkType"]));
+        networkType = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersNetworkType>(model1);
+      }
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Password"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersPassword model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Password"]));
+        password = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersPassword>(model1);
+      }
+    }
+    if (m.find("QueryEndpoint") != m.end() && !m["QueryEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QueryEndpoint"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueryEndpoint"]));
+        queryEndpoint = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Table"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersTable model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Table"]));
+        table = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersTable>(model1);
+      }
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserName"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersUserName model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserName"]));
+        userName = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersUserName>(model1);
+      }
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersVSwitchIds>(model1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<CreateEventStreamingRequestSinkSinkDorisParametersVpcId>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkDorisParameters() = default;
 };
 class CreateEventStreamingRequestSinkSinkFcParametersBody : public Darabonba::Model {
 public:
@@ -7942,6 +8666,7 @@ public:
   shared_ptr<CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkDashVectorParameters> sinkDashVectorParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkDataHubParameters> sinkDataHubParameters{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkDorisParameters> sinkDorisParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkFcParameters> sinkFcParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkKafkaParameters> sinkKafkaParameters{};
@@ -7980,6 +8705,9 @@ public:
     }
     if (sinkDataHubParameters) {
       res["SinkDataHubParameters"] = sinkDataHubParameters ? boost::any(sinkDataHubParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkDorisParameters) {
+      res["SinkDorisParameters"] = sinkDorisParameters ? boost::any(sinkDorisParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkFcParameters) {
       res["SinkFcParameters"] = sinkFcParameters ? boost::any(sinkFcParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8055,6 +8783,13 @@ public:
         CreateEventStreamingRequestSinkSinkDataHubParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkDataHubParameters"]));
         sinkDataHubParameters = make_shared<CreateEventStreamingRequestSinkSinkDataHubParameters>(model1);
+      }
+    }
+    if (m.find("SinkDorisParameters") != m.end() && !m["SinkDorisParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkDorisParameters"].type()) {
+        CreateEventStreamingRequestSinkSinkDorisParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkDorisParameters"]));
+        sinkDorisParameters = make_shared<CreateEventStreamingRequestSinkSinkDorisParameters>(model1);
       }
     }
     if (m.find("SinkFcParameters") != m.end() && !m["SinkFcParameters"].empty()) {
@@ -14450,6 +15185,49 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataRunOptionsBatchWindow() = default;
 };
+class GetEventStreamingResponseBodyDataRunOptionsBusinessOption : public Darabonba::Model {
+public:
+  shared_ptr<string> businessMode{};
+  shared_ptr<long> maxCapacityUnitCount{};
+  shared_ptr<long> minCapacityUnitCount{};
+
+  GetEventStreamingResponseBodyDataRunOptionsBusinessOption() {}
+
+  explicit GetEventStreamingResponseBodyDataRunOptionsBusinessOption(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessMode) {
+      res["BusinessMode"] = boost::any(*businessMode);
+    }
+    if (maxCapacityUnitCount) {
+      res["MaxCapacityUnitCount"] = boost::any(*maxCapacityUnitCount);
+    }
+    if (minCapacityUnitCount) {
+      res["MinCapacityUnitCount"] = boost::any(*minCapacityUnitCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessMode") != m.end() && !m["BusinessMode"].empty()) {
+      businessMode = make_shared<string>(boost::any_cast<string>(m["BusinessMode"]));
+    }
+    if (m.find("MaxCapacityUnitCount") != m.end() && !m["MaxCapacityUnitCount"].empty()) {
+      maxCapacityUnitCount = make_shared<long>(boost::any_cast<long>(m["MaxCapacityUnitCount"]));
+    }
+    if (m.find("MinCapacityUnitCount") != m.end() && !m["MinCapacityUnitCount"].empty()) {
+      minCapacityUnitCount = make_shared<long>(boost::any_cast<long>(m["MinCapacityUnitCount"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataRunOptionsBusinessOption() = default;
+};
 class GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
@@ -14553,6 +15331,7 @@ public:
 class GetEventStreamingResponseBodyDataRunOptions : public Darabonba::Model {
 public:
   shared_ptr<GetEventStreamingResponseBodyDataRunOptionsBatchWindow> batchWindow{};
+  shared_ptr<GetEventStreamingResponseBodyDataRunOptionsBusinessOption> businessOption{};
   shared_ptr<GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> errorsTolerance{};
   shared_ptr<long> maximumTasks{};
@@ -14571,6 +15350,9 @@ public:
     map<string, boost::any> res;
     if (batchWindow) {
       res["BatchWindow"] = batchWindow ? boost::any(batchWindow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (businessOption) {
+      res["BusinessOption"] = businessOption ? boost::any(businessOption->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deadLetterQueue) {
       res["DeadLetterQueue"] = deadLetterQueue ? boost::any(deadLetterQueue->toMap()) : boost::any(map<string,boost::any>({}));
@@ -14596,6 +15378,13 @@ public:
         GetEventStreamingResponseBodyDataRunOptionsBatchWindow model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BatchWindow"]));
         batchWindow = make_shared<GetEventStreamingResponseBodyDataRunOptionsBatchWindow>(model1);
+      }
+    }
+    if (m.find("BusinessOption") != m.end() && !m["BusinessOption"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BusinessOption"].type()) {
+        GetEventStreamingResponseBodyDataRunOptionsBusinessOption model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BusinessOption"]));
+        businessOption = make_shared<GetEventStreamingResponseBodyDataRunOptionsBusinessOption>(model1);
       }
     }
     if (m.find("DeadLetterQueue") != m.end() && !m["DeadLetterQueue"].empty()) {
@@ -15599,6 +16388,676 @@ public:
 
 
   virtual ~GetEventStreamingResponseBodyDataSinkSinkDataHubParameters() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersBeHttpEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersBeHttpEndpoint() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersBeHttpEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersBeHttpEndpoint() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersBody : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersBody() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersBody() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersDatabase : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersDatabase() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersDatabase(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersDatabase() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersFeHttpEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersFeHttpEndpoint() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersFeHttpEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersFeHttpEndpoint() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersNetworkType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersNetworkType() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersNetworkType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersNetworkType() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersPassword : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersPassword() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersPassword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersPassword() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersQueryEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersQueryEndpoint() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersQueryEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersQueryEndpoint() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersSecurityGroupId() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersSecurityGroupId() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersTable : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersTable() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersTable(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersTable() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersUserName : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersUserName() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersUserName(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersUserName() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersVSwitchIds() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersVSwitchIds() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParametersVpcId() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParametersVpcId() = default;
+};
+class GetEventStreamingResponseBodyDataSinkSinkDorisParameters : public Darabonba::Model {
+public:
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersBeHttpEndpoint> beHttpEndpoint{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersBody> body{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersDatabase> database{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersFeHttpEndpoint> feHttpEndpoint{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersNetworkType> networkType{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersPassword> password{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersQueryEndpoint> queryEndpoint{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersTable> table{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersUserName> userName{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersVSwitchIds> vSwitchIds{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParametersVpcId> vpcId{};
+
+  GetEventStreamingResponseBodyDataSinkSinkDorisParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSinkSinkDorisParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beHttpEndpoint) {
+      res["BeHttpEndpoint"] = beHttpEndpoint ? boost::any(beHttpEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (body) {
+      res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (database) {
+      res["Database"] = database ? boost::any(database->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (feHttpEndpoint) {
+      res["FeHttpEndpoint"] = feHttpEndpoint ? boost::any(feHttpEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (password) {
+      res["Password"] = password ? boost::any(password->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (queryEndpoint) {
+      res["QueryEndpoint"] = queryEndpoint ? boost::any(queryEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (table) {
+      res["Table"] = table ? boost::any(table->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userName) {
+      res["UserName"] = userName ? boost::any(userName->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeHttpEndpoint") != m.end() && !m["BeHttpEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BeHttpEndpoint"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersBeHttpEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BeHttpEndpoint"]));
+        beHttpEndpoint = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersBeHttpEndpoint>(model1);
+      }
+    }
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Body"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
+        body = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersBody>(model1);
+      }
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Database"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersDatabase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Database"]));
+        database = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersDatabase>(model1);
+      }
+    }
+    if (m.find("FeHttpEndpoint") != m.end() && !m["FeHttpEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FeHttpEndpoint"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersFeHttpEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FeHttpEndpoint"]));
+        feHttpEndpoint = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersFeHttpEndpoint>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkType"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersNetworkType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkType"]));
+        networkType = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersNetworkType>(model1);
+      }
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Password"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersPassword model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Password"]));
+        password = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersPassword>(model1);
+      }
+    }
+    if (m.find("QueryEndpoint") != m.end() && !m["QueryEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QueryEndpoint"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersQueryEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueryEndpoint"]));
+        queryEndpoint = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersQueryEndpoint>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Table"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersTable model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Table"]));
+        table = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersTable>(model1);
+      }
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserName"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersUserName model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserName"]));
+        userName = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersUserName>(model1);
+      }
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersVSwitchIds>(model1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParametersVpcId>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSinkSinkDorisParameters() = default;
 };
 class GetEventStreamingResponseBodyDataSinkSinkFcParametersBody : public Darabonba::Model {
 public:
@@ -19090,6 +20549,7 @@ public:
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters> sinkDashVectorParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDataHubParameters> sinkDataHubParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSinkSinkDorisParameters> sinkDorisParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFcParameters> sinkFcParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSinkSinkKafkaParameters> sinkKafkaParameters{};
@@ -19127,6 +20587,9 @@ public:
     }
     if (sinkDataHubParameters) {
       res["SinkDataHubParameters"] = sinkDataHubParameters ? boost::any(sinkDataHubParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkDorisParameters) {
+      res["SinkDorisParameters"] = sinkDorisParameters ? boost::any(sinkDorisParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkFcParameters) {
       res["SinkFcParameters"] = sinkFcParameters ? boost::any(sinkFcParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -19199,6 +20662,13 @@ public:
         GetEventStreamingResponseBodyDataSinkSinkDataHubParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkDataHubParameters"]));
         sinkDataHubParameters = make_shared<GetEventStreamingResponseBodyDataSinkSinkDataHubParameters>(model1);
+      }
+    }
+    if (m.find("SinkDorisParameters") != m.end() && !m["SinkDorisParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkDorisParameters"].type()) {
+        GetEventStreamingResponseBodyDataSinkSinkDorisParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkDorisParameters"]));
+        sinkDorisParameters = make_shared<GetEventStreamingResponseBodyDataSinkSinkDorisParameters>(model1);
       }
     }
     if (m.find("SinkFcParameters") != m.end() && !m["SinkFcParameters"].empty()) {
@@ -23119,6 +24589,49 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption : public Darabonba::Model {
+public:
+  shared_ptr<string> businessMode{};
+  shared_ptr<long> maxCapacityUnitCount{};
+  shared_ptr<long> minCapacityUnitCount{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessMode) {
+      res["BusinessMode"] = boost::any(*businessMode);
+    }
+    if (maxCapacityUnitCount) {
+      res["MaxCapacityUnitCount"] = boost::any(*maxCapacityUnitCount);
+    }
+    if (minCapacityUnitCount) {
+      res["MinCapacityUnitCount"] = boost::any(*minCapacityUnitCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessMode") != m.end() && !m["BusinessMode"].empty()) {
+      businessMode = make_shared<string>(boost::any_cast<string>(m["BusinessMode"]));
+    }
+    if (m.find("MaxCapacityUnitCount") != m.end() && !m["MaxCapacityUnitCount"].empty()) {
+      maxCapacityUnitCount = make_shared<long>(boost::any_cast<long>(m["MaxCapacityUnitCount"]));
+    }
+    if (m.find("MinCapacityUnitCount") != m.end() && !m["MinCapacityUnitCount"].empty()) {
+      minCapacityUnitCount = make_shared<long>(boost::any_cast<long>(m["MinCapacityUnitCount"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
@@ -23222,6 +24735,7 @@ public:
 class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions : public Darabonba::Model {
 public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow> batchWindow{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption> businessOption{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> errorsTolerance{};
   shared_ptr<long> maximumTasks{};
@@ -23240,6 +24754,9 @@ public:
     map<string, boost::any> res;
     if (batchWindow) {
       res["BatchWindow"] = batchWindow ? boost::any(batchWindow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (businessOption) {
+      res["BusinessOption"] = businessOption ? boost::any(businessOption->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deadLetterQueue) {
       res["DeadLetterQueue"] = deadLetterQueue ? boost::any(deadLetterQueue->toMap()) : boost::any(map<string,boost::any>({}));
@@ -23265,6 +24782,13 @@ public:
         ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BatchWindow"]));
         batchWindow = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow>(model1);
+      }
+    }
+    if (m.find("BusinessOption") != m.end() && !m["BusinessOption"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BusinessOption"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BusinessOption"]));
+        businessOption = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption>(model1);
       }
     }
     if (m.find("DeadLetterQueue") != m.end() && !m["DeadLetterQueue"].empty()) {
@@ -24268,6 +25792,676 @@ public:
 
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters : public Darabonba::Model {
+public:
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint> beHttpEndpoint{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody> body{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase> database{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint> feHttpEndpoint{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType> networkType{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword> password{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint> queryEndpoint{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable> table{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName> userName{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds> vSwitchIds{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId> vpcId{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beHttpEndpoint) {
+      res["BeHttpEndpoint"] = beHttpEndpoint ? boost::any(beHttpEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (body) {
+      res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (database) {
+      res["Database"] = database ? boost::any(database->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (feHttpEndpoint) {
+      res["FeHttpEndpoint"] = feHttpEndpoint ? boost::any(feHttpEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (password) {
+      res["Password"] = password ? boost::any(password->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (queryEndpoint) {
+      res["QueryEndpoint"] = queryEndpoint ? boost::any(queryEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (table) {
+      res["Table"] = table ? boost::any(table->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userName) {
+      res["UserName"] = userName ? boost::any(userName->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeHttpEndpoint") != m.end() && !m["BeHttpEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BeHttpEndpoint"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BeHttpEndpoint"]));
+        beHttpEndpoint = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint>(model1);
+      }
+    }
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Body"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
+        body = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody>(model1);
+      }
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Database"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Database"]));
+        database = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase>(model1);
+      }
+    }
+    if (m.find("FeHttpEndpoint") != m.end() && !m["FeHttpEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FeHttpEndpoint"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FeHttpEndpoint"]));
+        feHttpEndpoint = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkType"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkType"]));
+        networkType = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType>(model1);
+      }
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Password"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Password"]));
+        password = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword>(model1);
+      }
+    }
+    if (m.find("QueryEndpoint") != m.end() && !m["QueryEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QueryEndpoint"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueryEndpoint"]));
+        queryEndpoint = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Table"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Table"]));
+        table = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable>(model1);
+      }
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserName"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserName"]));
+        userName = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName>(model1);
+      }
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds>(model1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters() = default;
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersBody : public Darabonba::Model {
 public:
@@ -27705,6 +29899,7 @@ public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters> sinkDashVectorParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters> sinkDataHubParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters> sinkDorisParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters> sinkFcParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters> sinkKafkaParameters{};
@@ -27742,6 +29937,9 @@ public:
     }
     if (sinkDataHubParameters) {
       res["SinkDataHubParameters"] = sinkDataHubParameters ? boost::any(sinkDataHubParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkDorisParameters) {
+      res["SinkDorisParameters"] = sinkDorisParameters ? boost::any(sinkDorisParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkFcParameters) {
       res["SinkFcParameters"] = sinkFcParameters ? boost::any(sinkFcParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -27814,6 +30012,13 @@ public:
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkDataHubParameters"]));
         sinkDataHubParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters>(model1);
+      }
+    }
+    if (m.find("SinkDorisParameters") != m.end() && !m["SinkDorisParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkDorisParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkDorisParameters"]));
+        sinkDorisParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters>(model1);
       }
     }
     if (m.find("SinkFcParameters") != m.end() && !m["SinkFcParameters"].empty()) {
@@ -35419,6 +37624,49 @@ public:
 
   virtual ~UpdateEventStreamingRequestRunOptionsBatchWindow() = default;
 };
+class UpdateEventStreamingRequestRunOptionsBusinessOption : public Darabonba::Model {
+public:
+  shared_ptr<string> businessMode{};
+  shared_ptr<long> maxCapacityUnitCount{};
+  shared_ptr<long> minCapacityUnitCount{};
+
+  UpdateEventStreamingRequestRunOptionsBusinessOption() {}
+
+  explicit UpdateEventStreamingRequestRunOptionsBusinessOption(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessMode) {
+      res["BusinessMode"] = boost::any(*businessMode);
+    }
+    if (maxCapacityUnitCount) {
+      res["MaxCapacityUnitCount"] = boost::any(*maxCapacityUnitCount);
+    }
+    if (minCapacityUnitCount) {
+      res["MinCapacityUnitCount"] = boost::any(*minCapacityUnitCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessMode") != m.end() && !m["BusinessMode"].empty()) {
+      businessMode = make_shared<string>(boost::any_cast<string>(m["BusinessMode"]));
+    }
+    if (m.find("MaxCapacityUnitCount") != m.end() && !m["MaxCapacityUnitCount"].empty()) {
+      maxCapacityUnitCount = make_shared<long>(boost::any_cast<long>(m["MaxCapacityUnitCount"]));
+    }
+    if (m.find("MinCapacityUnitCount") != m.end() && !m["MinCapacityUnitCount"].empty()) {
+      minCapacityUnitCount = make_shared<long>(boost::any_cast<long>(m["MinCapacityUnitCount"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestRunOptionsBusinessOption() = default;
+};
 class UpdateEventStreamingRequestRunOptionsDeadLetterQueue : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
@@ -35522,6 +37770,7 @@ public:
 class UpdateEventStreamingRequestRunOptions : public Darabonba::Model {
 public:
   shared_ptr<UpdateEventStreamingRequestRunOptionsBatchWindow> batchWindow{};
+  shared_ptr<UpdateEventStreamingRequestRunOptionsBusinessOption> businessOption{};
   shared_ptr<UpdateEventStreamingRequestRunOptionsDeadLetterQueue> deadLetterQueue{};
   shared_ptr<string> errorsTolerance{};
   shared_ptr<long> maximumTasks{};
@@ -35540,6 +37789,9 @@ public:
     map<string, boost::any> res;
     if (batchWindow) {
       res["BatchWindow"] = batchWindow ? boost::any(batchWindow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (businessOption) {
+      res["BusinessOption"] = businessOption ? boost::any(businessOption->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deadLetterQueue) {
       res["DeadLetterQueue"] = deadLetterQueue ? boost::any(deadLetterQueue->toMap()) : boost::any(map<string,boost::any>({}));
@@ -35565,6 +37817,13 @@ public:
         UpdateEventStreamingRequestRunOptionsBatchWindow model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BatchWindow"]));
         batchWindow = make_shared<UpdateEventStreamingRequestRunOptionsBatchWindow>(model1);
+      }
+    }
+    if (m.find("BusinessOption") != m.end() && !m["BusinessOption"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BusinessOption"].type()) {
+        UpdateEventStreamingRequestRunOptionsBusinessOption model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BusinessOption"]));
+        businessOption = make_shared<UpdateEventStreamingRequestRunOptionsBusinessOption>(model1);
       }
     }
     if (m.find("DeadLetterQueue") != m.end() && !m["DeadLetterQueue"].empty()) {
@@ -36676,6 +38935,676 @@ public:
 
 
   virtual ~UpdateEventStreamingRequestSinkSinkDataHubParameters() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersBody : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersBody() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersBody() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersDatabase : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersDatabase() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersDatabase(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersDatabase() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersNetworkType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersNetworkType() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersNetworkType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersNetworkType() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersPassword : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersPassword() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersPassword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersPassword() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersTable : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersTable() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersTable(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersTable() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersUserName : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersUserName() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersUserName(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersUserName() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersVSwitchIds() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersVSwitchIds() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParametersVpcId() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParametersVpcId() = default;
+};
+class UpdateEventStreamingRequestSinkSinkDorisParameters : public Darabonba::Model {
+public:
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint> beHttpEndpoint{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersBody> body{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersDatabase> database{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint> feHttpEndpoint{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersNetworkType> networkType{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersPassword> password{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint> queryEndpoint{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersTable> table{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersUserName> userName{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersVSwitchIds> vSwitchIds{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParametersVpcId> vpcId{};
+
+  UpdateEventStreamingRequestSinkSinkDorisParameters() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkDorisParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beHttpEndpoint) {
+      res["BeHttpEndpoint"] = beHttpEndpoint ? boost::any(beHttpEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (body) {
+      res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (database) {
+      res["Database"] = database ? boost::any(database->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (feHttpEndpoint) {
+      res["FeHttpEndpoint"] = feHttpEndpoint ? boost::any(feHttpEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (password) {
+      res["Password"] = password ? boost::any(password->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (queryEndpoint) {
+      res["QueryEndpoint"] = queryEndpoint ? boost::any(queryEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (table) {
+      res["Table"] = table ? boost::any(table->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userName) {
+      res["UserName"] = userName ? boost::any(userName->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeHttpEndpoint") != m.end() && !m["BeHttpEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BeHttpEndpoint"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BeHttpEndpoint"]));
+        beHttpEndpoint = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersBeHttpEndpoint>(model1);
+      }
+    }
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Body"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
+        body = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersBody>(model1);
+      }
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Database"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersDatabase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Database"]));
+        database = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersDatabase>(model1);
+      }
+    }
+    if (m.find("FeHttpEndpoint") != m.end() && !m["FeHttpEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FeHttpEndpoint"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FeHttpEndpoint"]));
+        feHttpEndpoint = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersFeHttpEndpoint>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkType"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersNetworkType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkType"]));
+        networkType = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersNetworkType>(model1);
+      }
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Password"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersPassword model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Password"]));
+        password = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersPassword>(model1);
+      }
+    }
+    if (m.find("QueryEndpoint") != m.end() && !m["QueryEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QueryEndpoint"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueryEndpoint"]));
+        queryEndpoint = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersQueryEndpoint>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Table"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersTable model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Table"]));
+        table = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersTable>(model1);
+      }
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserName"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersUserName model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserName"]));
+        userName = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersUserName>(model1);
+      }
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersVSwitchIds>(model1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<UpdateEventStreamingRequestSinkSinkDorisParametersVpcId>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkDorisParameters() = default;
 };
 class UpdateEventStreamingRequestSinkSinkFcParametersBody : public Darabonba::Model {
 public:
@@ -40729,6 +43658,7 @@ public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkDashVectorParameters> sinkDashVectorParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkDataHubParameters> sinkDataHubParameters{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkDorisParameters> sinkDorisParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkFcParameters> sinkFcParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkKafkaParameters> sinkKafkaParameters{};
@@ -40767,6 +43697,9 @@ public:
     }
     if (sinkDataHubParameters) {
       res["SinkDataHubParameters"] = sinkDataHubParameters ? boost::any(sinkDataHubParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkDorisParameters) {
+      res["SinkDorisParameters"] = sinkDorisParameters ? boost::any(sinkDorisParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkFcParameters) {
       res["SinkFcParameters"] = sinkFcParameters ? boost::any(sinkFcParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -40842,6 +43775,13 @@ public:
         UpdateEventStreamingRequestSinkSinkDataHubParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkDataHubParameters"]));
         sinkDataHubParameters = make_shared<UpdateEventStreamingRequestSinkSinkDataHubParameters>(model1);
+      }
+    }
+    if (m.find("SinkDorisParameters") != m.end() && !m["SinkDorisParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkDorisParameters"].type()) {
+        UpdateEventStreamingRequestSinkSinkDorisParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkDorisParameters"]));
+        sinkDorisParameters = make_shared<UpdateEventStreamingRequestSinkSinkDorisParameters>(model1);
       }
     }
     if (m.find("SinkFcParameters") != m.end() && !m["SinkFcParameters"].empty()) {
