@@ -2943,6 +2943,9 @@ ListEntitiesResponse Alibabacloud_Cloud-siem20220616::Client::listEntitiesWithOp
   if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
     body->insert(pair<string, long>("RoleType", *request->roleType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
+    body->insert(pair<string, string>("Tags", *request->tags));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));

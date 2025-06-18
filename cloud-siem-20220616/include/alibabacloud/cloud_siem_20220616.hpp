@@ -19293,6 +19293,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<long> roleFor{};
   shared_ptr<long> roleType{};
+  shared_ptr<string> tags{};
 
   ListEntitiesRequest() {}
 
@@ -19337,6 +19338,9 @@ public:
     if (roleType) {
       res["RoleType"] = boost::any(*roleType);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     return res;
   }
 
@@ -19373,6 +19377,9 @@ public:
     }
     if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
       roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
     }
   }
 
@@ -19438,8 +19445,11 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<long> id{};
   shared_ptr<string> incidentUuid{};
+  shared_ptr<string> isAsset{};
+  shared_ptr<string> isMalware{};
   shared_ptr<string> malwareType{};
   shared_ptr<long> subUserId{};
+  shared_ptr<string> tags{};
 
   ListEntitiesResponseBodyDataResponseData() {}
 
@@ -19493,11 +19503,20 @@ public:
     if (incidentUuid) {
       res["IncidentUuid"] = boost::any(*incidentUuid);
     }
+    if (isAsset) {
+      res["IsAsset"] = boost::any(*isAsset);
+    }
+    if (isMalware) {
+      res["IsMalware"] = boost::any(*isMalware);
+    }
     if (malwareType) {
       res["MalwareType"] = boost::any(*malwareType);
     }
     if (subUserId) {
       res["SubUserId"] = boost::any(*subUserId);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
     }
     return res;
   }
@@ -19545,11 +19564,20 @@ public:
     if (m.find("IncidentUuid") != m.end() && !m["IncidentUuid"].empty()) {
       incidentUuid = make_shared<string>(boost::any_cast<string>(m["IncidentUuid"]));
     }
+    if (m.find("IsAsset") != m.end() && !m["IsAsset"].empty()) {
+      isAsset = make_shared<string>(boost::any_cast<string>(m["IsAsset"]));
+    }
+    if (m.find("IsMalware") != m.end() && !m["IsMalware"].empty()) {
+      isMalware = make_shared<string>(boost::any_cast<string>(m["IsMalware"]));
+    }
     if (m.find("MalwareType") != m.end() && !m["MalwareType"].empty()) {
       malwareType = make_shared<string>(boost::any_cast<string>(m["MalwareType"]));
     }
     if (m.find("SubUserId") != m.end() && !m["SubUserId"].empty()) {
       subUserId = make_shared<long>(boost::any_cast<long>(m["SubUserId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
     }
   }
 
