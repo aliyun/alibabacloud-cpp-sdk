@@ -12764,9 +12764,12 @@ public:
 class DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> databaseNames{};
+  shared_ptr<long> estimatedRows{};
+  shared_ptr<long> expireLogsDays{};
   shared_ptr<string> simpleData{};
   shared_ptr<vector<string>> tableNames{};
   shared_ptr<DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema> tableSchema{};
+  shared_ptr<long> waitTimeout{};
 
   DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery() {}
 
@@ -12781,6 +12784,12 @@ public:
     if (databaseNames) {
       res["DatabaseNames"] = boost::any(*databaseNames);
     }
+    if (estimatedRows) {
+      res["EstimatedRows"] = boost::any(*estimatedRows);
+    }
+    if (expireLogsDays) {
+      res["ExpireLogsDays"] = boost::any(*expireLogsDays);
+    }
     if (simpleData) {
       res["SimpleData"] = boost::any(*simpleData);
     }
@@ -12789,6 +12798,9 @@ public:
     }
     if (tableSchema) {
       res["TableSchema"] = tableSchema ? boost::any(tableSchema->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (waitTimeout) {
+      res["WaitTimeout"] = boost::any(*waitTimeout);
     }
     return res;
   }
@@ -12803,6 +12815,12 @@ public:
         }
       }
       databaseNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EstimatedRows") != m.end() && !m["EstimatedRows"].empty()) {
+      estimatedRows = make_shared<long>(boost::any_cast<long>(m["EstimatedRows"]));
+    }
+    if (m.find("ExpireLogsDays") != m.end() && !m["ExpireLogsDays"].empty()) {
+      expireLogsDays = make_shared<long>(boost::any_cast<long>(m["ExpireLogsDays"]));
     }
     if (m.find("SimpleData") != m.end() && !m["SimpleData"].empty()) {
       simpleData = make_shared<string>(boost::any_cast<string>(m["SimpleData"]));
@@ -12823,6 +12841,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TableSchema"]));
         tableSchema = make_shared<DiscoverEventSourceResponseBodyDataSourceMySQLDiscoveryTableSchema>(model1);
       }
+    }
+    if (m.find("WaitTimeout") != m.end() && !m["WaitTimeout"].empty()) {
+      waitTimeout = make_shared<long>(boost::any_cast<long>(m["WaitTimeout"]));
     }
   }
 
