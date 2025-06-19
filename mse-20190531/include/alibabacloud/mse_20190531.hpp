@@ -40228,6 +40228,7 @@ public:
   shared_ptr<string> requestPars{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<ListClustersRequestTag>> tag{};
+  shared_ptr<string> vpcId{};
 
   ListClustersRequest() {}
 
@@ -40270,6 +40271,9 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -40310,6 +40314,9 @@ public:
         }
         tag = make_shared<vector<ListClustersRequestTag>>(expect1);
       }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
