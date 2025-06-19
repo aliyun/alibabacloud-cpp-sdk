@@ -29520,6 +29520,163 @@ public:
 
   virtual ~GetProjectRoleResponse() = default;
 };
+class GetRerunWorkflowInstancesResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> operationId{};
+
+  GetRerunWorkflowInstancesResultRequest() {}
+
+  explicit GetRerunWorkflowInstancesResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (operationId) {
+      res["OperationId"] = boost::any(*operationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+  }
+
+
+  virtual ~GetRerunWorkflowInstancesResultRequest() = default;
+};
+class GetRerunWorkflowInstancesResultResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> failureMessage{};
+  shared_ptr<string> status{};
+
+  GetRerunWorkflowInstancesResultResponseBodyResult() {}
+
+  explicit GetRerunWorkflowInstancesResultResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failureMessage) {
+      res["FailureMessage"] = boost::any(*failureMessage);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailureMessage") != m.end() && !m["FailureMessage"].empty()) {
+      failureMessage = make_shared<string>(boost::any_cast<string>(m["FailureMessage"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetRerunWorkflowInstancesResultResponseBodyResult() = default;
+};
+class GetRerunWorkflowInstancesResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetRerunWorkflowInstancesResultResponseBodyResult> result{};
+
+  GetRerunWorkflowInstancesResultResponseBody() {}
+
+  explicit GetRerunWorkflowInstancesResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        GetRerunWorkflowInstancesResultResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<GetRerunWorkflowInstancesResultResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetRerunWorkflowInstancesResultResponseBody() = default;
+};
+class GetRerunWorkflowInstancesResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetRerunWorkflowInstancesResultResponseBody> body{};
+
+  GetRerunWorkflowInstancesResultResponse() {}
+
+  explicit GetRerunWorkflowInstancesResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetRerunWorkflowInstancesResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetRerunWorkflowInstancesResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetRerunWorkflowInstancesResultResponse() = default;
+};
 class GetResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -32219,6 +32376,8 @@ public:
   shared_ptr<string> triggerRecurrence{};
   shared_ptr<long> triggerTime{};
   shared_ptr<string> triggerType{};
+  shared_ptr<long> waitingResourceTime{};
+  shared_ptr<long> waitingTriggerTime{};
   shared_ptr<long> workflowId{};
   shared_ptr<long> workflowInstanceId{};
   shared_ptr<string> workflowInstanceType{};
@@ -32333,6 +32492,12 @@ public:
     }
     if (triggerType) {
       res["TriggerType"] = boost::any(*triggerType);
+    }
+    if (waitingResourceTime) {
+      res["WaitingResourceTime"] = boost::any(*waitingResourceTime);
+    }
+    if (waitingTriggerTime) {
+      res["WaitingTriggerTime"] = boost::any(*waitingTriggerTime);
     }
     if (workflowId) {
       res["WorkflowId"] = boost::any(*workflowId);
@@ -32479,6 +32644,12 @@ public:
     }
     if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
       triggerType = make_shared<string>(boost::any_cast<string>(m["TriggerType"]));
+    }
+    if (m.find("WaitingResourceTime") != m.end() && !m["WaitingResourceTime"].empty()) {
+      waitingResourceTime = make_shared<long>(boost::any_cast<long>(m["WaitingResourceTime"]));
+    }
+    if (m.find("WaitingTriggerTime") != m.end() && !m["WaitingTriggerTime"].empty()) {
+      waitingTriggerTime = make_shared<long>(boost::any_cast<long>(m["WaitingTriggerTime"]));
     }
     if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
       workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
@@ -56945,6 +57116,7 @@ public:
   shared_ptr<long> runNumber{};
   shared_ptr<ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime> runtime{};
   shared_ptr<ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource> runtimeResource{};
+  shared_ptr<string> scriptParameters{};
   shared_ptr<long> startedTime{};
   shared_ptr<string> status{};
   shared_ptr<long> taskId{};
@@ -56954,6 +57126,8 @@ public:
   shared_ptr<string> triggerRecurrence{};
   shared_ptr<long> triggerTime{};
   shared_ptr<string> triggerType{};
+  shared_ptr<long> waitingResourceTime{};
+  shared_ptr<long> waitingTriggerTime{};
   shared_ptr<long> workflowId{};
   shared_ptr<long> workflowInstanceId{};
   shared_ptr<string> workflowInstanceType{};
@@ -57026,6 +57200,9 @@ public:
     if (runtimeResource) {
       res["RuntimeResource"] = runtimeResource ? boost::any(runtimeResource->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (scriptParameters) {
+      res["ScriptParameters"] = boost::any(*scriptParameters);
+    }
     if (startedTime) {
       res["StartedTime"] = boost::any(*startedTime);
     }
@@ -57052,6 +57229,12 @@ public:
     }
     if (triggerType) {
       res["TriggerType"] = boost::any(*triggerType);
+    }
+    if (waitingResourceTime) {
+      res["WaitingResourceTime"] = boost::any(*waitingResourceTime);
+    }
+    if (waitingTriggerTime) {
+      res["WaitingTriggerTime"] = boost::any(*waitingTriggerTime);
     }
     if (workflowId) {
       res["WorkflowId"] = boost::any(*workflowId);
@@ -57138,6 +57321,9 @@ public:
         runtimeResource = make_shared<ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource>(model1);
       }
     }
+    if (m.find("ScriptParameters") != m.end() && !m["ScriptParameters"].empty()) {
+      scriptParameters = make_shared<string>(boost::any_cast<string>(m["ScriptParameters"]));
+    }
     if (m.find("StartedTime") != m.end() && !m["StartedTime"].empty()) {
       startedTime = make_shared<long>(boost::any_cast<long>(m["StartedTime"]));
     }
@@ -57164,6 +57350,12 @@ public:
     }
     if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
       triggerType = make_shared<string>(boost::any_cast<string>(m["TriggerType"]));
+    }
+    if (m.find("WaitingResourceTime") != m.end() && !m["WaitingResourceTime"].empty()) {
+      waitingResourceTime = make_shared<long>(boost::any_cast<long>(m["WaitingResourceTime"]));
+    }
+    if (m.find("WaitingTriggerTime") != m.end() && !m["WaitingTriggerTime"].empty()) {
+      waitingTriggerTime = make_shared<long>(boost::any_cast<long>(m["WaitingTriggerTime"]));
     }
     if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
       workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
@@ -63141,6 +63333,381 @@ public:
 
 
   virtual ~RerunTaskInstancesResponse() = default;
+};
+class RerunWorkflowInstancesRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<bool> rerunDownstreamEnabled{};
+  shared_ptr<vector<long>> taskIds{};
+  shared_ptr<vector<string>> taskInstanceStatuses{};
+  shared_ptr<string> taskName{};
+  shared_ptr<vector<string>> taskTypes{};
+
+  RerunWorkflowInstancesRequestFilter() {}
+
+  explicit RerunWorkflowInstancesRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rerunDownstreamEnabled) {
+      res["RerunDownstreamEnabled"] = boost::any(*rerunDownstreamEnabled);
+    }
+    if (taskIds) {
+      res["TaskIds"] = boost::any(*taskIds);
+    }
+    if (taskInstanceStatuses) {
+      res["TaskInstanceStatuses"] = boost::any(*taskInstanceStatuses);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    if (taskTypes) {
+      res["TaskTypes"] = boost::any(*taskTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RerunDownstreamEnabled") != m.end() && !m["RerunDownstreamEnabled"].empty()) {
+      rerunDownstreamEnabled = make_shared<bool>(boost::any_cast<bool>(m["RerunDownstreamEnabled"]));
+    }
+    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TaskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      taskIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TaskInstanceStatuses") != m.end() && !m["TaskInstanceStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TaskInstanceStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaskInstanceStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taskInstanceStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+    if (m.find("TaskTypes") != m.end() && !m["TaskTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TaskTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaskTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taskTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RerunWorkflowInstancesRequestFilter() = default;
+};
+class RerunWorkflowInstancesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> bizdate{};
+  shared_ptr<long> endTriggerTime{};
+  shared_ptr<string> envType{};
+  shared_ptr<RerunWorkflowInstancesRequestFilter> filter{};
+  shared_ptr<vector<long>> ids{};
+  shared_ptr<string> name{};
+  shared_ptr<long> projectId{};
+  shared_ptr<long> startTriggerTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+  shared_ptr<long> workflowId{};
+
+  RerunWorkflowInstancesRequest() {}
+
+  explicit RerunWorkflowInstancesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizdate) {
+      res["Bizdate"] = boost::any(*bizdate);
+    }
+    if (endTriggerTime) {
+      res["EndTriggerTime"] = boost::any(*endTriggerTime);
+    }
+    if (envType) {
+      res["EnvType"] = boost::any(*envType);
+    }
+    if (filter) {
+      res["Filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (startTriggerTime) {
+      res["StartTriggerTime"] = boost::any(*startTriggerTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (workflowId) {
+      res["WorkflowId"] = boost::any(*workflowId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bizdate") != m.end() && !m["Bizdate"].empty()) {
+      bizdate = make_shared<long>(boost::any_cast<long>(m["Bizdate"]));
+    }
+    if (m.find("EndTriggerTime") != m.end() && !m["EndTriggerTime"].empty()) {
+      endTriggerTime = make_shared<long>(boost::any_cast<long>(m["EndTriggerTime"]));
+    }
+    if (m.find("EnvType") != m.end() && !m["EnvType"].empty()) {
+      envType = make_shared<string>(boost::any_cast<string>(m["EnvType"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Filter"].type()) {
+        RerunWorkflowInstancesRequestFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Filter"]));
+        filter = make_shared<RerunWorkflowInstancesRequestFilter>(model1);
+      }
+    }
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ids = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("StartTriggerTime") != m.end() && !m["StartTriggerTime"].empty()) {
+      startTriggerTime = make_shared<long>(boost::any_cast<long>(m["StartTriggerTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
+      workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
+    }
+  }
+
+
+  virtual ~RerunWorkflowInstancesRequest() = default;
+};
+class RerunWorkflowInstancesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> bizdate{};
+  shared_ptr<long> endTriggerTime{};
+  shared_ptr<string> envType{};
+  shared_ptr<string> filterShrink{};
+  shared_ptr<string> idsShrink{};
+  shared_ptr<string> name{};
+  shared_ptr<long> projectId{};
+  shared_ptr<long> startTriggerTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+  shared_ptr<long> workflowId{};
+
+  RerunWorkflowInstancesShrinkRequest() {}
+
+  explicit RerunWorkflowInstancesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizdate) {
+      res["Bizdate"] = boost::any(*bizdate);
+    }
+    if (endTriggerTime) {
+      res["EndTriggerTime"] = boost::any(*endTriggerTime);
+    }
+    if (envType) {
+      res["EnvType"] = boost::any(*envType);
+    }
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (idsShrink) {
+      res["Ids"] = boost::any(*idsShrink);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (startTriggerTime) {
+      res["StartTriggerTime"] = boost::any(*startTriggerTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (workflowId) {
+      res["WorkflowId"] = boost::any(*workflowId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bizdate") != m.end() && !m["Bizdate"].empty()) {
+      bizdate = make_shared<long>(boost::any_cast<long>(m["Bizdate"]));
+    }
+    if (m.find("EndTriggerTime") != m.end() && !m["EndTriggerTime"].empty()) {
+      endTriggerTime = make_shared<long>(boost::any_cast<long>(m["EndTriggerTime"]));
+    }
+    if (m.find("EnvType") != m.end() && !m["EnvType"].empty()) {
+      envType = make_shared<string>(boost::any_cast<string>(m["EnvType"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      idsShrink = make_shared<string>(boost::any_cast<string>(m["Ids"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("StartTriggerTime") != m.end() && !m["StartTriggerTime"].empty()) {
+      startTriggerTime = make_shared<long>(boost::any_cast<long>(m["StartTriggerTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
+      workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
+    }
+  }
+
+
+  virtual ~RerunWorkflowInstancesShrinkRequest() = default;
+};
+class RerunWorkflowInstancesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> operationId{};
+  shared_ptr<string> requestId{};
+
+  RerunWorkflowInstancesResponseBody() {}
+
+  explicit RerunWorkflowInstancesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (operationId) {
+      res["OperationId"] = boost::any(*operationId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RerunWorkflowInstancesResponseBody() = default;
+};
+class RerunWorkflowInstancesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RerunWorkflowInstancesResponseBody> body{};
+
+  RerunWorkflowInstancesResponse() {}
+
+  explicit RerunWorkflowInstancesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RerunWorkflowInstancesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RerunWorkflowInstancesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RerunWorkflowInstancesResponse() = default;
 };
 class ResumeTaskInstancesRequest : public Darabonba::Model {
 public:
@@ -75539,6 +76106,8 @@ public:
   GetProjectMemberResponse getProjectMember(shared_ptr<GetProjectMemberRequest> request);
   GetProjectRoleResponse getProjectRoleWithOptions(shared_ptr<GetProjectRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetProjectRoleResponse getProjectRole(shared_ptr<GetProjectRoleRequest> request);
+  GetRerunWorkflowInstancesResultResponse getRerunWorkflowInstancesResultWithOptions(shared_ptr<GetRerunWorkflowInstancesResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetRerunWorkflowInstancesResultResponse getRerunWorkflowInstancesResult(shared_ptr<GetRerunWorkflowInstancesResultRequest> request);
   GetResourceResponse getResourceWithOptions(shared_ptr<GetResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceResponse getResource(shared_ptr<GetResourceRequest> request);
   GetResourceGroupResponse getResourceGroupWithOptions(shared_ptr<GetResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -75702,6 +76271,8 @@ public:
   RenameWorkflowDefinitionResponse renameWorkflowDefinition(shared_ptr<RenameWorkflowDefinitionRequest> request);
   RerunTaskInstancesResponse rerunTaskInstancesWithOptions(shared_ptr<RerunTaskInstancesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RerunTaskInstancesResponse rerunTaskInstances(shared_ptr<RerunTaskInstancesRequest> request);
+  RerunWorkflowInstancesResponse rerunWorkflowInstancesWithOptions(shared_ptr<RerunWorkflowInstancesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RerunWorkflowInstancesResponse rerunWorkflowInstances(shared_ptr<RerunWorkflowInstancesRequest> request);
   ResumeTaskInstancesResponse resumeTaskInstancesWithOptions(shared_ptr<ResumeTaskInstancesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeTaskInstancesResponse resumeTaskInstances(shared_ptr<ResumeTaskInstancesRequest> request);
   RevokeMemberProjectRolesResponse revokeMemberProjectRolesWithOptions(shared_ptr<RevokeMemberProjectRolesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
