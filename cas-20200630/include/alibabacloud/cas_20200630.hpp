@@ -2703,6 +2703,7 @@ class DescribeCACertificateListResponseBodyCertificateList : public Darabonba::M
 public:
   shared_ptr<long> afterDate{};
   shared_ptr<string> algorithm{};
+  shared_ptr<string> alias{};
   shared_ptr<long> beforeDate{};
   shared_ptr<string> certificateType{};
   shared_ptr<string> commonName{};
@@ -2739,6 +2740,9 @@ public:
     }
     if (algorithm) {
       res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
     }
     if (beforeDate) {
       res["BeforeDate"] = boost::any(*beforeDate);
@@ -2809,6 +2813,9 @@ public:
     }
     if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
       algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
     }
     if (m.find("BeforeDate") != m.end() && !m["BeforeDate"].empty()) {
       beforeDate = make_shared<long>(boost::any_cast<long>(m["BeforeDate"]));
