@@ -6958,6 +6958,52 @@ ListMediaBasicInfosResponse Alibabacloud_ICE20201109::Client::listMediaBasicInfo
   return listMediaBasicInfosWithOptions(request, runtime);
 }
 
+ListMediaConvertJobsResponse Alibabacloud_ICE20201109::Client::listMediaConvertJobsWithOptions(shared_ptr<ListMediaConvertJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endOfCreateTime)) {
+    query->insert(pair<string, string>("EndOfCreateTime", *request->endOfCreateTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextPageToken)) {
+    query->insert(pair<string, string>("NextPageToken", *request->nextPageToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startOfCreateTime)) {
+    query->insert(pair<string, string>("StartOfCreateTime", *request->startOfCreateTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMediaConvertJobs"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMediaConvertJobsResponse(callApi(params, req, runtime));
+}
+
+ListMediaConvertJobsResponse Alibabacloud_ICE20201109::Client::listMediaConvertJobs(shared_ptr<ListMediaConvertJobsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listMediaConvertJobsWithOptions(request, runtime);
+}
+
 ListMediaInfoJobsResponse Alibabacloud_ICE20201109::Client::listMediaInfoJobsWithOptions(shared_ptr<ListMediaInfoJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -9702,6 +9748,9 @@ StartRtcRobotInstanceResponse Alibabacloud_ICE20201109::Client::startRtcRobotIns
 StartWorkflowResponse Alibabacloud_ICE20201109::Client::startWorkflowWithOptions(shared_ptr<StartWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->skipInputVerification)) {
+    query->insert(pair<string, bool>("SkipInputVerification", *request->skipInputVerification));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskInput)) {
     query->insert(pair<string, string>("TaskInput", *request->taskInput));
   }

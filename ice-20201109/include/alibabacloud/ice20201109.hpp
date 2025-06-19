@@ -57652,6 +57652,186 @@ public:
 
   virtual ~ListMediaBasicInfosResponse() = default;
 };
+class ListMediaConvertJobsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endOfCreateTime{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> nextPageToken{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> startOfCreateTime{};
+  shared_ptr<string> status{};
+
+  ListMediaConvertJobsRequest() {}
+
+  explicit ListMediaConvertJobsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endOfCreateTime) {
+      res["EndOfCreateTime"] = boost::any(*endOfCreateTime);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (nextPageToken) {
+      res["NextPageToken"] = boost::any(*nextPageToken);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (startOfCreateTime) {
+      res["StartOfCreateTime"] = boost::any(*startOfCreateTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndOfCreateTime") != m.end() && !m["EndOfCreateTime"].empty()) {
+      endOfCreateTime = make_shared<string>(boost::any_cast<string>(m["EndOfCreateTime"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("NextPageToken") != m.end() && !m["NextPageToken"].empty()) {
+      nextPageToken = make_shared<string>(boost::any_cast<string>(m["NextPageToken"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StartOfCreateTime") != m.end() && !m["StartOfCreateTime"].empty()) {
+      startOfCreateTime = make_shared<string>(boost::any_cast<string>(m["StartOfCreateTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListMediaConvertJobsRequest() = default;
+};
+class ListMediaConvertJobsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<MediaConvertJobWithoutDetail>> jobs{};
+  shared_ptr<string> nextPageToken{};
+  shared_ptr<string> requestId{};
+
+  ListMediaConvertJobsResponseBody() {}
+
+  explicit ListMediaConvertJobsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobs) {
+      vector<boost::any> temp1;
+      for(auto item1:*jobs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Jobs"] = boost::any(temp1);
+    }
+    if (nextPageToken) {
+      res["NextPageToken"] = boost::any(*nextPageToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Jobs") != m.end() && !m["Jobs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Jobs"].type()) {
+        vector<MediaConvertJobWithoutDetail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Jobs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MediaConvertJobWithoutDetail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        jobs = make_shared<vector<MediaConvertJobWithoutDetail>>(expect1);
+      }
+    }
+    if (m.find("NextPageToken") != m.end() && !m["NextPageToken"].empty()) {
+      nextPageToken = make_shared<string>(boost::any_cast<string>(m["NextPageToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListMediaConvertJobsResponseBody() = default;
+};
+class ListMediaConvertJobsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListMediaConvertJobsResponseBody> body{};
+
+  ListMediaConvertJobsResponse() {}
+
+  explicit ListMediaConvertJobsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListMediaConvertJobsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListMediaConvertJobsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListMediaConvertJobsResponse() = default;
+};
 class ListMediaInfoJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endOfCreateTime{};
@@ -80208,6 +80388,7 @@ public:
 };
 class StartWorkflowRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> skipInputVerification{};
   shared_ptr<string> taskInput{};
   shared_ptr<string> userData{};
   shared_ptr<string> workflowId{};
@@ -80222,6 +80403,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (skipInputVerification) {
+      res["SkipInputVerification"] = boost::any(*skipInputVerification);
+    }
     if (taskInput) {
       res["TaskInput"] = boost::any(*taskInput);
     }
@@ -80235,6 +80419,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SkipInputVerification") != m.end() && !m["SkipInputVerification"].empty()) {
+      skipInputVerification = make_shared<bool>(boost::any_cast<bool>(m["SkipInputVerification"]));
+    }
     if (m.find("TaskInput") != m.end() && !m["TaskInput"].empty()) {
       taskInput = make_shared<string>(boost::any_cast<string>(m["TaskInput"]));
     }
@@ -105124,6 +105311,8 @@ public:
   ListLiveTranscodeTemplatesResponse listLiveTranscodeTemplates(shared_ptr<ListLiveTranscodeTemplatesRequest> request);
   ListMediaBasicInfosResponse listMediaBasicInfosWithOptions(shared_ptr<ListMediaBasicInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMediaBasicInfosResponse listMediaBasicInfos(shared_ptr<ListMediaBasicInfosRequest> request);
+  ListMediaConvertJobsResponse listMediaConvertJobsWithOptions(shared_ptr<ListMediaConvertJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListMediaConvertJobsResponse listMediaConvertJobs(shared_ptr<ListMediaConvertJobsRequest> request);
   ListMediaInfoJobsResponse listMediaInfoJobsWithOptions(shared_ptr<ListMediaInfoJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMediaInfoJobsResponse listMediaInfoJobs(shared_ptr<ListMediaInfoJobsRequest> request);
   ListMediaLiveChannelsResponse listMediaLiveChannelsWithOptions(shared_ptr<ListMediaLiveChannelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
