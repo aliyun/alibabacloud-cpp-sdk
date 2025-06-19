@@ -7114,10 +7114,12 @@ public:
 };
 class CreateLoadBalancerRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> billingCycle{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> ensRegionId{};
   shared_ptr<string> loadBalancerName{};
   shared_ptr<string> loadBalancerSpec{};
+  shared_ptr<string> loadBalancerType{};
   shared_ptr<string> networkId{};
   shared_ptr<string> payType{};
   shared_ptr<string> vSwitchId{};
@@ -7132,6 +7134,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (billingCycle) {
+      res["BillingCycle"] = boost::any(*billingCycle);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -7143,6 +7148,9 @@ public:
     }
     if (loadBalancerSpec) {
       res["LoadBalancerSpec"] = boost::any(*loadBalancerSpec);
+    }
+    if (loadBalancerType) {
+      res["LoadBalancerType"] = boost::any(*loadBalancerType);
     }
     if (networkId) {
       res["NetworkId"] = boost::any(*networkId);
@@ -7157,6 +7165,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BillingCycle") != m.end() && !m["BillingCycle"].empty()) {
+      billingCycle = make_shared<string>(boost::any_cast<string>(m["BillingCycle"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -7168,6 +7179,9 @@ public:
     }
     if (m.find("LoadBalancerSpec") != m.end() && !m["LoadBalancerSpec"].empty()) {
       loadBalancerSpec = make_shared<string>(boost::any_cast<string>(m["LoadBalancerSpec"]));
+    }
+    if (m.find("LoadBalancerType") != m.end() && !m["LoadBalancerType"].empty()) {
+      loadBalancerType = make_shared<string>(boost::any_cast<string>(m["LoadBalancerType"]));
     }
     if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
       networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
@@ -34301,6 +34315,7 @@ class DescribeLoadBalancerAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
   shared_ptr<string> addressIPVersion{};
+  shared_ptr<string> addressType{};
   shared_ptr<vector<DescribeLoadBalancerAttributeResponseBodyBackendServers>> backendServers{};
   shared_ptr<long> bandwidth{};
   shared_ptr<string> createTime{};
@@ -34312,6 +34327,7 @@ public:
   shared_ptr<string> loadBalancerName{};
   shared_ptr<string> loadBalancerSpec{};
   shared_ptr<string> loadBalancerStatus{};
+  shared_ptr<string> loadBalancerType{};
   shared_ptr<string> networkId{};
   shared_ptr<string> payType{};
   shared_ptr<string> requestId{};
@@ -34332,6 +34348,9 @@ public:
     }
     if (addressIPVersion) {
       res["AddressIPVersion"] = boost::any(*addressIPVersion);
+    }
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
     }
     if (backendServers) {
       vector<boost::any> temp1;
@@ -34374,6 +34393,9 @@ public:
     if (loadBalancerStatus) {
       res["LoadBalancerStatus"] = boost::any(*loadBalancerStatus);
     }
+    if (loadBalancerType) {
+      res["LoadBalancerType"] = boost::any(*loadBalancerType);
+    }
     if (networkId) {
       res["NetworkId"] = boost::any(*networkId);
     }
@@ -34395,6 +34417,9 @@ public:
     }
     if (m.find("AddressIPVersion") != m.end() && !m["AddressIPVersion"].empty()) {
       addressIPVersion = make_shared<string>(boost::any_cast<string>(m["AddressIPVersion"]));
+    }
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
     }
     if (m.find("BackendServers") != m.end() && !m["BackendServers"].empty()) {
       if (typeid(vector<boost::any>) == m["BackendServers"].type()) {
@@ -34455,6 +34480,9 @@ public:
     }
     if (m.find("LoadBalancerStatus") != m.end() && !m["LoadBalancerStatus"].empty()) {
       loadBalancerStatus = make_shared<string>(boost::any_cast<string>(m["LoadBalancerStatus"]));
+    }
+    if (m.find("LoadBalancerType") != m.end() && !m["LoadBalancerType"].empty()) {
+      loadBalancerType = make_shared<string>(boost::any_cast<string>(m["LoadBalancerType"]));
     }
     if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
       networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
@@ -36361,6 +36389,7 @@ public:
   shared_ptr<string> loadBalancerId{};
   shared_ptr<string> loadBalancerName{};
   shared_ptr<string> loadBalancerStatus{};
+  shared_ptr<string> loadBalancerType{};
   shared_ptr<string> networkId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -36394,6 +36423,9 @@ public:
     }
     if (loadBalancerStatus) {
       res["LoadBalancerStatus"] = boost::any(*loadBalancerStatus);
+    }
+    if (loadBalancerType) {
+      res["LoadBalancerType"] = boost::any(*loadBalancerType);
     }
     if (networkId) {
       res["NetworkId"] = boost::any(*networkId);
@@ -36439,6 +36471,9 @@ public:
     if (m.find("LoadBalancerStatus") != m.end() && !m["LoadBalancerStatus"].empty()) {
       loadBalancerStatus = make_shared<string>(boost::any_cast<string>(m["LoadBalancerStatus"]));
     }
+    if (m.find("LoadBalancerType") != m.end() && !m["LoadBalancerType"].empty()) {
+      loadBalancerType = make_shared<string>(boost::any_cast<string>(m["LoadBalancerType"]));
+    }
     if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
       networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
     }
@@ -36463,11 +36498,13 @@ class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer : public Darabo
 public:
   shared_ptr<string> address{};
   shared_ptr<string> addressIPVersion{};
+  shared_ptr<string> addressType{};
   shared_ptr<string> createTime{};
   shared_ptr<string> ensRegionId{};
   shared_ptr<string> loadBalancerId{};
   shared_ptr<string> loadBalancerName{};
   shared_ptr<string> loadBalancerStatus{};
+  shared_ptr<string> loadBalancerType{};
   shared_ptr<string> networkId{};
   shared_ptr<string> payType{};
   shared_ptr<string> vSwitchId{};
@@ -36488,6 +36525,9 @@ public:
     if (addressIPVersion) {
       res["AddressIPVersion"] = boost::any(*addressIPVersion);
     }
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -36502,6 +36542,9 @@ public:
     }
     if (loadBalancerStatus) {
       res["LoadBalancerStatus"] = boost::any(*loadBalancerStatus);
+    }
+    if (loadBalancerType) {
+      res["LoadBalancerType"] = boost::any(*loadBalancerType);
     }
     if (networkId) {
       res["NetworkId"] = boost::any(*networkId);
@@ -36522,6 +36565,9 @@ public:
     if (m.find("AddressIPVersion") != m.end() && !m["AddressIPVersion"].empty()) {
       addressIPVersion = make_shared<string>(boost::any_cast<string>(m["AddressIPVersion"]));
     }
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -36536,6 +36582,9 @@ public:
     }
     if (m.find("LoadBalancerStatus") != m.end() && !m["LoadBalancerStatus"].empty()) {
       loadBalancerStatus = make_shared<string>(boost::any_cast<string>(m["LoadBalancerStatus"]));
+    }
+    if (m.find("LoadBalancerType") != m.end() && !m["LoadBalancerType"].empty()) {
+      loadBalancerType = make_shared<string>(boost::any_cast<string>(m["LoadBalancerType"]));
     }
     if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
       networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));

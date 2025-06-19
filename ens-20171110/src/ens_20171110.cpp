@@ -1380,6 +1380,9 @@ CreateKeyPairResponse Alibabacloud_Ens20171110::Client::createKeyPair(shared_ptr
 CreateLoadBalancerResponse Alibabacloud_Ens20171110::Client::createLoadBalancerWithOptions(shared_ptr<CreateLoadBalancerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billingCycle)) {
+    query->insert(pair<string, string>("BillingCycle", *request->billingCycle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -1391,6 +1394,9 @@ CreateLoadBalancerResponse Alibabacloud_Ens20171110::Client::createLoadBalancerW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerSpec)) {
     query->insert(pair<string, string>("LoadBalancerSpec", *request->loadBalancerSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerType)) {
+    query->insert(pair<string, string>("LoadBalancerType", *request->loadBalancerType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkId)) {
     query->insert(pair<string, string>("NetworkId", *request->networkId));
