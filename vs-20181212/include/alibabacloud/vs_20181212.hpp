@@ -15723,6 +15723,7 @@ public:
   shared_ptr<string> isp{};
   shared_ptr<DescribeRenderingSessionResponseBodyLocation> location{};
   shared_ptr<vector<DescribeRenderingSessionResponseBodyPortMappings>> portMappings{};
+  shared_ptr<string> renderingInstanceId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> startTime{};
@@ -15766,6 +15767,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PortMappings"] = boost::any(temp1);
+    }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -15827,6 +15831,9 @@ public:
         }
         portMappings = make_shared<vector<DescribeRenderingSessionResponseBodyPortMappings>>(expect1);
       }
+    }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -24229,6 +24236,144 @@ public:
 
   virtual ~ForbidVsStreamResponse() = default;
 };
+class GetRenderingInstanceCommandsStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cmdId{};
+  shared_ptr<string> renderingInstanceId{};
+
+  GetRenderingInstanceCommandsStatusRequest() {}
+
+  explicit GetRenderingInstanceCommandsStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cmdId) {
+      res["CmdId"] = boost::any(*cmdId);
+    }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CmdId") != m.end() && !m["CmdId"].empty()) {
+      cmdId = make_shared<string>(boost::any_cast<string>(m["CmdId"]));
+    }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+  }
+
+
+  virtual ~GetRenderingInstanceCommandsStatusRequest() = default;
+};
+class GetRenderingInstanceCommandsStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> result{};
+  shared_ptr<string> status{};
+
+  GetRenderingInstanceCommandsStatusResponseBody() {}
+
+  explicit GetRenderingInstanceCommandsStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetRenderingInstanceCommandsStatusResponseBody() = default;
+};
+class GetRenderingInstanceCommandsStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetRenderingInstanceCommandsStatusResponseBody> body{};
+
+  GetRenderingInstanceCommandsStatusResponse() {}
+
+  explicit GetRenderingInstanceCommandsStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetRenderingInstanceCommandsStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetRenderingInstanceCommandsStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetRenderingInstanceCommandsStatusResponse() = default;
+};
 class GetRenderingInstanceStreamingInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> renderingInstanceId{};
@@ -27274,6 +27419,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> projectId{};
+  shared_ptr<string> renderingInstanceId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> state{};
 
@@ -27302,6 +27448,9 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -27327,6 +27476,9 @@ public:
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
     }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
@@ -27342,6 +27494,7 @@ class ListRenderingSessionsResponseBodySessions : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> clientId{};
+  shared_ptr<string> renderingInstanceId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> startTime{};
 
@@ -27361,6 +27514,9 @@ public:
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
     }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -27376,6 +27532,9 @@ public:
     }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
@@ -30667,7 +30826,9 @@ public:
 class SendRenderingInstanceCommandsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> commands{};
+  shared_ptr<string> mode{};
   shared_ptr<string> renderingInstanceId{};
+  shared_ptr<long> timeout{};
 
   SendRenderingInstanceCommandsRequest() {}
 
@@ -30682,8 +30843,14 @@ public:
     if (commands) {
       res["Commands"] = boost::any(*commands);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
     }
     return res;
   }
@@ -30692,8 +30859,14 @@ public:
     if (m.find("Commands") != m.end() && !m["Commands"].empty()) {
       commands = make_shared<string>(boost::any_cast<string>(m["Commands"]));
     }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
     }
   }
 
@@ -30702,6 +30875,7 @@ public:
 };
 class SendRenderingInstanceCommandsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> cmdId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> result{};
 
@@ -30715,6 +30889,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cmdId) {
+      res["CmdId"] = boost::any(*cmdId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -30725,6 +30902,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CmdId") != m.end() && !m["CmdId"].empty()) {
+      cmdId = make_shared<string>(boost::any_cast<string>(m["CmdId"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -31994,6 +32174,7 @@ public:
   shared_ptr<bool> isRepeatedRequest{};
   shared_ptr<StartRenderingSessionResponseBodyLocation> location{};
   shared_ptr<vector<StartRenderingSessionResponseBodyPortMappings>> portMappings{};
+  shared_ptr<string> renderingInstanceId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> sessionId{};
   shared_ptr<StartRenderingSessionResponseBodyStateInfo> stateInfo{};
@@ -32023,6 +32204,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PortMappings"] = boost::any(temp1);
+    }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -32062,6 +32246,9 @@ public:
         }
         portMappings = make_shared<vector<StartRenderingSessionResponseBodyPortMappings>>(expect1);
       }
+    }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -36222,6 +36409,8 @@ public:
   DisassociateRenderingProjectInstancesResponse disassociateRenderingProjectInstances(shared_ptr<DisassociateRenderingProjectInstancesRequest> request);
   ForbidVsStreamResponse forbidVsStreamWithOptions(shared_ptr<ForbidVsStreamRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ForbidVsStreamResponse forbidVsStream(shared_ptr<ForbidVsStreamRequest> request);
+  GetRenderingInstanceCommandsStatusResponse getRenderingInstanceCommandsStatusWithOptions(shared_ptr<GetRenderingInstanceCommandsStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetRenderingInstanceCommandsStatusResponse getRenderingInstanceCommandsStatus(shared_ptr<GetRenderingInstanceCommandsStatusRequest> request);
   GetRenderingInstanceStreamingInfoResponse getRenderingInstanceStreamingInfoWithOptions(shared_ptr<GetRenderingInstanceStreamingInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetRenderingInstanceStreamingInfoResponse getRenderingInstanceStreamingInfo(shared_ptr<GetRenderingInstanceStreamingInfoRequest> request);
   GetRenderingProjectInstanceStateMetricsResponse getRenderingProjectInstanceStateMetricsWithOptions(shared_ptr<GetRenderingProjectInstanceStateMetricsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

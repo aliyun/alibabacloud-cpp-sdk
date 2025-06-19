@@ -4289,6 +4289,37 @@ ForbidVsStreamResponse Alibabacloud_Vs20181212::Client::forbidVsStream(shared_pt
   return forbidVsStreamWithOptions(request, runtime);
 }
 
+GetRenderingInstanceCommandsStatusResponse Alibabacloud_Vs20181212::Client::getRenderingInstanceCommandsStatusWithOptions(shared_ptr<GetRenderingInstanceCommandsStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cmdId)) {
+    query->insert(pair<string, string>("CmdId", *request->cmdId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->renderingInstanceId)) {
+    query->insert(pair<string, string>("RenderingInstanceId", *request->renderingInstanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRenderingInstanceCommandsStatus"))},
+    {"version", boost::any(string("2018-12-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRenderingInstanceCommandsStatusResponse(callApi(params, req, runtime));
+}
+
+GetRenderingInstanceCommandsStatusResponse Alibabacloud_Vs20181212::Client::getRenderingInstanceCommandsStatus(shared_ptr<GetRenderingInstanceCommandsStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRenderingInstanceCommandsStatusWithOptions(request, runtime);
+}
+
 GetRenderingInstanceStreamingInfoResponse Alibabacloud_Vs20181212::Client::getRenderingInstanceStreamingInfoWithOptions(shared_ptr<GetRenderingInstanceStreamingInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4734,6 +4765,9 @@ ListRenderingSessionsResponse Alibabacloud_Vs20181212::Client::listRenderingSess
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
     query->insert(pair<string, string>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->renderingInstanceId)) {
+    query->insert(pair<string, string>("RenderingInstanceId", *request->renderingInstanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));
@@ -5643,8 +5677,14 @@ ResumeVsStreamResponse Alibabacloud_Vs20181212::Client::resumeVsStream(shared_pt
 SendRenderingInstanceCommandsResponse Alibabacloud_Vs20181212::Client::sendRenderingInstanceCommandsWithOptions(shared_ptr<SendRenderingInstanceCommandsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mode)) {
+    query->insert(pair<string, string>("Mode", *request->mode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->renderingInstanceId)) {
     query->insert(pair<string, string>("RenderingInstanceId", *request->renderingInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    query->insert(pair<string, long>("Timeout", *request->timeout));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->commands)) {
