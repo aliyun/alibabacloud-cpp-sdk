@@ -40187,6 +40187,7 @@ public:
 };
 class ListAppEventsResponseBodyDataAppEventEntity : public Darabonba::Model {
 public:
+  shared_ptr<string> causeAnalysis{};
   shared_ptr<string> eventType{};
   shared_ptr<string> firstTimestamp{};
   shared_ptr<string> lastTimestamp{};
@@ -40205,6 +40206,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (causeAnalysis) {
+      res["CauseAnalysis"] = boost::any(*causeAnalysis);
+    }
     if (eventType) {
       res["EventType"] = boost::any(*eventType);
     }
@@ -40230,6 +40234,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CauseAnalysis") != m.end() && !m["CauseAnalysis"].empty()) {
+      causeAnalysis = make_shared<string>(boost::any_cast<string>(m["CauseAnalysis"]));
+    }
     if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
       eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
     }
