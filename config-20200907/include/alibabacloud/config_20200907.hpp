@@ -13531,6 +13531,8 @@ public:
   shared_ptr<string> resourceStatus{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> tags{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
 
   GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail() {}
 
@@ -13578,6 +13580,12 @@ public:
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -13617,6 +13625,12 @@ public:
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -19528,6 +19542,8 @@ public:
   shared_ptr<string> resourceStatus{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> tags{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
 
   GetDiscoveredResourceResponseBodyDiscoveredResourceDetail() {}
 
@@ -19575,6 +19591,12 @@ public:
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -19614,6 +19636,12 @@ public:
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -25263,7 +25291,9 @@ public:
   shared_ptr<string> resourceType{};
   shared_ptr<string> tags{};
   shared_ptr<long> updateTime{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<long> version{};
+  shared_ptr<string> vpcId{};
 
   ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList() {}
 
@@ -25311,8 +25341,14 @@ public:
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
     }
     return res;
   }
@@ -25354,8 +25390,14 @@ public:
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
     }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<long>(boost::any_cast<long>(m["Version"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -29900,7 +29942,9 @@ public:
   shared_ptr<string> resourceType{};
   shared_ptr<string> tags{};
   shared_ptr<long> updateTime{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<long> version{};
+  shared_ptr<string> vpcId{};
 
   ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList() {}
 
@@ -29945,8 +29989,14 @@ public:
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
     }
     return res;
   }
@@ -29985,8 +30035,14 @@ public:
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
     }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<long>(boost::any_cast<long>(m["Version"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
