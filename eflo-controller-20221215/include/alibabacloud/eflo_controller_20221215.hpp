@@ -1087,8 +1087,59 @@ public:
 
   virtual ~CreateClusterRequestNetworks() = default;
 };
+class CreateClusterRequestNodeGroupsNodesDataDisk : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<bool> deleteWithNode{};
+  shared_ptr<string> performanceLevel{};
+  shared_ptr<long> size{};
+
+  CreateClusterRequestNodeGroupsNodesDataDisk() {}
+
+  explicit CreateClusterRequestNodeGroupsNodesDataDisk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (deleteWithNode) {
+      res["DeleteWithNode"] = boost::any(*deleteWithNode);
+    }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("DeleteWithNode") != m.end() && !m["DeleteWithNode"].empty()) {
+      deleteWithNode = make_shared<bool>(boost::any_cast<bool>(m["DeleteWithNode"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNodeGroupsNodesDataDisk() = default;
+};
 class CreateClusterRequestNodeGroupsNodes : public Darabonba::Model {
 public:
+  shared_ptr<vector<CreateClusterRequestNodeGroupsNodesDataDisk>> dataDisk{};
   shared_ptr<string> hostname{};
   shared_ptr<string> loginPassword{};
   shared_ptr<string> nodeId{};
@@ -1105,6 +1156,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataDisk) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataDisk){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DataDisk"] = boost::any(temp1);
+    }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
     }
@@ -1124,6 +1182,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataDisk") != m.end() && !m["DataDisk"].empty()) {
+      if (typeid(vector<boost::any>) == m["DataDisk"].type()) {
+        vector<CreateClusterRequestNodeGroupsNodesDataDisk> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DataDisk"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateClusterRequestNodeGroupsNodesDataDisk model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataDisk = make_shared<vector<CreateClusterRequestNodeGroupsNodesDataDisk>>(expect1);
+      }
+    }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
     }
@@ -7398,8 +7469,59 @@ public:
 
   virtual ~ExtendClusterRequestNodeGroupsNodeTag() = default;
 };
+class ExtendClusterRequestNodeGroupsNodesDataDisk : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<bool> deleteWithNode{};
+  shared_ptr<string> performanceLevel{};
+  shared_ptr<long> size{};
+
+  ExtendClusterRequestNodeGroupsNodesDataDisk() {}
+
+  explicit ExtendClusterRequestNodeGroupsNodesDataDisk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (deleteWithNode) {
+      res["DeleteWithNode"] = boost::any(*deleteWithNode);
+    }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("DeleteWithNode") != m.end() && !m["DeleteWithNode"].empty()) {
+      deleteWithNode = make_shared<bool>(boost::any_cast<bool>(m["DeleteWithNode"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestNodeGroupsNodesDataDisk() = default;
+};
 class ExtendClusterRequestNodeGroupsNodes : public Darabonba::Model {
 public:
+  shared_ptr<vector<ExtendClusterRequestNodeGroupsNodesDataDisk>> dataDisk{};
   shared_ptr<string> hostname{};
   shared_ptr<string> loginPassword{};
   shared_ptr<string> nodeId{};
@@ -7416,6 +7538,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataDisk) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataDisk){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DataDisk"] = boost::any(temp1);
+    }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
     }
@@ -7435,6 +7564,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataDisk") != m.end() && !m["DataDisk"].empty()) {
+      if (typeid(vector<boost::any>) == m["DataDisk"].type()) {
+        vector<ExtendClusterRequestNodeGroupsNodesDataDisk> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DataDisk"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExtendClusterRequestNodeGroupsNodesDataDisk model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataDisk = make_shared<vector<ExtendClusterRequestNodeGroupsNodesDataDisk>>(expect1);
+      }
+    }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
     }
