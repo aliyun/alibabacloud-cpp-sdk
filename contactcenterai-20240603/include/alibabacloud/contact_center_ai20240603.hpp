@@ -2029,6 +2029,7 @@ public:
   shared_ptr<long> autoSplit{};
   shared_ptr<long> clientChannel{};
   shared_ptr<string> fileName{};
+  shared_ptr<string> languageHints{};
   shared_ptr<string> level{};
   shared_ptr<bool> roleIdentification{};
   shared_ptr<long> serviceChannel{};
@@ -2057,6 +2058,9 @@ public:
     }
     if (fileName) {
       res["fileName"] = boost::any(*fileName);
+    }
+    if (languageHints) {
+      res["languageHints"] = boost::any(*languageHints);
     }
     if (level) {
       res["level"] = boost::any(*level);
@@ -2091,6 +2095,9 @@ public:
     }
     if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
+    if (m.find("languageHints") != m.end() && !m["languageHints"].empty()) {
+      languageHints = make_shared<string>(boost::any_cast<string>(m["languageHints"]));
     }
     if (m.find("level") != m.end() && !m["level"].empty()) {
       level = make_shared<string>(boost::any_cast<string>(m["level"]));
