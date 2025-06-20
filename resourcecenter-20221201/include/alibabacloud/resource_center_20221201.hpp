@@ -124,6 +124,365 @@ public:
 
   virtual ~AssociateDefaultFilterResponse() = default;
 };
+class CreateDeliveryChannelRequestDeliveryChannelFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> resourceTypes{};
+
+  CreateDeliveryChannelRequestDeliveryChannelFilter() {}
+
+  explicit CreateDeliveryChannelRequestDeliveryChannelFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateDeliveryChannelRequestDeliveryChannelFilter() = default;
+};
+class CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties() {}
+
+  explicit CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties() = default;
+};
+class CreateDeliveryChannelRequestResourceChangeDelivery : public Darabonba::Model {
+public:
+  shared_ptr<CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  CreateDeliveryChannelRequestResourceChangeDelivery() {}
+
+  explicit CreateDeliveryChannelRequestResourceChangeDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~CreateDeliveryChannelRequestResourceChangeDelivery() = default;
+};
+class CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties() {}
+
+  explicit CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties() = default;
+};
+class CreateDeliveryChannelRequestResourceSnapshotDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> customExpression{};
+  shared_ptr<string> deliveryTime{};
+  shared_ptr<CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  CreateDeliveryChannelRequestResourceSnapshotDelivery() {}
+
+  explicit CreateDeliveryChannelRequestResourceSnapshotDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customExpression) {
+      res["CustomExpression"] = boost::any(*customExpression);
+    }
+    if (deliveryTime) {
+      res["DeliveryTime"] = boost::any(*deliveryTime);
+    }
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomExpression") != m.end() && !m["CustomExpression"].empty()) {
+      customExpression = make_shared<string>(boost::any_cast<string>(m["CustomExpression"]));
+    }
+    if (m.find("DeliveryTime") != m.end() && !m["DeliveryTime"].empty()) {
+      deliveryTime = make_shared<string>(boost::any_cast<string>(m["DeliveryTime"]));
+    }
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~CreateDeliveryChannelRequestResourceSnapshotDelivery() = default;
+};
+class CreateDeliveryChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelDescription{};
+  shared_ptr<CreateDeliveryChannelRequestDeliveryChannelFilter> deliveryChannelFilter{};
+  shared_ptr<string> deliveryChannelName{};
+  shared_ptr<CreateDeliveryChannelRequestResourceChangeDelivery> resourceChangeDelivery{};
+  shared_ptr<CreateDeliveryChannelRequestResourceSnapshotDelivery> resourceSnapshotDelivery{};
+
+  CreateDeliveryChannelRequest() {}
+
+  explicit CreateDeliveryChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelDescription) {
+      res["DeliveryChannelDescription"] = boost::any(*deliveryChannelDescription);
+    }
+    if (deliveryChannelFilter) {
+      res["DeliveryChannelFilter"] = deliveryChannelFilter ? boost::any(deliveryChannelFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    if (resourceChangeDelivery) {
+      res["ResourceChangeDelivery"] = resourceChangeDelivery ? boost::any(resourceChangeDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceSnapshotDelivery) {
+      res["ResourceSnapshotDelivery"] = resourceSnapshotDelivery ? boost::any(resourceSnapshotDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelDescription") != m.end() && !m["DeliveryChannelDescription"].empty()) {
+      deliveryChannelDescription = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelDescription"]));
+    }
+    if (m.find("DeliveryChannelFilter") != m.end() && !m["DeliveryChannelFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryChannelFilter"].type()) {
+        CreateDeliveryChannelRequestDeliveryChannelFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryChannelFilter"]));
+        deliveryChannelFilter = make_shared<CreateDeliveryChannelRequestDeliveryChannelFilter>(model1);
+      }
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+    if (m.find("ResourceChangeDelivery") != m.end() && !m["ResourceChangeDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceChangeDelivery"].type()) {
+        CreateDeliveryChannelRequestResourceChangeDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceChangeDelivery"]));
+        resourceChangeDelivery = make_shared<CreateDeliveryChannelRequestResourceChangeDelivery>(model1);
+      }
+    }
+    if (m.find("ResourceSnapshotDelivery") != m.end() && !m["ResourceSnapshotDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceSnapshotDelivery"].type()) {
+        CreateDeliveryChannelRequestResourceSnapshotDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSnapshotDelivery"]));
+        resourceSnapshotDelivery = make_shared<CreateDeliveryChannelRequestResourceSnapshotDelivery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDeliveryChannelRequest() = default;
+};
+class CreateDeliveryChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> requestId{};
+
+  CreateDeliveryChannelResponseBody() {}
+
+  explicit CreateDeliveryChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateDeliveryChannelResponseBody() = default;
+};
+class CreateDeliveryChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDeliveryChannelResponseBody> body{};
+
+  CreateDeliveryChannelResponse() {}
+
+  explicit CreateDeliveryChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDeliveryChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDeliveryChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDeliveryChannelResponse() = default;
+};
 class CreateFilterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filterConfiguration{};
@@ -240,6 +599,379 @@ public:
 
 
   virtual ~CreateFilterResponse() = default;
+};
+class CreateMultiAccountDeliveryChannelRequestDeliveryChannelFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountScopes{};
+  shared_ptr<vector<string>> resourceTypes{};
+
+  CreateMultiAccountDeliveryChannelRequestDeliveryChannelFilter() {}
+
+  explicit CreateMultiAccountDeliveryChannelRequestDeliveryChannelFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountScopes) {
+      res["AccountScopes"] = boost::any(*accountScopes);
+    }
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountScopes") != m.end() && !m["AccountScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateMultiAccountDeliveryChannelRequestDeliveryChannelFilter() = default;
+};
+class CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties() {}
+
+  explicit CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties() = default;
+};
+class CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery : public Darabonba::Model {
+public:
+  shared_ptr<CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery() {}
+
+  explicit CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery() = default;
+};
+class CreateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  CreateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties() {}
+
+  explicit CreateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~CreateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties() = default;
+};
+class CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> customExpression{};
+  shared_ptr<string> deliveryTime{};
+  shared_ptr<CreateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery() {}
+
+  explicit CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customExpression) {
+      res["CustomExpression"] = boost::any(*customExpression);
+    }
+    if (deliveryTime) {
+      res["DeliveryTime"] = boost::any(*deliveryTime);
+    }
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomExpression") != m.end() && !m["CustomExpression"].empty()) {
+      customExpression = make_shared<string>(boost::any_cast<string>(m["CustomExpression"]));
+    }
+    if (m.find("DeliveryTime") != m.end() && !m["DeliveryTime"].empty()) {
+      deliveryTime = make_shared<string>(boost::any_cast<string>(m["DeliveryTime"]));
+    }
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        CreateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<CreateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery() = default;
+};
+class CreateMultiAccountDeliveryChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelDescription{};
+  shared_ptr<CreateMultiAccountDeliveryChannelRequestDeliveryChannelFilter> deliveryChannelFilter{};
+  shared_ptr<string> deliveryChannelName{};
+  shared_ptr<CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery> resourceChangeDelivery{};
+  shared_ptr<CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery> resourceSnapshotDelivery{};
+
+  CreateMultiAccountDeliveryChannelRequest() {}
+
+  explicit CreateMultiAccountDeliveryChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelDescription) {
+      res["DeliveryChannelDescription"] = boost::any(*deliveryChannelDescription);
+    }
+    if (deliveryChannelFilter) {
+      res["DeliveryChannelFilter"] = deliveryChannelFilter ? boost::any(deliveryChannelFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    if (resourceChangeDelivery) {
+      res["ResourceChangeDelivery"] = resourceChangeDelivery ? boost::any(resourceChangeDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceSnapshotDelivery) {
+      res["ResourceSnapshotDelivery"] = resourceSnapshotDelivery ? boost::any(resourceSnapshotDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelDescription") != m.end() && !m["DeliveryChannelDescription"].empty()) {
+      deliveryChannelDescription = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelDescription"]));
+    }
+    if (m.find("DeliveryChannelFilter") != m.end() && !m["DeliveryChannelFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryChannelFilter"].type()) {
+        CreateMultiAccountDeliveryChannelRequestDeliveryChannelFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryChannelFilter"]));
+        deliveryChannelFilter = make_shared<CreateMultiAccountDeliveryChannelRequestDeliveryChannelFilter>(model1);
+      }
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+    if (m.find("ResourceChangeDelivery") != m.end() && !m["ResourceChangeDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceChangeDelivery"].type()) {
+        CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceChangeDelivery"]));
+        resourceChangeDelivery = make_shared<CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery>(model1);
+      }
+    }
+    if (m.find("ResourceSnapshotDelivery") != m.end() && !m["ResourceSnapshotDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceSnapshotDelivery"].type()) {
+        CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSnapshotDelivery"]));
+        resourceSnapshotDelivery = make_shared<CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateMultiAccountDeliveryChannelRequest() = default;
+};
+class CreateMultiAccountDeliveryChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> requestId{};
+
+  CreateMultiAccountDeliveryChannelResponseBody() {}
+
+  explicit CreateMultiAccountDeliveryChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateMultiAccountDeliveryChannelResponseBody() = default;
+};
+class CreateMultiAccountDeliveryChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateMultiAccountDeliveryChannelResponseBody> body{};
+
+  CreateMultiAccountDeliveryChannelResponse() {}
+
+  explicit CreateMultiAccountDeliveryChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateMultiAccountDeliveryChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateMultiAccountDeliveryChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateMultiAccountDeliveryChannelResponse() = default;
 };
 class CreateSavedQueryRequest : public Darabonba::Model {
 public:
@@ -372,6 +1104,116 @@ public:
 
   virtual ~CreateSavedQueryResponse() = default;
 };
+class DeleteDeliveryChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+
+  DeleteDeliveryChannelRequest() {}
+
+  explicit DeleteDeliveryChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+  }
+
+
+  virtual ~DeleteDeliveryChannelRequest() = default;
+};
+class DeleteDeliveryChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteDeliveryChannelResponseBody() {}
+
+  explicit DeleteDeliveryChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDeliveryChannelResponseBody() = default;
+};
+class DeleteDeliveryChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDeliveryChannelResponseBody> body{};
+
+  DeleteDeliveryChannelResponse() {}
+
+  explicit DeleteDeliveryChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDeliveryChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDeliveryChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDeliveryChannelResponse() = default;
+};
 class DeleteFilterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filterName{};
@@ -481,6 +1323,116 @@ public:
 
 
   virtual ~DeleteFilterResponse() = default;
+};
+class DeleteMultiAccountDeliveryChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+
+  DeleteMultiAccountDeliveryChannelRequest() {}
+
+  explicit DeleteMultiAccountDeliveryChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiAccountDeliveryChannelRequest() = default;
+};
+class DeleteMultiAccountDeliveryChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteMultiAccountDeliveryChannelResponseBody() {}
+
+  explicit DeleteMultiAccountDeliveryChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteMultiAccountDeliveryChannelResponseBody() = default;
+};
+class DeleteMultiAccountDeliveryChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteMultiAccountDeliveryChannelResponseBody> body{};
+
+  DeleteMultiAccountDeliveryChannelResponse() {}
+
+  explicit DeleteMultiAccountDeliveryChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteMultiAccountDeliveryChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteMultiAccountDeliveryChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteMultiAccountDeliveryChannelResponse() = default;
 };
 class DeleteSavedQueryRequest : public Darabonba::Model {
 public:
@@ -1443,6 +2395,543 @@ public:
 
   virtual ~ExecuteSQLQueryResponse() = default;
 };
+class GetDeliveryChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+
+  GetDeliveryChannelRequest() {}
+
+  explicit GetDeliveryChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelRequest() = default;
+};
+class GetDeliveryChannelResponseBodyDeliveryChannelFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> resourceTypes{};
+
+  GetDeliveryChannelResponseBodyDeliveryChannelFilter() {}
+
+  explicit GetDeliveryChannelResponseBodyDeliveryChannelFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelResponseBodyDeliveryChannelFilter() = default;
+};
+class GetDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  GetDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties() {}
+
+  explicit GetDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties() = default;
+};
+class GetDeliveryChannelResponseBodyResourceChangeDelivery : public Darabonba::Model {
+public:
+  shared_ptr<GetDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  GetDeliveryChannelResponseBodyResourceChangeDelivery() {}
+
+  explicit GetDeliveryChannelResponseBodyResourceChangeDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        GetDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<GetDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelResponseBodyResourceChangeDelivery() = default;
+};
+class GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties() {}
+
+  explicit GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties() = default;
+};
+class GetDeliveryChannelResponseBodyResourceSnapshotDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> customExpression{};
+  shared_ptr<string> deliveryTime{};
+  shared_ptr<GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  GetDeliveryChannelResponseBodyResourceSnapshotDelivery() {}
+
+  explicit GetDeliveryChannelResponseBodyResourceSnapshotDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customExpression) {
+      res["CustomExpression"] = boost::any(*customExpression);
+    }
+    if (deliveryTime) {
+      res["DeliveryTime"] = boost::any(*deliveryTime);
+    }
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomExpression") != m.end() && !m["CustomExpression"].empty()) {
+      customExpression = make_shared<string>(boost::any_cast<string>(m["CustomExpression"]));
+    }
+    if (m.find("DeliveryTime") != m.end() && !m["DeliveryTime"].empty()) {
+      deliveryTime = make_shared<string>(boost::any_cast<string>(m["DeliveryTime"]));
+    }
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelResponseBodyResourceSnapshotDelivery() = default;
+};
+class GetDeliveryChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelDescription{};
+  shared_ptr<GetDeliveryChannelResponseBodyDeliveryChannelFilter> deliveryChannelFilter{};
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> deliveryChannelName{};
+  shared_ptr<string> requestId{};
+  shared_ptr<GetDeliveryChannelResponseBodyResourceChangeDelivery> resourceChangeDelivery{};
+  shared_ptr<GetDeliveryChannelResponseBodyResourceSnapshotDelivery> resourceSnapshotDelivery{};
+
+  GetDeliveryChannelResponseBody() {}
+
+  explicit GetDeliveryChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelDescription) {
+      res["DeliveryChannelDescription"] = boost::any(*deliveryChannelDescription);
+    }
+    if (deliveryChannelFilter) {
+      res["DeliveryChannelFilter"] = deliveryChannelFilter ? boost::any(deliveryChannelFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceChangeDelivery) {
+      res["ResourceChangeDelivery"] = resourceChangeDelivery ? boost::any(resourceChangeDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceSnapshotDelivery) {
+      res["ResourceSnapshotDelivery"] = resourceSnapshotDelivery ? boost::any(resourceSnapshotDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelDescription") != m.end() && !m["DeliveryChannelDescription"].empty()) {
+      deliveryChannelDescription = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelDescription"]));
+    }
+    if (m.find("DeliveryChannelFilter") != m.end() && !m["DeliveryChannelFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryChannelFilter"].type()) {
+        GetDeliveryChannelResponseBodyDeliveryChannelFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryChannelFilter"]));
+        deliveryChannelFilter = make_shared<GetDeliveryChannelResponseBodyDeliveryChannelFilter>(model1);
+      }
+    }
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceChangeDelivery") != m.end() && !m["ResourceChangeDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceChangeDelivery"].type()) {
+        GetDeliveryChannelResponseBodyResourceChangeDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceChangeDelivery"]));
+        resourceChangeDelivery = make_shared<GetDeliveryChannelResponseBodyResourceChangeDelivery>(model1);
+      }
+    }
+    if (m.find("ResourceSnapshotDelivery") != m.end() && !m["ResourceSnapshotDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceSnapshotDelivery"].type()) {
+        GetDeliveryChannelResponseBodyResourceSnapshotDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSnapshotDelivery"]));
+        resourceSnapshotDelivery = make_shared<GetDeliveryChannelResponseBodyResourceSnapshotDelivery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelResponseBody() = default;
+};
+class GetDeliveryChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDeliveryChannelResponseBody> body{};
+
+  GetDeliveryChannelResponse() {}
+
+  explicit GetDeliveryChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDeliveryChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDeliveryChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelResponse() = default;
+};
+class GetDeliveryChannelStatisticsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+
+  GetDeliveryChannelStatisticsRequest() {}
+
+  explicit GetDeliveryChannelStatisticsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelStatisticsRequest() = default;
+};
+class GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> deliveryChannelName{};
+  shared_ptr<string> latestChangeDeliveryTime{};
+  shared_ptr<string> latestSnapshotDeliveryTime{};
+
+  GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics() {}
+
+  explicit GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    if (latestChangeDeliveryTime) {
+      res["LatestChangeDeliveryTime"] = boost::any(*latestChangeDeliveryTime);
+    }
+    if (latestSnapshotDeliveryTime) {
+      res["LatestSnapshotDeliveryTime"] = boost::any(*latestSnapshotDeliveryTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+    if (m.find("LatestChangeDeliveryTime") != m.end() && !m["LatestChangeDeliveryTime"].empty()) {
+      latestChangeDeliveryTime = make_shared<string>(boost::any_cast<string>(m["LatestChangeDeliveryTime"]));
+    }
+    if (m.find("LatestSnapshotDeliveryTime") != m.end() && !m["LatestSnapshotDeliveryTime"].empty()) {
+      latestSnapshotDeliveryTime = make_shared<string>(boost::any_cast<string>(m["LatestSnapshotDeliveryTime"]));
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics() = default;
+};
+class GetDeliveryChannelStatisticsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics> deliveryChannelStatistics{};
+  shared_ptr<string> requestId{};
+
+  GetDeliveryChannelStatisticsResponseBody() {}
+
+  explicit GetDeliveryChannelStatisticsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelStatistics) {
+      res["DeliveryChannelStatistics"] = deliveryChannelStatistics ? boost::any(deliveryChannelStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelStatistics") != m.end() && !m["DeliveryChannelStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryChannelStatistics"].type()) {
+        GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryChannelStatistics"]));
+        deliveryChannelStatistics = make_shared<GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelStatisticsResponseBody() = default;
+};
+class GetDeliveryChannelStatisticsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDeliveryChannelStatisticsResponseBody> body{};
+
+  GetDeliveryChannelStatisticsResponse() {}
+
+  explicit GetDeliveryChannelStatisticsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDeliveryChannelStatisticsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDeliveryChannelStatisticsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDeliveryChannelStatisticsResponse() = default;
+};
 class GetExampleQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> queryId{};
@@ -1613,6 +3102,557 @@ public:
 
 
   virtual ~GetExampleQueryResponse() = default;
+};
+class GetMultiAccountDeliveryChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+
+  GetMultiAccountDeliveryChannelRequest() {}
+
+  explicit GetMultiAccountDeliveryChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelRequest() = default;
+};
+class GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountScopes{};
+  shared_ptr<vector<string>> resourceTypes{};
+
+  GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter() {}
+
+  explicit GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountScopes) {
+      res["AccountScopes"] = boost::any(*accountScopes);
+    }
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountScopes") != m.end() && !m["AccountScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter() = default;
+};
+class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties() {}
+
+  explicit GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties() = default;
+};
+class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery : public Darabonba::Model {
+public:
+  shared_ptr<GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery() {}
+
+  explicit GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery() = default;
+};
+class GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties() {}
+
+  explicit GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties() = default;
+};
+class GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> customExpression{};
+  shared_ptr<string> deliveryTime{};
+  shared_ptr<GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery() {}
+
+  explicit GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customExpression) {
+      res["CustomExpression"] = boost::any(*customExpression);
+    }
+    if (deliveryTime) {
+      res["DeliveryTime"] = boost::any(*deliveryTime);
+    }
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomExpression") != m.end() && !m["CustomExpression"].empty()) {
+      customExpression = make_shared<string>(boost::any_cast<string>(m["CustomExpression"]));
+    }
+    if (m.find("DeliveryTime") != m.end() && !m["DeliveryTime"].empty()) {
+      deliveryTime = make_shared<string>(boost::any_cast<string>(m["DeliveryTime"]));
+    }
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery() = default;
+};
+class GetMultiAccountDeliveryChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelDescription{};
+  shared_ptr<GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter> deliveryChannelFilter{};
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> deliveryChannelName{};
+  shared_ptr<string> requestId{};
+  shared_ptr<GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery> resourceChangeDelivery{};
+  shared_ptr<GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery> resourceSnapshotDelivery{};
+
+  GetMultiAccountDeliveryChannelResponseBody() {}
+
+  explicit GetMultiAccountDeliveryChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelDescription) {
+      res["DeliveryChannelDescription"] = boost::any(*deliveryChannelDescription);
+    }
+    if (deliveryChannelFilter) {
+      res["DeliveryChannelFilter"] = deliveryChannelFilter ? boost::any(deliveryChannelFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceChangeDelivery) {
+      res["ResourceChangeDelivery"] = resourceChangeDelivery ? boost::any(resourceChangeDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceSnapshotDelivery) {
+      res["ResourceSnapshotDelivery"] = resourceSnapshotDelivery ? boost::any(resourceSnapshotDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelDescription") != m.end() && !m["DeliveryChannelDescription"].empty()) {
+      deliveryChannelDescription = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelDescription"]));
+    }
+    if (m.find("DeliveryChannelFilter") != m.end() && !m["DeliveryChannelFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryChannelFilter"].type()) {
+        GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryChannelFilter"]));
+        deliveryChannelFilter = make_shared<GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter>(model1);
+      }
+    }
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceChangeDelivery") != m.end() && !m["ResourceChangeDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceChangeDelivery"].type()) {
+        GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceChangeDelivery"]));
+        resourceChangeDelivery = make_shared<GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery>(model1);
+      }
+    }
+    if (m.find("ResourceSnapshotDelivery") != m.end() && !m["ResourceSnapshotDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceSnapshotDelivery"].type()) {
+        GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSnapshotDelivery"]));
+        resourceSnapshotDelivery = make_shared<GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelResponseBody() = default;
+};
+class GetMultiAccountDeliveryChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetMultiAccountDeliveryChannelResponseBody> body{};
+
+  GetMultiAccountDeliveryChannelResponse() {}
+
+  explicit GetMultiAccountDeliveryChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetMultiAccountDeliveryChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetMultiAccountDeliveryChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelResponse() = default;
+};
+class GetMultiAccountDeliveryChannelStatisticsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+
+  GetMultiAccountDeliveryChannelStatisticsRequest() {}
+
+  explicit GetMultiAccountDeliveryChannelStatisticsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelStatisticsRequest() = default;
+};
+class GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> deliveryChannelName{};
+  shared_ptr<string> latestChangeDeliveryTime{};
+  shared_ptr<string> latestSnapshotDeliveryTime{};
+
+  GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics() {}
+
+  explicit GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    if (latestChangeDeliveryTime) {
+      res["LatestChangeDeliveryTime"] = boost::any(*latestChangeDeliveryTime);
+    }
+    if (latestSnapshotDeliveryTime) {
+      res["LatestSnapshotDeliveryTime"] = boost::any(*latestSnapshotDeliveryTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+    if (m.find("LatestChangeDeliveryTime") != m.end() && !m["LatestChangeDeliveryTime"].empty()) {
+      latestChangeDeliveryTime = make_shared<string>(boost::any_cast<string>(m["LatestChangeDeliveryTime"]));
+    }
+    if (m.find("LatestSnapshotDeliveryTime") != m.end() && !m["LatestSnapshotDeliveryTime"].empty()) {
+      latestSnapshotDeliveryTime = make_shared<string>(boost::any_cast<string>(m["LatestSnapshotDeliveryTime"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics() = default;
+};
+class GetMultiAccountDeliveryChannelStatisticsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics> deliveryChannelStatistics{};
+  shared_ptr<string> requestId{};
+
+  GetMultiAccountDeliveryChannelStatisticsResponseBody() {}
+
+  explicit GetMultiAccountDeliveryChannelStatisticsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelStatistics) {
+      res["DeliveryChannelStatistics"] = deliveryChannelStatistics ? boost::any(deliveryChannelStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelStatistics") != m.end() && !m["DeliveryChannelStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryChannelStatistics"].type()) {
+        GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryChannelStatistics"]));
+        deliveryChannelStatistics = make_shared<GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelStatisticsResponseBody() = default;
+};
+class GetMultiAccountDeliveryChannelStatisticsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetMultiAccountDeliveryChannelStatisticsResponseBody> body{};
+
+  GetMultiAccountDeliveryChannelStatisticsResponse() {}
+
+  explicit GetMultiAccountDeliveryChannelStatisticsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetMultiAccountDeliveryChannelStatisticsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetMultiAccountDeliveryChannelStatisticsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetMultiAccountDeliveryChannelStatisticsResponse() = default;
 };
 class GetMultiAccountResourceCenterServiceStatusResponseBody : public Darabonba::Model {
 public:
@@ -2973,6 +5013,208 @@ public:
 
   virtual ~GetSavedQueryResponse() = default;
 };
+class ListDeliveryChannelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+
+  ListDeliveryChannelsRequest() {}
+
+  explicit ListDeliveryChannelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+  }
+
+
+  virtual ~ListDeliveryChannelsRequest() = default;
+};
+class ListDeliveryChannelsResponseBodyDeliveryChannels : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> deliveryChannelDescription{};
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> deliveryChannelName{};
+
+  ListDeliveryChannelsResponseBodyDeliveryChannels() {}
+
+  explicit ListDeliveryChannelsResponseBodyDeliveryChannels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deliveryChannelDescription) {
+      res["DeliveryChannelDescription"] = boost::any(*deliveryChannelDescription);
+    }
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DeliveryChannelDescription") != m.end() && !m["DeliveryChannelDescription"].empty()) {
+      deliveryChannelDescription = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelDescription"]));
+    }
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+  }
+
+
+  virtual ~ListDeliveryChannelsResponseBodyDeliveryChannels() = default;
+};
+class ListDeliveryChannelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListDeliveryChannelsResponseBodyDeliveryChannels>> deliveryChannels{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+
+  ListDeliveryChannelsResponseBody() {}
+
+  explicit ListDeliveryChannelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannels) {
+      vector<boost::any> temp1;
+      for(auto item1:*deliveryChannels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeliveryChannels"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannels") != m.end() && !m["DeliveryChannels"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeliveryChannels"].type()) {
+        vector<ListDeliveryChannelsResponseBodyDeliveryChannels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeliveryChannels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDeliveryChannelsResponseBodyDeliveryChannels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deliveryChannels = make_shared<vector<ListDeliveryChannelsResponseBodyDeliveryChannels>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListDeliveryChannelsResponseBody() = default;
+};
+class ListDeliveryChannelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDeliveryChannelsResponseBody> body{};
+
+  ListDeliveryChannelsResponse() {}
+
+  explicit ListDeliveryChannelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDeliveryChannelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDeliveryChannelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDeliveryChannelsResponse() = default;
+};
 class ListExampleQueriesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> maxResults{};
@@ -3312,6 +5554,208 @@ public:
 
 
   virtual ~ListFiltersResponse() = default;
+};
+class ListMultiAccountDeliveryChannelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+
+  ListMultiAccountDeliveryChannelsRequest() {}
+
+  explicit ListMultiAccountDeliveryChannelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+  }
+
+
+  virtual ~ListMultiAccountDeliveryChannelsRequest() = default;
+};
+class ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> deliveryChannelDescription{};
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> deliveryChannelName{};
+
+  ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels() {}
+
+  explicit ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deliveryChannelDescription) {
+      res["DeliveryChannelDescription"] = boost::any(*deliveryChannelDescription);
+    }
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DeliveryChannelDescription") != m.end() && !m["DeliveryChannelDescription"].empty()) {
+      deliveryChannelDescription = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelDescription"]));
+    }
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+  }
+
+
+  virtual ~ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels() = default;
+};
+class ListMultiAccountDeliveryChannelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels>> deliveryChannels{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+
+  ListMultiAccountDeliveryChannelsResponseBody() {}
+
+  explicit ListMultiAccountDeliveryChannelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannels) {
+      vector<boost::any> temp1;
+      for(auto item1:*deliveryChannels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeliveryChannels"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannels") != m.end() && !m["DeliveryChannels"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeliveryChannels"].type()) {
+        vector<ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeliveryChannels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deliveryChannels = make_shared<vector<ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListMultiAccountDeliveryChannelsResponseBody() = default;
+};
+class ListMultiAccountDeliveryChannelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListMultiAccountDeliveryChannelsResponseBody> body{};
+
+  ListMultiAccountDeliveryChannelsResponse() {}
+
+  explicit ListMultiAccountDeliveryChannelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListMultiAccountDeliveryChannelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListMultiAccountDeliveryChannelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListMultiAccountDeliveryChannelsResponse() = default;
 };
 class ListMultiAccountResourceGroupsRequest : public Darabonba::Model {
 public:
@@ -6438,6 +8882,379 @@ public:
 
   virtual ~SearchResourcesResponse() = default;
 };
+class UpdateDeliveryChannelRequestDeliveryChannelFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> resourceTypes{};
+
+  UpdateDeliveryChannelRequestDeliveryChannelFilter() {}
+
+  explicit UpdateDeliveryChannelRequestDeliveryChannelFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateDeliveryChannelRequestDeliveryChannelFilter() = default;
+};
+class UpdateDeliveryChannelRequestResourceChangeDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  UpdateDeliveryChannelRequestResourceChangeDeliverySlsProperties() {}
+
+  explicit UpdateDeliveryChannelRequestResourceChangeDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~UpdateDeliveryChannelRequestResourceChangeDeliverySlsProperties() = default;
+};
+class UpdateDeliveryChannelRequestResourceChangeDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> enabled{};
+  shared_ptr<UpdateDeliveryChannelRequestResourceChangeDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  UpdateDeliveryChannelRequestResourceChangeDelivery() {}
+
+  explicit UpdateDeliveryChannelRequestResourceChangeDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<string>(boost::any_cast<string>(m["Enabled"]));
+    }
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        UpdateDeliveryChannelRequestResourceChangeDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<UpdateDeliveryChannelRequestResourceChangeDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~UpdateDeliveryChannelRequestResourceChangeDelivery() = default;
+};
+class UpdateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  UpdateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties() {}
+
+  explicit UpdateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~UpdateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties() = default;
+};
+class UpdateDeliveryChannelRequestResourceSnapshotDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> customExpression{};
+  shared_ptr<string> deliveryTime{};
+  shared_ptr<string> enabled{};
+  shared_ptr<UpdateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  UpdateDeliveryChannelRequestResourceSnapshotDelivery() {}
+
+  explicit UpdateDeliveryChannelRequestResourceSnapshotDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customExpression) {
+      res["CustomExpression"] = boost::any(*customExpression);
+    }
+    if (deliveryTime) {
+      res["DeliveryTime"] = boost::any(*deliveryTime);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomExpression") != m.end() && !m["CustomExpression"].empty()) {
+      customExpression = make_shared<string>(boost::any_cast<string>(m["CustomExpression"]));
+    }
+    if (m.find("DeliveryTime") != m.end() && !m["DeliveryTime"].empty()) {
+      deliveryTime = make_shared<string>(boost::any_cast<string>(m["DeliveryTime"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<string>(boost::any_cast<string>(m["Enabled"]));
+    }
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        UpdateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<UpdateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~UpdateDeliveryChannelRequestResourceSnapshotDelivery() = default;
+};
+class UpdateDeliveryChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelDescription{};
+  shared_ptr<UpdateDeliveryChannelRequestDeliveryChannelFilter> deliveryChannelFilter{};
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> deliveryChannelName{};
+  shared_ptr<UpdateDeliveryChannelRequestResourceChangeDelivery> resourceChangeDelivery{};
+  shared_ptr<UpdateDeliveryChannelRequestResourceSnapshotDelivery> resourceSnapshotDelivery{};
+
+  UpdateDeliveryChannelRequest() {}
+
+  explicit UpdateDeliveryChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelDescription) {
+      res["DeliveryChannelDescription"] = boost::any(*deliveryChannelDescription);
+    }
+    if (deliveryChannelFilter) {
+      res["DeliveryChannelFilter"] = deliveryChannelFilter ? boost::any(deliveryChannelFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    if (resourceChangeDelivery) {
+      res["ResourceChangeDelivery"] = resourceChangeDelivery ? boost::any(resourceChangeDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceSnapshotDelivery) {
+      res["ResourceSnapshotDelivery"] = resourceSnapshotDelivery ? boost::any(resourceSnapshotDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelDescription") != m.end() && !m["DeliveryChannelDescription"].empty()) {
+      deliveryChannelDescription = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelDescription"]));
+    }
+    if (m.find("DeliveryChannelFilter") != m.end() && !m["DeliveryChannelFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryChannelFilter"].type()) {
+        UpdateDeliveryChannelRequestDeliveryChannelFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryChannelFilter"]));
+        deliveryChannelFilter = make_shared<UpdateDeliveryChannelRequestDeliveryChannelFilter>(model1);
+      }
+    }
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+    if (m.find("ResourceChangeDelivery") != m.end() && !m["ResourceChangeDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceChangeDelivery"].type()) {
+        UpdateDeliveryChannelRequestResourceChangeDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceChangeDelivery"]));
+        resourceChangeDelivery = make_shared<UpdateDeliveryChannelRequestResourceChangeDelivery>(model1);
+      }
+    }
+    if (m.find("ResourceSnapshotDelivery") != m.end() && !m["ResourceSnapshotDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceSnapshotDelivery"].type()) {
+        UpdateDeliveryChannelRequestResourceSnapshotDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSnapshotDelivery"]));
+        resourceSnapshotDelivery = make_shared<UpdateDeliveryChannelRequestResourceSnapshotDelivery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDeliveryChannelRequest() = default;
+};
+class UpdateDeliveryChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateDeliveryChannelResponseBody() {}
+
+  explicit UpdateDeliveryChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateDeliveryChannelResponseBody() = default;
+};
+class UpdateDeliveryChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateDeliveryChannelResponseBody> body{};
+
+  UpdateDeliveryChannelResponse() {}
+
+  explicit UpdateDeliveryChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateDeliveryChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateDeliveryChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDeliveryChannelResponse() = default;
+};
 class UpdateFilterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filterConfiguration{};
@@ -6554,6 +9371,393 @@ public:
 
 
   virtual ~UpdateFilterResponse() = default;
+};
+class UpdateMultiAccountDeliveryChannelRequestDeliveryChannelFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountScopes{};
+  shared_ptr<vector<string>> resourceTypes{};
+
+  UpdateMultiAccountDeliveryChannelRequestDeliveryChannelFilter() {}
+
+  explicit UpdateMultiAccountDeliveryChannelRequestDeliveryChannelFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountScopes) {
+      res["AccountScopes"] = boost::any(*accountScopes);
+    }
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountScopes") != m.end() && !m["AccountScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateMultiAccountDeliveryChannelRequestDeliveryChannelFilter() = default;
+};
+class UpdateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  UpdateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties() {}
+
+  explicit UpdateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties() = default;
+};
+class UpdateMultiAccountDeliveryChannelRequestResourceChangeDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> enabled{};
+  shared_ptr<UpdateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  UpdateMultiAccountDeliveryChannelRequestResourceChangeDelivery() {}
+
+  explicit UpdateMultiAccountDeliveryChannelRequestResourceChangeDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<string>(boost::any_cast<string>(m["Enabled"]));
+    }
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        UpdateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<UpdateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiAccountDeliveryChannelRequestResourceChangeDelivery() = default;
+};
+class UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> oversizedDataOssTargetArn{};
+
+  UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties() {}
+
+  explicit UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (oversizedDataOssTargetArn) {
+      res["OversizedDataOssTargetArn"] = boost::any(*oversizedDataOssTargetArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OversizedDataOssTargetArn") != m.end() && !m["OversizedDataOssTargetArn"].empty()) {
+      oversizedDataOssTargetArn = make_shared<string>(boost::any_cast<string>(m["OversizedDataOssTargetArn"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties() = default;
+};
+class UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> customExpression{};
+  shared_ptr<string> deliveryTime{};
+  shared_ptr<string> enabled{};
+  shared_ptr<UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties> slsProperties{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> targetType{};
+
+  UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery() {}
+
+  explicit UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customExpression) {
+      res["CustomExpression"] = boost::any(*customExpression);
+    }
+    if (deliveryTime) {
+      res["DeliveryTime"] = boost::any(*deliveryTime);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (slsProperties) {
+      res["SlsProperties"] = slsProperties ? boost::any(slsProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (targetArn) {
+      res["TargetArn"] = boost::any(*targetArn);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomExpression") != m.end() && !m["CustomExpression"].empty()) {
+      customExpression = make_shared<string>(boost::any_cast<string>(m["CustomExpression"]));
+    }
+    if (m.find("DeliveryTime") != m.end() && !m["DeliveryTime"].empty()) {
+      deliveryTime = make_shared<string>(boost::any_cast<string>(m["DeliveryTime"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<string>(boost::any_cast<string>(m["Enabled"]));
+    }
+    if (m.find("SlsProperties") != m.end() && !m["SlsProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsProperties"].type()) {
+        UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsProperties"]));
+        slsProperties = make_shared<UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDeliverySlsProperties>(model1);
+      }
+    }
+    if (m.find("TargetArn") != m.end() && !m["TargetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["TargetArn"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery() = default;
+};
+class UpdateMultiAccountDeliveryChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deliveryChannelDescription{};
+  shared_ptr<UpdateMultiAccountDeliveryChannelRequestDeliveryChannelFilter> deliveryChannelFilter{};
+  shared_ptr<string> deliveryChannelId{};
+  shared_ptr<string> deliveryChannelName{};
+  shared_ptr<UpdateMultiAccountDeliveryChannelRequestResourceChangeDelivery> resourceChangeDelivery{};
+  shared_ptr<UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery> resourceSnapshotDelivery{};
+
+  UpdateMultiAccountDeliveryChannelRequest() {}
+
+  explicit UpdateMultiAccountDeliveryChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryChannelDescription) {
+      res["DeliveryChannelDescription"] = boost::any(*deliveryChannelDescription);
+    }
+    if (deliveryChannelFilter) {
+      res["DeliveryChannelFilter"] = deliveryChannelFilter ? boost::any(deliveryChannelFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deliveryChannelId) {
+      res["DeliveryChannelId"] = boost::any(*deliveryChannelId);
+    }
+    if (deliveryChannelName) {
+      res["DeliveryChannelName"] = boost::any(*deliveryChannelName);
+    }
+    if (resourceChangeDelivery) {
+      res["ResourceChangeDelivery"] = resourceChangeDelivery ? boost::any(resourceChangeDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceSnapshotDelivery) {
+      res["ResourceSnapshotDelivery"] = resourceSnapshotDelivery ? boost::any(resourceSnapshotDelivery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryChannelDescription") != m.end() && !m["DeliveryChannelDescription"].empty()) {
+      deliveryChannelDescription = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelDescription"]));
+    }
+    if (m.find("DeliveryChannelFilter") != m.end() && !m["DeliveryChannelFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeliveryChannelFilter"].type()) {
+        UpdateMultiAccountDeliveryChannelRequestDeliveryChannelFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeliveryChannelFilter"]));
+        deliveryChannelFilter = make_shared<UpdateMultiAccountDeliveryChannelRequestDeliveryChannelFilter>(model1);
+      }
+    }
+    if (m.find("DeliveryChannelId") != m.end() && !m["DeliveryChannelId"].empty()) {
+      deliveryChannelId = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelId"]));
+    }
+    if (m.find("DeliveryChannelName") != m.end() && !m["DeliveryChannelName"].empty()) {
+      deliveryChannelName = make_shared<string>(boost::any_cast<string>(m["DeliveryChannelName"]));
+    }
+    if (m.find("ResourceChangeDelivery") != m.end() && !m["ResourceChangeDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceChangeDelivery"].type()) {
+        UpdateMultiAccountDeliveryChannelRequestResourceChangeDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceChangeDelivery"]));
+        resourceChangeDelivery = make_shared<UpdateMultiAccountDeliveryChannelRequestResourceChangeDelivery>(model1);
+      }
+    }
+    if (m.find("ResourceSnapshotDelivery") != m.end() && !m["ResourceSnapshotDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceSnapshotDelivery"].type()) {
+        UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSnapshotDelivery"]));
+        resourceSnapshotDelivery = make_shared<UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiAccountDeliveryChannelRequest() = default;
+};
+class UpdateMultiAccountDeliveryChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateMultiAccountDeliveryChannelResponseBody() {}
+
+  explicit UpdateMultiAccountDeliveryChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateMultiAccountDeliveryChannelResponseBody() = default;
+};
+class UpdateMultiAccountDeliveryChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateMultiAccountDeliveryChannelResponseBody> body{};
+
+  UpdateMultiAccountDeliveryChannelResponse() {}
+
+  explicit UpdateMultiAccountDeliveryChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateMultiAccountDeliveryChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateMultiAccountDeliveryChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMultiAccountDeliveryChannelResponse() = default;
 };
 class UpdateSavedQueryRequest : public Darabonba::Model {
 public:
@@ -6698,12 +9902,20 @@ public:
                      shared_ptr<string> endpoint);
   AssociateDefaultFilterResponse associateDefaultFilterWithOptions(shared_ptr<AssociateDefaultFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssociateDefaultFilterResponse associateDefaultFilter(shared_ptr<AssociateDefaultFilterRequest> request);
+  CreateDeliveryChannelResponse createDeliveryChannelWithOptions(shared_ptr<CreateDeliveryChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDeliveryChannelResponse createDeliveryChannel(shared_ptr<CreateDeliveryChannelRequest> request);
   CreateFilterResponse createFilterWithOptions(shared_ptr<CreateFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFilterResponse createFilter(shared_ptr<CreateFilterRequest> request);
+  CreateMultiAccountDeliveryChannelResponse createMultiAccountDeliveryChannelWithOptions(shared_ptr<CreateMultiAccountDeliveryChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateMultiAccountDeliveryChannelResponse createMultiAccountDeliveryChannel(shared_ptr<CreateMultiAccountDeliveryChannelRequest> request);
   CreateSavedQueryResponse createSavedQueryWithOptions(shared_ptr<CreateSavedQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSavedQueryResponse createSavedQuery(shared_ptr<CreateSavedQueryRequest> request);
+  DeleteDeliveryChannelResponse deleteDeliveryChannelWithOptions(shared_ptr<DeleteDeliveryChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDeliveryChannelResponse deleteDeliveryChannel(shared_ptr<DeleteDeliveryChannelRequest> request);
   DeleteFilterResponse deleteFilterWithOptions(shared_ptr<DeleteFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFilterResponse deleteFilter(shared_ptr<DeleteFilterRequest> request);
+  DeleteMultiAccountDeliveryChannelResponse deleteMultiAccountDeliveryChannelWithOptions(shared_ptr<DeleteMultiAccountDeliveryChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteMultiAccountDeliveryChannelResponse deleteMultiAccountDeliveryChannel(shared_ptr<DeleteMultiAccountDeliveryChannelRequest> request);
   DeleteSavedQueryResponse deleteSavedQueryWithOptions(shared_ptr<DeleteSavedQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSavedQueryResponse deleteSavedQuery(shared_ptr<DeleteSavedQueryRequest> request);
   DisableMultiAccountResourceCenterResponse disableMultiAccountResourceCenterWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6720,8 +9932,16 @@ public:
   ExecuteMultiAccountSQLQueryResponse executeMultiAccountSQLQuery(shared_ptr<ExecuteMultiAccountSQLQueryRequest> request);
   ExecuteSQLQueryResponse executeSQLQueryWithOptions(shared_ptr<ExecuteSQLQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteSQLQueryResponse executeSQLQuery(shared_ptr<ExecuteSQLQueryRequest> request);
+  GetDeliveryChannelResponse getDeliveryChannelWithOptions(shared_ptr<GetDeliveryChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDeliveryChannelResponse getDeliveryChannel(shared_ptr<GetDeliveryChannelRequest> request);
+  GetDeliveryChannelStatisticsResponse getDeliveryChannelStatisticsWithOptions(shared_ptr<GetDeliveryChannelStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDeliveryChannelStatisticsResponse getDeliveryChannelStatistics(shared_ptr<GetDeliveryChannelStatisticsRequest> request);
   GetExampleQueryResponse getExampleQueryWithOptions(shared_ptr<GetExampleQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetExampleQueryResponse getExampleQuery(shared_ptr<GetExampleQueryRequest> request);
+  GetMultiAccountDeliveryChannelResponse getMultiAccountDeliveryChannelWithOptions(shared_ptr<GetMultiAccountDeliveryChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMultiAccountDeliveryChannelResponse getMultiAccountDeliveryChannel(shared_ptr<GetMultiAccountDeliveryChannelRequest> request);
+  GetMultiAccountDeliveryChannelStatisticsResponse getMultiAccountDeliveryChannelStatisticsWithOptions(shared_ptr<GetMultiAccountDeliveryChannelStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMultiAccountDeliveryChannelStatisticsResponse getMultiAccountDeliveryChannelStatistics(shared_ptr<GetMultiAccountDeliveryChannelStatisticsRequest> request);
   GetMultiAccountResourceCenterServiceStatusResponse getMultiAccountResourceCenterServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMultiAccountResourceCenterServiceStatusResponse getMultiAccountResourceCenterServiceStatus();
   GetMultiAccountResourceConfigurationResponse getMultiAccountResourceConfigurationWithOptions(shared_ptr<GetMultiAccountResourceConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6734,10 +9954,14 @@ public:
   GetResourceCountsResponse getResourceCounts(shared_ptr<GetResourceCountsRequest> request);
   GetSavedQueryResponse getSavedQueryWithOptions(shared_ptr<GetSavedQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSavedQueryResponse getSavedQuery(shared_ptr<GetSavedQueryRequest> request);
+  ListDeliveryChannelsResponse listDeliveryChannelsWithOptions(shared_ptr<ListDeliveryChannelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDeliveryChannelsResponse listDeliveryChannels(shared_ptr<ListDeliveryChannelsRequest> request);
   ListExampleQueriesResponse listExampleQueriesWithOptions(shared_ptr<ListExampleQueriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListExampleQueriesResponse listExampleQueries(shared_ptr<ListExampleQueriesRequest> request);
   ListFiltersResponse listFiltersWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListFiltersResponse listFilters();
+  ListMultiAccountDeliveryChannelsResponse listMultiAccountDeliveryChannelsWithOptions(shared_ptr<ListMultiAccountDeliveryChannelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListMultiAccountDeliveryChannelsResponse listMultiAccountDeliveryChannels(shared_ptr<ListMultiAccountDeliveryChannelsRequest> request);
   ListMultiAccountResourceGroupsResponse listMultiAccountResourceGroupsWithOptions(shared_ptr<ListMultiAccountResourceGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMultiAccountResourceGroupsResponse listMultiAccountResourceGroups(shared_ptr<ListMultiAccountResourceGroupsRequest> request);
   ListMultiAccountResourceRelationshipsResponse listMultiAccountResourceRelationshipsWithOptions(shared_ptr<ListMultiAccountResourceRelationshipsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6760,8 +9984,12 @@ public:
   SearchMultiAccountResourcesResponse searchMultiAccountResources(shared_ptr<SearchMultiAccountResourcesRequest> request);
   SearchResourcesResponse searchResourcesWithOptions(shared_ptr<SearchResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchResourcesResponse searchResources(shared_ptr<SearchResourcesRequest> request);
+  UpdateDeliveryChannelResponse updateDeliveryChannelWithOptions(shared_ptr<UpdateDeliveryChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDeliveryChannelResponse updateDeliveryChannel(shared_ptr<UpdateDeliveryChannelRequest> request);
   UpdateFilterResponse updateFilterWithOptions(shared_ptr<UpdateFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateFilterResponse updateFilter(shared_ptr<UpdateFilterRequest> request);
+  UpdateMultiAccountDeliveryChannelResponse updateMultiAccountDeliveryChannelWithOptions(shared_ptr<UpdateMultiAccountDeliveryChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateMultiAccountDeliveryChannelResponse updateMultiAccountDeliveryChannel(shared_ptr<UpdateMultiAccountDeliveryChannelRequest> request);
   UpdateSavedQueryResponse updateSavedQueryWithOptions(shared_ptr<UpdateSavedQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSavedQueryResponse updateSavedQuery(shared_ptr<UpdateSavedQueryRequest> request);
 
