@@ -8613,10 +8613,47 @@ public:
 
   virtual ~SetSuppressionListLevelResponse() = default;
 };
+class SingleSendMailRequestAttachments : public Darabonba::Model {
+public:
+  shared_ptr<string> attachmentName{};
+  shared_ptr<string> attachmentUrl{};
+
+  SingleSendMailRequestAttachments() {}
+
+  explicit SingleSendMailRequestAttachments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachmentName) {
+      res["AttachmentName"] = boost::any(*attachmentName);
+    }
+    if (attachmentUrl) {
+      res["AttachmentUrl"] = boost::any(*attachmentUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachmentName") != m.end() && !m["AttachmentName"].empty()) {
+      attachmentName = make_shared<string>(boost::any_cast<string>(m["AttachmentName"]));
+    }
+    if (m.find("AttachmentUrl") != m.end() && !m["AttachmentUrl"].empty()) {
+      attachmentUrl = make_shared<string>(boost::any_cast<string>(m["AttachmentUrl"]));
+    }
+  }
+
+
+  virtual ~SingleSendMailRequestAttachments() = default;
+};
 class SingleSendMailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
   shared_ptr<long> addressType{};
+  shared_ptr<vector<SingleSendMailRequestAttachments>> attachments{};
   shared_ptr<string> clickTrace{};
   shared_ptr<string> fromAlias{};
   shared_ptr<string> headers{};
@@ -8650,6 +8687,13 @@ public:
     }
     if (addressType) {
       res["AddressType"] = boost::any(*addressType);
+    }
+    if (attachments) {
+      vector<boost::any> temp1;
+      for(auto item1:*attachments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Attachments"] = boost::any(temp1);
     }
     if (clickTrace) {
       res["ClickTrace"] = boost::any(*clickTrace);
@@ -8712,6 +8756,19 @@ public:
     if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
       addressType = make_shared<long>(boost::any_cast<long>(m["AddressType"]));
     }
+    if (m.find("Attachments") != m.end() && !m["Attachments"].empty()) {
+      if (typeid(vector<boost::any>) == m["Attachments"].type()) {
+        vector<SingleSendMailRequestAttachments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Attachments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SingleSendMailRequestAttachments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        attachments = make_shared<vector<SingleSendMailRequestAttachments>>(expect1);
+      }
+    }
     if (m.find("ClickTrace") != m.end() && !m["ClickTrace"].empty()) {
       clickTrace = make_shared<string>(boost::any_cast<string>(m["ClickTrace"]));
     }
@@ -8767,6 +8824,218 @@ public:
 
 
   virtual ~SingleSendMailRequest() = default;
+};
+class SingleSendMailAdvanceRequestAttachments : public Darabonba::Model {
+public:
+  shared_ptr<string> attachmentName{};
+  shared_ptr<Darabonba::Stream> attachmentUrlObject{};
+
+  SingleSendMailAdvanceRequestAttachments() {}
+
+  explicit SingleSendMailAdvanceRequestAttachments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachmentName) {
+      res["AttachmentName"] = boost::any(*attachmentName);
+    }
+    if (attachmentUrlObject) {
+      res["AttachmentUrl"] = boost::any(*attachmentUrlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachmentName") != m.end() && !m["AttachmentName"].empty()) {
+      attachmentName = make_shared<string>(boost::any_cast<string>(m["AttachmentName"]));
+    }
+    if (m.find("AttachmentUrl") != m.end() && !m["AttachmentUrl"].empty()) {
+      attachmentUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["AttachmentUrl"]));
+    }
+  }
+
+
+  virtual ~SingleSendMailAdvanceRequestAttachments() = default;
+};
+class SingleSendMailAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountName{};
+  shared_ptr<long> addressType{};
+  shared_ptr<vector<SingleSendMailAdvanceRequestAttachments>> attachments{};
+  shared_ptr<string> clickTrace{};
+  shared_ptr<string> fromAlias{};
+  shared_ptr<string> headers{};
+  shared_ptr<string> htmlBody{};
+  shared_ptr<string> ipPoolId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> replyAddress{};
+  shared_ptr<string> replyAddressAlias{};
+  shared_ptr<bool> replyToAddress{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subject{};
+  shared_ptr<string> tagName{};
+  shared_ptr<string> textBody{};
+  shared_ptr<string> toAddress{};
+  shared_ptr<string> unSubscribeFilterLevel{};
+  shared_ptr<string> unSubscribeLinkType{};
+
+  SingleSendMailAdvanceRequest() {}
+
+  explicit SingleSendMailAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
+    if (attachments) {
+      vector<boost::any> temp1;
+      for(auto item1:*attachments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Attachments"] = boost::any(temp1);
+    }
+    if (clickTrace) {
+      res["ClickTrace"] = boost::any(*clickTrace);
+    }
+    if (fromAlias) {
+      res["FromAlias"] = boost::any(*fromAlias);
+    }
+    if (headers) {
+      res["Headers"] = boost::any(*headers);
+    }
+    if (htmlBody) {
+      res["HtmlBody"] = boost::any(*htmlBody);
+    }
+    if (ipPoolId) {
+      res["IpPoolId"] = boost::any(*ipPoolId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (replyAddress) {
+      res["ReplyAddress"] = boost::any(*replyAddress);
+    }
+    if (replyAddressAlias) {
+      res["ReplyAddressAlias"] = boost::any(*replyAddressAlias);
+    }
+    if (replyToAddress) {
+      res["ReplyToAddress"] = boost::any(*replyToAddress);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    if (textBody) {
+      res["TextBody"] = boost::any(*textBody);
+    }
+    if (toAddress) {
+      res["ToAddress"] = boost::any(*toAddress);
+    }
+    if (unSubscribeFilterLevel) {
+      res["UnSubscribeFilterLevel"] = boost::any(*unSubscribeFilterLevel);
+    }
+    if (unSubscribeLinkType) {
+      res["UnSubscribeLinkType"] = boost::any(*unSubscribeLinkType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<long>(boost::any_cast<long>(m["AddressType"]));
+    }
+    if (m.find("Attachments") != m.end() && !m["Attachments"].empty()) {
+      if (typeid(vector<boost::any>) == m["Attachments"].type()) {
+        vector<SingleSendMailAdvanceRequestAttachments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Attachments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SingleSendMailAdvanceRequestAttachments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        attachments = make_shared<vector<SingleSendMailAdvanceRequestAttachments>>(expect1);
+      }
+    }
+    if (m.find("ClickTrace") != m.end() && !m["ClickTrace"].empty()) {
+      clickTrace = make_shared<string>(boost::any_cast<string>(m["ClickTrace"]));
+    }
+    if (m.find("FromAlias") != m.end() && !m["FromAlias"].empty()) {
+      fromAlias = make_shared<string>(boost::any_cast<string>(m["FromAlias"]));
+    }
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      headers = make_shared<string>(boost::any_cast<string>(m["Headers"]));
+    }
+    if (m.find("HtmlBody") != m.end() && !m["HtmlBody"].empty()) {
+      htmlBody = make_shared<string>(boost::any_cast<string>(m["HtmlBody"]));
+    }
+    if (m.find("IpPoolId") != m.end() && !m["IpPoolId"].empty()) {
+      ipPoolId = make_shared<string>(boost::any_cast<string>(m["IpPoolId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ReplyAddress") != m.end() && !m["ReplyAddress"].empty()) {
+      replyAddress = make_shared<string>(boost::any_cast<string>(m["ReplyAddress"]));
+    }
+    if (m.find("ReplyAddressAlias") != m.end() && !m["ReplyAddressAlias"].empty()) {
+      replyAddressAlias = make_shared<string>(boost::any_cast<string>(m["ReplyAddressAlias"]));
+    }
+    if (m.find("ReplyToAddress") != m.end() && !m["ReplyToAddress"].empty()) {
+      replyToAddress = make_shared<bool>(boost::any_cast<bool>(m["ReplyToAddress"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+    if (m.find("TextBody") != m.end() && !m["TextBody"].empty()) {
+      textBody = make_shared<string>(boost::any_cast<string>(m["TextBody"]));
+    }
+    if (m.find("ToAddress") != m.end() && !m["ToAddress"].empty()) {
+      toAddress = make_shared<string>(boost::any_cast<string>(m["ToAddress"]));
+    }
+    if (m.find("UnSubscribeFilterLevel") != m.end() && !m["UnSubscribeFilterLevel"].empty()) {
+      unSubscribeFilterLevel = make_shared<string>(boost::any_cast<string>(m["UnSubscribeFilterLevel"]));
+    }
+    if (m.find("UnSubscribeLinkType") != m.end() && !m["UnSubscribeLinkType"].empty()) {
+      unSubscribeLinkType = make_shared<string>(boost::any_cast<string>(m["UnSubscribeLinkType"]));
+    }
+  }
+
+
+  virtual ~SingleSendMailAdvanceRequest() = default;
 };
 class SingleSendMailResponseBody : public Darabonba::Model {
 public:
@@ -9255,6 +9524,7 @@ public:
   SetSuppressionListLevelResponse setSuppressionListLevel(shared_ptr<SetSuppressionListLevelRequest> request);
   SingleSendMailResponse singleSendMailWithOptions(shared_ptr<SingleSendMailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SingleSendMailResponse singleSendMail(shared_ptr<SingleSendMailRequest> request);
+  SingleSendMailResponse singleSendMailAdvance(shared_ptr<SingleSendMailAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIpProtectionResponse updateIpProtectionWithOptions(shared_ptr<UpdateIpProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIpProtectionResponse updateIpProtection(shared_ptr<UpdateIpProtectionRequest> request);
   UpdateUserResponse updateUserWithOptions(shared_ptr<UpdateUserRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
