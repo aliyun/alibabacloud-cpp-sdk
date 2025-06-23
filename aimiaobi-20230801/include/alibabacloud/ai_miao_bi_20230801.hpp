@@ -43156,6 +43156,7 @@ public:
 class RunSearchGenerationRequestChatConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> enableThinking{};
+  shared_ptr<vector<string>> excludeGenerateOptions{};
   shared_ptr<string> generateLevel{};
   shared_ptr<string> generateTechnology{};
   shared_ptr<vector<string>> searchModels{};
@@ -43173,6 +43174,9 @@ public:
     map<string, boost::any> res;
     if (enableThinking) {
       res["EnableThinking"] = boost::any(*enableThinking);
+    }
+    if (excludeGenerateOptions) {
+      res["ExcludeGenerateOptions"] = boost::any(*excludeGenerateOptions);
     }
     if (generateLevel) {
       res["GenerateLevel"] = boost::any(*generateLevel);
@@ -43192,6 +43196,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EnableThinking") != m.end() && !m["EnableThinking"].empty()) {
       enableThinking = make_shared<bool>(boost::any_cast<bool>(m["EnableThinking"]));
+    }
+    if (m.find("ExcludeGenerateOptions") != m.end() && !m["ExcludeGenerateOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludeGenerateOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludeGenerateOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludeGenerateOptions = make_shared<vector<string>>(toVec1);
     }
     if (m.find("GenerateLevel") != m.end() && !m["GenerateLevel"].empty()) {
       generateLevel = make_shared<string>(boost::any_cast<string>(m["GenerateLevel"]));
