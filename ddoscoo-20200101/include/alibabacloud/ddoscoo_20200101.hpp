@@ -11429,6 +11429,7 @@ public:
 class DescribeDomainTopAttackListRequest : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
+  shared_ptr<long> interval{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> startTime{};
 
@@ -11445,6 +11446,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -11457,6 +11461,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
