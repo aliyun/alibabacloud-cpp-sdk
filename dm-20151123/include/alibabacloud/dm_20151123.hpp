@@ -497,6 +497,172 @@ public:
 
   virtual ~BatchSendMailResponse() = default;
 };
+class ChangeDomainDkimRecordRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dkimRsaLength{};
+  shared_ptr<string> domain{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ChangeDomainDkimRecordRequest() {}
+
+  explicit ChangeDomainDkimRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dkimRsaLength) {
+      res["DkimRsaLength"] = boost::any(*dkimRsaLength);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DkimRsaLength") != m.end() && !m["DkimRsaLength"].empty()) {
+      dkimRsaLength = make_shared<long>(boost::any_cast<long>(m["DkimRsaLength"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ChangeDomainDkimRecordRequest() = default;
+};
+class ChangeDomainDkimRecordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> changed{};
+  shared_ptr<string> dkimPublicKey{};
+  shared_ptr<long> dkimRsaLength{};
+  shared_ptr<string> hostname{};
+  shared_ptr<string> requestId{};
+
+  ChangeDomainDkimRecordResponseBody() {}
+
+  explicit ChangeDomainDkimRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (changed) {
+      res["Changed"] = boost::any(*changed);
+    }
+    if (dkimPublicKey) {
+      res["DkimPublicKey"] = boost::any(*dkimPublicKey);
+    }
+    if (dkimRsaLength) {
+      res["DkimRsaLength"] = boost::any(*dkimRsaLength);
+    }
+    if (hostname) {
+      res["Hostname"] = boost::any(*hostname);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Changed") != m.end() && !m["Changed"].empty()) {
+      changed = make_shared<bool>(boost::any_cast<bool>(m["Changed"]));
+    }
+    if (m.find("DkimPublicKey") != m.end() && !m["DkimPublicKey"].empty()) {
+      dkimPublicKey = make_shared<string>(boost::any_cast<string>(m["DkimPublicKey"]));
+    }
+    if (m.find("DkimRsaLength") != m.end() && !m["DkimRsaLength"].empty()) {
+      dkimRsaLength = make_shared<long>(boost::any_cast<long>(m["DkimRsaLength"]));
+    }
+    if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ChangeDomainDkimRecordResponseBody() = default;
+};
+class ChangeDomainDkimRecordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ChangeDomainDkimRecordResponseBody> body{};
+
+  ChangeDomainDkimRecordResponse() {}
+
+  explicit ChangeDomainDkimRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ChangeDomainDkimRecordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ChangeDomainDkimRecordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ChangeDomainDkimRecordResponse() = default;
+};
 class CheckDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<long> domainId{};
@@ -2753,6 +2919,7 @@ public:
   shared_ptr<string> dkimAuthStatus{};
   shared_ptr<string> dkimPublicKey{};
   shared_ptr<string> dkimRR{};
+  shared_ptr<long> dkimRsaLength{};
   shared_ptr<long> dmarcAuthStatus{};
   shared_ptr<string> dmarcHostRecord{};
   shared_ptr<string> dmarcRecord{};
@@ -2808,6 +2975,9 @@ public:
     }
     if (dkimRR) {
       res["DkimRR"] = boost::any(*dkimRR);
+    }
+    if (dkimRsaLength) {
+      res["DkimRsaLength"] = boost::any(*dkimRsaLength);
     }
     if (dmarcAuthStatus) {
       res["DmarcAuthStatus"] = boost::any(*dmarcAuthStatus);
@@ -2899,6 +3069,9 @@ public:
     }
     if (m.find("DkimRR") != m.end() && !m["DkimRR"].empty()) {
       dkimRR = make_shared<string>(boost::any_cast<string>(m["DkimRR"]));
+    }
+    if (m.find("DkimRsaLength") != m.end() && !m["DkimRsaLength"].empty()) {
+      dkimRsaLength = make_shared<long>(boost::any_cast<long>(m["DkimRsaLength"]));
     }
     if (m.find("DmarcAuthStatus") != m.end() && !m["DmarcAuthStatus"].empty()) {
       dmarcAuthStatus = make_shared<long>(boost::any_cast<long>(m["DmarcAuthStatus"]));
@@ -9444,6 +9617,8 @@ public:
   ApproveReplyMailAddressResponse approveReplyMailAddress(shared_ptr<ApproveReplyMailAddressRequest> request);
   BatchSendMailResponse batchSendMailWithOptions(shared_ptr<BatchSendMailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchSendMailResponse batchSendMail(shared_ptr<BatchSendMailRequest> request);
+  ChangeDomainDkimRecordResponse changeDomainDkimRecordWithOptions(shared_ptr<ChangeDomainDkimRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ChangeDomainDkimRecordResponse changeDomainDkimRecord(shared_ptr<ChangeDomainDkimRecordRequest> request);
   CheckDomainResponse checkDomainWithOptions(shared_ptr<CheckDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckDomainResponse checkDomain(shared_ptr<CheckDomainRequest> request);
   CheckReplyToMailAddressResponse checkReplyToMailAddressWithOptions(shared_ptr<CheckReplyToMailAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
