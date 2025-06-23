@@ -158,6 +158,9 @@ DescribePackageDeductionsResponse Alibabacloud_Wss20211221::Client::describePack
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceTypes)) {
+    query->insert(pair<string, vector<string>>("ResourceTypes", *request->resourceTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
   }

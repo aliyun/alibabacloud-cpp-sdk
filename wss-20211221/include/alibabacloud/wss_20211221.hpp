@@ -1632,6 +1632,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceType{};
+  shared_ptr<vector<string>> resourceTypes{};
   shared_ptr<long> startTime{};
 
   DescribePackageDeductionsRequest() {}
@@ -1661,6 +1662,9 @@ public:
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -1701,6 +1705,16 @@ public:
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
@@ -1716,14 +1730,18 @@ public:
   shared_ptr<string> desktopName{};
   shared_ptr<string> desktopType{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> instanceId{};
   shared_ptr<string> instanceState{};
+  shared_ptr<string> instanceType{};
   shared_ptr<long> memory{};
   shared_ptr<string> osType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> sessionId{};
   shared_ptr<string> staTime{};
   shared_ptr<double> usedCoreTime{};
   shared_ptr<long> usedTime{};
+  shared_ptr<long> usedTimeWithScale{};
 
   DescribePackageDeductionsResponseBodyDeductions() {}
 
@@ -1750,8 +1768,14 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (instanceState) {
       res["InstanceState"] = boost::any(*instanceState);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -1765,6 +1789,9 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
     if (staTime) {
       res["StaTime"] = boost::any(*staTime);
     }
@@ -1773,6 +1800,9 @@ public:
     }
     if (usedTime) {
       res["UsedTime"] = boost::any(*usedTime);
+    }
+    if (usedTimeWithScale) {
+      res["UsedTimeWithScale"] = boost::any(*usedTimeWithScale);
     }
     return res;
   }
@@ -1793,8 +1823,14 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
     if (m.find("InstanceState") != m.end() && !m["InstanceState"].empty()) {
       instanceState = make_shared<string>(boost::any_cast<string>(m["InstanceState"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
@@ -1808,6 +1844,9 @@ public:
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
     if (m.find("StaTime") != m.end() && !m["StaTime"].empty()) {
       staTime = make_shared<string>(boost::any_cast<string>(m["StaTime"]));
     }
@@ -1816,6 +1855,9 @@ public:
     }
     if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
       usedTime = make_shared<long>(boost::any_cast<long>(m["UsedTime"]));
+    }
+    if (m.find("UsedTimeWithScale") != m.end() && !m["UsedTimeWithScale"].empty()) {
+      usedTimeWithScale = make_shared<long>(boost::any_cast<long>(m["UsedTimeWithScale"]));
     }
   }
 
