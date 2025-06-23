@@ -19,6 +19,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceId{};
+  shared_ptr<string> appPolicyId{};
   shared_ptr<string> appVersion{};
   shared_ptr<bool> autoConnectInQueue{};
   shared_ptr<string> bizRegionId{};
@@ -61,6 +62,9 @@ public:
     }
     if (appInstanceId) {
       res["AppInstanceId"] = boost::any(*appInstanceId);
+    }
+    if (appPolicyId) {
+      res["AppPolicyId"] = boost::any(*appPolicyId);
     }
     if (appVersion) {
       res["AppVersion"] = boost::any(*appVersion);
@@ -137,6 +141,9 @@ public:
     }
     if (m.find("AppInstanceId") != m.end() && !m["AppInstanceId"].empty()) {
       appInstanceId = make_shared<string>(boost::any_cast<string>(m["AppInstanceId"]));
+    }
+    if (m.find("AppPolicyId") != m.end() && !m["AppPolicyId"].empty()) {
+      appPolicyId = make_shared<string>(boost::any_cast<string>(m["AppPolicyId"]));
     }
     if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
       appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));

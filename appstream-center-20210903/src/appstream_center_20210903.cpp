@@ -53,6 +53,9 @@ GetConnectionTicketResponse Alibabacloud_Appstream-center20210903::Client::getCo
   if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceId)) {
     body->insert(pair<string, string>("AppInstanceId", *request->appInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appPolicyId)) {
+    body->insert(pair<string, string>("AppPolicyId", *request->appPolicyId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appVersion)) {
     body->insert(pair<string, string>("AppVersion", *request->appVersion));
   }
@@ -127,12 +130,7 @@ GetConnectionTicketResponse Alibabacloud_Appstream-center20210903::Client::getCo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetConnectionTicketResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetConnectionTicketResponse(execute(params, req, runtime));
-  }
+  return GetConnectionTicketResponse(callApi(params, req, runtime));
 }
 
 GetConnectionTicketResponse Alibabacloud_Appstream-center20210903::Client::getConnectionTicket(shared_ptr<GetConnectionTicketRequest> request) {
@@ -202,12 +200,7 @@ ListPublishedAppInfoResponse Alibabacloud_Appstream-center20210903::Client::list
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListPublishedAppInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListPublishedAppInfoResponse(execute(params, req, runtime));
-  }
+  return ListPublishedAppInfoResponse(callApi(params, req, runtime));
 }
 
 ListPublishedAppInfoResponse Alibabacloud_Appstream-center20210903::Client::listPublishedAppInfo(shared_ptr<ListPublishedAppInfoRequest> request) {
@@ -268,12 +261,7 @@ ListRunningAppsResponse Alibabacloud_Appstream-center20210903::Client::listRunni
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListRunningAppsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListRunningAppsResponse(execute(params, req, runtime));
-  }
+  return ListRunningAppsResponse(callApi(params, req, runtime));
 }
 
 ListRunningAppsResponse Alibabacloud_Appstream-center20210903::Client::listRunningApps(shared_ptr<ListRunningAppsRequest> request) {
@@ -337,12 +325,7 @@ ResetAppResourcesResponse Alibabacloud_Appstream-center20210903::Client::resetAp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ResetAppResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ResetAppResourcesResponse(execute(params, req, runtime));
-  }
+  return ResetAppResourcesResponse(callApi(params, req, runtime));
 }
 
 ResetAppResourcesResponse Alibabacloud_Appstream-center20210903::Client::resetAppResources(shared_ptr<ResetAppResourcesRequest> request) {
@@ -406,12 +389,7 @@ RestartAppResourcesResponse Alibabacloud_Appstream-center20210903::Client::resta
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RestartAppResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RestartAppResourcesResponse(execute(params, req, runtime));
-  }
+  return RestartAppResourcesResponse(callApi(params, req, runtime));
 }
 
 RestartAppResourcesResponse Alibabacloud_Appstream-center20210903::Client::restartAppResources(shared_ptr<RestartAppResourcesRequest> request) {
@@ -475,12 +453,7 @@ StartAppResourcesResponse Alibabacloud_Appstream-center20210903::Client::startAp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StartAppResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StartAppResourcesResponse(execute(params, req, runtime));
-  }
+  return StartAppResourcesResponse(callApi(params, req, runtime));
 }
 
 StartAppResourcesResponse Alibabacloud_Appstream-center20210903::Client::startAppResources(shared_ptr<StartAppResourcesRequest> request) {
@@ -568,12 +541,7 @@ StopAppResponse Alibabacloud_Appstream-center20210903::Client::stopAppWithOption
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StopAppResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StopAppResponse(execute(params, req, runtime));
-  }
+  return StopAppResponse(callApi(params, req, runtime));
 }
 
 StopAppResponse Alibabacloud_Appstream-center20210903::Client::stopApp(shared_ptr<StopAppRequest> request) {
@@ -637,12 +605,7 @@ StopAppResourcesResponse Alibabacloud_Appstream-center20210903::Client::stopAppR
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return StopAppResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return StopAppResourcesResponse(execute(params, req, runtime));
-  }
+  return StopAppResourcesResponse(callApi(params, req, runtime));
 }
 
 StopAppResourcesResponse Alibabacloud_Appstream-center20210903::Client::stopAppResources(shared_ptr<StopAppResourcesRequest> request) {
@@ -706,12 +669,7 @@ UnbindResponse Alibabacloud_Appstream-center20210903::Client::unbindWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UnbindResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UnbindResponse(execute(params, req, runtime));
-  }
+  return UnbindResponse(callApi(params, req, runtime));
 }
 
 UnbindResponse Alibabacloud_Appstream-center20210903::Client::unbind(shared_ptr<UnbindRequest> request) {
