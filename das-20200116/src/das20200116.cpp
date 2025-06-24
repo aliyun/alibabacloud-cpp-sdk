@@ -3311,7 +3311,19 @@ GetQueryOptimizeDataTrendResponse Alibabacloud_DAS20200116::Client::getQueryOpti
 
 GetQueryOptimizeExecErrorSampleResponse Alibabacloud_DAS20200116::Client::getQueryOptimizeExecErrorSampleWithOptions(shared_ptr<GetQueryOptimizeExecErrorSampleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sqlId)) {
+    query->insert(pair<string, string>("SqlId", *request->sqlId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->time)) {
+    query->insert(pair<string, string>("Time", *request->time));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3320,7 +3332,7 @@ GetQueryOptimizeExecErrorSampleResponse Alibabacloud_DAS20200116::Client::getQue
     {"version", boost::any(string("2020-01-16"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -3386,7 +3398,55 @@ GetQueryOptimizeRuleListResponse Alibabacloud_DAS20200116::Client::getQueryOptim
 
 GetQueryOptimizeShareUrlResponse Alibabacloud_DAS20200116::Client::getQueryOptimizeShareUrlWithOptions(shared_ptr<GetQueryOptimizeShareUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->asc)) {
+    query->insert(pair<string, bool>("Asc", *request->asc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbNames)) {
+    query->insert(pair<string, string>("DbNames", *request->dbNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIds)) {
+    query->insert(pair<string, string>("InstanceIds", *request->instanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keywords)) {
+    query->insert(pair<string, string>("Keywords", *request->keywords));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logicalOperator)) {
+    query->insert(pair<string, string>("LogicalOperator", *request->logicalOperator));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->onlyOptimizedSql)) {
+    query->insert(pair<string, bool>("OnlyOptimizedSql", *request->onlyOptimizedSql));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rules)) {
+    query->insert(pair<string, string>("Rules", *request->rules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sqlIds)) {
+    query->insert(pair<string, string>("SqlIds", *request->sqlIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagNames)) {
+    query->insert(pair<string, string>("TagNames", *request->tagNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->time)) {
+    query->insert(pair<string, long>("Time", *request->time));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->user)) {
+    query->insert(pair<string, string>("User", *request->user));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3395,7 +3455,7 @@ GetQueryOptimizeShareUrlResponse Alibabacloud_DAS20200116::Client::getQueryOptim
     {"version", boost::any(string("2020-01-16"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -3411,7 +3471,19 @@ GetQueryOptimizeShareUrlResponse Alibabacloud_DAS20200116::Client::getQueryOptim
 
 GetQueryOptimizeSolutionResponse Alibabacloud_DAS20200116::Client::getQueryOptimizeSolutionWithOptions(shared_ptr<GetQueryOptimizeSolutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleIds)) {
+    query->insert(pair<string, string>("RuleIds", *request->ruleIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sqlId)) {
+    query->insert(pair<string, string>("SqlId", *request->sqlId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3420,7 +3492,7 @@ GetQueryOptimizeSolutionResponse Alibabacloud_DAS20200116::Client::getQueryOptim
     {"version", boost::any(string("2020-01-16"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -3436,7 +3508,16 @@ GetQueryOptimizeSolutionResponse Alibabacloud_DAS20200116::Client::getQueryOptim
 
 GetQueryOptimizeTagResponse Alibabacloud_DAS20200116::Client::getQueryOptimizeTagWithOptions(shared_ptr<GetQueryOptimizeTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sqlId)) {
+    query->insert(pair<string, string>("SqlId", *request->sqlId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3445,7 +3526,7 @@ GetQueryOptimizeTagResponse Alibabacloud_DAS20200116::Client::getQueryOptimizeTa
     {"version", boost::any(string("2020-01-16"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
