@@ -5581,6 +5581,329 @@ public:
 
   virtual ~GetLdpsResourceCostResponse() = default;
 };
+class GetLindormEngineConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> engineType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  GetLindormEngineConfigRequest() {}
+
+  explicit GetLindormEngineConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (engineType) {
+      res["EngineType"] = boost::any(*engineType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~GetLindormEngineConfigRequest() = default;
+};
+class GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems : public Darabonba::Model {
+public:
+  shared_ptr<string> configItemKey{};
+  shared_ptr<string> configItemValue{};
+
+  GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems() {}
+
+  explicit GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configItemKey) {
+      res["ConfigItemKey"] = boost::any(*configItemKey);
+    }
+    if (configItemValue) {
+      res["ConfigItemValue"] = boost::any(*configItemValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigItemKey") != m.end() && !m["ConfigItemKey"].empty()) {
+      configItemKey = make_shared<string>(boost::any_cast<string>(m["ConfigItemKey"]));
+    }
+    if (m.find("ConfigItemValue") != m.end() && !m["ConfigItemValue"].empty()) {
+      configItemValue = make_shared<string>(boost::any_cast<string>(m["ConfigItemValue"]));
+    }
+  }
+
+
+  virtual ~GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems() = default;
+};
+class GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems>> configItems{};
+  shared_ptr<string> fileName{};
+
+  GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles() {}
+
+  explicit GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*configItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConfigItems"] = boost::any(temp1);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigItems") != m.end() && !m["ConfigItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConfigItems"].type()) {
+        vector<GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConfigItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        configItems = make_shared<vector<GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems>>(expect1);
+      }
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+  }
+
+
+  virtual ~GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles() = default;
+};
+class GetLindormEngineConfigResponseBodyEngineConfigs : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles>> configFiles{};
+  shared_ptr<string> engine{};
+
+  GetLindormEngineConfigResponseBodyEngineConfigs() {}
+
+  explicit GetLindormEngineConfigResponseBodyEngineConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configFiles) {
+      vector<boost::any> temp1;
+      for(auto item1:*configFiles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConfigFiles"] = boost::any(temp1);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigFiles") != m.end() && !m["ConfigFiles"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConfigFiles"].type()) {
+        vector<GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConfigFiles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        configFiles = make_shared<vector<GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles>>(expect1);
+      }
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+  }
+
+
+  virtual ~GetLindormEngineConfigResponseBodyEngineConfigs() = default;
+};
+class GetLindormEngineConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<vector<GetLindormEngineConfigResponseBodyEngineConfigs>> engineConfigs{};
+  shared_ptr<string> requestId{};
+
+  GetLindormEngineConfigResponseBody() {}
+
+  explicit GetLindormEngineConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (engineConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*engineConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EngineConfigs"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("EngineConfigs") != m.end() && !m["EngineConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["EngineConfigs"].type()) {
+        vector<GetLindormEngineConfigResponseBodyEngineConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EngineConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetLindormEngineConfigResponseBodyEngineConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        engineConfigs = make_shared<vector<GetLindormEngineConfigResponseBodyEngineConfigs>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetLindormEngineConfigResponseBody() = default;
+};
+class GetLindormEngineConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetLindormEngineConfigResponseBody> body{};
+
+  GetLindormEngineConfigResponse() {}
+
+  explicit GetLindormEngineConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetLindormEngineConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetLindormEngineConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetLindormEngineConfigResponse() = default;
+};
 class GetLindormFsUsedDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -5657,10 +5980,13 @@ public:
   shared_ptr<string> capacity{};
   shared_ptr<string> diskType{};
   shared_ptr<string> used{};
+  shared_ptr<string> usedLindormColumn3{};
+  shared_ptr<string> usedLindormMessage3{};
   shared_ptr<string> usedLindormSearch{};
   shared_ptr<string> usedLindormSpark{};
   shared_ptr<string> usedLindormTable{};
   shared_ptr<string> usedLindormTsdb{};
+  shared_ptr<string> usedLindormVector3{};
   shared_ptr<string> usedOther{};
 
   GetLindormFsUsedDetailResponseBodyLStorageUsageList() {}
@@ -5682,6 +6008,12 @@ public:
     if (used) {
       res["Used"] = boost::any(*used);
     }
+    if (usedLindormColumn3) {
+      res["UsedLindormColumn3"] = boost::any(*usedLindormColumn3);
+    }
+    if (usedLindormMessage3) {
+      res["UsedLindormMessage3"] = boost::any(*usedLindormMessage3);
+    }
     if (usedLindormSearch) {
       res["UsedLindormSearch"] = boost::any(*usedLindormSearch);
     }
@@ -5693,6 +6025,9 @@ public:
     }
     if (usedLindormTsdb) {
       res["UsedLindormTsdb"] = boost::any(*usedLindormTsdb);
+    }
+    if (usedLindormVector3) {
+      res["UsedLindormVector3"] = boost::any(*usedLindormVector3);
     }
     if (usedOther) {
       res["UsedOther"] = boost::any(*usedOther);
@@ -5710,6 +6045,12 @@ public:
     if (m.find("Used") != m.end() && !m["Used"].empty()) {
       used = make_shared<string>(boost::any_cast<string>(m["Used"]));
     }
+    if (m.find("UsedLindormColumn3") != m.end() && !m["UsedLindormColumn3"].empty()) {
+      usedLindormColumn3 = make_shared<string>(boost::any_cast<string>(m["UsedLindormColumn3"]));
+    }
+    if (m.find("UsedLindormMessage3") != m.end() && !m["UsedLindormMessage3"].empty()) {
+      usedLindormMessage3 = make_shared<string>(boost::any_cast<string>(m["UsedLindormMessage3"]));
+    }
     if (m.find("UsedLindormSearch") != m.end() && !m["UsedLindormSearch"].empty()) {
       usedLindormSearch = make_shared<string>(boost::any_cast<string>(m["UsedLindormSearch"]));
     }
@@ -5721,6 +6062,9 @@ public:
     }
     if (m.find("UsedLindormTsdb") != m.end() && !m["UsedLindormTsdb"].empty()) {
       usedLindormTsdb = make_shared<string>(boost::any_cast<string>(m["UsedLindormTsdb"]));
+    }
+    if (m.find("UsedLindormVector3") != m.end() && !m["UsedLindormVector3"].empty()) {
+      usedLindormVector3 = make_shared<string>(boost::any_cast<string>(m["UsedLindormVector3"]));
     }
     if (m.find("UsedOther") != m.end() && !m["UsedOther"].empty()) {
       usedOther = make_shared<string>(boost::any_cast<string>(m["UsedOther"]));
@@ -10790,6 +11134,186 @@ public:
 
   virtual ~ListTagResourcesResponse() = default;
 };
+class MigrateSingleZoneToMultiZoneRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> arbitraryVSwitchId{};
+  shared_ptr<string> arbitraryZoneId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> standbyVSwitchId{};
+  shared_ptr<string> standbyZoneId{};
+
+  MigrateSingleZoneToMultiZoneRequest() {}
+
+  explicit MigrateSingleZoneToMultiZoneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arbitraryVSwitchId) {
+      res["ArbitraryVSwitchId"] = boost::any(*arbitraryVSwitchId);
+    }
+    if (arbitraryZoneId) {
+      res["ArbitraryZoneId"] = boost::any(*arbitraryZoneId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (standbyVSwitchId) {
+      res["StandbyVSwitchId"] = boost::any(*standbyVSwitchId);
+    }
+    if (standbyZoneId) {
+      res["StandbyZoneId"] = boost::any(*standbyZoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArbitraryVSwitchId") != m.end() && !m["ArbitraryVSwitchId"].empty()) {
+      arbitraryVSwitchId = make_shared<string>(boost::any_cast<string>(m["ArbitraryVSwitchId"]));
+    }
+    if (m.find("ArbitraryZoneId") != m.end() && !m["ArbitraryZoneId"].empty()) {
+      arbitraryZoneId = make_shared<string>(boost::any_cast<string>(m["ArbitraryZoneId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StandbyVSwitchId") != m.end() && !m["StandbyVSwitchId"].empty()) {
+      standbyVSwitchId = make_shared<string>(boost::any_cast<string>(m["StandbyVSwitchId"]));
+    }
+    if (m.find("StandbyZoneId") != m.end() && !m["StandbyZoneId"].empty()) {
+      standbyZoneId = make_shared<string>(boost::any_cast<string>(m["StandbyZoneId"]));
+    }
+  }
+
+
+  virtual ~MigrateSingleZoneToMultiZoneRequest() = default;
+};
+class MigrateSingleZoneToMultiZoneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> requestId{};
+
+  MigrateSingleZoneToMultiZoneResponseBody() {}
+
+  explicit MigrateSingleZoneToMultiZoneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~MigrateSingleZoneToMultiZoneResponseBody() = default;
+};
+class MigrateSingleZoneToMultiZoneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<MigrateSingleZoneToMultiZoneResponseBody> body{};
+
+  MigrateSingleZoneToMultiZoneResponse() {}
+
+  explicit MigrateSingleZoneToMultiZoneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        MigrateSingleZoneToMultiZoneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<MigrateSingleZoneToMultiZoneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MigrateSingleZoneToMultiZoneResponse() = default;
+};
 class ModifyAutoScalingConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configId{};
@@ -14920,6 +15444,8 @@ public:
   GetLdpsNamespacedQuotaResponse getLdpsNamespacedQuota(shared_ptr<GetLdpsNamespacedQuotaRequest> request);
   GetLdpsResourceCostResponse getLdpsResourceCostWithOptions(shared_ptr<GetLdpsResourceCostRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLdpsResourceCostResponse getLdpsResourceCost(shared_ptr<GetLdpsResourceCostRequest> request);
+  GetLindormEngineConfigResponse getLindormEngineConfigWithOptions(shared_ptr<GetLindormEngineConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetLindormEngineConfigResponse getLindormEngineConfig(shared_ptr<GetLindormEngineConfigRequest> request);
   GetLindormFsUsedDetailResponse getLindormFsUsedDetailWithOptions(shared_ptr<GetLindormFsUsedDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLindormFsUsedDetailResponse getLindormFsUsedDetail(shared_ptr<GetLindormFsUsedDetailRequest> request);
   GetLindormInstanceResponse getLindormInstanceWithOptions(shared_ptr<GetLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -14946,6 +15472,8 @@ public:
   ListLdpsComputeGroupsResponse listLdpsComputeGroups(shared_ptr<ListLdpsComputeGroupsRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
+  MigrateSingleZoneToMultiZoneResponse migrateSingleZoneToMultiZoneWithOptions(shared_ptr<MigrateSingleZoneToMultiZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MigrateSingleZoneToMultiZoneResponse migrateSingleZoneToMultiZone(shared_ptr<MigrateSingleZoneToMultiZoneRequest> request);
   ModifyAutoScalingConfigResponse modifyAutoScalingConfigWithOptions(shared_ptr<ModifyAutoScalingConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAutoScalingConfigResponse modifyAutoScalingConfig(shared_ptr<ModifyAutoScalingConfigRequest> request);
   ModifyAutoScalingRuleResponse modifyAutoScalingRuleWithOptions(shared_ptr<ModifyAutoScalingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

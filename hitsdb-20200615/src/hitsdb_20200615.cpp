@@ -1324,6 +1324,55 @@ GetLdpsResourceCostResponse Alibabacloud_Hitsdb20200615::Client::getLdpsResource
   return getLdpsResourceCostWithOptions(request, runtime);
 }
 
+GetLindormEngineConfigResponse Alibabacloud_Hitsdb20200615::Client::getLindormEngineConfigWithOptions(shared_ptr<GetLindormEngineConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineType)) {
+    query->insert(pair<string, string>("EngineType", *request->engineType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLindormEngineConfig"))},
+    {"version", boost::any(string("2020-06-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLindormEngineConfigResponse(callApi(params, req, runtime));
+}
+
+GetLindormEngineConfigResponse Alibabacloud_Hitsdb20200615::Client::getLindormEngineConfig(shared_ptr<GetLindormEngineConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getLindormEngineConfigWithOptions(request, runtime);
+}
+
 GetLindormFsUsedDetailResponse Alibabacloud_Hitsdb20200615::Client::getLindormFsUsedDetailWithOptions(shared_ptr<GetLindormFsUsedDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1935,6 +1984,61 @@ ListTagResourcesResponse Alibabacloud_Hitsdb20200615::Client::listTagResourcesWi
 ListTagResourcesResponse Alibabacloud_Hitsdb20200615::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listTagResourcesWithOptions(request, runtime);
+}
+
+MigrateSingleZoneToMultiZoneResponse Alibabacloud_Hitsdb20200615::Client::migrateSingleZoneToMultiZoneWithOptions(shared_ptr<MigrateSingleZoneToMultiZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->arbitraryVSwitchId)) {
+    query->insert(pair<string, string>("ArbitraryVSwitchId", *request->arbitraryVSwitchId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->arbitraryZoneId)) {
+    query->insert(pair<string, string>("ArbitraryZoneId", *request->arbitraryZoneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standbyVSwitchId)) {
+    query->insert(pair<string, string>("StandbyVSwitchId", *request->standbyVSwitchId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standbyZoneId)) {
+    query->insert(pair<string, string>("StandbyZoneId", *request->standbyZoneId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MigrateSingleZoneToMultiZone"))},
+    {"version", boost::any(string("2020-06-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MigrateSingleZoneToMultiZoneResponse(callApi(params, req, runtime));
+}
+
+MigrateSingleZoneToMultiZoneResponse Alibabacloud_Hitsdb20200615::Client::migrateSingleZoneToMultiZone(shared_ptr<MigrateSingleZoneToMultiZoneRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return migrateSingleZoneToMultiZoneWithOptions(request, runtime);
 }
 
 ModifyAutoScalingConfigResponse Alibabacloud_Hitsdb20200615::Client::modifyAutoScalingConfigWithOptions(shared_ptr<ModifyAutoScalingConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
