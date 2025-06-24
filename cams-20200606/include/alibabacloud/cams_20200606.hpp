@@ -14,6 +14,387 @@
 using namespace std;
 
 namespace Alibabacloud_Cams20200606 {
+class AddChatGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> description{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subject{};
+
+  AddChatGroupRequest() {}
+
+  explicit AddChatGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+  }
+
+
+  virtual ~AddChatGroupRequest() = default;
+};
+class AddChatGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> uniqueCode{};
+
+  AddChatGroupResponseBody() {}
+
+  explicit AddChatGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (uniqueCode) {
+      res["UniqueCode"] = boost::any(*uniqueCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("UniqueCode") != m.end() && !m["UniqueCode"].empty()) {
+      uniqueCode = make_shared<string>(boost::any_cast<string>(m["UniqueCode"]));
+    }
+  }
+
+
+  virtual ~AddChatGroupResponseBody() = default;
+};
+class AddChatGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddChatGroupResponseBody> body{};
+
+  AddChatGroupResponse() {}
+
+  explicit AddChatGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddChatGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddChatGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddChatGroupResponse() = default;
+};
+class AddChatGroupInviteLinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  AddChatGroupInviteLinkRequest() {}
+
+  explicit AddChatGroupInviteLinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~AddChatGroupInviteLinkRequest() = default;
+};
+class AddChatGroupInviteLinkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> inviteLink{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddChatGroupInviteLinkResponseBody() {}
+
+  explicit AddChatGroupInviteLinkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (inviteLink) {
+      res["InviteLink"] = boost::any(*inviteLink);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("InviteLink") != m.end() && !m["InviteLink"].empty()) {
+      inviteLink = make_shared<string>(boost::any_cast<string>(m["InviteLink"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddChatGroupInviteLinkResponseBody() = default;
+};
+class AddChatGroupInviteLinkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddChatGroupInviteLinkResponseBody> body{};
+
+  AddChatGroupInviteLinkResponse() {}
+
+  explicit AddChatGroupInviteLinkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddChatGroupInviteLinkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddChatGroupInviteLinkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddChatGroupInviteLinkResponse() = default;
+};
 class AddChatappPhoneNumberRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cc{};
@@ -4431,6 +4812,695 @@ public:
 
 
   virtual ~CreatePhoneMessageQrdlResponse() = default;
+};
+class DeleteChatGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteChatGroupRequest() {}
+
+  explicit DeleteChatGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteChatGroupRequest() = default;
+};
+class DeleteChatGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> result{};
+  shared_ptr<bool> success{};
+
+  DeleteChatGroupResponseBody() {}
+
+  explicit DeleteChatGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<long>(boost::any_cast<long>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteChatGroupResponseBody() = default;
+};
+class DeleteChatGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteChatGroupResponseBody> body{};
+
+  DeleteChatGroupResponse() {}
+
+  explicit DeleteChatGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteChatGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteChatGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteChatGroupResponse() = default;
+};
+class DeleteChatGroupInviteLinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteChatGroupInviteLinkRequest() {}
+
+  explicit DeleteChatGroupInviteLinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteChatGroupInviteLinkRequest() = default;
+};
+class DeleteChatGroupInviteLinkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> result{};
+  shared_ptr<bool> success{};
+
+  DeleteChatGroupInviteLinkResponseBody() {}
+
+  explicit DeleteChatGroupInviteLinkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<long>(boost::any_cast<long>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteChatGroupInviteLinkResponseBody() = default;
+};
+class DeleteChatGroupInviteLinkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteChatGroupInviteLinkResponseBody> body{};
+
+  DeleteChatGroupInviteLinkResponse() {}
+
+  explicit DeleteChatGroupInviteLinkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteChatGroupInviteLinkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteChatGroupInviteLinkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteChatGroupInviteLinkResponse() = default;
+};
+class DeleteChatGroupParticipantsRequestList : public Darabonba::Model {
+public:
+  shared_ptr<string> participantNumber{};
+
+  DeleteChatGroupParticipantsRequestList() {}
+
+  explicit DeleteChatGroupParticipantsRequestList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (participantNumber) {
+      res["ParticipantNumber"] = boost::any(*participantNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParticipantNumber") != m.end() && !m["ParticipantNumber"].empty()) {
+      participantNumber = make_shared<string>(boost::any_cast<string>(m["ParticipantNumber"]));
+    }
+  }
+
+
+  virtual ~DeleteChatGroupParticipantsRequestList() = default;
+};
+class DeleteChatGroupParticipantsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<vector<DeleteChatGroupParticipantsRequestList>> list{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteChatGroupParticipantsRequest() {}
+
+  explicit DeleteChatGroupParticipantsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (list) {
+      vector<boost::any> temp1;
+      for(auto item1:*list){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["List"] = boost::any(temp1);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(vector<boost::any>) == m["List"].type()) {
+        vector<DeleteChatGroupParticipantsRequestList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["List"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeleteChatGroupParticipantsRequestList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        list = make_shared<vector<DeleteChatGroupParticipantsRequestList>>(expect1);
+      }
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteChatGroupParticipantsRequest() = default;
+};
+class DeleteChatGroupParticipantsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> listShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteChatGroupParticipantsShrinkRequest() {}
+
+  explicit DeleteChatGroupParticipantsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (listShrink) {
+      res["List"] = boost::any(*listShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      listShrink = make_shared<string>(boost::any_cast<string>(m["List"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteChatGroupParticipantsShrinkRequest() = default;
+};
+class DeleteChatGroupParticipantsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> result{};
+  shared_ptr<bool> success{};
+
+  DeleteChatGroupParticipantsResponseBody() {}
+
+  explicit DeleteChatGroupParticipantsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<long>(boost::any_cast<long>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteChatGroupParticipantsResponseBody() = default;
+};
+class DeleteChatGroupParticipantsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteChatGroupParticipantsResponseBody> body{};
+
+  DeleteChatGroupParticipantsResponse() {}
+
+  explicit DeleteChatGroupParticipantsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteChatGroupParticipantsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteChatGroupParticipantsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteChatGroupParticipantsResponse() = default;
 };
 class DeleteChatappTemplateRequest : public Darabonba::Model {
 public:
@@ -9801,6 +10871,852 @@ public:
 
   virtual ~IsvGetAppIdResponse() = default;
 };
+class ListChatGroupRequestPage : public Darabonba::Model {
+public:
+  shared_ptr<long> index{};
+  shared_ptr<long> size{};
+
+  ListChatGroupRequestPage() {}
+
+  explicit ListChatGroupRequestPage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupRequestPage() = default;
+};
+class ListChatGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupStatus{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<ListChatGroupRequestPage> page{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subject{};
+
+  ListChatGroupRequest() {}
+
+  explicit ListChatGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupStatus) {
+      res["GroupStatus"] = boost::any(*groupStatus);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (page) {
+      res["Page"] = page ? boost::any(page->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupStatus") != m.end() && !m["GroupStatus"].empty()) {
+      groupStatus = make_shared<string>(boost::any_cast<string>(m["GroupStatus"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Page"].type()) {
+        ListChatGroupRequestPage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Page"]));
+        page = make_shared<ListChatGroupRequestPage>(model1);
+      }
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupRequest() = default;
+};
+class ListChatGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupStatus{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> pageShrink{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subject{};
+
+  ListChatGroupShrinkRequest() {}
+
+  explicit ListChatGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupStatus) {
+      res["GroupStatus"] = boost::any(*groupStatus);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageShrink) {
+      res["Page"] = boost::any(*pageShrink);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupStatus") != m.end() && !m["GroupStatus"].empty()) {
+      groupStatus = make_shared<string>(boost::any_cast<string>(m["GroupStatus"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      pageShrink = make_shared<string>(boost::any_cast<string>(m["Page"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupShrinkRequest() = default;
+};
+class ListChatGroupResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> description{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> groupStatus{};
+  shared_ptr<string> inviteLink{};
+  shared_ptr<string> profilePictureFile{};
+  shared_ptr<string> subject{};
+
+  ListChatGroupResponseBodyDataList() {}
+
+  explicit ListChatGroupResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupStatus) {
+      res["GroupStatus"] = boost::any(*groupStatus);
+    }
+    if (inviteLink) {
+      res["InviteLink"] = boost::any(*inviteLink);
+    }
+    if (profilePictureFile) {
+      res["ProfilePictureFile"] = boost::any(*profilePictureFile);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("GroupStatus") != m.end() && !m["GroupStatus"].empty()) {
+      groupStatus = make_shared<string>(boost::any_cast<string>(m["GroupStatus"]));
+    }
+    if (m.find("InviteLink") != m.end() && !m["InviteLink"].empty()) {
+      inviteLink = make_shared<string>(boost::any_cast<string>(m["InviteLink"]));
+    }
+    if (m.find("ProfilePictureFile") != m.end() && !m["ProfilePictureFile"].empty()) {
+      profilePictureFile = make_shared<string>(boost::any_cast<string>(m["ProfilePictureFile"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupResponseBodyDataList() = default;
+};
+class ListChatGroupResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListChatGroupResponseBodyDataList>> list{};
+  shared_ptr<long> total{};
+
+  ListChatGroupResponseBodyData() {}
+
+  explicit ListChatGroupResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      vector<boost::any> temp1;
+      for(auto item1:*list){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["List"] = boost::any(temp1);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(vector<boost::any>) == m["List"].type()) {
+        vector<ListChatGroupResponseBodyDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["List"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListChatGroupResponseBodyDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        list = make_shared<vector<ListChatGroupResponseBodyDataList>>(expect1);
+      }
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupResponseBodyData() = default;
+};
+class ListChatGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<ListChatGroupResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListChatGroupResponseBody() {}
+
+  explicit ListChatGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListChatGroupResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListChatGroupResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupResponseBody() = default;
+};
+class ListChatGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListChatGroupResponseBody> body{};
+
+  ListChatGroupResponse() {}
+
+  explicit ListChatGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListChatGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListChatGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListChatGroupResponse() = default;
+};
+class ListChatGroupParticipantsRequestPage : public Darabonba::Model {
+public:
+  shared_ptr<long> index{};
+  shared_ptr<long> size{};
+
+  ListChatGroupParticipantsRequestPage() {}
+
+  explicit ListChatGroupParticipantsRequestPage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupParticipantsRequestPage() = default;
+};
+class ListChatGroupParticipantsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<ListChatGroupParticipantsRequestPage> page{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ListChatGroupParticipantsRequest() {}
+
+  explicit ListChatGroupParticipantsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (page) {
+      res["Page"] = page ? boost::any(page->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Page"].type()) {
+        ListChatGroupParticipantsRequestPage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Page"]));
+        page = make_shared<ListChatGroupParticipantsRequestPage>(model1);
+      }
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupParticipantsRequest() = default;
+};
+class ListChatGroupParticipantsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> pageShrink{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ListChatGroupParticipantsShrinkRequest() {}
+
+  explicit ListChatGroupParticipantsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageShrink) {
+      res["Page"] = boost::any(*pageShrink);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      pageShrink = make_shared<string>(boost::any_cast<string>(m["Page"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupParticipantsShrinkRequest() = default;
+};
+class ListChatGroupParticipantsResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<string> participantNumber{};
+
+  ListChatGroupParticipantsResponseBodyDataList() {}
+
+  explicit ListChatGroupParticipantsResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (participantNumber) {
+      res["ParticipantNumber"] = boost::any(*participantNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParticipantNumber") != m.end() && !m["ParticipantNumber"].empty()) {
+      participantNumber = make_shared<string>(boost::any_cast<string>(m["ParticipantNumber"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupParticipantsResponseBodyDataList() = default;
+};
+class ListChatGroupParticipantsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListChatGroupParticipantsResponseBodyDataList>> list{};
+  shared_ptr<long> total{};
+
+  ListChatGroupParticipantsResponseBodyData() {}
+
+  explicit ListChatGroupParticipantsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      vector<boost::any> temp1;
+      for(auto item1:*list){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["List"] = boost::any(temp1);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(vector<boost::any>) == m["List"].type()) {
+        vector<ListChatGroupParticipantsResponseBodyDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["List"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListChatGroupParticipantsResponseBodyDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        list = make_shared<vector<ListChatGroupParticipantsResponseBodyDataList>>(expect1);
+      }
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupParticipantsResponseBodyData() = default;
+};
+class ListChatGroupParticipantsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<ListChatGroupParticipantsResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListChatGroupParticipantsResponseBody() {}
+
+  explicit ListChatGroupParticipantsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListChatGroupParticipantsResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListChatGroupParticipantsResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListChatGroupParticipantsResponseBody() = default;
+};
+class ListChatGroupParticipantsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListChatGroupParticipantsResponseBody> body{};
+
+  ListChatGroupParticipantsResponse() {}
+
+  explicit ListChatGroupParticipantsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListChatGroupParticipantsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListChatGroupParticipantsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListChatGroupParticipantsResponse() = default;
+};
 class ListChatappTemplateRequestPage : public Darabonba::Model {
 public:
   shared_ptr<long> index{};
@@ -15150,6 +17066,7 @@ public:
   shared_ptr<string> messageType{};
   shared_ptr<vector<string>> payload{};
   shared_ptr<SendChatappMessageRequestProductAction> productAction{};
+  shared_ptr<string> recipientType{};
   shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateCode{};
@@ -15220,6 +17137,9 @@ public:
     }
     if (productAction) {
       res["ProductAction"] = productAction ? boost::any(productAction->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (recipientType) {
+      res["RecipientType"] = boost::any(*recipientType);
     }
     if (tag) {
       res["Tag"] = boost::any(*tag);
@@ -15318,6 +17238,9 @@ public:
         productAction = make_shared<SendChatappMessageRequestProductAction>(model1);
       }
     }
+    if (m.find("RecipientType") != m.end() && !m["RecipientType"].empty()) {
+      recipientType = make_shared<string>(boost::any_cast<string>(m["RecipientType"]));
+    }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
@@ -15374,6 +17297,7 @@ public:
   shared_ptr<string> messageType{};
   shared_ptr<string> payloadShrink{};
   shared_ptr<string> productActionShrink{};
+  shared_ptr<string> recipientType{};
   shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateCode{};
@@ -15444,6 +17368,9 @@ public:
     }
     if (productActionShrink) {
       res["ProductAction"] = boost::any(*productActionShrink);
+    }
+    if (recipientType) {
+      res["RecipientType"] = boost::any(*recipientType);
     }
     if (tag) {
       res["Tag"] = boost::any(*tag);
@@ -15526,6 +17453,9 @@ public:
     }
     if (m.find("ProductAction") != m.end() && !m["ProductAction"].empty()) {
       productActionShrink = make_shared<string>(boost::any_cast<string>(m["ProductAction"]));
+    }
+    if (m.find("RecipientType") != m.end() && !m["RecipientType"].empty()) {
+      recipientType = make_shared<string>(boost::any_cast<string>(m["RecipientType"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
@@ -16281,6 +18211,214 @@ public:
 
 
   virtual ~UpdateAccountWebhookResponse() = default;
+};
+class UpdateChatGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessNumber{};
+  shared_ptr<string> channelType{};
+  shared_ptr<string> custSpaceId{};
+  shared_ptr<string> description{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> profilePictureFile{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subject{};
+
+  UpdateChatGroupRequest() {}
+
+  explicit UpdateChatGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessNumber) {
+      res["BusinessNumber"] = boost::any(*businessNumber);
+    }
+    if (channelType) {
+      res["ChannelType"] = boost::any(*channelType);
+    }
+    if (custSpaceId) {
+      res["CustSpaceId"] = boost::any(*custSpaceId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (profilePictureFile) {
+      res["ProfilePictureFile"] = boost::any(*profilePictureFile);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessNumber") != m.end() && !m["BusinessNumber"].empty()) {
+      businessNumber = make_shared<string>(boost::any_cast<string>(m["BusinessNumber"]));
+    }
+    if (m.find("ChannelType") != m.end() && !m["ChannelType"].empty()) {
+      channelType = make_shared<string>(boost::any_cast<string>(m["ChannelType"]));
+    }
+    if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
+      custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ProfilePictureFile") != m.end() && !m["ProfilePictureFile"].empty()) {
+      profilePictureFile = make_shared<string>(boost::any_cast<string>(m["ProfilePictureFile"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+  }
+
+
+  virtual ~UpdateChatGroupRequest() = default;
+};
+class UpdateChatGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> result{};
+  shared_ptr<bool> success{};
+
+  UpdateChatGroupResponseBody() {}
+
+  explicit UpdateChatGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<long>(boost::any_cast<long>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateChatGroupResponseBody() = default;
+};
+class UpdateChatGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateChatGroupResponseBody> body{};
+
+  UpdateChatGroupResponse() {}
+
+  explicit UpdateChatGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateChatGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateChatGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateChatGroupResponse() = default;
 };
 class UpdateCommerceSettingRequest : public Darabonba::Model {
 public:
@@ -17503,6 +19641,10 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddChatGroupResponse addChatGroupWithOptions(shared_ptr<AddChatGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddChatGroupResponse addChatGroup(shared_ptr<AddChatGroupRequest> request);
+  AddChatGroupInviteLinkResponse addChatGroupInviteLinkWithOptions(shared_ptr<AddChatGroupInviteLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddChatGroupInviteLinkResponse addChatGroupInviteLink(shared_ptr<AddChatGroupInviteLinkRequest> request);
   AddChatappPhoneNumberResponse addChatappPhoneNumberWithOptions(shared_ptr<AddChatappPhoneNumberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddChatappPhoneNumberResponse addChatappPhoneNumber(shared_ptr<AddChatappPhoneNumberRequest> request);
   BeeBotAssociateResponse beeBotAssociateWithOptions(shared_ptr<BeeBotAssociateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17533,6 +19675,12 @@ public:
   CreateFlowResponse createFlow(shared_ptr<CreateFlowRequest> request);
   CreatePhoneMessageQrdlResponse createPhoneMessageQrdlWithOptions(shared_ptr<CreatePhoneMessageQrdlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePhoneMessageQrdlResponse createPhoneMessageQrdl(shared_ptr<CreatePhoneMessageQrdlRequest> request);
+  DeleteChatGroupResponse deleteChatGroupWithOptions(shared_ptr<DeleteChatGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteChatGroupResponse deleteChatGroup(shared_ptr<DeleteChatGroupRequest> request);
+  DeleteChatGroupInviteLinkResponse deleteChatGroupInviteLinkWithOptions(shared_ptr<DeleteChatGroupInviteLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteChatGroupInviteLinkResponse deleteChatGroupInviteLink(shared_ptr<DeleteChatGroupInviteLinkRequest> request);
+  DeleteChatGroupParticipantsResponse deleteChatGroupParticipantsWithOptions(shared_ptr<DeleteChatGroupParticipantsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteChatGroupParticipantsResponse deleteChatGroupParticipants(shared_ptr<DeleteChatGroupParticipantsRequest> request);
   DeleteChatappTemplateResponse deleteChatappTemplateWithOptions(shared_ptr<DeleteChatappTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteChatappTemplateResponse deleteChatappTemplate(shared_ptr<DeleteChatappTemplateRequest> request);
   DeleteFlowResponse deleteFlowWithOptions(shared_ptr<DeleteFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17579,6 +19727,10 @@ public:
   GetWhatsappHealthStatusResponse getWhatsappHealthStatus(shared_ptr<GetWhatsappHealthStatusRequest> request);
   IsvGetAppIdResponse isvGetAppIdWithOptions(shared_ptr<IsvGetAppIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IsvGetAppIdResponse isvGetAppId(shared_ptr<IsvGetAppIdRequest> request);
+  ListChatGroupResponse listChatGroupWithOptions(shared_ptr<ListChatGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListChatGroupResponse listChatGroup(shared_ptr<ListChatGroupRequest> request);
+  ListChatGroupParticipantsResponse listChatGroupParticipantsWithOptions(shared_ptr<ListChatGroupParticipantsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListChatGroupParticipantsResponse listChatGroupParticipants(shared_ptr<ListChatGroupParticipantsRequest> request);
   ListChatappTemplateResponse listChatappTemplateWithOptions(shared_ptr<ListChatappTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListChatappTemplateResponse listChatappTemplate(shared_ptr<ListChatappTemplateRequest> request);
   ListFlowResponse listFlowWithOptions(shared_ptr<ListFlowRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17617,6 +19769,8 @@ public:
   TriggerChatFlowResponse triggerChatFlow(shared_ptr<TriggerChatFlowRequest> request);
   UpdateAccountWebhookResponse updateAccountWebhookWithOptions(shared_ptr<UpdateAccountWebhookRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAccountWebhookResponse updateAccountWebhook(shared_ptr<UpdateAccountWebhookRequest> request);
+  UpdateChatGroupResponse updateChatGroupWithOptions(shared_ptr<UpdateChatGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateChatGroupResponse updateChatGroup(shared_ptr<UpdateChatGroupRequest> request);
   UpdateCommerceSettingResponse updateCommerceSettingWithOptions(shared_ptr<UpdateCommerceSettingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateCommerceSettingResponse updateCommerceSetting(shared_ptr<UpdateCommerceSettingRequest> request);
   UpdateConversationalAutomationResponse updateConversationalAutomationWithOptions(shared_ptr<UpdateConversationalAutomationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
