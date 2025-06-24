@@ -41477,6 +41477,7 @@ public:
   shared_ptr<string> baseAppId{};
   shared_ptr<long> cpu{};
   shared_ptr<long> instances{};
+  shared_ptr<bool> isStateful{};
   shared_ptr<long> mem{};
   shared_ptr<bool> mseEnabled{};
   shared_ptr<string> namespaceId{};
@@ -41522,6 +41523,9 @@ public:
     }
     if (instances) {
       res["Instances"] = boost::any(*instances);
+    }
+    if (isStateful) {
+      res["IsStateful"] = boost::any(*isStateful);
     }
     if (mem) {
       res["Mem"] = boost::any(*mem);
@@ -41587,6 +41591,9 @@ public:
     }
     if (m.find("Instances") != m.end() && !m["Instances"].empty()) {
       instances = make_shared<long>(boost::any_cast<long>(m["Instances"]));
+    }
+    if (m.find("IsStateful") != m.end() && !m["IsStateful"].empty()) {
+      isStateful = make_shared<bool>(boost::any_cast<bool>(m["IsStateful"]));
     }
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
@@ -41686,6 +41693,7 @@ public:
   shared_ptr<string> enableIdle{};
   shared_ptr<string> imageUrl{};
   shared_ptr<long> instances{};
+  shared_ptr<bool> isStateful{};
   shared_ptr<long> mem{};
   shared_ptr<bool> mseEnabled{};
   shared_ptr<string> mseNamespaceId{};
@@ -41697,6 +41705,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<long> runningInstances{};
   shared_ptr<vector<ListApplicationsResponseBodyDataApplicationsTags>> tags{};
+  shared_ptr<string> vpcId{};
 
   ListApplicationsResponseBodyDataApplications() {}
 
@@ -41748,6 +41757,9 @@ public:
     if (instances) {
       res["Instances"] = boost::any(*instances);
     }
+    if (isStateful) {
+      res["IsStateful"] = boost::any(*isStateful);
+    }
     if (mem) {
       res["Mem"] = boost::any(*mem);
     }
@@ -41784,6 +41796,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
     }
     return res;
   }
@@ -41835,6 +41850,9 @@ public:
     if (m.find("Instances") != m.end() && !m["Instances"].empty()) {
       instances = make_shared<long>(boost::any_cast<long>(m["Instances"]));
     }
+    if (m.find("IsStateful") != m.end() && !m["IsStateful"].empty()) {
+      isStateful = make_shared<bool>(boost::any_cast<bool>(m["IsStateful"]));
+    }
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
     }
@@ -41877,6 +41895,9 @@ public:
         }
         tags = make_shared<vector<ListApplicationsResponseBodyDataApplicationsTags>>(expect1);
       }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
