@@ -20900,6 +20900,8 @@ public:
 };
 class DescribeDBClusterAttributeResponseBodyItemsDBCluster : public Darabonba::Model {
 public:
+  shared_ptr<long> AINodeNumber{};
+  shared_ptr<string> AINodeSpec{};
   shared_ptr<long> clickhouseEngineCacheSize{};
   shared_ptr<bool> clickhouseEngineEnabled{};
   shared_ptr<string> commodityCode{};
@@ -20957,6 +20959,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (AINodeNumber) {
+      res["AINodeNumber"] = boost::any(*AINodeNumber);
+    }
+    if (AINodeSpec) {
+      res["AINodeSpec"] = boost::any(*AINodeSpec);
+    }
     if (clickhouseEngineCacheSize) {
       res["ClickhouseEngineCacheSize"] = boost::any(*clickhouseEngineCacheSize);
     }
@@ -21099,6 +21107,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AINodeNumber") != m.end() && !m["AINodeNumber"].empty()) {
+      AINodeNumber = make_shared<long>(boost::any_cast<long>(m["AINodeNumber"]));
+    }
+    if (m.find("AINodeSpec") != m.end() && !m["AINodeSpec"].empty()) {
+      AINodeSpec = make_shared<string>(boost::any_cast<string>(m["AINodeSpec"]));
+    }
     if (m.find("ClickhouseEngineCacheSize") != m.end() && !m["ClickhouseEngineCacheSize"].empty()) {
       clickhouseEngineCacheSize = make_shared<long>(boost::any_cast<long>(m["ClickhouseEngineCacheSize"]));
     }
