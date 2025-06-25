@@ -35804,6 +35804,7 @@ public:
   shared_ptr<string> extraInfo{};
   shared_ptr<string> length{};
   shared_ptr<map<string, boost::any>> lengthRange{};
+  shared_ptr<string> modelId{};
   shared_ptr<string> numComments{};
   shared_ptr<map<string, boost::any>> sentiment{};
   shared_ptr<string> sessionId{};
@@ -35833,6 +35834,9 @@ public:
     }
     if (lengthRange) {
       res["LengthRange"] = boost::any(*lengthRange);
+    }
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
     }
     if (numComments) {
       res["NumComments"] = boost::any(*numComments);
@@ -35876,6 +35880,9 @@ public:
       }
       lengthRange = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
+    }
     if (m.find("NumComments") != m.end() && !m["NumComments"].empty()) {
       numComments = make_shared<string>(boost::any_cast<string>(m["NumComments"]));
     }
@@ -35918,6 +35925,7 @@ public:
   shared_ptr<string> extraInfo{};
   shared_ptr<string> length{};
   shared_ptr<string> lengthRangeShrink{};
+  shared_ptr<string> modelId{};
   shared_ptr<string> numComments{};
   shared_ptr<string> sentimentShrink{};
   shared_ptr<string> sessionId{};
@@ -35947,6 +35955,9 @@ public:
     }
     if (lengthRangeShrink) {
       res["LengthRange"] = boost::any(*lengthRangeShrink);
+    }
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
     }
     if (numComments) {
       res["NumComments"] = boost::any(*numComments);
@@ -35984,6 +35995,9 @@ public:
     }
     if (m.find("LengthRange") != m.end() && !m["LengthRange"].empty()) {
       lengthRangeShrink = make_shared<string>(boost::any_cast<string>(m["LengthRange"]));
+    }
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
     }
     if (m.find("NumComments") != m.end() && !m["NumComments"].empty()) {
       numComments = make_shared<string>(boost::any_cast<string>(m["NumComments"]));
@@ -37670,6 +37684,7 @@ class RunDocBrainmapRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> cleanCache{};
   shared_ptr<string> docId{};
+  shared_ptr<string> modelName{};
   shared_ptr<long> nodeNumber{};
   shared_ptr<string> prompt{};
   shared_ptr<string> sessionId{};
@@ -37692,6 +37707,9 @@ public:
     }
     if (docId) {
       res["DocId"] = boost::any(*docId);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
     }
     if (nodeNumber) {
       res["NodeNumber"] = boost::any(*nodeNumber);
@@ -37720,6 +37738,9 @@ public:
     }
     if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
       docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("NodeNumber") != m.end() && !m["NodeNumber"].empty()) {
       nodeNumber = make_shared<long>(boost::any_cast<long>(m["NodeNumber"]));
@@ -38040,6 +38061,7 @@ public:
   shared_ptr<string> docId{};
   shared_ptr<string> introductionPrompt{};
   shared_ptr<string> keyPointPrompt{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> summaryPrompt{};
   shared_ptr<string> workspaceId{};
@@ -38066,6 +38088,9 @@ public:
     }
     if (keyPointPrompt) {
       res["KeyPointPrompt"] = boost::any(*keyPointPrompt);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
     }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
@@ -38094,6 +38119,9 @@ public:
     }
     if (m.find("KeyPointPrompt") != m.end() && !m["KeyPointPrompt"].empty()) {
       keyPointPrompt = make_shared<string>(boost::any_cast<string>(m["KeyPointPrompt"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
@@ -38606,6 +38634,7 @@ public:
   shared_ptr<vector<string>> categoryIds{};
   shared_ptr<vector<RunDocQaRequestConversationContexts>> conversationContexts{};
   shared_ptr<vector<string>> docIds{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> query{};
   shared_ptr<string> referenceContent{};
   shared_ptr<string> searchSource{};
@@ -38634,6 +38663,9 @@ public:
     }
     if (docIds) {
       res["DocIds"] = boost::any(*docIds);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
     }
     if (query) {
       res["Query"] = boost::any(*query);
@@ -38687,6 +38719,9 @@ public:
       }
       docIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
+    }
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["Query"]));
     }
@@ -38712,6 +38747,7 @@ public:
   shared_ptr<string> categoryIdsShrink{};
   shared_ptr<string> conversationContextsShrink{};
   shared_ptr<string> docIdsShrink{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> query{};
   shared_ptr<string> referenceContent{};
   shared_ptr<string> searchSource{};
@@ -38736,6 +38772,9 @@ public:
     }
     if (docIdsShrink) {
       res["DocIds"] = boost::any(*docIdsShrink);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
     }
     if (query) {
       res["Query"] = boost::any(*query);
@@ -38764,6 +38803,9 @@ public:
     }
     if (m.find("DocIds") != m.end() && !m["DocIds"].empty()) {
       docIdsShrink = make_shared<string>(boost::any_cast<string>(m["DocIds"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["Query"]));
@@ -39341,6 +39383,7 @@ public:
 class RunDocSmartCardRequest : public Darabonba::Model {
 public:
   shared_ptr<string> docId{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> prompt{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> workspaceId{};
@@ -39358,6 +39401,9 @@ public:
     if (docId) {
       res["DocId"] = boost::any(*docId);
     }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
     if (prompt) {
       res["Prompt"] = boost::any(*prompt);
     }
@@ -39373,6 +39419,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
       docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
       prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
@@ -40057,6 +40106,7 @@ class RunDocTranslationRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> cleanCache{};
   shared_ptr<string> docId{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> recommendContent{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> transType{};
@@ -40077,6 +40127,9 @@ public:
     }
     if (docId) {
       res["DocId"] = boost::any(*docId);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
     }
     if (recommendContent) {
       res["RecommendContent"] = boost::any(*recommendContent);
@@ -40099,6 +40152,9 @@ public:
     }
     if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
       docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("RecommendContent") != m.end() && !m["RecommendContent"].empty()) {
       recommendContent = make_shared<string>(boost::any_cast<string>(m["RecommendContent"]));
@@ -40409,6 +40465,7 @@ public:
 };
 class RunDocWashingRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> modelId{};
   shared_ptr<string> prompt{};
   shared_ptr<string> referenceContent{};
   shared_ptr<string> sessionId{};
@@ -40428,6 +40485,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
+    }
     if (prompt) {
       res["Prompt"] = boost::any(*prompt);
     }
@@ -40456,6 +40516,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
+    }
     if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
       prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
     }
@@ -41111,6 +41174,7 @@ public:
 class RunGenerateQuestionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> docId{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> referenceContent{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> workspaceId{};
@@ -41128,6 +41192,9 @@ public:
     if (docId) {
       res["DocId"] = boost::any(*docId);
     }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
     if (referenceContent) {
       res["ReferenceContent"] = boost::any(*referenceContent);
     }
@@ -41143,6 +41210,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
       docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("ReferenceContent") != m.end() && !m["ReferenceContent"].empty()) {
       referenceContent = make_shared<string>(boost::any_cast<string>(m["ReferenceContent"]));
@@ -41451,6 +41521,7 @@ public:
 class RunHotwordRequest : public Darabonba::Model {
 public:
   shared_ptr<string> docId{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> prompt{};
   shared_ptr<string> referenceContent{};
   shared_ptr<string> sessionId{};
@@ -41468,6 +41539,9 @@ public:
     map<string, boost::any> res;
     if (docId) {
       res["DocId"] = boost::any(*docId);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
     }
     if (prompt) {
       res["Prompt"] = boost::any(*prompt);
@@ -41487,6 +41561,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
       docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
       prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
@@ -42208,6 +42285,7 @@ class RunMultiDocIntroductionRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> docIds{};
   shared_ptr<string> keyPointPrompt{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> summaryPrompt{};
   shared_ptr<string> workspaceId{};
@@ -42227,6 +42305,9 @@ public:
     }
     if (keyPointPrompt) {
       res["KeyPointPrompt"] = boost::any(*keyPointPrompt);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
     }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
@@ -42254,6 +42335,9 @@ public:
     if (m.find("KeyPointPrompt") != m.end() && !m["KeyPointPrompt"].empty()) {
       keyPointPrompt = make_shared<string>(boost::any_cast<string>(m["KeyPointPrompt"]));
     }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
+    }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
@@ -42272,6 +42356,7 @@ class RunMultiDocIntroductionShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> docIdsShrink{};
   shared_ptr<string> keyPointPrompt{};
+  shared_ptr<string> modelName{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> summaryPrompt{};
   shared_ptr<string> workspaceId{};
@@ -42292,6 +42377,9 @@ public:
     if (keyPointPrompt) {
       res["KeyPointPrompt"] = boost::any(*keyPointPrompt);
     }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -42310,6 +42398,9 @@ public:
     }
     if (m.find("KeyPointPrompt") != m.end() && !m["KeyPointPrompt"].empty()) {
       keyPointPrompt = make_shared<string>(boost::any_cast<string>(m["KeyPointPrompt"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
