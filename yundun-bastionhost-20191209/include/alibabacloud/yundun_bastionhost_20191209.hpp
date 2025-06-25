@@ -3848,8 +3848,10 @@ public:
   shared_ptr<string> passPhrase{};
   shared_ptr<string> password{};
   shared_ptr<string> privateKey{};
+  shared_ptr<string> privilegeType{};
   shared_ptr<string> protocolName{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> rotationMode{};
 
   CreateHostAccountRequest() {}
 
@@ -3882,11 +3884,17 @@ public:
     if (privateKey) {
       res["PrivateKey"] = boost::any(*privateKey);
     }
+    if (privilegeType) {
+      res["PrivilegeType"] = boost::any(*privilegeType);
+    }
     if (protocolName) {
       res["ProtocolName"] = boost::any(*protocolName);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (rotationMode) {
+      res["RotationMode"] = boost::any(*rotationMode);
     }
     return res;
   }
@@ -3913,11 +3921,17 @@ public:
     if (m.find("PrivateKey") != m.end() && !m["PrivateKey"].empty()) {
       privateKey = make_shared<string>(boost::any_cast<string>(m["PrivateKey"]));
     }
+    if (m.find("PrivilegeType") != m.end() && !m["PrivilegeType"].empty()) {
+      privilegeType = make_shared<string>(boost::any_cast<string>(m["PrivilegeType"]));
+    }
     if (m.find("ProtocolName") != m.end() && !m["ProtocolName"].empty()) {
       protocolName = make_shared<string>(boost::any_cast<string>(m["ProtocolName"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RotationMode") != m.end() && !m["RotationMode"].empty()) {
+      rotationMode = make_shared<string>(boost::any_cast<string>(m["RotationMode"]));
     }
   }
 
@@ -12014,7 +12028,9 @@ public:
   shared_ptr<string> hostShareKeyId{};
   shared_ptr<string> hostShareKeyName{};
   shared_ptr<string> privateKeyFingerprint{};
+  shared_ptr<string> privilegeType{};
   shared_ptr<string> protocolName{};
+  shared_ptr<string> rotationMode{};
 
   GetHostAccountResponseBodyHostAccount() {}
 
@@ -12047,8 +12063,14 @@ public:
     if (privateKeyFingerprint) {
       res["PrivateKeyFingerprint"] = boost::any(*privateKeyFingerprint);
     }
+    if (privilegeType) {
+      res["PrivilegeType"] = boost::any(*privilegeType);
+    }
     if (protocolName) {
       res["ProtocolName"] = boost::any(*protocolName);
+    }
+    if (rotationMode) {
+      res["RotationMode"] = boost::any(*rotationMode);
     }
     return res;
   }
@@ -12075,8 +12097,14 @@ public:
     if (m.find("PrivateKeyFingerprint") != m.end() && !m["PrivateKeyFingerprint"].empty()) {
       privateKeyFingerprint = make_shared<string>(boost::any_cast<string>(m["PrivateKeyFingerprint"]));
     }
+    if (m.find("PrivilegeType") != m.end() && !m["PrivilegeType"].empty()) {
+      privilegeType = make_shared<string>(boost::any_cast<string>(m["PrivilegeType"]));
+    }
     if (m.find("ProtocolName") != m.end() && !m["ProtocolName"].empty()) {
       protocolName = make_shared<string>(boost::any_cast<string>(m["ProtocolName"]));
+    }
+    if (m.find("RotationMode") != m.end() && !m["RotationMode"].empty()) {
+      rotationMode = make_shared<string>(boost::any_cast<string>(m["RotationMode"]));
     }
   }
 
@@ -17772,6 +17800,7 @@ class ListHostAccountsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> hostAccountName{};
   shared_ptr<string> hostId{};
+  shared_ptr<string> hostIds{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> pageNumber{};
   shared_ptr<string> pageSize{};
@@ -17793,6 +17822,9 @@ public:
     }
     if (hostId) {
       res["HostId"] = boost::any(*hostId);
+    }
+    if (hostIds) {
+      res["HostIds"] = boost::any(*hostIds);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -17818,6 +17850,9 @@ public:
     }
     if (m.find("HostId") != m.end() && !m["HostId"].empty()) {
       hostId = make_shared<string>(boost::any_cast<string>(m["HostId"]));
+    }
+    if (m.find("HostIds") != m.end() && !m["HostIds"].empty()) {
+      hostIds = make_shared<string>(boost::any_cast<string>(m["HostIds"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -17848,7 +17883,9 @@ public:
   shared_ptr<string> hostShareKeyId{};
   shared_ptr<string> hostShareKeyName{};
   shared_ptr<string> privateKeyFingerprint{};
+  shared_ptr<string> privilegeType{};
   shared_ptr<string> protocolName{};
+  shared_ptr<string> rotationMode{};
 
   ListHostAccountsResponseBodyHostAccounts() {}
 
@@ -17881,8 +17918,14 @@ public:
     if (privateKeyFingerprint) {
       res["PrivateKeyFingerprint"] = boost::any(*privateKeyFingerprint);
     }
+    if (privilegeType) {
+      res["PrivilegeType"] = boost::any(*privilegeType);
+    }
     if (protocolName) {
       res["ProtocolName"] = boost::any(*protocolName);
+    }
+    if (rotationMode) {
+      res["RotationMode"] = boost::any(*rotationMode);
     }
     return res;
   }
@@ -17909,8 +17952,14 @@ public:
     if (m.find("PrivateKeyFingerprint") != m.end() && !m["PrivateKeyFingerprint"].empty()) {
       privateKeyFingerprint = make_shared<string>(boost::any_cast<string>(m["PrivateKeyFingerprint"]));
     }
+    if (m.find("PrivilegeType") != m.end() && !m["PrivilegeType"].empty()) {
+      privilegeType = make_shared<string>(boost::any_cast<string>(m["PrivilegeType"]));
+    }
     if (m.find("ProtocolName") != m.end() && !m["ProtocolName"].empty()) {
       protocolName = make_shared<string>(boost::any_cast<string>(m["ProtocolName"]));
+    }
+    if (m.find("RotationMode") != m.end() && !m["RotationMode"].empty()) {
+      rotationMode = make_shared<string>(boost::any_cast<string>(m["RotationMode"]));
     }
   }
 
@@ -24910,7 +24959,9 @@ public:
   shared_ptr<string> passPhrase{};
   shared_ptr<string> password{};
   shared_ptr<string> privateKey{};
+  shared_ptr<string> privilegeType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> rotationMode{};
 
   ModifyHostAccountRequest() {}
 
@@ -24943,8 +24994,14 @@ public:
     if (privateKey) {
       res["PrivateKey"] = boost::any(*privateKey);
     }
+    if (privilegeType) {
+      res["PrivilegeType"] = boost::any(*privilegeType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (rotationMode) {
+      res["RotationMode"] = boost::any(*rotationMode);
     }
     return res;
   }
@@ -24971,8 +25028,14 @@ public:
     if (m.find("PrivateKey") != m.end() && !m["PrivateKey"].empty()) {
       privateKey = make_shared<string>(boost::any_cast<string>(m["PrivateKey"]));
     }
+    if (m.find("PrivilegeType") != m.end() && !m["PrivilegeType"].empty()) {
+      privilegeType = make_shared<string>(boost::any_cast<string>(m["PrivilegeType"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RotationMode") != m.end() && !m["RotationMode"].empty()) {
+      rotationMode = make_shared<string>(boost::any_cast<string>(m["RotationMode"]));
     }
   }
 
