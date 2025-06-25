@@ -478,6 +478,7 @@ public:
   shared_ptr<map<string, string>> configuration{};
   shared_ptr<vector<CreateApplicationRequestInstances>> instances{};
   shared_ptr<string> name{};
+  shared_ptr<map<string, boost::any>> processVariables{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> templateId{};
   shared_ptr<map<string, boost::any>> variables{};
@@ -510,6 +511,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (processVariables) {
+      res["ProcessVariables"] = boost::any(*processVariables);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -554,6 +558,14 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("ProcessVariables") != m.end() && !m["ProcessVariables"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ProcessVariables"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      processVariables = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
@@ -580,6 +592,7 @@ public:
   shared_ptr<string> configurationShrink{};
   shared_ptr<string> instancesShrink{};
   shared_ptr<string> name{};
+  shared_ptr<string> processVariablesShrink{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> templateId{};
   shared_ptr<string> variablesShrink{};
@@ -609,6 +622,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (processVariablesShrink) {
+      res["ProcessVariables"] = boost::any(*processVariablesShrink);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -636,6 +652,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProcessVariables") != m.end() && !m["ProcessVariables"].empty()) {
+      processVariablesShrink = make_shared<string>(boost::any_cast<string>(m["ProcessVariables"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));

@@ -140,6 +140,9 @@ CreateApplicationResponse Alibabacloud_BPStudio20210931::Client::createApplicati
   if (!Darabonba_Util::Client::isUnset<vector<CreateApplicationRequestInstances>>(tmpReq->instances)) {
     request->instancesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instances, make_shared<string>("Instances"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->processVariables)) {
+    request->processVariablesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->processVariables, make_shared<string>("ProcessVariables"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->variables)) {
     request->variablesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->variables, make_shared<string>("Variables"), make_shared<string>("json")));
   }
@@ -158,6 +161,9 @@ CreateApplicationResponse Alibabacloud_BPStudio20210931::Client::createApplicati
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processVariablesShrink)) {
+    body->insert(pair<string, string>("ProcessVariables", *request->processVariablesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
