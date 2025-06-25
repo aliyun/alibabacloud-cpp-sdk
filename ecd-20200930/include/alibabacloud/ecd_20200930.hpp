@@ -6505,9 +6505,11 @@ public:
   shared_ptr<vector<CreateCenterPolicyRequestAuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule{};
   shared_ptr<long> businessType{};
   shared_ptr<string> cameraRedirect{};
+  shared_ptr<string> clientControlMenu{};
   shared_ptr<vector<CreateCenterPolicyRequestClientType>> clientType{};
   shared_ptr<string> clipboard{};
   shared_ptr<string> colorEnhancement{};
+  shared_ptr<string> cpdDriveClipboard{};
   shared_ptr<long> cpuDownGradeDuration{};
   shared_ptr<vector<string>> cpuProcessors{};
   shared_ptr<string> cpuProtectedMode{};
@@ -6526,6 +6528,9 @@ public:
   shared_ptr<string> endUserApplyAdminCoordinate{};
   shared_ptr<string> endUserGroupCoordinate{};
   shared_ptr<string> fileMigrate{};
+  shared_ptr<string> fileTransferAddress{};
+  shared_ptr<string> fileTransferSpeed{};
+  shared_ptr<string> fileTransferSpeedLocation{};
   shared_ptr<string> gpuAcceleration{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
@@ -6570,6 +6575,7 @@ public:
   shared_ptr<string> safeMenu{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
+  shared_ptr<string> screenDisplayMode{};
   shared_ptr<long> sessionMaxRateKbps{};
   shared_ptr<string> smoothEnhancement{};
   shared_ptr<string> statusMonitor{};
@@ -6578,6 +6584,7 @@ public:
   shared_ptr<string> taskbar{};
   shared_ptr<string> usbRedirect{};
   shared_ptr<vector<CreateCenterPolicyRequestUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
+  shared_ptr<string> useTime{};
   shared_ptr<long> videoEncAvgKbps{};
   shared_ptr<long> videoEncMaxQP{};
   shared_ptr<long> videoEncMinQP{};
@@ -6637,6 +6644,9 @@ public:
     if (cameraRedirect) {
       res["CameraRedirect"] = boost::any(*cameraRedirect);
     }
+    if (clientControlMenu) {
+      res["ClientControlMenu"] = boost::any(*clientControlMenu);
+    }
     if (clientType) {
       vector<boost::any> temp1;
       for(auto item1:*clientType){
@@ -6649,6 +6659,9 @@ public:
     }
     if (colorEnhancement) {
       res["ColorEnhancement"] = boost::any(*colorEnhancement);
+    }
+    if (cpdDriveClipboard) {
+      res["CpdDriveClipboard"] = boost::any(*cpdDriveClipboard);
     }
     if (cpuDownGradeDuration) {
       res["CpuDownGradeDuration"] = boost::any(*cpuDownGradeDuration);
@@ -6715,6 +6728,15 @@ public:
     }
     if (fileMigrate) {
       res["FileMigrate"] = boost::any(*fileMigrate);
+    }
+    if (fileTransferAddress) {
+      res["FileTransferAddress"] = boost::any(*fileTransferAddress);
+    }
+    if (fileTransferSpeed) {
+      res["FileTransferSpeed"] = boost::any(*fileTransferSpeed);
+    }
+    if (fileTransferSpeedLocation) {
+      res["FileTransferSpeedLocation"] = boost::any(*fileTransferSpeedLocation);
     }
     if (gpuAcceleration) {
       res["GpuAcceleration"] = boost::any(*gpuAcceleration);
@@ -6852,6 +6874,9 @@ public:
     if (scopeValue) {
       res["ScopeValue"] = boost::any(*scopeValue);
     }
+    if (screenDisplayMode) {
+      res["ScreenDisplayMode"] = boost::any(*screenDisplayMode);
+    }
     if (sessionMaxRateKbps) {
       res["SessionMaxRateKbps"] = boost::any(*sessionMaxRateKbps);
     }
@@ -6879,6 +6904,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["UsbSupplyRedirectRule"] = boost::any(temp1);
+    }
+    if (useTime) {
+      res["UseTime"] = boost::any(*useTime);
     }
     if (videoEncAvgKbps) {
       res["VideoEncAvgKbps"] = boost::any(*videoEncAvgKbps);
@@ -6988,6 +7016,9 @@ public:
     if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
       cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
     }
+    if (m.find("ClientControlMenu") != m.end() && !m["ClientControlMenu"].empty()) {
+      clientControlMenu = make_shared<string>(boost::any_cast<string>(m["ClientControlMenu"]));
+    }
     if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
       if (typeid(vector<boost::any>) == m["ClientType"].type()) {
         vector<CreateCenterPolicyRequestClientType> expect1;
@@ -7006,6 +7037,9 @@ public:
     }
     if (m.find("ColorEnhancement") != m.end() && !m["ColorEnhancement"].empty()) {
       colorEnhancement = make_shared<string>(boost::any_cast<string>(m["ColorEnhancement"]));
+    }
+    if (m.find("CpdDriveClipboard") != m.end() && !m["CpdDriveClipboard"].empty()) {
+      cpdDriveClipboard = make_shared<string>(boost::any_cast<string>(m["CpdDriveClipboard"]));
     }
     if (m.find("CpuDownGradeDuration") != m.end() && !m["CpuDownGradeDuration"].empty()) {
       cpuDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["CpuDownGradeDuration"]));
@@ -7097,6 +7131,15 @@ public:
     }
     if (m.find("FileMigrate") != m.end() && !m["FileMigrate"].empty()) {
       fileMigrate = make_shared<string>(boost::any_cast<string>(m["FileMigrate"]));
+    }
+    if (m.find("FileTransferAddress") != m.end() && !m["FileTransferAddress"].empty()) {
+      fileTransferAddress = make_shared<string>(boost::any_cast<string>(m["FileTransferAddress"]));
+    }
+    if (m.find("FileTransferSpeed") != m.end() && !m["FileTransferSpeed"].empty()) {
+      fileTransferSpeed = make_shared<string>(boost::any_cast<string>(m["FileTransferSpeed"]));
+    }
+    if (m.find("FileTransferSpeedLocation") != m.end() && !m["FileTransferSpeedLocation"].empty()) {
+      fileTransferSpeedLocation = make_shared<string>(boost::any_cast<string>(m["FileTransferSpeedLocation"]));
     }
     if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
       gpuAcceleration = make_shared<string>(boost::any_cast<string>(m["GpuAcceleration"]));
@@ -7275,6 +7318,9 @@ public:
       }
       scopeValue = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ScreenDisplayMode") != m.end() && !m["ScreenDisplayMode"].empty()) {
+      screenDisplayMode = make_shared<string>(boost::any_cast<string>(m["ScreenDisplayMode"]));
+    }
     if (m.find("SessionMaxRateKbps") != m.end() && !m["SessionMaxRateKbps"].empty()) {
       sessionMaxRateKbps = make_shared<long>(boost::any_cast<long>(m["SessionMaxRateKbps"]));
     }
@@ -7308,6 +7354,9 @@ public:
         }
         usbSupplyRedirectRule = make_shared<vector<CreateCenterPolicyRequestUsbSupplyRedirectRule>>(expect1);
       }
+    }
+    if (m.find("UseTime") != m.end() && !m["UseTime"].empty()) {
+      useTime = make_shared<string>(boost::any_cast<string>(m["UseTime"]));
     }
     if (m.find("VideoEncAvgKbps") != m.end() && !m["VideoEncAvgKbps"].empty()) {
       videoEncAvgKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncAvgKbps"]));
@@ -18106,9 +18155,11 @@ public:
   shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules>> authorizeAccessPolicyRules{};
   shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules{};
   shared_ptr<string> cameraRedirect{};
+  shared_ptr<string> clientControlMenu{};
   shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes>> clientTypes{};
   shared_ptr<string> clipboard{};
   shared_ptr<string> colorEnhancement{};
+  shared_ptr<string> cpdDriveClipboard{};
   shared_ptr<long> cpuDownGradeDuration{};
   shared_ptr<vector<string>> cpuProcessors{};
   shared_ptr<string> cpuProtectedMode{};
@@ -18127,6 +18178,9 @@ public:
   shared_ptr<string> domainResolveRuleType{};
   shared_ptr<string> endUserApplyAdminCoordinate{};
   shared_ptr<string> endUserGroupCoordinate{};
+  shared_ptr<string> fileTransferAddress{};
+  shared_ptr<string> fileTransferSpeed{};
+  shared_ptr<string> fileTransferSpeedLocation{};
   shared_ptr<string> gpuAcceleration{};
   shared_ptr<string> html5Access{};
   shared_ptr<string> html5FileTransfer{};
@@ -18174,6 +18228,7 @@ public:
   shared_ptr<string> safeMenu{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
+  shared_ptr<string> screenDisplayMode{};
   shared_ptr<string> smoothEnhancement{};
   shared_ptr<string> statusMonitor{};
   shared_ptr<string> streamingMode{};
@@ -18181,6 +18236,7 @@ public:
   shared_ptr<string> taskbar{};
   shared_ptr<string> usbRedirect{};
   shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
+  shared_ptr<string> useTime{};
   shared_ptr<long> videoEncAvgKbps{};
   shared_ptr<long> videoEncMaxQP{};
   shared_ptr<long> videoEncMinQP{};
@@ -18235,6 +18291,9 @@ public:
     if (cameraRedirect) {
       res["CameraRedirect"] = boost::any(*cameraRedirect);
     }
+    if (clientControlMenu) {
+      res["ClientControlMenu"] = boost::any(*clientControlMenu);
+    }
     if (clientTypes) {
       vector<boost::any> temp1;
       for(auto item1:*clientTypes){
@@ -18247,6 +18306,9 @@ public:
     }
     if (colorEnhancement) {
       res["ColorEnhancement"] = boost::any(*colorEnhancement);
+    }
+    if (cpdDriveClipboard) {
+      res["CpdDriveClipboard"] = boost::any(*cpdDriveClipboard);
     }
     if (cpuDownGradeDuration) {
       res["CpuDownGradeDuration"] = boost::any(*cpuDownGradeDuration);
@@ -18313,6 +18375,15 @@ public:
     }
     if (endUserGroupCoordinate) {
       res["EndUserGroupCoordinate"] = boost::any(*endUserGroupCoordinate);
+    }
+    if (fileTransferAddress) {
+      res["FileTransferAddress"] = boost::any(*fileTransferAddress);
+    }
+    if (fileTransferSpeed) {
+      res["FileTransferSpeed"] = boost::any(*fileTransferSpeed);
+    }
+    if (fileTransferSpeedLocation) {
+      res["FileTransferSpeedLocation"] = boost::any(*fileTransferSpeedLocation);
     }
     if (gpuAcceleration) {
       res["GpuAcceleration"] = boost::any(*gpuAcceleration);
@@ -18459,6 +18530,9 @@ public:
     if (scopeValue) {
       res["ScopeValue"] = boost::any(*scopeValue);
     }
+    if (screenDisplayMode) {
+      res["ScreenDisplayMode"] = boost::any(*screenDisplayMode);
+    }
     if (smoothEnhancement) {
       res["SmoothEnhancement"] = boost::any(*smoothEnhancement);
     }
@@ -18483,6 +18557,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["UsbSupplyRedirectRule"] = boost::any(temp1);
+    }
+    if (useTime) {
+      res["UseTime"] = boost::any(*useTime);
     }
     if (videoEncAvgKbps) {
       res["VideoEncAvgKbps"] = boost::any(*videoEncAvgKbps);
@@ -18583,6 +18660,9 @@ public:
     if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
       cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
     }
+    if (m.find("ClientControlMenu") != m.end() && !m["ClientControlMenu"].empty()) {
+      clientControlMenu = make_shared<string>(boost::any_cast<string>(m["ClientControlMenu"]));
+    }
     if (m.find("ClientTypes") != m.end() && !m["ClientTypes"].empty()) {
       if (typeid(vector<boost::any>) == m["ClientTypes"].type()) {
         vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes> expect1;
@@ -18601,6 +18681,9 @@ public:
     }
     if (m.find("ColorEnhancement") != m.end() && !m["ColorEnhancement"].empty()) {
       colorEnhancement = make_shared<string>(boost::any_cast<string>(m["ColorEnhancement"]));
+    }
+    if (m.find("CpdDriveClipboard") != m.end() && !m["CpdDriveClipboard"].empty()) {
+      cpdDriveClipboard = make_shared<string>(boost::any_cast<string>(m["CpdDriveClipboard"]));
     }
     if (m.find("CpuDownGradeDuration") != m.end() && !m["CpuDownGradeDuration"].empty()) {
       cpuDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["CpuDownGradeDuration"]));
@@ -18692,6 +18775,15 @@ public:
     }
     if (m.find("EndUserGroupCoordinate") != m.end() && !m["EndUserGroupCoordinate"].empty()) {
       endUserGroupCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserGroupCoordinate"]));
+    }
+    if (m.find("FileTransferAddress") != m.end() && !m["FileTransferAddress"].empty()) {
+      fileTransferAddress = make_shared<string>(boost::any_cast<string>(m["FileTransferAddress"]));
+    }
+    if (m.find("FileTransferSpeed") != m.end() && !m["FileTransferSpeed"].empty()) {
+      fileTransferSpeed = make_shared<string>(boost::any_cast<string>(m["FileTransferSpeed"]));
+    }
+    if (m.find("FileTransferSpeedLocation") != m.end() && !m["FileTransferSpeedLocation"].empty()) {
+      fileTransferSpeedLocation = make_shared<string>(boost::any_cast<string>(m["FileTransferSpeedLocation"]));
     }
     if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
       gpuAcceleration = make_shared<string>(boost::any_cast<string>(m["GpuAcceleration"]));
@@ -18872,6 +18964,9 @@ public:
       }
       scopeValue = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ScreenDisplayMode") != m.end() && !m["ScreenDisplayMode"].empty()) {
+      screenDisplayMode = make_shared<string>(boost::any_cast<string>(m["ScreenDisplayMode"]));
+    }
     if (m.find("SmoothEnhancement") != m.end() && !m["SmoothEnhancement"].empty()) {
       smoothEnhancement = make_shared<string>(boost::any_cast<string>(m["SmoothEnhancement"]));
     }
@@ -18902,6 +18997,9 @@ public:
         }
         usbSupplyRedirectRule = make_shared<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>>(expect1);
       }
+    }
+    if (m.find("UseTime") != m.end() && !m["UseTime"].empty()) {
+      useTime = make_shared<string>(boost::any_cast<string>(m["UseTime"]));
     }
     if (m.find("VideoEncAvgKbps") != m.end() && !m["VideoEncAvgKbps"].empty()) {
       videoEncAvgKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncAvgKbps"]));
@@ -32357,9 +32455,11 @@ public:
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules>> authorizeAccessPolicyRules{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules{};
   shared_ptr<string> cameraRedirect{};
+  shared_ptr<string> clientControlMenu{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes>> clientTypes{};
   shared_ptr<string> clipboard{};
   shared_ptr<string> colorEnhancement{};
+  shared_ptr<string> cpdDriveClipboard{};
   shared_ptr<long> cpuDownGradeDuration{};
   shared_ptr<vector<string>> cpuProcessors{};
   shared_ptr<string> cpuProtectedMode{};
@@ -32380,6 +32480,9 @@ public:
   shared_ptr<string> endUserGroupCoordinate{};
   shared_ptr<string> fileMigrate{};
   shared_ptr<string> fileTransfer{};
+  shared_ptr<string> fileTransferAddress{};
+  shared_ptr<string> fileTransferSpeed{};
+  shared_ptr<string> fileTransferSpeedLocation{};
   shared_ptr<string> gpuAcceleration{};
   shared_ptr<string> html5Access{};
   shared_ptr<string> html5FileTransfer{};
@@ -32429,12 +32532,14 @@ public:
   shared_ptr<string> safeMenu{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
+  shared_ptr<string> screenDisplayMode{};
   shared_ptr<string> smoothEnhancement{};
   shared_ptr<string> statusMonitor{};
   shared_ptr<string> streamingMode{};
   shared_ptr<long> targetFps{};
   shared_ptr<string> usbRedirect{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
+  shared_ptr<string> useTime{};
   shared_ptr<long> videoEncAvgKbps{};
   shared_ptr<long> videoEncMaxQP{};
   shared_ptr<long> videoEncMinQP{};
@@ -32491,6 +32596,9 @@ public:
     if (cameraRedirect) {
       res["CameraRedirect"] = boost::any(*cameraRedirect);
     }
+    if (clientControlMenu) {
+      res["ClientControlMenu"] = boost::any(*clientControlMenu);
+    }
     if (clientTypes) {
       vector<boost::any> temp1;
       for(auto item1:*clientTypes){
@@ -32503,6 +32611,9 @@ public:
     }
     if (colorEnhancement) {
       res["ColorEnhancement"] = boost::any(*colorEnhancement);
+    }
+    if (cpdDriveClipboard) {
+      res["CpdDriveClipboard"] = boost::any(*cpdDriveClipboard);
     }
     if (cpuDownGradeDuration) {
       res["CpuDownGradeDuration"] = boost::any(*cpuDownGradeDuration);
@@ -32575,6 +32686,15 @@ public:
     }
     if (fileTransfer) {
       res["FileTransfer"] = boost::any(*fileTransfer);
+    }
+    if (fileTransferAddress) {
+      res["FileTransferAddress"] = boost::any(*fileTransferAddress);
+    }
+    if (fileTransferSpeed) {
+      res["FileTransferSpeed"] = boost::any(*fileTransferSpeed);
+    }
+    if (fileTransferSpeedLocation) {
+      res["FileTransferSpeedLocation"] = boost::any(*fileTransferSpeedLocation);
     }
     if (gpuAcceleration) {
       res["GpuAcceleration"] = boost::any(*gpuAcceleration);
@@ -32727,6 +32847,9 @@ public:
     if (scopeValue) {
       res["ScopeValue"] = boost::any(*scopeValue);
     }
+    if (screenDisplayMode) {
+      res["ScreenDisplayMode"] = boost::any(*screenDisplayMode);
+    }
     if (smoothEnhancement) {
       res["SmoothEnhancement"] = boost::any(*smoothEnhancement);
     }
@@ -32748,6 +32871,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["UsbSupplyRedirectRule"] = boost::any(temp1);
+    }
+    if (useTime) {
+      res["UseTime"] = boost::any(*useTime);
     }
     if (videoEncAvgKbps) {
       res["VideoEncAvgKbps"] = boost::any(*videoEncAvgKbps);
@@ -32854,6 +32980,9 @@ public:
     if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
       cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
     }
+    if (m.find("ClientControlMenu") != m.end() && !m["ClientControlMenu"].empty()) {
+      clientControlMenu = make_shared<string>(boost::any_cast<string>(m["ClientControlMenu"]));
+    }
     if (m.find("ClientTypes") != m.end() && !m["ClientTypes"].empty()) {
       if (typeid(vector<boost::any>) == m["ClientTypes"].type()) {
         vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes> expect1;
@@ -32872,6 +33001,9 @@ public:
     }
     if (m.find("ColorEnhancement") != m.end() && !m["ColorEnhancement"].empty()) {
       colorEnhancement = make_shared<string>(boost::any_cast<string>(m["ColorEnhancement"]));
+    }
+    if (m.find("CpdDriveClipboard") != m.end() && !m["CpdDriveClipboard"].empty()) {
+      cpdDriveClipboard = make_shared<string>(boost::any_cast<string>(m["CpdDriveClipboard"]));
     }
     if (m.find("CpuDownGradeDuration") != m.end() && !m["CpuDownGradeDuration"].empty()) {
       cpuDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["CpuDownGradeDuration"]));
@@ -32969,6 +33101,15 @@ public:
     }
     if (m.find("FileTransfer") != m.end() && !m["FileTransfer"].empty()) {
       fileTransfer = make_shared<string>(boost::any_cast<string>(m["FileTransfer"]));
+    }
+    if (m.find("FileTransferAddress") != m.end() && !m["FileTransferAddress"].empty()) {
+      fileTransferAddress = make_shared<string>(boost::any_cast<string>(m["FileTransferAddress"]));
+    }
+    if (m.find("FileTransferSpeed") != m.end() && !m["FileTransferSpeed"].empty()) {
+      fileTransferSpeed = make_shared<string>(boost::any_cast<string>(m["FileTransferSpeed"]));
+    }
+    if (m.find("FileTransferSpeedLocation") != m.end() && !m["FileTransferSpeedLocation"].empty()) {
+      fileTransferSpeedLocation = make_shared<string>(boost::any_cast<string>(m["FileTransferSpeedLocation"]));
     }
     if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
       gpuAcceleration = make_shared<string>(boost::any_cast<string>(m["GpuAcceleration"]));
@@ -33162,6 +33303,9 @@ public:
       }
       scopeValue = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ScreenDisplayMode") != m.end() && !m["ScreenDisplayMode"].empty()) {
+      screenDisplayMode = make_shared<string>(boost::any_cast<string>(m["ScreenDisplayMode"]));
+    }
     if (m.find("SmoothEnhancement") != m.end() && !m["SmoothEnhancement"].empty()) {
       smoothEnhancement = make_shared<string>(boost::any_cast<string>(m["SmoothEnhancement"]));
     }
@@ -33189,6 +33333,9 @@ public:
         }
         usbSupplyRedirectRule = make_shared<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>>(expect1);
       }
+    }
+    if (m.find("UseTime") != m.end() && !m["UseTime"].empty()) {
+      useTime = make_shared<string>(boost::any_cast<string>(m["UseTime"]));
     }
     if (m.find("VideoEncAvgKbps") != m.end() && !m["VideoEncAvgKbps"].empty()) {
       videoEncAvgKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncAvgKbps"]));
@@ -47067,9 +47214,11 @@ public:
   shared_ptr<vector<ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule{};
   shared_ptr<long> businessType{};
   shared_ptr<string> cameraRedirect{};
+  shared_ptr<string> clientControlMenu{};
   shared_ptr<vector<ModifyCenterPolicyRequestClientType>> clientType{};
   shared_ptr<string> clipboard{};
   shared_ptr<string> colorEnhancement{};
+  shared_ptr<string> cpdDriveClipboard{};
   shared_ptr<long> cpuDownGradeDuration{};
   shared_ptr<vector<string>> cpuProcessors{};
   shared_ptr<string> cpuProtectedMode{};
@@ -47088,6 +47237,9 @@ public:
   shared_ptr<string> endUserApplyAdminCoordinate{};
   shared_ptr<string> endUserGroupCoordinate{};
   shared_ptr<string> fileMigrate{};
+  shared_ptr<string> fileTransferAddress{};
+  shared_ptr<string> fileTransferSpeed{};
+  shared_ptr<string> fileTransferSpeedLocation{};
   shared_ptr<string> gpuAcceleration{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
@@ -47135,6 +47287,7 @@ public:
   shared_ptr<string> safeMenu{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
+  shared_ptr<string> screenDisplayMode{};
   shared_ptr<long> sessionMaxRateKbps{};
   shared_ptr<string> smoothEnhancement{};
   shared_ptr<string> statusMonitor{};
@@ -47143,6 +47296,7 @@ public:
   shared_ptr<string> taskbar{};
   shared_ptr<string> usbRedirect{};
   shared_ptr<vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
+  shared_ptr<string> useTime{};
   shared_ptr<long> videoEncAvgKbps{};
   shared_ptr<long> videoEncMaxQP{};
   shared_ptr<long> videoEncMinQP{};
@@ -47202,6 +47356,9 @@ public:
     if (cameraRedirect) {
       res["CameraRedirect"] = boost::any(*cameraRedirect);
     }
+    if (clientControlMenu) {
+      res["ClientControlMenu"] = boost::any(*clientControlMenu);
+    }
     if (clientType) {
       vector<boost::any> temp1;
       for(auto item1:*clientType){
@@ -47214,6 +47371,9 @@ public:
     }
     if (colorEnhancement) {
       res["ColorEnhancement"] = boost::any(*colorEnhancement);
+    }
+    if (cpdDriveClipboard) {
+      res["CpdDriveClipboard"] = boost::any(*cpdDriveClipboard);
     }
     if (cpuDownGradeDuration) {
       res["CpuDownGradeDuration"] = boost::any(*cpuDownGradeDuration);
@@ -47280,6 +47440,15 @@ public:
     }
     if (fileMigrate) {
       res["FileMigrate"] = boost::any(*fileMigrate);
+    }
+    if (fileTransferAddress) {
+      res["FileTransferAddress"] = boost::any(*fileTransferAddress);
+    }
+    if (fileTransferSpeed) {
+      res["FileTransferSpeed"] = boost::any(*fileTransferSpeed);
+    }
+    if (fileTransferSpeedLocation) {
+      res["FileTransferSpeedLocation"] = boost::any(*fileTransferSpeedLocation);
     }
     if (gpuAcceleration) {
       res["GpuAcceleration"] = boost::any(*gpuAcceleration);
@@ -47434,6 +47603,9 @@ public:
     if (scopeValue) {
       res["ScopeValue"] = boost::any(*scopeValue);
     }
+    if (screenDisplayMode) {
+      res["ScreenDisplayMode"] = boost::any(*screenDisplayMode);
+    }
     if (sessionMaxRateKbps) {
       res["SessionMaxRateKbps"] = boost::any(*sessionMaxRateKbps);
     }
@@ -47461,6 +47633,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["UsbSupplyRedirectRule"] = boost::any(temp1);
+    }
+    if (useTime) {
+      res["UseTime"] = boost::any(*useTime);
     }
     if (videoEncAvgKbps) {
       res["VideoEncAvgKbps"] = boost::any(*videoEncAvgKbps);
@@ -47570,6 +47745,9 @@ public:
     if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
       cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
     }
+    if (m.find("ClientControlMenu") != m.end() && !m["ClientControlMenu"].empty()) {
+      clientControlMenu = make_shared<string>(boost::any_cast<string>(m["ClientControlMenu"]));
+    }
     if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
       if (typeid(vector<boost::any>) == m["ClientType"].type()) {
         vector<ModifyCenterPolicyRequestClientType> expect1;
@@ -47588,6 +47766,9 @@ public:
     }
     if (m.find("ColorEnhancement") != m.end() && !m["ColorEnhancement"].empty()) {
       colorEnhancement = make_shared<string>(boost::any_cast<string>(m["ColorEnhancement"]));
+    }
+    if (m.find("CpdDriveClipboard") != m.end() && !m["CpdDriveClipboard"].empty()) {
+      cpdDriveClipboard = make_shared<string>(boost::any_cast<string>(m["CpdDriveClipboard"]));
     }
     if (m.find("CpuDownGradeDuration") != m.end() && !m["CpuDownGradeDuration"].empty()) {
       cpuDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["CpuDownGradeDuration"]));
@@ -47679,6 +47860,15 @@ public:
     }
     if (m.find("FileMigrate") != m.end() && !m["FileMigrate"].empty()) {
       fileMigrate = make_shared<string>(boost::any_cast<string>(m["FileMigrate"]));
+    }
+    if (m.find("FileTransferAddress") != m.end() && !m["FileTransferAddress"].empty()) {
+      fileTransferAddress = make_shared<string>(boost::any_cast<string>(m["FileTransferAddress"]));
+    }
+    if (m.find("FileTransferSpeed") != m.end() && !m["FileTransferSpeed"].empty()) {
+      fileTransferSpeed = make_shared<string>(boost::any_cast<string>(m["FileTransferSpeed"]));
+    }
+    if (m.find("FileTransferSpeedLocation") != m.end() && !m["FileTransferSpeedLocation"].empty()) {
+      fileTransferSpeedLocation = make_shared<string>(boost::any_cast<string>(m["FileTransferSpeedLocation"]));
     }
     if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
       gpuAcceleration = make_shared<string>(boost::any_cast<string>(m["GpuAcceleration"]));
@@ -47886,6 +48076,9 @@ public:
       }
       scopeValue = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ScreenDisplayMode") != m.end() && !m["ScreenDisplayMode"].empty()) {
+      screenDisplayMode = make_shared<string>(boost::any_cast<string>(m["ScreenDisplayMode"]));
+    }
     if (m.find("SessionMaxRateKbps") != m.end() && !m["SessionMaxRateKbps"].empty()) {
       sessionMaxRateKbps = make_shared<long>(boost::any_cast<long>(m["SessionMaxRateKbps"]));
     }
@@ -47919,6 +48112,9 @@ public:
         }
         usbSupplyRedirectRule = make_shared<vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule>>(expect1);
       }
+    }
+    if (m.find("UseTime") != m.end() && !m["UseTime"].empty()) {
+      useTime = make_shared<string>(boost::any_cast<string>(m["UseTime"]));
     }
     if (m.find("VideoEncAvgKbps") != m.end() && !m["VideoEncAvgKbps"].empty()) {
       videoEncAvgKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncAvgKbps"]));

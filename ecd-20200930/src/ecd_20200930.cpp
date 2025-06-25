@@ -1486,6 +1486,9 @@ CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicyW
   if (!Darabonba_Util::Client::isUnset<string>(request->cameraRedirect)) {
     query->insert(pair<string, string>("CameraRedirect", *request->cameraRedirect));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientControlMenu)) {
+    query->insert(pair<string, string>("ClientControlMenu", *request->clientControlMenu));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestClientType>>(request->clientType)) {
     query->insert(pair<string, vector<CreateCenterPolicyRequestClientType>>("ClientType", *request->clientType));
   }
@@ -1494,6 +1497,9 @@ CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->colorEnhancement)) {
     query->insert(pair<string, string>("ColorEnhancement", *request->colorEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpdDriveClipboard)) {
+    query->insert(pair<string, string>("CpdDriveClipboard", *request->cpdDriveClipboard));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->cpuDownGradeDuration)) {
     query->insert(pair<string, long>("CpuDownGradeDuration", *request->cpuDownGradeDuration));
@@ -1548,6 +1554,15 @@ CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileMigrate)) {
     query->insert(pair<string, string>("FileMigrate", *request->fileMigrate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileTransferAddress)) {
+    query->insert(pair<string, string>("FileTransferAddress", *request->fileTransferAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileTransferSpeed)) {
+    query->insert(pair<string, string>("FileTransferSpeed", *request->fileTransferSpeed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileTransferSpeedLocation)) {
+    query->insert(pair<string, string>("FileTransferSpeedLocation", *request->fileTransferSpeedLocation));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gpuAcceleration)) {
     query->insert(pair<string, string>("GpuAcceleration", *request->gpuAcceleration));
@@ -1681,6 +1696,9 @@ CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicyW
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->scopeValue)) {
     query->insert(pair<string, vector<string>>("ScopeValue", *request->scopeValue));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->screenDisplayMode)) {
+    query->insert(pair<string, string>("ScreenDisplayMode", *request->screenDisplayMode));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->sessionMaxRateKbps)) {
     query->insert(pair<string, long>("SessionMaxRateKbps", *request->sessionMaxRateKbps));
   }
@@ -1704,6 +1722,9 @@ CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateCenterPolicyRequestUsbSupplyRedirectRule>>(request->usbSupplyRedirectRule)) {
     query->insert(pair<string, vector<CreateCenterPolicyRequestUsbSupplyRedirectRule>>("UsbSupplyRedirectRule", *request->usbSupplyRedirectRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->useTime)) {
+    query->insert(pair<string, string>("UseTime", *request->useTime));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->videoEncAvgKbps)) {
     query->insert(pair<string, long>("VideoEncAvgKbps", *request->videoEncAvgKbps));
@@ -7968,6 +7989,9 @@ ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicyW
   if (!Darabonba_Util::Client::isUnset<string>(request->cameraRedirect)) {
     query->insert(pair<string, string>("CameraRedirect", *request->cameraRedirect));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientControlMenu)) {
+    query->insert(pair<string, string>("ClientControlMenu", *request->clientControlMenu));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestClientType>>(request->clientType)) {
     query->insert(pair<string, vector<ModifyCenterPolicyRequestClientType>>("ClientType", *request->clientType));
   }
@@ -7976,6 +8000,9 @@ ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->colorEnhancement)) {
     query->insert(pair<string, string>("ColorEnhancement", *request->colorEnhancement));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpdDriveClipboard)) {
+    query->insert(pair<string, string>("CpdDriveClipboard", *request->cpdDriveClipboard));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->cpuDownGradeDuration)) {
     query->insert(pair<string, long>("CpuDownGradeDuration", *request->cpuDownGradeDuration));
@@ -8030,6 +8057,15 @@ ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileMigrate)) {
     query->insert(pair<string, string>("FileMigrate", *request->fileMigrate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileTransferAddress)) {
+    query->insert(pair<string, string>("FileTransferAddress", *request->fileTransferAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileTransferSpeed)) {
+    query->insert(pair<string, string>("FileTransferSpeed", *request->fileTransferSpeed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileTransferSpeedLocation)) {
+    query->insert(pair<string, string>("FileTransferSpeedLocation", *request->fileTransferSpeedLocation));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gpuAcceleration)) {
     query->insert(pair<string, string>("GpuAcceleration", *request->gpuAcceleration));
@@ -8172,6 +8208,9 @@ ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicyW
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->scopeValue)) {
     query->insert(pair<string, vector<string>>("ScopeValue", *request->scopeValue));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->screenDisplayMode)) {
+    query->insert(pair<string, string>("ScreenDisplayMode", *request->screenDisplayMode));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->sessionMaxRateKbps)) {
     query->insert(pair<string, long>("SessionMaxRateKbps", *request->sessionMaxRateKbps));
   }
@@ -8195,6 +8234,9 @@ ModifyCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyCenterPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule>>(request->usbSupplyRedirectRule)) {
     query->insert(pair<string, vector<ModifyCenterPolicyRequestUsbSupplyRedirectRule>>("UsbSupplyRedirectRule", *request->usbSupplyRedirectRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->useTime)) {
+    query->insert(pair<string, string>("UseTime", *request->useTime));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->videoEncAvgKbps)) {
     query->insert(pair<string, long>("VideoEncAvgKbps", *request->videoEncAvgKbps));
