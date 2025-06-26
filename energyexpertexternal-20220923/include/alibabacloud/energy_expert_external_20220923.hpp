@@ -3851,8 +3851,8 @@ public:
 };
 class GetChatListRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> currentPage{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> sessionId{};
 
   GetChatListRequest() {}
@@ -3879,10 +3879,10 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("currentPage") != m.end() && !m["currentPage"].empty()) {
-      currentPage = make_shared<string>(boost::any_cast<string>(m["currentPage"]));
+      currentPage = make_shared<long>(boost::any_cast<long>(m["currentPage"]));
     }
     if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["pageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
     }
     if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));

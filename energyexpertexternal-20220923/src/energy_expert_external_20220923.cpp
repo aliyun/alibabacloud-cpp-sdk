@@ -533,11 +533,11 @@ GetChatFolderListResponse Alibabacloud_EnergyExpertExternal20220923::Client::get
 GetChatListResponse Alibabacloud_EnergyExpertExternal20220923::Client::getChatListWithOptions(shared_ptr<GetChatListRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->currentPage)) {
-    body->insert(pair<string, string>("currentPage", *request->currentPage));
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    body->insert(pair<string, long>("currentPage", *request->currentPage));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
-    body->insert(pair<string, string>("pageSize", *request->pageSize));
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("pageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     body->insert(pair<string, string>("sessionId", *request->sessionId));
