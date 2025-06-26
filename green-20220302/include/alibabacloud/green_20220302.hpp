@@ -7138,9 +7138,61 @@ public:
 
   virtual ~VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoData() = default;
 };
+class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation : public Darabonba::Model {
+public:
+  shared_ptr<long> h{};
+  shared_ptr<long> w{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation() {}
+
+  explicit VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (h) {
+      res["H"] = boost::any(*h);
+    }
+    if (w) {
+      res["W"] = boost::any(*w);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("H") != m.end() && !m["H"].empty()) {
+      h = make_shared<long>(boost::any_cast<long>(m["H"]));
+    }
+    if (m.find("W") != m.end() && !m["W"].empty()) {
+      w = make_shared<long>(boost::any_cast<long>(m["W"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation() = default;
+};
 class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure : public Darabonba::Model {
 public:
   shared_ptr<string> figureId{};
+  shared_ptr<string> figureName{};
+  shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation>> location{};
 
   VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure() {}
 
@@ -7155,12 +7207,38 @@ public:
     if (figureId) {
       res["FigureId"] = boost::any(*figureId);
     }
+    if (figureName) {
+      res["FigureName"] = boost::any(*figureName);
+    }
+    if (location) {
+      vector<boost::any> temp1;
+      for(auto item1:*location){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Location"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FigureId") != m.end() && !m["FigureId"].empty()) {
       figureId = make_shared<string>(boost::any_cast<string>(m["FigureId"]));
+    }
+    if (m.find("FigureName") != m.end() && !m["FigureName"].empty()) {
+      figureName = make_shared<string>(boost::any_cast<string>(m["FigureName"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      if (typeid(vector<boost::any>) == m["Location"].type()) {
+        vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Location"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        location = make_shared<vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation>>(expect1);
+      }
     }
   }
 
