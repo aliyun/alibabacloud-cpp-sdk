@@ -5916,10 +5916,16 @@ SubmitCustomSourceTopicAnalysisResponse Alibabacloud_AiMiaoBi20230801::Client::s
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SubmitCustomSourceTopicAnalysisShrinkRequest> request = make_shared<SubmitCustomSourceTopicAnalysisShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->analysisTypes)) {
+    request->analysisTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->analysisTypes, make_shared<string>("AnalysisTypes"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<SubmitCustomSourceTopicAnalysisRequestNews>>(tmpReq->news)) {
     request->newsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->news, make_shared<string>("News"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->analysisTypesShrink)) {
+    body->insert(pair<string, string>("AnalysisTypes", *request->analysisTypesShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileType)) {
     body->insert(pair<string, string>("FileType", *request->fileType));
   }

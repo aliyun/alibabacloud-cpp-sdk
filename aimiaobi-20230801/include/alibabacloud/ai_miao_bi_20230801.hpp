@@ -10186,6 +10186,8 @@ public:
   shared_ptr<long> maxClusteredTopicNewsSize{};
   shared_ptr<long> parsedNewsSize{};
   shared_ptr<string> status{};
+  shared_ptr<long> rt{};
+  shared_ptr<map<string, long>> usages{};
 
   GetCustomSourceTopicAnalysisTaskResponseBodyData() {}
 
@@ -10219,6 +10221,12 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (rt) {
+      res["rt"] = boost::any(*rt);
+    }
+    if (usages) {
+      res["usages"] = boost::any(*usages);
+    }
     return res;
   }
 
@@ -10250,6 +10258,17 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("rt") != m.end() && !m["rt"].empty()) {
+      rt = make_shared<long>(boost::any_cast<long>(m["rt"]));
+    }
+    if (m.find("usages") != m.end() && !m["usages"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["usages"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      usages = make_shared<map<string, long>>(toMap1);
     }
   }
 
@@ -56840,6 +56859,7 @@ public:
   shared_ptr<vector<SubmitCustomSourceTopicAnalysisRequestNewsComments>> comments{};
   shared_ptr<string> content{};
   shared_ptr<string> pubTime{};
+  shared_ptr<string> source{};
   shared_ptr<string> title{};
   shared_ptr<string> url{};
 
@@ -56865,6 +56885,9 @@ public:
     }
     if (pubTime) {
       res["PubTime"] = boost::any(*pubTime);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
     }
     if (title) {
       res["Title"] = boost::any(*title);
@@ -56895,6 +56918,9 @@ public:
     if (m.find("PubTime") != m.end() && !m["PubTime"].empty()) {
       pubTime = make_shared<string>(boost::any_cast<string>(m["PubTime"]));
     }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
     }
@@ -56908,6 +56934,7 @@ public:
 };
 class SubmitCustomSourceTopicAnalysisRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> analysisTypes{};
   shared_ptr<string> fileType{};
   shared_ptr<string> fileUrl{};
   shared_ptr<long> maxTopicSize{};
@@ -56924,6 +56951,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (analysisTypes) {
+      res["AnalysisTypes"] = boost::any(*analysisTypes);
+    }
     if (fileType) {
       res["FileType"] = boost::any(*fileType);
     }
@@ -56947,6 +56977,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnalysisTypes") != m.end() && !m["AnalysisTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AnalysisTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AnalysisTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      analysisTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
       fileType = make_shared<string>(boost::any_cast<string>(m["FileType"]));
     }
@@ -56979,6 +57019,7 @@ public:
 };
 class SubmitCustomSourceTopicAnalysisShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> analysisTypesShrink{};
   shared_ptr<string> fileType{};
   shared_ptr<string> fileUrl{};
   shared_ptr<long> maxTopicSize{};
@@ -56995,6 +57036,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (analysisTypesShrink) {
+      res["AnalysisTypes"] = boost::any(*analysisTypesShrink);
+    }
     if (fileType) {
       res["FileType"] = boost::any(*fileType);
     }
@@ -57014,6 +57058,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnalysisTypes") != m.end() && !m["AnalysisTypes"].empty()) {
+      analysisTypesShrink = make_shared<string>(boost::any_cast<string>(m["AnalysisTypes"]));
+    }
     if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
       fileType = make_shared<string>(boost::any_cast<string>(m["FileType"]));
     }
