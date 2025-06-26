@@ -13,6 +13,200 @@
 using namespace std;
 
 namespace Alibabacloud_APIG20240327 {
+class AgentServiceConfigDashScopeConfigAppCredentials : public Darabonba::Model {
+public:
+  shared_ptr<string> apiKey{};
+  shared_ptr<string> appId{};
+
+  AgentServiceConfigDashScopeConfigAppCredentials() {}
+
+  explicit AgentServiceConfigDashScopeConfigAppCredentials(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
+    if (appId) {
+      res["appId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
+    if (m.find("appId") != m.end() && !m["appId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["appId"]));
+    }
+  }
+
+
+  virtual ~AgentServiceConfigDashScopeConfigAppCredentials() = default;
+};
+class AgentServiceConfigDashScopeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<AgentServiceConfigDashScopeConfigAppCredentials>> appCredentials{};
+
+  AgentServiceConfigDashScopeConfig() {}
+
+  explicit AgentServiceConfigDashScopeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appCredentials) {
+      vector<boost::any> temp1;
+      for(auto item1:*appCredentials){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["appCredentials"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("appCredentials") != m.end() && !m["appCredentials"].empty()) {
+      if (typeid(vector<boost::any>) == m["appCredentials"].type()) {
+        vector<AgentServiceConfigDashScopeConfigAppCredentials> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["appCredentials"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AgentServiceConfigDashScopeConfigAppCredentials model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        appCredentials = make_shared<vector<AgentServiceConfigDashScopeConfigAppCredentials>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AgentServiceConfigDashScopeConfig() = default;
+};
+class AgentServiceConfigDifyConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> apiKey{};
+  shared_ptr<string> botType{};
+
+  AgentServiceConfigDifyConfig() {}
+
+  explicit AgentServiceConfigDifyConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiKey) {
+      res["apiKey"] = boost::any(*apiKey);
+    }
+    if (botType) {
+      res["botType"] = boost::any(*botType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiKey") != m.end() && !m["apiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["apiKey"]));
+    }
+    if (m.find("botType") != m.end() && !m["botType"].empty()) {
+      botType = make_shared<string>(boost::any_cast<string>(m["botType"]));
+    }
+  }
+
+
+  virtual ~AgentServiceConfigDifyConfig() = default;
+};
+class AgentServiceConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<AgentServiceConfigDashScopeConfig> dashScopeConfig{};
+  shared_ptr<AgentServiceConfigDifyConfig> difyConfig{};
+  shared_ptr<bool> enableHealthCheck{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<string> provider{};
+
+  AgentServiceConfig() {}
+
+  explicit AgentServiceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["address"] = boost::any(*address);
+    }
+    if (dashScopeConfig) {
+      res["dashScopeConfig"] = dashScopeConfig ? boost::any(dashScopeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (difyConfig) {
+      res["difyConfig"] = difyConfig ? boost::any(difyConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (enableHealthCheck) {
+      res["enableHealthCheck"] = boost::any(*enableHealthCheck);
+    }
+    if (protocols) {
+      res["protocols"] = boost::any(*protocols);
+    }
+    if (provider) {
+      res["provider"] = boost::any(*provider);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("address") != m.end() && !m["address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["address"]));
+    }
+    if (m.find("dashScopeConfig") != m.end() && !m["dashScopeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["dashScopeConfig"].type()) {
+        AgentServiceConfigDashScopeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["dashScopeConfig"]));
+        dashScopeConfig = make_shared<AgentServiceConfigDashScopeConfig>(model1);
+      }
+    }
+    if (m.find("difyConfig") != m.end() && !m["difyConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["difyConfig"].type()) {
+        AgentServiceConfigDifyConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["difyConfig"]));
+        difyConfig = make_shared<AgentServiceConfigDifyConfig>(model1);
+      }
+    }
+    if (m.find("enableHealthCheck") != m.end() && !m["enableHealthCheck"].empty()) {
+      enableHealthCheck = make_shared<bool>(boost::any_cast<bool>(m["enableHealthCheck"]));
+    }
+    if (m.find("protocols") != m.end() && !m["protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("provider") != m.end() && !m["provider"].empty()) {
+      provider = make_shared<string>(boost::any_cast<string>(m["provider"]));
+    }
+  }
+
+
+  virtual ~AgentServiceConfig() = default;
+};
 class AiServiceConfig : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
@@ -5987,6 +6181,7 @@ public:
 class Service : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> addresses{};
+  shared_ptr<AgentServiceConfig> agentServiceConfig{};
   shared_ptr<AiServiceConfig> aiServiceConfig{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> gatewayId{};
@@ -6016,6 +6211,9 @@ public:
     map<string, boost::any> res;
     if (addresses) {
       res["addresses"] = boost::any(*addresses);
+    }
+    if (agentServiceConfig) {
+      res["agentServiceConfig"] = agentServiceConfig ? boost::any(agentServiceConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (aiServiceConfig) {
       res["aiServiceConfig"] = aiServiceConfig ? boost::any(aiServiceConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6082,6 +6280,13 @@ public:
         }
       }
       addresses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("agentServiceConfig") != m.end() && !m["agentServiceConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["agentServiceConfig"].type()) {
+        AgentServiceConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["agentServiceConfig"]));
+        agentServiceConfig = make_shared<AgentServiceConfig>(model1);
+      }
     }
     if (m.find("aiServiceConfig") != m.end() && !m["aiServiceConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["aiServiceConfig"].type()) {
@@ -7273,6 +7478,7 @@ public:
 };
 class CreateHttpApiRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> agentProtocols{};
   shared_ptr<vector<string>> aiProtocols{};
   shared_ptr<AuthConfig> authConfig{};
   shared_ptr<string> basePath{};
@@ -7296,6 +7502,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentProtocols) {
+      res["agentProtocols"] = boost::any(*agentProtocols);
+    }
     if (aiProtocols) {
       res["aiProtocols"] = boost::any(*aiProtocols);
     }
@@ -7340,6 +7549,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agentProtocols") != m.end() && !m["agentProtocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["agentProtocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["agentProtocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      agentProtocols = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("aiProtocols") != m.end() && !m["aiProtocols"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["aiProtocols"].type()) {
@@ -8762,6 +8981,7 @@ public:
 class CreateServiceRequestServiceConfigs : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> addresses{};
+  shared_ptr<AgentServiceConfig> agentServiceConfig{};
   shared_ptr<AiServiceConfig> aiServiceConfig{};
   shared_ptr<vector<string>> dnsServers{};
   shared_ptr<string> groupName{};
@@ -8781,6 +9001,9 @@ public:
     map<string, boost::any> res;
     if (addresses) {
       res["addresses"] = boost::any(*addresses);
+    }
+    if (agentServiceConfig) {
+      res["agentServiceConfig"] = agentServiceConfig ? boost::any(agentServiceConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (aiServiceConfig) {
       res["aiServiceConfig"] = aiServiceConfig ? boost::any(aiServiceConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8813,6 +9036,13 @@ public:
         }
       }
       addresses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("agentServiceConfig") != m.end() && !m["agentServiceConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["agentServiceConfig"].type()) {
+        AgentServiceConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["agentServiceConfig"]));
+        agentServiceConfig = make_shared<AgentServiceConfig>(model1);
+      }
     }
     if (m.find("aiServiceConfig") != m.end() && !m["aiServiceConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["aiServiceConfig"].type()) {
@@ -10032,6 +10262,101 @@ public:
 
 
   virtual ~DeletePolicyAttachmentResponse() = default;
+};
+class DeleteServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteServiceResponseBody() {}
+
+  explicit DeleteServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~DeleteServiceResponseBody() = default;
+};
+class DeleteServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteServiceResponseBody> body{};
+
+  DeleteServiceResponse() {}
+
+  explicit DeleteServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteServiceResponse() = default;
 };
 class DeployHttpApiRequestHttpApiConfig : public Darabonba::Model {
 public:
@@ -19290,6 +19615,7 @@ public:
 };
 class UpdateHttpApiRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> agentProtocols{};
   shared_ptr<vector<string>> aiProtocols{};
   shared_ptr<AuthConfig> authConfig{};
   shared_ptr<string> basePath{};
@@ -19311,6 +19637,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentProtocols) {
+      res["agentProtocols"] = boost::any(*agentProtocols);
+    }
     if (aiProtocols) {
       res["aiProtocols"] = boost::any(*aiProtocols);
     }
@@ -19349,6 +19678,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agentProtocols") != m.end() && !m["agentProtocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["agentProtocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["agentProtocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      agentProtocols = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("aiProtocols") != m.end() && !m["aiProtocols"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["aiProtocols"].type()) {
@@ -20416,6 +20755,8 @@ public:
   DeletePolicyResponse deletePolicy(shared_ptr<string> policyId);
   DeletePolicyAttachmentResponse deletePolicyAttachmentWithOptions(shared_ptr<string> policyAttachmentId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletePolicyAttachmentResponse deletePolicyAttachment(shared_ptr<string> policyAttachmentId);
+  DeleteServiceResponse deleteServiceWithOptions(shared_ptr<string> serviceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteServiceResponse deleteService(shared_ptr<string> serviceId);
   DeployHttpApiResponse deployHttpApiWithOptions(shared_ptr<string> httpApiId,
                                                  shared_ptr<DeployHttpApiRequest> request,
                                                  shared_ptr<map<string, string>> headers,

@@ -226,6 +226,9 @@ CreateEnvironmentResponse Alibabacloud_APIG20240327::Client::createEnvironment(s
 CreateHttpApiResponse Alibabacloud_APIG20240327::Client::createHttpApiWithOptions(shared_ptr<CreateHttpApiRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->agentProtocols)) {
+    body->insert(pair<string, vector<string>>("agentProtocols", *request->agentProtocols));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->aiProtocols)) {
     body->insert(pair<string, vector<string>>("aiProtocols", *request->aiProtocols));
   }
@@ -795,6 +798,30 @@ DeletePolicyAttachmentResponse Alibabacloud_APIG20240327::Client::deletePolicyAt
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deletePolicyAttachmentWithOptions(policyAttachmentId, headers, runtime);
+}
+
+DeleteServiceResponse Alibabacloud_APIG20240327::Client::deleteServiceWithOptions(shared_ptr<string> serviceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteService"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/services/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteServiceResponse(callApi(params, req, runtime));
+}
+
+DeleteServiceResponse Alibabacloud_APIG20240327::Client::deleteService(shared_ptr<string> serviceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteServiceWithOptions(serviceId, headers, runtime);
 }
 
 DeployHttpApiResponse Alibabacloud_APIG20240327::Client::deployHttpApiWithOptions(shared_ptr<string> httpApiId,
@@ -2179,6 +2206,9 @@ UpdateHttpApiResponse Alibabacloud_APIG20240327::Client::updateHttpApiWithOption
                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->agentProtocols)) {
+    body->insert(pair<string, vector<string>>("agentProtocols", *request->agentProtocols));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->aiProtocols)) {
     body->insert(pair<string, vector<string>>("aiProtocols", *request->aiProtocols));
   }
