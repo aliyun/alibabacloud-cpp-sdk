@@ -4941,6 +4941,7 @@ public:
   shared_ptr<vector<GetSessionClusterResponseBodySessionClusterApplicationConfigs>> applicationConfigs{};
   shared_ptr<GetSessionClusterResponseBodySessionClusterAutoStartConfiguration> autoStartConfiguration{};
   shared_ptr<GetSessionClusterResponseBodySessionClusterAutoStopConfiguration> autoStopConfiguration{};
+  shared_ptr<string> connectionToken{};
   shared_ptr<string> displayReleaseVersion{};
   shared_ptr<string> domain{};
   shared_ptr<string> domainInner{};
@@ -4985,6 +4986,9 @@ public:
     }
     if (autoStopConfiguration) {
       res["autoStopConfiguration"] = autoStopConfiguration ? boost::any(autoStopConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (connectionToken) {
+      res["connectionToken"] = boost::any(*connectionToken);
     }
     if (displayReleaseVersion) {
       res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
@@ -5079,6 +5083,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStopConfiguration"]));
         autoStopConfiguration = make_shared<GetSessionClusterResponseBodySessionClusterAutoStopConfiguration>(model1);
       }
+    }
+    if (m.find("connectionToken") != m.end() && !m["connectionToken"].empty()) {
+      connectionToken = make_shared<string>(boost::any_cast<string>(m["connectionToken"]));
     }
     if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
       displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
@@ -5899,6 +5906,7 @@ class ListJobRunsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> creator{};
   shared_ptr<ListJobRunsRequestEndTime> endTime{};
+  shared_ptr<string> isWorkflow{};
   shared_ptr<string> jobRunDeploymentId{};
   shared_ptr<string> jobRunId{};
   shared_ptr<long> maxResults{};
@@ -5926,6 +5934,9 @@ public:
     }
     if (endTime) {
       res["endTime"] = endTime ? boost::any(endTime->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (isWorkflow) {
+      res["isWorkflow"] = boost::any(*isWorkflow);
     }
     if (jobRunDeploymentId) {
       res["jobRunDeploymentId"] = boost::any(*jobRunDeploymentId);
@@ -5977,6 +5988,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["endTime"]));
         endTime = make_shared<ListJobRunsRequestEndTime>(model1);
       }
+    }
+    if (m.find("isWorkflow") != m.end() && !m["isWorkflow"].empty()) {
+      isWorkflow = make_shared<string>(boost::any_cast<string>(m["isWorkflow"]));
     }
     if (m.find("jobRunDeploymentId") != m.end() && !m["jobRunDeploymentId"].empty()) {
       jobRunDeploymentId = make_shared<string>(boost::any_cast<string>(m["jobRunDeploymentId"]));
@@ -6041,6 +6055,7 @@ class ListJobRunsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> creator{};
   shared_ptr<string> endTimeShrink{};
+  shared_ptr<string> isWorkflow{};
   shared_ptr<string> jobRunDeploymentId{};
   shared_ptr<string> jobRunId{};
   shared_ptr<long> maxResults{};
@@ -6068,6 +6083,9 @@ public:
     }
     if (endTimeShrink) {
       res["endTime"] = boost::any(*endTimeShrink);
+    }
+    if (isWorkflow) {
+      res["isWorkflow"] = boost::any(*isWorkflow);
     }
     if (jobRunDeploymentId) {
       res["jobRunDeploymentId"] = boost::any(*jobRunDeploymentId);
@@ -6111,6 +6129,9 @@ public:
     }
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTimeShrink = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("isWorkflow") != m.end() && !m["isWorkflow"].empty()) {
+      isWorkflow = make_shared<string>(boost::any_cast<string>(m["isWorkflow"]));
     }
     if (m.find("jobRunDeploymentId") != m.end() && !m["jobRunDeploymentId"].empty()) {
       jobRunDeploymentId = make_shared<string>(boost::any_cast<string>(m["jobRunDeploymentId"]));
@@ -6551,6 +6572,261 @@ public:
 
   virtual ~ListJobRunsResponse() = default;
 };
+class ListKyuubiServicesResponseBodyDataKyuubiServices : public Darabonba::Model {
+public:
+  shared_ptr<string> computeInstance{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> innerEndpoint{};
+  shared_ptr<string> kyuubiConfigs{};
+  shared_ptr<string> kyuubiServiceId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> publicEndpoint{};
+  shared_ptr<string> queue{};
+  shared_ptr<string> releaseVersion{};
+  shared_ptr<long> replica{};
+  shared_ptr<string> sparkConfigs{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> state{};
+
+  ListKyuubiServicesResponseBodyDataKyuubiServices() {}
+
+  explicit ListKyuubiServicesResponseBodyDataKyuubiServices(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (computeInstance) {
+      res["computeInstance"] = boost::any(*computeInstance);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (creator) {
+      res["creator"] = boost::any(*creator);
+    }
+    if (innerEndpoint) {
+      res["innerEndpoint"] = boost::any(*innerEndpoint);
+    }
+    if (kyuubiConfigs) {
+      res["kyuubiConfigs"] = boost::any(*kyuubiConfigs);
+    }
+    if (kyuubiServiceId) {
+      res["kyuubiServiceId"] = boost::any(*kyuubiServiceId);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (publicEndpoint) {
+      res["publicEndpoint"] = boost::any(*publicEndpoint);
+    }
+    if (queue) {
+      res["queue"] = boost::any(*queue);
+    }
+    if (releaseVersion) {
+      res["releaseVersion"] = boost::any(*releaseVersion);
+    }
+    if (replica) {
+      res["replica"] = boost::any(*replica);
+    }
+    if (sparkConfigs) {
+      res["sparkConfigs"] = boost::any(*sparkConfigs);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("computeInstance") != m.end() && !m["computeInstance"].empty()) {
+      computeInstance = make_shared<string>(boost::any_cast<string>(m["computeInstance"]));
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
+    }
+    if (m.find("innerEndpoint") != m.end() && !m["innerEndpoint"].empty()) {
+      innerEndpoint = make_shared<string>(boost::any_cast<string>(m["innerEndpoint"]));
+    }
+    if (m.find("kyuubiConfigs") != m.end() && !m["kyuubiConfigs"].empty()) {
+      kyuubiConfigs = make_shared<string>(boost::any_cast<string>(m["kyuubiConfigs"]));
+    }
+    if (m.find("kyuubiServiceId") != m.end() && !m["kyuubiServiceId"].empty()) {
+      kyuubiServiceId = make_shared<string>(boost::any_cast<string>(m["kyuubiServiceId"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("publicEndpoint") != m.end() && !m["publicEndpoint"].empty()) {
+      publicEndpoint = make_shared<string>(boost::any_cast<string>(m["publicEndpoint"]));
+    }
+    if (m.find("queue") != m.end() && !m["queue"].empty()) {
+      queue = make_shared<string>(boost::any_cast<string>(m["queue"]));
+    }
+    if (m.find("releaseVersion") != m.end() && !m["releaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["releaseVersion"]));
+    }
+    if (m.find("replica") != m.end() && !m["replica"].empty()) {
+      replica = make_shared<long>(boost::any_cast<long>(m["replica"]));
+    }
+    if (m.find("sparkConfigs") != m.end() && !m["sparkConfigs"].empty()) {
+      sparkConfigs = make_shared<string>(boost::any_cast<string>(m["sparkConfigs"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+  }
+
+
+  virtual ~ListKyuubiServicesResponseBodyDataKyuubiServices() = default;
+};
+class ListKyuubiServicesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListKyuubiServicesResponseBodyDataKyuubiServices>> kyuubiServices{};
+
+  ListKyuubiServicesResponseBodyData() {}
+
+  explicit ListKyuubiServicesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (kyuubiServices) {
+      vector<boost::any> temp1;
+      for(auto item1:*kyuubiServices){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["kyuubiServices"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("kyuubiServices") != m.end() && !m["kyuubiServices"].empty()) {
+      if (typeid(vector<boost::any>) == m["kyuubiServices"].type()) {
+        vector<ListKyuubiServicesResponseBodyDataKyuubiServices> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["kyuubiServices"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListKyuubiServicesResponseBodyDataKyuubiServices model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        kyuubiServices = make_shared<vector<ListKyuubiServicesResponseBodyDataKyuubiServices>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListKyuubiServicesResponseBodyData() = default;
+};
+class ListKyuubiServicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListKyuubiServicesResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  ListKyuubiServicesResponseBody() {}
+
+  explicit ListKyuubiServicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ListKyuubiServicesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ListKyuubiServicesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListKyuubiServicesResponseBody() = default;
+};
+class ListKyuubiServicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListKyuubiServicesResponseBody> body{};
+
+  ListKyuubiServicesResponse() {}
+
+  explicit ListKyuubiServicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListKyuubiServicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListKyuubiServicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListKyuubiServicesResponse() = default;
+};
 class ListKyuubiSparkApplicationsRequestStartTime : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
@@ -6592,7 +6868,11 @@ public:
   shared_ptr<string> applicationId{};
   shared_ptr<string> applicationName{};
   shared_ptr<long> maxResults{};
+  shared_ptr<long> minDuration{};
   shared_ptr<string> nextToken{};
+  shared_ptr<vector<string>> orderBy{};
+  shared_ptr<string> resourceQueueId{};
+  shared_ptr<string> sort{};
   shared_ptr<ListKyuubiSparkApplicationsRequestStartTime> startTime{};
 
   ListKyuubiSparkApplicationsRequest() {}
@@ -6614,8 +6894,20 @@ public:
     if (maxResults) {
       res["maxResults"] = boost::any(*maxResults);
     }
+    if (minDuration) {
+      res["minDuration"] = boost::any(*minDuration);
+    }
     if (nextToken) {
       res["nextToken"] = boost::any(*nextToken);
+    }
+    if (orderBy) {
+      res["orderBy"] = boost::any(*orderBy);
+    }
+    if (resourceQueueId) {
+      res["resourceQueueId"] = boost::any(*resourceQueueId);
+    }
+    if (sort) {
+      res["sort"] = boost::any(*sort);
     }
     if (startTime) {
       res["startTime"] = startTime ? boost::any(startTime->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6633,8 +6925,27 @@ public:
     if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
     }
+    if (m.find("minDuration") != m.end() && !m["minDuration"].empty()) {
+      minDuration = make_shared<long>(boost::any_cast<long>(m["minDuration"]));
+    }
     if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("orderBy") != m.end() && !m["orderBy"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["orderBy"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["orderBy"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      orderBy = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("resourceQueueId") != m.end() && !m["resourceQueueId"].empty()) {
+      resourceQueueId = make_shared<string>(boost::any_cast<string>(m["resourceQueueId"]));
+    }
+    if (m.find("sort") != m.end() && !m["sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["sort"]));
     }
     if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
       if (typeid(map<string, boost::any>) == m["startTime"].type()) {
@@ -6653,7 +6964,11 @@ public:
   shared_ptr<string> applicationId{};
   shared_ptr<string> applicationName{};
   shared_ptr<long> maxResults{};
+  shared_ptr<long> minDuration{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> orderByShrink{};
+  shared_ptr<string> resourceQueueId{};
+  shared_ptr<string> sort{};
   shared_ptr<string> startTimeShrink{};
 
   ListKyuubiSparkApplicationsShrinkRequest() {}
@@ -6675,8 +6990,20 @@ public:
     if (maxResults) {
       res["maxResults"] = boost::any(*maxResults);
     }
+    if (minDuration) {
+      res["minDuration"] = boost::any(*minDuration);
+    }
     if (nextToken) {
       res["nextToken"] = boost::any(*nextToken);
+    }
+    if (orderByShrink) {
+      res["orderBy"] = boost::any(*orderByShrink);
+    }
+    if (resourceQueueId) {
+      res["resourceQueueId"] = boost::any(*resourceQueueId);
+    }
+    if (sort) {
+      res["sort"] = boost::any(*sort);
     }
     if (startTimeShrink) {
       res["startTime"] = boost::any(*startTimeShrink);
@@ -6694,8 +7021,20 @@ public:
     if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
     }
+    if (m.find("minDuration") != m.end() && !m["minDuration"].empty()) {
+      minDuration = make_shared<long>(boost::any_cast<long>(m["minDuration"]));
+    }
     if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("orderBy") != m.end() && !m["orderBy"].empty()) {
+      orderByShrink = make_shared<string>(boost::any_cast<string>(m["orderBy"]));
+    }
+    if (m.find("resourceQueueId") != m.end() && !m["resourceQueueId"].empty()) {
+      resourceQueueId = make_shared<string>(boost::any_cast<string>(m["resourceQueueId"]));
+    }
+    if (m.find("sort") != m.end() && !m["sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["sort"]));
     }
     if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
       startTimeShrink = make_shared<string>(boost::any_cast<string>(m["startTime"]));
@@ -6919,6 +7258,241 @@ public:
 
 
   virtual ~ListKyuubiSparkApplicationsResponse() = default;
+};
+class ListKyuubiTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  ListKyuubiTokenRequest() {}
+
+  explicit ListKyuubiTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~ListKyuubiTokenRequest() = default;
+};
+class ListKyuubiTokenResponseBodyDataTokens : public Darabonba::Model {
+public:
+  shared_ptr<long> createTime{};
+  shared_ptr<string> createdBy{};
+  shared_ptr<long> expireTime{};
+  shared_ptr<long> lastUsedTime{};
+  shared_ptr<string> name{};
+  shared_ptr<string> token{};
+  shared_ptr<string> tokenId{};
+
+  ListKyuubiTokenResponseBodyDataTokens() {}
+
+  explicit ListKyuubiTokenResponseBodyDataTokens(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (createdBy) {
+      res["createdBy"] = boost::any(*createdBy);
+    }
+    if (expireTime) {
+      res["expireTime"] = boost::any(*expireTime);
+    }
+    if (lastUsedTime) {
+      res["lastUsedTime"] = boost::any(*lastUsedTime);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (token) {
+      res["token"] = boost::any(*token);
+    }
+    if (tokenId) {
+      res["tokenId"] = boost::any(*tokenId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["createTime"]));
+    }
+    if (m.find("createdBy") != m.end() && !m["createdBy"].empty()) {
+      createdBy = make_shared<string>(boost::any_cast<string>(m["createdBy"]));
+    }
+    if (m.find("expireTime") != m.end() && !m["expireTime"].empty()) {
+      expireTime = make_shared<long>(boost::any_cast<long>(m["expireTime"]));
+    }
+    if (m.find("lastUsedTime") != m.end() && !m["lastUsedTime"].empty()) {
+      lastUsedTime = make_shared<long>(boost::any_cast<long>(m["lastUsedTime"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("token") != m.end() && !m["token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["token"]));
+    }
+    if (m.find("tokenId") != m.end() && !m["tokenId"].empty()) {
+      tokenId = make_shared<string>(boost::any_cast<string>(m["tokenId"]));
+    }
+  }
+
+
+  virtual ~ListKyuubiTokenResponseBodyDataTokens() = default;
+};
+class ListKyuubiTokenResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListKyuubiTokenResponseBodyDataTokens>> tokens{};
+
+  ListKyuubiTokenResponseBodyData() {}
+
+  explicit ListKyuubiTokenResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tokens) {
+      vector<boost::any> temp1;
+      for(auto item1:*tokens){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tokens"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tokens") != m.end() && !m["tokens"].empty()) {
+      if (typeid(vector<boost::any>) == m["tokens"].type()) {
+        vector<ListKyuubiTokenResponseBodyDataTokens> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tokens"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListKyuubiTokenResponseBodyDataTokens model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tokens = make_shared<vector<ListKyuubiTokenResponseBodyDataTokens>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListKyuubiTokenResponseBodyData() = default;
+};
+class ListKyuubiTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListKyuubiTokenResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  ListKyuubiTokenResponseBody() {}
+
+  explicit ListKyuubiTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ListKyuubiTokenResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ListKyuubiTokenResponseBodyData>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListKyuubiTokenResponseBody() = default;
+};
+class ListKyuubiTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListKyuubiTokenResponseBody> body{};
+
+  ListKyuubiTokenResponse() {}
+
+  explicit ListKyuubiTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListKyuubiTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListKyuubiTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListKyuubiTokenResponse() = default;
 };
 class ListLogContentsRequest : public Darabonba::Model {
 public:
@@ -11118,12 +11692,20 @@ public:
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListJobRunsResponse listJobRuns(shared_ptr<string> workspaceId, shared_ptr<ListJobRunsRequest> request);
+  ListKyuubiServicesResponse listKyuubiServicesWithOptions(shared_ptr<string> workspaceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListKyuubiServicesResponse listKyuubiServices(shared_ptr<string> workspaceId);
   ListKyuubiSparkApplicationsResponse listKyuubiSparkApplicationsWithOptions(shared_ptr<string> workspaceId,
                                                                              shared_ptr<string> kyuubiServiceId,
                                                                              shared_ptr<ListKyuubiSparkApplicationsRequest> tmpReq,
                                                                              shared_ptr<map<string, string>> headers,
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListKyuubiSparkApplicationsResponse listKyuubiSparkApplications(shared_ptr<string> workspaceId, shared_ptr<string> kyuubiServiceId, shared_ptr<ListKyuubiSparkApplicationsRequest> request);
+  ListKyuubiTokenResponse listKyuubiTokenWithOptions(shared_ptr<string> workspaceId,
+                                                     shared_ptr<string> kyuubiServiceId,
+                                                     shared_ptr<ListKyuubiTokenRequest> request,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListKyuubiTokenResponse listKyuubiToken(shared_ptr<string> workspaceId, shared_ptr<string> kyuubiServiceId, shared_ptr<ListKyuubiTokenRequest> request);
   ListLogContentsResponse listLogContentsWithOptions(shared_ptr<string> workspaceId,
                                                      shared_ptr<ListLogContentsRequest> request,
                                                      shared_ptr<map<string, string>> headers,
