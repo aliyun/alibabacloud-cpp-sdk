@@ -483,6 +483,9 @@ DocOcrMaxResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrMaxWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureUrl)) {
     body->insert(pair<string, string>("IdOcrPictureUrl", *request->idOcrPictureUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idSpoof)) {
+    body->insert(pair<string, string>("IdSpoof", *request->idSpoof));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->idThreshold)) {
     body->insert(pair<string, string>("IdThreshold", *request->idThreshold));
   }
@@ -871,6 +874,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->callbackUrl)) {
     query->insert(pair<string, string>("CallbackUrl", *request->callbackUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chameleonFrameEnable)) {
+    query->insert(pair<string, string>("ChameleonFrameEnable", *request->chameleonFrameEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->crop)) {
     query->insert(pair<string, string>("Crop", *request->crop));
   }
@@ -930,6 +936,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ocr)) {
     query->insert(pair<string, string>("Ocr", *request->ocr));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pages)) {
+    query->insert(pair<string, string>("Pages", *request->pages));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->procedurePriority)) {
     query->insert(pair<string, string>("ProcedurePriority", *request->procedurePriority));

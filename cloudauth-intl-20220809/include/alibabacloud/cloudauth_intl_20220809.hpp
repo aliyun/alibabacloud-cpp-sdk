@@ -1894,6 +1894,7 @@ public:
   shared_ptr<string> docType{};
   shared_ptr<string> idOcrPictureBase64{};
   shared_ptr<string> idOcrPictureUrl{};
+  shared_ptr<string> idSpoof{};
   shared_ptr<string> idThreshold{};
   shared_ptr<string> merchantBizId{};
   shared_ptr<string> merchantUserId{};
@@ -1921,6 +1922,9 @@ public:
     }
     if (idOcrPictureUrl) {
       res["IdOcrPictureUrl"] = boost::any(*idOcrPictureUrl);
+    }
+    if (idSpoof) {
+      res["IdSpoof"] = boost::any(*idSpoof);
     }
     if (idThreshold) {
       res["IdThreshold"] = boost::any(*idThreshold);
@@ -1958,6 +1962,9 @@ public:
     }
     if (m.find("IdOcrPictureUrl") != m.end() && !m["IdOcrPictureUrl"].empty()) {
       idOcrPictureUrl = make_shared<string>(boost::any_cast<string>(m["IdOcrPictureUrl"]));
+    }
+    if (m.find("IdSpoof") != m.end() && !m["IdSpoof"].empty()) {
+      idSpoof = make_shared<string>(boost::any_cast<string>(m["IdSpoof"]));
     }
     if (m.find("IdThreshold") != m.end() && !m["IdThreshold"].empty()) {
       idThreshold = make_shared<string>(boost::any_cast<string>(m["IdThreshold"]));
@@ -3697,6 +3704,7 @@ public:
   shared_ptr<string> authorize{};
   shared_ptr<string> callbackToken{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<string> chameleonFrameEnable{};
   shared_ptr<string> crop{};
   shared_ptr<string> dateOfBirth{};
   shared_ptr<string> dateOfExpiry{};
@@ -3718,6 +3726,7 @@ public:
   shared_ptr<string> metaInfo{};
   shared_ptr<string> model{};
   shared_ptr<string> ocr{};
+  shared_ptr<string> pages{};
   shared_ptr<string> procedurePriority{};
   shared_ptr<string> productCode{};
   shared_ptr<string> productFlow{};
@@ -3751,6 +3760,9 @@ public:
     }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (chameleonFrameEnable) {
+      res["ChameleonFrameEnable"] = boost::any(*chameleonFrameEnable);
     }
     if (crop) {
       res["Crop"] = boost::any(*crop);
@@ -3815,6 +3827,9 @@ public:
     if (ocr) {
       res["Ocr"] = boost::any(*ocr);
     }
+    if (pages) {
+      res["Pages"] = boost::any(*pages);
+    }
     if (procedurePriority) {
       res["ProcedurePriority"] = boost::any(*procedurePriority);
     }
@@ -3863,6 +3878,9 @@ public:
     }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("ChameleonFrameEnable") != m.end() && !m["ChameleonFrameEnable"].empty()) {
+      chameleonFrameEnable = make_shared<string>(boost::any_cast<string>(m["ChameleonFrameEnable"]));
     }
     if (m.find("Crop") != m.end() && !m["Crop"].empty()) {
       crop = make_shared<string>(boost::any_cast<string>(m["Crop"]));
@@ -3934,6 +3952,9 @@ public:
     if (m.find("Ocr") != m.end() && !m["Ocr"].empty()) {
       ocr = make_shared<string>(boost::any_cast<string>(m["Ocr"]));
     }
+    if (m.find("Pages") != m.end() && !m["Pages"].empty()) {
+      pages = make_shared<string>(boost::any_cast<string>(m["Pages"]));
+    }
     if (m.find("ProcedurePriority") != m.end() && !m["ProcedurePriority"].empty()) {
       procedurePriority = make_shared<string>(boost::any_cast<string>(m["ProcedurePriority"]));
     }
@@ -3978,6 +3999,7 @@ public:
   shared_ptr<string> authorize{};
   shared_ptr<string> callbackToken{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<string> chameleonFrameEnable{};
   shared_ptr<string> crop{};
   shared_ptr<string> dateOfBirth{};
   shared_ptr<string> dateOfExpiry{};
@@ -3999,6 +4021,7 @@ public:
   shared_ptr<string> metaInfo{};
   shared_ptr<string> model{};
   shared_ptr<string> ocr{};
+  shared_ptr<string> pages{};
   shared_ptr<string> procedurePriority{};
   shared_ptr<string> productCode{};
   shared_ptr<string> productFlow{};
@@ -4032,6 +4055,9 @@ public:
     }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (chameleonFrameEnable) {
+      res["ChameleonFrameEnable"] = boost::any(*chameleonFrameEnable);
     }
     if (crop) {
       res["Crop"] = boost::any(*crop);
@@ -4096,6 +4122,9 @@ public:
     if (ocr) {
       res["Ocr"] = boost::any(*ocr);
     }
+    if (pages) {
+      res["Pages"] = boost::any(*pages);
+    }
     if (procedurePriority) {
       res["ProcedurePriority"] = boost::any(*procedurePriority);
     }
@@ -4144,6 +4173,9 @@ public:
     }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("ChameleonFrameEnable") != m.end() && !m["ChameleonFrameEnable"].empty()) {
+      chameleonFrameEnable = make_shared<string>(boost::any_cast<string>(m["ChameleonFrameEnable"]));
     }
     if (m.find("Crop") != m.end() && !m["Crop"].empty()) {
       crop = make_shared<string>(boost::any_cast<string>(m["Crop"]));
@@ -4207,6 +4239,9 @@ public:
     }
     if (m.find("Ocr") != m.end() && !m["Ocr"].empty()) {
       ocr = make_shared<string>(boost::any_cast<string>(m["Ocr"]));
+    }
+    if (m.find("Pages") != m.end() && !m["Pages"].empty()) {
+      pages = make_shared<string>(boost::any_cast<string>(m["Pages"]));
     }
     if (m.find("ProcedurePriority") != m.end() && !m["ProcedurePriority"].empty()) {
       procedurePriority = make_shared<string>(boost::any_cast<string>(m["ProcedurePriority"]));
