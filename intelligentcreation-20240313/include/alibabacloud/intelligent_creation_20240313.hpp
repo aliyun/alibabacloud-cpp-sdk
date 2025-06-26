@@ -7016,6 +7016,249 @@ public:
 
   virtual ~GetAICoachScriptResponseBodyCompleteStrategy() = default;
 };
+class GetAICoachScriptResponseBodyCustomReplyRulesActionParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> assessPointId{};
+  shared_ptr<string> customContent{};
+
+  GetAICoachScriptResponseBodyCustomReplyRulesActionParameters() {}
+
+  explicit GetAICoachScriptResponseBodyCustomReplyRulesActionParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assessPointId) {
+      res["assessPointId"] = boost::any(*assessPointId);
+    }
+    if (customContent) {
+      res["customContent"] = boost::any(*customContent);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assessPointId") != m.end() && !m["assessPointId"].empty()) {
+      assessPointId = make_shared<string>(boost::any_cast<string>(m["assessPointId"]));
+    }
+    if (m.find("customContent") != m.end() && !m["customContent"].empty()) {
+      customContent = make_shared<string>(boost::any_cast<string>(m["customContent"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyCustomReplyRulesActionParameters() = default;
+};
+class GetAICoachScriptResponseBodyCustomReplyRulesAction : public Darabonba::Model {
+public:
+  shared_ptr<GetAICoachScriptResponseBodyCustomReplyRulesActionParameters> parameters{};
+  shared_ptr<string> type{};
+
+  GetAICoachScriptResponseBodyCustomReplyRulesAction() {}
+
+  explicit GetAICoachScriptResponseBodyCustomReplyRulesAction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameters) {
+      res["parameters"] = parameters ? boost::any(parameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["parameters"].type()) {
+        GetAICoachScriptResponseBodyCustomReplyRulesActionParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameters"]));
+        parameters = make_shared<GetAICoachScriptResponseBodyCustomReplyRulesActionParameters>(model1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyCustomReplyRulesAction() = default;
+};
+class GetAICoachScriptResponseBodyCustomReplyRulesMainConditionParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> assessPointId{};
+
+  GetAICoachScriptResponseBodyCustomReplyRulesMainConditionParameters() {}
+
+  explicit GetAICoachScriptResponseBodyCustomReplyRulesMainConditionParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assessPointId) {
+      res["assessPointId"] = boost::any(*assessPointId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assessPointId") != m.end() && !m["assessPointId"].empty()) {
+      assessPointId = make_shared<string>(boost::any_cast<string>(m["assessPointId"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyCustomReplyRulesMainConditionParameters() = default;
+};
+class GetAICoachScriptResponseBodyCustomReplyRulesMainCondition : public Darabonba::Model {
+public:
+  shared_ptr<GetAICoachScriptResponseBodyCustomReplyRulesMainConditionParameters> parameters{};
+  shared_ptr<string> type{};
+
+  GetAICoachScriptResponseBodyCustomReplyRulesMainCondition() {}
+
+  explicit GetAICoachScriptResponseBodyCustomReplyRulesMainCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameters) {
+      res["parameters"] = parameters ? boost::any(parameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["parameters"].type()) {
+        GetAICoachScriptResponseBodyCustomReplyRulesMainConditionParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameters"]));
+        parameters = make_shared<GetAICoachScriptResponseBodyCustomReplyRulesMainConditionParameters>(model1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyCustomReplyRulesMainCondition() = default;
+};
+class GetAICoachScriptResponseBodyCustomReplyRulesSubCondition : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+
+  GetAICoachScriptResponseBodyCustomReplyRulesSubCondition() {}
+
+  explicit GetAICoachScriptResponseBodyCustomReplyRulesSubCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyCustomReplyRulesSubCondition() = default;
+};
+class GetAICoachScriptResponseBodyCustomReplyRules : public Darabonba::Model {
+public:
+  shared_ptr<GetAICoachScriptResponseBodyCustomReplyRulesAction> action{};
+  shared_ptr<string> logic{};
+  shared_ptr<GetAICoachScriptResponseBodyCustomReplyRulesMainCondition> mainCondition{};
+  shared_ptr<long> priority{};
+  shared_ptr<GetAICoachScriptResponseBodyCustomReplyRulesSubCondition> subCondition{};
+
+  GetAICoachScriptResponseBodyCustomReplyRules() {}
+
+  explicit GetAICoachScriptResponseBodyCustomReplyRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["action"] = action ? boost::any(action->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logic) {
+      res["logic"] = boost::any(*logic);
+    }
+    if (mainCondition) {
+      res["mainCondition"] = mainCondition ? boost::any(mainCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (priority) {
+      res["priority"] = boost::any(*priority);
+    }
+    if (subCondition) {
+      res["subCondition"] = subCondition ? boost::any(subCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("action") != m.end() && !m["action"].empty()) {
+      if (typeid(map<string, boost::any>) == m["action"].type()) {
+        GetAICoachScriptResponseBodyCustomReplyRulesAction model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["action"]));
+        action = make_shared<GetAICoachScriptResponseBodyCustomReplyRulesAction>(model1);
+      }
+    }
+    if (m.find("logic") != m.end() && !m["logic"].empty()) {
+      logic = make_shared<string>(boost::any_cast<string>(m["logic"]));
+    }
+    if (m.find("mainCondition") != m.end() && !m["mainCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["mainCondition"].type()) {
+        GetAICoachScriptResponseBodyCustomReplyRulesMainCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["mainCondition"]));
+        mainCondition = make_shared<GetAICoachScriptResponseBodyCustomReplyRulesMainCondition>(model1);
+      }
+    }
+    if (m.find("priority") != m.end() && !m["priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["priority"]));
+    }
+    if (m.find("subCondition") != m.end() && !m["subCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["subCondition"].type()) {
+        GetAICoachScriptResponseBodyCustomReplyRulesSubCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["subCondition"]));
+        subCondition = make_shared<GetAICoachScriptResponseBodyCustomReplyRulesSubCondition>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyCustomReplyRules() = default;
+};
 class GetAICoachScriptResponseBodyExpressivenessList : public Darabonba::Model {
 public:
   shared_ptr<string> desc{};
@@ -7684,6 +7927,7 @@ public:
   shared_ptr<bool> abilityEvaluationEnabled{};
   shared_ptr<long> assessmentPoint{};
   shared_ptr<bool> assessmentPointEnabled{};
+  shared_ptr<bool> customReplyRuleEnabled{};
   shared_ptr<long> expressiveness{};
   shared_ptr<bool> expressivenessEnabled{};
   shared_ptr<long> pointDeductionRule{};
@@ -7713,6 +7957,9 @@ public:
     }
     if (assessmentPointEnabled) {
       res["assessmentPointEnabled"] = boost::any(*assessmentPointEnabled);
+    }
+    if (customReplyRuleEnabled) {
+      res["customReplyRuleEnabled"] = boost::any(*customReplyRuleEnabled);
     }
     if (expressiveness) {
       res["expressiveness"] = boost::any(*expressiveness);
@@ -7751,6 +7998,9 @@ public:
     if (m.find("assessmentPointEnabled") != m.end() && !m["assessmentPointEnabled"].empty()) {
       assessmentPointEnabled = make_shared<bool>(boost::any_cast<bool>(m["assessmentPointEnabled"]));
     }
+    if (m.find("customReplyRuleEnabled") != m.end() && !m["customReplyRuleEnabled"].empty()) {
+      customReplyRuleEnabled = make_shared<bool>(boost::any_cast<bool>(m["customReplyRuleEnabled"]));
+    }
     if (m.find("expressiveness") != m.end() && !m["expressiveness"].empty()) {
       expressiveness = make_shared<long>(boost::any_cast<long>(m["expressiveness"]));
     }
@@ -7785,6 +8035,7 @@ public:
   shared_ptr<string> closingRemarks{};
   shared_ptr<GetAICoachScriptResponseBodyCompleteStrategy> completeStrategy{};
   shared_ptr<string> coverUrl{};
+  shared_ptr<vector<GetAICoachScriptResponseBodyCustomReplyRules>> customReplyRules{};
   shared_ptr<long> dialogueInputTextLimit{};
   shared_ptr<bool> dialogueTextFlag{};
   shared_ptr<bool> dialogueTipFlag{};
@@ -7844,6 +8095,13 @@ public:
     }
     if (coverUrl) {
       res["coverUrl"] = boost::any(*coverUrl);
+    }
+    if (customReplyRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*customReplyRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["customReplyRules"] = boost::any(temp1);
     }
     if (dialogueInputTextLimit) {
       res["dialogueInputTextLimit"] = boost::any(*dialogueInputTextLimit);
@@ -7983,6 +8241,19 @@ public:
     }
     if (m.find("coverUrl") != m.end() && !m["coverUrl"].empty()) {
       coverUrl = make_shared<string>(boost::any_cast<string>(m["coverUrl"]));
+    }
+    if (m.find("customReplyRules") != m.end() && !m["customReplyRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["customReplyRules"].type()) {
+        vector<GetAICoachScriptResponseBodyCustomReplyRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["customReplyRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyCustomReplyRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customReplyRules = make_shared<vector<GetAICoachScriptResponseBodyCustomReplyRules>>(expect1);
+      }
     }
     if (m.find("dialogueInputTextLimit") != m.end() && !m["dialogueInputTextLimit"].empty()) {
       dialogueInputTextLimit = make_shared<long>(boost::any_cast<long>(m["dialogueInputTextLimit"]));
@@ -8652,6 +8923,158 @@ public:
 
 
   virtual ~GetAICoachTaskSessionReportResponse() = default;
+};
+class GetAICoachTaskSessionResourceUsageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sessionId{};
+
+  GetAICoachTaskSessionResourceUsageRequest() {}
+
+  explicit GetAICoachTaskSessionResourceUsageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+  }
+
+
+  virtual ~GetAICoachTaskSessionResourceUsageRequest() = default;
+};
+class GetAICoachTaskSessionResourceUsageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> audioUsage{};
+  shared_ptr<long> deductionStatus{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> tokenUsage{};
+
+  GetAICoachTaskSessionResourceUsageResponseBody() {}
+
+  explicit GetAICoachTaskSessionResourceUsageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (audioUsage) {
+      res["audioUsage"] = boost::any(*audioUsage);
+    }
+    if (deductionStatus) {
+      res["deductionStatus"] = boost::any(*deductionStatus);
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (tokenUsage) {
+      res["tokenUsage"] = boost::any(*tokenUsage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("audioUsage") != m.end() && !m["audioUsage"].empty()) {
+      audioUsage = make_shared<long>(boost::any_cast<long>(m["audioUsage"]));
+    }
+    if (m.find("deductionStatus") != m.end() && !m["deductionStatus"].empty()) {
+      deductionStatus = make_shared<long>(boost::any_cast<long>(m["deductionStatus"]));
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("tokenUsage") != m.end() && !m["tokenUsage"].empty()) {
+      tokenUsage = make_shared<long>(boost::any_cast<long>(m["tokenUsage"]));
+    }
+  }
+
+
+  virtual ~GetAICoachTaskSessionResourceUsageResponseBody() = default;
+};
+class GetAICoachTaskSessionResourceUsageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAICoachTaskSessionResourceUsageResponseBody> body{};
+
+  GetAICoachTaskSessionResourceUsageResponse() {}
+
+  explicit GetAICoachTaskSessionResourceUsageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAICoachTaskSessionResourceUsageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAICoachTaskSessionResourceUsageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAICoachTaskSessionResourceUsageResponse() = default;
 };
 class GetIllustrationResponse : public Darabonba::Model {
 public:
@@ -9659,6 +10082,256 @@ public:
 
   virtual ~ListAICoachScriptPageResponseBodyListCompleteStrategy() = default;
 };
+class ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> assessPoint{};
+  shared_ptr<string> customContent{};
+
+  ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters() {}
+
+  explicit ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assessPoint) {
+      res["assessPoint"] = boost::any(*assessPoint);
+    }
+    if (customContent) {
+      res["customContent"] = boost::any(*customContent);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assessPoint") != m.end() && !m["assessPoint"].empty()) {
+      assessPoint = make_shared<string>(boost::any_cast<string>(m["assessPoint"]));
+    }
+    if (m.find("customContent") != m.end() && !m["customContent"].empty()) {
+      customContent = make_shared<string>(boost::any_cast<string>(m["customContent"]));
+    }
+  }
+
+
+  virtual ~ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters() = default;
+};
+class ListAICoachScriptPageResponseBodyListCustomReplyRulesAction : public Darabonba::Model {
+public:
+  shared_ptr<ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters> parameters{};
+  shared_ptr<string> type{};
+
+  ListAICoachScriptPageResponseBodyListCustomReplyRulesAction() {}
+
+  explicit ListAICoachScriptPageResponseBodyListCustomReplyRulesAction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameters) {
+      res["parameters"] = parameters ? boost::any(parameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["parameters"].type()) {
+        ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameters"]));
+        parameters = make_shared<ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters>(model1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListAICoachScriptPageResponseBodyListCustomReplyRulesAction() = default;
+};
+class ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> assessPoint{};
+
+  ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters() {}
+
+  explicit ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assessPoint) {
+      res["assessPoint"] = boost::any(*assessPoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assessPoint") != m.end() && !m["assessPoint"].empty()) {
+      assessPoint = make_shared<string>(boost::any_cast<string>(m["assessPoint"]));
+    }
+  }
+
+
+  virtual ~ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters() = default;
+};
+class ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition : public Darabonba::Model {
+public:
+  shared_ptr<ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters> parameters{};
+  shared_ptr<string> type{};
+
+  ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition() {}
+
+  explicit ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameters) {
+      res["parameters"] = parameters ? boost::any(parameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["parameters"].type()) {
+        ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameters"]));
+        parameters = make_shared<ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters>(model1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition() = default;
+};
+class ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+
+  ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition() {}
+
+  explicit ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition() = default;
+};
+class ListAICoachScriptPageResponseBodyListCustomReplyRules : public Darabonba::Model {
+public:
+  shared_ptr<ListAICoachScriptPageResponseBodyListCustomReplyRulesAction> action{};
+  shared_ptr<string> logic{};
+  shared_ptr<ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition> mainCondition{};
+  shared_ptr<long> priority{};
+  shared_ptr<long> sortNo{};
+  shared_ptr<ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition> subCondition{};
+
+  ListAICoachScriptPageResponseBodyListCustomReplyRules() {}
+
+  explicit ListAICoachScriptPageResponseBodyListCustomReplyRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["action"] = action ? boost::any(action->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logic) {
+      res["logic"] = boost::any(*logic);
+    }
+    if (mainCondition) {
+      res["mainCondition"] = mainCondition ? boost::any(mainCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (priority) {
+      res["priority"] = boost::any(*priority);
+    }
+    if (sortNo) {
+      res["sortNo"] = boost::any(*sortNo);
+    }
+    if (subCondition) {
+      res["subCondition"] = subCondition ? boost::any(subCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("action") != m.end() && !m["action"].empty()) {
+      if (typeid(map<string, boost::any>) == m["action"].type()) {
+        ListAICoachScriptPageResponseBodyListCustomReplyRulesAction model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["action"]));
+        action = make_shared<ListAICoachScriptPageResponseBodyListCustomReplyRulesAction>(model1);
+      }
+    }
+    if (m.find("logic") != m.end() && !m["logic"].empty()) {
+      logic = make_shared<string>(boost::any_cast<string>(m["logic"]));
+    }
+    if (m.find("mainCondition") != m.end() && !m["mainCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["mainCondition"].type()) {
+        ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["mainCondition"]));
+        mainCondition = make_shared<ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition>(model1);
+      }
+    }
+    if (m.find("priority") != m.end() && !m["priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["priority"]));
+    }
+    if (m.find("sortNo") != m.end() && !m["sortNo"].empty()) {
+      sortNo = make_shared<long>(boost::any_cast<long>(m["sortNo"]));
+    }
+    if (m.find("subCondition") != m.end() && !m["subCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["subCondition"].type()) {
+        ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["subCondition"]));
+        subCondition = make_shared<ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAICoachScriptPageResponseBodyListCustomReplyRules() = default;
+};
 class ListAICoachScriptPageResponseBodyListSampleDialogueList : public Darabonba::Model {
 public:
   shared_ptr<string> message{};
@@ -9806,6 +10479,7 @@ class ListAICoachScriptPageResponseBodyListWeights : public Darabonba::Model {
 public:
   shared_ptr<long> assessmentPoint{};
   shared_ptr<bool> assessmentPointEnabled{};
+  shared_ptr<bool> customReplyRuleEnabled{};
   shared_ptr<long> expressiveness{};
   shared_ptr<bool> expressivenessEnabled{};
   shared_ptr<long> pointDeductionRule{};
@@ -9829,6 +10503,9 @@ public:
     }
     if (assessmentPointEnabled) {
       res["assessmentPointEnabled"] = boost::any(*assessmentPointEnabled);
+    }
+    if (customReplyRuleEnabled) {
+      res["customReplyRuleEnabled"] = boost::any(*customReplyRuleEnabled);
     }
     if (expressiveness) {
       res["expressiveness"] = boost::any(*expressiveness);
@@ -9860,6 +10537,9 @@ public:
     }
     if (m.find("assessmentPointEnabled") != m.end() && !m["assessmentPointEnabled"].empty()) {
       assessmentPointEnabled = make_shared<bool>(boost::any_cast<bool>(m["assessmentPointEnabled"]));
+    }
+    if (m.find("customReplyRuleEnabled") != m.end() && !m["customReplyRuleEnabled"].empty()) {
+      customReplyRuleEnabled = make_shared<bool>(boost::any_cast<bool>(m["customReplyRuleEnabled"]));
     }
     if (m.find("expressiveness") != m.end() && !m["expressiveness"].empty()) {
       expressiveness = make_shared<long>(boost::any_cast<long>(m["expressiveness"]));
@@ -9894,6 +10574,7 @@ public:
   shared_ptr<string> closingRemarks{};
   shared_ptr<ListAICoachScriptPageResponseBodyListCompleteStrategy> completeStrategy{};
   shared_ptr<string> coverUrl{};
+  shared_ptr<vector<ListAICoachScriptPageResponseBodyListCustomReplyRules>> customReplyRules{};
   shared_ptr<bool> dialogueTextFlag{};
   shared_ptr<bool> dialogueTipFlag{};
   shared_ptr<bool> evaluateReportFlag{};
@@ -9942,6 +10623,13 @@ public:
     }
     if (coverUrl) {
       res["coverUrl"] = boost::any(*coverUrl);
+    }
+    if (customReplyRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*customReplyRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["customReplyRules"] = boost::any(temp1);
     }
     if (dialogueTextFlag) {
       res["dialogueTextFlag"] = boost::any(*dialogueTextFlag);
@@ -10038,6 +10726,19 @@ public:
     }
     if (m.find("coverUrl") != m.end() && !m["coverUrl"].empty()) {
       coverUrl = make_shared<string>(boost::any_cast<string>(m["coverUrl"]));
+    }
+    if (m.find("customReplyRules") != m.end() && !m["customReplyRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["customReplyRules"].type()) {
+        vector<ListAICoachScriptPageResponseBodyListCustomReplyRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["customReplyRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAICoachScriptPageResponseBodyListCustomReplyRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customReplyRules = make_shared<vector<ListAICoachScriptPageResponseBodyListCustomReplyRules>>(expect1);
+      }
     }
     if (m.find("dialogueTextFlag") != m.end() && !m["dialogueTextFlag"].empty()) {
       dialogueTextFlag = make_shared<bool>(boost::any_cast<bool>(m["dialogueTextFlag"]));
@@ -15893,6 +16594,8 @@ public:
   GetAICoachTaskSessionHistoryResponse getAICoachTaskSessionHistory(shared_ptr<GetAICoachTaskSessionHistoryRequest> request);
   GetAICoachTaskSessionReportResponse getAICoachTaskSessionReportWithOptions(shared_ptr<GetAICoachTaskSessionReportRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAICoachTaskSessionReportResponse getAICoachTaskSessionReport(shared_ptr<GetAICoachTaskSessionReportRequest> request);
+  GetAICoachTaskSessionResourceUsageResponse getAICoachTaskSessionResourceUsageWithOptions(shared_ptr<GetAICoachTaskSessionResourceUsageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAICoachTaskSessionResourceUsageResponse getAICoachTaskSessionResourceUsage(shared_ptr<GetAICoachTaskSessionResourceUsageRequest> request);
   GetIllustrationResponse getIllustrationWithOptions(shared_ptr<string> textId,
                                                      shared_ptr<string> illustrationId,
                                                      shared_ptr<map<string, string>> headers,

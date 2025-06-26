@@ -1135,6 +1135,36 @@ GetAICoachTaskSessionReportResponse Alibabacloud_IntelligentCreation20240313::Cl
   return getAICoachTaskSessionReportWithOptions(request, headers, runtime);
 }
 
+GetAICoachTaskSessionResourceUsageResponse Alibabacloud_IntelligentCreation20240313::Client::getAICoachTaskSessionResourceUsageWithOptions(shared_ptr<GetAICoachTaskSessionResourceUsageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    query->insert(pair<string, string>("sessionId", *request->sessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAICoachTaskSessionResourceUsage"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/aicoach/getSessionResourceUsage"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAICoachTaskSessionResourceUsageResponse(callApi(params, req, runtime));
+}
+
+GetAICoachTaskSessionResourceUsageResponse Alibabacloud_IntelligentCreation20240313::Client::getAICoachTaskSessionResourceUsage(shared_ptr<GetAICoachTaskSessionResourceUsageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getAICoachTaskSessionResourceUsageWithOptions(request, headers, runtime);
+}
+
 GetIllustrationResponse Alibabacloud_IntelligentCreation20240313::Client::getIllustrationWithOptions(shared_ptr<string> textId,
                                                                                                      shared_ptr<string> illustrationId,
                                                                                                      shared_ptr<map<string, string>> headers,
