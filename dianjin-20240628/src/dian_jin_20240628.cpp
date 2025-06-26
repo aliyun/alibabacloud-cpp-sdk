@@ -1571,6 +1571,9 @@ RunAgentResponse Alibabacloud_DianJin20240628::Client::runAgentWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->userContent)) {
     body->insert(pair<string, string>("userContent", *request->userContent));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->userInputs)) {
+    body->insert(pair<string, map<string, boost::any>>("userInputs", *request->userInputs));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->versionId)) {
     body->insert(pair<string, string>("versionId", *request->versionId));
   }

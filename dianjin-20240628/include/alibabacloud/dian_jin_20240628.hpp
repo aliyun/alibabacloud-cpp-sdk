@@ -13547,6 +13547,7 @@ public:
   shared_ptr<string> threadId{};
   shared_ptr<bool> useDraft{};
   shared_ptr<string> userContent{};
+  shared_ptr<map<string, boost::any>> userInputs{};
   shared_ptr<string> versionId{};
 
   RunAgentRequest() {}
@@ -13577,6 +13578,9 @@ public:
     if (userContent) {
       res["userContent"] = boost::any(*userContent);
     }
+    if (userInputs) {
+      res["userInputs"] = boost::any(*userInputs);
+    }
     if (versionId) {
       res["versionId"] = boost::any(*versionId);
     }
@@ -13601,6 +13605,14 @@ public:
     }
     if (m.find("userContent") != m.end() && !m["userContent"].empty()) {
       userContent = make_shared<string>(boost::any_cast<string>(m["userContent"]));
+    }
+    if (m.find("userInputs") != m.end() && !m["userInputs"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["userInputs"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      userInputs = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
       versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
