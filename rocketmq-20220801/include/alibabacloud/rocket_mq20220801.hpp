@@ -761,6 +761,7 @@ public:
 class CreateDisasterRecoveryPlanRequestInstances : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<string> consumerGroupId{};
   shared_ptr<string> endpointUrl{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceRole{};
@@ -786,6 +787,9 @@ public:
     map<string, boost::any> res;
     if (authType) {
       res["authType"] = boost::any(*authType);
+    }
+    if (consumerGroupId) {
+      res["consumerGroupId"] = boost::any(*consumerGroupId);
     }
     if (endpointUrl) {
       res["endpointUrl"] = boost::any(*endpointUrl);
@@ -829,6 +833,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("authType") != m.end() && !m["authType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("consumerGroupId") != m.end() && !m["consumerGroupId"].empty()) {
+      consumerGroupId = make_shared<string>(boost::any_cast<string>(m["consumerGroupId"]));
     }
     if (m.find("endpointUrl") != m.end() && !m["endpointUrl"].empty()) {
       endpointUrl = make_shared<string>(boost::any_cast<string>(m["endpointUrl"]));
@@ -5255,6 +5262,7 @@ public:
 class GetDisasterRecoveryPlanResponseBodyDataInstances : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<string> consumerGroupId{};
   shared_ptr<string> endpointUrl{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceRole{};
@@ -5280,6 +5288,9 @@ public:
     map<string, boost::any> res;
     if (authType) {
       res["authType"] = boost::any(*authType);
+    }
+    if (consumerGroupId) {
+      res["consumerGroupId"] = boost::any(*consumerGroupId);
     }
     if (endpointUrl) {
       res["endpointUrl"] = boost::any(*endpointUrl);
@@ -5323,6 +5334,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("authType") != m.end() && !m["authType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("consumerGroupId") != m.end() && !m["consumerGroupId"].empty()) {
+      consumerGroupId = make_shared<string>(boost::any_cast<string>(m["consumerGroupId"]));
     }
     if (m.find("endpointUrl") != m.end() && !m["endpointUrl"].empty()) {
       endpointUrl = make_shared<string>(boost::any_cast<string>(m["endpointUrl"]));
@@ -10813,6 +10827,7 @@ public:
 class ListDisasterRecoveryPlansResponseBodyDataListInstances : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<string> consumerGroupId{};
   shared_ptr<string> endpointUrl{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceRole{};
@@ -10838,6 +10853,9 @@ public:
     map<string, boost::any> res;
     if (authType) {
       res["authType"] = boost::any(*authType);
+    }
+    if (consumerGroupId) {
+      res["consumerGroupId"] = boost::any(*consumerGroupId);
     }
     if (endpointUrl) {
       res["endpointUrl"] = boost::any(*endpointUrl);
@@ -10881,6 +10899,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("authType") != m.end() && !m["authType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("consumerGroupId") != m.end() && !m["consumerGroupId"].empty()) {
+      consumerGroupId = make_shared<string>(boost::any_cast<string>(m["consumerGroupId"]));
     }
     if (m.find("endpointUrl") != m.end() && !m["endpointUrl"].empty()) {
       endpointUrl = make_shared<string>(boost::any_cast<string>(m["endpointUrl"]));
@@ -16438,6 +16459,7 @@ public:
 class UpdateDisasterRecoveryPlanRequestInstances : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<string> consumerGroupId{};
   shared_ptr<string> endpointUrl{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceRole{};
@@ -16463,6 +16485,9 @@ public:
     map<string, boost::any> res;
     if (authType) {
       res["authType"] = boost::any(*authType);
+    }
+    if (consumerGroupId) {
+      res["consumerGroupId"] = boost::any(*consumerGroupId);
     }
     if (endpointUrl) {
       res["endpointUrl"] = boost::any(*endpointUrl);
@@ -16506,6 +16531,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("authType") != m.end() && !m["authType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("consumerGroupId") != m.end() && !m["consumerGroupId"].empty()) {
+      consumerGroupId = make_shared<string>(boost::any_cast<string>(m["consumerGroupId"]));
     }
     if (m.find("endpointUrl") != m.end() && !m["endpointUrl"].empty()) {
       endpointUrl = make_shared<string>(boost::any_cast<string>(m["endpointUrl"]));
