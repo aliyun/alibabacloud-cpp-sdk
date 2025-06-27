@@ -39711,7 +39711,9 @@ public:
   shared_ptr<string> dbList{};
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
+  shared_ptr<string> modifyType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> reserved{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> subscriptionDataTypeDDL{};
   shared_ptr<bool> subscriptionDataTypeDML{};
@@ -39735,8 +39737,14 @@ public:
     if (dtsJobId) {
       res["DtsJobId"] = boost::any(*dtsJobId);
     }
+    if (modifyType) {
+      res["ModifyType"] = boost::any(*modifyType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (reserved) {
+      res["Reserved"] = boost::any(*reserved);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -39760,8 +39768,14 @@ public:
     if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
       dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
     }
+    if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
+      modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Reserved") != m.end() && !m["Reserved"].empty()) {
+      reserved = make_shared<string>(boost::any_cast<string>(m["Reserved"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));

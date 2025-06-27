@@ -4881,8 +4881,14 @@ ModifySubscriptionResponse Alibabacloud_Dts20200101::Client::modifySubscriptionW
   if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
     query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modifyType)) {
+    query->insert(pair<string, string>("ModifyType", *request->modifyType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reserved)) {
+    query->insert(pair<string, string>("Reserved", *request->reserved));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
