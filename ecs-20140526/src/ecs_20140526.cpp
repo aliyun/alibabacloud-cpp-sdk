@@ -3233,6 +3233,9 @@ CreateLaunchTemplateResponse Alibabacloud_Ecs20140526::Client::createLaunchTempl
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateLaunchTemplateRequestImageOptions>(request->imageOptions)) {
+    query->insert(pair<string, CreateLaunchTemplateRequestImageOptions>("ImageOptions", *request->imageOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageOwnerAlias)) {
     query->insert(pair<string, string>("ImageOwnerAlias", *request->imageOwnerAlias));
   }
@@ -3419,6 +3422,9 @@ CreateLaunchTemplateVersionResponse Alibabacloud_Ecs20140526::Client::createLaun
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateLaunchTemplateVersionRequestImageOptions>(request->imageOptions)) {
+    query->insert(pair<string, CreateLaunchTemplateVersionRequestImageOptions>("ImageOptions", *request->imageOptions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageOwnerAlias)) {
     query->insert(pair<string, string>("ImageOwnerAlias", *request->imageOwnerAlias));
