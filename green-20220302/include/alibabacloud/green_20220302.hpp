@@ -5402,6 +5402,326 @@ public:
 
   virtual ~ManualModerationResultResponse() = default;
 };
+class MultiModalGuardRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> service{};
+  shared_ptr<string> serviceParameters{};
+
+  MultiModalGuardRequest() {}
+
+  explicit MultiModalGuardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (service) {
+      res["Service"] = boost::any(*service);
+    }
+    if (serviceParameters) {
+      res["ServiceParameters"] = boost::any(*serviceParameters);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Service") != m.end() && !m["Service"].empty()) {
+      service = make_shared<string>(boost::any_cast<string>(m["Service"]));
+    }
+    if (m.find("ServiceParameters") != m.end() && !m["ServiceParameters"].empty()) {
+      serviceParameters = make_shared<string>(boost::any_cast<string>(m["ServiceParameters"]));
+    }
+  }
+
+
+  virtual ~MultiModalGuardRequest() = default;
+};
+class MultiModalGuardResponseBodyDataDetailResult : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> description{};
+  shared_ptr<boost::any> ext{};
+  shared_ptr<string> label{};
+  shared_ptr<string> level{};
+
+  MultiModalGuardResponseBodyDataDetailResult() {}
+
+  explicit MultiModalGuardResponseBodyDataDetailResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ext) {
+      res["Ext"] = boost::any(*ext);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Ext") != m.end() && !m["Ext"].empty()) {
+      ext = make_shared<boost::any>(boost::any_cast<boost::any>(m["Ext"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+  }
+
+
+  virtual ~MultiModalGuardResponseBodyDataDetailResult() = default;
+};
+class MultiModalGuardResponseBodyDataDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> level{};
+  shared_ptr<vector<MultiModalGuardResponseBodyDataDetailResult>> result{};
+  shared_ptr<string> suggestion{};
+  shared_ptr<string> type{};
+
+  MultiModalGuardResponseBodyDataDetail() {}
+
+  explicit MultiModalGuardResponseBodyDataDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (suggestion) {
+      res["Suggestion"] = boost::any(*suggestion);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<MultiModalGuardResponseBodyDataDetailResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MultiModalGuardResponseBodyDataDetailResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<MultiModalGuardResponseBodyDataDetailResult>>(expect1);
+      }
+    }
+    if (m.find("Suggestion") != m.end() && !m["Suggestion"].empty()) {
+      suggestion = make_shared<string>(boost::any_cast<string>(m["Suggestion"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~MultiModalGuardResponseBodyDataDetail() = default;
+};
+class MultiModalGuardResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> dataId{};
+  shared_ptr<vector<MultiModalGuardResponseBodyDataDetail>> detail{};
+  shared_ptr<string> suggestion{};
+
+  MultiModalGuardResponseBodyData() {}
+
+  explicit MultiModalGuardResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataId) {
+      res["DataId"] = boost::any(*dataId);
+    }
+    if (detail) {
+      vector<boost::any> temp1;
+      for(auto item1:*detail){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Detail"] = boost::any(temp1);
+    }
+    if (suggestion) {
+      res["Suggestion"] = boost::any(*suggestion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
+    if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
+      if (typeid(vector<boost::any>) == m["Detail"].type()) {
+        vector<MultiModalGuardResponseBodyDataDetail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Detail"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MultiModalGuardResponseBodyDataDetail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        detail = make_shared<vector<MultiModalGuardResponseBodyDataDetail>>(expect1);
+      }
+    }
+    if (m.find("Suggestion") != m.end() && !m["Suggestion"].empty()) {
+      suggestion = make_shared<string>(boost::any_cast<string>(m["Suggestion"]));
+    }
+  }
+
+
+  virtual ~MultiModalGuardResponseBodyData() = default;
+};
+class MultiModalGuardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<MultiModalGuardResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  MultiModalGuardResponseBody() {}
+
+  explicit MultiModalGuardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        MultiModalGuardResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<MultiModalGuardResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~MultiModalGuardResponseBody() = default;
+};
+class MultiModalGuardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<MultiModalGuardResponseBody> body{};
+
+  MultiModalGuardResponse() {}
+
+  explicit MultiModalGuardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        MultiModalGuardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<MultiModalGuardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MultiModalGuardResponse() = default;
+};
 class TextModerationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> service{};
@@ -8442,6 +8762,8 @@ public:
   ManualModerationResponse manualModeration(shared_ptr<ManualModerationRequest> request);
   ManualModerationResultResponse manualModerationResultWithOptions(shared_ptr<ManualModerationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ManualModerationResultResponse manualModerationResult(shared_ptr<ManualModerationResultRequest> request);
+  MultiModalGuardResponse multiModalGuardWithOptions(shared_ptr<MultiModalGuardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MultiModalGuardResponse multiModalGuard(shared_ptr<MultiModalGuardRequest> request);
   TextModerationResponse textModerationWithOptions(shared_ptr<TextModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TextModerationResponse textModeration(shared_ptr<TextModerationRequest> request);
   TextModerationPlusResponse textModerationPlusWithOptions(shared_ptr<TextModerationPlusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
