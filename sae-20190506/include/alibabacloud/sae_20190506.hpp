@@ -26648,6 +26648,42 @@ public:
 
   virtual ~DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus() = default;
 };
+class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics : public Darabonba::Model {
+public:
+  shared_ptr<string> prometheusQuery{};
+  shared_ptr<string> targetMetricValue{};
+
+  DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics() {}
+
+  explicit DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (prometheusQuery) {
+      res["PrometheusQuery"] = boost::any(*prometheusQuery);
+    }
+    if (targetMetricValue) {
+      res["TargetMetricValue"] = boost::any(*targetMetricValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrometheusQuery") != m.end() && !m["PrometheusQuery"].empty()) {
+      prometheusQuery = make_shared<string>(boost::any_cast<string>(m["PrometheusQuery"]));
+    }
+    if (m.find("TargetMetricValue") != m.end() && !m["TargetMetricValue"].empty()) {
+      targetMetricValue = make_shared<string>(boost::any_cast<string>(m["TargetMetricValue"]));
+    }
+  }
+
+
+  virtual ~DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics() = default;
+};
 class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules : public Darabonba::Model {
 public:
   shared_ptr<bool> disabled{};
@@ -26737,9 +26773,13 @@ public:
 class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric : public Darabonba::Model {
 public:
   shared_ptr<long> maxReplicas{};
+  shared_ptr<string> metricSource{};
   shared_ptr<vector<DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics>> metrics{};
   shared_ptr<DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus> metricsStatus{};
   shared_ptr<long> minReplicas{};
+  shared_ptr<vector<DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics>> prometheusMetrics{};
+  shared_ptr<string> prometheusToken{};
+  shared_ptr<string> prometheusUrl{};
   shared_ptr<DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules> scaleDownRules{};
   shared_ptr<DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules> scaleUpRules{};
 
@@ -26756,6 +26796,9 @@ public:
     if (maxReplicas) {
       res["MaxReplicas"] = boost::any(*maxReplicas);
     }
+    if (metricSource) {
+      res["MetricSource"] = boost::any(*metricSource);
+    }
     if (metrics) {
       vector<boost::any> temp1;
       for(auto item1:*metrics){
@@ -26769,6 +26812,19 @@ public:
     if (minReplicas) {
       res["MinReplicas"] = boost::any(*minReplicas);
     }
+    if (prometheusMetrics) {
+      vector<boost::any> temp1;
+      for(auto item1:*prometheusMetrics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PrometheusMetrics"] = boost::any(temp1);
+    }
+    if (prometheusToken) {
+      res["PrometheusToken"] = boost::any(*prometheusToken);
+    }
+    if (prometheusUrl) {
+      res["PrometheusUrl"] = boost::any(*prometheusUrl);
+    }
     if (scaleDownRules) {
       res["ScaleDownRules"] = scaleDownRules ? boost::any(scaleDownRules->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -26781,6 +26837,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("MaxReplicas") != m.end() && !m["MaxReplicas"].empty()) {
       maxReplicas = make_shared<long>(boost::any_cast<long>(m["MaxReplicas"]));
+    }
+    if (m.find("MetricSource") != m.end() && !m["MetricSource"].empty()) {
+      metricSource = make_shared<string>(boost::any_cast<string>(m["MetricSource"]));
     }
     if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
       if (typeid(vector<boost::any>) == m["Metrics"].type()) {
@@ -26804,6 +26863,25 @@ public:
     }
     if (m.find("MinReplicas") != m.end() && !m["MinReplicas"].empty()) {
       minReplicas = make_shared<long>(boost::any_cast<long>(m["MinReplicas"]));
+    }
+    if (m.find("PrometheusMetrics") != m.end() && !m["PrometheusMetrics"].empty()) {
+      if (typeid(vector<boost::any>) == m["PrometheusMetrics"].type()) {
+        vector<DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PrometheusMetrics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        prometheusMetrics = make_shared<vector<DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics>>(expect1);
+      }
+    }
+    if (m.find("PrometheusToken") != m.end() && !m["PrometheusToken"].empty()) {
+      prometheusToken = make_shared<string>(boost::any_cast<string>(m["PrometheusToken"]));
+    }
+    if (m.find("PrometheusUrl") != m.end() && !m["PrometheusUrl"].empty()) {
+      prometheusUrl = make_shared<string>(boost::any_cast<string>(m["PrometheusUrl"]));
     }
     if (m.find("ScaleDownRules") != m.end() && !m["ScaleDownRules"].empty()) {
       if (typeid(map<string, boost::any>) == m["ScaleDownRules"].type()) {
