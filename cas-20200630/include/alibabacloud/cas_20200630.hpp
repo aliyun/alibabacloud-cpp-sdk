@@ -2708,6 +2708,7 @@ public:
   shared_ptr<string> certificateType{};
   shared_ptr<string> commonName{};
   shared_ptr<string> countryCode{};
+  shared_ptr<long> gift{};
   shared_ptr<string> identifier{};
   shared_ptr<long> keySize{};
   shared_ptr<string> locality{};
@@ -2722,6 +2723,7 @@ public:
   shared_ptr<string> state{};
   shared_ptr<string> status{};
   shared_ptr<string> subjectDN{};
+  shared_ptr<long> trial{};
   shared_ptr<string> x509Certificate{};
   shared_ptr<long> years{};
 
@@ -2755,6 +2757,9 @@ public:
     }
     if (countryCode) {
       res["CountryCode"] = boost::any(*countryCode);
+    }
+    if (gift) {
+      res["Gift"] = boost::any(*gift);
     }
     if (identifier) {
       res["Identifier"] = boost::any(*identifier);
@@ -2798,6 +2803,9 @@ public:
     if (subjectDN) {
       res["SubjectDN"] = boost::any(*subjectDN);
     }
+    if (trial) {
+      res["Trial"] = boost::any(*trial);
+    }
     if (x509Certificate) {
       res["X509Certificate"] = boost::any(*x509Certificate);
     }
@@ -2828,6 +2836,9 @@ public:
     }
     if (m.find("CountryCode") != m.end() && !m["CountryCode"].empty()) {
       countryCode = make_shared<string>(boost::any_cast<string>(m["CountryCode"]));
+    }
+    if (m.find("Gift") != m.end() && !m["Gift"].empty()) {
+      gift = make_shared<long>(boost::any_cast<long>(m["Gift"]));
     }
     if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
       identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
@@ -2870,6 +2881,9 @@ public:
     }
     if (m.find("SubjectDN") != m.end() && !m["SubjectDN"].empty()) {
       subjectDN = make_shared<string>(boost::any_cast<string>(m["SubjectDN"]));
+    }
+    if (m.find("Trial") != m.end() && !m["Trial"].empty()) {
+      trial = make_shared<long>(boost::any_cast<long>(m["Trial"]));
     }
     if (m.find("X509Certificate") != m.end() && !m["X509Certificate"].empty()) {
       x509Certificate = make_shared<string>(boost::any_cast<string>(m["X509Certificate"]));
