@@ -677,6 +677,9 @@ GetNisNetworkMetricsResponse Alibabacloud_Nis20211216::Client::getNisNetworkMetr
   if (!Darabonba_Util::Client::isUnset<string>(request->scanBy)) {
     query->insert(pair<string, string>("ScanBy", *request->scanBy));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->stepMinutes)) {
+    query->insert(pair<string, long>("StepMinutes", *request->stepMinutes));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->useCrossAccount)) {
     query->insert(pair<string, bool>("UseCrossAccount", *request->useCrossAccount));
   }

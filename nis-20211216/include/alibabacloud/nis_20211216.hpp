@@ -3913,6 +3913,7 @@ public:
   shared_ptr<string> regionNo{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> scanBy{};
+  shared_ptr<long> stepMinutes{};
   shared_ptr<bool> useCrossAccount{};
 
   GetNisNetworkMetricsRequest() {}
@@ -3952,6 +3953,9 @@ public:
     }
     if (scanBy) {
       res["ScanBy"] = boost::any(*scanBy);
+    }
+    if (stepMinutes) {
+      res["StepMinutes"] = boost::any(*stepMinutes);
     }
     if (useCrossAccount) {
       res["UseCrossAccount"] = boost::any(*useCrossAccount);
@@ -4001,6 +4005,9 @@ public:
     if (m.find("ScanBy") != m.end() && !m["ScanBy"].empty()) {
       scanBy = make_shared<string>(boost::any_cast<string>(m["ScanBy"]));
     }
+    if (m.find("StepMinutes") != m.end() && !m["StepMinutes"].empty()) {
+      stepMinutes = make_shared<long>(boost::any_cast<long>(m["StepMinutes"]));
+    }
     if (m.find("UseCrossAccount") != m.end() && !m["UseCrossAccount"].empty()) {
       useCrossAccount = make_shared<bool>(boost::any_cast<bool>(m["UseCrossAccount"]));
     }
@@ -4019,6 +4026,7 @@ public:
   shared_ptr<string> regionNo{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> scanBy{};
+  shared_ptr<long> stepMinutes{};
   shared_ptr<bool> useCrossAccount{};
 
   GetNisNetworkMetricsShrinkRequest() {}
@@ -4054,6 +4062,9 @@ public:
     }
     if (scanBy) {
       res["ScanBy"] = boost::any(*scanBy);
+    }
+    if (stepMinutes) {
+      res["StepMinutes"] = boost::any(*stepMinutes);
     }
     if (useCrossAccount) {
       res["UseCrossAccount"] = boost::any(*useCrossAccount);
@@ -4092,6 +4103,9 @@ public:
     }
     if (m.find("ScanBy") != m.end() && !m["ScanBy"].empty()) {
       scanBy = make_shared<string>(boost::any_cast<string>(m["ScanBy"]));
+    }
+    if (m.find("StepMinutes") != m.end() && !m["StepMinutes"].empty()) {
+      stepMinutes = make_shared<long>(boost::any_cast<long>(m["StepMinutes"]));
     }
     if (m.find("UseCrossAccount") != m.end() && !m["UseCrossAccount"].empty()) {
       useCrossAccount = make_shared<bool>(boost::any_cast<bool>(m["UseCrossAccount"]));
