@@ -8934,10 +8934,14 @@ public:
   shared_ptr<map<string, boost::any>> extra{};
   shared_ptr<long> frameCount{};
   shared_ptr<string> gmtCreate{};
+  shared_ptr<vector<string>> guardFileUrls{};
+  shared_ptr<vector<string>> guardImageUrls{};
   shared_ptr<vector<map<string, boost::any>>> imageLabels{};
   shared_ptr<string> imageService{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> labels{};
+  shared_ptr<string> maliciousFileLevel{};
+  shared_ptr<string> maliciousUrlLevel{};
   shared_ptr<bool> manualOnly{};
   shared_ptr<vector<string>> noLabels{};
   shared_ptr<long> offset{};
@@ -9019,6 +9023,12 @@ public:
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
+    if (guardFileUrls) {
+      res["GuardFileUrls"] = boost::any(*guardFileUrls);
+    }
+    if (guardImageUrls) {
+      res["GuardImageUrls"] = boost::any(*guardImageUrls);
+    }
     if (imageLabels) {
       res["ImageLabels"] = boost::any(*imageLabels);
     }
@@ -9030,6 +9040,12 @@ public:
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (maliciousFileLevel) {
+      res["MaliciousFileLevel"] = boost::any(*maliciousFileLevel);
+    }
+    if (maliciousUrlLevel) {
+      res["MaliciousUrlLevel"] = boost::any(*maliciousUrlLevel);
     }
     if (manualOnly) {
       res["ManualOnly"] = boost::any(*manualOnly);
@@ -9176,6 +9192,26 @@ public:
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
     }
+    if (m.find("GuardFileUrls") != m.end() && !m["GuardFileUrls"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GuardFileUrls"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GuardFileUrls"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      guardFileUrls = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GuardImageUrls") != m.end() && !m["GuardImageUrls"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GuardImageUrls"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GuardImageUrls"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      guardImageUrls = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ImageLabels") != m.end() && !m["ImageLabels"].empty()) {
       vector<map<string, boost::any>> toVec1;
       if (typeid(vector<boost::any>) == m["ImageLabels"].type()) {
@@ -9199,6 +9235,12 @@ public:
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("MaliciousFileLevel") != m.end() && !m["MaliciousFileLevel"].empty()) {
+      maliciousFileLevel = make_shared<string>(boost::any_cast<string>(m["MaliciousFileLevel"]));
+    }
+    if (m.find("MaliciousUrlLevel") != m.end() && !m["MaliciousUrlLevel"].empty()) {
+      maliciousUrlLevel = make_shared<string>(boost::any_cast<string>(m["MaliciousUrlLevel"]));
     }
     if (m.find("ManualOnly") != m.end() && !m["ManualOnly"].empty()) {
       manualOnly = make_shared<bool>(boost::any_cast<bool>(m["ManualOnly"]));
@@ -9591,6 +9633,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> serviceCode{};
+  shared_ptr<string> serviceType{};
   shared_ptr<bool> success{};
   shared_ptr<string> uid{};
 
@@ -9630,6 +9673,9 @@ public:
     }
     if (serviceCode) {
       res["ServiceCode"] = boost::any(*serviceCode);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
     }
     if (success) {
       res["Success"] = boost::any(*success);
@@ -9677,6 +9723,9 @@ public:
     }
     if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
       serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
@@ -14420,6 +14469,344 @@ public:
 
   virtual ~ListServiceConfigsResponse() = default;
 };
+class LlmStreamChatRequest : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> messages{};
+  shared_ptr<double> temperature{};
+  shared_ptr<double> topP{};
+
+  LlmStreamChatRequest() {}
+
+  explicit LlmStreamChatRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (messages) {
+      res["Messages"] = boost::any(*messages);
+    }
+    if (temperature) {
+      res["Temperature"] = boost::any(*temperature);
+    }
+    if (topP) {
+      res["TopP"] = boost::any(*topP);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Messages") != m.end() && !m["Messages"].empty()) {
+      messages = make_shared<boost::any>(boost::any_cast<boost::any>(m["Messages"]));
+    }
+    if (m.find("Temperature") != m.end() && !m["Temperature"].empty()) {
+      temperature = make_shared<double>(boost::any_cast<double>(m["Temperature"]));
+    }
+    if (m.find("TopP") != m.end() && !m["TopP"].empty()) {
+      topP = make_shared<double>(boost::any_cast<double>(m["TopP"]));
+    }
+  }
+
+
+  virtual ~LlmStreamChatRequest() = default;
+};
+class LlmStreamChatResponseBodyChoicesDelta : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> role{};
+
+  LlmStreamChatResponseBodyChoicesDelta() {}
+
+  explicit LlmStreamChatResponseBodyChoicesDelta(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+  }
+
+
+  virtual ~LlmStreamChatResponseBodyChoicesDelta() = default;
+};
+class LlmStreamChatResponseBodyChoices : public Darabonba::Model {
+public:
+  shared_ptr<LlmStreamChatResponseBodyChoicesDelta> delta{};
+  shared_ptr<string> finishReason{};
+  shared_ptr<long> index{};
+  shared_ptr<string> logprobs{};
+
+  LlmStreamChatResponseBodyChoices() {}
+
+  explicit LlmStreamChatResponseBodyChoices(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (delta) {
+      res["Delta"] = delta ? boost::any(delta->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (finishReason) {
+      res["FinishReason"] = boost::any(*finishReason);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (logprobs) {
+      res["Logprobs"] = boost::any(*logprobs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Delta") != m.end() && !m["Delta"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Delta"].type()) {
+        LlmStreamChatResponseBodyChoicesDelta model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Delta"]));
+        delta = make_shared<LlmStreamChatResponseBodyChoicesDelta>(model1);
+      }
+    }
+    if (m.find("FinishReason") != m.end() && !m["FinishReason"].empty()) {
+      finishReason = make_shared<string>(boost::any_cast<string>(m["FinishReason"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("Logprobs") != m.end() && !m["Logprobs"].empty()) {
+      logprobs = make_shared<string>(boost::any_cast<string>(m["Logprobs"]));
+    }
+  }
+
+
+  virtual ~LlmStreamChatResponseBodyChoices() = default;
+};
+class LlmStreamChatResponseBodyError : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> param{};
+  shared_ptr<string> type{};
+
+  LlmStreamChatResponseBodyError() {}
+
+  explicit LlmStreamChatResponseBodyError(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (param) {
+      res["Param"] = boost::any(*param);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      param = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~LlmStreamChatResponseBodyError() = default;
+};
+class LlmStreamChatResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<LlmStreamChatResponseBodyChoices>> choices{};
+  shared_ptr<long> created{};
+  shared_ptr<LlmStreamChatResponseBodyError> error{};
+  shared_ptr<string> id{};
+  shared_ptr<string> model{};
+  shared_ptr<string> object{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> systemFingerprint{};
+  shared_ptr<string> usage{};
+
+  LlmStreamChatResponseBody() {}
+
+  explicit LlmStreamChatResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (choices) {
+      vector<boost::any> temp1;
+      for(auto item1:*choices){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Choices"] = boost::any(temp1);
+    }
+    if (created) {
+      res["Created"] = boost::any(*created);
+    }
+    if (error) {
+      res["Error"] = error ? boost::any(error->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (object) {
+      res["Object"] = boost::any(*object);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (systemFingerprint) {
+      res["SystemFingerprint"] = boost::any(*systemFingerprint);
+    }
+    if (usage) {
+      res["Usage"] = boost::any(*usage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Choices") != m.end() && !m["Choices"].empty()) {
+      if (typeid(vector<boost::any>) == m["Choices"].type()) {
+        vector<LlmStreamChatResponseBodyChoices> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Choices"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LlmStreamChatResponseBodyChoices model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        choices = make_shared<vector<LlmStreamChatResponseBodyChoices>>(expect1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      created = make_shared<long>(boost::any_cast<long>(m["Created"]));
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Error"].type()) {
+        LlmStreamChatResponseBodyError model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Error"]));
+        error = make_shared<LlmStreamChatResponseBodyError>(model1);
+      }
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("Object") != m.end() && !m["Object"].empty()) {
+      object = make_shared<string>(boost::any_cast<string>(m["Object"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SystemFingerprint") != m.end() && !m["SystemFingerprint"].empty()) {
+      systemFingerprint = make_shared<string>(boost::any_cast<string>(m["SystemFingerprint"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      usage = make_shared<string>(boost::any_cast<string>(m["Usage"]));
+    }
+  }
+
+
+  virtual ~LlmStreamChatResponseBody() = default;
+};
+class LlmStreamChatResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<LlmStreamChatResponseBody> body{};
+
+  LlmStreamChatResponse() {}
+
+  explicit LlmStreamChatResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        LlmStreamChatResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<LlmStreamChatResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~LlmStreamChatResponse() = default;
+};
 class ModifyAnswerLibRequest : public Darabonba::Model {
 public:
   shared_ptr<string> libId{};
@@ -16612,6 +16999,7 @@ public:
   shared_ptr<string> scene{};
   shared_ptr<string> sceneConfig{};
   shared_ptr<string> serviceCode{};
+  shared_ptr<string> serviceConfig{};
   shared_ptr<string> videoConfig{};
 
   UpdateServiceConfigRequest() {}
@@ -16651,6 +17039,9 @@ public:
     if (serviceCode) {
       res["ServiceCode"] = boost::any(*serviceCode);
     }
+    if (serviceConfig) {
+      res["ServiceConfig"] = boost::any(*serviceConfig);
+    }
     if (videoConfig) {
       res["VideoConfig"] = boost::any(*videoConfig);
     }
@@ -16684,6 +17075,9 @@ public:
     }
     if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
       serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
+    }
+    if (m.find("ServiceConfig") != m.end() && !m["ServiceConfig"].empty()) {
+      serviceConfig = make_shared<string>(boost::any_cast<string>(m["ServiceConfig"]));
     }
     if (m.find("VideoConfig") != m.end() && !m["VideoConfig"].empty()) {
       videoConfig = make_shared<string>(boost::any_cast<string>(m["VideoConfig"]));
@@ -16935,6 +17329,8 @@ public:
   ListOssCheckResultResponse listOssCheckResult(shared_ptr<ListOssCheckResultRequest> request);
   ListServiceConfigsResponse listServiceConfigsWithOptions(shared_ptr<ListServiceConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServiceConfigsResponse listServiceConfigs(shared_ptr<ListServiceConfigsRequest> request);
+  LlmStreamChatResponse llmStreamChatWithOptions(shared_ptr<LlmStreamChatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  LlmStreamChatResponse llmStreamChat(shared_ptr<LlmStreamChatRequest> request);
   ModifyAnswerLibResponse modifyAnswerLibWithOptions(shared_ptr<ModifyAnswerLibRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAnswerLibResponse modifyAnswerLib(shared_ptr<ModifyAnswerLibRequest> request);
   ModifyCallbackResponse modifyCallbackWithOptions(shared_ptr<ModifyCallbackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

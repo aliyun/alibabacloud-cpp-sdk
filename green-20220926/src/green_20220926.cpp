@@ -2399,6 +2399,40 @@ ListServiceConfigsResponse Alibabacloud_Green20220926::Client::listServiceConfig
   return listServiceConfigsWithOptions(request, runtime);
 }
 
+LlmStreamChatResponse Alibabacloud_Green20220926::Client::llmStreamChatWithOptions(shared_ptr<LlmStreamChatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<boost::any>(request->messages)) {
+    body->insert(pair<string, boost::any>("Messages", *request->messages));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->temperature)) {
+    body->insert(pair<string, double>("Temperature", *request->temperature));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->topP)) {
+    body->insert(pair<string, double>("TopP", *request->topP));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("LlmStreamChat"))},
+    {"version", boost::any(string("2022-09-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return LlmStreamChatResponse(callApi(params, req, runtime));
+}
+
+LlmStreamChatResponse Alibabacloud_Green20220926::Client::llmStreamChat(shared_ptr<LlmStreamChatRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return llmStreamChatWithOptions(request, runtime);
+}
+
 ModifyAnswerLibResponse Alibabacloud_Green20220926::Client::modifyAnswerLibWithOptions(shared_ptr<ModifyAnswerLibRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2916,6 +2950,9 @@ UpdateServiceConfigResponse Alibabacloud_Green20220926::Client::updateServiceCon
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
     body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceConfig)) {
+    body->insert(pair<string, string>("ServiceConfig", *request->serviceConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoConfig)) {
     body->insert(pair<string, string>("VideoConfig", *request->videoConfig));
