@@ -3908,6 +3908,123 @@ public:
 
   virtual ~DeleteAppsResponse() = default;
 };
+class DeleteBackupFileRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> backupFileIdList{};
+
+  DeleteBackupFileRequest() {}
+
+  explicit DeleteBackupFileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backupFileIdList) {
+      res["BackupFileIdList"] = boost::any(*backupFileIdList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackupFileIdList") != m.end() && !m["BackupFileIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BackupFileIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BackupFileIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      backupFileIdList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeleteBackupFileRequest() = default;
+};
+class DeleteBackupFileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteBackupFileResponseBody() {}
+
+  explicit DeleteBackupFileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteBackupFileResponseBody() = default;
+};
+class DeleteBackupFileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteBackupFileResponseBody> body{};
+
+  DeleteBackupFileResponse() {}
+
+  explicit DeleteBackupFileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteBackupFileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteBackupFileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteBackupFileResponse() = default;
+};
 class DeleteCloudPhoneNodesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> nodeIds{};
@@ -5325,6 +5442,42 @@ public:
 
   virtual ~DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig() = default;
 };
+class DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> phoneDataId{};
+  shared_ptr<long> phoneDataVolume{};
+
+  DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo() {}
+
+  explicit DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (phoneDataId) {
+      res["PhoneDataId"] = boost::any(*phoneDataId);
+    }
+    if (phoneDataVolume) {
+      res["PhoneDataVolume"] = boost::any(*phoneDataVolume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PhoneDataId") != m.end() && !m["PhoneDataId"].empty()) {
+      phoneDataId = make_shared<string>(boost::any_cast<string>(m["PhoneDataId"]));
+    }
+    if (m.find("PhoneDataVolume") != m.end() && !m["PhoneDataVolume"].empty()) {
+      phoneDataVolume = make_shared<long>(boost::any_cast<long>(m["PhoneDataVolume"]));
+    }
+  }
+
+
+  virtual ~DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo() = default;
+};
 class DescribeAndroidInstancesResponseBodyInstanceModelTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -5390,6 +5543,7 @@ public:
   shared_ptr<string> networkInterfaceIpv6Address{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> persistentAppInstanceId{};
+  shared_ptr<DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo> phoneDataInfo{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> publicIpAddress{};
   shared_ptr<string> publicIpv6Address{};
@@ -5496,6 +5650,9 @@ public:
     }
     if (persistentAppInstanceId) {
       res["PersistentAppInstanceId"] = boost::any(*persistentAppInstanceId);
+    }
+    if (phoneDataInfo) {
+      res["PhoneDataInfo"] = phoneDataInfo ? boost::any(phoneDataInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
@@ -5636,6 +5793,13 @@ public:
     }
     if (m.find("PersistentAppInstanceId") != m.end() && !m["PersistentAppInstanceId"].empty()) {
       persistentAppInstanceId = make_shared<string>(boost::any_cast<string>(m["PersistentAppInstanceId"]));
+    }
+    if (m.find("PhoneDataInfo") != m.end() && !m["PhoneDataInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PhoneDataInfo"].type()) {
+        DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PhoneDataInfo"]));
+        phoneDataInfo = make_shared<DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo>(model1);
+      }
     }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
@@ -6676,6 +6840,42 @@ public:
 
   virtual ~DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos() = default;
 };
+class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> phoneDataId{};
+  shared_ptr<long> phoneDataVolume{};
+
+  DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo() {}
+
+  explicit DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (phoneDataId) {
+      res["PhoneDataId"] = boost::any(*phoneDataId);
+    }
+    if (phoneDataVolume) {
+      res["PhoneDataVolume"] = boost::any(*phoneDataVolume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PhoneDataId") != m.end() && !m["PhoneDataId"].empty()) {
+      phoneDataId = make_shared<string>(boost::any_cast<string>(m["PhoneDataId"]));
+    }
+    if (m.find("PhoneDataVolume") != m.end() && !m["PhoneDataVolume"].empty()) {
+      phoneDataVolume = make_shared<long>(boost::any_cast<long>(m["PhoneDataVolume"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo() = default;
+};
 class DescribeCloudPhoneNodesResponseBodyNodeModel : public Darabonba::Model {
 public:
   shared_ptr<string> chargeType{};
@@ -6690,6 +6890,7 @@ public:
   shared_ptr<string> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<long> phoneCount{};
+  shared_ptr<DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo> phoneDataInfo{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
@@ -6747,6 +6948,9 @@ public:
     }
     if (phoneCount) {
       res["PhoneCount"] = boost::any(*phoneCount);
+    }
+    if (phoneDataInfo) {
+      res["PhoneDataInfo"] = phoneDataInfo ? boost::any(phoneDataInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -6818,6 +7022,13 @@ public:
     }
     if (m.find("PhoneCount") != m.end() && !m["PhoneCount"].empty()) {
       phoneCount = make_shared<long>(boost::any_cast<long>(m["PhoneCount"]));
+    }
+    if (m.find("PhoneDataInfo") != m.end() && !m["PhoneDataInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PhoneDataInfo"].type()) {
+        DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PhoneDataInfo"]));
+        phoneDataInfo = make_shared<DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo>(model1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -14810,6 +15021,8 @@ public:
   DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroup(shared_ptr<DeleteAndroidInstanceGroupRequest> request);
   DeleteAppsResponse deleteAppsWithOptions(shared_ptr<DeleteAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAppsResponse deleteApps(shared_ptr<DeleteAppsRequest> request);
+  DeleteBackupFileResponse deleteBackupFileWithOptions(shared_ptr<DeleteBackupFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteBackupFileResponse deleteBackupFile(shared_ptr<DeleteBackupFileRequest> request);
   DeleteCloudPhoneNodesResponse deleteCloudPhoneNodesWithOptions(shared_ptr<DeleteCloudPhoneNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteCloudPhoneNodesResponse deleteCloudPhoneNodes(shared_ptr<DeleteCloudPhoneNodesRequest> request);
   DeleteImagesResponse deleteImagesWithOptions(shared_ptr<DeleteImagesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
