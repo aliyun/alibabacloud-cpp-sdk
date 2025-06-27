@@ -22976,6 +22976,7 @@ public:
   shared_ptr<string> registrantEmail{};
   shared_ptr<string> remark{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> slaveDnsStatus{};
   shared_ptr<bool> starmark{};
   shared_ptr<DescribeDomainsResponseBodyDomainsDomainTags> tags{};
   shared_ptr<string> versionCode{};
@@ -23041,6 +23042,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (slaveDnsStatus) {
+      res["SlaveDnsStatus"] = boost::any(*slaveDnsStatus);
     }
     if (starmark) {
       res["Starmark"] = boost::any(*starmark);
@@ -23112,6 +23116,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SlaveDnsStatus") != m.end() && !m["SlaveDnsStatus"].empty()) {
+      slaveDnsStatus = make_shared<string>(boost::any_cast<string>(m["SlaveDnsStatus"]));
     }
     if (m.find("Starmark") != m.end() && !m["Starmark"].empty()) {
       starmark = make_shared<bool>(boost::any_cast<bool>(m["Starmark"]));
@@ -28165,6 +28172,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> queryCondition{};
+  shared_ptr<string> recursionProtocolType{};
   shared_ptr<long> startTimestamp{};
 
   DescribeInternetDnsLogsRequest() {}
@@ -28201,6 +28209,9 @@ public:
     if (queryCondition) {
       res["QueryCondition"] = boost::any(*queryCondition);
     }
+    if (recursionProtocolType) {
+      res["RecursionProtocolType"] = boost::any(*recursionProtocolType);
+    }
     if (startTimestamp) {
       res["StartTimestamp"] = boost::any(*startTimestamp);
     }
@@ -28231,6 +28242,9 @@ public:
     }
     if (m.find("QueryCondition") != m.end() && !m["QueryCondition"].empty()) {
       queryCondition = make_shared<string>(boost::any_cast<string>(m["QueryCondition"]));
+    }
+    if (m.find("RecursionProtocolType") != m.end() && !m["RecursionProtocolType"].empty()) {
+      recursionProtocolType = make_shared<string>(boost::any_cast<string>(m["RecursionProtocolType"]));
     }
     if (m.find("StartTimestamp") != m.end() && !m["StartTimestamp"].empty()) {
       startTimestamp = make_shared<long>(boost::any_cast<long>(m["StartTimestamp"]));
@@ -30244,6 +30258,7 @@ public:
   shared_ptr<string> lang{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> startDate{};
 
   DescribePdnsOperateLogsRequest() {}
@@ -30274,6 +30289,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
     }
@@ -30298,6 +30316,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));

@@ -4036,6 +4036,9 @@ DescribeInternetDnsLogsResponse Alibabacloud_Alidns20150109::Client::describeInt
   if (!Darabonba_Util::Client::isUnset<string>(request->queryCondition)) {
     query->insert(pair<string, string>("QueryCondition", *request->queryCondition));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recursionProtocolType)) {
+    query->insert(pair<string, string>("RecursionProtocolType", *request->recursionProtocolType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTimestamp)) {
     query->insert(pair<string, long>("StartTimestamp", *request->startTimestamp));
   }
@@ -4334,6 +4337,9 @@ DescribePdnsOperateLogsResponse Alibabacloud_Alidns20150109::Client::describePdn
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
     query->insert(pair<string, string>("StartDate", *request->startDate));
