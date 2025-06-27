@@ -13447,6 +13447,7 @@ public:
   shared_ptr<string> order{};
   shared_ptr<long> parallelism{};
   shared_ptr<long> priority{};
+  shared_ptr<string> priorityWeightStrategy{};
   shared_ptr<vector<long>> rootTaskIds{};
   shared_ptr<CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy> runPolicy{};
   shared_ptr<string> runtimeResource{};
@@ -13490,6 +13491,9 @@ public:
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
+    }
+    if (priorityWeightStrategy) {
+      res["PriorityWeightStrategy"] = boost::any(*priorityWeightStrategy);
     }
     if (rootTaskIds) {
       res["RootTaskIds"] = boost::any(*rootTaskIds);
@@ -13569,6 +13573,9 @@ public:
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("PriorityWeightStrategy") != m.end() && !m["PriorityWeightStrategy"].empty()) {
+      priorityWeightStrategy = make_shared<string>(boost::any_cast<string>(m["PriorityWeightStrategy"]));
     }
     if (m.find("RootTaskIds") != m.end() && !m["RootTaskIds"].empty()) {
       vector<long> toVec1;
