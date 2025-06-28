@@ -467,6 +467,9 @@ CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPh
   if (!Darabonba_Util::Client::isUnset<string>(request->serverType)) {
     query->insert(pair<string, string>("ServerType", *request->serverType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->streamMode)) {
+    query->insert(pair<string, long>("StreamMode", *request->streamMode));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateCloudPhoneNodeShrinkRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreateCloudPhoneNodeShrinkRequestTag>>("Tag", *request->tag));
   }
@@ -1493,6 +1496,9 @@ DetachKeyPairResponse Alibabacloud_Eds-aic20230930::Client::detachKeyPair(shared
 DisconnectAndroidInstanceResponse Alibabacloud_Eds-aic20230930::Client::disconnectAndroidInstanceWithOptions(shared_ptr<DisconnectAndroidInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
+    query->insert(pair<string, string>("EndUserId", *request->endUserId));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
     query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
   }
@@ -1934,7 +1940,16 @@ ModifyAppResponse Alibabacloud_Eds-aic20230930::Client::modifyApp(shared_ptr<Mod
 
 ModifyCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::modifyCloudPhoneNodeWithOptions(shared_ptr<ModifyCloudPhoneNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->newNodeName)) {
+    query->insert(pair<string, string>("NewNodeName", *request->newNodeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
+    query->insert(pair<string, string>("NodeId", *request->nodeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->streamMode)) {
+    query->insert(pair<string, long>("StreamMode", *request->streamMode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1943,7 +1958,7 @@ ModifyCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::modifyCloudPh
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},

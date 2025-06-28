@@ -2173,6 +2173,7 @@ public:
   shared_ptr<long> resolutionWidth{};
   shared_ptr<long> serverShareDataVolume{};
   shared_ptr<string> serverType{};
+  shared_ptr<long> streamMode{};
   shared_ptr<vector<CreateCloudPhoneNodeRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
 
@@ -2236,6 +2237,9 @@ public:
     }
     if (serverType) {
       res["ServerType"] = boost::any(*serverType);
+    }
+    if (streamMode) {
+      res["StreamMode"] = boost::any(*streamMode);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -2305,6 +2309,9 @@ public:
     }
     if (m.find("ServerType") != m.end() && !m["ServerType"].empty()) {
       serverType = make_shared<string>(boost::any_cast<string>(m["ServerType"]));
+    }
+    if (m.find("StreamMode") != m.end() && !m["StreamMode"].empty()) {
+      streamMode = make_shared<long>(boost::any_cast<long>(m["StreamMode"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -2382,6 +2389,7 @@ public:
   shared_ptr<long> resolutionWidth{};
   shared_ptr<long> serverShareDataVolume{};
   shared_ptr<string> serverType{};
+  shared_ptr<long> streamMode{};
   shared_ptr<vector<CreateCloudPhoneNodeShrinkRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
 
@@ -2445,6 +2453,9 @@ public:
     }
     if (serverType) {
       res["ServerType"] = boost::any(*serverType);
+    }
+    if (streamMode) {
+      res["StreamMode"] = boost::any(*streamMode);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -2510,6 +2521,9 @@ public:
     }
     if (m.find("ServerType") != m.end() && !m["ServerType"].empty()) {
       serverType = make_shared<string>(boost::any_cast<string>(m["ServerType"]));
+    }
+    if (m.find("StreamMode") != m.end() && !m["StreamMode"].empty()) {
+      streamMode = make_shared<long>(boost::any_cast<long>(m["StreamMode"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -5552,6 +5566,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> renderingType{};
   shared_ptr<string> sessionStatus{};
+  shared_ptr<long> streamMode{};
   shared_ptr<vector<DescribeAndroidInstancesResponseBodyInstanceModelTags>> tags{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
@@ -5677,6 +5692,9 @@ public:
     }
     if (sessionStatus) {
       res["SessionStatus"] = boost::any(*sessionStatus);
+    }
+    if (streamMode) {
+      res["StreamMode"] = boost::any(*streamMode);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -5824,6 +5842,9 @@ public:
     }
     if (m.find("SessionStatus") != m.end() && !m["SessionStatus"].empty()) {
       sessionStatus = make_shared<string>(boost::any_cast<string>(m["SessionStatus"]));
+    }
+    if (m.find("StreamMode") != m.end() && !m["StreamMode"].empty()) {
+      streamMode = make_shared<long>(boost::any_cast<long>(m["StreamMode"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -9249,6 +9270,7 @@ public:
 };
 class DisconnectAndroidInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endUserId{};
   shared_ptr<vector<string>> instanceIds{};
 
   DisconnectAndroidInstanceRequest() {}
@@ -9261,6 +9283,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
     }
@@ -9268,6 +9293,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
@@ -11481,6 +11509,7 @@ class ModifyCloudPhoneNodeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> newNodeName{};
   shared_ptr<string> nodeId{};
+  shared_ptr<long> streamMode{};
 
   ModifyCloudPhoneNodeRequest() {}
 
@@ -11498,6 +11527,9 @@ public:
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
+    if (streamMode) {
+      res["StreamMode"] = boost::any(*streamMode);
+    }
     return res;
   }
 
@@ -11507,6 +11539,9 @@ public:
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("StreamMode") != m.end() && !m["StreamMode"].empty()) {
+      streamMode = make_shared<long>(boost::any_cast<long>(m["StreamMode"]));
     }
   }
 
