@@ -31208,6 +31208,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> userName{};
 
   DescribeSQLPatternsRequest() {}
 
@@ -31246,6 +31247,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
     return res;
   }
 
@@ -31276,6 +31280,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
     }
   }
 
