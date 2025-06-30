@@ -416,16 +416,58 @@ CreateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::createDIJobWi
   if (!Darabonba_Util::Client::isUnset<vector<CreateDIJobRequestTransformationRules>>(tmpReq->transformationRules)) {
     request->transformationRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transformationRules, make_shared<string>("TransformationRules"), make_shared<string>("json")));
   }
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationDataSourceSettingsShrink)) {
+    body->insert(pair<string, string>("DestinationDataSourceSettings", *request->destinationDataSourceSettingsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationDataSourceType)) {
+    body->insert(pair<string, string>("DestinationDataSourceType", *request->destinationDataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobName)) {
+    body->insert(pair<string, string>("JobName", *request->jobName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobSettingsShrink)) {
+    body->insert(pair<string, string>("JobSettings", *request->jobSettingsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
+    body->insert(pair<string, string>("JobType", *request->jobType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->migrationType)) {
+    body->insert(pair<string, string>("MigrationType", *request->migrationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceSettingsShrink)) {
+    body->insert(pair<string, string>("ResourceSettings", *request->resourceSettingsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDataSourceSettingsShrink)) {
+    body->insert(pair<string, string>("SourceDataSourceSettings", *request->sourceDataSourceSettingsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDataSourceType)) {
+    body->insert(pair<string, string>("SourceDataSourceType", *request->sourceDataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableMappingsShrink)) {
+    body->insert(pair<string, string>("TableMappings", *request->tableMappingsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transformationRulesShrink)) {
+    body->insert(pair<string, string>("TransformationRules", *request->transformationRulesShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateDIJob"))},
     {"version", boost::any(string("2024-05-18"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -7146,16 +7188,42 @@ UpdateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::updateDIJobWi
   if (!Darabonba_Util::Client::isUnset<vector<UpdateDIJobRequestTransformationRules>>(tmpReq->transformationRules)) {
     request->transformationRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transformationRules, make_shared<string>("TransformationRules"), make_shared<string>("json")));
   }
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->DIJobId)) {
+    body->insert(pair<string, long>("DIJobId", *request->DIJobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobSettingsShrink)) {
+    body->insert(pair<string, string>("JobSettings", *request->jobSettingsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceSettingsShrink)) {
+    body->insert(pair<string, string>("ResourceSettings", *request->resourceSettingsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableMappingsShrink)) {
+    body->insert(pair<string, string>("TableMappings", *request->tableMappingsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transformationRulesShrink)) {
+    body->insert(pair<string, string>("TransformationRules", *request->transformationRulesShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateDIJob"))},
     {"version", boost::any(string("2024-05-18"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
