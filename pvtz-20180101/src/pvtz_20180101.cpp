@@ -123,6 +123,9 @@ AddResolverEndpointResponse Alibabacloud_Pvtz20180101::Client::addResolverEndpoi
 AddResolverRuleResponse Alibabacloud_Pvtz20180101::Client::addResolverRuleWithOptions(shared_ptr<AddResolverRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AddResolverRuleRequestEdgeDnsClusters>>(request->edgeDnsClusters)) {
+    query->insert(pair<string, vector<AddResolverRuleRequestEdgeDnsClusters>>("EdgeDnsClusters", *request->edgeDnsClusters));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointId)) {
     query->insert(pair<string, string>("EndpointId", *request->endpointId));
   }
@@ -137,6 +140,9 @@ AddResolverRuleResponse Alibabacloud_Pvtz20180101::Client::addResolverRuleWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AddResolverRuleRequestVpcs>>(request->vpcs)) {
+    query->insert(pair<string, vector<AddResolverRuleRequestVpcs>>("Vpcs", *request->vpcs));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneName)) {
     query->insert(pair<string, string>("ZoneName", *request->zoneName));

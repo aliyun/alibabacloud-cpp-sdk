@@ -388,6 +388,35 @@ public:
 
   virtual ~AddResolverEndpointResponse() = default;
 };
+class AddResolverRuleRequestEdgeDnsClusters : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+
+  AddResolverRuleRequestEdgeDnsClusters() {}
+
+  explicit AddResolverRuleRequestEdgeDnsClusters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+  }
+
+
+  virtual ~AddResolverRuleRequestEdgeDnsClusters() = default;
+};
 class AddResolverRuleRequestForwardIp : public Darabonba::Model {
 public:
   shared_ptr<string> ip{};
@@ -424,13 +453,65 @@ public:
 
   virtual ~AddResolverRuleRequestForwardIp() = default;
 };
+class AddResolverRuleRequestVpcs : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vpcType{};
+  shared_ptr<long> vpcUserId{};
+
+  AddResolverRuleRequestVpcs() {}
+
+  explicit AddResolverRuleRequestVpcs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (vpcType) {
+      res["VpcType"] = boost::any(*vpcType);
+    }
+    if (vpcUserId) {
+      res["VpcUserId"] = boost::any(*vpcUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VpcType") != m.end() && !m["VpcType"].empty()) {
+      vpcType = make_shared<string>(boost::any_cast<string>(m["VpcType"]));
+    }
+    if (m.find("VpcUserId") != m.end() && !m["VpcUserId"].empty()) {
+      vpcUserId = make_shared<long>(boost::any_cast<long>(m["VpcUserId"]));
+    }
+  }
+
+
+  virtual ~AddResolverRuleRequestVpcs() = default;
+};
 class AddResolverRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<AddResolverRuleRequestEdgeDnsClusters>> edgeDnsClusters{};
   shared_ptr<string> endpointId{};
   shared_ptr<vector<AddResolverRuleRequestForwardIp>> forwardIp{};
   shared_ptr<string> lang{};
   shared_ptr<string> name{};
   shared_ptr<string> type{};
+  shared_ptr<vector<AddResolverRuleRequestVpcs>> vpcs{};
   shared_ptr<string> zoneName{};
 
   AddResolverRuleRequest() {}
@@ -443,6 +524,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (edgeDnsClusters) {
+      vector<boost::any> temp1;
+      for(auto item1:*edgeDnsClusters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EdgeDnsClusters"] = boost::any(temp1);
+    }
     if (endpointId) {
       res["EndpointId"] = boost::any(*endpointId);
     }
@@ -462,6 +550,13 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (vpcs) {
+      vector<boost::any> temp1;
+      for(auto item1:*vpcs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Vpcs"] = boost::any(temp1);
+    }
     if (zoneName) {
       res["ZoneName"] = boost::any(*zoneName);
     }
@@ -469,6 +564,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EdgeDnsClusters") != m.end() && !m["EdgeDnsClusters"].empty()) {
+      if (typeid(vector<boost::any>) == m["EdgeDnsClusters"].type()) {
+        vector<AddResolverRuleRequestEdgeDnsClusters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EdgeDnsClusters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddResolverRuleRequestEdgeDnsClusters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        edgeDnsClusters = make_shared<vector<AddResolverRuleRequestEdgeDnsClusters>>(expect1);
+      }
+    }
     if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
       endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
     }
@@ -493,6 +601,19 @@ public:
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Vpcs") != m.end() && !m["Vpcs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Vpcs"].type()) {
+        vector<AddResolverRuleRequestVpcs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Vpcs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddResolverRuleRequestVpcs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        vpcs = make_shared<vector<AddResolverRuleRequestVpcs>>(expect1);
+      }
     }
     if (m.find("ZoneName") != m.end() && !m["ZoneName"].empty()) {
       zoneName = make_shared<string>(boost::any_cast<string>(m["ZoneName"]));
@@ -2589,6 +2710,7 @@ public:
   shared_ptr<string> creatorId{};
   shared_ptr<string> creatorSubType{};
   shared_ptr<string> creatorType{};
+  shared_ptr<string> creatorUserId{};
   shared_ptr<string> entityId{};
   shared_ptr<string> entityName{};
   shared_ptr<long> id{};
@@ -2619,6 +2741,9 @@ public:
     }
     if (creatorType) {
       res["CreatorType"] = boost::any(*creatorType);
+    }
+    if (creatorUserId) {
+      res["CreatorUserId"] = boost::any(*creatorUserId);
     }
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
@@ -2659,6 +2784,9 @@ public:
     }
     if (m.find("CreatorType") != m.end() && !m["CreatorType"].empty()) {
       creatorType = make_shared<string>(boost::any_cast<string>(m["CreatorType"]));
+    }
+    if (m.find("CreatorUserId") != m.end() && !m["CreatorUserId"].empty()) {
+      creatorUserId = make_shared<string>(boost::any_cast<string>(m["CreatorUserId"]));
     }
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
@@ -4749,6 +4877,49 @@ public:
 
   virtual ~DescribeResolverRuleRequest() = default;
 };
+class DescribeResolverRuleResponseBodyBindEdgeDnsClusters : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<long> clusterUserId{};
+
+  DescribeResolverRuleResponseBodyBindEdgeDnsClusters() {}
+
+  explicit DescribeResolverRuleResponseBodyBindEdgeDnsClusters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (clusterUserId) {
+      res["ClusterUserId"] = boost::any(*clusterUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("ClusterUserId") != m.end() && !m["ClusterUserId"].empty()) {
+      clusterUserId = make_shared<long>(boost::any_cast<long>(m["ClusterUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeResolverRuleResponseBodyBindEdgeDnsClusters() = default;
+};
 class DescribeResolverRuleResponseBodyBindVpcs : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -4851,6 +5022,7 @@ public:
 };
 class DescribeResolverRuleResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<vector<DescribeResolverRuleResponseBodyBindEdgeDnsClusters>> bindEdgeDnsClusters{};
   shared_ptr<vector<DescribeResolverRuleResponseBodyBindVpcs>> bindVpcs{};
   shared_ptr<string> createTime{};
   shared_ptr<long> createTimestamp{};
@@ -4875,6 +5047,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindEdgeDnsClusters) {
+      vector<boost::any> temp1;
+      for(auto item1:*bindEdgeDnsClusters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BindEdgeDnsClusters"] = boost::any(temp1);
+    }
     if (bindVpcs) {
       vector<boost::any> temp1;
       for(auto item1:*bindVpcs){
@@ -4926,6 +5105,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindEdgeDnsClusters") != m.end() && !m["BindEdgeDnsClusters"].empty()) {
+      if (typeid(vector<boost::any>) == m["BindEdgeDnsClusters"].type()) {
+        vector<DescribeResolverRuleResponseBodyBindEdgeDnsClusters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BindEdgeDnsClusters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResolverRuleResponseBodyBindEdgeDnsClusters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bindEdgeDnsClusters = make_shared<vector<DescribeResolverRuleResponseBodyBindEdgeDnsClusters>>(expect1);
+      }
+    }
     if (m.find("BindVpcs") != m.end() && !m["BindVpcs"].empty()) {
       if (typeid(vector<boost::any>) == m["BindVpcs"].type()) {
         vector<DescribeResolverRuleResponseBodyBindVpcs> expect1;
@@ -5106,6 +5298,49 @@ public:
 
   virtual ~DescribeResolverRulesRequest() = default;
 };
+class DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<long> clusterUserId{};
+
+  DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters() {}
+
+  explicit DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (clusterUserId) {
+      res["ClusterUserId"] = boost::any(*clusterUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("ClusterUserId") != m.end() && !m["ClusterUserId"].empty()) {
+      clusterUserId = make_shared<long>(boost::any_cast<long>(m["ClusterUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters() = default;
+};
 class DescribeResolverRulesResponseBodyRulesBindVpcs : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -5208,6 +5443,7 @@ public:
 };
 class DescribeResolverRulesResponseBodyRules : public Darabonba::Model {
 public:
+  shared_ptr<vector<DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters>> bindEdgeDnsClusters{};
   shared_ptr<vector<DescribeResolverRulesResponseBodyRulesBindVpcs>> bindVpcs{};
   shared_ptr<string> createTime{};
   shared_ptr<long> createTimestamp{};
@@ -5231,6 +5467,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindEdgeDnsClusters) {
+      vector<boost::any> temp1;
+      for(auto item1:*bindEdgeDnsClusters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BindEdgeDnsClusters"] = boost::any(temp1);
+    }
     if (bindVpcs) {
       vector<boost::any> temp1;
       for(auto item1:*bindVpcs){
@@ -5279,6 +5522,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindEdgeDnsClusters") != m.end() && !m["BindEdgeDnsClusters"].empty()) {
+      if (typeid(vector<boost::any>) == m["BindEdgeDnsClusters"].type()) {
+        vector<DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BindEdgeDnsClusters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bindEdgeDnsClusters = make_shared<vector<DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters>>(expect1);
+      }
+    }
     if (m.find("BindVpcs") != m.end() && !m["BindVpcs"].empty()) {
       if (typeid(vector<boost::any>) == m["BindVpcs"].type()) {
         vector<DescribeResolverRulesResponseBodyRulesBindVpcs> expect1;
@@ -6730,6 +6986,92 @@ public:
 
   virtual ~DescribeZoneInfoRequest() = default;
 };
+class DescribeZoneInfoResponseBodyBindEdgeDnsClustersEdgeDnsCluster : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<long> clusterUserId{};
+
+  DescribeZoneInfoResponseBodyBindEdgeDnsClustersEdgeDnsCluster() {}
+
+  explicit DescribeZoneInfoResponseBodyBindEdgeDnsClustersEdgeDnsCluster(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (clusterUserId) {
+      res["ClusterUserId"] = boost::any(*clusterUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("ClusterUserId") != m.end() && !m["ClusterUserId"].empty()) {
+      clusterUserId = make_shared<long>(boost::any_cast<long>(m["ClusterUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeZoneInfoResponseBodyBindEdgeDnsClustersEdgeDnsCluster() = default;
+};
+class DescribeZoneInfoResponseBodyBindEdgeDnsClusters : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeZoneInfoResponseBodyBindEdgeDnsClustersEdgeDnsCluster>> edgeDnsCluster{};
+
+  DescribeZoneInfoResponseBodyBindEdgeDnsClusters() {}
+
+  explicit DescribeZoneInfoResponseBodyBindEdgeDnsClusters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (edgeDnsCluster) {
+      vector<boost::any> temp1;
+      for(auto item1:*edgeDnsCluster){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EdgeDnsCluster"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EdgeDnsCluster") != m.end() && !m["EdgeDnsCluster"].empty()) {
+      if (typeid(vector<boost::any>) == m["EdgeDnsCluster"].type()) {
+        vector<DescribeZoneInfoResponseBodyBindEdgeDnsClustersEdgeDnsCluster> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EdgeDnsCluster"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeZoneInfoResponseBodyBindEdgeDnsClustersEdgeDnsCluster model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        edgeDnsCluster = make_shared<vector<DescribeZoneInfoResponseBodyBindEdgeDnsClustersEdgeDnsCluster>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeZoneInfoResponseBodyBindEdgeDnsClusters() = default;
+};
 class DescribeZoneInfoResponseBodyBindVpcsVpc : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -6839,6 +7181,7 @@ public:
 };
 class DescribeZoneInfoResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<DescribeZoneInfoResponseBodyBindEdgeDnsClusters> bindEdgeDnsClusters{};
   shared_ptr<DescribeZoneInfoResponseBodyBindVpcs> bindVpcs{};
   shared_ptr<string> createTime{};
   shared_ptr<long> createTimestamp{};
@@ -6870,6 +7213,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindEdgeDnsClusters) {
+      res["BindEdgeDnsClusters"] = bindEdgeDnsClusters ? boost::any(bindEdgeDnsClusters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (bindVpcs) {
       res["BindVpcs"] = bindVpcs ? boost::any(bindVpcs->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -6934,6 +7280,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindEdgeDnsClusters") != m.end() && !m["BindEdgeDnsClusters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BindEdgeDnsClusters"].type()) {
+        DescribeZoneInfoResponseBodyBindEdgeDnsClusters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BindEdgeDnsClusters"]));
+        bindEdgeDnsClusters = make_shared<DescribeZoneInfoResponseBodyBindEdgeDnsClusters>(model1);
+      }
+    }
     if (m.find("BindVpcs") != m.end() && !m["BindVpcs"].empty()) {
       if (typeid(map<string, boost::any>) == m["BindVpcs"].type()) {
         DescribeZoneInfoResponseBodyBindVpcs model1;
@@ -8296,6 +8649,7 @@ public:
   shared_ptr<string> remark{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<DescribeZonesResponseBodyZonesZoneResourceTags> resourceTags{};
+  shared_ptr<string> slaveDnsStatus{};
   shared_ptr<string> updateTime{};
   shared_ptr<long> updateTimestamp{};
   shared_ptr<string> zoneId{};
@@ -8348,6 +8702,9 @@ public:
     }
     if (resourceTags) {
       res["ResourceTags"] = resourceTags ? boost::any(resourceTags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (slaveDnsStatus) {
+      res["SlaveDnsStatus"] = boost::any(*slaveDnsStatus);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -8410,6 +8767,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceTags"]));
         resourceTags = make_shared<DescribeZonesResponseBodyZonesZoneResourceTags>(model1);
       }
+    }
+    if (m.find("SlaveDnsStatus") != m.end() && !m["SlaveDnsStatus"].empty()) {
+      slaveDnsStatus = make_shared<string>(boost::any_cast<string>(m["SlaveDnsStatus"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
