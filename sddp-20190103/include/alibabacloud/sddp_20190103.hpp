@@ -1970,14 +1970,17 @@ class DescribeColumnsResponseBodyItems : public Darabonba::Model {
 public:
   shared_ptr<long> creationTime{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> engineType{};
   shared_ptr<string> id{};
   shared_ptr<long> instanceId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<long> maskingStatus{};
   shared_ptr<vector<DescribeColumnsResponseBodyItemsModelTags>> modelTags{};
   shared_ptr<string> name{};
   shared_ptr<string> odpsRiskLevelName{};
   shared_ptr<long> odpsRiskLevelValue{};
   shared_ptr<string> productCode{};
+  shared_ptr<long> productId{};
   shared_ptr<string> regionId{};
   shared_ptr<long> revisionId{};
   shared_ptr<long> revisionStatus{};
@@ -2006,6 +2009,9 @@ public:
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
     }
+    if (engineType) {
+      res["EngineType"] = boost::any(*engineType);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
@@ -2014,6 +2020,9 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (maskingStatus) {
+      res["MaskingStatus"] = boost::any(*maskingStatus);
     }
     if (modelTags) {
       vector<boost::any> temp1;
@@ -2033,6 +2042,9 @@ public:
     }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -2077,6 +2089,9 @@ public:
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
     }
+    if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
@@ -2085,6 +2100,9 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MaskingStatus") != m.end() && !m["MaskingStatus"].empty()) {
+      maskingStatus = make_shared<long>(boost::any_cast<long>(m["MaskingStatus"]));
     }
     if (m.find("ModelTags") != m.end() && !m["ModelTags"].empty()) {
       if (typeid(vector<boost::any>) == m["ModelTags"].type()) {
@@ -2110,6 +2128,9 @@ public:
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<long>(boost::any_cast<long>(m["ProductId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -2275,6 +2296,7 @@ public:
 class DescribeColumnsV2Request : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
+  shared_ptr<string> engineType{};
   shared_ptr<long> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> lang{};
@@ -2300,6 +2322,9 @@ public:
     map<string, boost::any> res;
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (engineType) {
+      res["EngineType"] = boost::any(*engineType);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -2343,6 +2368,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
@@ -2425,14 +2453,18 @@ class DescribeColumnsV2ResponseBodyItems : public Darabonba::Model {
 public:
   shared_ptr<long> creationTime{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> engineType{};
   shared_ptr<string> id{};
   shared_ptr<long> instanceId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<long> maskingStatus{};
   shared_ptr<vector<DescribeColumnsV2ResponseBodyItemsModelTags>> modelTags{};
   shared_ptr<string> name{};
   shared_ptr<string> odpsRiskLevelName{};
   shared_ptr<long> odpsRiskLevelValue{};
   shared_ptr<string> productCode{};
+  shared_ptr<long> productId{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> revisionId{};
   shared_ptr<long> revisionStatus{};
   shared_ptr<long> riskLevelId{};
@@ -2460,6 +2492,9 @@ public:
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
     }
+    if (engineType) {
+      res["EngineType"] = boost::any(*engineType);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
@@ -2468,6 +2503,9 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (maskingStatus) {
+      res["MaskingStatus"] = boost::any(*maskingStatus);
     }
     if (modelTags) {
       vector<boost::any> temp1;
@@ -2487,6 +2525,12 @@ public:
     }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (revisionId) {
       res["RevisionId"] = boost::any(*revisionId);
@@ -2528,6 +2572,9 @@ public:
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
     }
+    if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
@@ -2536,6 +2583,9 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MaskingStatus") != m.end() && !m["MaskingStatus"].empty()) {
+      maskingStatus = make_shared<long>(boost::any_cast<long>(m["MaskingStatus"]));
     }
     if (m.find("ModelTags") != m.end() && !m["ModelTags"].empty()) {
       if (typeid(vector<boost::any>) == m["ModelTags"].type()) {
@@ -2561,6 +2611,12 @@ public:
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<long>(boost::any_cast<long>(m["ProductId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RevisionId") != m.end() && !m["RevisionId"].empty()) {
       revisionId = make_shared<long>(boost::any_cast<long>(m["RevisionId"]));
@@ -3503,6 +3559,7 @@ public:
   shared_ptr<long> featureType{};
   shared_ptr<string> lang{};
   shared_ptr<string> parentId{};
+  shared_ptr<string> regionType{};
   shared_ptr<long> resourceType{};
 
   DescribeDataLimitSetRequest() {}
@@ -3524,6 +3581,9 @@ public:
     if (parentId) {
       res["ParentId"] = boost::any(*parentId);
     }
+    if (regionType) {
+      res["RegionType"] = boost::any(*regionType);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -3539,6 +3599,9 @@ public:
     }
     if (m.find("ParentId") != m.end() && !m["ParentId"].empty()) {
       parentId = make_shared<string>(boost::any_cast<string>(m["ParentId"]));
+    }
+    if (m.find("RegionType") != m.end() && !m["RegionType"].empty()) {
+      regionType = make_shared<string>(boost::any_cast<string>(m["RegionType"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<long>(boost::any_cast<long>(m["ResourceType"]));
@@ -5322,13 +5385,19 @@ public:
   shared_ptr<string> columnComment{};
   shared_ptr<string> columnName{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> engineType{};
   shared_ptr<string> id{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<long> maskingStatus{};
   shared_ptr<vector<DescribeDataObjectColumnDetailResponseBodyItemsModelTags>> modelTags{};
   shared_ptr<bool> primaryKey{};
+  shared_ptr<long> productId{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> riskLevelId{};
   shared_ptr<string> riskLevelName{};
   shared_ptr<long> ruleId{};
   shared_ptr<string> ruleName{};
+  shared_ptr<string> tableName{};
 
   DescribeDataObjectColumnDetailResponseBodyItems() {}
 
@@ -5352,8 +5421,17 @@ public:
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
     }
+    if (engineType) {
+      res["EngineType"] = boost::any(*engineType);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (maskingStatus) {
+      res["MaskingStatus"] = boost::any(*maskingStatus);
     }
     if (modelTags) {
       vector<boost::any> temp1;
@@ -5364,6 +5442,12 @@ public:
     }
     if (primaryKey) {
       res["PrimaryKey"] = boost::any(*primaryKey);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (riskLevelId) {
       res["RiskLevelId"] = boost::any(*riskLevelId);
@@ -5376,6 +5460,9 @@ public:
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
     }
     return res;
   }
@@ -5400,8 +5487,17 @@ public:
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
     }
+    if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MaskingStatus") != m.end() && !m["MaskingStatus"].empty()) {
+      maskingStatus = make_shared<long>(boost::any_cast<long>(m["MaskingStatus"]));
     }
     if (m.find("ModelTags") != m.end() && !m["ModelTags"].empty()) {
       if (typeid(vector<boost::any>) == m["ModelTags"].type()) {
@@ -5419,6 +5515,12 @@ public:
     if (m.find("PrimaryKey") != m.end() && !m["PrimaryKey"].empty()) {
       primaryKey = make_shared<bool>(boost::any_cast<bool>(m["PrimaryKey"]));
     }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<long>(boost::any_cast<long>(m["ProductId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("RiskLevelId") != m.end() && !m["RiskLevelId"].empty()) {
       riskLevelId = make_shared<long>(boost::any_cast<long>(m["RiskLevelId"]));
     }
@@ -5430,6 +5532,9 @@ public:
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
     }
   }
 
@@ -5672,13 +5777,19 @@ public:
   shared_ptr<string> columnComment{};
   shared_ptr<string> columnName{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> engineType{};
   shared_ptr<string> id{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<long> maskingStatus{};
   shared_ptr<vector<DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags>> modelTags{};
   shared_ptr<bool> primaryKey{};
+  shared_ptr<long> productId{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> riskLevelId{};
   shared_ptr<string> riskLevelName{};
   shared_ptr<long> ruleId{};
   shared_ptr<string> ruleName{};
+  shared_ptr<string> tableName{};
 
   DescribeDataObjectColumnDetailV2ResponseBodyItems() {}
 
@@ -5702,8 +5813,17 @@ public:
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
     }
+    if (engineType) {
+      res["EngineType"] = boost::any(*engineType);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (maskingStatus) {
+      res["MaskingStatus"] = boost::any(*maskingStatus);
     }
     if (modelTags) {
       vector<boost::any> temp1;
@@ -5714,6 +5834,12 @@ public:
     }
     if (primaryKey) {
       res["PrimaryKey"] = boost::any(*primaryKey);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (riskLevelId) {
       res["RiskLevelId"] = boost::any(*riskLevelId);
@@ -5726,6 +5852,9 @@ public:
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
     }
     return res;
   }
@@ -5750,8 +5879,17 @@ public:
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
     }
+    if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MaskingStatus") != m.end() && !m["MaskingStatus"].empty()) {
+      maskingStatus = make_shared<long>(boost::any_cast<long>(m["MaskingStatus"]));
     }
     if (m.find("ModelTags") != m.end() && !m["ModelTags"].empty()) {
       if (typeid(vector<boost::any>) == m["ModelTags"].type()) {
@@ -5769,6 +5907,12 @@ public:
     if (m.find("PrimaryKey") != m.end() && !m["PrimaryKey"].empty()) {
       primaryKey = make_shared<bool>(boost::any_cast<bool>(m["PrimaryKey"]));
     }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<long>(boost::any_cast<long>(m["ProductId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("RiskLevelId") != m.end() && !m["RiskLevelId"].empty()) {
       riskLevelId = make_shared<long>(boost::any_cast<long>(m["RiskLevelId"]));
     }
@@ -5780,6 +5924,9 @@ public:
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
     }
   }
 

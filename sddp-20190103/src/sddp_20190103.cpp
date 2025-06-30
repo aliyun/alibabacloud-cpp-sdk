@@ -588,6 +588,9 @@ DescribeColumnsV2Response Alibabacloud_Sddp20190103::Client::describeColumnsV2Wi
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineType)) {
+    query->insert(pair<string, string>("EngineType", *request->engineType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->instanceId)) {
     query->insert(pair<string, long>("InstanceId", *request->instanceId));
   }
@@ -768,6 +771,9 @@ DescribeDataLimitSetResponse Alibabacloud_Sddp20190103::Client::describeDataLimi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parentId)) {
     query->insert(pair<string, string>("ParentId", *request->parentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionType)) {
+    query->insert(pair<string, string>("RegionType", *request->regionType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceType)) {
     query->insert(pair<string, long>("ResourceType", *request->resourceType));
