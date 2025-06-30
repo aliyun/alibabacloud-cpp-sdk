@@ -19,6 +19,7 @@ public:
   shared_ptr<string> policy{};
   shared_ptr<string> roleArn{};
   shared_ptr<string> roleSessionName{};
+  shared_ptr<string> sourceIdentity{};
 
   AssumeRoleRequest() {}
 
@@ -45,6 +46,9 @@ public:
     if (roleSessionName) {
       res["RoleSessionName"] = boost::any(*roleSessionName);
     }
+    if (sourceIdentity) {
+      res["SourceIdentity"] = boost::any(*sourceIdentity);
+    }
     return res;
   }
 
@@ -63,6 +67,9 @@ public:
     }
     if (m.find("RoleSessionName") != m.end() && !m["RoleSessionName"].empty()) {
       roleSessionName = make_shared<string>(boost::any_cast<string>(m["RoleSessionName"]));
+    }
+    if (m.find("SourceIdentity") != m.end() && !m["SourceIdentity"].empty()) {
+      sourceIdentity = make_shared<string>(boost::any_cast<string>(m["SourceIdentity"]));
     }
   }
 
@@ -160,6 +167,7 @@ public:
   shared_ptr<AssumeRoleResponseBodyAssumedRoleUser> assumedRoleUser{};
   shared_ptr<AssumeRoleResponseBodyCredentials> credentials{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> sourceIdentity{};
 
   AssumeRoleResponseBody() {}
 
@@ -179,6 +187,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (sourceIdentity) {
+      res["SourceIdentity"] = boost::any(*sourceIdentity);
     }
     return res;
   }
@@ -200,6 +211,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SourceIdentity") != m.end() && !m["SourceIdentity"].empty()) {
+      sourceIdentity = make_shared<string>(boost::any_cast<string>(m["SourceIdentity"]));
     }
   }
 
@@ -478,6 +492,7 @@ public:
   shared_ptr<AssumeRoleWithOIDCResponseBodyCredentials> credentials{};
   shared_ptr<AssumeRoleWithOIDCResponseBodyOIDCTokenInfo> OIDCTokenInfo{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> sourceIdentity{};
 
   AssumeRoleWithOIDCResponseBody() {}
 
@@ -500,6 +515,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (sourceIdentity) {
+      res["SourceIdentity"] = boost::any(*sourceIdentity);
     }
     return res;
   }
@@ -528,6 +546,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SourceIdentity") != m.end() && !m["SourceIdentity"].empty()) {
+      sourceIdentity = make_shared<string>(boost::any_cast<string>(m["SourceIdentity"]));
     }
   }
 
@@ -785,6 +806,7 @@ public:
   shared_ptr<AssumeRoleWithSAMLResponseBodyCredentials> credentials{};
   shared_ptr<string> requestId{};
   shared_ptr<AssumeRoleWithSAMLResponseBodySAMLAssertionInfo> SAMLAssertionInfo{};
+  shared_ptr<string> sourceIdentity{};
 
   AssumeRoleWithSAMLResponseBody() {}
 
@@ -807,6 +829,9 @@ public:
     }
     if (SAMLAssertionInfo) {
       res["SAMLAssertionInfo"] = SAMLAssertionInfo ? boost::any(SAMLAssertionInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceIdentity) {
+      res["SourceIdentity"] = boost::any(*sourceIdentity);
     }
     return res;
   }
@@ -835,6 +860,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SAMLAssertionInfo"]));
         SAMLAssertionInfo = make_shared<AssumeRoleWithSAMLResponseBodySAMLAssertionInfo>(model1);
       }
+    }
+    if (m.find("SourceIdentity") != m.end() && !m["SourceIdentity"].empty()) {
+      sourceIdentity = make_shared<string>(boost::any_cast<string>(m["SourceIdentity"]));
     }
   }
 

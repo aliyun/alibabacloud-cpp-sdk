@@ -93,6 +93,9 @@ AssumeRoleResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->roleSessionName)) {
     query->insert(pair<string, string>("RoleSessionName", *request->roleSessionName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIdentity)) {
+    query->insert(pair<string, string>("SourceIdentity", *request->sourceIdentity));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -107,12 +110,7 @@ AssumeRoleResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOptions(share
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AssumeRoleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AssumeRoleResponse(execute(params, req, runtime));
-  }
+  return AssumeRoleResponse(callApi(params, req, runtime));
 }
 
 AssumeRoleResponse Alibabacloud_Sts20150401::Client::assumeRole(shared_ptr<AssumeRoleRequest> request) {
@@ -155,12 +153,7 @@ AssumeRoleWithOIDCResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOIDCW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AssumeRoleWithOIDCResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AssumeRoleWithOIDCResponse(execute(params, req, runtime));
-  }
+  return AssumeRoleWithOIDCResponse(callApi(params, req, runtime));
 }
 
 AssumeRoleWithOIDCResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOIDC(shared_ptr<AssumeRoleWithOIDCRequest> request) {
@@ -200,12 +193,7 @@ AssumeRoleWithSAMLResponse Alibabacloud_Sts20150401::Client::assumeRoleWithSAMLW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AssumeRoleWithSAMLResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AssumeRoleWithSAMLResponse(execute(params, req, runtime));
-  }
+  return AssumeRoleWithSAMLResponse(callApi(params, req, runtime));
 }
 
 AssumeRoleWithSAMLResponse Alibabacloud_Sts20150401::Client::assumeRoleWithSAML(shared_ptr<AssumeRoleWithSAMLRequest> request) {
@@ -226,12 +214,7 @@ GetCallerIdentityResponse Alibabacloud_Sts20150401::Client::getCallerIdentityWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetCallerIdentityResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetCallerIdentityResponse(execute(params, req, runtime));
-  }
+  return GetCallerIdentityResponse(callApi(params, req, runtime));
 }
 
 GetCallerIdentityResponse Alibabacloud_Sts20150401::Client::getCallerIdentity() {
