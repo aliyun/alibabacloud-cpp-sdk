@@ -5215,6 +5215,113 @@ public:
 
   virtual ~GetSmsSignResponseBodyAuditInfo() = default;
 };
+class GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons : public Darabonba::Model {
+public:
+  shared_ptr<string> reasonCode{};
+  shared_ptr<vector<string>> reasonDescList{};
+
+  GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons() {}
+
+  explicit GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reasonCode) {
+      res["ReasonCode"] = boost::any(*reasonCode);
+    }
+    if (reasonDescList) {
+      res["ReasonDescList"] = boost::any(*reasonDescList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
+      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
+    }
+    if (m.find("ReasonDescList") != m.end() && !m["ReasonDescList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ReasonDescList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReasonDescList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      reasonDescList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons() = default;
+};
+class GetSmsSignResponseBodySignIspRegisterDetailList : public Darabonba::Model {
+public:
+  shared_ptr<string> operatorCode{};
+  shared_ptr<string> operatorCompleteTime{};
+  shared_ptr<long> registerStatus{};
+  shared_ptr<vector<GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons>> registerStatusReasons{};
+
+  GetSmsSignResponseBodySignIspRegisterDetailList() {}
+
+  explicit GetSmsSignResponseBodySignIspRegisterDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (operatorCode) {
+      res["OperatorCode"] = boost::any(*operatorCode);
+    }
+    if (operatorCompleteTime) {
+      res["OperatorCompleteTime"] = boost::any(*operatorCompleteTime);
+    }
+    if (registerStatus) {
+      res["RegisterStatus"] = boost::any(*registerStatus);
+    }
+    if (registerStatusReasons) {
+      vector<boost::any> temp1;
+      for(auto item1:*registerStatusReasons){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RegisterStatusReasons"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OperatorCode") != m.end() && !m["OperatorCode"].empty()) {
+      operatorCode = make_shared<string>(boost::any_cast<string>(m["OperatorCode"]));
+    }
+    if (m.find("OperatorCompleteTime") != m.end() && !m["OperatorCompleteTime"].empty()) {
+      operatorCompleteTime = make_shared<string>(boost::any_cast<string>(m["OperatorCompleteTime"]));
+    }
+    if (m.find("RegisterStatus") != m.end() && !m["RegisterStatus"].empty()) {
+      registerStatus = make_shared<long>(boost::any_cast<long>(m["RegisterStatus"]));
+    }
+    if (m.find("RegisterStatusReasons") != m.end() && !m["RegisterStatusReasons"].empty()) {
+      if (typeid(vector<boost::any>) == m["RegisterStatusReasons"].type()) {
+        vector<GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RegisterStatusReasons"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        registerStatusReasons = make_shared<vector<GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetSmsSignResponseBodySignIspRegisterDetailList() = default;
+};
 class GetSmsSignResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> applyScene{};
@@ -5231,6 +5338,7 @@ public:
   shared_ptr<string> remark{};
   shared_ptr<string> requestId{};
   shared_ptr<string> signCode{};
+  shared_ptr<vector<GetSmsSignResponseBodySignIspRegisterDetailList>> signIspRegisterDetailList{};
   shared_ptr<string> signName{};
   shared_ptr<long> signStatus{};
   shared_ptr<string> signTag{};
@@ -5288,6 +5396,13 @@ public:
     }
     if (signCode) {
       res["SignCode"] = boost::any(*signCode);
+    }
+    if (signIspRegisterDetailList) {
+      vector<boost::any> temp1;
+      for(auto item1:*signIspRegisterDetailList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SignIspRegisterDetailList"] = boost::any(temp1);
     }
     if (signName) {
       res["SignName"] = boost::any(*signName);
@@ -5360,6 +5475,19 @@ public:
     }
     if (m.find("SignCode") != m.end() && !m["SignCode"].empty()) {
       signCode = make_shared<string>(boost::any_cast<string>(m["SignCode"]));
+    }
+    if (m.find("SignIspRegisterDetailList") != m.end() && !m["SignIspRegisterDetailList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SignIspRegisterDetailList"].type()) {
+        vector<GetSmsSignResponseBodySignIspRegisterDetailList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SignIspRegisterDetailList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSmsSignResponseBodySignIspRegisterDetailList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        signIspRegisterDetailList = make_shared<vector<GetSmsSignResponseBodySignIspRegisterDetailList>>(expect1);
+      }
     }
     if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
       signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
