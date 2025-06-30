@@ -209,6 +209,9 @@ AddUserToDesktopGroupResponse Alibabacloud_Ecd20200930::Client::addUserToDesktop
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->simpleUserGroupId)) {
+    query->insert(pair<string, string>("SimpleUserGroupId", *request->simpleUserGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userGroupName)) {
     query->insert(pair<string, string>("UserGroupName", *request->userGroupName));
   }
@@ -2116,6 +2119,9 @@ CreateDesktopGroupResponse Alibabacloud_Ecd20200930::Client::createDesktopGroupW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionType)) {
     query->insert(pair<string, string>("SessionType", *request->sessionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->simpleUserGroupId)) {
+    query->insert(pair<string, string>("SimpleUserGroupId", *request->simpleUserGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotPolicyId)) {
     query->insert(pair<string, string>("SnapshotPolicyId", *request->snapshotPolicyId));
@@ -4295,6 +4301,9 @@ DescribeDesktopGroupsResponse Alibabacloud_Ecd20200930::Client::describeDesktopG
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->desktopGroupName)) {
     query->insert(pair<string, string>("DesktopGroupName", *request->desktopGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->desktopType)) {
+    query->insert(pair<string, string>("DesktopType", *request->desktopType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->endUserIds)) {
     query->insert(pair<string, vector<string>>("EndUserIds", *request->endUserIds));
@@ -10066,6 +10075,9 @@ RemoveUserFromDesktopGroupResponse Alibabacloud_Ecd20200930::Client::removeUserF
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->simpleUserGroupId)) {
+    query->insert(pair<string, string>("SimpleUserGroupId", *request->simpleUserGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userGroupName)) {
     query->insert(pair<string, string>("UserGroupName", *request->userGroupName));

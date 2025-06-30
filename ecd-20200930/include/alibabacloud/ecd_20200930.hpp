@@ -1202,6 +1202,7 @@ public:
   shared_ptr<vector<string>> desktopGroupIds{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> simpleUserGroupId{};
   shared_ptr<string> userGroupName{};
   shared_ptr<string> userOuPath{};
 
@@ -1229,6 +1230,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (simpleUserGroupId) {
+      res["SimpleUserGroupId"] = boost::any(*simpleUserGroupId);
     }
     if (userGroupName) {
       res["UserGroupName"] = boost::any(*userGroupName);
@@ -1268,6 +1272,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SimpleUserGroupId") != m.end() && !m["SimpleUserGroupId"].empty()) {
+      simpleUserGroupId = make_shared<string>(boost::any_cast<string>(m["SimpleUserGroupId"]));
     }
     if (m.find("UserGroupName") != m.end() && !m["UserGroupName"].empty()) {
       userGroupName = make_shared<string>(boost::any_cast<string>(m["UserGroupName"]));
@@ -8585,6 +8592,7 @@ public:
   shared_ptr<long> resetType{};
   shared_ptr<string> scaleStrategyId{};
   shared_ptr<string> sessionType{};
+  shared_ptr<string> simpleUserGroupId{};
   shared_ptr<string> snapshotPolicyId{};
   shared_ptr<long> stopDuration{};
   shared_ptr<string> systemDiskCategory{};
@@ -8748,6 +8756,9 @@ public:
     }
     if (sessionType) {
       res["SessionType"] = boost::any(*sessionType);
+    }
+    if (simpleUserGroupId) {
+      res["SimpleUserGroupId"] = boost::any(*simpleUserGroupId);
     }
     if (snapshotPolicyId) {
       res["SnapshotPolicyId"] = boost::any(*snapshotPolicyId);
@@ -8940,6 +8951,9 @@ public:
     }
     if (m.find("SessionType") != m.end() && !m["SessionType"].empty()) {
       sessionType = make_shared<string>(boost::any_cast<string>(m["SessionType"]));
+    }
+    if (m.find("SimpleUserGroupId") != m.end() && !m["SimpleUserGroupId"].empty()) {
+      simpleUserGroupId = make_shared<string>(boost::any_cast<string>(m["SimpleUserGroupId"]));
     }
     if (m.find("SnapshotPolicyId") != m.end() && !m["SnapshotPolicyId"].empty()) {
       snapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["SnapshotPolicyId"]));
@@ -21391,6 +21405,7 @@ public:
   shared_ptr<string> desktopGroupId{};
   shared_ptr<vector<string>> desktopGroupIds{};
   shared_ptr<string> desktopGroupName{};
+  shared_ptr<string> desktopType{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<vector<string>> excludedEndUserIds{};
   shared_ptr<vector<string>> imageId{};
@@ -21428,6 +21443,9 @@ public:
     }
     if (desktopGroupName) {
       res["DesktopGroupName"] = boost::any(*desktopGroupName);
+    }
+    if (desktopType) {
+      res["DesktopType"] = boost::any(*desktopType);
     }
     if (endUserIds) {
       res["EndUserIds"] = boost::any(*endUserIds);
@@ -21507,6 +21525,9 @@ public:
     }
     if (m.find("DesktopGroupName") != m.end() && !m["DesktopGroupName"].empty()) {
       desktopGroupName = make_shared<string>(boost::any_cast<string>(m["DesktopGroupName"]));
+    }
+    if (m.find("DesktopType") != m.end() && !m["DesktopType"].empty()) {
+      desktopType = make_shared<string>(boost::any_cast<string>(m["DesktopType"]));
     }
     if (m.find("EndUserIds") != m.end() && !m["EndUserIds"].empty()) {
       vector<string> toVec1;
@@ -21705,6 +21726,7 @@ public:
   shared_ptr<string> protocolType{};
   shared_ptr<double> ratioThreshold{};
   shared_ptr<long> resetType{};
+  shared_ptr<string> simpleUserGroupId{};
   shared_ptr<long> status{};
   shared_ptr<long> stopDuration{};
   shared_ptr<string> subnetId{};
@@ -21856,6 +21878,9 @@ public:
     }
     if (resetType) {
       res["ResetType"] = boost::any(*resetType);
+    }
+    if (simpleUserGroupId) {
+      res["SimpleUserGroupId"] = boost::any(*simpleUserGroupId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -22047,6 +22072,9 @@ public:
     }
     if (m.find("ResetType") != m.end() && !m["ResetType"].empty()) {
       resetType = make_shared<long>(boost::any_cast<long>(m["ResetType"]));
+    }
+    if (m.find("SimpleUserGroupId") != m.end() && !m["SimpleUserGroupId"].empty()) {
+      simpleUserGroupId = make_shared<string>(boost::any_cast<string>(m["SimpleUserGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
@@ -56031,6 +56059,7 @@ public:
   shared_ptr<vector<string>> desktopGroupIds{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> simpleUserGroupId{};
   shared_ptr<string> userGroupName{};
   shared_ptr<string> userOuPath{};
 
@@ -56055,6 +56084,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (simpleUserGroupId) {
+      res["SimpleUserGroupId"] = boost::any(*simpleUserGroupId);
     }
     if (userGroupName) {
       res["UserGroupName"] = boost::any(*userGroupName);
@@ -56091,6 +56123,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SimpleUserGroupId") != m.end() && !m["SimpleUserGroupId"].empty()) {
+      simpleUserGroupId = make_shared<string>(boost::any_cast<string>(m["SimpleUserGroupId"]));
     }
     if (m.find("UserGroupName") != m.end() && !m["UserGroupName"].empty()) {
       userGroupName = make_shared<string>(boost::any_cast<string>(m["UserGroupName"]));
