@@ -1496,6 +1496,42 @@ public:
 
   virtual ~ComponentSpec() = default;
 };
+class EniCacheConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> cachePoolSize{};
+  shared_ptr<bool> enabled{};
+
+  EniCacheConfig() {}
+
+  explicit EniCacheConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cachePoolSize) {
+      res["CachePoolSize"] = boost::any(*cachePoolSize);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CachePoolSize") != m.end() && !m["CachePoolSize"].empty()) {
+      cachePoolSize = make_shared<long>(boost::any_cast<long>(m["CachePoolSize"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~EniCacheConfig() = default;
+};
 class FeaturesQuota : public Darabonba::Model {
 public:
   shared_ptr<bool> isEnabled{};
@@ -1981,6 +2017,7 @@ public:
 };
 class MachineGroup : public Darabonba::Model {
 public:
+  shared_ptr<long> cpu{};
   shared_ptr<string> creatorID{};
   shared_ptr<string> defaultDriver{};
   shared_ptr<long> diskCapacity{};
@@ -1991,7 +2028,11 @@ public:
   shared_ptr<string> gmtExpiredTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> gmtStartedTime{};
+  shared_ptr<long> gpu{};
+  shared_ptr<long> gpuMemory{};
+  shared_ptr<string> gpuType{};
   shared_ptr<string> machineGroupID{};
+  shared_ptr<long> memory{};
   shared_ptr<string> orderInstanceId{};
   shared_ptr<string> paymentDuration{};
   shared_ptr<string> paymentDurationUnit{};
@@ -1999,6 +2040,7 @@ public:
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
   shared_ptr<string> resourceGroupID{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<vector<string>> supportedDrivers{};
 
@@ -2012,6 +2054,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
     if (creatorID) {
       res["CreatorID"] = boost::any(*creatorID);
     }
@@ -2042,8 +2087,20 @@ public:
     if (gmtStartedTime) {
       res["GmtStartedTime"] = boost::any(*gmtStartedTime);
     }
+    if (gpu) {
+      res["Gpu"] = boost::any(*gpu);
+    }
+    if (gpuMemory) {
+      res["GpuMemory"] = boost::any(*gpuMemory);
+    }
+    if (gpuType) {
+      res["GpuType"] = boost::any(*gpuType);
+    }
     if (machineGroupID) {
       res["MachineGroupID"] = boost::any(*machineGroupID);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
     }
     if (orderInstanceId) {
       res["OrderInstanceId"] = boost::any(*orderInstanceId);
@@ -2066,6 +2123,9 @@ public:
     if (resourceGroupID) {
       res["ResourceGroupID"] = boost::any(*resourceGroupID);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -2076,6 +2136,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
     if (m.find("CreatorID") != m.end() && !m["CreatorID"].empty()) {
       creatorID = make_shared<string>(boost::any_cast<string>(m["CreatorID"]));
     }
@@ -2106,8 +2169,20 @@ public:
     if (m.find("GmtStartedTime") != m.end() && !m["GmtStartedTime"].empty()) {
       gmtStartedTime = make_shared<string>(boost::any_cast<string>(m["GmtStartedTime"]));
     }
+    if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
+      gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
+    }
+    if (m.find("GpuMemory") != m.end() && !m["GpuMemory"].empty()) {
+      gpuMemory = make_shared<long>(boost::any_cast<long>(m["GpuMemory"]));
+    }
+    if (m.find("GpuType") != m.end() && !m["GpuType"].empty()) {
+      gpuType = make_shared<string>(boost::any_cast<string>(m["GpuType"]));
+    }
     if (m.find("MachineGroupID") != m.end() && !m["MachineGroupID"].empty()) {
       machineGroupID = make_shared<string>(boost::any_cast<string>(m["MachineGroupID"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
     }
     if (m.find("OrderInstanceId") != m.end() && !m["OrderInstanceId"].empty()) {
       orderInstanceId = make_shared<string>(boost::any_cast<string>(m["OrderInstanceId"]));
@@ -2129,6 +2204,9 @@ public:
     }
     if (m.find("ResourceGroupID") != m.end() && !m["ResourceGroupID"].empty()) {
       resourceGroupID = make_shared<string>(boost::any_cast<string>(m["ResourceGroupID"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -3732,6 +3810,35 @@ public:
 
   virtual ~WorkspaceSpecs() = default;
 };
+class SandboxCacheConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+
+  SandboxCacheConfig() {}
+
+  explicit SandboxCacheConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~SandboxCacheConfig() = default;
+};
 class SelfQuotaPreemptionConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> preemptedPriorities{};
@@ -3847,8 +3954,10 @@ public:
   shared_ptr<bool> enableGPUShare{};
   shared_ptr<bool> enablePreemptSubquotaWorkloads{};
   shared_ptr<bool> enableSubQuotaPreemption{};
+  shared_ptr<EniCacheConfig> eniCacheConfig{};
   shared_ptr<OversoldUsageConfig> oversoldUsageInfo{};
   shared_ptr<vector<WorkspaceSpecs>> resourceSpecs{};
+  shared_ptr<SandboxCacheConfig> sandboxCacheConfig{};
   shared_ptr<SelfQuotaPreemptionConfig> selfQuotaPreemptionConfig{};
   shared_ptr<SubQuotaPreemptionConfig> subQuotaPreemptionConfig{};
   shared_ptr<vector<string>> supportGPUDrivers{};
@@ -3883,6 +3992,9 @@ public:
     if (enableSubQuotaPreemption) {
       res["EnableSubQuotaPreemption"] = boost::any(*enableSubQuotaPreemption);
     }
+    if (eniCacheConfig) {
+      res["EniCacheConfig"] = eniCacheConfig ? boost::any(eniCacheConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (oversoldUsageInfo) {
       res["OversoldUsageInfo"] = oversoldUsageInfo ? boost::any(oversoldUsageInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3892,6 +4004,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ResourceSpecs"] = boost::any(temp1);
+    }
+    if (sandboxCacheConfig) {
+      res["SandboxCacheConfig"] = sandboxCacheConfig ? boost::any(sandboxCacheConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (selfQuotaPreemptionConfig) {
       res["SelfQuotaPreemptionConfig"] = selfQuotaPreemptionConfig ? boost::any(selfQuotaPreemptionConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3934,6 +4049,13 @@ public:
     if (m.find("EnableSubQuotaPreemption") != m.end() && !m["EnableSubQuotaPreemption"].empty()) {
       enableSubQuotaPreemption = make_shared<bool>(boost::any_cast<bool>(m["EnableSubQuotaPreemption"]));
     }
+    if (m.find("EniCacheConfig") != m.end() && !m["EniCacheConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EniCacheConfig"].type()) {
+        EniCacheConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EniCacheConfig"]));
+        eniCacheConfig = make_shared<EniCacheConfig>(model1);
+      }
+    }
     if (m.find("OversoldUsageInfo") != m.end() && !m["OversoldUsageInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["OversoldUsageInfo"].type()) {
         OversoldUsageConfig model1;
@@ -3952,6 +4074,13 @@ public:
           }
         }
         resourceSpecs = make_shared<vector<WorkspaceSpecs>>(expect1);
+      }
+    }
+    if (m.find("SandboxCacheConfig") != m.end() && !m["SandboxCacheConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SandboxCacheConfig"].type()) {
+        SandboxCacheConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SandboxCacheConfig"]));
+        sandboxCacheConfig = make_shared<SandboxCacheConfig>(model1);
       }
     }
     if (m.find("SelfQuotaPreemptionConfig") != m.end() && !m["SelfQuotaPreemptionConfig"].empty()) {
@@ -5473,6 +5602,120 @@ public:
 
 
   virtual ~ResourceGroupMetric() = default;
+};
+class ResourceInfo : public Darabonba::Model {
+public:
+
+  ResourceInfo() {}
+
+  explicit ResourceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+  }
+
+
+  virtual ~ResourceInfo() = default;
+};
+class ResourceInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> ecsSpec{};
+  shared_ptr<string> gpuCardType{};
+  shared_ptr<string> machineModel{};
+  shared_ptr<long> maxQuota{};
+  shared_ptr<string> networkPodId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> usedQuota{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> userName{};
+
+  ResourceInfos() {}
+
+  explicit ResourceInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (ecsSpec) {
+      res["EcsSpec"] = boost::any(*ecsSpec);
+    }
+    if (gpuCardType) {
+      res["GpuCardType"] = boost::any(*gpuCardType);
+    }
+    if (machineModel) {
+      res["MachineModel"] = boost::any(*machineModel);
+    }
+    if (maxQuota) {
+      res["MaxQuota"] = boost::any(*maxQuota);
+    }
+    if (networkPodId) {
+      res["NetworkPodId"] = boost::any(*networkPodId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (usedQuota) {
+      res["UsedQuota"] = boost::any(*usedQuota);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
+      ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
+    }
+    if (m.find("GpuCardType") != m.end() && !m["GpuCardType"].empty()) {
+      gpuCardType = make_shared<string>(boost::any_cast<string>(m["GpuCardType"]));
+    }
+    if (m.find("MachineModel") != m.end() && !m["MachineModel"].empty()) {
+      machineModel = make_shared<string>(boost::any_cast<string>(m["MachineModel"]));
+    }
+    if (m.find("MaxQuota") != m.end() && !m["MaxQuota"].empty()) {
+      maxQuota = make_shared<long>(boost::any_cast<long>(m["MaxQuota"]));
+    }
+    if (m.find("NetworkPodId") != m.end() && !m["NetworkPodId"].empty()) {
+      networkPodId = make_shared<string>(boost::any_cast<string>(m["NetworkPodId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("UsedQuota") != m.end() && !m["UsedQuota"].empty()) {
+      usedQuota = make_shared<long>(boost::any_cast<long>(m["UsedQuota"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~ResourceInfos() = default;
 };
 class ResourceLimitDetails : public Darabonba::Model {
 public:
@@ -14421,6 +14664,7 @@ public:
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceGroupIDs{};
   shared_ptr<string> resourceType{};
   shared_ptr<bool> showAll{};
   shared_ptr<string> sortBy{};
@@ -14450,6 +14694,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (resourceGroupIDs) {
+      res["ResourceGroupIDs"] = boost::any(*resourceGroupIDs);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -14481,6 +14728,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceGroupIDs") != m.end() && !m["ResourceGroupIDs"].empty()) {
+      resourceGroupIDs = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIDs"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));

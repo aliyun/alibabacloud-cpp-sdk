@@ -1515,6 +1515,9 @@ ListResourceGroupsResponse Alibabacloud_PaiStudio20220112::Client::listResourceG
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupIDs)) {
+    query->insert(pair<string, string>("ResourceGroupIDs", *request->resourceGroupIDs));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
