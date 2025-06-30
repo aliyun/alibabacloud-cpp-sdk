@@ -5736,6 +5736,7 @@ public:
   shared_ptr<string> agentId{};
   shared_ptr<string> agentVersion{};
   shared_ptr<string> clusterId{};
+  shared_ptr<string> configId{};
   shared_ptr<string> grayscaleConfig{};
 
   InstallAgentForClusterRequest() {}
@@ -5757,6 +5758,9 @@ public:
     if (clusterId) {
       res["cluster_id"] = boost::any(*clusterId);
     }
+    if (configId) {
+      res["config_id"] = boost::any(*configId);
+    }
     if (grayscaleConfig) {
       res["grayscale_config"] = boost::any(*grayscaleConfig);
     }
@@ -5772,6 +5776,9 @@ public:
     }
     if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
+    if (m.find("config_id") != m.end() && !m["config_id"].empty()) {
+      configId = make_shared<string>(boost::any_cast<string>(m["config_id"]));
     }
     if (m.find("grayscale_config") != m.end() && !m["grayscale_config"].empty()) {
       grayscaleConfig = make_shared<string>(boost::any_cast<string>(m["grayscale_config"]));
@@ -6643,6 +6650,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> pluginId{};
   shared_ptr<string> pluginVersion{};
+  shared_ptr<string> region{};
   shared_ptr<string> status{};
 
   ListAgentInstallRecordsRequest() {}
@@ -6670,6 +6678,9 @@ public:
     if (pluginVersion) {
       res["plugin_version"] = boost::any(*pluginVersion);
     }
+    if (region) {
+      res["region"] = boost::any(*region);
+    }
     if (status) {
       res["status"] = boost::any(*status);
     }
@@ -6691,6 +6702,9 @@ public:
     }
     if (m.find("plugin_version") != m.end() && !m["plugin_version"].empty()) {
       pluginVersion = make_shared<string>(boost::any_cast<string>(m["plugin_version"]));
+    }
+    if (m.find("region") != m.end() && !m["region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["region"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
@@ -7218,6 +7232,7 @@ public:
 };
 class ListClusterAgentInstallRecordsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentConfigId{};
   shared_ptr<string> clusterId{};
   shared_ptr<long> current{};
   shared_ptr<long> pageSize{};
@@ -7234,6 +7249,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentConfigId) {
+      res["agent_config_id"] = boost::any(*agentConfigId);
+    }
     if (clusterId) {
       res["cluster_id"] = boost::any(*clusterId);
     }
@@ -7253,6 +7271,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agent_config_id") != m.end() && !m["agent_config_id"].empty()) {
+      agentConfigId = make_shared<string>(boost::any_cast<string>(m["agent_config_id"]));
+    }
     if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
     }
@@ -7275,6 +7296,8 @@ public:
 };
 class ListClusterAgentInstallRecordsResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> agentConfigId{};
+  shared_ptr<string> agentConfigName{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> createdAt{};
   shared_ptr<string> grayscaleConfig{};
@@ -7292,6 +7315,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentConfigId) {
+      res["agent_config_id"] = boost::any(*agentConfigId);
+    }
+    if (agentConfigName) {
+      res["agent_config_name"] = boost::any(*agentConfigName);
+    }
     if (clusterId) {
       res["cluster_id"] = boost::any(*clusterId);
     }
@@ -7314,6 +7343,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agent_config_id") != m.end() && !m["agent_config_id"].empty()) {
+      agentConfigId = make_shared<string>(boost::any_cast<string>(m["agent_config_id"]));
+    }
+    if (m.find("agent_config_name") != m.end() && !m["agent_config_name"].empty()) {
+      agentConfigName = make_shared<string>(boost::any_cast<string>(m["agent_config_name"]));
+    }
     if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
     }

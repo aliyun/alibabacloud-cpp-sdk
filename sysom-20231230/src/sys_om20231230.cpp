@@ -1011,6 +1011,9 @@ InstallAgentForClusterResponse Alibabacloud_SysOM20231230::Client::installAgentF
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     body->insert(pair<string, string>("cluster_id", *request->clusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    body->insert(pair<string, string>("config_id", *request->configId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->grayscaleConfig)) {
     body->insert(pair<string, string>("grayscale_config", *request->grayscaleConfig));
   }
@@ -1179,6 +1182,9 @@ ListAgentInstallRecordsResponse Alibabacloud_SysOM20231230::Client::listAgentIns
   if (!Darabonba_Util::Client::isUnset<string>(request->pluginVersion)) {
     query->insert(pair<string, string>("plugin_version", *request->pluginVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("region", *request->region));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("status", *request->status));
   }
@@ -1248,6 +1254,9 @@ ListAgentsResponse Alibabacloud_SysOM20231230::Client::listAgents(shared_ptr<Lis
 ListClusterAgentInstallRecordsResponse Alibabacloud_SysOM20231230::Client::listClusterAgentInstallRecordsWithOptions(shared_ptr<ListClusterAgentInstallRecordsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentConfigId)) {
+    query->insert(pair<string, string>("agent_config_id", *request->agentConfigId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("cluster_id", *request->clusterId));
   }
