@@ -1437,6 +1437,7 @@ public:
   shared_ptr<string> category{};
   shared_ptr<RequestContents> contents{};
   shared_ptr<string> engineType{};
+  shared_ptr<string> location{};
   shared_ptr<string> query{};
   shared_ptr<string> timeRange{};
 
@@ -1458,6 +1459,9 @@ public:
     }
     if (engineType) {
       res["engineType"] = boost::any(*engineType);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
     }
     if (query) {
       res["query"] = boost::any(*query);
@@ -1481,6 +1485,9 @@ public:
     }
     if (m.find("engineType") != m.end() && !m["engineType"].empty()) {
       engineType = make_shared<string>(boost::any_cast<string>(m["engineType"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
     }
     if (m.find("query") != m.end() && !m["query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["query"]));
