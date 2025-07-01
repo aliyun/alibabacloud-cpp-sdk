@@ -144,173 +144,6 @@ public:
 
   virtual ~AddClientToBlackListResponse() = default;
 };
-class AddTagsRequestTag : public Darabonba::Model {
-public:
-  shared_ptr<string> key{};
-  shared_ptr<string> value{};
-
-  AddTagsRequestTag() {}
-
-  explicit AddTagsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (key) {
-      res["Key"] = boost::any(*key);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Key") != m.end() && !m["Key"].empty()) {
-      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
-    }
-  }
-
-
-  virtual ~AddTagsRequestTag() = default;
-};
-class AddTagsRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> fileSystemId{};
-  shared_ptr<vector<AddTagsRequestTag>> tag{};
-
-  AddTagsRequest() {}
-
-  explicit AddTagsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (fileSystemId) {
-      res["FileSystemId"] = boost::any(*fileSystemId);
-    }
-    if (tag) {
-      vector<boost::any> temp1;
-      for(auto item1:*tag){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Tag"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
-      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
-    }
-    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
-      if (typeid(vector<boost::any>) == m["Tag"].type()) {
-        vector<AddTagsRequestTag> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            AddTagsRequestTag model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        tag = make_shared<vector<AddTagsRequestTag>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~AddTagsRequest() = default;
-};
-class AddTagsResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  AddTagsResponseBody() {}
-
-  explicit AddTagsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~AddTagsResponseBody() = default;
-};
-class AddTagsResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<AddTagsResponseBody> body{};
-
-  AddTagsResponse() {}
-
-  explicit AddTagsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        AddTagsResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<AddTagsResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~AddTagsResponse() = default;
-};
 class ApplyAutoSnapshotPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> autoSnapshotPolicyId{};
@@ -2919,6 +2752,7 @@ public:
   shared_ptr<string> dstDirectory{};
   shared_ptr<string> entryList{};
   shared_ptr<string> fileSystemId{};
+  shared_ptr<string> includes{};
   shared_ptr<string> srcTaskId{};
   shared_ptr<string> taskAction{};
 
@@ -2962,6 +2796,9 @@ public:
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
     }
+    if (includes) {
+      res["Includes"] = boost::any(*includes);
+    }
     if (srcTaskId) {
       res["SrcTaskId"] = boost::any(*srcTaskId);
     }
@@ -3001,6 +2838,9 @@ public:
     }
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("Includes") != m.end() && !m["Includes"].empty()) {
+      includes = make_shared<string>(boost::any_cast<string>(m["Includes"]));
     }
     if (m.find("SrcTaskId") != m.end() && !m["SrcTaskId"].empty()) {
       srcTaskId = make_shared<string>(boost::any_cast<string>(m["SrcTaskId"]));
@@ -3384,6 +3224,42 @@ public:
 
   virtual ~CreateFileResponse() = default;
 };
+class CreateFileSystemRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateFileSystemRequestTag() {}
+
+  explicit CreateFileSystemRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateFileSystemRequestTag() = default;
+};
 class CreateFileSystemRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -3400,6 +3276,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> snapshotId{};
   shared_ptr<string> storageType{};
+  shared_ptr<vector<CreateFileSystemRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -3456,6 +3333,13 @@ public:
     if (storageType) {
       res["StorageType"] = boost::any(*storageType);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -3510,6 +3394,19 @@ public:
     }
     if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
       storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateFileSystemRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateFileSystemRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateFileSystemRequestTag>>(expect1);
+      }
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -3946,10 +3843,8 @@ public:
 class CreateLifecyclePolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileSystemId{};
-  shared_ptr<vector<string>> fsetIds{};
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<string> lifecycleRuleName{};
-  shared_ptr<string> lifecycleRuleType{};
   shared_ptr<string> path{};
   shared_ptr<vector<string>> paths{};
   shared_ptr<string> storageType{};
@@ -3967,17 +3862,11 @@ public:
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
     }
-    if (fsetIds) {
-      res["FsetIds"] = boost::any(*fsetIds);
-    }
     if (lifecyclePolicyName) {
       res["LifecyclePolicyName"] = boost::any(*lifecyclePolicyName);
     }
     if (lifecycleRuleName) {
       res["LifecycleRuleName"] = boost::any(*lifecycleRuleName);
-    }
-    if (lifecycleRuleType) {
-      res["LifecycleRuleType"] = boost::any(*lifecycleRuleType);
     }
     if (path) {
       res["Path"] = boost::any(*path);
@@ -3995,24 +3884,11 @@ public:
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
     }
-    if (m.find("FsetIds") != m.end() && !m["FsetIds"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["FsetIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FsetIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      fsetIds = make_shared<vector<string>>(toVec1);
-    }
     if (m.find("LifecyclePolicyName") != m.end() && !m["LifecyclePolicyName"].empty()) {
       lifecyclePolicyName = make_shared<string>(boost::any_cast<string>(m["LifecyclePolicyName"]));
     }
     if (m.find("LifecycleRuleName") != m.end() && !m["LifecycleRuleName"].empty()) {
       lifecycleRuleName = make_shared<string>(boost::any_cast<string>(m["LifecycleRuleName"]));
-    }
-    if (m.find("LifecycleRuleType") != m.end() && !m["LifecycleRuleType"].empty()) {
-      lifecycleRuleType = make_shared<string>(boost::any_cast<string>(m["LifecycleRuleType"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -9802,6 +9678,7 @@ public:
   shared_ptr<string> fileSystemPath{};
   shared_ptr<string> filesystemId{};
   shared_ptr<string> fsPath{};
+  shared_ptr<string> includes{};
   shared_ptr<string> originator{};
   shared_ptr<long> progress{};
   shared_ptr<DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats> progressStats{};
@@ -9855,6 +9732,9 @@ public:
     }
     if (fsPath) {
       res["FsPath"] = boost::any(*fsPath);
+    }
+    if (includes) {
+      res["Includes"] = boost::any(*includes);
     }
     if (originator) {
       res["Originator"] = boost::any(*originator);
@@ -9922,6 +9802,9 @@ public:
     }
     if (m.find("FsPath") != m.end() && !m["FsPath"].empty()) {
       fsPath = make_shared<string>(boost::any_cast<string>(m["FsPath"]));
+    }
+    if (m.find("Includes") != m.end() && !m["Includes"].empty()) {
+      includes = make_shared<string>(boost::any_cast<string>(m["Includes"]));
     }
     if (m.find("Originator") != m.end() && !m["Originator"].empty()) {
       originator = make_shared<string>(boost::any_cast<string>(m["Originator"]));
@@ -12179,14 +12062,13 @@ public:
   shared_ptr<string> quorumVswId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
-  shared_ptr<long> secondaryBandwidth{};
-  shared_ptr<long> secondaryCapacity{};
   shared_ptr<string> status{};
   shared_ptr<string> storageType{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures> supportedFeatures{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemTags> tags{};
   shared_ptr<string> version{};
   shared_ptr<string> vpcId{};
+  shared_ptr<string> vscTarget{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds> vswIds{};
   shared_ptr<string> zoneId{};
 
@@ -12269,12 +12151,6 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
-    if (secondaryBandwidth) {
-      res["SecondaryBandwidth"] = boost::any(*secondaryBandwidth);
-    }
-    if (secondaryCapacity) {
-      res["SecondaryCapacity"] = boost::any(*secondaryCapacity);
-    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -12292,6 +12168,9 @@ public:
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
+    }
+    if (vscTarget) {
+      res["VscTarget"] = boost::any(*vscTarget);
     }
     if (vswIds) {
       res["VswIds"] = vswIds ? boost::any(vswIds->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12388,12 +12267,6 @@ public:
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
-    if (m.find("SecondaryBandwidth") != m.end() && !m["SecondaryBandwidth"].empty()) {
-      secondaryBandwidth = make_shared<long>(boost::any_cast<long>(m["SecondaryBandwidth"]));
-    }
-    if (m.find("SecondaryCapacity") != m.end() && !m["SecondaryCapacity"].empty()) {
-      secondaryCapacity = make_shared<long>(boost::any_cast<long>(m["SecondaryCapacity"]));
-    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
@@ -12419,6 +12292,9 @@ public:
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VscTarget") != m.end() && !m["VscTarget"].empty()) {
+      vscTarget = make_shared<string>(boost::any_cast<string>(m["VscTarget"]));
     }
     if (m.find("VswIds") != m.end() && !m["VswIds"].empty()) {
       if (typeid(map<string, boost::any>) == m["VswIds"].type()) {
@@ -12996,8 +12872,6 @@ public:
 class DescribeLifecyclePoliciesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileSystemId{};
-  shared_ptr<string> fileSystemType{};
-  shared_ptr<string> fsetId{};
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -13015,12 +12889,6 @@ public:
     map<string, boost::any> res;
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
-    }
-    if (fileSystemType) {
-      res["FileSystemType"] = boost::any(*fileSystemType);
-    }
-    if (fsetId) {
-      res["FsetId"] = boost::any(*fsetId);
     }
     if (lifecyclePolicyName) {
       res["LifecyclePolicyName"] = boost::any(*lifecyclePolicyName);
@@ -13040,12 +12908,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
-    }
-    if (m.find("FileSystemType") != m.end() && !m["FileSystemType"].empty()) {
-      fileSystemType = make_shared<string>(boost::any_cast<string>(m["FileSystemType"]));
-    }
-    if (m.find("FsetId") != m.end() && !m["FsetId"].empty()) {
-      fsetId = make_shared<string>(boost::any_cast<string>(m["FsetId"]));
     }
     if (m.find("LifecyclePolicyName") != m.end() && !m["LifecyclePolicyName"].empty()) {
       lifecyclePolicyName = make_shared<string>(boost::any_cast<string>(m["LifecyclePolicyName"]));
@@ -13067,15 +12929,11 @@ public:
 class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
-  shared_ptr<bool> enableLifecycle{};
   shared_ptr<string> fileSystemId{};
-  shared_ptr<vector<string>> fsetIds{};
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<string> lifecycleRuleName{};
-  shared_ptr<string> lifecycleRuleType{};
   shared_ptr<string> path{};
   shared_ptr<vector<string>> paths{};
-  shared_ptr<string> status{};
   shared_ptr<string> storageType{};
 
   DescribeLifecyclePoliciesResponseBodyLifecyclePolicies() {}
@@ -13091,14 +12949,8 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
-    if (enableLifecycle) {
-      res["EnableLifecycle"] = boost::any(*enableLifecycle);
-    }
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
-    }
-    if (fsetIds) {
-      res["FsetIds"] = boost::any(*fsetIds);
     }
     if (lifecyclePolicyName) {
       res["LifecyclePolicyName"] = boost::any(*lifecyclePolicyName);
@@ -13106,17 +12958,11 @@ public:
     if (lifecycleRuleName) {
       res["LifecycleRuleName"] = boost::any(*lifecycleRuleName);
     }
-    if (lifecycleRuleType) {
-      res["LifecycleRuleType"] = boost::any(*lifecycleRuleType);
-    }
     if (path) {
       res["Path"] = boost::any(*path);
     }
     if (paths) {
       res["Paths"] = boost::any(*paths);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
     }
     if (storageType) {
       res["StorageType"] = boost::any(*storageType);
@@ -13128,30 +12974,14 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
-    if (m.find("EnableLifecycle") != m.end() && !m["EnableLifecycle"].empty()) {
-      enableLifecycle = make_shared<bool>(boost::any_cast<bool>(m["EnableLifecycle"]));
-    }
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
-    }
-    if (m.find("FsetIds") != m.end() && !m["FsetIds"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["FsetIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FsetIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      fsetIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("LifecyclePolicyName") != m.end() && !m["LifecyclePolicyName"].empty()) {
       lifecyclePolicyName = make_shared<string>(boost::any_cast<string>(m["LifecyclePolicyName"]));
     }
     if (m.find("LifecycleRuleName") != m.end() && !m["LifecycleRuleName"].empty()) {
       lifecycleRuleName = make_shared<string>(boost::any_cast<string>(m["LifecycleRuleName"]));
-    }
-    if (m.find("LifecycleRuleType") != m.end() && !m["LifecycleRuleType"].empty()) {
-      lifecycleRuleType = make_shared<string>(boost::any_cast<string>(m["LifecycleRuleType"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -13165,9 +12995,6 @@ public:
         }
       }
       paths = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
       storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
@@ -13746,6 +13573,85 @@ public:
 
   virtual ~DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes() = default;
 };
+class DescribeMountTargetsResponseBodyMountTargetsMountTargetTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeMountTargetsResponseBodyMountTargetsMountTargetTagsTag() {}
+
+  explicit DescribeMountTargetsResponseBodyMountTargetsMountTargetTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeMountTargetsResponseBodyMountTargetsMountTargetTagsTag() = default;
+};
+class DescribeMountTargetsResponseBodyMountTargetsMountTargetTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMountTargetsResponseBodyMountTargetsMountTargetTagsTag>> tag{};
+
+  DescribeMountTargetsResponseBodyMountTargetsMountTargetTags() {}
+
+  explicit DescribeMountTargetsResponseBodyMountTargetsMountTargetTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeMountTargetsResponseBodyMountTargetsMountTargetTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMountTargetsResponseBodyMountTargetsMountTargetTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeMountTargetsResponseBodyMountTargetsMountTargetTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMountTargetsResponseBodyMountTargetsMountTargetTags() = default;
+};
 class DescribeMountTargetsResponseBodyMountTargetsMountTarget : public Darabonba::Model {
 public:
   shared_ptr<string> accessGroup{};
@@ -13755,6 +13661,7 @@ public:
   shared_ptr<string> mountTargetDomain{};
   shared_ptr<string> networkType{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeMountTargetsResponseBodyMountTargetsMountTargetTags> tags{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vswId{};
 
@@ -13788,6 +13695,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -13823,6 +13733,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeMountTargetsResponseBodyMountTargetsMountTargetTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeMountTargetsResponseBodyMountTargetsMountTargetTags>(model1);
+      }
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -20442,9 +20359,7 @@ public:
 };
 class ModifyLifecyclePolicyRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> enableLifecycle{};
   shared_ptr<string> fileSystemId{};
-  shared_ptr<vector<string>> fsetIds{};
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<string> lifecycleRuleName{};
   shared_ptr<string> path{};
@@ -20460,14 +20375,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (enableLifecycle) {
-      res["EnableLifecycle"] = boost::any(*enableLifecycle);
-    }
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
-    }
-    if (fsetIds) {
-      res["FsetIds"] = boost::any(*fsetIds);
     }
     if (lifecyclePolicyName) {
       res["LifecyclePolicyName"] = boost::any(*lifecyclePolicyName);
@@ -20485,21 +20394,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("EnableLifecycle") != m.end() && !m["EnableLifecycle"].empty()) {
-      enableLifecycle = make_shared<bool>(boost::any_cast<bool>(m["EnableLifecycle"]));
-    }
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
-    }
-    if (m.find("FsetIds") != m.end() && !m["FsetIds"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["FsetIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FsetIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      fsetIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("LifecyclePolicyName") != m.end() && !m["LifecyclePolicyName"].empty()) {
       lifecyclePolicyName = make_shared<string>(boost::any_cast<string>(m["LifecyclePolicyName"]));
@@ -21411,173 +21307,6 @@ public:
 
 
   virtual ~RemoveClientFromBlackListResponse() = default;
-};
-class RemoveTagsRequestTag : public Darabonba::Model {
-public:
-  shared_ptr<string> key{};
-  shared_ptr<string> value{};
-
-  RemoveTagsRequestTag() {}
-
-  explicit RemoveTagsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (key) {
-      res["Key"] = boost::any(*key);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Key") != m.end() && !m["Key"].empty()) {
-      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
-    }
-  }
-
-
-  virtual ~RemoveTagsRequestTag() = default;
-};
-class RemoveTagsRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> fileSystemId{};
-  shared_ptr<vector<RemoveTagsRequestTag>> tag{};
-
-  RemoveTagsRequest() {}
-
-  explicit RemoveTagsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (fileSystemId) {
-      res["FileSystemId"] = boost::any(*fileSystemId);
-    }
-    if (tag) {
-      vector<boost::any> temp1;
-      for(auto item1:*tag){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Tag"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
-      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
-    }
-    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
-      if (typeid(vector<boost::any>) == m["Tag"].type()) {
-        vector<RemoveTagsRequestTag> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            RemoveTagsRequestTag model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        tag = make_shared<vector<RemoveTagsRequestTag>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~RemoveTagsRequest() = default;
-};
-class RemoveTagsResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  RemoveTagsResponseBody() {}
-
-  explicit RemoveTagsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~RemoveTagsResponseBody() = default;
-};
-class RemoveTagsResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<RemoveTagsResponseBody> body{};
-
-  RemoveTagsResponse() {}
-
-  explicit RemoveTagsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        RemoveTagsResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<RemoveTagsResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~RemoveTagsResponse() = default;
 };
 class ResetFileSystemRequest : public Darabonba::Model {
 public:
@@ -22958,8 +22687,6 @@ public:
                      shared_ptr<string> endpoint);
   AddClientToBlackListResponse addClientToBlackListWithOptions(shared_ptr<AddClientToBlackListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddClientToBlackListResponse addClientToBlackList(shared_ptr<AddClientToBlackListRequest> request);
-  AddTagsResponse addTagsWithOptions(shared_ptr<AddTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AddTagsResponse addTags(shared_ptr<AddTagsRequest> request);
   ApplyAutoSnapshotPolicyResponse applyAutoSnapshotPolicyWithOptions(shared_ptr<ApplyAutoSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyAutoSnapshotPolicyResponse applyAutoSnapshotPolicy(shared_ptr<ApplyAutoSnapshotPolicyRequest> request);
   ApplyDataFlowAutoRefreshResponse applyDataFlowAutoRefreshWithOptions(shared_ptr<ApplyDataFlowAutoRefreshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23164,8 +22891,6 @@ public:
   OpenNASServiceResponse openNASService();
   RemoveClientFromBlackListResponse removeClientFromBlackListWithOptions(shared_ptr<RemoveClientFromBlackListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveClientFromBlackListResponse removeClientFromBlackList(shared_ptr<RemoveClientFromBlackListRequest> request);
-  RemoveTagsResponse removeTagsWithOptions(shared_ptr<RemoveTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RemoveTagsResponse removeTags(shared_ptr<RemoveTagsRequest> request);
   ResetFileSystemResponse resetFileSystemWithOptions(shared_ptr<ResetFileSystemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResetFileSystemResponse resetFileSystem(shared_ptr<ResetFileSystemRequest> request);
   RetryLifecycleRetrieveJobResponse retryLifecycleRetrieveJobWithOptions(shared_ptr<RetryLifecycleRetrieveJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
