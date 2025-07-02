@@ -1520,6 +1520,255 @@ public:
 
   virtual ~GetEnterpriseVocAnalysisTaskResponse() = default;
 };
+class GetEssayCorrectionTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  GetEssayCorrectionTaskRequest() {}
+
+  explicit GetEssayCorrectionTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+  }
+
+
+  virtual ~GetEssayCorrectionTaskRequest() = default;
+};
+class GetEssayCorrectionTaskResponseBodyDataResults : public Darabonba::Model {
+public:
+  shared_ptr<string> customId{};
+  shared_ptr<string> result{};
+  shared_ptr<long> score{};
+
+  GetEssayCorrectionTaskResponseBodyDataResults() {}
+
+  explicit GetEssayCorrectionTaskResponseBodyDataResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customId) {
+      res["customId"] = boost::any(*customId);
+    }
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    if (score) {
+      res["score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("customId") != m.end() && !m["customId"].empty()) {
+      customId = make_shared<string>(boost::any_cast<string>(m["customId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["result"]));
+    }
+    if (m.find("score") != m.end() && !m["score"].empty()) {
+      score = make_shared<long>(boost::any_cast<long>(m["score"]));
+    }
+  }
+
+
+  virtual ~GetEssayCorrectionTaskResponseBodyDataResults() = default;
+};
+class GetEssayCorrectionTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<vector<GetEssayCorrectionTaskResponseBodyDataResults>> results{};
+  shared_ptr<string> status{};
+
+  GetEssayCorrectionTaskResponseBodyData() {}
+
+  explicit GetEssayCorrectionTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["results"] = boost::any(temp1);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("results") != m.end() && !m["results"].empty()) {
+      if (typeid(vector<boost::any>) == m["results"].type()) {
+        vector<GetEssayCorrectionTaskResponseBodyDataResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetEssayCorrectionTaskResponseBodyDataResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<GetEssayCorrectionTaskResponseBodyDataResults>>(expect1);
+      }
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+  }
+
+
+  virtual ~GetEssayCorrectionTaskResponseBodyData() = default;
+};
+class GetEssayCorrectionTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetEssayCorrectionTaskResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetEssayCorrectionTaskResponseBody() {}
+
+  explicit GetEssayCorrectionTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetEssayCorrectionTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetEssayCorrectionTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetEssayCorrectionTaskResponseBody() = default;
+};
+class GetEssayCorrectionTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetEssayCorrectionTaskResponseBody> body{};
+
+  GetEssayCorrectionTaskResponse() {}
+
+  explicit GetEssayCorrectionTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetEssayCorrectionTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetEssayCorrectionTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetEssayCorrectionTaskResponse() = default;
+};
 class GetTagMiningAnalysisTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> taskId{};
@@ -5168,6 +5417,367 @@ public:
 
   virtual ~RunEnterpriseVocAnalysisResponse() = default;
 };
+class RunEssayCorrectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> answer{};
+  shared_ptr<string> grade{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> otherReviewPoints{};
+  shared_ptr<string> question{};
+  shared_ptr<string> subject{};
+  shared_ptr<long> totalScore{};
+
+  RunEssayCorrectionRequest() {}
+
+  explicit RunEssayCorrectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answer) {
+      res["answer"] = boost::any(*answer);
+    }
+    if (grade) {
+      res["grade"] = boost::any(*grade);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (otherReviewPoints) {
+      res["otherReviewPoints"] = boost::any(*otherReviewPoints);
+    }
+    if (question) {
+      res["question"] = boost::any(*question);
+    }
+    if (subject) {
+      res["subject"] = boost::any(*subject);
+    }
+    if (totalScore) {
+      res["totalScore"] = boost::any(*totalScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("answer") != m.end() && !m["answer"].empty()) {
+      answer = make_shared<string>(boost::any_cast<string>(m["answer"]));
+    }
+    if (m.find("grade") != m.end() && !m["grade"].empty()) {
+      grade = make_shared<string>(boost::any_cast<string>(m["grade"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("otherReviewPoints") != m.end() && !m["otherReviewPoints"].empty()) {
+      otherReviewPoints = make_shared<string>(boost::any_cast<string>(m["otherReviewPoints"]));
+    }
+    if (m.find("question") != m.end() && !m["question"].empty()) {
+      question = make_shared<string>(boost::any_cast<string>(m["question"]));
+    }
+    if (m.find("subject") != m.end() && !m["subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["subject"]));
+    }
+    if (m.find("totalScore") != m.end() && !m["totalScore"].empty()) {
+      totalScore = make_shared<long>(boost::any_cast<long>(m["totalScore"]));
+    }
+  }
+
+
+  virtual ~RunEssayCorrectionRequest() = default;
+};
+class RunEssayCorrectionResponseBodyHeader : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> event{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> traceId{};
+
+  RunEssayCorrectionResponseBodyHeader() {}
+
+  explicit RunEssayCorrectionResponseBodyHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (event) {
+      res["event"] = boost::any(*event);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("event") != m.end() && !m["event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["event"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~RunEssayCorrectionResponseBodyHeader() = default;
+};
+class RunEssayCorrectionResponseBodyPayloadOutput : public Darabonba::Model {
+public:
+  shared_ptr<long> score{};
+  shared_ptr<string> text{};
+
+  RunEssayCorrectionResponseBodyPayloadOutput() {}
+
+  explicit RunEssayCorrectionResponseBodyPayloadOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (score) {
+      res["score"] = boost::any(*score);
+    }
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("score") != m.end() && !m["score"].empty()) {
+      score = make_shared<long>(boost::any_cast<long>(m["score"]));
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunEssayCorrectionResponseBodyPayloadOutput() = default;
+};
+class RunEssayCorrectionResponseBodyPayloadUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<long> totalTokens{};
+
+  RunEssayCorrectionResponseBodyPayloadUsage() {}
+
+  explicit RunEssayCorrectionResponseBodyPayloadUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["totalTokens"]));
+    }
+  }
+
+
+  virtual ~RunEssayCorrectionResponseBodyPayloadUsage() = default;
+};
+class RunEssayCorrectionResponseBodyPayload : public Darabonba::Model {
+public:
+  shared_ptr<RunEssayCorrectionResponseBodyPayloadOutput> output{};
+  shared_ptr<RunEssayCorrectionResponseBodyPayloadUsage> usage{};
+
+  RunEssayCorrectionResponseBodyPayload() {}
+
+  explicit RunEssayCorrectionResponseBodyPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["output"] = output ? boost::any(output->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usage) {
+      res["usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("output") != m.end() && !m["output"].empty()) {
+      if (typeid(map<string, boost::any>) == m["output"].type()) {
+        RunEssayCorrectionResponseBodyPayloadOutput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["output"]));
+        output = make_shared<RunEssayCorrectionResponseBodyPayloadOutput>(model1);
+      }
+    }
+    if (m.find("usage") != m.end() && !m["usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["usage"].type()) {
+        RunEssayCorrectionResponseBodyPayloadUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["usage"]));
+        usage = make_shared<RunEssayCorrectionResponseBodyPayloadUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunEssayCorrectionResponseBodyPayload() = default;
+};
+class RunEssayCorrectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RunEssayCorrectionResponseBodyHeader> header{};
+  shared_ptr<RunEssayCorrectionResponseBodyPayload> payload{};
+  shared_ptr<string> requestId{};
+
+  RunEssayCorrectionResponseBody() {}
+
+  explicit RunEssayCorrectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (header) {
+      res["header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (payload) {
+      res["payload"] = payload ? boost::any(payload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("header") != m.end() && !m["header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["header"].type()) {
+        RunEssayCorrectionResponseBodyHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["header"]));
+        header = make_shared<RunEssayCorrectionResponseBodyHeader>(model1);
+      }
+    }
+    if (m.find("payload") != m.end() && !m["payload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["payload"].type()) {
+        RunEssayCorrectionResponseBodyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["payload"]));
+        payload = make_shared<RunEssayCorrectionResponseBodyPayload>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~RunEssayCorrectionResponseBody() = default;
+};
+class RunEssayCorrectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunEssayCorrectionResponseBody> body{};
+
+  RunEssayCorrectionResponse() {}
+
+  explicit RunEssayCorrectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunEssayCorrectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunEssayCorrectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunEssayCorrectionResponse() = default;
+};
 class RunHotTopicChatRequestMessages : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -7939,6 +8549,332 @@ public:
 
 
   virtual ~RunNetworkContentAuditResponse() = default;
+};
+class RunOcrParseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileKey{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> url{};
+
+  RunOcrParseRequest() {}
+
+  explicit RunOcrParseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileKey) {
+      res["fileKey"] = boost::any(*fileKey);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fileKey") != m.end() && !m["fileKey"].empty()) {
+      fileKey = make_shared<string>(boost::any_cast<string>(m["fileKey"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~RunOcrParseRequest() = default;
+};
+class RunOcrParseResponseBodyHeader : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> event{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> traceId{};
+
+  RunOcrParseResponseBodyHeader() {}
+
+  explicit RunOcrParseResponseBodyHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (event) {
+      res["event"] = boost::any(*event);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("event") != m.end() && !m["event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["event"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~RunOcrParseResponseBodyHeader() = default;
+};
+class RunOcrParseResponseBodyPayloadOutput : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  RunOcrParseResponseBodyPayloadOutput() {}
+
+  explicit RunOcrParseResponseBodyPayloadOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunOcrParseResponseBodyPayloadOutput() = default;
+};
+class RunOcrParseResponseBodyPayloadUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<long> totalTokens{};
+
+  RunOcrParseResponseBodyPayloadUsage() {}
+
+  explicit RunOcrParseResponseBodyPayloadUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["totalTokens"]));
+    }
+  }
+
+
+  virtual ~RunOcrParseResponseBodyPayloadUsage() = default;
+};
+class RunOcrParseResponseBodyPayload : public Darabonba::Model {
+public:
+  shared_ptr<RunOcrParseResponseBodyPayloadOutput> output{};
+  shared_ptr<RunOcrParseResponseBodyPayloadUsage> usage{};
+
+  RunOcrParseResponseBodyPayload() {}
+
+  explicit RunOcrParseResponseBodyPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["output"] = output ? boost::any(output->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usage) {
+      res["usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("output") != m.end() && !m["output"].empty()) {
+      if (typeid(map<string, boost::any>) == m["output"].type()) {
+        RunOcrParseResponseBodyPayloadOutput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["output"]));
+        output = make_shared<RunOcrParseResponseBodyPayloadOutput>(model1);
+      }
+    }
+    if (m.find("usage") != m.end() && !m["usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["usage"].type()) {
+        RunOcrParseResponseBodyPayloadUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["usage"]));
+        usage = make_shared<RunOcrParseResponseBodyPayloadUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunOcrParseResponseBodyPayload() = default;
+};
+class RunOcrParseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RunOcrParseResponseBodyHeader> header{};
+  shared_ptr<RunOcrParseResponseBodyPayload> payload{};
+  shared_ptr<string> requestId{};
+
+  RunOcrParseResponseBody() {}
+
+  explicit RunOcrParseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (header) {
+      res["header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (payload) {
+      res["payload"] = payload ? boost::any(payload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("header") != m.end() && !m["header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["header"].type()) {
+        RunOcrParseResponseBodyHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["header"]));
+        header = make_shared<RunOcrParseResponseBodyHeader>(model1);
+      }
+    }
+    if (m.find("payload") != m.end() && !m["payload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["payload"].type()) {
+        RunOcrParseResponseBodyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["payload"]));
+        payload = make_shared<RunOcrParseResponseBodyPayload>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~RunOcrParseResponseBody() = default;
+};
+class RunOcrParseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunOcrParseResponseBody> body{};
+
+  RunOcrParseResponse() {}
+
+  explicit RunOcrParseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunOcrParseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunOcrParseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunOcrParseResponse() = default;
 };
 class RunScriptChatRequest : public Darabonba::Model {
 public:
@@ -12771,6 +13707,375 @@ public:
 
   virtual ~SubmitEnterpriseVocAnalysisTaskResponse() = default;
 };
+class SubmitEssayCorrectionTaskRequestTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> answer{};
+  shared_ptr<string> grade{};
+  shared_ptr<string> otherReviewPoints{};
+  shared_ptr<string> question{};
+  shared_ptr<string> subject{};
+  shared_ptr<long> totalScore{};
+
+  SubmitEssayCorrectionTaskRequestTasks() {}
+
+  explicit SubmitEssayCorrectionTaskRequestTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answer) {
+      res["answer"] = boost::any(*answer);
+    }
+    if (grade) {
+      res["grade"] = boost::any(*grade);
+    }
+    if (otherReviewPoints) {
+      res["otherReviewPoints"] = boost::any(*otherReviewPoints);
+    }
+    if (question) {
+      res["question"] = boost::any(*question);
+    }
+    if (subject) {
+      res["subject"] = boost::any(*subject);
+    }
+    if (totalScore) {
+      res["totalScore"] = boost::any(*totalScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("answer") != m.end() && !m["answer"].empty()) {
+      answer = make_shared<string>(boost::any_cast<string>(m["answer"]));
+    }
+    if (m.find("grade") != m.end() && !m["grade"].empty()) {
+      grade = make_shared<string>(boost::any_cast<string>(m["grade"]));
+    }
+    if (m.find("otherReviewPoints") != m.end() && !m["otherReviewPoints"].empty()) {
+      otherReviewPoints = make_shared<string>(boost::any_cast<string>(m["otherReviewPoints"]));
+    }
+    if (m.find("question") != m.end() && !m["question"].empty()) {
+      question = make_shared<string>(boost::any_cast<string>(m["question"]));
+    }
+    if (m.find("subject") != m.end() && !m["subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["subject"]));
+    }
+    if (m.find("totalScore") != m.end() && !m["totalScore"].empty()) {
+      totalScore = make_shared<long>(boost::any_cast<long>(m["totalScore"]));
+    }
+  }
+
+
+  virtual ~SubmitEssayCorrectionTaskRequestTasks() = default;
+};
+class SubmitEssayCorrectionTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> grade{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> otherReviewPoints{};
+  shared_ptr<string> question{};
+  shared_ptr<string> subject{};
+  shared_ptr<vector<SubmitEssayCorrectionTaskRequestTasks>> tasks{};
+  shared_ptr<long> totalScore{};
+
+  SubmitEssayCorrectionTaskRequest() {}
+
+  explicit SubmitEssayCorrectionTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (grade) {
+      res["grade"] = boost::any(*grade);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (otherReviewPoints) {
+      res["otherReviewPoints"] = boost::any(*otherReviewPoints);
+    }
+    if (question) {
+      res["question"] = boost::any(*question);
+    }
+    if (subject) {
+      res["subject"] = boost::any(*subject);
+    }
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tasks"] = boost::any(temp1);
+    }
+    if (totalScore) {
+      res["totalScore"] = boost::any(*totalScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("grade") != m.end() && !m["grade"].empty()) {
+      grade = make_shared<string>(boost::any_cast<string>(m["grade"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("otherReviewPoints") != m.end() && !m["otherReviewPoints"].empty()) {
+      otherReviewPoints = make_shared<string>(boost::any_cast<string>(m["otherReviewPoints"]));
+    }
+    if (m.find("question") != m.end() && !m["question"].empty()) {
+      question = make_shared<string>(boost::any_cast<string>(m["question"]));
+    }
+    if (m.find("subject") != m.end() && !m["subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["subject"]));
+    }
+    if (m.find("tasks") != m.end() && !m["tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["tasks"].type()) {
+        vector<SubmitEssayCorrectionTaskRequestTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitEssayCorrectionTaskRequestTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<SubmitEssayCorrectionTaskRequestTasks>>(expect1);
+      }
+    }
+    if (m.find("totalScore") != m.end() && !m["totalScore"].empty()) {
+      totalScore = make_shared<long>(boost::any_cast<long>(m["totalScore"]));
+    }
+  }
+
+
+  virtual ~SubmitEssayCorrectionTaskRequest() = default;
+};
+class SubmitEssayCorrectionTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> grade{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> otherReviewPoints{};
+  shared_ptr<string> question{};
+  shared_ptr<string> subject{};
+  shared_ptr<string> tasksShrink{};
+  shared_ptr<long> totalScore{};
+
+  SubmitEssayCorrectionTaskShrinkRequest() {}
+
+  explicit SubmitEssayCorrectionTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (grade) {
+      res["grade"] = boost::any(*grade);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (otherReviewPoints) {
+      res["otherReviewPoints"] = boost::any(*otherReviewPoints);
+    }
+    if (question) {
+      res["question"] = boost::any(*question);
+    }
+    if (subject) {
+      res["subject"] = boost::any(*subject);
+    }
+    if (tasksShrink) {
+      res["tasks"] = boost::any(*tasksShrink);
+    }
+    if (totalScore) {
+      res["totalScore"] = boost::any(*totalScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("grade") != m.end() && !m["grade"].empty()) {
+      grade = make_shared<string>(boost::any_cast<string>(m["grade"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("otherReviewPoints") != m.end() && !m["otherReviewPoints"].empty()) {
+      otherReviewPoints = make_shared<string>(boost::any_cast<string>(m["otherReviewPoints"]));
+    }
+    if (m.find("question") != m.end() && !m["question"].empty()) {
+      question = make_shared<string>(boost::any_cast<string>(m["question"]));
+    }
+    if (m.find("subject") != m.end() && !m["subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["subject"]));
+    }
+    if (m.find("tasks") != m.end() && !m["tasks"].empty()) {
+      tasksShrink = make_shared<string>(boost::any_cast<string>(m["tasks"]));
+    }
+    if (m.find("totalScore") != m.end() && !m["totalScore"].empty()) {
+      totalScore = make_shared<long>(boost::any_cast<long>(m["totalScore"]));
+    }
+  }
+
+
+  virtual ~SubmitEssayCorrectionTaskShrinkRequest() = default;
+};
+class SubmitEssayCorrectionTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  SubmitEssayCorrectionTaskResponseBodyData() {}
+
+  explicit SubmitEssayCorrectionTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+  }
+
+
+  virtual ~SubmitEssayCorrectionTaskResponseBodyData() = default;
+};
+class SubmitEssayCorrectionTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<SubmitEssayCorrectionTaskResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SubmitEssayCorrectionTaskResponseBody() {}
+
+  explicit SubmitEssayCorrectionTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        SubmitEssayCorrectionTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<SubmitEssayCorrectionTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~SubmitEssayCorrectionTaskResponseBody() = default;
+};
+class SubmitEssayCorrectionTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitEssayCorrectionTaskResponseBody> body{};
+
+  SubmitEssayCorrectionTaskResponse() {}
+
+  explicit SubmitEssayCorrectionTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitEssayCorrectionTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitEssayCorrectionTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitEssayCorrectionTaskResponse() = default;
+};
 class SubmitTagMiningAnalysisTaskRequestTags : public Darabonba::Model {
 public:
   shared_ptr<string> tagDefinePrompt{};
@@ -14264,6 +15569,11 @@ public:
                                                                                shared_ptr<map<string, string>> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEnterpriseVocAnalysisTaskResponse getEnterpriseVocAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<GetEnterpriseVocAnalysisTaskRequest> request);
+  GetEssayCorrectionTaskResponse getEssayCorrectionTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                   shared_ptr<GetEssayCorrectionTaskRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetEssayCorrectionTaskResponse getEssayCorrectionTask(shared_ptr<string> workspaceId, shared_ptr<GetEssayCorrectionTaskRequest> request);
   GetTagMiningAnalysisTaskResponse getTagMiningAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
                                                                        shared_ptr<GetTagMiningAnalysisTaskRequest> request,
                                                                        shared_ptr<map<string, string>> headers,
@@ -14296,6 +15606,11 @@ public:
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunEnterpriseVocAnalysisResponse runEnterpriseVocAnalysis(shared_ptr<string> workspaceId, shared_ptr<RunEnterpriseVocAnalysisRequest> request);
+  RunEssayCorrectionResponse runEssayCorrectionWithOptions(shared_ptr<string> workspaceId,
+                                                           shared_ptr<RunEssayCorrectionRequest> request,
+                                                           shared_ptr<map<string, string>> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunEssayCorrectionResponse runEssayCorrection(shared_ptr<string> workspaceId, shared_ptr<RunEssayCorrectionRequest> request);
   RunHotTopicChatResponse runHotTopicChatWithOptions(shared_ptr<string> workspaceId,
                                                      shared_ptr<RunHotTopicChatRequest> tmpReq,
                                                      shared_ptr<map<string, string>> headers,
@@ -14321,6 +15636,11 @@ public:
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunNetworkContentAuditResponse runNetworkContentAudit(shared_ptr<string> workspaceId, shared_ptr<RunNetworkContentAuditRequest> request);
+  RunOcrParseResponse runOcrParseWithOptions(shared_ptr<string> workspaceId,
+                                             shared_ptr<RunOcrParseRequest> request,
+                                             shared_ptr<map<string, string>> headers,
+                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunOcrParseResponse runOcrParse(shared_ptr<string> workspaceId, shared_ptr<RunOcrParseRequest> request);
   RunScriptChatResponse runScriptChatWithOptions(shared_ptr<string> workspaceId,
                                                  shared_ptr<RunScriptChatRequest> request,
                                                  shared_ptr<map<string, string>> headers,
@@ -14361,6 +15681,11 @@ public:
                                                                                      shared_ptr<map<string, string>> headers,
                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitEnterpriseVocAnalysisTaskResponse submitEnterpriseVocAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<SubmitEnterpriseVocAnalysisTaskRequest> request);
+  SubmitEssayCorrectionTaskResponse submitEssayCorrectionTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                         shared_ptr<SubmitEssayCorrectionTaskRequest> tmpReq,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitEssayCorrectionTaskResponse submitEssayCorrectionTask(shared_ptr<string> workspaceId, shared_ptr<SubmitEssayCorrectionTaskRequest> request);
   SubmitTagMiningAnalysisTaskResponse submitTagMiningAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
                                                                              shared_ptr<SubmitTagMiningAnalysisTaskRequest> tmpReq,
                                                                              shared_ptr<map<string, string>> headers,

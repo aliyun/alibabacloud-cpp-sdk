@@ -230,6 +230,39 @@ GetEnterpriseVocAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Clie
   return getEnterpriseVocAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
 }
 
+GetEssayCorrectionTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getEssayCorrectionTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                shared_ptr<GetEssayCorrectionTaskRequest> request,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetEssayCorrectionTask"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/getEssayCorrectionTask"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetEssayCorrectionTaskResponse(callApi(params, req, runtime));
+}
+
+GetEssayCorrectionTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getEssayCorrectionTask(shared_ptr<string> workspaceId, shared_ptr<GetEssayCorrectionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getEssayCorrectionTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
 GetTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::getTagMiningAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
                                                                                                                     shared_ptr<GetTagMiningAnalysisTaskRequest> request,
                                                                                                                     shared_ptr<map<string, string>> headers,
@@ -503,6 +536,57 @@ RunEnterpriseVocAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return runEnterpriseVocAnalysisWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunEssayCorrectionResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runEssayCorrectionWithOptions(shared_ptr<string> workspaceId,
+                                                                                                        shared_ptr<RunEssayCorrectionRequest> request,
+                                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->answer)) {
+    body->insert(pair<string, string>("answer", *request->answer));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grade)) {
+    body->insert(pair<string, string>("grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->otherReviewPoints)) {
+    body->insert(pair<string, string>("otherReviewPoints", *request->otherReviewPoints));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->question)) {
+    body->insert(pair<string, string>("question", *request->question));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subject)) {
+    body->insert(pair<string, string>("subject", *request->subject));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->totalScore)) {
+    body->insert(pair<string, long>("totalScore", *request->totalScore));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunEssayCorrection"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/runEssayCorrection"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunEssayCorrectionResponse(callApi(params, req, runtime));
+}
+
+RunEssayCorrectionResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runEssayCorrection(shared_ptr<string> workspaceId, shared_ptr<RunEssayCorrectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runEssayCorrectionWithOptions(workspaceId, request, headers, runtime);
 }
 
 RunHotTopicChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runHotTopicChatWithOptions(shared_ptr<string> workspaceId,
@@ -790,6 +874,45 @@ RunNetworkContentAuditResponse Alibabacloud_QuanMiaoLightApp20240801::Client::ru
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return runNetworkContentAuditWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunOcrParseResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runOcrParseWithOptions(shared_ptr<string> workspaceId,
+                                                                                          shared_ptr<RunOcrParseRequest> request,
+                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileKey)) {
+    body->insert(pair<string, string>("fileKey", *request->fileKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    body->insert(pair<string, string>("url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunOcrParse"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/runOcrParse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunOcrParseResponse(callApi(params, req, runtime));
+}
+
+RunOcrParseResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runOcrParse(shared_ptr<string> workspaceId, shared_ptr<RunOcrParseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runOcrParseWithOptions(workspaceId, request, headers, runtime);
 }
 
 RunScriptChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptChatWithOptions(shared_ptr<string> workspaceId,
@@ -1248,6 +1371,62 @@ SubmitEnterpriseVocAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::C
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return submitEnterpriseVocAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
+SubmitEssayCorrectionTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitEssayCorrectionTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                      shared_ptr<SubmitEssayCorrectionTaskRequest> tmpReq,
+                                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitEssayCorrectionTaskShrinkRequest> request = make_shared<SubmitEssayCorrectionTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitEssayCorrectionTaskRequestTasks>>(tmpReq->tasks)) {
+    request->tasksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tasks, make_shared<string>("tasks"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->grade)) {
+    body->insert(pair<string, string>("grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->otherReviewPoints)) {
+    body->insert(pair<string, string>("otherReviewPoints", *request->otherReviewPoints));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->question)) {
+    body->insert(pair<string, string>("question", *request->question));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subject)) {
+    body->insert(pair<string, string>("subject", *request->subject));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tasksShrink)) {
+    body->insert(pair<string, string>("tasks", *request->tasksShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->totalScore)) {
+    body->insert(pair<string, long>("totalScore", *request->totalScore));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitEssayCorrectionTask"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/submitEssayCorrectionTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitEssayCorrectionTaskResponse(callApi(params, req, runtime));
+}
+
+SubmitEssayCorrectionTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitEssayCorrectionTask(shared_ptr<string> workspaceId, shared_ptr<SubmitEssayCorrectionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitEssayCorrectionTaskWithOptions(workspaceId, request, headers, runtime);
 }
 
 SubmitTagMiningAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::submitTagMiningAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
