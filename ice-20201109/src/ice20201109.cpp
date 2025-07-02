@@ -522,6 +522,9 @@ BatchGetMediaInfosResponse Alibabacloud_ICE20201109::Client::batchGetMediaInfosW
   if (!Darabonba_Util::Client::isUnset<string>(request->additionType)) {
     query->insert(pair<string, string>("AdditionType", *request->additionType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->authTimeout)) {
+    query->insert(pair<string, long>("AuthTimeout", *request->authTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->mediaIds)) {
     query->insert(pair<string, string>("MediaIds", *request->mediaIds));
   }
@@ -4790,6 +4793,9 @@ GetMediaConvertJobResponse Alibabacloud_ICE20201109::Client::getMediaConvertJob(
 GetMediaInfoResponse Alibabacloud_ICE20201109::Client::getMediaInfoWithOptions(shared_ptr<GetMediaInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->authTimeout)) {
+    query->insert(pair<string, long>("AuthTimeout", *request->authTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputURL)) {
     query->insert(pair<string, string>("InputURL", *request->inputURL));
   }
@@ -5051,6 +5057,9 @@ GetPipelineResponse Alibabacloud_ICE20201109::Client::getPipeline(shared_ptr<Get
 GetPlayInfoResponse Alibabacloud_ICE20201109::Client::getPlayInfoWithOptions(shared_ptr<GetPlayInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->authTimeout)) {
+    query->insert(pair<string, long>("AuthTimeout", *request->authTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputURL)) {
     query->insert(pair<string, string>("InputURL", *request->inputURL));
   }
@@ -5822,11 +5831,17 @@ ListAIAgentInstanceResponse Alibabacloud_ICE20201109::Client::listAIAgentInstanc
 ListAIAgentPhoneNumberResponse Alibabacloud_ICE20201109::Client::listAIAgentPhoneNumberWithOptions(shared_ptr<ListAIAgentPhoneNumberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->number)) {
+    query->insert(pair<string, string>("Number", *request->number));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    query->insert(pair<string, long>("Status", *request->status));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -6903,6 +6918,9 @@ ListLiveTranscodeTemplatesResponse Alibabacloud_ICE20201109::Client::listLiveTra
 ListMediaBasicInfosResponse Alibabacloud_ICE20201109::Client::listMediaBasicInfosWithOptions(shared_ptr<ListMediaBasicInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->authTimeout)) {
+    query->insert(pair<string, long>("AuthTimeout", *request->authTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->businessType)) {
     query->insert(pair<string, string>("BusinessType", *request->businessType));
   }
@@ -9612,6 +9630,9 @@ StartAIAgentOutboundCallResponse Alibabacloud_ICE20201109::Client::startAIAgentO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->configShrink)) {
     query->insert(pair<string, string>("Config", *request->configShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imsAIAgentFreeObCall)) {
+    query->insert(pair<string, string>("ImsAIAgentFreeObCall", *request->imsAIAgentFreeObCall));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));

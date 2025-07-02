@@ -19,6 +19,7 @@ public:
   shared_ptr<vector<string>> asrHotWords{};
   shared_ptr<string> asrLanguageId{};
   shared_ptr<long> asrMaxSilence{};
+  shared_ptr<string> customParams{};
   shared_ptr<long> vadLevel{};
 
   AIAgentConfigAsrConfig() {}
@@ -39,6 +40,9 @@ public:
     }
     if (asrMaxSilence) {
       res["AsrMaxSilence"] = boost::any(*asrMaxSilence);
+    }
+    if (customParams) {
+      res["CustomParams"] = boost::any(*customParams);
     }
     if (vadLevel) {
       res["VadLevel"] = boost::any(*vadLevel);
@@ -62,6 +66,9 @@ public:
     }
     if (m.find("AsrMaxSilence") != m.end() && !m["AsrMaxSilence"].empty()) {
       asrMaxSilence = make_shared<long>(boost::any_cast<long>(m["AsrMaxSilence"]));
+    }
+    if (m.find("CustomParams") != m.end() && !m["CustomParams"].empty()) {
+      customParams = make_shared<string>(boost::any_cast<string>(m["CustomParams"]));
     }
     if (m.find("VadLevel") != m.end() && !m["VadLevel"].empty()) {
       vadLevel = make_shared<long>(boost::any_cast<long>(m["VadLevel"]));
@@ -243,8 +250,52 @@ public:
 
   virtual ~AIAgentConfigLlmConfig() = default;
 };
+class AIAgentConfigTtsConfigPronunciationRules : public Darabonba::Model {
+public:
+  shared_ptr<string> pronunciation{};
+  shared_ptr<string> type{};
+  shared_ptr<string> word{};
+
+  AIAgentConfigTtsConfigPronunciationRules() {}
+
+  explicit AIAgentConfigTtsConfigPronunciationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pronunciation) {
+      res["Pronunciation"] = boost::any(*pronunciation);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (word) {
+      res["Word"] = boost::any(*word);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Pronunciation") != m.end() && !m["Pronunciation"].empty()) {
+      pronunciation = make_shared<string>(boost::any_cast<string>(m["Pronunciation"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Word") != m.end() && !m["Word"].empty()) {
+      word = make_shared<string>(boost::any_cast<string>(m["Word"]));
+    }
+  }
+
+
+  virtual ~AIAgentConfigTtsConfigPronunciationRules() = default;
+};
 class AIAgentConfigTtsConfig : public Darabonba::Model {
 public:
+  shared_ptr<vector<AIAgentConfigTtsConfigPronunciationRules>> pronunciationRules{};
   shared_ptr<string> voiceId{};
   shared_ptr<vector<string>> voiceIdList{};
 
@@ -258,6 +309,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (pronunciationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*pronunciationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PronunciationRules"] = boost::any(temp1);
+    }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
     }
@@ -268,6 +326,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PronunciationRules") != m.end() && !m["PronunciationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["PronunciationRules"].type()) {
+        vector<AIAgentConfigTtsConfigPronunciationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PronunciationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AIAgentConfigTtsConfigPronunciationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pronunciationRules = make_shared<vector<AIAgentConfigTtsConfigPronunciationRules>>(expect1);
+      }
+    }
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
     }
@@ -288,6 +359,8 @@ public:
 };
 class AIAgentConfigTurnDetectionConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> mode{};
+  shared_ptr<long> semanticWaitDuration{};
   shared_ptr<vector<string>> turnEndWords{};
 
   AIAgentConfigTurnDetectionConfig() {}
@@ -300,6 +373,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (semanticWaitDuration) {
+      res["SemanticWaitDuration"] = boost::any(*semanticWaitDuration);
+    }
     if (turnEndWords) {
       res["TurnEndWords"] = boost::any(*turnEndWords);
     }
@@ -307,6 +386,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("SemanticWaitDuration") != m.end() && !m["SemanticWaitDuration"].empty()) {
+      semanticWaitDuration = make_shared<long>(boost::any_cast<long>(m["SemanticWaitDuration"]));
+    }
     if (m.find("TurnEndWords") != m.end() && !m["TurnEndWords"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["TurnEndWords"].type()) {
@@ -321,6 +406,242 @@ public:
 
 
   virtual ~AIAgentConfigTurnDetectionConfig() = default;
+};
+class AIAgentConfigVcrConfigEquipment : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+
+  AIAgentConfigVcrConfigEquipment() {}
+
+  explicit AIAgentConfigVcrConfigEquipment(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~AIAgentConfigVcrConfigEquipment() = default;
+};
+class AIAgentConfigVcrConfigHeadMotion : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+
+  AIAgentConfigVcrConfigHeadMotion() {}
+
+  explicit AIAgentConfigVcrConfigHeadMotion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~AIAgentConfigVcrConfigHeadMotion() = default;
+};
+class AIAgentConfigVcrConfigInvalidFrameMotion : public Darabonba::Model {
+public:
+  shared_ptr<long> callbackDelay{};
+  shared_ptr<bool> enabled{};
+
+  AIAgentConfigVcrConfigInvalidFrameMotion() {}
+
+  explicit AIAgentConfigVcrConfigInvalidFrameMotion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callbackDelay) {
+      res["CallbackDelay"] = boost::any(*callbackDelay);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CallbackDelay") != m.end() && !m["CallbackDelay"].empty()) {
+      callbackDelay = make_shared<long>(boost::any_cast<long>(m["CallbackDelay"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~AIAgentConfigVcrConfigInvalidFrameMotion() = default;
+};
+class AIAgentConfigVcrConfigPeopleCount : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+
+  AIAgentConfigVcrConfigPeopleCount() {}
+
+  explicit AIAgentConfigVcrConfigPeopleCount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~AIAgentConfigVcrConfigPeopleCount() = default;
+};
+class AIAgentConfigVcrConfigStillFrameMotion : public Darabonba::Model {
+public:
+  shared_ptr<long> callbackDelay{};
+  shared_ptr<bool> enabled{};
+
+  AIAgentConfigVcrConfigStillFrameMotion() {}
+
+  explicit AIAgentConfigVcrConfigStillFrameMotion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callbackDelay) {
+      res["CallbackDelay"] = boost::any(*callbackDelay);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CallbackDelay") != m.end() && !m["CallbackDelay"].empty()) {
+      callbackDelay = make_shared<long>(boost::any_cast<long>(m["CallbackDelay"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~AIAgentConfigVcrConfigStillFrameMotion() = default;
+};
+class AIAgentConfigVcrConfig : public Darabonba::Model {
+public:
+  shared_ptr<AIAgentConfigVcrConfigEquipment> equipment{};
+  shared_ptr<AIAgentConfigVcrConfigHeadMotion> headMotion{};
+  shared_ptr<AIAgentConfigVcrConfigInvalidFrameMotion> invalidFrameMotion{};
+  shared_ptr<AIAgentConfigVcrConfigPeopleCount> peopleCount{};
+  shared_ptr<AIAgentConfigVcrConfigStillFrameMotion> stillFrameMotion{};
+
+  AIAgentConfigVcrConfig() {}
+
+  explicit AIAgentConfigVcrConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (equipment) {
+      res["Equipment"] = equipment ? boost::any(equipment->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (headMotion) {
+      res["HeadMotion"] = headMotion ? boost::any(headMotion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (invalidFrameMotion) {
+      res["InvalidFrameMotion"] = invalidFrameMotion ? boost::any(invalidFrameMotion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (peopleCount) {
+      res["PeopleCount"] = peopleCount ? boost::any(peopleCount->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stillFrameMotion) {
+      res["StillFrameMotion"] = stillFrameMotion ? boost::any(stillFrameMotion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Equipment") != m.end() && !m["Equipment"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Equipment"].type()) {
+        AIAgentConfigVcrConfigEquipment model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Equipment"]));
+        equipment = make_shared<AIAgentConfigVcrConfigEquipment>(model1);
+      }
+    }
+    if (m.find("HeadMotion") != m.end() && !m["HeadMotion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HeadMotion"].type()) {
+        AIAgentConfigVcrConfigHeadMotion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HeadMotion"]));
+        headMotion = make_shared<AIAgentConfigVcrConfigHeadMotion>(model1);
+      }
+    }
+    if (m.find("InvalidFrameMotion") != m.end() && !m["InvalidFrameMotion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InvalidFrameMotion"].type()) {
+        AIAgentConfigVcrConfigInvalidFrameMotion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InvalidFrameMotion"]));
+        invalidFrameMotion = make_shared<AIAgentConfigVcrConfigInvalidFrameMotion>(model1);
+      }
+    }
+    if (m.find("PeopleCount") != m.end() && !m["PeopleCount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PeopleCount"].type()) {
+        AIAgentConfigVcrConfigPeopleCount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PeopleCount"]));
+        peopleCount = make_shared<AIAgentConfigVcrConfigPeopleCount>(model1);
+      }
+    }
+    if (m.find("StillFrameMotion") != m.end() && !m["StillFrameMotion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StillFrameMotion"].type()) {
+        AIAgentConfigVcrConfigStillFrameMotion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StillFrameMotion"]));
+        stillFrameMotion = make_shared<AIAgentConfigVcrConfigStillFrameMotion>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AIAgentConfigVcrConfig() = default;
 };
 class AIAgentConfigVoiceprintConfig : public Darabonba::Model {
 public:
@@ -376,6 +697,7 @@ public:
   shared_ptr<AIAgentConfigTurnDetectionConfig> turnDetectionConfig{};
   shared_ptr<long> userOfflineTimeout{};
   shared_ptr<long> userOnlineTimeout{};
+  shared_ptr<AIAgentConfigVcrConfig> vcrConfig{};
   shared_ptr<AIAgentConfigVoiceprintConfig> voiceprintConfig{};
   shared_ptr<long> volume{};
   shared_ptr<string> wakeUpQuery{};
@@ -438,6 +760,9 @@ public:
     }
     if (userOnlineTimeout) {
       res["UserOnlineTimeout"] = boost::any(*userOnlineTimeout);
+    }
+    if (vcrConfig) {
+      res["VcrConfig"] = vcrConfig ? boost::any(vcrConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (voiceprintConfig) {
       res["VoiceprintConfig"] = voiceprintConfig ? boost::any(voiceprintConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -527,6 +852,13 @@ public:
     if (m.find("UserOnlineTimeout") != m.end() && !m["UserOnlineTimeout"].empty()) {
       userOnlineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOnlineTimeout"]));
     }
+    if (m.find("VcrConfig") != m.end() && !m["VcrConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VcrConfig"].type()) {
+        AIAgentConfigVcrConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VcrConfig"]));
+        vcrConfig = make_shared<AIAgentConfigVcrConfig>(model1);
+      }
+    }
     if (m.find("VoiceprintConfig") != m.end() && !m["VoiceprintConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["VoiceprintConfig"].type()) {
         AIAgentConfigVoiceprintConfig model1;
@@ -553,6 +885,7 @@ public:
   shared_ptr<vector<string>> asrHotWords{};
   shared_ptr<string> asrLanguageId{};
   shared_ptr<long> asrMaxSilence{};
+  shared_ptr<string> customParams{};
   shared_ptr<long> vadLevel{};
 
   AIAgentOutboundCallConfigAsrConfig() {}
@@ -573,6 +906,9 @@ public:
     }
     if (asrMaxSilence) {
       res["AsrMaxSilence"] = boost::any(*asrMaxSilence);
+    }
+    if (customParams) {
+      res["CustomParams"] = boost::any(*customParams);
     }
     if (vadLevel) {
       res["VadLevel"] = boost::any(*vadLevel);
@@ -596,6 +932,9 @@ public:
     }
     if (m.find("AsrMaxSilence") != m.end() && !m["AsrMaxSilence"].empty()) {
       asrMaxSilence = make_shared<long>(boost::any_cast<long>(m["AsrMaxSilence"]));
+    }
+    if (m.find("CustomParams") != m.end() && !m["CustomParams"].empty()) {
+      customParams = make_shared<string>(boost::any_cast<string>(m["CustomParams"]));
     }
     if (m.find("VadLevel") != m.end() && !m["VadLevel"].empty()) {
       vadLevel = make_shared<long>(boost::any_cast<long>(m["VadLevel"]));
@@ -748,8 +1087,52 @@ public:
 
   virtual ~AIAgentOutboundCallConfigLlmConfig() = default;
 };
+class AIAgentOutboundCallConfigTtsConfigPronunciationRules : public Darabonba::Model {
+public:
+  shared_ptr<string> pronunciation{};
+  shared_ptr<string> type{};
+  shared_ptr<string> word{};
+
+  AIAgentOutboundCallConfigTtsConfigPronunciationRules() {}
+
+  explicit AIAgentOutboundCallConfigTtsConfigPronunciationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pronunciation) {
+      res["Pronunciation"] = boost::any(*pronunciation);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (word) {
+      res["Word"] = boost::any(*word);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Pronunciation") != m.end() && !m["Pronunciation"].empty()) {
+      pronunciation = make_shared<string>(boost::any_cast<string>(m["Pronunciation"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Word") != m.end() && !m["Word"].empty()) {
+      word = make_shared<string>(boost::any_cast<string>(m["Word"]));
+    }
+  }
+
+
+  virtual ~AIAgentOutboundCallConfigTtsConfigPronunciationRules() = default;
+};
 class AIAgentOutboundCallConfigTtsConfig : public Darabonba::Model {
 public:
+  shared_ptr<vector<AIAgentOutboundCallConfigTtsConfigPronunciationRules>> pronunciationRules{};
   shared_ptr<string> voiceId{};
   shared_ptr<vector<string>> voiceIdList{};
 
@@ -763,6 +1146,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (pronunciationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*pronunciationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PronunciationRules"] = boost::any(temp1);
+    }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
     }
@@ -773,6 +1163,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PronunciationRules") != m.end() && !m["PronunciationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["PronunciationRules"].type()) {
+        vector<AIAgentOutboundCallConfigTtsConfigPronunciationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PronunciationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AIAgentOutboundCallConfigTtsConfigPronunciationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pronunciationRules = make_shared<vector<AIAgentOutboundCallConfigTtsConfigPronunciationRules>>(expect1);
+      }
+    }
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
     }
@@ -793,6 +1196,8 @@ public:
 };
 class AIAgentOutboundCallConfigTurnDetectionConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> mode{};
+  shared_ptr<long> semanticWaitDuration{};
   shared_ptr<vector<string>> turnEndWords{};
 
   AIAgentOutboundCallConfigTurnDetectionConfig() {}
@@ -805,6 +1210,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (semanticWaitDuration) {
+      res["SemanticWaitDuration"] = boost::any(*semanticWaitDuration);
+    }
     if (turnEndWords) {
       res["TurnEndWords"] = boost::any(*turnEndWords);
     }
@@ -812,6 +1223,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("SemanticWaitDuration") != m.end() && !m["SemanticWaitDuration"].empty()) {
+      semanticWaitDuration = make_shared<long>(boost::any_cast<long>(m["SemanticWaitDuration"]));
+    }
     if (m.find("TurnEndWords") != m.end() && !m["TurnEndWords"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["TurnEndWords"].type()) {
@@ -832,6 +1249,7 @@ public:
   shared_ptr<AIAgentOutboundCallConfigAsrConfig> asrConfig{};
   shared_ptr<bool> enableIntelligentSegment{};
   shared_ptr<string> greeting{};
+  shared_ptr<long> greetingDelay{};
   shared_ptr<AIAgentOutboundCallConfigInterruptConfig> interruptConfig{};
   shared_ptr<AIAgentOutboundCallConfigLlmConfig> llmConfig{};
   shared_ptr<AIAgentOutboundCallConfigTtsConfig> ttsConfig{};
@@ -855,6 +1273,9 @@ public:
     }
     if (greeting) {
       res["Greeting"] = boost::any(*greeting);
+    }
+    if (greetingDelay) {
+      res["GreetingDelay"] = boost::any(*greetingDelay);
     }
     if (interruptConfig) {
       res["InterruptConfig"] = interruptConfig ? boost::any(interruptConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -884,6 +1305,9 @@ public:
     }
     if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
       greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
+    }
+    if (m.find("GreetingDelay") != m.end() && !m["GreetingDelay"].empty()) {
+      greetingDelay = make_shared<long>(boost::any_cast<long>(m["GreetingDelay"]));
     }
     if (m.find("InterruptConfig") != m.end() && !m["InterruptConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["InterruptConfig"].type()) {
@@ -8928,6 +9352,7 @@ public:
 class BatchGetMediaInfosRequest : public Darabonba::Model {
 public:
   shared_ptr<string> additionType{};
+  shared_ptr<long> authTimeout{};
   shared_ptr<string> mediaIds{};
 
   BatchGetMediaInfosRequest() {}
@@ -8943,6 +9368,9 @@ public:
     if (additionType) {
       res["AdditionType"] = boost::any(*additionType);
     }
+    if (authTimeout) {
+      res["AuthTimeout"] = boost::any(*authTimeout);
+    }
     if (mediaIds) {
       res["MediaIds"] = boost::any(*mediaIds);
     }
@@ -8952,6 +9380,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AdditionType") != m.end() && !m["AdditionType"].empty()) {
       additionType = make_shared<string>(boost::any_cast<string>(m["AdditionType"]));
+    }
+    if (m.find("AuthTimeout") != m.end() && !m["AuthTimeout"].empty()) {
+      authTimeout = make_shared<long>(boost::any_cast<long>(m["AuthTimeout"]));
     }
     if (m.find("MediaIds") != m.end() && !m["MediaIds"].empty()) {
       mediaIds = make_shared<string>(boost::any_cast<string>(m["MediaIds"]));
@@ -34331,6 +34762,7 @@ public:
 };
 class GetMediaInfoRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> authTimeout{};
   shared_ptr<string> inputURL{};
   shared_ptr<string> mediaId{};
   shared_ptr<string> outputType{};
@@ -34346,6 +34778,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authTimeout) {
+      res["AuthTimeout"] = boost::any(*authTimeout);
+    }
     if (inputURL) {
       res["InputURL"] = boost::any(*inputURL);
     }
@@ -34362,6 +34797,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthTimeout") != m.end() && !m["AuthTimeout"].empty()) {
+      authTimeout = make_shared<long>(boost::any_cast<long>(m["AuthTimeout"]));
+    }
     if (m.find("InputURL") != m.end() && !m["InputURL"].empty()) {
       inputURL = make_shared<string>(boost::any_cast<string>(m["InputURL"]));
     }
@@ -38912,6 +39350,7 @@ public:
 };
 class GetPlayInfoRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> authTimeout{};
   shared_ptr<string> inputURL{};
   shared_ptr<string> mediaId{};
 
@@ -38925,6 +39364,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authTimeout) {
+      res["AuthTimeout"] = boost::any(*authTimeout);
+    }
     if (inputURL) {
       res["InputURL"] = boost::any(*inputURL);
     }
@@ -38935,6 +39377,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthTimeout") != m.end() && !m["AuthTimeout"].empty()) {
+      authTimeout = make_shared<long>(boost::any_cast<long>(m["AuthTimeout"]));
+    }
     if (m.find("InputURL") != m.end() && !m["InputURL"].empty()) {
       inputURL = make_shared<string>(boost::any_cast<string>(m["InputURL"]));
     }
@@ -39486,6 +39931,7 @@ public:
 };
 class GetProjectExportJobResponseBodyProjectExportJobExportResult : public Darabonba::Model {
 public:
+  shared_ptr<string> projectUrl{};
   shared_ptr<string> timeline{};
 
   GetProjectExportJobResponseBodyProjectExportJobExportResult() {}
@@ -39498,6 +39944,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (projectUrl) {
+      res["ProjectUrl"] = boost::any(*projectUrl);
+    }
     if (timeline) {
       res["Timeline"] = boost::any(*timeline);
     }
@@ -39505,6 +39954,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectUrl") != m.end() && !m["ProjectUrl"].empty()) {
+      projectUrl = make_shared<string>(boost::any_cast<string>(m["ProjectUrl"]));
+    }
     if (m.find("Timeline") != m.end() && !m["Timeline"].empty()) {
       timeline = make_shared<string>(boost::any_cast<string>(m["Timeline"]));
     }
@@ -48754,8 +49206,10 @@ public:
 };
 class ListAIAgentPhoneNumberRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> number{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<long> status{};
 
   ListAIAgentPhoneNumberRequest() {}
 
@@ -48767,21 +49221,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (number) {
+      res["Number"] = boost::any(*number);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<string>(boost::any_cast<string>(m["Number"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
     }
   }
 
@@ -57049,6 +57515,7 @@ public:
 };
 class ListMediaBasicInfosRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> authTimeout{};
   shared_ptr<string> businessType{};
   shared_ptr<string> endTime{};
   shared_ptr<bool> includeFileBasicInfo{};
@@ -57071,6 +57538,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authTimeout) {
+      res["AuthTimeout"] = boost::any(*authTimeout);
+    }
     if (businessType) {
       res["BusinessType"] = boost::any(*businessType);
     }
@@ -57108,6 +57578,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthTimeout") != m.end() && !m["AuthTimeout"].empty()) {
+      authTimeout = make_shared<long>(boost::any_cast<long>(m["AuthTimeout"]));
+    }
     if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["BusinessType"]));
     }
@@ -79640,6 +80113,7 @@ public:
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerNumber{};
   shared_ptr<AIAgentOutboundCallConfig> config{};
+  shared_ptr<string> imsAIAgentFreeObCall{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> userData{};
 
@@ -79664,6 +80138,9 @@ public:
     }
     if (config) {
       res["Config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (imsAIAgentFreeObCall) {
+      res["ImsAIAgentFreeObCall"] = boost::any(*imsAIAgentFreeObCall);
     }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
@@ -79691,6 +80168,9 @@ public:
         config = make_shared<AIAgentOutboundCallConfig>(model1);
       }
     }
+    if (m.find("ImsAIAgentFreeObCall") != m.end() && !m["ImsAIAgentFreeObCall"].empty()) {
+      imsAIAgentFreeObCall = make_shared<string>(boost::any_cast<string>(m["ImsAIAgentFreeObCall"]));
+    }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
@@ -79708,6 +80188,7 @@ public:
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerNumber{};
   shared_ptr<string> configShrink{};
+  shared_ptr<string> imsAIAgentFreeObCall{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> userData{};
 
@@ -79733,6 +80214,9 @@ public:
     if (configShrink) {
       res["Config"] = boost::any(*configShrink);
     }
+    if (imsAIAgentFreeObCall) {
+      res["ImsAIAgentFreeObCall"] = boost::any(*imsAIAgentFreeObCall);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -79754,6 +80238,9 @@ public:
     }
     if (m.find("Config") != m.end() && !m["Config"].empty()) {
       configShrink = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("ImsAIAgentFreeObCall") != m.end() && !m["ImsAIAgentFreeObCall"].empty()) {
+      imsAIAgentFreeObCall = make_shared<string>(boost::any_cast<string>(m["ImsAIAgentFreeObCall"]));
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
