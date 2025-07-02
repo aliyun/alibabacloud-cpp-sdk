@@ -1221,6 +1221,9 @@ ListFunctionsResponse Alibabacloud_FC20230330::Client::listFunctionsWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->prefix)) {
     query->insert(pair<string, string>("prefix", *request->prefix));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->runtime)) {
     query->insert(pair<string, string>("runtime", *request->runtime));
   }

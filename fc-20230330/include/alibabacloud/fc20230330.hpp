@@ -627,6 +627,92 @@ public:
 
   virtual ~CertConfig() = default;
 };
+class ChangeResourceGroupInput : public Darabonba::Model {
+public:
+  shared_ptr<string> newResourceGroupId{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+
+  ChangeResourceGroupInput() {}
+
+  explicit ChangeResourceGroupInput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (newResourceGroupId) {
+      res["newResourceGroupId"] = boost::any(*newResourceGroupId);
+    }
+    if (resourceId) {
+      res["resourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["resourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("newResourceGroupId") != m.end() && !m["newResourceGroupId"].empty()) {
+      newResourceGroupId = make_shared<string>(boost::any_cast<string>(m["newResourceGroupId"]));
+    }
+    if (m.find("resourceId") != m.end() && !m["resourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["resourceId"]));
+    }
+    if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
+    }
+  }
+
+
+  virtual ~ChangeResourceGroupInput() = default;
+};
+class ChangeResourceGroupOutput : public Darabonba::Model {
+public:
+  shared_ptr<string> newResourceGroupId{};
+  shared_ptr<string> oldResourceGroupId{};
+  shared_ptr<string> resourceId{};
+
+  ChangeResourceGroupOutput() {}
+
+  explicit ChangeResourceGroupOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (newResourceGroupId) {
+      res["newResourceGroupId"] = boost::any(*newResourceGroupId);
+    }
+    if (oldResourceGroupId) {
+      res["oldResourceGroupId"] = boost::any(*oldResourceGroupId);
+    }
+    if (resourceId) {
+      res["resourceId"] = boost::any(*resourceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("newResourceGroupId") != m.end() && !m["newResourceGroupId"].empty()) {
+      newResourceGroupId = make_shared<string>(boost::any_cast<string>(m["newResourceGroupId"]));
+    }
+    if (m.find("oldResourceGroupId") != m.end() && !m["oldResourceGroupId"].empty()) {
+      oldResourceGroupId = make_shared<string>(boost::any_cast<string>(m["oldResourceGroupId"]));
+    }
+    if (m.find("resourceId") != m.end() && !m["resourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["resourceId"]));
+    }
+  }
+
+
+  virtual ~ChangeResourceGroupOutput() = default;
+};
 class ConcurrencyConfig : public Darabonba::Model {
 public:
   shared_ptr<string> functionArn{};
@@ -2313,6 +2399,7 @@ public:
   shared_ptr<long> memorySize{};
   shared_ptr<NASConfig> nasConfig{};
   shared_ptr<OSSMountConfig> ossMountConfig{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> role{};
   shared_ptr<string> runtime{};
   shared_ptr<string> sessionAffinity{};
@@ -2393,6 +2480,9 @@ public:
     }
     if (ossMountConfig) {
       res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (role) {
       res["role"] = boost::any(*role);
@@ -2533,6 +2623,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
         ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
+    }
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
     if (m.find("role") != m.end() && !m["role"].empty()) {
       role = make_shared<string>(boost::any_cast<string>(m["role"]));
@@ -4040,6 +4133,7 @@ public:
   shared_ptr<long> memorySize{};
   shared_ptr<NASConfig> nasConfig{};
   shared_ptr<OSSMountConfig> ossMountConfig{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> role{};
   shared_ptr<string> runtime{};
   shared_ptr<string> sessionAffinity{};
@@ -4154,6 +4248,9 @@ public:
     }
     if (ossMountConfig) {
       res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (role) {
       res["role"] = boost::any(*role);
@@ -4333,6 +4430,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
         ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
+    }
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
     if (m.find("role") != m.end() && !m["role"].empty()) {
       role = make_shared<string>(boost::any_cast<string>(m["role"]));
@@ -9954,6 +10054,7 @@ public:
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> prefix{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> runtime{};
   shared_ptr<vector<Tag>> tags{};
 
@@ -9987,6 +10088,9 @@ public:
     }
     if (prefix) {
       res["prefix"] = boost::any(*prefix);
+    }
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -10023,6 +10127,9 @@ public:
     if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
       prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
     }
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
     }
@@ -10053,6 +10160,7 @@ public:
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> prefix{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> runtime{};
   shared_ptr<string> tagsShrink{};
 
@@ -10087,6 +10195,9 @@ public:
     if (prefix) {
       res["prefix"] = boost::any(*prefix);
     }
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
     }
@@ -10117,6 +10228,9 @@ public:
     }
     if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
       prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
+    }
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
