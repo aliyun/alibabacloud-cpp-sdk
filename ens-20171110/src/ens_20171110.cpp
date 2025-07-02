@@ -640,6 +640,9 @@ CreateARMServerInstancesResponse Alibabacloud_Ens20171110::Client::createARMServ
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceBillingCycle)) {
+    query->insert(pair<string, string>("InstanceBillingCycle", *request->instanceBillingCycle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
   }

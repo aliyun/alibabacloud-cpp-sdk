@@ -3775,6 +3775,7 @@ public:
   shared_ptr<string> environmentVar{};
   shared_ptr<long> frequency{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> instanceBillingCycle{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> keyPairName{};
   shared_ptr<string> nameSpace_{};
@@ -3819,6 +3820,9 @@ public:
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (instanceBillingCycle) {
+      res["InstanceBillingCycle"] = boost::any(*instanceBillingCycle);
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
@@ -3881,6 +3885,9 @@ public:
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("InstanceBillingCycle") != m.end() && !m["InstanceBillingCycle"].empty()) {
+      instanceBillingCycle = make_shared<string>(boost::any_cast<string>(m["InstanceBillingCycle"]));
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
