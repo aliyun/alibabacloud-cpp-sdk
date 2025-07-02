@@ -3377,11 +3377,55 @@ public:
 
   virtual ~ListIpamDiscoveredResourceRequest() = default;
 };
+class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> freeIpCount{};
+  shared_ptr<string> totalIpCount{};
+  shared_ptr<string> usedIpCount{};
+
+  ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail() {}
+
+  explicit ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (freeIpCount) {
+      res["FreeIpCount"] = boost::any(*freeIpCount);
+    }
+    if (totalIpCount) {
+      res["TotalIpCount"] = boost::any(*totalIpCount);
+    }
+    if (usedIpCount) {
+      res["UsedIpCount"] = boost::any(*usedIpCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FreeIpCount") != m.end() && !m["FreeIpCount"].empty()) {
+      freeIpCount = make_shared<string>(boost::any_cast<string>(m["FreeIpCount"]));
+    }
+    if (m.find("TotalIpCount") != m.end() && !m["TotalIpCount"].empty()) {
+      totalIpCount = make_shared<string>(boost::any_cast<string>(m["TotalIpCount"]));
+    }
+    if (m.find("UsedIpCount") != m.end() && !m["UsedIpCount"].empty()) {
+      usedIpCount = make_shared<string>(boost::any_cast<string>(m["UsedIpCount"]));
+    }
+  }
+
+
+  virtual ~ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail() = default;
+};
 class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources : public Darabonba::Model {
 public:
   shared_ptr<long> aliUid{};
   shared_ptr<string> cidr{};
   shared_ptr<string> discoveryTime{};
+  shared_ptr<ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail> ipCountDetail{};
   shared_ptr<string> ipUsage{};
   shared_ptr<string> ipamResourceDiscoveryId{};
   shared_ptr<string> resourceId{};
@@ -3409,6 +3453,9 @@ public:
     }
     if (discoveryTime) {
       res["DiscoveryTime"] = boost::any(*discoveryTime);
+    }
+    if (ipCountDetail) {
+      res["IpCountDetail"] = ipCountDetail ? boost::any(ipCountDetail->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ipUsage) {
       res["IpUsage"] = boost::any(*ipUsage);
@@ -3446,6 +3493,13 @@ public:
     }
     if (m.find("DiscoveryTime") != m.end() && !m["DiscoveryTime"].empty()) {
       discoveryTime = make_shared<string>(boost::any_cast<string>(m["DiscoveryTime"]));
+    }
+    if (m.find("IpCountDetail") != m.end() && !m["IpCountDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IpCountDetail"].type()) {
+        ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IpCountDetail"]));
+        ipCountDetail = make_shared<ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail>(model1);
+      }
     }
     if (m.find("IpUsage") != m.end() && !m["IpUsage"].empty()) {
       ipUsage = make_shared<string>(boost::any_cast<string>(m["IpUsage"]));
@@ -4789,6 +4843,49 @@ public:
 
   virtual ~ListIpamResourceCidrsRequest() = default;
 };
+class ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> freeIpCount{};
+  shared_ptr<string> totalIpCount{};
+  shared_ptr<string> usedIpCount{};
+
+  ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail() {}
+
+  explicit ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (freeIpCount) {
+      res["FreeIpCount"] = boost::any(*freeIpCount);
+    }
+    if (totalIpCount) {
+      res["TotalIpCount"] = boost::any(*totalIpCount);
+    }
+    if (usedIpCount) {
+      res["UsedIpCount"] = boost::any(*usedIpCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FreeIpCount") != m.end() && !m["FreeIpCount"].empty()) {
+      freeIpCount = make_shared<string>(boost::any_cast<string>(m["FreeIpCount"]));
+    }
+    if (m.find("TotalIpCount") != m.end() && !m["TotalIpCount"].empty()) {
+      totalIpCount = make_shared<string>(boost::any_cast<string>(m["TotalIpCount"]));
+    }
+    if (m.find("UsedIpCount") != m.end() && !m["UsedIpCount"].empty()) {
+      usedIpCount = make_shared<string>(boost::any_cast<string>(m["UsedIpCount"]));
+    }
+  }
+
+
+  virtual ~ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail() = default;
+};
 class ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail : public Darabonba::Model {
 public:
   shared_ptr<string> overlapResourceCidr{};
@@ -4837,6 +4934,7 @@ public:
   shared_ptr<long> aliUid{};
   shared_ptr<string> cidr{};
   shared_ptr<string> complianceStatus{};
+  shared_ptr<ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail> ipCountDetail{};
   shared_ptr<string> ipUsage{};
   shared_ptr<string> ipamAllocationId{};
   shared_ptr<string> ipamId{};
@@ -4871,6 +4969,9 @@ public:
     }
     if (complianceStatus) {
       res["ComplianceStatus"] = boost::any(*complianceStatus);
+    }
+    if (ipCountDetail) {
+      res["IpCountDetail"] = ipCountDetail ? boost::any(ipCountDetail->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ipUsage) {
       res["IpUsage"] = boost::any(*ipUsage);
@@ -4933,6 +5034,13 @@ public:
     }
     if (m.find("ComplianceStatus") != m.end() && !m["ComplianceStatus"].empty()) {
       complianceStatus = make_shared<string>(boost::any_cast<string>(m["ComplianceStatus"]));
+    }
+    if (m.find("IpCountDetail") != m.end() && !m["IpCountDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IpCountDetail"].type()) {
+        ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IpCountDetail"]));
+        ipCountDetail = make_shared<ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail>(model1);
+      }
     }
     if (m.find("IpUsage") != m.end() && !m["IpUsage"].empty()) {
       ipUsage = make_shared<string>(boost::any_cast<string>(m["IpUsage"]));
