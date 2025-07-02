@@ -886,8 +886,11 @@ public:
 class AddTerminalRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alias{};
+  shared_ptr<string> clientType{};
+  shared_ptr<string> mainBizType{};
   shared_ptr<string> serialNumber{};
   shared_ptr<string> terminalGroupId{};
+  shared_ptr<string> uuid{};
 
   AddTerminalRequest() {}
 
@@ -902,11 +905,20 @@ public:
     if (alias) {
       res["Alias"] = boost::any(*alias);
     }
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (mainBizType) {
+      res["MainBizType"] = boost::any(*mainBizType);
+    }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
     }
     if (terminalGroupId) {
       res["TerminalGroupId"] = boost::any(*terminalGroupId);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
     }
     return res;
   }
@@ -915,11 +927,20 @@ public:
     if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
       alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
     }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<string>(boost::any_cast<string>(m["ClientType"]));
+    }
+    if (m.find("MainBizType") != m.end() && !m["MainBizType"].empty()) {
+      mainBizType = make_shared<string>(boost::any_cast<string>(m["MainBizType"]));
+    }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
     if (m.find("TerminalGroupId") != m.end() && !m["TerminalGroupId"].empty()) {
       terminalGroupId = make_shared<string>(boost::any_cast<string>(m["TerminalGroupId"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
     }
   }
 
@@ -1095,6 +1116,7 @@ public:
 class AddTerminalsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<AddTerminalsRequestAddTerminalParams>> addTerminalParams{};
+  shared_ptr<string> mainBizType{};
 
   AddTerminalsRequest() {}
 
@@ -1113,6 +1135,9 @@ public:
       }
       res["AddTerminalParams"] = boost::any(temp1);
     }
+    if (mainBizType) {
+      res["MainBizType"] = boost::any(*mainBizType);
+    }
     return res;
   }
 
@@ -1129,6 +1154,9 @@ public:
         }
         addTerminalParams = make_shared<vector<AddTerminalsRequestAddTerminalParams>>(expect1);
       }
+    }
+    if (m.find("MainBizType") != m.end() && !m["MainBizType"].empty()) {
+      mainBizType = make_shared<string>(boost::any_cast<string>(m["MainBizType"]));
     }
   }
 
@@ -1863,6 +1891,7 @@ public:
 class BindPasswordFreeLoginUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endUserId{};
+  shared_ptr<string> mainBizType{};
   shared_ptr<string> serialNumber{};
   shared_ptr<string> uuid{};
 
@@ -1879,6 +1908,9 @@ public:
     if (endUserId) {
       res["EndUserId"] = boost::any(*endUserId);
     }
+    if (mainBizType) {
+      res["MainBizType"] = boost::any(*mainBizType);
+    }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
     }
@@ -1891,6 +1923,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
       endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("MainBizType") != m.end() && !m["MainBizType"].empty()) {
+      mainBizType = make_shared<string>(boost::any_cast<string>(m["MainBizType"]));
     }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
@@ -2018,9 +2053,13 @@ public:
   shared_ptr<string> buildId{};
   shared_ptr<string> chipId{};
   shared_ptr<string> clientId{};
+  shared_ptr<string> clientVersion{};
   shared_ptr<string> customId{};
   shared_ptr<string> etherMac{};
+  shared_ptr<string> loginRegionId{};
+  shared_ptr<string> loginToken{};
   shared_ptr<string> serialNo{};
+  shared_ptr<string> sessionId{};
   shared_ptr<string> uuid{};
   shared_ptr<string> wlan{};
   shared_ptr<string> wosAppVersion{};
@@ -2047,14 +2086,26 @@ public:
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
     }
+    if (clientVersion) {
+      res["ClientVersion"] = boost::any(*clientVersion);
+    }
     if (customId) {
       res["CustomId"] = boost::any(*customId);
     }
     if (etherMac) {
       res["EtherMac"] = boost::any(*etherMac);
     }
+    if (loginRegionId) {
+      res["LoginRegionId"] = boost::any(*loginRegionId);
+    }
+    if (loginToken) {
+      res["LoginToken"] = boost::any(*loginToken);
+    }
     if (serialNo) {
       res["SerialNo"] = boost::any(*serialNo);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
     }
     if (uuid) {
       res["Uuid"] = boost::any(*uuid);
@@ -2081,14 +2132,26 @@ public:
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
     }
+    if (m.find("ClientVersion") != m.end() && !m["ClientVersion"].empty()) {
+      clientVersion = make_shared<string>(boost::any_cast<string>(m["ClientVersion"]));
+    }
     if (m.find("CustomId") != m.end() && !m["CustomId"].empty()) {
       customId = make_shared<string>(boost::any_cast<string>(m["CustomId"]));
     }
     if (m.find("EtherMac") != m.end() && !m["EtherMac"].empty()) {
       etherMac = make_shared<string>(boost::any_cast<string>(m["EtherMac"]));
     }
+    if (m.find("LoginRegionId") != m.end() && !m["LoginRegionId"].empty()) {
+      loginRegionId = make_shared<string>(boost::any_cast<string>(m["LoginRegionId"]));
+    }
+    if (m.find("LoginToken") != m.end() && !m["LoginToken"].empty()) {
+      loginToken = make_shared<string>(boost::any_cast<string>(m["LoginToken"]));
+    }
     if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
       serialNo = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
     if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
       uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
@@ -2255,6 +2318,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<long> taskType{};
   shared_ptr<string> tenantId{};
+  shared_ptr<vector<string>> tenantIdList{};
 
   CreateAppOtaTaskRequest() {}
 
@@ -2307,6 +2371,9 @@ public:
     }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
+    }
+    if (tenantIdList) {
+      res["TenantIdList"] = boost::any(*tenantIdList);
     }
     return res;
   }
@@ -2367,6 +2434,16 @@ public:
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+    if (m.find("TenantIdList") != m.end() && !m["TenantIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TenantIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TenantIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tenantIdList = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -2521,6 +2598,7 @@ public:
   shared_ptr<string> osType{};
   shared_ptr<long> otaType{};
   shared_ptr<string> project{};
+  shared_ptr<vector<string>> relationVersionUids{};
   shared_ptr<string> releaseNote{};
   shared_ptr<string> releaseNoteEn{};
   shared_ptr<string> releaseNoteJp{};
@@ -2572,6 +2650,9 @@ public:
     }
     if (project) {
       res["Project"] = boost::any(*project);
+    }
+    if (relationVersionUids) {
+      res["RelationVersionUids"] = boost::any(*relationVersionUids);
     }
     if (releaseNote) {
       res["ReleaseNote"] = boost::any(*releaseNote);
@@ -2633,6 +2714,16 @@ public:
     }
     if (m.find("Project") != m.end() && !m["Project"].empty()) {
       project = make_shared<string>(boost::any_cast<string>(m["Project"]));
+    }
+    if (m.find("RelationVersionUids") != m.end() && !m["RelationVersionUids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RelationVersionUids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelationVersionUids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      relationVersionUids = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ReleaseNote") != m.end() && !m["ReleaseNote"].empty()) {
       releaseNote = make_shared<string>(boost::any_cast<string>(m["ReleaseNote"]));
@@ -3211,6 +3302,8 @@ public:
   shared_ptr<string> channel{};
   shared_ptr<long> clientType{};
   shared_ptr<string> creator{};
+  shared_ptr<bool> nullChannel{};
+  shared_ptr<long> otaType{};
   shared_ptr<string> project{};
   shared_ptr<long> status{};
   shared_ptr<string> versionUid{};
@@ -3237,6 +3330,12 @@ public:
     if (creator) {
       res["Creator"] = boost::any(*creator);
     }
+    if (nullChannel) {
+      res["NullChannel"] = boost::any(*nullChannel);
+    }
+    if (otaType) {
+      res["OtaType"] = boost::any(*otaType);
+    }
     if (project) {
       res["Project"] = boost::any(*project);
     }
@@ -3261,6 +3360,12 @@ public:
     }
     if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
       creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("NullChannel") != m.end() && !m["NullChannel"].empty()) {
+      nullChannel = make_shared<bool>(boost::any_cast<bool>(m["NullChannel"]));
+    }
+    if (m.find("OtaType") != m.end() && !m["OtaType"].empty()) {
+      otaType = make_shared<long>(boost::any_cast<long>(m["OtaType"]));
     }
     if (m.find("Project") != m.end() && !m["Project"].empty()) {
       project = make_shared<string>(boost::any_cast<string>(m["Project"]));
@@ -6334,6 +6439,7 @@ public:
   shared_ptr<string> version{};
   shared_ptr<string> versionCode{};
   shared_ptr<string> versionType{};
+  shared_ptr<bool> wyForceUpgrade{};
 
   GetDeviceOtaInfoResponseBodyDataVersion() {}
 
@@ -6411,6 +6517,9 @@ public:
     if (versionType) {
       res["VersionType"] = boost::any(*versionType);
     }
+    if (wyForceUpgrade) {
+      res["WyForceUpgrade"] = boost::any(*wyForceUpgrade);
+    }
     return res;
   }
 
@@ -6480,6 +6589,9 @@ public:
     }
     if (m.find("VersionType") != m.end() && !m["VersionType"].empty()) {
       versionType = make_shared<string>(boost::any_cast<string>(m["VersionType"]));
+    }
+    if (m.find("WyForceUpgrade") != m.end() && !m["WyForceUpgrade"].empty()) {
+      wyForceUpgrade = make_shared<bool>(boost::any_cast<bool>(m["WyForceUpgrade"]));
     }
   }
 
@@ -8115,6 +8227,458 @@ public:
 
   virtual ~GetVersionDownloadUrlResponse() = default;
 };
+class ListBoundDevicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> adDomain{};
+  shared_ptr<string> alias{};
+  shared_ptr<long> clientType{};
+  shared_ptr<string> directoryId{};
+  shared_ptr<string> endUserId{};
+  shared_ptr<bool> inManage{};
+  shared_ptr<string> lastLoginUser{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> serialNo{};
+  shared_ptr<string> userType{};
+  shared_ptr<string> uuid{};
+
+  ListBoundDevicesRequest() {}
+
+  explicit ListBoundDevicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adDomain) {
+      res["AdDomain"] = boost::any(*adDomain);
+    }
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (directoryId) {
+      res["DirectoryId"] = boost::any(*directoryId);
+    }
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (inManage) {
+      res["InManage"] = boost::any(*inManage);
+    }
+    if (lastLoginUser) {
+      res["LastLoginUser"] = boost::any(*lastLoginUser);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (serialNo) {
+      res["SerialNo"] = boost::any(*serialNo);
+    }
+    if (userType) {
+      res["UserType"] = boost::any(*userType);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdDomain") != m.end() && !m["AdDomain"].empty()) {
+      adDomain = make_shared<string>(boost::any_cast<string>(m["AdDomain"]));
+    }
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
+    }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<long>(boost::any_cast<long>(m["ClientType"]));
+    }
+    if (m.find("DirectoryId") != m.end() && !m["DirectoryId"].empty()) {
+      directoryId = make_shared<string>(boost::any_cast<string>(m["DirectoryId"]));
+    }
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("InManage") != m.end() && !m["InManage"].empty()) {
+      inManage = make_shared<bool>(boost::any_cast<bool>(m["InManage"]));
+    }
+    if (m.find("LastLoginUser") != m.end() && !m["LastLoginUser"].empty()) {
+      lastLoginUser = make_shared<string>(boost::any_cast<string>(m["LastLoginUser"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      serialNo = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+    if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
+      userType = make_shared<string>(boost::any_cast<string>(m["UserType"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~ListBoundDevicesRequest() = default;
+};
+class ListBoundDevicesResponseBodyDataDevices : public Darabonba::Model {
+public:
+  shared_ptr<string> alias{};
+  shared_ptr<string> boundTime{};
+  shared_ptr<string> buildId{};
+  shared_ptr<string> clientType{};
+  shared_ptr<string> connectionStatus{};
+  shared_ptr<long> deviceMqttConnectionStatus{};
+  shared_ptr<string> deviceOs{};
+  shared_ptr<string> devicePlatform{};
+  shared_ptr<bool> inManage{};
+  shared_ptr<string> lastLoginTime{};
+  shared_ptr<string> lastLoginUser{};
+  shared_ptr<string> loginUser{};
+  shared_ptr<string> model{};
+  shared_ptr<string> passwordFreeLoginUser{};
+  shared_ptr<string> passwordFreeLoginUserNickName{};
+  shared_ptr<string> privateIp{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> publicIp{};
+  shared_ptr<string> serialNo{};
+  shared_ptr<string> uuid{};
+
+  ListBoundDevicesResponseBodyDataDevices() {}
+
+  explicit ListBoundDevicesResponseBodyDataDevices(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (boundTime) {
+      res["BoundTime"] = boost::any(*boundTime);
+    }
+    if (buildId) {
+      res["BuildId"] = boost::any(*buildId);
+    }
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (connectionStatus) {
+      res["ConnectionStatus"] = boost::any(*connectionStatus);
+    }
+    if (deviceMqttConnectionStatus) {
+      res["DeviceMqttConnectionStatus"] = boost::any(*deviceMqttConnectionStatus);
+    }
+    if (deviceOs) {
+      res["DeviceOs"] = boost::any(*deviceOs);
+    }
+    if (devicePlatform) {
+      res["DevicePlatform"] = boost::any(*devicePlatform);
+    }
+    if (inManage) {
+      res["InManage"] = boost::any(*inManage);
+    }
+    if (lastLoginTime) {
+      res["LastLoginTime"] = boost::any(*lastLoginTime);
+    }
+    if (lastLoginUser) {
+      res["LastLoginUser"] = boost::any(*lastLoginUser);
+    }
+    if (loginUser) {
+      res["LoginUser"] = boost::any(*loginUser);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (passwordFreeLoginUser) {
+      res["PasswordFreeLoginUser"] = boost::any(*passwordFreeLoginUser);
+    }
+    if (passwordFreeLoginUserNickName) {
+      res["PasswordFreeLoginUserNickName"] = boost::any(*passwordFreeLoginUserNickName);
+    }
+    if (privateIp) {
+      res["PrivateIp"] = boost::any(*privateIp);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (publicIp) {
+      res["PublicIp"] = boost::any(*publicIp);
+    }
+    if (serialNo) {
+      res["SerialNo"] = boost::any(*serialNo);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
+    }
+    if (m.find("BoundTime") != m.end() && !m["BoundTime"].empty()) {
+      boundTime = make_shared<string>(boost::any_cast<string>(m["BoundTime"]));
+    }
+    if (m.find("BuildId") != m.end() && !m["BuildId"].empty()) {
+      buildId = make_shared<string>(boost::any_cast<string>(m["BuildId"]));
+    }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<string>(boost::any_cast<string>(m["ClientType"]));
+    }
+    if (m.find("ConnectionStatus") != m.end() && !m["ConnectionStatus"].empty()) {
+      connectionStatus = make_shared<string>(boost::any_cast<string>(m["ConnectionStatus"]));
+    }
+    if (m.find("DeviceMqttConnectionStatus") != m.end() && !m["DeviceMqttConnectionStatus"].empty()) {
+      deviceMqttConnectionStatus = make_shared<long>(boost::any_cast<long>(m["DeviceMqttConnectionStatus"]));
+    }
+    if (m.find("DeviceOs") != m.end() && !m["DeviceOs"].empty()) {
+      deviceOs = make_shared<string>(boost::any_cast<string>(m["DeviceOs"]));
+    }
+    if (m.find("DevicePlatform") != m.end() && !m["DevicePlatform"].empty()) {
+      devicePlatform = make_shared<string>(boost::any_cast<string>(m["DevicePlatform"]));
+    }
+    if (m.find("InManage") != m.end() && !m["InManage"].empty()) {
+      inManage = make_shared<bool>(boost::any_cast<bool>(m["InManage"]));
+    }
+    if (m.find("LastLoginTime") != m.end() && !m["LastLoginTime"].empty()) {
+      lastLoginTime = make_shared<string>(boost::any_cast<string>(m["LastLoginTime"]));
+    }
+    if (m.find("LastLoginUser") != m.end() && !m["LastLoginUser"].empty()) {
+      lastLoginUser = make_shared<string>(boost::any_cast<string>(m["LastLoginUser"]));
+    }
+    if (m.find("LoginUser") != m.end() && !m["LoginUser"].empty()) {
+      loginUser = make_shared<string>(boost::any_cast<string>(m["LoginUser"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("PasswordFreeLoginUser") != m.end() && !m["PasswordFreeLoginUser"].empty()) {
+      passwordFreeLoginUser = make_shared<string>(boost::any_cast<string>(m["PasswordFreeLoginUser"]));
+    }
+    if (m.find("PasswordFreeLoginUserNickName") != m.end() && !m["PasswordFreeLoginUserNickName"].empty()) {
+      passwordFreeLoginUserNickName = make_shared<string>(boost::any_cast<string>(m["PasswordFreeLoginUserNickName"]));
+    }
+    if (m.find("PrivateIp") != m.end() && !m["PrivateIp"].empty()) {
+      privateIp = make_shared<string>(boost::any_cast<string>(m["PrivateIp"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("PublicIp") != m.end() && !m["PublicIp"].empty()) {
+      publicIp = make_shared<string>(boost::any_cast<string>(m["PublicIp"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      serialNo = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~ListBoundDevicesResponseBodyDataDevices() = default;
+};
+class ListBoundDevicesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListBoundDevicesResponseBodyDataDevices>> devices{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListBoundDevicesResponseBodyData() {}
+
+  explicit ListBoundDevicesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (devices) {
+      vector<boost::any> temp1;
+      for(auto item1:*devices){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Devices"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Devices") != m.end() && !m["Devices"].empty()) {
+      if (typeid(vector<boost::any>) == m["Devices"].type()) {
+        vector<ListBoundDevicesResponseBodyDataDevices> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Devices"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListBoundDevicesResponseBodyDataDevices model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        devices = make_shared<vector<ListBoundDevicesResponseBodyDataDevices>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListBoundDevicesResponseBodyData() = default;
+};
+class ListBoundDevicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListBoundDevicesResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListBoundDevicesResponseBody() {}
+
+  explicit ListBoundDevicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListBoundDevicesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListBoundDevicesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListBoundDevicesResponseBody() = default;
+};
+class ListBoundDevicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListBoundDevicesResponseBody> body{};
+
+  ListBoundDevicesResponse() {}
+
+  explicit ListBoundDevicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListBoundDevicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListBoundDevicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListBoundDevicesResponse() = default;
+};
 class ListDeviceOtaTaskByTenantRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
@@ -8696,6 +9260,7 @@ public:
   shared_ptr<string> endUserId{};
   shared_ptr<string> labelContent{};
   shared_ptr<string> labelId{};
+  shared_ptr<string> lastLoginUser{};
   shared_ptr<string> locationInfo{};
   shared_ptr<string> model{};
   shared_ptr<long> pageNumber{};
@@ -8746,6 +9311,9 @@ public:
     }
     if (labelId) {
       res["LabelId"] = boost::any(*labelId);
+    }
+    if (lastLoginUser) {
+      res["LastLoginUser"] = boost::any(*lastLoginUser);
     }
     if (locationInfo) {
       res["LocationInfo"] = boost::any(*locationInfo);
@@ -8804,6 +9372,9 @@ public:
     }
     if (m.find("LabelId") != m.end() && !m["LabelId"].empty()) {
       labelId = make_shared<string>(boost::any_cast<string>(m["LabelId"]));
+    }
+    if (m.find("LastLoginUser") != m.end() && !m["LastLoginUser"].empty()) {
+      lastLoginUser = make_shared<string>(boost::any_cast<string>(m["LastLoginUser"]));
     }
     if (m.find("LocationInfo") != m.end() && !m["LocationInfo"].empty()) {
       locationInfo = make_shared<string>(boost::any_cast<string>(m["LocationInfo"]));
@@ -10966,6 +11537,7 @@ public:
 class ListTerminalsRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> inManage{};
+  shared_ptr<string> mainBizType{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> passwordFreeLoginUser{};
@@ -10987,6 +11559,9 @@ public:
     map<string, boost::any> res;
     if (inManage) {
       res["InManage"] = boost::any(*inManage);
+    }
+    if (mainBizType) {
+      res["MainBizType"] = boost::any(*mainBizType);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -11018,6 +11593,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InManage") != m.end() && !m["InManage"].empty()) {
       inManage = make_shared<bool>(boost::any_cast<bool>(m["InManage"]));
+    }
+    if (m.find("MainBizType") != m.end() && !m["MainBizType"].empty()) {
+      mainBizType = make_shared<string>(boost::any_cast<string>(m["MainBizType"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -11569,6 +12147,458 @@ public:
 
 
   virtual ~ListTrustDevicesResponse() = default;
+};
+class ListUnbindDevicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> adDomain{};
+  shared_ptr<string> alias{};
+  shared_ptr<long> clientType{};
+  shared_ptr<string> directoryId{};
+  shared_ptr<string> endUserId{};
+  shared_ptr<bool> inManage{};
+  shared_ptr<string> lastLoginUser{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> serialNo{};
+  shared_ptr<string> userType{};
+  shared_ptr<string> uuid{};
+
+  ListUnbindDevicesRequest() {}
+
+  explicit ListUnbindDevicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adDomain) {
+      res["AdDomain"] = boost::any(*adDomain);
+    }
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (directoryId) {
+      res["DirectoryId"] = boost::any(*directoryId);
+    }
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (inManage) {
+      res["InManage"] = boost::any(*inManage);
+    }
+    if (lastLoginUser) {
+      res["LastLoginUser"] = boost::any(*lastLoginUser);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (serialNo) {
+      res["SerialNo"] = boost::any(*serialNo);
+    }
+    if (userType) {
+      res["UserType"] = boost::any(*userType);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdDomain") != m.end() && !m["AdDomain"].empty()) {
+      adDomain = make_shared<string>(boost::any_cast<string>(m["AdDomain"]));
+    }
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
+    }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<long>(boost::any_cast<long>(m["ClientType"]));
+    }
+    if (m.find("DirectoryId") != m.end() && !m["DirectoryId"].empty()) {
+      directoryId = make_shared<string>(boost::any_cast<string>(m["DirectoryId"]));
+    }
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("InManage") != m.end() && !m["InManage"].empty()) {
+      inManage = make_shared<bool>(boost::any_cast<bool>(m["InManage"]));
+    }
+    if (m.find("LastLoginUser") != m.end() && !m["LastLoginUser"].empty()) {
+      lastLoginUser = make_shared<string>(boost::any_cast<string>(m["LastLoginUser"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      serialNo = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+    if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
+      userType = make_shared<string>(boost::any_cast<string>(m["UserType"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~ListUnbindDevicesRequest() = default;
+};
+class ListUnbindDevicesResponseBodyDataDevices : public Darabonba::Model {
+public:
+  shared_ptr<string> alias{};
+  shared_ptr<string> boundTime{};
+  shared_ptr<string> buildId{};
+  shared_ptr<string> clientType{};
+  shared_ptr<string> connectionStatus{};
+  shared_ptr<long> deviceMqttConnectionStatus{};
+  shared_ptr<string> deviceOs{};
+  shared_ptr<string> devicePlatform{};
+  shared_ptr<bool> inManage{};
+  shared_ptr<string> lastLoginTime{};
+  shared_ptr<string> lastLoginUser{};
+  shared_ptr<string> loginUser{};
+  shared_ptr<string> model{};
+  shared_ptr<string> passwordFreeLoginUser{};
+  shared_ptr<string> passwordFreeLoginUserNickName{};
+  shared_ptr<string> privateIp{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> publicIp{};
+  shared_ptr<string> serialNo{};
+  shared_ptr<string> uuid{};
+
+  ListUnbindDevicesResponseBodyDataDevices() {}
+
+  explicit ListUnbindDevicesResponseBodyDataDevices(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (boundTime) {
+      res["BoundTime"] = boost::any(*boundTime);
+    }
+    if (buildId) {
+      res["BuildId"] = boost::any(*buildId);
+    }
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (connectionStatus) {
+      res["ConnectionStatus"] = boost::any(*connectionStatus);
+    }
+    if (deviceMqttConnectionStatus) {
+      res["DeviceMqttConnectionStatus"] = boost::any(*deviceMqttConnectionStatus);
+    }
+    if (deviceOs) {
+      res["DeviceOs"] = boost::any(*deviceOs);
+    }
+    if (devicePlatform) {
+      res["DevicePlatform"] = boost::any(*devicePlatform);
+    }
+    if (inManage) {
+      res["InManage"] = boost::any(*inManage);
+    }
+    if (lastLoginTime) {
+      res["LastLoginTime"] = boost::any(*lastLoginTime);
+    }
+    if (lastLoginUser) {
+      res["LastLoginUser"] = boost::any(*lastLoginUser);
+    }
+    if (loginUser) {
+      res["LoginUser"] = boost::any(*loginUser);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (passwordFreeLoginUser) {
+      res["PasswordFreeLoginUser"] = boost::any(*passwordFreeLoginUser);
+    }
+    if (passwordFreeLoginUserNickName) {
+      res["PasswordFreeLoginUserNickName"] = boost::any(*passwordFreeLoginUserNickName);
+    }
+    if (privateIp) {
+      res["PrivateIp"] = boost::any(*privateIp);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (publicIp) {
+      res["PublicIp"] = boost::any(*publicIp);
+    }
+    if (serialNo) {
+      res["SerialNo"] = boost::any(*serialNo);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
+    }
+    if (m.find("BoundTime") != m.end() && !m["BoundTime"].empty()) {
+      boundTime = make_shared<string>(boost::any_cast<string>(m["BoundTime"]));
+    }
+    if (m.find("BuildId") != m.end() && !m["BuildId"].empty()) {
+      buildId = make_shared<string>(boost::any_cast<string>(m["BuildId"]));
+    }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<string>(boost::any_cast<string>(m["ClientType"]));
+    }
+    if (m.find("ConnectionStatus") != m.end() && !m["ConnectionStatus"].empty()) {
+      connectionStatus = make_shared<string>(boost::any_cast<string>(m["ConnectionStatus"]));
+    }
+    if (m.find("DeviceMqttConnectionStatus") != m.end() && !m["DeviceMqttConnectionStatus"].empty()) {
+      deviceMqttConnectionStatus = make_shared<long>(boost::any_cast<long>(m["DeviceMqttConnectionStatus"]));
+    }
+    if (m.find("DeviceOs") != m.end() && !m["DeviceOs"].empty()) {
+      deviceOs = make_shared<string>(boost::any_cast<string>(m["DeviceOs"]));
+    }
+    if (m.find("DevicePlatform") != m.end() && !m["DevicePlatform"].empty()) {
+      devicePlatform = make_shared<string>(boost::any_cast<string>(m["DevicePlatform"]));
+    }
+    if (m.find("InManage") != m.end() && !m["InManage"].empty()) {
+      inManage = make_shared<bool>(boost::any_cast<bool>(m["InManage"]));
+    }
+    if (m.find("LastLoginTime") != m.end() && !m["LastLoginTime"].empty()) {
+      lastLoginTime = make_shared<string>(boost::any_cast<string>(m["LastLoginTime"]));
+    }
+    if (m.find("LastLoginUser") != m.end() && !m["LastLoginUser"].empty()) {
+      lastLoginUser = make_shared<string>(boost::any_cast<string>(m["LastLoginUser"]));
+    }
+    if (m.find("LoginUser") != m.end() && !m["LoginUser"].empty()) {
+      loginUser = make_shared<string>(boost::any_cast<string>(m["LoginUser"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("PasswordFreeLoginUser") != m.end() && !m["PasswordFreeLoginUser"].empty()) {
+      passwordFreeLoginUser = make_shared<string>(boost::any_cast<string>(m["PasswordFreeLoginUser"]));
+    }
+    if (m.find("PasswordFreeLoginUserNickName") != m.end() && !m["PasswordFreeLoginUserNickName"].empty()) {
+      passwordFreeLoginUserNickName = make_shared<string>(boost::any_cast<string>(m["PasswordFreeLoginUserNickName"]));
+    }
+    if (m.find("PrivateIp") != m.end() && !m["PrivateIp"].empty()) {
+      privateIp = make_shared<string>(boost::any_cast<string>(m["PrivateIp"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("PublicIp") != m.end() && !m["PublicIp"].empty()) {
+      publicIp = make_shared<string>(boost::any_cast<string>(m["PublicIp"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      serialNo = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~ListUnbindDevicesResponseBodyDataDevices() = default;
+};
+class ListUnbindDevicesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListUnbindDevicesResponseBodyDataDevices>> devices{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListUnbindDevicesResponseBodyData() {}
+
+  explicit ListUnbindDevicesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (devices) {
+      vector<boost::any> temp1;
+      for(auto item1:*devices){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Devices"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Devices") != m.end() && !m["Devices"].empty()) {
+      if (typeid(vector<boost::any>) == m["Devices"].type()) {
+        vector<ListUnbindDevicesResponseBodyDataDevices> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Devices"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListUnbindDevicesResponseBodyDataDevices model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        devices = make_shared<vector<ListUnbindDevicesResponseBodyDataDevices>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListUnbindDevicesResponseBodyData() = default;
+};
+class ListUnbindDevicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListUnbindDevicesResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListUnbindDevicesResponseBody() {}
+
+  explicit ListUnbindDevicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListUnbindDevicesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListUnbindDevicesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListUnbindDevicesResponseBody() = default;
+};
+class ListUnbindDevicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListUnbindDevicesResponseBody> body{};
+
+  ListUnbindDevicesResponse() {}
+
+  explicit ListUnbindDevicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListUnbindDevicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListUnbindDevicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListUnbindDevicesResponse() = default;
 };
 class ListUserFbAcIssuesRequest : public Darabonba::Model {
 public:
@@ -12923,6 +13953,7 @@ public:
 };
 class RegisterDeviceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<bool> newUpgrade{};
   shared_ptr<string> uuid{};
 
   RegisterDeviceResponseBodyData() {}
@@ -12935,6 +13966,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (newUpgrade) {
+      res["NewUpgrade"] = boost::any(*newUpgrade);
+    }
     if (uuid) {
       res["Uuid"] = boost::any(*uuid);
     }
@@ -12942,6 +13976,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("NewUpgrade") != m.end() && !m["NewUpgrade"].empty()) {
+      newUpgrade = make_shared<bool>(boost::any_cast<bool>(m["NewUpgrade"]));
+    }
     if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
       uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
     }
@@ -13831,6 +14868,7 @@ public:
 class ReportUserFbIssueRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> clientAppVersion{};
   shared_ptr<string> clientId{};
   shared_ptr<string> clientModel{};
   shared_ptr<string> clientOsName{};
@@ -13868,6 +14906,9 @@ public:
     map<string, boost::any> res;
     if (appId) {
       res["AppId"] = boost::any(*appId);
+    }
+    if (clientAppVersion) {
+      res["ClientAppVersion"] = boost::any(*clientAppVersion);
     }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
@@ -13951,6 +14992,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ClientAppVersion") != m.end() && !m["ClientAppVersion"].empty()) {
+      clientAppVersion = make_shared<string>(boost::any_cast<string>(m["ClientAppVersion"]));
     }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
@@ -14042,6 +15086,7 @@ public:
 class ReportUserFbIssueShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> clientAppVersion{};
   shared_ptr<string> clientId{};
   shared_ptr<string> clientModel{};
   shared_ptr<string> clientOsName{};
@@ -14079,6 +15124,9 @@ public:
     map<string, boost::any> res;
     if (appId) {
       res["AppId"] = boost::any(*appId);
+    }
+    if (clientAppVersion) {
+      res["ClientAppVersion"] = boost::any(*clientAppVersion);
     }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
@@ -14158,6 +15206,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ClientAppVersion") != m.end() && !m["ClientAppVersion"].empty()) {
+      clientAppVersion = make_shared<string>(boost::any_cast<string>(m["ClientAppVersion"]));
     }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
@@ -14435,9 +15486,67 @@ public:
 
   virtual ~SendOpsMessageToTerminalsRequest() = default;
 };
+class SendOpsMessageToTerminalsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> failReason{};
+  shared_ptr<string> result{};
+  shared_ptr<string> serialNumber{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> uuid{};
+
+  SendOpsMessageToTerminalsResponseBodyData() {}
+
+  explicit SendOpsMessageToTerminalsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failReason) {
+      res["FailReason"] = boost::any(*failReason);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailReason") != m.end() && !m["FailReason"].empty()) {
+      failReason = make_shared<string>(boost::any_cast<string>(m["FailReason"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~SendOpsMessageToTerminalsResponseBodyData() = default;
+};
 class SendOpsMessageToTerminalsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<vector<SendOpsMessageToTerminalsResponseBodyData>> data{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -14455,6 +15564,13 @@ public:
     map<string, boost::any> res;
     if (code) {
       res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
     }
     if (httpStatusCode) {
       res["HttpStatusCode"] = boost::any(*httpStatusCode);
@@ -14474,6 +15590,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<SendOpsMessageToTerminalsResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SendOpsMessageToTerminalsResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<SendOpsMessageToTerminalsResponseBodyData>>(expect1);
+      }
     }
     if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
       httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
@@ -15134,6 +16263,7 @@ public:
 };
 class UnbindPasswordFreeLoginUserRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> mainBizType{};
   shared_ptr<string> serialNumber{};
   shared_ptr<string> uuid{};
 
@@ -15147,6 +16277,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (mainBizType) {
+      res["MainBizType"] = boost::any(*mainBizType);
+    }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
     }
@@ -15157,6 +16290,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MainBizType") != m.end() && !m["MainBizType"].empty()) {
+      mainBizType = make_shared<string>(boost::any_cast<string>(m["MainBizType"]));
+    }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
@@ -15821,7 +16957,9 @@ public:
 };
 class UpdateTerminalPolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> allowManualLockScreen{};
   shared_ptr<string> backgroundModeTitle{};
+  shared_ptr<bool> customScreenCastRes{};
   shared_ptr<string> displayLayout{};
   shared_ptr<string> displayResolution{};
   shared_ptr<string> displayScaleRatio{};
@@ -15829,22 +16967,38 @@ public:
   shared_ptr<long> enableAutoLogin{};
   shared_ptr<long> enableBackgroundMode{};
   shared_ptr<long> enableBluetooth{};
+  shared_ptr<long> enableControlPanel{};
+  shared_ptr<long> enableImmersiveMode{};
+  shared_ptr<long> enableLockScreenHotKey{};
   shared_ptr<long> enableModifyPassword{};
+  shared_ptr<long> enableScanLogin{};
   shared_ptr<long> enableScheduledReboot{};
   shared_ptr<long> enableScheduledShutdown{};
+  shared_ptr<long> enableSmsLogin{};
   shared_ptr<long> enableSwitchPersonal{};
   shared_ptr<long> enableWlan{};
+  shared_ptr<long> followCloudReboot{};
+  shared_ptr<long> followCloudShutdown{};
+  shared_ptr<long> followTerminalReboot{};
+  shared_ptr<long> followTerminalShutdown{};
+  shared_ptr<long> forceSetPinCode{};
   shared_ptr<long> idleTimeout{};
   shared_ptr<long> idleTimeoutAction{};
+  shared_ptr<long> lockScreenPasswordRequired{};
+  shared_ptr<long> lockScreenTimeout{};
+  shared_ptr<string> mainBizType{};
   shared_ptr<string> name{};
   shared_ptr<long> powerButtonDefine{};
   shared_ptr<long> powerButtonDefineForAs{};
   shared_ptr<long> powerButtonDefineForNs{};
   shared_ptr<long> powerOnBehavior{};
+  shared_ptr<string> runningMode{};
   shared_ptr<string> scheduledReboot{};
   shared_ptr<string> scheduledShutdown{};
+  shared_ptr<vector<string>> screenCastResPaths{};
   shared_ptr<long> settingLock{};
   shared_ptr<string> terminalPolicyId{};
+  shared_ptr<long> unlockMethod{};
 
   UpdateTerminalPolicyRequest() {}
 
@@ -15856,8 +17010,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowManualLockScreen) {
+      res["AllowManualLockScreen"] = boost::any(*allowManualLockScreen);
+    }
     if (backgroundModeTitle) {
       res["BackgroundModeTitle"] = boost::any(*backgroundModeTitle);
+    }
+    if (customScreenCastRes) {
+      res["CustomScreenCastRes"] = boost::any(*customScreenCastRes);
     }
     if (displayLayout) {
       res["DisplayLayout"] = boost::any(*displayLayout);
@@ -15880,8 +17040,20 @@ public:
     if (enableBluetooth) {
       res["EnableBluetooth"] = boost::any(*enableBluetooth);
     }
+    if (enableControlPanel) {
+      res["EnableControlPanel"] = boost::any(*enableControlPanel);
+    }
+    if (enableImmersiveMode) {
+      res["EnableImmersiveMode"] = boost::any(*enableImmersiveMode);
+    }
+    if (enableLockScreenHotKey) {
+      res["EnableLockScreenHotKey"] = boost::any(*enableLockScreenHotKey);
+    }
     if (enableModifyPassword) {
       res["EnableModifyPassword"] = boost::any(*enableModifyPassword);
+    }
+    if (enableScanLogin) {
+      res["EnableScanLogin"] = boost::any(*enableScanLogin);
     }
     if (enableScheduledReboot) {
       res["EnableScheduledReboot"] = boost::any(*enableScheduledReboot);
@@ -15889,17 +17061,44 @@ public:
     if (enableScheduledShutdown) {
       res["EnableScheduledShutdown"] = boost::any(*enableScheduledShutdown);
     }
+    if (enableSmsLogin) {
+      res["EnableSmsLogin"] = boost::any(*enableSmsLogin);
+    }
     if (enableSwitchPersonal) {
       res["EnableSwitchPersonal"] = boost::any(*enableSwitchPersonal);
     }
     if (enableWlan) {
       res["EnableWlan"] = boost::any(*enableWlan);
     }
+    if (followCloudReboot) {
+      res["FollowCloudReboot"] = boost::any(*followCloudReboot);
+    }
+    if (followCloudShutdown) {
+      res["FollowCloudShutdown"] = boost::any(*followCloudShutdown);
+    }
+    if (followTerminalReboot) {
+      res["FollowTerminalReboot"] = boost::any(*followTerminalReboot);
+    }
+    if (followTerminalShutdown) {
+      res["FollowTerminalShutdown"] = boost::any(*followTerminalShutdown);
+    }
+    if (forceSetPinCode) {
+      res["ForceSetPinCode"] = boost::any(*forceSetPinCode);
+    }
     if (idleTimeout) {
       res["IdleTimeout"] = boost::any(*idleTimeout);
     }
     if (idleTimeoutAction) {
       res["IdleTimeoutAction"] = boost::any(*idleTimeoutAction);
+    }
+    if (lockScreenPasswordRequired) {
+      res["LockScreenPasswordRequired"] = boost::any(*lockScreenPasswordRequired);
+    }
+    if (lockScreenTimeout) {
+      res["LockScreenTimeout"] = boost::any(*lockScreenTimeout);
+    }
+    if (mainBizType) {
+      res["MainBizType"] = boost::any(*mainBizType);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -15916,11 +17115,17 @@ public:
     if (powerOnBehavior) {
       res["PowerOnBehavior"] = boost::any(*powerOnBehavior);
     }
+    if (runningMode) {
+      res["RunningMode"] = boost::any(*runningMode);
+    }
     if (scheduledReboot) {
       res["ScheduledReboot"] = boost::any(*scheduledReboot);
     }
     if (scheduledShutdown) {
       res["ScheduledShutdown"] = boost::any(*scheduledShutdown);
+    }
+    if (screenCastResPaths) {
+      res["ScreenCastResPaths"] = boost::any(*screenCastResPaths);
     }
     if (settingLock) {
       res["SettingLock"] = boost::any(*settingLock);
@@ -15928,12 +17133,21 @@ public:
     if (terminalPolicyId) {
       res["TerminalPolicyId"] = boost::any(*terminalPolicyId);
     }
+    if (unlockMethod) {
+      res["UnlockMethod"] = boost::any(*unlockMethod);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowManualLockScreen") != m.end() && !m["AllowManualLockScreen"].empty()) {
+      allowManualLockScreen = make_shared<long>(boost::any_cast<long>(m["AllowManualLockScreen"]));
+    }
     if (m.find("BackgroundModeTitle") != m.end() && !m["BackgroundModeTitle"].empty()) {
       backgroundModeTitle = make_shared<string>(boost::any_cast<string>(m["BackgroundModeTitle"]));
+    }
+    if (m.find("CustomScreenCastRes") != m.end() && !m["CustomScreenCastRes"].empty()) {
+      customScreenCastRes = make_shared<bool>(boost::any_cast<bool>(m["CustomScreenCastRes"]));
     }
     if (m.find("DisplayLayout") != m.end() && !m["DisplayLayout"].empty()) {
       displayLayout = make_shared<string>(boost::any_cast<string>(m["DisplayLayout"]));
@@ -15956,8 +17170,20 @@ public:
     if (m.find("EnableBluetooth") != m.end() && !m["EnableBluetooth"].empty()) {
       enableBluetooth = make_shared<long>(boost::any_cast<long>(m["EnableBluetooth"]));
     }
+    if (m.find("EnableControlPanel") != m.end() && !m["EnableControlPanel"].empty()) {
+      enableControlPanel = make_shared<long>(boost::any_cast<long>(m["EnableControlPanel"]));
+    }
+    if (m.find("EnableImmersiveMode") != m.end() && !m["EnableImmersiveMode"].empty()) {
+      enableImmersiveMode = make_shared<long>(boost::any_cast<long>(m["EnableImmersiveMode"]));
+    }
+    if (m.find("EnableLockScreenHotKey") != m.end() && !m["EnableLockScreenHotKey"].empty()) {
+      enableLockScreenHotKey = make_shared<long>(boost::any_cast<long>(m["EnableLockScreenHotKey"]));
+    }
     if (m.find("EnableModifyPassword") != m.end() && !m["EnableModifyPassword"].empty()) {
       enableModifyPassword = make_shared<long>(boost::any_cast<long>(m["EnableModifyPassword"]));
+    }
+    if (m.find("EnableScanLogin") != m.end() && !m["EnableScanLogin"].empty()) {
+      enableScanLogin = make_shared<long>(boost::any_cast<long>(m["EnableScanLogin"]));
     }
     if (m.find("EnableScheduledReboot") != m.end() && !m["EnableScheduledReboot"].empty()) {
       enableScheduledReboot = make_shared<long>(boost::any_cast<long>(m["EnableScheduledReboot"]));
@@ -15965,17 +17191,44 @@ public:
     if (m.find("EnableScheduledShutdown") != m.end() && !m["EnableScheduledShutdown"].empty()) {
       enableScheduledShutdown = make_shared<long>(boost::any_cast<long>(m["EnableScheduledShutdown"]));
     }
+    if (m.find("EnableSmsLogin") != m.end() && !m["EnableSmsLogin"].empty()) {
+      enableSmsLogin = make_shared<long>(boost::any_cast<long>(m["EnableSmsLogin"]));
+    }
     if (m.find("EnableSwitchPersonal") != m.end() && !m["EnableSwitchPersonal"].empty()) {
       enableSwitchPersonal = make_shared<long>(boost::any_cast<long>(m["EnableSwitchPersonal"]));
     }
     if (m.find("EnableWlan") != m.end() && !m["EnableWlan"].empty()) {
       enableWlan = make_shared<long>(boost::any_cast<long>(m["EnableWlan"]));
     }
+    if (m.find("FollowCloudReboot") != m.end() && !m["FollowCloudReboot"].empty()) {
+      followCloudReboot = make_shared<long>(boost::any_cast<long>(m["FollowCloudReboot"]));
+    }
+    if (m.find("FollowCloudShutdown") != m.end() && !m["FollowCloudShutdown"].empty()) {
+      followCloudShutdown = make_shared<long>(boost::any_cast<long>(m["FollowCloudShutdown"]));
+    }
+    if (m.find("FollowTerminalReboot") != m.end() && !m["FollowTerminalReboot"].empty()) {
+      followTerminalReboot = make_shared<long>(boost::any_cast<long>(m["FollowTerminalReboot"]));
+    }
+    if (m.find("FollowTerminalShutdown") != m.end() && !m["FollowTerminalShutdown"].empty()) {
+      followTerminalShutdown = make_shared<long>(boost::any_cast<long>(m["FollowTerminalShutdown"]));
+    }
+    if (m.find("ForceSetPinCode") != m.end() && !m["ForceSetPinCode"].empty()) {
+      forceSetPinCode = make_shared<long>(boost::any_cast<long>(m["ForceSetPinCode"]));
+    }
     if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
       idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
     }
     if (m.find("IdleTimeoutAction") != m.end() && !m["IdleTimeoutAction"].empty()) {
       idleTimeoutAction = make_shared<long>(boost::any_cast<long>(m["IdleTimeoutAction"]));
+    }
+    if (m.find("LockScreenPasswordRequired") != m.end() && !m["LockScreenPasswordRequired"].empty()) {
+      lockScreenPasswordRequired = make_shared<long>(boost::any_cast<long>(m["LockScreenPasswordRequired"]));
+    }
+    if (m.find("LockScreenTimeout") != m.end() && !m["LockScreenTimeout"].empty()) {
+      lockScreenTimeout = make_shared<long>(boost::any_cast<long>(m["LockScreenTimeout"]));
+    }
+    if (m.find("MainBizType") != m.end() && !m["MainBizType"].empty()) {
+      mainBizType = make_shared<string>(boost::any_cast<string>(m["MainBizType"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -15992,17 +17245,33 @@ public:
     if (m.find("PowerOnBehavior") != m.end() && !m["PowerOnBehavior"].empty()) {
       powerOnBehavior = make_shared<long>(boost::any_cast<long>(m["PowerOnBehavior"]));
     }
+    if (m.find("RunningMode") != m.end() && !m["RunningMode"].empty()) {
+      runningMode = make_shared<string>(boost::any_cast<string>(m["RunningMode"]));
+    }
     if (m.find("ScheduledReboot") != m.end() && !m["ScheduledReboot"].empty()) {
       scheduledReboot = make_shared<string>(boost::any_cast<string>(m["ScheduledReboot"]));
     }
     if (m.find("ScheduledShutdown") != m.end() && !m["ScheduledShutdown"].empty()) {
       scheduledShutdown = make_shared<string>(boost::any_cast<string>(m["ScheduledShutdown"]));
     }
+    if (m.find("ScreenCastResPaths") != m.end() && !m["ScreenCastResPaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScreenCastResPaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScreenCastResPaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      screenCastResPaths = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("SettingLock") != m.end() && !m["SettingLock"].empty()) {
       settingLock = make_shared<long>(boost::any_cast<long>(m["SettingLock"]));
     }
     if (m.find("TerminalPolicyId") != m.end() && !m["TerminalPolicyId"].empty()) {
       terminalPolicyId = make_shared<string>(boost::any_cast<string>(m["TerminalPolicyId"]));
+    }
+    if (m.find("UnlockMethod") != m.end() && !m["UnlockMethod"].empty()) {
+      unlockMethod = make_shared<long>(boost::any_cast<long>(m["UnlockMethod"]));
     }
   }
 
@@ -16206,6 +17475,8 @@ public:
   GetOssConfigResponse getOssConfig(shared_ptr<GetOssConfigRequest> request);
   GetVersionDownloadUrlResponse getVersionDownloadUrlWithOptions(shared_ptr<GetVersionDownloadUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVersionDownloadUrlResponse getVersionDownloadUrl(shared_ptr<GetVersionDownloadUrlRequest> request);
+  ListBoundDevicesResponse listBoundDevicesWithOptions(shared_ptr<ListBoundDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListBoundDevicesResponse listBoundDevices(shared_ptr<ListBoundDevicesRequest> request);
   ListDeviceOtaTaskByTenantResponse listDeviceOtaTaskByTenantWithOptions(shared_ptr<ListDeviceOtaTaskByTenantRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDeviceOtaTaskByTenantResponse listDeviceOtaTaskByTenant(shared_ptr<ListDeviceOtaTaskByTenantRequest> request);
   ListDeviceSeatsResponse listDeviceSeatsWithOptions(shared_ptr<ListDeviceSeatsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16226,6 +17497,8 @@ public:
   ListTerminalsResponse listTerminals(shared_ptr<ListTerminalsRequest> request);
   ListTrustDevicesResponse listTrustDevicesWithOptions(shared_ptr<ListTrustDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTrustDevicesResponse listTrustDevices(shared_ptr<ListTrustDevicesRequest> request);
+  ListUnbindDevicesResponse listUnbindDevicesWithOptions(shared_ptr<ListUnbindDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListUnbindDevicesResponse listUnbindDevices(shared_ptr<ListUnbindDevicesRequest> request);
   ListUserFbAcIssuesResponse listUserFbAcIssuesWithOptions(shared_ptr<ListUserFbAcIssuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUserFbAcIssuesResponse listUserFbAcIssues(shared_ptr<ListUserFbAcIssuesRequest> request);
   ListUserFbIssuesResponse listUserFbIssuesWithOptions(shared_ptr<ListUserFbIssuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -263,11 +263,20 @@ AddTerminalResponse Alibabacloud_Wyota20210420::Client::addTerminalWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->alias)) {
     body->insert(pair<string, string>("Alias", *request->alias));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientType)) {
+    body->insert(pair<string, string>("ClientType", *request->clientType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mainBizType)) {
+    body->insert(pair<string, string>("MainBizType", *request->mainBizType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
     body->insert(pair<string, string>("SerialNumber", *request->serialNumber));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->terminalGroupId)) {
     body->insert(pair<string, string>("TerminalGroupId", *request->terminalGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("Uuid", *request->uuid));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -297,6 +306,9 @@ AddTerminalsResponse Alibabacloud_Wyota20210420::Client::addTerminalsWithOptions
   shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<AddTerminalsRequestAddTerminalParams>>(request->addTerminalParams)) {
     bodyFlat->insert(pair<string, vector<AddTerminalsRequestAddTerminalParams>>("AddTerminalParams", *request->addTerminalParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mainBizType)) {
+    body->insert(pair<string, string>("MainBizType", *request->mainBizType));
   }
   body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -460,6 +472,9 @@ BindPasswordFreeLoginUserResponse Alibabacloud_Wyota20210420::Client::bindPasswo
   if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
     body->insert(pair<string, string>("EndUserId", *request->endUserId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mainBizType)) {
+    body->insert(pair<string, string>("MainBizType", *request->mainBizType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
     body->insert(pair<string, string>("SerialNumber", *request->serialNumber));
   }
@@ -503,14 +518,26 @@ CheckUuidValidResponse Alibabacloud_Wyota20210420::Client::checkUuidValidWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     body->insert(pair<string, string>("ClientId", *request->clientId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientVersion)) {
+    body->insert(pair<string, string>("ClientVersion", *request->clientVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->customId)) {
     body->insert(pair<string, string>("CustomId", *request->customId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->etherMac)) {
     body->insert(pair<string, string>("EtherMac", *request->etherMac));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loginRegionId)) {
+    body->insert(pair<string, string>("LoginRegionId", *request->loginRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loginToken)) {
+    body->insert(pair<string, string>("LoginToken", *request->loginToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serialNo)) {
     body->insert(pair<string, string>("SerialNo", *request->serialNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
     body->insert(pair<string, string>("Uuid", *request->uuid));
@@ -588,6 +615,9 @@ CreateAppOtaTaskResponse Alibabacloud_Wyota20210420::Client::createAppOtaTaskWit
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
     query->insert(pair<string, string>("TenantId", *request->tenantId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tenantIdList)) {
+    query->insert(pair<string, vector<string>>("TenantIdList", *request->tenantIdList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -645,6 +675,9 @@ CreateAppOtaVersionResponse Alibabacloud_Wyota20210420::Client::createAppOtaVers
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
     query->insert(pair<string, string>("Project", *request->project));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->relationVersionUids)) {
+    query->insert(pair<string, vector<string>>("RelationVersionUids", *request->relationVersionUids));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->releaseNote)) {
     query->insert(pair<string, string>("ReleaseNote", *request->releaseNote));
@@ -804,6 +837,12 @@ DescribeAppOtaVersionResponse Alibabacloud_Wyota20210420::Client::describeAppOta
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->creator)) {
     query->insert(pair<string, string>("Creator", *request->creator));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->nullChannel)) {
+    query->insert(pair<string, bool>("NullChannel", *request->nullChannel));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->otaType)) {
+    query->insert(pair<string, long>("OtaType", *request->otaType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
     query->insert(pair<string, string>("Project", *request->project));
@@ -1515,6 +1554,67 @@ GetVersionDownloadUrlResponse Alibabacloud_Wyota20210420::Client::getVersionDown
   return getVersionDownloadUrlWithOptions(request, runtime);
 }
 
+ListBoundDevicesResponse Alibabacloud_Wyota20210420::Client::listBoundDevicesWithOptions(shared_ptr<ListBoundDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->adDomain)) {
+    body->insert(pair<string, string>("AdDomain", *request->adDomain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alias)) {
+    body->insert(pair<string, string>("Alias", *request->alias));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->clientType)) {
+    body->insert(pair<string, long>("ClientType", *request->clientType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
+    body->insert(pair<string, string>("DirectoryId", *request->directoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
+    body->insert(pair<string, string>("EndUserId", *request->endUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->inManage)) {
+    body->insert(pair<string, bool>("InManage", *request->inManage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lastLoginUser)) {
+    body->insert(pair<string, string>("LastLoginUser", *request->lastLoginUser));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serialNo)) {
+    body->insert(pair<string, string>("SerialNo", *request->serialNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userType)) {
+    body->insert(pair<string, string>("UserType", *request->userType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListBoundDevices"))},
+    {"version", boost::any(string("2021-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListBoundDevicesResponse(callApi(params, req, runtime));
+}
+
+ListBoundDevicesResponse Alibabacloud_Wyota20210420::Client::listBoundDevices(shared_ptr<ListBoundDevicesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listBoundDevicesWithOptions(request, runtime);
+}
+
 ListDeviceOtaTaskByTenantResponse Alibabacloud_Wyota20210420::Client::listDeviceOtaTaskByTenantWithOptions(shared_ptr<ListDeviceOtaTaskByTenantRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1603,6 +1703,9 @@ ListDevicesResponse Alibabacloud_Wyota20210420::Client::listDevicesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->devicePlatform)) {
     query->insert(pair<string, string>("DevicePlatform", *request->devicePlatform));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lastLoginUser)) {
+    query->insert(pair<string, string>("LastLoginUser", *request->lastLoginUser));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->locationInfo)) {
     query->insert(pair<string, string>("LocationInfo", *request->locationInfo));
@@ -1860,6 +1963,9 @@ ListTerminalsResponse Alibabacloud_Wyota20210420::Client::listTerminalsWithOptio
   if (!Darabonba_Util::Client::isUnset<bool>(request->inManage)) {
     body->insert(pair<string, bool>("InManage", *request->inManage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mainBizType)) {
+    body->insert(pair<string, string>("MainBizType", *request->mainBizType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     body->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -1943,6 +2049,67 @@ ListTrustDevicesResponse Alibabacloud_Wyota20210420::Client::listTrustDevicesWit
 ListTrustDevicesResponse Alibabacloud_Wyota20210420::Client::listTrustDevices(shared_ptr<ListTrustDevicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listTrustDevicesWithOptions(request, runtime);
+}
+
+ListUnbindDevicesResponse Alibabacloud_Wyota20210420::Client::listUnbindDevicesWithOptions(shared_ptr<ListUnbindDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->adDomain)) {
+    body->insert(pair<string, string>("AdDomain", *request->adDomain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alias)) {
+    body->insert(pair<string, string>("Alias", *request->alias));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->clientType)) {
+    body->insert(pair<string, long>("ClientType", *request->clientType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
+    body->insert(pair<string, string>("DirectoryId", *request->directoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
+    body->insert(pair<string, string>("EndUserId", *request->endUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->inManage)) {
+    body->insert(pair<string, bool>("InManage", *request->inManage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lastLoginUser)) {
+    body->insert(pair<string, string>("LastLoginUser", *request->lastLoginUser));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serialNo)) {
+    body->insert(pair<string, string>("SerialNo", *request->serialNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userType)) {
+    body->insert(pair<string, string>("UserType", *request->userType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListUnbindDevices"))},
+    {"version", boost::any(string("2021-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListUnbindDevicesResponse(callApi(params, req, runtime));
+}
+
+ListUnbindDevicesResponse Alibabacloud_Wyota20210420::Client::listUnbindDevices(shared_ptr<ListUnbindDevicesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listUnbindDevicesWithOptions(request, runtime);
 }
 
 ListUserFbAcIssuesResponse Alibabacloud_Wyota20210420::Client::listUserFbAcIssuesWithOptions(shared_ptr<ListUserFbAcIssuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2374,6 +2541,9 @@ ReportUserFbIssueResponse Alibabacloud_Wyota20210420::Client::reportUserFbIssueW
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientAppVersion)) {
+    body->insert(pair<string, string>("ClientAppVersion", *request->clientAppVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     body->insert(pair<string, string>("ClientId", *request->clientId));
   }
@@ -2650,6 +2820,9 @@ UnbindDeviceSeatsResponse Alibabacloud_Wyota20210420::Client::unbindDeviceSeats(
 UnbindPasswordFreeLoginUserResponse Alibabacloud_Wyota20210420::Client::unbindPasswordFreeLoginUserWithOptions(shared_ptr<UnbindPasswordFreeLoginUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mainBizType)) {
+    body->insert(pair<string, string>("MainBizType", *request->mainBizType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
     body->insert(pair<string, string>("SerialNumber", *request->serialNumber));
   }
@@ -2789,8 +2962,14 @@ UpdateLabelResponse Alibabacloud_Wyota20210420::Client::updateLabel(shared_ptr<U
 UpdateTerminalPolicyResponse Alibabacloud_Wyota20210420::Client::updateTerminalPolicyWithOptions(shared_ptr<UpdateTerminalPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->allowManualLockScreen)) {
+    body->insert(pair<string, long>("AllowManualLockScreen", *request->allowManualLockScreen));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->backgroundModeTitle)) {
     body->insert(pair<string, string>("BackgroundModeTitle", *request->backgroundModeTitle));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->customScreenCastRes)) {
+    body->insert(pair<string, bool>("CustomScreenCastRes", *request->customScreenCastRes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->displayLayout)) {
     body->insert(pair<string, string>("DisplayLayout", *request->displayLayout));
@@ -2813,8 +2992,20 @@ UpdateTerminalPolicyResponse Alibabacloud_Wyota20210420::Client::updateTerminalP
   if (!Darabonba_Util::Client::isUnset<long>(request->enableBluetooth)) {
     body->insert(pair<string, long>("EnableBluetooth", *request->enableBluetooth));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableControlPanel)) {
+    body->insert(pair<string, long>("EnableControlPanel", *request->enableControlPanel));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableImmersiveMode)) {
+    body->insert(pair<string, long>("EnableImmersiveMode", *request->enableImmersiveMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableLockScreenHotKey)) {
+    body->insert(pair<string, long>("EnableLockScreenHotKey", *request->enableLockScreenHotKey));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->enableModifyPassword)) {
     body->insert(pair<string, long>("EnableModifyPassword", *request->enableModifyPassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableScanLogin)) {
+    body->insert(pair<string, long>("EnableScanLogin", *request->enableScanLogin));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->enableScheduledReboot)) {
     body->insert(pair<string, long>("EnableScheduledReboot", *request->enableScheduledReboot));
@@ -2822,17 +3013,44 @@ UpdateTerminalPolicyResponse Alibabacloud_Wyota20210420::Client::updateTerminalP
   if (!Darabonba_Util::Client::isUnset<long>(request->enableScheduledShutdown)) {
     body->insert(pair<string, long>("EnableScheduledShutdown", *request->enableScheduledShutdown));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableSmsLogin)) {
+    body->insert(pair<string, long>("EnableSmsLogin", *request->enableSmsLogin));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->enableSwitchPersonal)) {
     body->insert(pair<string, long>("EnableSwitchPersonal", *request->enableSwitchPersonal));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->enableWlan)) {
     body->insert(pair<string, long>("EnableWlan", *request->enableWlan));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->followCloudReboot)) {
+    body->insert(pair<string, long>("FollowCloudReboot", *request->followCloudReboot));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->followCloudShutdown)) {
+    body->insert(pair<string, long>("FollowCloudShutdown", *request->followCloudShutdown));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->followTerminalReboot)) {
+    body->insert(pair<string, long>("FollowTerminalReboot", *request->followTerminalReboot));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->followTerminalShutdown)) {
+    body->insert(pair<string, long>("FollowTerminalShutdown", *request->followTerminalShutdown));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->forceSetPinCode)) {
+    body->insert(pair<string, long>("ForceSetPinCode", *request->forceSetPinCode));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
     body->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeoutAction)) {
     body->insert(pair<string, long>("IdleTimeoutAction", *request->idleTimeoutAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->lockScreenPasswordRequired)) {
+    body->insert(pair<string, long>("LockScreenPasswordRequired", *request->lockScreenPasswordRequired));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->lockScreenTimeout)) {
+    body->insert(pair<string, long>("LockScreenTimeout", *request->lockScreenTimeout));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mainBizType)) {
+    body->insert(pair<string, string>("MainBizType", *request->mainBizType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
@@ -2849,11 +3067,18 @@ UpdateTerminalPolicyResponse Alibabacloud_Wyota20210420::Client::updateTerminalP
   if (!Darabonba_Util::Client::isUnset<long>(request->powerOnBehavior)) {
     body->insert(pair<string, long>("PowerOnBehavior", *request->powerOnBehavior));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runningMode)) {
+    body->insert(pair<string, string>("RunningMode", *request->runningMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->scheduledReboot)) {
     body->insert(pair<string, string>("ScheduledReboot", *request->scheduledReboot));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scheduledShutdown)) {
     body->insert(pair<string, string>("ScheduledShutdown", *request->scheduledShutdown));
+  }
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->screenCastResPaths)) {
+    bodyFlat->insert(pair<string, vector<string>>("ScreenCastResPaths", *request->screenCastResPaths));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->settingLock)) {
     body->insert(pair<string, long>("SettingLock", *request->settingLock));
@@ -2861,6 +3086,10 @@ UpdateTerminalPolicyResponse Alibabacloud_Wyota20210420::Client::updateTerminalP
   if (!Darabonba_Util::Client::isUnset<string>(request->terminalPolicyId)) {
     body->insert(pair<string, string>("TerminalPolicyId", *request->terminalPolicyId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->unlockMethod)) {
+    body->insert(pair<string, long>("UnlockMethod", *request->unlockMethod));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
