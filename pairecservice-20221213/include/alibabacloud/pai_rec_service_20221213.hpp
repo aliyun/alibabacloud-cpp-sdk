@@ -3831,6 +3831,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> name{};
   shared_ptr<string> sceneId{};
+  shared_ptr<string> type{};
   shared_ptr<string> value{};
 
   CreateParamRequest() {}
@@ -3855,6 +3856,9 @@ public:
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     if (value) {
       res["Value"] = boost::any(*value);
     }
@@ -3873,6 +3877,9 @@ public:
     }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("Value") != m.end() && !m["Value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["Value"]));
@@ -7896,6 +7903,149 @@ public:
 
 
   virtual ~DeleteTrafficControlTaskResponse() = default;
+};
+class GenerateAlgorithmCustomizationScriptRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deployMode{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<map<string, boost::any>> moduleFieldTypes{};
+
+  GenerateAlgorithmCustomizationScriptRequest() {}
+
+  explicit GenerateAlgorithmCustomizationScriptRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deployMode) {
+      res["DeployMode"] = boost::any(*deployMode);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (moduleFieldTypes) {
+      res["ModuleFieldTypes"] = boost::any(*moduleFieldTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
+      deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ModuleFieldTypes") != m.end() && !m["ModuleFieldTypes"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ModuleFieldTypes"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      moduleFieldTypes = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~GenerateAlgorithmCustomizationScriptRequest() = default;
+};
+class GenerateAlgorithmCustomizationScriptResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> logId{};
+  shared_ptr<string> ossAddress{};
+  shared_ptr<string> requestId{};
+
+  GenerateAlgorithmCustomizationScriptResponseBody() {}
+
+  explicit GenerateAlgorithmCustomizationScriptResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logId) {
+      res["LogId"] = boost::any(*logId);
+    }
+    if (ossAddress) {
+      res["OssAddress"] = boost::any(*ossAddress);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogId") != m.end() && !m["LogId"].empty()) {
+      logId = make_shared<string>(boost::any_cast<string>(m["LogId"]));
+    }
+    if (m.find("OssAddress") != m.end() && !m["OssAddress"].empty()) {
+      ossAddress = make_shared<string>(boost::any_cast<string>(m["OssAddress"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GenerateAlgorithmCustomizationScriptResponseBody() = default;
+};
+class GenerateAlgorithmCustomizationScriptResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateAlgorithmCustomizationScriptResponseBody> body{};
+
+  GenerateAlgorithmCustomizationScriptResponse() {}
+
+  explicit GenerateAlgorithmCustomizationScriptResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateAlgorithmCustomizationScriptResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateAlgorithmCustomizationScriptResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateAlgorithmCustomizationScriptResponse() = default;
 };
 class GenerateTrafficControlTaskCodeRequest : public Darabonba::Model {
 public:
@@ -17935,6 +18085,7 @@ public:
 };
 class ListParamsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> encrypted{};
   shared_ptr<string> environment{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> name{};
@@ -17952,6 +18103,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (encrypted) {
+      res["Encrypted"] = boost::any(*encrypted);
+    }
     if (environment) {
       res["Environment"] = boost::any(*environment);
     }
@@ -17974,6 +18128,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Encrypted") != m.end() && !m["Encrypted"].empty()) {
+      encrypted = make_shared<bool>(boost::any_cast<bool>(m["Encrypted"]));
+    }
     if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
       environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
     }
@@ -27684,6 +27841,11 @@ public:
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTrafficControlTaskResponse deleteTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<DeleteTrafficControlTaskRequest> request);
+  GenerateAlgorithmCustomizationScriptResponse generateAlgorithmCustomizationScriptWithOptions(shared_ptr<string> AlgorithmCustomizationId,
+                                                                                               shared_ptr<GenerateAlgorithmCustomizationScriptRequest> request,
+                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateAlgorithmCustomizationScriptResponse generateAlgorithmCustomizationScript(shared_ptr<string> AlgorithmCustomizationId, shared_ptr<GenerateAlgorithmCustomizationScriptRequest> request);
   GenerateTrafficControlTaskCodeResponse generateTrafficControlTaskCodeWithOptions(shared_ptr<string> TrafficControlTaskId,
                                                                                    shared_ptr<GenerateTrafficControlTaskCodeRequest> request,
                                                                                    shared_ptr<map<string, string>> headers,
