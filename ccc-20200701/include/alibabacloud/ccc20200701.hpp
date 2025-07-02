@@ -38689,6 +38689,7 @@ public:
 };
 class ListFlashSmsTemplatesResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> templateDetails{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateName{};
 
@@ -38702,6 +38703,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (templateDetails) {
+      res["TemplateDetails"] = boost::any(*templateDetails);
+    }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
@@ -38712,6 +38716,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("TemplateDetails") != m.end() && !m["TemplateDetails"].empty()) {
+      templateDetails = make_shared<string>(boost::any_cast<string>(m["TemplateDetails"]));
+    }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
