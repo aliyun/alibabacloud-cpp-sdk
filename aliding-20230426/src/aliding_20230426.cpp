@@ -2516,6 +2516,9 @@ CreateReportResponse Alibabacloud_Aliding20230426::Client::createReport(shared_p
 CreateRunResponse Alibabacloud_Aliding20230426::Client::createRunWithOptions(shared_ptr<CreateRunRequest> request, shared_ptr<CreateRunHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allowStructViewContent)) {
+    body->insert(pair<string, bool>("allowStructViewContent", *request->allowStructViewContent));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->assistantId)) {
     body->insert(pair<string, string>("assistantId", *request->assistantId));
   }
@@ -8430,9 +8433,6 @@ InsertContentWithOptionsResponse Alibabacloud_Aliding20230426::Client::insertCon
   if (!Darabonba_Util::Client::isUnset<long>(request->index)) {
     body->insert(pair<string, long>("Index", *request->index));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->operatorId)) {
-    body->insert(pair<string, string>("OperatorId", *request->operatorId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pathShrink)) {
     body->insert(pair<string, string>("Path", *request->pathShrink));
   }
@@ -8468,6 +8468,68 @@ InsertContentWithOptionsResponse Alibabacloud_Aliding20230426::Client::insertCon
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<InsertContentWithOptionsHeaders> headers = make_shared<InsertContentWithOptionsHeaders>();
   return insertContentWithOptionsWithOptions(request, headers, runtime);
+}
+
+InsertDropDownListResponse Alibabacloud_Aliding20230426::Client::insertDropDownListWithOptions(shared_ptr<InsertDropDownListRequest> tmpReq, shared_ptr<InsertDropDownListHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<InsertDropDownListShrinkRequest> request = make_shared<InsertDropDownListShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<InsertDropDownListShrinkHeaders> headers = make_shared<InsertDropDownListShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<InsertDropDownListHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<InsertDropDownListRequestOptions>>(tmpReq->options)) {
+    request->optionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->options, make_shared<string>("Options"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<InsertDropDownListRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->optionsShrink)) {
+    body->insert(pair<string, string>("Options", *request->optionsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rangeAddress)) {
+    body->insert(pair<string, string>("RangeAddress", *request->rangeAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sheetId)) {
+    body->insert(pair<string, string>("SheetId", *request->sheetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workbookId)) {
+    body->insert(pair<string, string>("WorkbookId", *request->workbookId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsertDropDownList"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/documents/insertDropDownList"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsertDropDownListResponse(callApi(params, req, runtime));
+}
+
+InsertDropDownListResponse Alibabacloud_Aliding20230426::Client::insertDropDownList(shared_ptr<InsertDropDownListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsertDropDownListHeaders> headers = make_shared<InsertDropDownListHeaders>();
+  return insertDropDownListWithOptions(request, headers, runtime);
 }
 
 InsertMultiDimTableRecordResponse Alibabacloud_Aliding20230426::Client::insertMultiDimTableRecordWithOptions(shared_ptr<InsertMultiDimTableRecordRequest> tmpReq, shared_ptr<InsertMultiDimTableRecordHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
