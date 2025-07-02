@@ -1943,6 +1943,9 @@ QueryApprovalInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryAppr
 QueryAuditLogResponse Alibabacloud_Quickbi-public20220101::Client::queryAuditLogWithOptions(shared_ptr<QueryAuditLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessSourceFlag)) {
+    query->insert(pair<string, string>("AccessSourceFlag", *request->accessSourceFlag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
     query->insert(pair<string, string>("EndDate", *request->endDate));
   }
@@ -1960,6 +1963,9 @@ QueryAuditLogResponse Alibabacloud_Quickbi-public20220101::Client::queryAuditLog
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
     query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userAccessDevice)) {
+    query->insert(pair<string, string>("UserAccessDevice", *request->userAccessDevice));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));

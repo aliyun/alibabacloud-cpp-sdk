@@ -10623,12 +10623,14 @@ public:
 };
 class QueryAuditLogRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessSourceFlag{};
   shared_ptr<string> endDate{};
   shared_ptr<string> logType{};
   shared_ptr<string> operatorId{};
   shared_ptr<string> operatorTypes{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> startDate{};
+  shared_ptr<string> userAccessDevice{};
   shared_ptr<string> workspaceId{};
 
   QueryAuditLogRequest() {}
@@ -10641,6 +10643,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessSourceFlag) {
+      res["AccessSourceFlag"] = boost::any(*accessSourceFlag);
+    }
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
     }
@@ -10659,6 +10664,9 @@ public:
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
     }
+    if (userAccessDevice) {
+      res["UserAccessDevice"] = boost::any(*userAccessDevice);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -10666,6 +10674,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessSourceFlag") != m.end() && !m["AccessSourceFlag"].empty()) {
+      accessSourceFlag = make_shared<string>(boost::any_cast<string>(m["AccessSourceFlag"]));
+    }
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
     }
@@ -10683,6 +10694,9 @@ public:
     }
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("UserAccessDevice") != m.end() && !m["UserAccessDevice"].empty()) {
+      userAccessDevice = make_shared<string>(boost::any_cast<string>(m["UserAccessDevice"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
