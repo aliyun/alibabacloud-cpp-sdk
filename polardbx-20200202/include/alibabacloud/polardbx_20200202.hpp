@@ -6112,6 +6112,7 @@ public:
   shared_ptr<string> series{};
   shared_ptr<string> specCategory{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageType{};
   shared_ptr<long> storageUsed{};
   shared_ptr<vector<DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet>> tagSet{};
   shared_ptr<string> tertiaryZone{};
@@ -6283,6 +6284,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (storageUsed) {
       res["StorageUsed"] = boost::any(*storageUsed);
@@ -6507,6 +6511,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("StorageUsed") != m.end() && !m["StorageUsed"].empty()) {
       storageUsed = make_shared<long>(boost::any_cast<long>(m["StorageUsed"]));
@@ -8963,6 +8970,7 @@ public:
   shared_ptr<string> secondaryZone{};
   shared_ptr<string> series{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageType{};
   shared_ptr<long> storageUsed{};
   shared_ptr<bool> supportBinlogX{};
   shared_ptr<vector<DescribeDBInstancesResponseBodyDBInstancesTagSet>> tagSet{};
@@ -9092,6 +9100,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (storageUsed) {
       res["StorageUsed"] = boost::any(*storageUsed);
@@ -9259,6 +9270,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("StorageUsed") != m.end() && !m["StorageUsed"].empty()) {
       storageUsed = make_shared<long>(boost::any_cast<long>(m["StorageUsed"]));

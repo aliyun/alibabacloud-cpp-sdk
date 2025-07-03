@@ -117,12 +117,7 @@ AlignStoragePrimaryAzoneResponse Alibabacloud_Polardbx20200202::Client::alignSto
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AlignStoragePrimaryAzoneResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AlignStoragePrimaryAzoneResponse(execute(params, req, runtime));
-  }
+  return AlignStoragePrimaryAzoneResponse(callApi(params, req, runtime));
 }
 
 AlignStoragePrimaryAzoneResponse Alibabacloud_Polardbx20200202::Client::alignStoragePrimaryAzone(shared_ptr<AlignStoragePrimaryAzoneRequest> request) {
@@ -153,12 +148,7 @@ AllocateColdDataVolumeResponse Alibabacloud_Polardbx20200202::Client::allocateCo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AllocateColdDataVolumeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AllocateColdDataVolumeResponse(execute(params, req, runtime));
-  }
+  return AllocateColdDataVolumeResponse(callApi(params, req, runtime));
 }
 
 AllocateColdDataVolumeResponse Alibabacloud_Polardbx20200202::Client::allocateColdDataVolume(shared_ptr<AllocateColdDataVolumeRequest> request) {
@@ -207,12 +197,7 @@ AllocateInstancePublicConnectionResponse Alibabacloud_Polardbx20200202::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AllocateInstancePublicConnectionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AllocateInstancePublicConnectionResponse(execute(params, req, runtime));
-  }
+  return AllocateInstancePublicConnectionResponse(callApi(params, req, runtime));
 }
 
 AllocateInstancePublicConnectionResponse Alibabacloud_Polardbx20200202::Client::allocateInstancePublicConnection(shared_ptr<AllocateInstancePublicConnectionRequest> request) {
@@ -237,12 +222,7 @@ CancelActiveOperationTasksResponse Alibabacloud_Polardbx20200202::Client::cancel
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CancelActiveOperationTasksResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CancelActiveOperationTasksResponse(execute(params, req, runtime));
-  }
+  return CancelActiveOperationTasksResponse(callApi(params, req, runtime));
 }
 
 CancelActiveOperationTasksResponse Alibabacloud_Polardbx20200202::Client::cancelActiveOperationTasks(shared_ptr<CancelActiveOperationTasksRequest> request) {
@@ -279,12 +259,7 @@ ChangeResourceGroupResponse Alibabacloud_Polardbx20200202::Client::changeResourc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ChangeResourceGroupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ChangeResourceGroupResponse(execute(params, req, runtime));
-  }
+  return ChangeResourceGroupResponse(callApi(params, req, runtime));
 }
 
 ChangeResourceGroupResponse Alibabacloud_Polardbx20200202::Client::changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request) {
@@ -318,12 +293,7 @@ CheckCloudResourceAuthorizedResponse Alibabacloud_Polardbx20200202::Client::chec
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CheckCloudResourceAuthorizedResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CheckCloudResourceAuthorizedResponse(execute(params, req, runtime));
-  }
+  return CheckCloudResourceAuthorizedResponse(callApi(params, req, runtime));
 }
 
 CheckCloudResourceAuthorizedResponse Alibabacloud_Polardbx20200202::Client::checkCloudResourceAuthorized(shared_ptr<CheckCloudResourceAuthorizedRequest> request) {
@@ -375,12 +345,7 @@ CreateAccountResponse Alibabacloud_Polardbx20200202::Client::createAccountWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateAccountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateAccountResponse(execute(params, req, runtime));
-  }
+  return CreateAccountResponse(callApi(params, req, runtime));
 }
 
 CreateAccountResponse Alibabacloud_Polardbx20200202::Client::createAccount(shared_ptr<CreateAccountRequest> request) {
@@ -414,12 +379,7 @@ CreateBackupResponse Alibabacloud_Polardbx20200202::Client::createBackupWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateBackupResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateBackupResponse(execute(params, req, runtime));
-  }
+  return CreateBackupResponse(callApi(params, req, runtime));
 }
 
 CreateBackupResponse Alibabacloud_Polardbx20200202::Client::createBackup(shared_ptr<CreateBackupRequest> request) {
@@ -477,12 +437,7 @@ CreateDBResponse Alibabacloud_Polardbx20200202::Client::createDBWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateDBResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateDBResponse(execute(params, req, runtime));
-  }
+  return CreateDBResponse(callApi(params, req, runtime));
 }
 
 CreateDBResponse Alibabacloud_Polardbx20200202::Client::createDB(shared_ptr<CreateDBRequest> request) {
@@ -596,12 +551,7 @@ CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateDBInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateDBInstanceResponse(execute(params, req, runtime));
-  }
+  return CreateDBInstanceResponse(callApi(params, req, runtime));
 }
 
 CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance(shared_ptr<CreateDBInstanceRequest> request) {
@@ -641,12 +591,7 @@ CreateSuperAccountResponse Alibabacloud_Polardbx20200202::Client::createSuperAcc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateSuperAccountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateSuperAccountResponse(execute(params, req, runtime));
-  }
+  return CreateSuperAccountResponse(callApi(params, req, runtime));
 }
 
 CreateSuperAccountResponse Alibabacloud_Polardbx20200202::Client::createSuperAccount(shared_ptr<CreateSuperAccountRequest> request) {
@@ -686,12 +631,7 @@ DeleteAccountResponse Alibabacloud_Polardbx20200202::Client::deleteAccountWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteAccountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteAccountResponse(execute(params, req, runtime));
-  }
+  return DeleteAccountResponse(callApi(params, req, runtime));
 }
 
 DeleteAccountResponse Alibabacloud_Polardbx20200202::Client::deleteAccount(shared_ptr<DeleteAccountRequest> request) {
@@ -725,12 +665,7 @@ DeleteDBResponse Alibabacloud_Polardbx20200202::Client::deleteDBWithOptions(shar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteDBResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteDBResponse(execute(params, req, runtime));
-  }
+  return DeleteDBResponse(callApi(params, req, runtime));
 }
 
 DeleteDBResponse Alibabacloud_Polardbx20200202::Client::deleteDB(shared_ptr<DeleteDBRequest> request) {
@@ -761,12 +696,7 @@ DeleteDBInstanceResponse Alibabacloud_Polardbx20200202::Client::deleteDBInstance
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DeleteDBInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DeleteDBInstanceResponse(execute(params, req, runtime));
-  }
+  return DeleteDBInstanceResponse(callApi(params, req, runtime));
 }
 
 DeleteDBInstanceResponse Alibabacloud_Polardbx20200202::Client::deleteDBInstance(shared_ptr<DeleteDBInstanceRequest> request) {
@@ -803,12 +733,7 @@ DescribeAccountListResponse Alibabacloud_Polardbx20200202::Client::describeAccou
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeAccountListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeAccountListResponse(execute(params, req, runtime));
-  }
+  return DescribeAccountListResponse(callApi(params, req, runtime));
 }
 
 DescribeAccountListResponse Alibabacloud_Polardbx20200202::Client::describeAccountList(shared_ptr<DescribeAccountListRequest> request) {
@@ -836,12 +761,7 @@ DescribeActiveOperationMaintainConfResponse Alibabacloud_Polardbx20200202::Clien
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeActiveOperationMaintainConfResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeActiveOperationMaintainConfResponse(execute(params, req, runtime));
-  }
+  return DescribeActiveOperationMaintainConfResponse(callApi(params, req, runtime));
 }
 
 DescribeActiveOperationMaintainConfResponse Alibabacloud_Polardbx20200202::Client::describeActiveOperationMaintainConf(shared_ptr<DescribeActiveOperationMaintainConfRequest> request) {
@@ -866,12 +786,7 @@ DescribeActiveOperationTaskCountResponse Alibabacloud_Polardbx20200202::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeActiveOperationTaskCountResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeActiveOperationTaskCountResponse(execute(params, req, runtime));
-  }
+  return DescribeActiveOperationTaskCountResponse(callApi(params, req, runtime));
 }
 
 DescribeActiveOperationTaskCountResponse Alibabacloud_Polardbx20200202::Client::describeActiveOperationTaskCount(shared_ptr<DescribeActiveOperationTaskCountRequest> request) {
@@ -896,12 +811,7 @@ DescribeActiveOperationTasksResponse Alibabacloud_Polardbx20200202::Client::desc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeActiveOperationTasksResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeActiveOperationTasksResponse(execute(params, req, runtime));
-  }
+  return DescribeActiveOperationTasksResponse(callApi(params, req, runtime));
 }
 
 DescribeActiveOperationTasksResponse Alibabacloud_Polardbx20200202::Client::describeActiveOperationTasks(shared_ptr<DescribeActiveOperationTasksRequest> request) {
@@ -947,12 +857,7 @@ DescribeArchiveTableListResponse Alibabacloud_Polardbx20200202::Client::describe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeArchiveTableListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeArchiveTableListResponse(execute(params, req, runtime));
-  }
+  return DescribeArchiveTableListResponse(callApi(params, req, runtime));
 }
 
 DescribeArchiveTableListResponse Alibabacloud_Polardbx20200202::Client::describeArchiveTableList(shared_ptr<DescribeArchiveTableListRequest> request) {
@@ -983,12 +888,7 @@ DescribeBackupPolicyResponse Alibabacloud_Polardbx20200202::Client::describeBack
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeBackupPolicyResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeBackupPolicyResponse(execute(params, req, runtime));
-  }
+  return DescribeBackupPolicyResponse(callApi(params, req, runtime));
 }
 
 DescribeBackupPolicyResponse Alibabacloud_Polardbx20200202::Client::describeBackupPolicy(shared_ptr<DescribeBackupPolicyRequest> request) {
@@ -1025,12 +925,7 @@ DescribeBackupSetResponse Alibabacloud_Polardbx20200202::Client::describeBackupS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeBackupSetResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeBackupSetResponse(execute(params, req, runtime));
-  }
+  return DescribeBackupSetResponse(callApi(params, req, runtime));
 }
 
 DescribeBackupSetResponse Alibabacloud_Polardbx20200202::Client::describeBackupSet(shared_ptr<DescribeBackupSetRequest> request) {
@@ -1055,12 +950,7 @@ DescribeBackupSetListResponse Alibabacloud_Polardbx20200202::Client::describeBac
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeBackupSetListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeBackupSetListResponse(execute(params, req, runtime));
-  }
+  return DescribeBackupSetListResponse(callApi(params, req, runtime));
 }
 
 DescribeBackupSetListResponse Alibabacloud_Polardbx20200202::Client::describeBackupSetList(shared_ptr<DescribeBackupSetListRequest> request) {
@@ -1106,12 +996,7 @@ DescribeBinaryLogListResponse Alibabacloud_Polardbx20200202::Client::describeBin
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeBinaryLogListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeBinaryLogListResponse(execute(params, req, runtime));
-  }
+  return DescribeBinaryLogListResponse(callApi(params, req, runtime));
 }
 
 DescribeBinaryLogListResponse Alibabacloud_Polardbx20200202::Client::describeBinaryLogList(shared_ptr<DescribeBinaryLogListRequest> request) {
@@ -1142,12 +1027,7 @@ DescribeCdcInfoResponse Alibabacloud_Polardbx20200202::Client::describeCdcInfoWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeCdcInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeCdcInfoResponse(execute(params, req, runtime));
-  }
+  return DescribeCdcInfoResponse(callApi(params, req, runtime));
 }
 
 DescribeCdcInfoResponse Alibabacloud_Polardbx20200202::Client::describeCdcInfo(shared_ptr<DescribeCdcInfoRequest> request) {
@@ -1178,12 +1058,7 @@ DescribeCharacterSetResponse Alibabacloud_Polardbx20200202::Client::describeChar
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeCharacterSetResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeCharacterSetResponse(execute(params, req, runtime));
-  }
+  return DescribeCharacterSetResponse(callApi(params, req, runtime));
 }
 
 DescribeCharacterSetResponse Alibabacloud_Polardbx20200202::Client::describeCharacterSet(shared_ptr<DescribeCharacterSetRequest> request) {
@@ -1208,12 +1083,7 @@ DescribeColdDataBasicInfoResponse Alibabacloud_Polardbx20200202::Client::describ
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeColdDataBasicInfoResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeColdDataBasicInfoResponse(execute(params, req, runtime));
-  }
+  return DescribeColdDataBasicInfoResponse(callApi(params, req, runtime));
 }
 
 DescribeColdDataBasicInfoResponse Alibabacloud_Polardbx20200202::Client::describeColdDataBasicInfo(shared_ptr<DescribeColdDataBasicInfoRequest> request) {
@@ -1247,12 +1117,7 @@ DescribeDBInstanceAttributeResponse Alibabacloud_Polardbx20200202::Client::descr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceAttributeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceAttributeResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceAttributeResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceAttributeResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceAttribute(shared_ptr<DescribeDBInstanceAttributeRequest> request) {
@@ -1286,12 +1151,7 @@ DescribeDBInstanceConfigResponse Alibabacloud_Polardbx20200202::Client::describe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceConfigResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceConfigResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceConfigResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceConfig(shared_ptr<DescribeDBInstanceConfigRequest> request) {
@@ -1322,12 +1182,7 @@ DescribeDBInstanceHAResponse Alibabacloud_Polardbx20200202::Client::describeDBIn
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceHAResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceHAResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceHAResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceHAResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceHA(shared_ptr<DescribeDBInstanceHARequest> request) {
@@ -1358,12 +1213,7 @@ DescribeDBInstanceSSLResponse Alibabacloud_Polardbx20200202::Client::describeDBI
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceSSLResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceSSLResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceSSLResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceSSLResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceSSL(shared_ptr<DescribeDBInstanceSSLRequest> request) {
@@ -1394,12 +1244,7 @@ DescribeDBInstanceTDEResponse Alibabacloud_Polardbx20200202::Client::describeDBI
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceTDEResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceTDEResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceTDEResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceTDEResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceTDE(shared_ptr<DescribeDBInstanceTDERequest> request) {
@@ -1439,12 +1284,7 @@ DescribeDBInstanceTopologyResponse Alibabacloud_Polardbx20200202::Client::descri
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceTopologyResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceTopologyResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceTopologyResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceTopologyResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceTopology(shared_ptr<DescribeDBInstanceTopologyRequest> request) {
@@ -1475,12 +1315,7 @@ DescribeDBInstanceViaEndpointResponse Alibabacloud_Polardbx20200202::Client::des
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstanceViaEndpointResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstanceViaEndpointResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstanceViaEndpointResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstanceViaEndpointResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceViaEndpoint(shared_ptr<DescribeDBInstanceViaEndpointRequest> request) {
@@ -1532,12 +1367,7 @@ DescribeDBInstancesResponse Alibabacloud_Polardbx20200202::Client::describeDBIns
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBInstancesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBInstancesResponse(execute(params, req, runtime));
-  }
+  return DescribeDBInstancesResponse(callApi(params, req, runtime));
 }
 
 DescribeDBInstancesResponse Alibabacloud_Polardbx20200202::Client::describeDBInstances(shared_ptr<DescribeDBInstancesRequest> request) {
@@ -1586,12 +1416,7 @@ DescribeDBNodePerformanceResponse Alibabacloud_Polardbx20200202::Client::describ
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDBNodePerformanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDBNodePerformanceResponse(execute(params, req, runtime));
-  }
+  return DescribeDBNodePerformanceResponse(callApi(params, req, runtime));
 }
 
 DescribeDBNodePerformanceResponse Alibabacloud_Polardbx20200202::Client::describeDBNodePerformance(shared_ptr<DescribeDBNodePerformanceRequest> request) {
@@ -1625,12 +1450,7 @@ DescribeDbListResponse Alibabacloud_Polardbx20200202::Client::describeDbListWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDbListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDbListResponse(execute(params, req, runtime));
-  }
+  return DescribeDbListResponse(callApi(params, req, runtime));
 }
 
 DescribeDbListResponse Alibabacloud_Polardbx20200202::Client::describeDbList(shared_ptr<DescribeDbListRequest> request) {
@@ -1664,12 +1484,7 @@ DescribeDistributeTableListResponse Alibabacloud_Polardbx20200202::Client::descr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeDistributeTableListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeDistributeTableListResponse(execute(params, req, runtime));
-  }
+  return DescribeDistributeTableListResponse(callApi(params, req, runtime));
 }
 
 DescribeDistributeTableListResponse Alibabacloud_Polardbx20200202::Client::describeDistributeTableList(shared_ptr<DescribeDistributeTableListRequest> request) {
@@ -1694,12 +1509,7 @@ DescribeEventsResponse Alibabacloud_Polardbx20200202::Client::describeEventsWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeEventsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeEventsResponse(execute(params, req, runtime));
-  }
+  return DescribeEventsResponse(callApi(params, req, runtime));
 }
 
 DescribeEventsResponse Alibabacloud_Polardbx20200202::Client::describeEvents(shared_ptr<DescribeEventsRequest> request) {
@@ -1742,12 +1552,7 @@ DescribeGdnInstancesResponse Alibabacloud_Polardbx20200202::Client::describeGdnI
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeGdnInstancesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeGdnInstancesResponse(execute(params, req, runtime));
-  }
+  return DescribeGdnInstancesResponse(callApi(params, req, runtime));
 }
 
 DescribeGdnInstancesResponse Alibabacloud_Polardbx20200202::Client::describeGdnInstances(shared_ptr<DescribeGdnInstancesRequest> request) {
@@ -1781,12 +1586,7 @@ DescribeOpenBackupSetResponse Alibabacloud_Polardbx20200202::Client::describeOpe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeOpenBackupSetResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeOpenBackupSetResponse(execute(params, req, runtime));
-  }
+  return DescribeOpenBackupSetResponse(callApi(params, req, runtime));
 }
 
 DescribeOpenBackupSetResponse Alibabacloud_Polardbx20200202::Client::describeOpenBackupSet(shared_ptr<DescribeOpenBackupSetRequest> request) {
@@ -1823,12 +1623,7 @@ DescribeParameterTemplatesResponse Alibabacloud_Polardbx20200202::Client::descri
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeParameterTemplatesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeParameterTemplatesResponse(execute(params, req, runtime));
-  }
+  return DescribeParameterTemplatesResponse(callApi(params, req, runtime));
 }
 
 DescribeParameterTemplatesResponse Alibabacloud_Polardbx20200202::Client::describeParameterTemplates(shared_ptr<DescribeParameterTemplatesRequest> request) {
@@ -1862,12 +1657,7 @@ DescribeParametersResponse Alibabacloud_Polardbx20200202::Client::describeParame
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeParametersResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeParametersResponse(execute(params, req, runtime));
-  }
+  return DescribeParametersResponse(callApi(params, req, runtime));
 }
 
 DescribeParametersResponse Alibabacloud_Polardbx20200202::Client::describeParameters(shared_ptr<DescribeParametersRequest> request) {
@@ -1888,12 +1678,7 @@ DescribeRegionsResponse Alibabacloud_Polardbx20200202::Client::describeRegionsWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeRegionsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeRegionsResponse(execute(params, req, runtime));
-  }
+  return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
 DescribeRegionsResponse Alibabacloud_Polardbx20200202::Client::describeRegions() {
@@ -1936,12 +1721,7 @@ DescribeScaleOutMigrateTaskListResponse Alibabacloud_Polardbx20200202::Client::d
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeScaleOutMigrateTaskListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeScaleOutMigrateTaskListResponse(execute(params, req, runtime));
-  }
+  return DescribeScaleOutMigrateTaskListResponse(callApi(params, req, runtime));
 }
 
 DescribeScaleOutMigrateTaskListResponse Alibabacloud_Polardbx20200202::Client::describeScaleOutMigrateTaskList(shared_ptr<DescribeScaleOutMigrateTaskListRequest> request) {
@@ -1972,12 +1752,7 @@ DescribeSecurityIpsResponse Alibabacloud_Polardbx20200202::Client::describeSecur
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeSecurityIpsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeSecurityIpsResponse(execute(params, req, runtime));
-  }
+  return DescribeSecurityIpsResponse(callApi(params, req, runtime));
 }
 
 DescribeSecurityIpsResponse Alibabacloud_Polardbx20200202::Client::describeSecurityIps(shared_ptr<DescribeSecurityIpsRequest> request) {
@@ -2029,12 +1804,7 @@ DescribeSlowLogRecordsResponse Alibabacloud_Polardbx20200202::Client::describeSl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeSlowLogRecordsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeSlowLogRecordsResponse(execute(params, req, runtime));
-  }
+  return DescribeSlowLogRecordsResponse(callApi(params, req, runtime));
 }
 
 DescribeSlowLogRecordsResponse Alibabacloud_Polardbx20200202::Client::describeSlowLogRecords(shared_ptr<DescribeSlowLogRecordsRequest> request) {
@@ -2068,12 +1838,7 @@ DescribeTagsResponse Alibabacloud_Polardbx20200202::Client::describeTagsWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeTagsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeTagsResponse(execute(params, req, runtime));
-  }
+  return DescribeTagsResponse(callApi(params, req, runtime));
 }
 
 DescribeTagsResponse Alibabacloud_Polardbx20200202::Client::describeTags(shared_ptr<DescribeTagsRequest> request) {
@@ -2128,12 +1893,7 @@ DescribeTasksResponse Alibabacloud_Polardbx20200202::Client::describeTasksWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeTasksResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeTasksResponse(execute(params, req, runtime));
-  }
+  return DescribeTasksResponse(callApi(params, req, runtime));
 }
 
 DescribeTasksResponse Alibabacloud_Polardbx20200202::Client::describeTasks(shared_ptr<DescribeTasksRequest> request) {
@@ -2164,12 +1924,7 @@ DescribeUserEncryptionKeyListResponse Alibabacloud_Polardbx20200202::Client::des
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DescribeUserEncryptionKeyListResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DescribeUserEncryptionKeyListResponse(execute(params, req, runtime));
-  }
+  return DescribeUserEncryptionKeyListResponse(callApi(params, req, runtime));
 }
 
 DescribeUserEncryptionKeyListResponse Alibabacloud_Polardbx20200202::Client::describeUserEncryptionKeyList(shared_ptr<DescribeUserEncryptionKeyListRequest> request) {
@@ -2206,12 +1961,7 @@ DisableRightsSeparationResponse Alibabacloud_Polardbx20200202::Client::disableRi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return DisableRightsSeparationResponse(callApi(params, req, runtime));
-  }
-  else {
-    return DisableRightsSeparationResponse(execute(params, req, runtime));
-  }
+  return DisableRightsSeparationResponse(callApi(params, req, runtime));
 }
 
 DisableRightsSeparationResponse Alibabacloud_Polardbx20200202::Client::disableRightsSeparation(shared_ptr<DisableRightsSeparationRequest> request) {
@@ -2260,12 +2010,7 @@ EnableRightsSeparationResponse Alibabacloud_Polardbx20200202::Client::enableRigh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return EnableRightsSeparationResponse(callApi(params, req, runtime));
-  }
-  else {
-    return EnableRightsSeparationResponse(execute(params, req, runtime));
-  }
+  return EnableRightsSeparationResponse(callApi(params, req, runtime));
 }
 
 EnableRightsSeparationResponse Alibabacloud_Polardbx20200202::Client::enableRightsSeparation(shared_ptr<EnableRightsSeparationRequest> request) {
@@ -2305,12 +2050,7 @@ ListTagResourcesResponse Alibabacloud_Polardbx20200202::Client::listTagResources
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListTagResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListTagResourcesResponse(execute(params, req, runtime));
-  }
+  return ListTagResourcesResponse(callApi(params, req, runtime));
 }
 
 ListTagResourcesResponse Alibabacloud_Polardbx20200202::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
@@ -2347,12 +2087,7 @@ ModifyAccountDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyAc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyAccountDescriptionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyAccountDescriptionResponse(execute(params, req, runtime));
-  }
+  return ModifyAccountDescriptionResponse(callApi(params, req, runtime));
 }
 
 ModifyAccountDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyAccountDescription(shared_ptr<ModifyAccountDescriptionRequest> request) {
@@ -2398,12 +2133,7 @@ ModifyAccountPrivilegeResponse Alibabacloud_Polardbx20200202::Client::modifyAcco
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyAccountPrivilegeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyAccountPrivilegeResponse(execute(params, req, runtime));
-  }
+  return ModifyAccountPrivilegeResponse(callApi(params, req, runtime));
 }
 
 ModifyAccountPrivilegeResponse Alibabacloud_Polardbx20200202::Client::modifyAccountPrivilege(shared_ptr<ModifyAccountPrivilegeRequest> request) {
@@ -2428,12 +2158,7 @@ ModifyActiveOperationMaintainConfResponse Alibabacloud_Polardbx20200202::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyActiveOperationMaintainConfResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyActiveOperationMaintainConfResponse(execute(params, req, runtime));
-  }
+  return ModifyActiveOperationMaintainConfResponse(callApi(params, req, runtime));
 }
 
 ModifyActiveOperationMaintainConfResponse Alibabacloud_Polardbx20200202::Client::modifyActiveOperationMaintainConf(shared_ptr<ModifyActiveOperationMaintainConfRequest> request) {
@@ -2470,12 +2195,7 @@ ModifyActiveOperationTasksResponse Alibabacloud_Polardbx20200202::Client::modify
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyActiveOperationTasksResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyActiveOperationTasksResponse(execute(params, req, runtime));
-  }
+  return ModifyActiveOperationTasksResponse(callApi(params, req, runtime));
 }
 
 ModifyActiveOperationTasksResponse Alibabacloud_Polardbx20200202::Client::modifyActiveOperationTasks(shared_ptr<ModifyActiveOperationTasksRequest> request) {
@@ -2533,12 +2253,7 @@ ModifyDBInstanceClassResponse Alibabacloud_Polardbx20200202::Client::modifyDBIns
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBInstanceClassResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBInstanceClassResponse(execute(params, req, runtime));
-  }
+  return ModifyDBInstanceClassResponse(callApi(params, req, runtime));
 }
 
 ModifyDBInstanceClassResponse Alibabacloud_Polardbx20200202::Client::modifyDBInstanceClass(shared_ptr<ModifyDBInstanceClassRequest> request) {
@@ -2575,12 +2290,7 @@ ModifyDBInstanceConfigResponse Alibabacloud_Polardbx20200202::Client::modifyDBIn
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBInstanceConfigResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBInstanceConfigResponse(execute(params, req, runtime));
-  }
+  return ModifyDBInstanceConfigResponse(callApi(params, req, runtime));
 }
 
 ModifyDBInstanceConfigResponse Alibabacloud_Polardbx20200202::Client::modifyDBInstanceConfig(shared_ptr<ModifyDBInstanceConfigRequest> request) {
@@ -2620,12 +2330,7 @@ ModifyDBInstanceConnectionStringResponse Alibabacloud_Polardbx20200202::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBInstanceConnectionStringResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBInstanceConnectionStringResponse(execute(params, req, runtime));
-  }
+  return ModifyDBInstanceConnectionStringResponse(callApi(params, req, runtime));
 }
 
 ModifyDBInstanceConnectionStringResponse Alibabacloud_Polardbx20200202::Client::modifyDBInstanceConnectionString(shared_ptr<ModifyDBInstanceConnectionStringRequest> request) {
@@ -2659,12 +2364,7 @@ ModifyDBInstanceDescriptionResponse Alibabacloud_Polardbx20200202::Client::modif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDBInstanceDescriptionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDBInstanceDescriptionResponse(execute(params, req, runtime));
-  }
+  return ModifyDBInstanceDescriptionResponse(callApi(params, req, runtime));
 }
 
 ModifyDBInstanceDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyDBInstanceDescription(shared_ptr<ModifyDBInstanceDescriptionRequest> request) {
@@ -2701,12 +2401,7 @@ ModifyDatabaseDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyD
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyDatabaseDescriptionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyDatabaseDescriptionResponse(execute(params, req, runtime));
-  }
+  return ModifyDatabaseDescriptionResponse(callApi(params, req, runtime));
 }
 
 ModifyDatabaseDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyDatabaseDescription(shared_ptr<ModifyDatabaseDescriptionRequest> request) {
@@ -2749,12 +2444,7 @@ ModifyParameterResponse Alibabacloud_Polardbx20200202::Client::modifyParameterWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifyParameterResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifyParameterResponse(execute(params, req, runtime));
-  }
+  return ModifyParameterResponse(callApi(params, req, runtime));
 }
 
 ModifyParameterResponse Alibabacloud_Polardbx20200202::Client::modifyParameter(shared_ptr<ModifyParameterRequest> request) {
@@ -2794,12 +2484,7 @@ ModifySecurityIpsResponse Alibabacloud_Polardbx20200202::Client::modifySecurityI
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ModifySecurityIpsResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ModifySecurityIpsResponse(execute(params, req, runtime));
-  }
+  return ModifySecurityIpsResponse(callApi(params, req, runtime));
 }
 
 ModifySecurityIpsResponse Alibabacloud_Polardbx20200202::Client::modifySecurityIps(shared_ptr<ModifySecurityIpsRequest> request) {
@@ -2830,12 +2515,7 @@ ReleaseColdDataVolumeResponse Alibabacloud_Polardbx20200202::Client::releaseCold
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ReleaseColdDataVolumeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ReleaseColdDataVolumeResponse(execute(params, req, runtime));
-  }
+  return ReleaseColdDataVolumeResponse(callApi(params, req, runtime));
 }
 
 ReleaseColdDataVolumeResponse Alibabacloud_Polardbx20200202::Client::releaseColdDataVolume(shared_ptr<ReleaseColdDataVolumeRequest> request) {
@@ -2869,12 +2549,7 @@ ReleaseInstancePublicConnectionResponse Alibabacloud_Polardbx20200202::Client::r
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ReleaseInstancePublicConnectionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ReleaseInstancePublicConnectionResponse(execute(params, req, runtime));
-  }
+  return ReleaseInstancePublicConnectionResponse(callApi(params, req, runtime));
 }
 
 ReleaseInstancePublicConnectionResponse Alibabacloud_Polardbx20200202::Client::releaseInstancePublicConnection(shared_ptr<ReleaseInstancePublicConnectionRequest> request) {
@@ -2917,12 +2592,7 @@ ResetAccountPasswordResponse Alibabacloud_Polardbx20200202::Client::resetAccount
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ResetAccountPasswordResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ResetAccountPasswordResponse(execute(params, req, runtime));
-  }
+  return ResetAccountPasswordResponse(callApi(params, req, runtime));
 }
 
 ResetAccountPasswordResponse Alibabacloud_Polardbx20200202::Client::resetAccountPassword(shared_ptr<ResetAccountPasswordRequest> request) {
@@ -2953,12 +2623,7 @@ RestartDBInstanceResponse Alibabacloud_Polardbx20200202::Client::restartDBInstan
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return RestartDBInstanceResponse(callApi(params, req, runtime));
-  }
-  else {
-    return RestartDBInstanceResponse(execute(params, req, runtime));
-  }
+  return RestartDBInstanceResponse(callApi(params, req, runtime));
 }
 
 RestartDBInstanceResponse Alibabacloud_Polardbx20200202::Client::restartDBInstance(shared_ptr<RestartDBInstanceRequest> request) {
@@ -3001,12 +2666,7 @@ SwitchDBInstanceHAResponse Alibabacloud_Polardbx20200202::Client::switchDBInstan
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SwitchDBInstanceHAResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SwitchDBInstanceHAResponse(execute(params, req, runtime));
-  }
+  return SwitchDBInstanceHAResponse(callApi(params, req, runtime));
 }
 
 SwitchDBInstanceHAResponse Alibabacloud_Polardbx20200202::Client::switchDBInstanceHA(shared_ptr<SwitchDBInstanceHARequest> request) {
@@ -3043,12 +2703,7 @@ SwitchGdnMemberRoleResponse Alibabacloud_Polardbx20200202::Client::switchGdnMemb
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return SwitchGdnMemberRoleResponse(callApi(params, req, runtime));
-  }
-  else {
-    return SwitchGdnMemberRoleResponse(execute(params, req, runtime));
-  }
+  return SwitchGdnMemberRoleResponse(callApi(params, req, runtime));
 }
 
 SwitchGdnMemberRoleResponse Alibabacloud_Polardbx20200202::Client::switchGdnMemberRole(shared_ptr<SwitchGdnMemberRoleRequest> request) {
@@ -3085,12 +2740,7 @@ TagResourcesResponse Alibabacloud_Polardbx20200202::Client::tagResourcesWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return TagResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return TagResourcesResponse(execute(params, req, runtime));
-  }
+  return TagResourcesResponse(callApi(params, req, runtime));
 }
 
 TagResourcesResponse Alibabacloud_Polardbx20200202::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
@@ -3130,12 +2780,7 @@ UntagResourcesResponse Alibabacloud_Polardbx20200202::Client::untagResourcesWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UntagResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UntagResourcesResponse(execute(params, req, runtime));
-  }
+  return UntagResourcesResponse(callApi(params, req, runtime));
 }
 
 UntagResourcesResponse Alibabacloud_Polardbx20200202::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
@@ -3220,12 +2865,7 @@ UpdateBackupPolicyResponse Alibabacloud_Polardbx20200202::Client::updateBackupPo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateBackupPolicyResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateBackupPolicyResponse(execute(params, req, runtime));
-  }
+  return UpdateBackupPolicyResponse(callApi(params, req, runtime));
 }
 
 UpdateBackupPolicyResponse Alibabacloud_Polardbx20200202::Client::updateBackupPolicy(shared_ptr<UpdateBackupPolicyRequest> request) {
@@ -3262,12 +2902,7 @@ UpdateDBInstanceSSLResponse Alibabacloud_Polardbx20200202::Client::updateDBInsta
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateDBInstanceSSLResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateDBInstanceSSLResponse(execute(params, req, runtime));
-  }
+  return UpdateDBInstanceSSLResponse(callApi(params, req, runtime));
 }
 
 UpdateDBInstanceSSLResponse Alibabacloud_Polardbx20200202::Client::updateDBInstanceSSL(shared_ptr<UpdateDBInstanceSSLRequest> request) {
@@ -3307,12 +2942,7 @@ UpdateDBInstanceTDEResponse Alibabacloud_Polardbx20200202::Client::updateDBInsta
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateDBInstanceTDEResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateDBInstanceTDEResponse(execute(params, req, runtime));
-  }
+  return UpdateDBInstanceTDEResponse(callApi(params, req, runtime));
 }
 
 UpdateDBInstanceTDEResponse Alibabacloud_Polardbx20200202::Client::updateDBInstanceTDE(shared_ptr<UpdateDBInstanceTDERequest> request) {
@@ -3364,12 +2994,7 @@ UpdatePolarDBXInstanceNodeResponse Alibabacloud_Polardbx20200202::Client::update
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdatePolarDBXInstanceNodeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdatePolarDBXInstanceNodeResponse(execute(params, req, runtime));
-  }
+  return UpdatePolarDBXInstanceNodeResponse(callApi(params, req, runtime));
 }
 
 UpdatePolarDBXInstanceNodeResponse Alibabacloud_Polardbx20200202::Client::updatePolarDBXInstanceNode(shared_ptr<UpdatePolarDBXInstanceNodeRequest> request) {
@@ -3406,12 +3031,7 @@ UpgradeDBInstanceKernelVersionResponse Alibabacloud_Polardbx20200202::Client::up
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpgradeDBInstanceKernelVersionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpgradeDBInstanceKernelVersionResponse(execute(params, req, runtime));
-  }
+  return UpgradeDBInstanceKernelVersionResponse(callApi(params, req, runtime));
 }
 
 UpgradeDBInstanceKernelVersionResponse Alibabacloud_Polardbx20200202::Client::upgradeDBInstanceKernelVersion(shared_ptr<UpgradeDBInstanceKernelVersionRequest> request) {
