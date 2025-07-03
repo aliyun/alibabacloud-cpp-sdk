@@ -18530,6 +18530,7 @@ public:
 };
 class ListZonesResponseBodyDataItems : public Darabonba::Model {
 public:
+  shared_ptr<string> supportQat{};
   shared_ptr<string> zoneId{};
 
   ListZonesResponseBodyDataItems() {}
@@ -18542,6 +18543,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (supportQat) {
+      res["supportQat"] = boost::any(*supportQat);
+    }
     if (zoneId) {
       res["zoneId"] = boost::any(*zoneId);
     }
@@ -18549,6 +18553,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("supportQat") != m.end() && !m["supportQat"].empty()) {
+      supportQat = make_shared<string>(boost::any_cast<string>(m["supportQat"]));
+    }
     if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
     }
