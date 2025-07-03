@@ -369,9 +369,17 @@ GetAppVersionsResponse Alibabacloud_EhpcInstant20230701::Client::getAppVersions(
   return getAppVersionsWithOptions(request, runtime);
 }
 
-GetImageResponse Alibabacloud_EhpcInstant20230701::Client::getImageWithOptions(shared_ptr<GetImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetImageResponse Alibabacloud_EhpcInstant20230701::Client::getImageWithOptions(shared_ptr<GetImageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetImageShrinkRequest> request = make_shared<GetImageShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->additionalRegionIds)) {
+    request->additionalRegionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->additionalRegionIds, make_shared<string>("AdditionalRegionIds"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->additionalRegionIdsShrink)) {
+    query->insert(pair<string, string>("AdditionalRegionIds", *request->additionalRegionIdsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageCategory)) {
     query->insert(pair<string, string>("ImageCategory", *request->imageCategory));
   }

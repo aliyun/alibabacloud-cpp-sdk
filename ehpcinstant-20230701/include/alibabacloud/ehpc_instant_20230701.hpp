@@ -2753,6 +2753,7 @@ public:
 };
 class GetImageRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> additionalRegionIds{};
   shared_ptr<string> imageCategory{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
@@ -2767,6 +2768,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalRegionIds) {
+      res["AdditionalRegionIds"] = boost::any(*additionalRegionIds);
+    }
     if (imageCategory) {
       res["ImageCategory"] = boost::any(*imageCategory);
     }
@@ -2780,6 +2784,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalRegionIds") != m.end() && !m["AdditionalRegionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AdditionalRegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AdditionalRegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      additionalRegionIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ImageCategory") != m.end() && !m["ImageCategory"].empty()) {
       imageCategory = make_shared<string>(boost::any_cast<string>(m["ImageCategory"]));
     }
@@ -2793,6 +2807,99 @@ public:
 
 
   virtual ~GetImageRequest() = default;
+};
+class GetImageShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> additionalRegionIdsShrink{};
+  shared_ptr<string> imageCategory{};
+  shared_ptr<string> imageId{};
+  shared_ptr<string> imageType{};
+
+  GetImageShrinkRequest() {}
+
+  explicit GetImageShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (additionalRegionIdsShrink) {
+      res["AdditionalRegionIds"] = boost::any(*additionalRegionIdsShrink);
+    }
+    if (imageCategory) {
+      res["ImageCategory"] = boost::any(*imageCategory);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalRegionIds") != m.end() && !m["AdditionalRegionIds"].empty()) {
+      additionalRegionIdsShrink = make_shared<string>(boost::any_cast<string>(m["AdditionalRegionIds"]));
+    }
+    if (m.find("ImageCategory") != m.end() && !m["ImageCategory"].empty()) {
+      imageCategory = make_shared<string>(boost::any_cast<string>(m["ImageCategory"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
+  }
+
+
+  virtual ~GetImageShrinkRequest() = default;
+};
+class GetImageResponseBodyImageAdditionalRegionsInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> status{};
+
+  GetImageResponseBodyImageAdditionalRegionsInfo() {}
+
+  explicit GetImageResponseBodyImageAdditionalRegionsInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetImageResponseBodyImageAdditionalRegionsInfo() = default;
 };
 class GetImageResponseBodyImageContainerImageSpecRegistryCredential : public Darabonba::Model {
 public:
@@ -3014,6 +3121,7 @@ public:
 };
 class GetImageResponseBodyImage : public Darabonba::Model {
 public:
+  shared_ptr<vector<GetImageResponseBodyImageAdditionalRegionsInfo>> additionalRegionsInfo{};
   shared_ptr<string> appId{};
   shared_ptr<GetImageResponseBodyImageContainerImageSpec> containerImageSpec{};
   shared_ptr<string> createTime{};
@@ -3036,6 +3144,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalRegionsInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*additionalRegionsInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AdditionalRegionsInfo"] = boost::any(temp1);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -3073,6 +3188,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalRegionsInfo") != m.end() && !m["AdditionalRegionsInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["AdditionalRegionsInfo"].type()) {
+        vector<GetImageResponseBodyImageAdditionalRegionsInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AdditionalRegionsInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetImageResponseBodyImageAdditionalRegionsInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        additionalRegionsInfo = make_shared<vector<GetImageResponseBodyImageAdditionalRegionsInfo>>(expect1);
+      }
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -7573,7 +7701,7 @@ public:
   DescribeJobMetricLastResponse describeJobMetricLast(shared_ptr<DescribeJobMetricLastRequest> request);
   GetAppVersionsResponse getAppVersionsWithOptions(shared_ptr<GetAppVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAppVersionsResponse getAppVersions(shared_ptr<GetAppVersionsRequest> request);
-  GetImageResponse getImageWithOptions(shared_ptr<GetImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetImageResponse getImageWithOptions(shared_ptr<GetImageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetImageResponse getImage(shared_ptr<GetImageRequest> request);
   GetJobResponse getJobWithOptions(shared_ptr<GetJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobResponse getJob(shared_ptr<GetJobRequest> request);
