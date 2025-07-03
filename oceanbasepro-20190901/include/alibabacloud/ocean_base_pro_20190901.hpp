@@ -17936,6 +17936,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceRole{};
+  shared_ptr<long> iops{};
   shared_ptr<bool> isLatestObVersion{};
   shared_ptr<bool> isTrustEcs{};
   shared_ptr<bool> isolationOptimization{};
@@ -18043,6 +18044,9 @@ public:
     }
     if (instanceRole) {
       res["InstanceRole"] = boost::any(*instanceRole);
+    }
+    if (iops) {
+      res["Iops"] = boost::any(*iops);
     }
     if (isLatestObVersion) {
       res["IsLatestObVersion"] = boost::any(*isLatestObVersion);
@@ -18199,6 +18203,9 @@ public:
     }
     if (m.find("InstanceRole") != m.end() && !m["InstanceRole"].empty()) {
       instanceRole = make_shared<string>(boost::any_cast<string>(m["InstanceRole"]));
+    }
+    if (m.find("Iops") != m.end() && !m["Iops"].empty()) {
+      iops = make_shared<long>(boost::any_cast<long>(m["Iops"]));
     }
     if (m.find("IsLatestObVersion") != m.end() && !m["IsLatestObVersion"].empty()) {
       isLatestObVersion = make_shared<bool>(boost::any_cast<bool>(m["IsLatestObVersion"]));
@@ -21564,6 +21571,7 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceRole{};
   shared_ptr<string> instanceType{};
+  shared_ptr<long> iops{};
   shared_ptr<string> maintainTime{};
   shared_ptr<long> mem{};
   shared_ptr<bool> migratable{};
@@ -21649,6 +21657,9 @@ public:
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (iops) {
+      res["Iops"] = boost::any(*iops);
     }
     if (maintainTime) {
       res["MaintainTime"] = boost::any(*maintainTime);
@@ -21769,6 +21780,9 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Iops") != m.end() && !m["Iops"].empty()) {
+      iops = make_shared<long>(boost::any_cast<long>(m["Iops"]));
     }
     if (m.find("MaintainTime") != m.end() && !m["MaintainTime"].empty()) {
       maintainTime = make_shared<string>(boost::any_cast<string>(m["MaintainTime"]));
@@ -21944,6 +21958,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> labels{};
   shared_ptr<string> limit{};
+  shared_ptr<string> metricScope{};
   shared_ptr<string> metrics{};
   shared_ptr<string> replicaType{};
   shared_ptr<string> sortMetricKey{};
@@ -21974,6 +21989,9 @@ public:
     }
     if (limit) {
       res["Limit"] = boost::any(*limit);
+    }
+    if (metricScope) {
+      res["MetricScope"] = boost::any(*metricScope);
     }
     if (metrics) {
       res["Metrics"] = boost::any(*metrics);
@@ -22008,6 +22026,9 @@ public:
     }
     if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
       limit = make_shared<string>(boost::any_cast<string>(m["Limit"]));
+    }
+    if (m.find("MetricScope") != m.end() && !m["MetricScope"].empty()) {
+      metricScope = make_shared<string>(boost::any_cast<string>(m["MetricScope"]));
     }
     if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
       metrics = make_shared<string>(boost::any_cast<string>(m["Metrics"]));
@@ -41194,6 +41215,7 @@ class DescribeSqlAuditStatRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> operatorType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> startTime{};
@@ -41214,6 +41236,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (operatorType) {
+      res["OperatorType"] = boost::any(*operatorType);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -41236,6 +41261,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OperatorType") != m.end() && !m["OperatorType"].empty()) {
+      operatorType = make_shared<string>(boost::any_cast<string>(m["OperatorType"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -41399,6 +41427,7 @@ class DescribeSqlAuditStatResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeSqlAuditStatResponseBodyData>> data{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
 
   DescribeSqlAuditStatResponseBody() {}
 
@@ -41420,6 +41449,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -41439,6 +41471,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
@@ -42749,6 +42784,7 @@ public:
   shared_ptr<bool> enableReadOnlyReplica{};
   shared_ptr<bool> enableReadWriteSplit{};
   shared_ptr<string> instanceType{};
+  shared_ptr<long> iops{};
   shared_ptr<long> lowerCaseTableNames{};
   shared_ptr<string> masterIntranetAddressZone{};
   shared_ptr<long> maxParallelQueryDegree{};
@@ -42832,6 +42868,9 @@ public:
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (iops) {
+      res["Iops"] = boost::any(*iops);
     }
     if (lowerCaseTableNames) {
       res["LowerCaseTableNames"] = boost::any(*lowerCaseTableNames);
@@ -42968,6 +43007,9 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Iops") != m.end() && !m["Iops"].empty()) {
+      iops = make_shared<long>(boost::any_cast<long>(m["Iops"]));
     }
     if (m.find("LowerCaseTableNames") != m.end() && !m["LowerCaseTableNames"].empty()) {
       lowerCaseTableNames = make_shared<long>(boost::any_cast<long>(m["LowerCaseTableNames"]));
@@ -45159,6 +45201,7 @@ public:
   shared_ptr<string> deployType{};
   shared_ptr<string> description{};
   shared_ptr<bool> enableReadOnlyReplica{};
+  shared_ptr<long> iops{};
   shared_ptr<long> mem{};
   shared_ptr<string> parameterTemplate{};
   shared_ptr<string> primaryZone{};
@@ -45205,6 +45248,9 @@ public:
     }
     if (enableReadOnlyReplica) {
       res["EnableReadOnlyReplica"] = boost::any(*enableReadOnlyReplica);
+    }
+    if (iops) {
+      res["Iops"] = boost::any(*iops);
     }
     if (mem) {
       res["Mem"] = boost::any(*mem);
@@ -45269,6 +45315,9 @@ public:
     }
     if (m.find("EnableReadOnlyReplica") != m.end() && !m["EnableReadOnlyReplica"].empty()) {
       enableReadOnlyReplica = make_shared<bool>(boost::any_cast<bool>(m["EnableReadOnlyReplica"]));
+    }
+    if (m.find("Iops") != m.end() && !m["Iops"].empty()) {
+      iops = make_shared<long>(boost::any_cast<long>(m["Iops"]));
     }
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
@@ -56428,6 +56477,7 @@ class ModifyTenantResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> iops{};
   shared_ptr<long> logDisk{};
   shared_ptr<long> memory{};
   shared_ptr<string> readOnlyZoneList{};
@@ -56448,6 +56498,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (iops) {
+      res["Iops"] = boost::any(*iops);
     }
     if (logDisk) {
       res["LogDisk"] = boost::any(*logDisk);
@@ -56470,6 +56523,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Iops") != m.end() && !m["Iops"].empty()) {
+      iops = make_shared<string>(boost::any_cast<string>(m["Iops"]));
     }
     if (m.find("LogDisk") != m.end() && !m["LogDisk"].empty()) {
       logDisk = make_shared<long>(boost::any_cast<long>(m["LogDisk"]));

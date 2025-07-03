@@ -2161,6 +2161,9 @@ DescribeMetricsDataResponse Alibabacloud_OceanBasePro20190901::Client::describeM
     query->insert(pair<string, string>("StartTime", *request->startTime));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricScope)) {
+    body->insert(pair<string, string>("MetricScope", *request->metricScope));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->replicaType)) {
     body->insert(pair<string, string>("ReplicaType", *request->replicaType));
   }
@@ -3498,6 +3501,9 @@ DescribeSqlAuditStatResponse Alibabacloud_OceanBasePro20190901::Client::describe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operatorType)) {
+    body->insert(pair<string, string>("OperatorType", *request->operatorType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     body->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -4979,6 +4985,9 @@ ModifyTenantResourceResponse Alibabacloud_OceanBasePro20190901::Client::modifyTe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iops)) {
+    body->insert(pair<string, string>("Iops", *request->iops));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->logDisk)) {
     body->insert(pair<string, long>("LogDisk", *request->logDisk));
