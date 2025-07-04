@@ -1,3 +1,7 @@
+2025-07-04 Version: 2.6.0
+- Support API AddressVerifyIntl.
+
+
 2025-06-26 Version: 2.5.1
 - Update API DocOcrMax: add request parameters IdSpoof.
 - Update API Initialize: add request parameters ChameleonFrameEnable.

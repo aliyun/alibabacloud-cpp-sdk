@@ -13,6 +13,268 @@
 using namespace std;
 
 namespace Alibabacloud_Cloudauth-intl20220809 {
+class AddressVerifyIntlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> addressType{};
+  shared_ptr<string> defaultCity{};
+  shared_ptr<string> defaultCountry{};
+  shared_ptr<string> defaultDistrict{};
+  shared_ptr<string> defaultProvince{};
+  shared_ptr<string> latitude{};
+  shared_ptr<string> longitude{};
+  shared_ptr<string> mobile{};
+  shared_ptr<string> productCode{};
+  shared_ptr<string> text{};
+  shared_ptr<string> verifyType{};
+
+  AddressVerifyIntlRequest() {}
+
+  explicit AddressVerifyIntlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
+    if (defaultCity) {
+      res["DefaultCity"] = boost::any(*defaultCity);
+    }
+    if (defaultCountry) {
+      res["DefaultCountry"] = boost::any(*defaultCountry);
+    }
+    if (defaultDistrict) {
+      res["DefaultDistrict"] = boost::any(*defaultDistrict);
+    }
+    if (defaultProvince) {
+      res["DefaultProvince"] = boost::any(*defaultProvince);
+    }
+    if (latitude) {
+      res["Latitude"] = boost::any(*latitude);
+    }
+    if (longitude) {
+      res["Longitude"] = boost::any(*longitude);
+    }
+    if (mobile) {
+      res["Mobile"] = boost::any(*mobile);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    if (verifyType) {
+      res["VerifyType"] = boost::any(*verifyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
+    if (m.find("DefaultCity") != m.end() && !m["DefaultCity"].empty()) {
+      defaultCity = make_shared<string>(boost::any_cast<string>(m["DefaultCity"]));
+    }
+    if (m.find("DefaultCountry") != m.end() && !m["DefaultCountry"].empty()) {
+      defaultCountry = make_shared<string>(boost::any_cast<string>(m["DefaultCountry"]));
+    }
+    if (m.find("DefaultDistrict") != m.end() && !m["DefaultDistrict"].empty()) {
+      defaultDistrict = make_shared<string>(boost::any_cast<string>(m["DefaultDistrict"]));
+    }
+    if (m.find("DefaultProvince") != m.end() && !m["DefaultProvince"].empty()) {
+      defaultProvince = make_shared<string>(boost::any_cast<string>(m["DefaultProvince"]));
+    }
+    if (m.find("Latitude") != m.end() && !m["Latitude"].empty()) {
+      latitude = make_shared<string>(boost::any_cast<string>(m["Latitude"]));
+    }
+    if (m.find("Longitude") != m.end() && !m["Longitude"].empty()) {
+      longitude = make_shared<string>(boost::any_cast<string>(m["Longitude"]));
+    }
+    if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("VerifyType") != m.end() && !m["VerifyType"].empty()) {
+      verifyType = make_shared<string>(boost::any_cast<string>(m["VerifyType"]));
+    }
+  }
+
+
+  virtual ~AddressVerifyIntlRequest() = default;
+};
+class AddressVerifyIntlResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> addressInfo{};
+  shared_ptr<string> ispName{};
+  shared_ptr<string> passed{};
+  shared_ptr<string> subCode{};
+  shared_ptr<string> transactionId{};
+
+  AddressVerifyIntlResponseBodyResultObject() {}
+
+  explicit AddressVerifyIntlResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressInfo) {
+      res["AddressInfo"] = boost::any(*addressInfo);
+    }
+    if (ispName) {
+      res["IspName"] = boost::any(*ispName);
+    }
+    if (passed) {
+      res["Passed"] = boost::any(*passed);
+    }
+    if (subCode) {
+      res["SubCode"] = boost::any(*subCode);
+    }
+    if (transactionId) {
+      res["TransactionId"] = boost::any(*transactionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressInfo") != m.end() && !m["AddressInfo"].empty()) {
+      addressInfo = make_shared<string>(boost::any_cast<string>(m["AddressInfo"]));
+    }
+    if (m.find("IspName") != m.end() && !m["IspName"].empty()) {
+      ispName = make_shared<string>(boost::any_cast<string>(m["IspName"]));
+    }
+    if (m.find("Passed") != m.end() && !m["Passed"].empty()) {
+      passed = make_shared<string>(boost::any_cast<string>(m["Passed"]));
+    }
+    if (m.find("SubCode") != m.end() && !m["SubCode"].empty()) {
+      subCode = make_shared<string>(boost::any_cast<string>(m["SubCode"]));
+    }
+    if (m.find("TransactionId") != m.end() && !m["TransactionId"].empty()) {
+      transactionId = make_shared<string>(boost::any_cast<string>(m["TransactionId"]));
+    }
+  }
+
+
+  virtual ~AddressVerifyIntlResponseBodyResultObject() = default;
+};
+class AddressVerifyIntlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<AddressVerifyIntlResponseBodyResultObject> resultObject{};
+
+  AddressVerifyIntlResponseBody() {}
+
+  explicit AddressVerifyIntlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        AddressVerifyIntlResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<AddressVerifyIntlResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddressVerifyIntlResponseBody() = default;
+};
+class AddressVerifyIntlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddressVerifyIntlResponseBody> body{};
+
+  AddressVerifyIntlResponse() {}
+
+  explicit AddressVerifyIntlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddressVerifyIntlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddressVerifyIntlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddressVerifyIntlResponse() = default;
+};
 class BankMetaVerifyIntlRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bankCard{};
@@ -4653,6 +4915,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddressVerifyIntlResponse addressVerifyIntlWithOptions(shared_ptr<AddressVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddressVerifyIntlResponse addressVerifyIntl(shared_ptr<AddressVerifyIntlRequest> request);
   BankMetaVerifyIntlResponse bankMetaVerifyIntlWithOptions(shared_ptr<BankMetaVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BankMetaVerifyIntlResponse bankMetaVerifyIntl(shared_ptr<BankMetaVerifyIntlRequest> request);
   CardOcrResponse cardOcrWithOptions(shared_ptr<CardOcrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
