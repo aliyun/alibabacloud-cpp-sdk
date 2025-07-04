@@ -4090,6 +4090,329 @@ public:
 
   virtual ~GetMultiAccountResourceConfigurationResponse() = default;
 };
+class GetMultiAccountResourceCountsRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> matchType{};
+  shared_ptr<vector<string>> value{};
+
+  GetMultiAccountResourceCountsRequestFilter() {}
+
+  explicit GetMultiAccountResourceCountsRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (matchType) {
+      res["MatchType"] = boost::any(*matchType);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
+      matchType = make_shared<string>(boost::any_cast<string>(m["MatchType"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Value"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Value"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      value = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetMultiAccountResourceCountsRequestFilter() = default;
+};
+class GetMultiAccountResourceCountsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetMultiAccountResourceCountsRequestFilter>> filter{};
+  shared_ptr<string> groupByKey{};
+  shared_ptr<string> scope{};
+
+  GetMultiAccountResourceCountsRequest() {}
+
+  explicit GetMultiAccountResourceCountsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      vector<boost::any> temp1;
+      for(auto item1:*filter){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filter"] = boost::any(temp1);
+    }
+    if (groupByKey) {
+      res["GroupByKey"] = boost::any(*groupByKey);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filter"].type()) {
+        vector<GetMultiAccountResourceCountsRequestFilter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filter"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetMultiAccountResourceCountsRequestFilter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filter = make_shared<vector<GetMultiAccountResourceCountsRequestFilter>>(expect1);
+      }
+    }
+    if (m.find("GroupByKey") != m.end() && !m["GroupByKey"].empty()) {
+      groupByKey = make_shared<string>(boost::any_cast<string>(m["GroupByKey"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountResourceCountsRequest() = default;
+};
+class GetMultiAccountResourceCountsResponseBodyFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<string>> values{};
+
+  GetMultiAccountResourceCountsResponseBodyFilters() {}
+
+  explicit GetMultiAccountResourceCountsResponseBodyFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetMultiAccountResourceCountsResponseBodyFilters() = default;
+};
+class GetMultiAccountResourceCountsResponseBodyResourceCounts : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> groupName{};
+
+  GetMultiAccountResourceCountsResponseBodyResourceCounts() {}
+
+  explicit GetMultiAccountResourceCountsResponseBodyResourceCounts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountResourceCountsResponseBodyResourceCounts() = default;
+};
+class GetMultiAccountResourceCountsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetMultiAccountResourceCountsResponseBodyFilters>> filters{};
+  shared_ptr<string> groupByKey{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetMultiAccountResourceCountsResponseBodyResourceCounts>> resourceCounts{};
+  shared_ptr<string> scope{};
+
+  GetMultiAccountResourceCountsResponseBody() {}
+
+  explicit GetMultiAccountResourceCountsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
+    }
+    if (groupByKey) {
+      res["GroupByKey"] = boost::any(*groupByKey);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceCounts) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceCounts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceCounts"] = boost::any(temp1);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<GetMultiAccountResourceCountsResponseBodyFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetMultiAccountResourceCountsResponseBodyFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<GetMultiAccountResourceCountsResponseBodyFilters>>(expect1);
+      }
+    }
+    if (m.find("GroupByKey") != m.end() && !m["GroupByKey"].empty()) {
+      groupByKey = make_shared<string>(boost::any_cast<string>(m["GroupByKey"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceCounts") != m.end() && !m["ResourceCounts"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceCounts"].type()) {
+        vector<GetMultiAccountResourceCountsResponseBodyResourceCounts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceCounts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetMultiAccountResourceCountsResponseBodyResourceCounts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceCounts = make_shared<vector<GetMultiAccountResourceCountsResponseBodyResourceCounts>>(expect1);
+      }
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountResourceCountsResponseBody() = default;
+};
+class GetMultiAccountResourceCountsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetMultiAccountResourceCountsResponseBody> body{};
+
+  GetMultiAccountResourceCountsResponse() {}
+
+  explicit GetMultiAccountResourceCountsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetMultiAccountResourceCountsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetMultiAccountResourceCountsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetMultiAccountResourceCountsResponse() = default;
+};
 class GetResourceCenterServiceStatusResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> initialStatus{};
@@ -9946,6 +10269,8 @@ public:
   GetMultiAccountResourceCenterServiceStatusResponse getMultiAccountResourceCenterServiceStatus();
   GetMultiAccountResourceConfigurationResponse getMultiAccountResourceConfigurationWithOptions(shared_ptr<GetMultiAccountResourceConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMultiAccountResourceConfigurationResponse getMultiAccountResourceConfiguration(shared_ptr<GetMultiAccountResourceConfigurationRequest> request);
+  GetMultiAccountResourceCountsResponse getMultiAccountResourceCountsWithOptions(shared_ptr<GetMultiAccountResourceCountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMultiAccountResourceCountsResponse getMultiAccountResourceCounts(shared_ptr<GetMultiAccountResourceCountsRequest> request);
   GetResourceCenterServiceStatusResponse getResourceCenterServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceCenterServiceStatusResponse getResourceCenterServiceStatus();
   GetResourceConfigurationResponse getResourceConfigurationWithOptions(shared_ptr<GetResourceConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -699,6 +699,40 @@ GetMultiAccountResourceConfigurationResponse Alibabacloud_ResourceCenter20221201
   return getMultiAccountResourceConfigurationWithOptions(request, runtime);
 }
 
+GetMultiAccountResourceCountsResponse Alibabacloud_ResourceCenter20221201::Client::getMultiAccountResourceCountsWithOptions(shared_ptr<GetMultiAccountResourceCountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<GetMultiAccountResourceCountsRequestFilter>>(request->filter)) {
+    query->insert(pair<string, vector<GetMultiAccountResourceCountsRequestFilter>>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupByKey)) {
+    query->insert(pair<string, string>("GroupByKey", *request->groupByKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMultiAccountResourceCounts"))},
+    {"version", boost::any(string("2022-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMultiAccountResourceCountsResponse(callApi(params, req, runtime));
+}
+
+GetMultiAccountResourceCountsResponse Alibabacloud_ResourceCenter20221201::Client::getMultiAccountResourceCounts(shared_ptr<GetMultiAccountResourceCountsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMultiAccountResourceCountsWithOptions(request, runtime);
+}
+
 GetResourceCenterServiceStatusResponse Alibabacloud_ResourceCenter20221201::Client::getResourceCenterServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
