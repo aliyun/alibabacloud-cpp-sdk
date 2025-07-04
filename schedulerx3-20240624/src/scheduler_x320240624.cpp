@@ -87,6 +87,10 @@ CreateClusterResponse Alibabacloud_SchedulerX320240624::Client::createClusterWit
   if (!Darabonba_Util::Client::isUnset<vector<CreateClusterRequestVSwitches>>(tmpReq->vSwitches)) {
     request->vSwitchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitches, make_shared<string>("VSwitches"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateClusterShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateClusterShrinkRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterName)) {
     body->insert(pair<string, string>("ClusterName", *request->clusterName));
@@ -104,6 +108,7 @@ CreateClusterResponse Alibabacloud_SchedulerX320240624::Client::createClusterWit
     body->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -479,6 +484,31 @@ GetJobExecutionProgressResponse Alibabacloud_SchedulerX320240624::Client::getJob
   return getJobExecutionProgressWithOptions(request, runtime);
 }
 
+GetJobExecutionThreadDumpResponse Alibabacloud_SchedulerX320240624::Client::getJobExecutionThreadDumpWithOptions(shared_ptr<GetJobExecutionThreadDumpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJobExecutionThreadDump"))},
+    {"version", boost::any(string("2024-06-24"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetJobExecutionThreadDumpResponse(callApi(params, req, runtime));
+}
+
+GetJobExecutionThreadDumpResponse Alibabacloud_SchedulerX320240624::Client::getJobExecutionThreadDump(shared_ptr<GetJobExecutionThreadDumpRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getJobExecutionThreadDumpWithOptions(request, runtime);
+}
+
 GetLogResponse Alibabacloud_SchedulerX320240624::Client::getLogWithOptions(shared_ptr<GetLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -502,6 +532,31 @@ GetLogResponse Alibabacloud_SchedulerX320240624::Client::getLogWithOptions(share
 GetLogResponse Alibabacloud_SchedulerX320240624::Client::getLog(shared_ptr<GetLogRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getLogWithOptions(request, runtime);
+}
+
+GetLogEventResponse Alibabacloud_SchedulerX320240624::Client::getLogEventWithOptions(shared_ptr<GetLogEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLogEvent"))},
+    {"version", boost::any(string("2024-06-24"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLogEventResponse(callApi(params, req, runtime));
+}
+
+GetLogEventResponse Alibabacloud_SchedulerX320240624::Client::getLogEvent(shared_ptr<GetLogEventRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getLogEventWithOptions(request, runtime);
 }
 
 ImportCalendarResponse Alibabacloud_SchedulerX320240624::Client::importCalendarWithOptions(shared_ptr<ImportCalendarRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
