@@ -14212,12 +14212,14 @@ public:
   shared_ptr<bool> enableCpuBurst{};
   shared_ptr<string> enableEbpf{};
   shared_ptr<bool> enableNewArms{};
+  shared_ptr<bool> enablePrometheus{};
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<InitContainerConfig>> initContainersConfig{};
+  shared_ptr<bool> isStateful{};
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
@@ -14341,6 +14343,9 @@ public:
     if (enableNewArms) {
       res["EnableNewArms"] = boost::any(*enableNewArms);
     }
+    if (enablePrometheus) {
+      res["EnablePrometheus"] = boost::any(*enablePrometheus);
+    }
     if (enableSidecarResourceIsolated) {
       res["EnableSidecarResourceIsolated"] = boost::any(*enableSidecarResourceIsolated);
     }
@@ -14362,6 +14367,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["InitContainersConfig"] = boost::any(temp1);
+    }
+    if (isStateful) {
+      res["IsStateful"] = boost::any(*isStateful);
     }
     if (jarStartArgs) {
       res["JarStartArgs"] = boost::any(*jarStartArgs);
@@ -14581,6 +14589,9 @@ public:
     if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
       enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
     }
+    if (m.find("EnablePrometheus") != m.end() && !m["EnablePrometheus"].empty()) {
+      enablePrometheus = make_shared<bool>(boost::any_cast<bool>(m["EnablePrometheus"]));
+    }
     if (m.find("EnableSidecarResourceIsolated") != m.end() && !m["EnableSidecarResourceIsolated"].empty()) {
       enableSidecarResourceIsolated = make_shared<bool>(boost::any_cast<bool>(m["EnableSidecarResourceIsolated"]));
     }
@@ -14608,6 +14619,9 @@ public:
         }
         initContainersConfig = make_shared<vector<InitContainerConfig>>(expect1);
       }
+    }
+    if (m.find("IsStateful") != m.end() && !m["IsStateful"].empty()) {
+      isStateful = make_shared<bool>(boost::any_cast<bool>(m["IsStateful"]));
     }
     if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
       jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));
@@ -14794,12 +14808,14 @@ public:
   shared_ptr<bool> enableCpuBurst{};
   shared_ptr<string> enableEbpf{};
   shared_ptr<bool> enableNewArms{};
+  shared_ptr<bool> enablePrometheus{};
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> initContainersConfigShrink{};
+  shared_ptr<bool> isStateful{};
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
@@ -14923,6 +14939,9 @@ public:
     if (enableNewArms) {
       res["EnableNewArms"] = boost::any(*enableNewArms);
     }
+    if (enablePrometheus) {
+      res["EnablePrometheus"] = boost::any(*enablePrometheus);
+    }
     if (enableSidecarResourceIsolated) {
       res["EnableSidecarResourceIsolated"] = boost::any(*enableSidecarResourceIsolated);
     }
@@ -14940,6 +14959,9 @@ public:
     }
     if (initContainersConfigShrink) {
       res["InitContainersConfig"] = boost::any(*initContainersConfigShrink);
+    }
+    if (isStateful) {
+      res["IsStateful"] = boost::any(*isStateful);
     }
     if (jarStartArgs) {
       res["JarStartArgs"] = boost::any(*jarStartArgs);
@@ -15155,6 +15177,9 @@ public:
     if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
       enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
     }
+    if (m.find("EnablePrometheus") != m.end() && !m["EnablePrometheus"].empty()) {
+      enablePrometheus = make_shared<bool>(boost::any_cast<bool>(m["EnablePrometheus"]));
+    }
     if (m.find("EnableSidecarResourceIsolated") != m.end() && !m["EnableSidecarResourceIsolated"].empty()) {
       enableSidecarResourceIsolated = make_shared<bool>(boost::any_cast<bool>(m["EnableSidecarResourceIsolated"]));
     }
@@ -15172,6 +15197,9 @@ public:
     }
     if (m.find("InitContainersConfig") != m.end() && !m["InitContainersConfig"].empty()) {
       initContainersConfigShrink = make_shared<string>(boost::any_cast<string>(m["InitContainersConfig"]));
+    }
+    if (m.find("IsStateful") != m.end() && !m["IsStateful"].empty()) {
+      isStateful = make_shared<bool>(boost::any_cast<bool>(m["IsStateful"]));
     }
     if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
       jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));
@@ -21152,6 +21180,7 @@ public:
   shared_ptr<bool> enableCpuBurst{};
   shared_ptr<bool> enableGreyTagRoute{};
   shared_ptr<bool> enableNewArms{};
+  shared_ptr<bool> enablePrometheus{};
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
@@ -21276,6 +21305,9 @@ public:
     }
     if (enableNewArms) {
       res["EnableNewArms"] = boost::any(*enableNewArms);
+    }
+    if (enablePrometheus) {
+      res["EnablePrometheus"] = boost::any(*enablePrometheus);
     }
     if (enableSidecarResourceIsolated) {
       res["EnableSidecarResourceIsolated"] = boost::any(*enableSidecarResourceIsolated);
@@ -21511,6 +21543,9 @@ public:
     if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
       enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
     }
+    if (m.find("EnablePrometheus") != m.end() && !m["EnablePrometheus"].empty()) {
+      enablePrometheus = make_shared<bool>(boost::any_cast<bool>(m["EnablePrometheus"]));
+    }
     if (m.find("EnableSidecarResourceIsolated") != m.end() && !m["EnableSidecarResourceIsolated"].empty()) {
       enableSidecarResourceIsolated = make_shared<bool>(boost::any_cast<bool>(m["EnableSidecarResourceIsolated"]));
     }
@@ -21720,6 +21755,7 @@ public:
   shared_ptr<bool> enableCpuBurst{};
   shared_ptr<bool> enableGreyTagRoute{};
   shared_ptr<bool> enableNewArms{};
+  shared_ptr<bool> enablePrometheus{};
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
@@ -21844,6 +21880,9 @@ public:
     }
     if (enableNewArms) {
       res["EnableNewArms"] = boost::any(*enableNewArms);
+    }
+    if (enablePrometheus) {
+      res["EnablePrometheus"] = boost::any(*enablePrometheus);
     }
     if (enableSidecarResourceIsolated) {
       res["EnableSidecarResourceIsolated"] = boost::any(*enableSidecarResourceIsolated);
@@ -22070,6 +22109,9 @@ public:
     }
     if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
       enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
+    }
+    if (m.find("EnablePrometheus") != m.end() && !m["EnablePrometheus"].empty()) {
+      enablePrometheus = make_shared<bool>(boost::any_cast<bool>(m["EnablePrometheus"]));
     }
     if (m.find("EnableSidecarResourceIsolated") != m.end() && !m["EnableSidecarResourceIsolated"].empty()) {
       enableSidecarResourceIsolated = make_shared<bool>(boost::any_cast<bool>(m["EnableSidecarResourceIsolated"]));
@@ -23540,12 +23582,14 @@ public:
   shared_ptr<bool> enableGreyTagRoute{};
   shared_ptr<bool> enableIdle{};
   shared_ptr<bool> enableNewArms{};
+  shared_ptr<bool> enablePrometheus{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuCount{};
   shared_ptr<string> gpuType{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataInitContainersConfig>> initContainersConfig{};
+  shared_ptr<bool> isStateful{};
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
@@ -23689,6 +23733,9 @@ public:
     if (enableNewArms) {
       res["EnableNewArms"] = boost::any(*enableNewArms);
     }
+    if (enablePrometheus) {
+      res["EnablePrometheus"] = boost::any(*enablePrometheus);
+    }
     if (envs) {
       res["Envs"] = boost::any(*envs);
     }
@@ -23710,6 +23757,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["InitContainersConfig"] = boost::any(temp1);
+    }
+    if (isStateful) {
+      res["IsStateful"] = boost::any(*isStateful);
     }
     if (jarStartArgs) {
       res["JarStartArgs"] = boost::any(*jarStartArgs);
@@ -23985,6 +24035,9 @@ public:
     if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
       enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
     }
+    if (m.find("EnablePrometheus") != m.end() && !m["EnablePrometheus"].empty()) {
+      enablePrometheus = make_shared<bool>(boost::any_cast<bool>(m["EnablePrometheus"]));
+    }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
     }
@@ -24012,6 +24065,9 @@ public:
         }
         initContainersConfig = make_shared<vector<DescribeApplicationConfigResponseBodyDataInitContainersConfig>>(expect1);
       }
+    }
+    if (m.find("IsStateful") != m.end() && !m["IsStateful"].empty()) {
+      isStateful = make_shared<bool>(boost::any_cast<bool>(m["IsStateful"]));
     }
     if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
       jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));
@@ -37313,6 +37369,7 @@ public:
   shared_ptr<string> baseAppId{};
   shared_ptr<long> cpu{};
   shared_ptr<long> instances{};
+  shared_ptr<bool> isStateful{};
   shared_ptr<long> mem{};
   shared_ptr<bool> mseEnabled{};
   shared_ptr<string> mseNamespaceId{};
@@ -37349,6 +37406,9 @@ public:
     }
     if (instances) {
       res["Instances"] = boost::any(*instances);
+    }
+    if (isStateful) {
+      res["IsStateful"] = boost::any(*isStateful);
     }
     if (mem) {
       res["Mem"] = boost::any(*mem);
@@ -37395,6 +37455,9 @@ public:
     }
     if (m.find("Instances") != m.end() && !m["Instances"].empty()) {
       instances = make_shared<long>(boost::any_cast<long>(m["Instances"]));
+    }
+    if (m.find("IsStateful") != m.end() && !m["IsStateful"].empty()) {
+      isStateful = make_shared<bool>(boost::any_cast<bool>(m["IsStateful"]));
     }
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
@@ -41424,6 +41487,7 @@ public:
   shared_ptr<long> currentPage{};
   shared_ptr<string> fieldType{};
   shared_ptr<string> fieldValue{};
+  shared_ptr<string> isStateful{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> orderBy{};
   shared_ptr<long> pageSize{};
@@ -41454,6 +41518,9 @@ public:
     }
     if (fieldValue) {
       res["FieldValue"] = boost::any(*fieldValue);
+    }
+    if (isStateful) {
+      res["IsStateful"] = boost::any(*isStateful);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -41488,6 +41555,9 @@ public:
     }
     if (m.find("FieldValue") != m.end() && !m["FieldValue"].empty()) {
       fieldValue = make_shared<string>(boost::any_cast<string>(m["FieldValue"]));
+    }
+    if (m.find("IsStateful") != m.end() && !m["IsStateful"].empty()) {
+      isStateful = make_shared<string>(boost::any_cast<string>(m["IsStateful"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));

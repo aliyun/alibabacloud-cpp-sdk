@@ -357,6 +357,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableNewArms)) {
     query->insert(pair<string, bool>("EnableNewArms", *request->enableNewArms));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enablePrometheus)) {
+    query->insert(pair<string, bool>("EnablePrometheus", *request->enablePrometheus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->envs)) {
     query->insert(pair<string, string>("Envs", *request->envs));
   }
@@ -368,6 +371,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
     query->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isStateful)) {
+    query->insert(pair<string, bool>("IsStateful", *request->isStateful));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jarStartArgs)) {
     query->insert(pair<string, string>("JarStartArgs", *request->jarStartArgs));
@@ -1758,6 +1764,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableNewArms)) {
     query->insert(pair<string, bool>("EnableNewArms", *request->enableNewArms));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enablePrometheus)) {
+    query->insert(pair<string, bool>("EnablePrometheus", *request->enablePrometheus));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->envs)) {
     query->insert(pair<string, string>("Envs", *request->envs));
@@ -3886,6 +3895,9 @@ ListApplicationsResponse Alibabacloud_Sae20190506::Client::listApplicationsWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fieldValue)) {
     query->insert(pair<string, string>("FieldValue", *request->fieldValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isStateful)) {
+    query->insert(pair<string, string>("IsStateful", *request->isStateful));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
