@@ -1807,6 +1807,7 @@ public:
 class DeleteJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> executorIds{};
+  shared_ptr<string> jobScheduler{};
   shared_ptr<vector<DeleteJobsRequestJobSpec>> jobSpec{};
 
   DeleteJobsRequest() {}
@@ -1821,6 +1822,9 @@ public:
     map<string, boost::any> res;
     if (executorIds) {
       res["ExecutorIds"] = boost::any(*executorIds);
+    }
+    if (jobScheduler) {
+      res["JobScheduler"] = boost::any(*jobScheduler);
     }
     if (jobSpec) {
       vector<boost::any> temp1;
@@ -1843,6 +1847,9 @@ public:
       }
       executorIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("JobScheduler") != m.end() && !m["JobScheduler"].empty()) {
+      jobScheduler = make_shared<string>(boost::any_cast<string>(m["JobScheduler"]));
+    }
     if (m.find("JobSpec") != m.end() && !m["JobSpec"].empty()) {
       if (typeid(vector<boost::any>) == m["JobSpec"].type()) {
         vector<DeleteJobsRequestJobSpec> expect1;
@@ -1864,6 +1871,7 @@ public:
 class DeleteJobsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> executorIdsShrink{};
+  shared_ptr<string> jobScheduler{};
   shared_ptr<string> jobSpecShrink{};
 
   DeleteJobsShrinkRequest() {}
@@ -1879,6 +1887,9 @@ public:
     if (executorIdsShrink) {
       res["ExecutorIds"] = boost::any(*executorIdsShrink);
     }
+    if (jobScheduler) {
+      res["JobScheduler"] = boost::any(*jobScheduler);
+    }
     if (jobSpecShrink) {
       res["JobSpec"] = boost::any(*jobSpecShrink);
     }
@@ -1888,6 +1899,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ExecutorIds") != m.end() && !m["ExecutorIds"].empty()) {
       executorIdsShrink = make_shared<string>(boost::any_cast<string>(m["ExecutorIds"]));
+    }
+    if (m.find("JobScheduler") != m.end() && !m["JobScheduler"].empty()) {
+      jobScheduler = make_shared<string>(boost::any_cast<string>(m["JobScheduler"]));
     }
     if (m.find("JobSpec") != m.end() && !m["JobSpec"].empty()) {
       jobSpecShrink = make_shared<string>(boost::any_cast<string>(m["JobSpec"]));

@@ -195,6 +195,9 @@ DeleteJobsResponse Alibabacloud_EhpcInstant20230701::Client::deleteJobsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->executorIdsShrink)) {
     query->insert(pair<string, string>("ExecutorIds", *request->executorIdsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobScheduler)) {
+    query->insert(pair<string, string>("JobScheduler", *request->jobScheduler));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobSpecShrink)) {
     query->insert(pair<string, string>("JobSpec", *request->jobSpecShrink));
   }
