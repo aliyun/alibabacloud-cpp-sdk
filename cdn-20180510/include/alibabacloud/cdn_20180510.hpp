@@ -35480,6 +35480,7 @@ public:
 class PushObjectCacheRequest : public Darabonba::Model {
 public:
   shared_ptr<string> area{};
+  shared_ptr<bool> consistencyHash{};
   shared_ptr<bool> l2Preload{};
   shared_ptr<string> objectPath{};
   shared_ptr<long> ownerId{};
@@ -35499,6 +35500,9 @@ public:
     map<string, boost::any> res;
     if (area) {
       res["Area"] = boost::any(*area);
+    }
+    if (consistencyHash) {
+      res["ConsistencyHash"] = boost::any(*consistencyHash);
     }
     if (l2Preload) {
       res["L2Preload"] = boost::any(*l2Preload);
@@ -35524,6 +35528,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Area") != m.end() && !m["Area"].empty()) {
       area = make_shared<string>(boost::any_cast<string>(m["Area"]));
+    }
+    if (m.find("ConsistencyHash") != m.end() && !m["ConsistencyHash"].empty()) {
+      consistencyHash = make_shared<bool>(boost::any_cast<bool>(m["ConsistencyHash"]));
     }
     if (m.find("L2Preload") != m.end() && !m["L2Preload"].empty()) {
       l2Preload = make_shared<bool>(boost::any_cast<bool>(m["L2Preload"]));
@@ -36284,7 +36291,6 @@ public:
   shared_ptr<string> certRegion{};
   shared_ptr<string> certType{};
   shared_ptr<string> domainName{};
-  shared_ptr<string> env{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> SSLPri{};
   shared_ptr<string> SSLProtocol{};
@@ -36315,9 +36321,6 @@ public:
     }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
-    }
-    if (env) {
-      res["Env"] = boost::any(*env);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -36352,9 +36355,6 @@ public:
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
-    }
-    if (m.find("Env") != m.end() && !m["Env"].empty()) {
-      env = make_shared<string>(boost::any_cast<string>(m["Env"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
