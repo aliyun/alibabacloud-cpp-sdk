@@ -2925,8 +2925,17 @@ CreateSnapshotResponse Alibabacloud_Ecd20200930::Client::createSnapshot(shared_p
 CreateTemplateResponse Alibabacloud_Ecd20200930::Client::createTemplateWithOptions(shared_ptr<CreateTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    body->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    body->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
     body->insert(pair<string, string>("BizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
+    body->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
   shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<CreateTemplateRequestDataDiskList>>(request->dataDiskList)) {
@@ -2941,8 +2950,17 @@ CreateTemplateResponse Alibabacloud_Ecd20200930::Client::createTemplateWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     body->insert(pair<string, string>("ImageId", *request->imageId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    body->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
+    body->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupId)) {
     body->insert(pair<string, string>("PolicyGroupId", *request->policyGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->postPaidAfterUsedUp)) {
+    body->insert(pair<string, bool>("PostPaidAfterUsedUp", *request->postPaidAfterUsedUp));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
     body->insert(pair<string, string>("ProductType", *request->productType));
@@ -2970,6 +2988,9 @@ CreateTemplateResponse Alibabacloud_Ecd20200930::Client::createTemplateWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->timerGroupId)) {
     body->insert(pair<string, string>("TimerGroupId", *request->timerGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->userDuration)) {
+    body->insert(pair<string, long>("UserDuration", *request->userDuration));
   }
   body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -9676,11 +9697,16 @@ ModifyResourceCenterPolicyResponse Alibabacloud_Ecd20200930::Client::modifyResou
 
 ModifyTemplateResponse Alibabacloud_Ecd20200930::Client::modifyTemplateWithOptions(shared_ptr<ModifyTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<ModifyTemplateRequestSiteConfigList>>(request->siteConfigList)) {
-    query->insert(pair<string, vector<ModifyTemplateRequestSiteConfigList>>("SiteConfigList", *request->siteConfigList));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    body->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    body->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
+    body->insert(pair<string, string>("ChargeType", *request->chargeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->defaultLanguage)) {
     body->insert(pair<string, string>("DefaultLanguage", *request->defaultLanguage));
   }
@@ -9690,8 +9716,17 @@ ModifyTemplateResponse Alibabacloud_Ecd20200930::Client::modifyTemplateWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     body->insert(pair<string, string>("ImageId", *request->imageId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    body->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
+    body->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupId)) {
     body->insert(pair<string, string>("PolicyGroupId", *request->policyGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->postPaidAfterUsedUp)) {
+    body->insert(pair<string, bool>("PostPaidAfterUsedUp", *request->postPaidAfterUsedUp));
   }
   shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<ModifyTemplateRequestRegionConfigList>>(request->regionConfigList)) {
@@ -9702,6 +9737,9 @@ ModifyTemplateResponse Alibabacloud_Ecd20200930::Client::modifyTemplateWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyTemplateRequestResourceTagList>>(request->resourceTagList)) {
     bodyFlat->insert(pair<string, vector<ModifyTemplateRequestResourceTagList>>("ResourceTagList", *request->resourceTagList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyTemplateRequestSiteConfigList>>(request->siteConfigList)) {
+    bodyFlat->insert(pair<string, vector<ModifyTemplateRequestSiteConfigList>>("SiteConfigList", *request->siteConfigList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->systemDiskPerformanceLevel)) {
     body->insert(pair<string, string>("SystemDiskPerformanceLevel", *request->systemDiskPerformanceLevel));
@@ -9718,9 +9756,11 @@ ModifyTemplateResponse Alibabacloud_Ecd20200930::Client::modifyTemplateWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->timerGroupId)) {
     body->insert(pair<string, string>("TimerGroupId", *request->timerGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->userDuration)) {
+    body->insert(pair<string, long>("UserDuration", *request->userDuration));
+  }
   body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -10481,6 +10521,9 @@ RunCommandResponse Alibabacloud_Ecd20200930::Client::runCommandWithOptions(share
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->commandContent)) {
     query->insert(pair<string, string>("CommandContent", *request->commandContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->commandRole)) {
+    query->insert(pair<string, string>("CommandRole", *request->commandRole));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->contentEncoding)) {
     query->insert(pair<string, string>("ContentEncoding", *request->contentEncoding));

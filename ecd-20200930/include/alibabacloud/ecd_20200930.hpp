@@ -13169,12 +13169,18 @@ public:
 };
 class CreateTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
   shared_ptr<string> bizType{};
+  shared_ptr<string> chargeType{};
   shared_ptr<vector<CreateTemplateRequestDataDiskList>> dataDiskList{};
   shared_ptr<string> defaultLanguage{};
   shared_ptr<string> description{};
   shared_ptr<string> imageId{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<bool> postPaidAfterUsedUp{};
   shared_ptr<string> productType{};
   shared_ptr<vector<CreateTemplateRequestRegionConfigList>> regionConfigList{};
   shared_ptr<string> resourceGroupId{};
@@ -13184,6 +13190,7 @@ public:
   shared_ptr<long> systemDiskSize{};
   shared_ptr<string> templateName{};
   shared_ptr<string> timerGroupId{};
+  shared_ptr<long> userDuration{};
 
   CreateTemplateRequest() {}
 
@@ -13195,8 +13202,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
     if (bizType) {
       res["BizType"] = boost::any(*bizType);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
     }
     if (dataDiskList) {
       vector<boost::any> temp1;
@@ -13214,8 +13230,17 @@ public:
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["PeriodUnit"] = boost::any(*periodUnit);
+    }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (postPaidAfterUsedUp) {
+      res["PostPaidAfterUsedUp"] = boost::any(*postPaidAfterUsedUp);
     }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
@@ -13256,12 +13281,24 @@ public:
     if (timerGroupId) {
       res["TimerGroupId"] = boost::any(*timerGroupId);
     }
+    if (userDuration) {
+      res["UserDuration"] = boost::any(*userDuration);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
     if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
       bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
     }
     if (m.find("DataDiskList") != m.end() && !m["DataDiskList"].empty()) {
       if (typeid(vector<boost::any>) == m["DataDiskList"].type()) {
@@ -13285,8 +13322,17 @@ public:
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("PostPaidAfterUsedUp") != m.end() && !m["PostPaidAfterUsedUp"].empty()) {
+      postPaidAfterUsedUp = make_shared<bool>(boost::any_cast<bool>(m["PostPaidAfterUsedUp"]));
     }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
@@ -13344,6 +13390,9 @@ public:
     }
     if (m.find("TimerGroupId") != m.end() && !m["TimerGroupId"].empty()) {
       timerGroupId = make_shared<string>(boost::any_cast<string>(m["TimerGroupId"]));
+    }
+    if (m.find("UserDuration") != m.end() && !m["UserDuration"].empty()) {
+      userDuration = make_shared<long>(boost::any_cast<long>(m["UserDuration"]));
     }
   }
 
@@ -36922,6 +36971,9 @@ public:
 };
 class DescribeTemplatesResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<string> chargeType{};
   shared_ptr<vector<DescribeTemplatesResponseBodyDataDataDiskList>> dataDiskList{};
   shared_ptr<string> defaultLanguage{};
   shared_ptr<string> description{};
@@ -36929,7 +36981,10 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<bool> postPaidAfterUsedUp{};
   shared_ptr<string> productType{};
   shared_ptr<vector<DescribeTemplatesResponseBodyDataRegionConfigList>> regionConfigList{};
   shared_ptr<string> requestId{};
@@ -36942,6 +36997,7 @@ public:
   shared_ptr<string> templateName{};
   shared_ptr<string> templateType{};
   shared_ptr<string> timerGroupId{};
+  shared_ptr<string> userDuration{};
 
   DescribeTemplatesResponseBodyData() {}
 
@@ -36953,6 +37009,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
     if (dataDiskList) {
       vector<boost::any> temp1;
       for(auto item1:*dataDiskList){
@@ -36978,8 +37043,17 @@ public:
     if (imageType) {
       res["ImageType"] = boost::any(*imageType);
     }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["PeriodUnit"] = boost::any(*periodUnit);
+    }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (postPaidAfterUsedUp) {
+      res["PostPaidAfterUsedUp"] = boost::any(*postPaidAfterUsedUp);
     }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
@@ -37029,10 +37103,22 @@ public:
     if (timerGroupId) {
       res["TimerGroupId"] = boost::any(*timerGroupId);
     }
+    if (userDuration) {
+      res["UserDuration"] = boost::any(*userDuration);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
     if (m.find("DataDiskList") != m.end() && !m["DataDiskList"].empty()) {
       if (typeid(vector<boost::any>) == m["DataDiskList"].type()) {
         vector<DescribeTemplatesResponseBodyDataDataDiskList> expect1;
@@ -37064,8 +37150,17 @@ public:
     if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
     }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("PostPaidAfterUsedUp") != m.end() && !m["PostPaidAfterUsedUp"].empty()) {
+      postPaidAfterUsedUp = make_shared<bool>(boost::any_cast<bool>(m["PostPaidAfterUsedUp"]));
     }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
@@ -37132,6 +37227,9 @@ public:
     }
     if (m.find("TimerGroupId") != m.end() && !m["TimerGroupId"].empty()) {
       timerGroupId = make_shared<string>(boost::any_cast<string>(m["TimerGroupId"]));
+    }
+    if (m.find("UserDuration") != m.end() && !m["UserDuration"].empty()) {
+      userDuration = make_shared<string>(boost::any_cast<string>(m["UserDuration"]));
     }
   }
 
@@ -54084,10 +54182,16 @@ public:
 };
 class ModifyTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<string> chargeType{};
   shared_ptr<string> defaultLanguage{};
   shared_ptr<string> description{};
   shared_ptr<string> imageId{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<bool> postPaidAfterUsedUp{};
   shared_ptr<vector<ModifyTemplateRequestRegionConfigList>> regionConfigList{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<ModifyTemplateRequestResourceTagList>> resourceTagList{};
@@ -54097,6 +54201,7 @@ public:
   shared_ptr<string> templateId{};
   shared_ptr<string> templateName{};
   shared_ptr<string> timerGroupId{};
+  shared_ptr<long> userDuration{};
 
   ModifyTemplateRequest() {}
 
@@ -54108,6 +54213,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
     if (defaultLanguage) {
       res["DefaultLanguage"] = boost::any(*defaultLanguage);
     }
@@ -54117,8 +54231,17 @@ public:
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["PeriodUnit"] = boost::any(*periodUnit);
+    }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (postPaidAfterUsedUp) {
+      res["PostPaidAfterUsedUp"] = boost::any(*postPaidAfterUsedUp);
     }
     if (regionConfigList) {
       vector<boost::any> temp1;
@@ -54159,10 +54282,22 @@ public:
     if (timerGroupId) {
       res["TimerGroupId"] = boost::any(*timerGroupId);
     }
+    if (userDuration) {
+      res["UserDuration"] = boost::any(*userDuration);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
     if (m.find("DefaultLanguage") != m.end() && !m["DefaultLanguage"].empty()) {
       defaultLanguage = make_shared<string>(boost::any_cast<string>(m["DefaultLanguage"]));
     }
@@ -54172,8 +54307,17 @@ public:
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("PostPaidAfterUsedUp") != m.end() && !m["PostPaidAfterUsedUp"].empty()) {
+      postPaidAfterUsedUp = make_shared<bool>(boost::any_cast<bool>(m["PostPaidAfterUsedUp"]));
     }
     if (m.find("RegionConfigList") != m.end() && !m["RegionConfigList"].empty()) {
       if (typeid(vector<boost::any>) == m["RegionConfigList"].type()) {
@@ -54231,6 +54375,9 @@ public:
     }
     if (m.find("TimerGroupId") != m.end() && !m["TimerGroupId"].empty()) {
       timerGroupId = make_shared<string>(boost::any_cast<string>(m["TimerGroupId"]));
+    }
+    if (m.find("UserDuration") != m.end() && !m["UserDuration"].empty()) {
+      userDuration = make_shared<long>(boost::any_cast<long>(m["UserDuration"]));
     }
   }
 
@@ -57588,6 +57735,7 @@ public:
 class RunCommandRequest : public Darabonba::Model {
 public:
   shared_ptr<string> commandContent{};
+  shared_ptr<string> commandRole{};
   shared_ptr<string> contentEncoding{};
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> endUserId{};
@@ -57607,6 +57755,9 @@ public:
     map<string, boost::any> res;
     if (commandContent) {
       res["CommandContent"] = boost::any(*commandContent);
+    }
+    if (commandRole) {
+      res["CommandRole"] = boost::any(*commandRole);
     }
     if (contentEncoding) {
       res["ContentEncoding"] = boost::any(*contentEncoding);
@@ -57632,6 +57783,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CommandContent") != m.end() && !m["CommandContent"].empty()) {
       commandContent = make_shared<string>(boost::any_cast<string>(m["CommandContent"]));
+    }
+    if (m.find("CommandRole") != m.end() && !m["CommandRole"].empty()) {
+      commandRole = make_shared<string>(boost::any_cast<string>(m["CommandRole"]));
     }
     if (m.find("ContentEncoding") != m.end() && !m["ContentEncoding"].empty()) {
       contentEncoding = make_shared<string>(boost::any_cast<string>(m["ContentEncoding"]));
