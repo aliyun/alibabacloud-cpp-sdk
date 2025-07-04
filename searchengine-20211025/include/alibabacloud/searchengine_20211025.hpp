@@ -2461,6 +2461,7 @@ public:
   shared_ptr<long> processParallelNum{};
   shared_ptr<long> processPartitionCount{};
   shared_ptr<CreateIndexRequestDataSourceInfoSaroConfig> saroConfig{};
+  shared_ptr<string> scene{};
   shared_ptr<string> type{};
 
   CreateIndexRequestDataSourceInfo() {}
@@ -2496,6 +2497,9 @@ public:
     }
     if (saroConfig) {
       res["saroConfig"] = saroConfig ? boost::any(saroConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (scene) {
+      res["scene"] = boost::any(*scene);
     }
     if (type) {
       res["type"] = boost::any(*type);
@@ -2535,6 +2539,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["saroConfig"]));
         saroConfig = make_shared<CreateIndexRequestDataSourceInfoSaroConfig>(model1);
       }
+    }
+    if (m.find("scene") != m.end() && !m["scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["scene"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
@@ -4290,6 +4297,7 @@ public:
   shared_ptr<long> partitionCount{};
   shared_ptr<string> primaryKey{};
   shared_ptr<string> rawSchema{};
+  shared_ptr<string> scene{};
   shared_ptr<vector<CreateTableRequestVectorIndex>> vectorIndex{};
   shared_ptr<bool> dryRun{};
 
@@ -4330,6 +4338,9 @@ public:
     }
     if (rawSchema) {
       res["rawSchema"] = boost::any(*rawSchema);
+    }
+    if (scene) {
+      res["scene"] = boost::any(*scene);
     }
     if (vectorIndex) {
       vector<boost::any> temp1;
@@ -4387,6 +4398,9 @@ public:
     }
     if (m.find("rawSchema") != m.end() && !m["rawSchema"].empty()) {
       rawSchema = make_shared<string>(boost::any_cast<string>(m["rawSchema"]));
+    }
+    if (m.find("scene") != m.end() && !m["scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["scene"]));
     }
     if (m.find("vectorIndex") != m.end() && !m["vectorIndex"].empty()) {
       if (typeid(vector<boost::any>) == m["vectorIndex"].type()) {

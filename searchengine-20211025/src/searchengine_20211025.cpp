@@ -664,6 +664,9 @@ CreateTableResponse Alibabacloud_Searchengine20211025::Client::createTableWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->rawSchema)) {
     body->insert(pair<string, string>("rawSchema", *request->rawSchema));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scene)) {
+    body->insert(pair<string, string>("scene", *request->scene));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateTableRequestVectorIndex>>(request->vectorIndex)) {
     body->insert(pair<string, vector<CreateTableRequestVectorIndex>>("vectorIndex", *request->vectorIndex));
   }
