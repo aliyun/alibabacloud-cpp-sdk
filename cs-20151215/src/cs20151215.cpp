@@ -567,6 +567,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<bool>(request->endpointPublicAccess)) {
     body->insert(pair<string, bool>("endpoint_public_access", *request->endpointPublicAccess));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->extraSans)) {
+    body->insert(pair<string, vector<string>>("extra_sans", *request->extraSans));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->formatDisk)) {
     body->insert(pair<string, bool>("format_disk", *request->formatDisk));
   }
@@ -698,6 +701,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("resource_group_id", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateClusterRequestRrsaConfig>(request->rrsaConfig)) {
+    body->insert(pair<string, CreateClusterRequestRrsaConfig>("rrsa_config", *request->rrsaConfig));
   }
   if (!Darabonba_Util::Client::isUnset<Runtime>(request->runtime)) {
     body->insert(pair<string, Runtime>("runtime", *request->runtime));

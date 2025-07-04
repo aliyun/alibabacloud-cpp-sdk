@@ -4090,6 +4090,35 @@ public:
 
   virtual ~CreateClusterRequestOperationPolicy() = default;
 };
+class CreateClusterRequestRrsaConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+
+  CreateClusterRequestRrsaConfig() {}
+
+  explicit CreateClusterRequestRrsaConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestRrsaConfig() = default;
+};
 class CreateClusterRequestWorkerDataDisks : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
@@ -4167,6 +4196,7 @@ public:
   shared_ptr<bool> enableRrsa{};
   shared_ptr<string> encryptionProviderKey{};
   shared_ptr<bool> endpointPublicAccess{};
+  shared_ptr<vector<string>> extraSans{};
   shared_ptr<bool> formatDisk{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
@@ -4211,6 +4241,7 @@ public:
   shared_ptr<vector<string>> rdsInstances{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<CreateClusterRequestRrsaConfig> rrsaConfig{};
   shared_ptr<Runtime> runtime{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<bool> securityHardeningOs{};
@@ -4331,6 +4362,9 @@ public:
     }
     if (endpointPublicAccess) {
       res["endpoint_public_access"] = boost::any(*endpointPublicAccess);
+    }
+    if (extraSans) {
+      res["extra_sans"] = boost::any(*extraSans);
     }
     if (formatDisk) {
       res["format_disk"] = boost::any(*formatDisk);
@@ -4467,6 +4501,9 @@ public:
     }
     if (resourceGroupId) {
       res["resource_group_id"] = boost::any(*resourceGroupId);
+    }
+    if (rrsaConfig) {
+      res["rrsa_config"] = rrsaConfig ? boost::any(rrsaConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (runtime) {
       res["runtime"] = runtime ? boost::any(runtime->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4688,6 +4725,16 @@ public:
     if (m.find("endpoint_public_access") != m.end() && !m["endpoint_public_access"].empty()) {
       endpointPublicAccess = make_shared<bool>(boost::any_cast<bool>(m["endpoint_public_access"]));
     }
+    if (m.find("extra_sans") != m.end() && !m["extra_sans"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["extra_sans"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["extra_sans"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      extraSans = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("format_disk") != m.end() && !m["format_disk"].empty()) {
       formatDisk = make_shared<bool>(boost::any_cast<bool>(m["format_disk"]));
     }
@@ -4872,6 +4919,13 @@ public:
     }
     if (m.find("resource_group_id") != m.end() && !m["resource_group_id"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resource_group_id"]));
+    }
+    if (m.find("rrsa_config") != m.end() && !m["rrsa_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["rrsa_config"].type()) {
+        CreateClusterRequestRrsaConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["rrsa_config"]));
+        rrsaConfig = make_shared<CreateClusterRequestRrsaConfig>(model1);
+      }
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       if (typeid(map<string, boost::any>) == m["runtime"].type()) {
