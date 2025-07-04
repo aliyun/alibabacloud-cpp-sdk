@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_FARUI20240628_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1475,6 +1476,42 @@ public:
 
   virtual ~RunLegalAdviceConsultationRequestAssistant() = default;
 };
+class RunLegalAdviceConsultationRequestExtra : public Darabonba::Model {
+public:
+  shared_ptr<bool> deepThink{};
+  shared_ptr<bool> onlineSearch{};
+
+  RunLegalAdviceConsultationRequestExtra() {}
+
+  explicit RunLegalAdviceConsultationRequestExtra(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deepThink) {
+      res["deepThink"] = boost::any(*deepThink);
+    }
+    if (onlineSearch) {
+      res["onlineSearch"] = boost::any(*onlineSearch);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("deepThink") != m.end() && !m["deepThink"].empty()) {
+      deepThink = make_shared<bool>(boost::any_cast<bool>(m["deepThink"]));
+    }
+    if (m.find("onlineSearch") != m.end() && !m["onlineSearch"].empty()) {
+      onlineSearch = make_shared<bool>(boost::any_cast<bool>(m["onlineSearch"]));
+    }
+  }
+
+
+  virtual ~RunLegalAdviceConsultationRequestExtra() = default;
+};
 class RunLegalAdviceConsultationRequestThreadMessages : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -1558,6 +1595,7 @@ class RunLegalAdviceConsultationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<RunLegalAdviceConsultationRequestAssistant> assistant{};
+  shared_ptr<RunLegalAdviceConsultationRequestExtra> extra{};
   shared_ptr<bool> stream{};
   shared_ptr<RunLegalAdviceConsultationRequestThread> thread{};
 
@@ -1576,6 +1614,9 @@ public:
     }
     if (assistant) {
       res["assistant"] = assistant ? boost::any(assistant->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (extra) {
+      res["extra"] = extra ? boost::any(extra->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (stream) {
       res["stream"] = boost::any(*stream);
@@ -1597,6 +1638,13 @@ public:
         assistant = make_shared<RunLegalAdviceConsultationRequestAssistant>(model1);
       }
     }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      if (typeid(map<string, boost::any>) == m["extra"].type()) {
+        RunLegalAdviceConsultationRequestExtra model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["extra"]));
+        extra = make_shared<RunLegalAdviceConsultationRequestExtra>(model1);
+      }
+    }
     if (m.find("stream") != m.end() && !m["stream"].empty()) {
       stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
     }
@@ -1616,6 +1664,7 @@ class RunLegalAdviceConsultationShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> assistantShrink{};
+  shared_ptr<string> extraShrink{};
   shared_ptr<bool> stream{};
   shared_ptr<string> threadShrink{};
 
@@ -1635,6 +1684,9 @@ public:
     if (assistantShrink) {
       res["assistant"] = boost::any(*assistantShrink);
     }
+    if (extraShrink) {
+      res["extra"] = boost::any(*extraShrink);
+    }
     if (stream) {
       res["stream"] = boost::any(*stream);
     }
@@ -1650,6 +1702,9 @@ public:
     }
     if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
       assistantShrink = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      extraShrink = make_shared<string>(boost::any_cast<string>(m["extra"]));
     }
     if (m.find("stream") != m.end() && !m["stream"].empty()) {
       stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
@@ -1715,6 +1770,8 @@ public:
   shared_ptr<string> status{};
   shared_ptr<bool> success{};
   shared_ptr<RunLegalAdviceConsultationResponseBodyUsage> usage{};
+  shared_ptr<string> contents{};
+  shared_ptr<string> extra{};
   shared_ptr<string> httpStatusCode{};
 
   RunLegalAdviceConsultationResponseBody() {}
@@ -1751,6 +1808,12 @@ public:
     if (usage) {
       res["Usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (contents) {
+      res["contents"] = boost::any(*contents);
+    }
+    if (extra) {
+      res["extra"] = boost::any(*extra);
+    }
     if (httpStatusCode) {
       res["httpStatusCode"] = boost::any(*httpStatusCode);
     }
@@ -1785,6 +1848,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Usage"]));
         usage = make_shared<RunLegalAdviceConsultationResponseBodyUsage>(model1);
       }
+    }
+    if (m.find("contents") != m.end() && !m["contents"].empty()) {
+      contents = make_shared<string>(boost::any_cast<string>(m["contents"]));
+    }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["extra"]));
     }
     if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
       httpStatusCode = make_shared<string>(boost::any_cast<string>(m["httpStatusCode"]));
@@ -3512,6 +3581,7 @@ public:
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
+  map<string, boost::any> _postOSSObject(shared_ptr<string> bucketName, shared_ptr<map<string, boost::any>> data);
   string getEndpoint(shared_ptr<string> productId,
                      shared_ptr<string> regionId,
                      shared_ptr<string> endpointRule,
