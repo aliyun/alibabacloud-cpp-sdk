@@ -4928,9 +4928,266 @@ public:
 
   virtual ~CreateUserGroupResponse() = default;
 };
+class CreateWmBaseImageRequestImageControlLogoVisibleControl : public Darabonba::Model {
+public:
+  shared_ptr<long> angle{};
+  shared_ptr<string> logoBase64{};
+  shared_ptr<string> mode{};
+  shared_ptr<long> opacity{};
+  shared_ptr<double> posAx{};
+  shared_ptr<double> posAy{};
+  shared_ptr<long> posX{};
+  shared_ptr<long> posY{};
+  shared_ptr<long> spaceX{};
+  shared_ptr<long> spaceY{};
+  shared_ptr<bool> visible{};
+
+  CreateWmBaseImageRequestImageControlLogoVisibleControl() {}
+
+  explicit CreateWmBaseImageRequestImageControlLogoVisibleControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (angle) {
+      res["Angle"] = boost::any(*angle);
+    }
+    if (logoBase64) {
+      res["LogoBase64"] = boost::any(*logoBase64);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (opacity) {
+      res["Opacity"] = boost::any(*opacity);
+    }
+    if (posAx) {
+      res["PosAx"] = boost::any(*posAx);
+    }
+    if (posAy) {
+      res["PosAy"] = boost::any(*posAy);
+    }
+    if (posX) {
+      res["PosX"] = boost::any(*posX);
+    }
+    if (posY) {
+      res["PosY"] = boost::any(*posY);
+    }
+    if (spaceX) {
+      res["SpaceX"] = boost::any(*spaceX);
+    }
+    if (spaceY) {
+      res["SpaceY"] = boost::any(*spaceY);
+    }
+    if (visible) {
+      res["Visible"] = boost::any(*visible);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Angle") != m.end() && !m["Angle"].empty()) {
+      angle = make_shared<long>(boost::any_cast<long>(m["Angle"]));
+    }
+    if (m.find("LogoBase64") != m.end() && !m["LogoBase64"].empty()) {
+      logoBase64 = make_shared<string>(boost::any_cast<string>(m["LogoBase64"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("Opacity") != m.end() && !m["Opacity"].empty()) {
+      opacity = make_shared<long>(boost::any_cast<long>(m["Opacity"]));
+    }
+    if (m.find("PosAx") != m.end() && !m["PosAx"].empty()) {
+      posAx = make_shared<double>(boost::any_cast<double>(m["PosAx"]));
+    }
+    if (m.find("PosAy") != m.end() && !m["PosAy"].empty()) {
+      posAy = make_shared<double>(boost::any_cast<double>(m["PosAy"]));
+    }
+    if (m.find("PosX") != m.end() && !m["PosX"].empty()) {
+      posX = make_shared<long>(boost::any_cast<long>(m["PosX"]));
+    }
+    if (m.find("PosY") != m.end() && !m["PosY"].empty()) {
+      posY = make_shared<long>(boost::any_cast<long>(m["PosY"]));
+    }
+    if (m.find("SpaceX") != m.end() && !m["SpaceX"].empty()) {
+      spaceX = make_shared<long>(boost::any_cast<long>(m["SpaceX"]));
+    }
+    if (m.find("SpaceY") != m.end() && !m["SpaceY"].empty()) {
+      spaceY = make_shared<long>(boost::any_cast<long>(m["SpaceY"]));
+    }
+    if (m.find("Visible") != m.end() && !m["Visible"].empty()) {
+      visible = make_shared<bool>(boost::any_cast<bool>(m["Visible"]));
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageRequestImageControlLogoVisibleControl() = default;
+};
+class CreateWmBaseImageRequestImageControlTextVisibleControl : public Darabonba::Model {
+public:
+  shared_ptr<long> angle{};
+  shared_ptr<string> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<string> mode{};
+  shared_ptr<long> opacity{};
+  shared_ptr<double> posAx{};
+  shared_ptr<double> posAy{};
+  shared_ptr<long> posX{};
+  shared_ptr<long> posY{};
+  shared_ptr<long> spaceX{};
+  shared_ptr<long> spaceY{};
+  shared_ptr<bool> visible{};
+  shared_ptr<string> visibleText{};
+
+  CreateWmBaseImageRequestImageControlTextVisibleControl() {}
+
+  explicit CreateWmBaseImageRequestImageControlTextVisibleControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (angle) {
+      res["Angle"] = boost::any(*angle);
+    }
+    if (fontColor) {
+      res["FontColor"] = boost::any(*fontColor);
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (opacity) {
+      res["Opacity"] = boost::any(*opacity);
+    }
+    if (posAx) {
+      res["PosAx"] = boost::any(*posAx);
+    }
+    if (posAy) {
+      res["PosAy"] = boost::any(*posAy);
+    }
+    if (posX) {
+      res["PosX"] = boost::any(*posX);
+    }
+    if (posY) {
+      res["PosY"] = boost::any(*posY);
+    }
+    if (spaceX) {
+      res["SpaceX"] = boost::any(*spaceX);
+    }
+    if (spaceY) {
+      res["SpaceY"] = boost::any(*spaceY);
+    }
+    if (visible) {
+      res["Visible"] = boost::any(*visible);
+    }
+    if (visibleText) {
+      res["VisibleText"] = boost::any(*visibleText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Angle") != m.end() && !m["Angle"].empty()) {
+      angle = make_shared<long>(boost::any_cast<long>(m["Angle"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      fontColor = make_shared<string>(boost::any_cast<string>(m["FontColor"]));
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("Opacity") != m.end() && !m["Opacity"].empty()) {
+      opacity = make_shared<long>(boost::any_cast<long>(m["Opacity"]));
+    }
+    if (m.find("PosAx") != m.end() && !m["PosAx"].empty()) {
+      posAx = make_shared<double>(boost::any_cast<double>(m["PosAx"]));
+    }
+    if (m.find("PosAy") != m.end() && !m["PosAy"].empty()) {
+      posAy = make_shared<double>(boost::any_cast<double>(m["PosAy"]));
+    }
+    if (m.find("PosX") != m.end() && !m["PosX"].empty()) {
+      posX = make_shared<long>(boost::any_cast<long>(m["PosX"]));
+    }
+    if (m.find("PosY") != m.end() && !m["PosY"].empty()) {
+      posY = make_shared<long>(boost::any_cast<long>(m["PosY"]));
+    }
+    if (m.find("SpaceX") != m.end() && !m["SpaceX"].empty()) {
+      spaceX = make_shared<long>(boost::any_cast<long>(m["SpaceX"]));
+    }
+    if (m.find("SpaceY") != m.end() && !m["SpaceY"].empty()) {
+      spaceY = make_shared<long>(boost::any_cast<long>(m["SpaceY"]));
+    }
+    if (m.find("Visible") != m.end() && !m["Visible"].empty()) {
+      visible = make_shared<bool>(boost::any_cast<bool>(m["Visible"]));
+    }
+    if (m.find("VisibleText") != m.end() && !m["VisibleText"].empty()) {
+      visibleText = make_shared<string>(boost::any_cast<string>(m["VisibleText"]));
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageRequestImageControlTextVisibleControl() = default;
+};
+class CreateWmBaseImageRequestImageControl : public Darabonba::Model {
+public:
+  shared_ptr<CreateWmBaseImageRequestImageControlLogoVisibleControl> logoVisibleControl{};
+  shared_ptr<CreateWmBaseImageRequestImageControlTextVisibleControl> textVisibleControl{};
+
+  CreateWmBaseImageRequestImageControl() {}
+
+  explicit CreateWmBaseImageRequestImageControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logoVisibleControl) {
+      res["LogoVisibleControl"] = logoVisibleControl ? boost::any(logoVisibleControl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (textVisibleControl) {
+      res["TextVisibleControl"] = textVisibleControl ? boost::any(textVisibleControl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogoVisibleControl") != m.end() && !m["LogoVisibleControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LogoVisibleControl"].type()) {
+        CreateWmBaseImageRequestImageControlLogoVisibleControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogoVisibleControl"]));
+        logoVisibleControl = make_shared<CreateWmBaseImageRequestImageControlLogoVisibleControl>(model1);
+      }
+    }
+    if (m.find("TextVisibleControl") != m.end() && !m["TextVisibleControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TextVisibleControl"].type()) {
+        CreateWmBaseImageRequestImageControlTextVisibleControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TextVisibleControl"]));
+        textVisibleControl = make_shared<CreateWmBaseImageRequestImageControlTextVisibleControl>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageRequestImageControl() = default;
+};
 class CreateWmBaseImageRequest : public Darabonba::Model {
 public:
   shared_ptr<long> height{};
+  shared_ptr<CreateWmBaseImageRequestImageControl> imageControl{};
   shared_ptr<long> opacity{};
   shared_ptr<long> scale{};
   shared_ptr<long> width{};
@@ -4951,6 +5208,9 @@ public:
     map<string, boost::any> res;
     if (height) {
       res["Height"] = boost::any(*height);
+    }
+    if (imageControl) {
+      res["ImageControl"] = imageControl ? boost::any(imageControl->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (opacity) {
       res["Opacity"] = boost::any(*opacity);
@@ -4980,6 +5240,13 @@ public:
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
       height = make_shared<long>(boost::any_cast<long>(m["Height"]));
     }
+    if (m.find("ImageControl") != m.end() && !m["ImageControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ImageControl"].type()) {
+        CreateWmBaseImageRequestImageControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ImageControl"]));
+        imageControl = make_shared<CreateWmBaseImageRequestImageControl>(model1);
+      }
+    }
     if (m.find("Opacity") != m.end() && !m["Opacity"].empty()) {
       opacity = make_shared<long>(boost::any_cast<long>(m["Opacity"]));
     }
@@ -5005,6 +5272,91 @@ public:
 
 
   virtual ~CreateWmBaseImageRequest() = default;
+};
+class CreateWmBaseImageShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> height{};
+  shared_ptr<string> imageControlShrink{};
+  shared_ptr<long> opacity{};
+  shared_ptr<long> scale{};
+  shared_ptr<long> width{};
+  shared_ptr<string> wmInfoBytesB64{};
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<string> wmInfoUint{};
+  shared_ptr<string> wmType{};
+
+  CreateWmBaseImageShrinkRequest() {}
+
+  explicit CreateWmBaseImageShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (imageControlShrink) {
+      res["ImageControl"] = boost::any(*imageControlShrink);
+    }
+    if (opacity) {
+      res["Opacity"] = boost::any(*opacity);
+    }
+    if (scale) {
+      res["Scale"] = boost::any(*scale);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (wmInfoBytesB64) {
+      res["WmInfoBytesB64"] = boost::any(*wmInfoBytesB64);
+    }
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmInfoUint) {
+      res["WmInfoUint"] = boost::any(*wmInfoUint);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("ImageControl") != m.end() && !m["ImageControl"].empty()) {
+      imageControlShrink = make_shared<string>(boost::any_cast<string>(m["ImageControl"]));
+    }
+    if (m.find("Opacity") != m.end() && !m["Opacity"].empty()) {
+      opacity = make_shared<long>(boost::any_cast<long>(m["Opacity"]));
+    }
+    if (m.find("Scale") != m.end() && !m["Scale"].empty()) {
+      scale = make_shared<long>(boost::any_cast<long>(m["Scale"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+    if (m.find("WmInfoBytesB64") != m.end() && !m["WmInfoBytesB64"].empty()) {
+      wmInfoBytesB64 = make_shared<string>(boost::any_cast<string>(m["WmInfoBytesB64"]));
+    }
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmInfoUint") != m.end() && !m["WmInfoUint"].empty()) {
+      wmInfoUint = make_shared<string>(boost::any_cast<string>(m["WmInfoUint"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageShrinkRequest() = default;
 };
 class CreateWmBaseImageResponseBodyData : public Darabonba::Model {
 public:
@@ -11206,6 +11558,7 @@ class GetPrivateAccessApplicationResponseBodyApplication : public Darabonba::Mod
 public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> applicationId{};
+  shared_ptr<long> autoGenerated{};
   shared_ptr<string> browserAccessStatus{};
   shared_ptr<vector<string>> connectorIds{};
   shared_ptr<string> createTime{};
@@ -11235,6 +11588,9 @@ public:
     }
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (autoGenerated) {
+      res["AutoGenerated"] = boost::any(*autoGenerated);
     }
     if (browserAccessStatus) {
       res["BrowserAccessStatus"] = boost::any(*browserAccessStatus);
@@ -11295,6 +11651,9 @@ public:
     }
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("AutoGenerated") != m.end() && !m["AutoGenerated"].empty()) {
+      autoGenerated = make_shared<long>(boost::any_cast<long>(m["AutoGenerated"]));
     }
     if (m.find("BrowserAccessStatus") != m.end() && !m["BrowserAccessStatus"].empty()) {
       browserAccessStatus = make_shared<string>(boost::any_cast<string>(m["BrowserAccessStatus"]));
@@ -20927,6 +21286,7 @@ class ListPrivateAccessApplicationsResponseBodyApplications : public Darabonba::
 public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> applicationId{};
+  shared_ptr<long> autoGenerated{};
   shared_ptr<string> browserAccessStatus{};
   shared_ptr<vector<string>> connectorIds{};
   shared_ptr<string> createTime{};
@@ -20955,6 +21315,9 @@ public:
     }
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (autoGenerated) {
+      res["AutoGenerated"] = boost::any(*autoGenerated);
     }
     if (browserAccessStatus) {
       res["BrowserAccessStatus"] = boost::any(*browserAccessStatus);
@@ -21012,6 +21375,9 @@ public:
     }
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("AutoGenerated") != m.end() && !m["AutoGenerated"].empty()) {
+      autoGenerated = make_shared<long>(boost::any_cast<long>(m["AutoGenerated"]));
     }
     if (m.find("BrowserAccessStatus") != m.end() && !m["BrowserAccessStatus"].empty()) {
       browserAccessStatus = make_shared<string>(boost::any_cast<string>(m["BrowserAccessStatus"]));
@@ -33100,7 +33466,7 @@ public:
   CreateRegistrationPolicyResponse createRegistrationPolicy(shared_ptr<CreateRegistrationPolicyRequest> request);
   CreateUserGroupResponse createUserGroupWithOptions(shared_ptr<CreateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserGroupResponse createUserGroup(shared_ptr<CreateUserGroupRequest> request);
-  CreateWmBaseImageResponse createWmBaseImageWithOptions(shared_ptr<CreateWmBaseImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWmBaseImageResponse createWmBaseImageWithOptions(shared_ptr<CreateWmBaseImageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWmBaseImageResponse createWmBaseImage(shared_ptr<CreateWmBaseImageRequest> request);
   CreateWmEmbedTaskResponse createWmEmbedTaskWithOptions(shared_ptr<CreateWmEmbedTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWmEmbedTaskResponse createWmEmbedTask(shared_ptr<CreateWmEmbedTaskRequest> request);

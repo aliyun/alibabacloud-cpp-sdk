@@ -648,11 +648,19 @@ CreateUserGroupResponse Alibabacloud_Csas20230120::Client::createUserGroup(share
   return createUserGroupWithOptions(request, runtime);
 }
 
-CreateWmBaseImageResponse Alibabacloud_Csas20230120::Client::createWmBaseImageWithOptions(shared_ptr<CreateWmBaseImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateWmBaseImageResponse Alibabacloud_Csas20230120::Client::createWmBaseImageWithOptions(shared_ptr<CreateWmBaseImageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateWmBaseImageShrinkRequest> request = make_shared<CreateWmBaseImageShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateWmBaseImageRequestImageControl>(tmpReq->imageControl)) {
+    request->imageControlShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->imageControl, make_shared<string>("ImageControl"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->height)) {
     body->insert(pair<string, long>("Height", *request->height));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageControlShrink)) {
+    body->insert(pair<string, string>("ImageControl", *request->imageControlShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->opacity)) {
     body->insert(pair<string, long>("Opacity", *request->opacity));
@@ -2432,7 +2440,37 @@ ListPopTrafficStatisticsResponse Alibabacloud_Csas20230120::Client::listPopTraff
 
 ListPrivateAccessApplicationsResponse Alibabacloud_Csas20230120::Client::listPrivateAccessApplicationsWithOptions(shared_ptr<ListPrivateAccessApplicationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessModes)) {
+    query->insert(pair<string, string>("AccessModes", *request->accessModes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
+    query->insert(pair<string, string>("Address", *request->address));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->applicationIds)) {
+    query->insert(pair<string, vector<string>>("ApplicationIds", *request->applicationIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectorId)) {
+    query->insert(pair<string, string>("ConnectorId", *request->connectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyId)) {
+    query->insert(pair<string, string>("PolicyId", *request->policyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagId)) {
+    query->insert(pair<string, string>("TagId", *request->tagId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2441,7 +2479,7 @@ ListPrivateAccessApplicationsResponse Alibabacloud_Csas20230120::Client::listPri
     {"version", boost::any(string("2023-01-20"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
