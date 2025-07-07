@@ -109,6 +109,131 @@ CancelJobRunResponse Alibabacloud_Emr-serverless-spark20230808::Client::cancelJo
   return cancelJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
 }
 
+CreateLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::createLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                          shared_ptr<CreateLivyComputeRequest> request,
+                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authType)) {
+    body->insert(pair<string, string>("authType", *request->authType));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateLivyComputeRequestAutoStartConfiguration>(request->autoStartConfiguration)) {
+    body->insert(pair<string, CreateLivyComputeRequestAutoStartConfiguration>("autoStartConfiguration", *request->autoStartConfiguration));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateLivyComputeRequestAutoStopConfiguration>(request->autoStopConfiguration)) {
+    body->insert(pair<string, CreateLivyComputeRequestAutoStopConfiguration>("autoStopConfiguration", *request->autoStopConfiguration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuLimit)) {
+    body->insert(pair<string, string>("cpuLimit", *request->cpuLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayReleaseVersion)) {
+    body->insert(pair<string, string>("displayReleaseVersion", *request->displayReleaseVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enablePublic)) {
+    body->insert(pair<string, bool>("enablePublic", *request->enablePublic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
+    body->insert(pair<string, string>("environmentId", *request->environmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->fusion)) {
+    body->insert(pair<string, bool>("fusion", *request->fusion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->livyServerConf)) {
+    body->insert(pair<string, string>("livyServerConf", *request->livyServerConf));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->livyVersion)) {
+    body->insert(pair<string, string>("livyVersion", *request->livyVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->memoryLimit)) {
+    body->insert(pair<string, string>("memoryLimit", *request->memoryLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkName)) {
+    body->insert(pair<string, string>("networkName", *request->networkName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
+    body->insert(pair<string, string>("queueName", *request->queueName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->releaseVersion)) {
+    body->insert(pair<string, string>("releaseVersion", *request->releaseVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateLivyCompute"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateLivyComputeResponse(callApi(params, req, runtime));
+}
+
+CreateLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::createLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<CreateLivyComputeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createLivyComputeWithOptions(workspaceBizId, request, headers, runtime);
+}
+
+CreateLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::createLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                                    shared_ptr<string> livyComputeId,
+                                                                                                                    shared_ptr<CreateLivyComputeTokenRequest> request,
+                                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<CreateLivyComputeTokenRequestAutoExpireConfiguration>(request->autoExpireConfiguration)) {
+    body->insert(pair<string, CreateLivyComputeTokenRequestAutoExpireConfiguration>("autoExpireConfiguration", *request->autoExpireConfiguration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    body->insert(pair<string, string>("token", *request->token));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateLivyComputeToken"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)) + string("/token"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateLivyComputeTokenResponse(callApi(params, req, runtime));
+}
+
+CreateLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::createLivyComputeToken(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<CreateLivyComputeTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+}
+
 CreateProcessDefinitionWithScheduleResponse Alibabacloud_Emr-serverless-spark20230808::Client::createProcessDefinitionWithScheduleWithOptions(shared_ptr<string> bizId,
                                                                                                                                               shared_ptr<CreateProcessDefinitionWithScheduleRequest> tmpReq,
                                                                                                                                               shared_ptr<map<string, string>> headers,
@@ -405,6 +530,78 @@ CreateWorkspaceResponse Alibabacloud_Emr-serverless-spark20230808::Client::creat
   return createWorkspaceWithOptions(request, headers, runtime);
 }
 
+DeleteLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::deleteLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                          shared_ptr<string> livyComputeId,
+                                                                                                          shared_ptr<DeleteLivyComputeRequest> request,
+                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteLivyCompute"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteLivyComputeResponse(callApi(params, req, runtime));
+}
+
+DeleteLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::deleteLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<DeleteLivyComputeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+}
+
+DeleteLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::deleteLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                                    shared_ptr<string> livyComputeId,
+                                                                                                                    shared_ptr<string> tokenId,
+                                                                                                                    shared_ptr<DeleteLivyComputeTokenRequest> request,
+                                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteLivyComputeToken"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)) + string("/token/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(tokenId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteLivyComputeTokenResponse(callApi(params, req, runtime));
+}
+
+DeleteLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::deleteLivyComputeToken(shared_ptr<string> workspaceBizId,
+                                                                                                         shared_ptr<string> livyComputeId,
+                                                                                                         shared_ptr<string> tokenId,
+                                                                                                         shared_ptr<DeleteLivyComputeTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, tokenId, request, headers, runtime);
+}
+
 EditWorkspaceQueueResponse Alibabacloud_Emr-serverless-spark20230808::Client::editWorkspaceQueueWithOptions(shared_ptr<EditWorkspaceQueueRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -558,6 +755,78 @@ GetJobRunResponse Alibabacloud_Emr-serverless-spark20230808::Client::getJobRun(s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
+}
+
+GetLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::getLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                    shared_ptr<string> livyComputeId,
+                                                                                                    shared_ptr<GetLivyComputeRequest> request,
+                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLivyCompute"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLivyComputeResponse(callApi(params, req, runtime));
+}
+
+GetLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::getLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<GetLivyComputeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+}
+
+GetLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::getLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                              shared_ptr<string> livyComputeId,
+                                                                                                              shared_ptr<string> tokenId,
+                                                                                                              shared_ptr<GetLivyComputeTokenRequest> request,
+                                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLivyComputeToken"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)) + string("/token/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(tokenId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLivyComputeTokenResponse(callApi(params, req, runtime));
+}
+
+GetLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::getLivyComputeToken(shared_ptr<string> workspaceBizId,
+                                                                                                   shared_ptr<string> livyComputeId,
+                                                                                                   shared_ptr<string> tokenId,
+                                                                                                   shared_ptr<GetLivyComputeTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, tokenId, request, headers, runtime);
 }
 
 GetSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::getSessionClusterWithOptions(shared_ptr<string> workspaceId,
@@ -915,6 +1184,76 @@ ListKyuubiTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::listK
   return listKyuubiTokenWithOptions(workspaceId, kyuubiServiceId, request, headers, runtime);
 }
 
+ListLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::listLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                      shared_ptr<ListLivyComputeRequest> request,
+                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
+    query->insert(pair<string, string>("environmentId", *request->environmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListLivyCompute"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListLivyComputeResponse(callApi(params, req, runtime));
+}
+
+ListLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::listLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<ListLivyComputeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listLivyComputeWithOptions(workspaceBizId, request, headers, runtime);
+}
+
+ListLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::listLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                                shared_ptr<string> livyComputeId,
+                                                                                                                shared_ptr<ListLivyComputeTokenRequest> request,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListLivyComputeToken"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)) + string("/token"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListLivyComputeTokenResponse(callApi(params, req, runtime));
+}
+
+ListLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::listLivyComputeToken(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<ListLivyComputeTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+}
+
 ListLogContentsResponse Alibabacloud_Emr-serverless-spark20230808::Client::listLogContentsWithOptions(shared_ptr<string> workspaceId,
                                                                                                       shared_ptr<ListLogContentsRequest> request,
                                                                                                       shared_ptr<map<string, string>> headers,
@@ -1136,6 +1475,55 @@ ListWorkspacesResponse Alibabacloud_Emr-serverless-spark20230808::Client::listWo
   return listWorkspacesWithOptions(request, headers, runtime);
 }
 
+RefreshLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::refreshLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                                      shared_ptr<string> livyComputeId,
+                                                                                                                      shared_ptr<string> tokenId,
+                                                                                                                      shared_ptr<RefreshLivyComputeTokenRequest> request,
+                                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<RefreshLivyComputeTokenRequestAutoExpireConfiguration>(request->autoExpireConfiguration)) {
+    body->insert(pair<string, RefreshLivyComputeTokenRequestAutoExpireConfiguration>("autoExpireConfiguration", *request->autoExpireConfiguration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    body->insert(pair<string, string>("token", *request->token));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RefreshLivyComputeToken"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)) + string("/token/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(tokenId)))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RefreshLivyComputeTokenResponse(callApi(params, req, runtime));
+}
+
+RefreshLivyComputeTokenResponse Alibabacloud_Emr-serverless-spark20230808::Client::refreshLivyComputeToken(shared_ptr<string> workspaceBizId,
+                                                                                                           shared_ptr<string> livyComputeId,
+                                                                                                           shared_ptr<string> tokenId,
+                                                                                                           shared_ptr<RefreshLivyComputeTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return refreshLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, tokenId, request, headers, runtime);
+}
+
 StartJobRunResponse Alibabacloud_Emr-serverless-spark20230808::Client::startJobRunWithOptions(shared_ptr<string> workspaceId,
                                                                                               shared_ptr<StartJobRunRequest> request,
                                                                                               shared_ptr<map<string, string>> headers,
@@ -1205,6 +1593,40 @@ StartJobRunResponse Alibabacloud_Emr-serverless-spark20230808::Client::startJobR
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return startJobRunWithOptions(workspaceId, request, headers, runtime);
+}
+
+StartLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::startLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                        shared_ptr<string> livyComputeId,
+                                                                                                        shared_ptr<StartLivyComputeRequest> request,
+                                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartLivyCompute"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)) + string("/start"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartLivyComputeResponse(callApi(params, req, runtime));
+}
+
+StartLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::startLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<StartLivyComputeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return startLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
 }
 
 StartProcessInstanceResponse Alibabacloud_Emr-serverless-spark20230808::Client::startProcessInstanceWithOptions(shared_ptr<string> bizId,
@@ -1311,6 +1733,40 @@ StartSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::s
   return startSessionClusterWithOptions(workspaceId, request, headers, runtime);
 }
 
+StopLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::stopLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                      shared_ptr<string> livyComputeId,
+                                                                                                      shared_ptr<StopLivyComputeRequest> request,
+                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopLivyCompute"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)) + string("/stop"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopLivyComputeResponse(callApi(params, req, runtime));
+}
+
+StopLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::stopLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<StopLivyComputeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return stopLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+}
+
 StopSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::stopSessionClusterWithOptions(shared_ptr<string> workspaceId,
                                                                                                             shared_ptr<StopSessionClusterRequest> request,
                                                                                                             shared_ptr<map<string, string>> headers,
@@ -1384,6 +1840,87 @@ TerminateSqlStatementResponse Alibabacloud_Emr-serverless-spark20230808::Client:
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return terminateSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
+}
+
+UpdateLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::updateLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                                                                          shared_ptr<string> livyComputeId,
+                                                                                                          shared_ptr<UpdateLivyComputeRequest> request,
+                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authType)) {
+    body->insert(pair<string, string>("authType", *request->authType));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateLivyComputeRequestAutoStartConfiguration>(request->autoStartConfiguration)) {
+    body->insert(pair<string, UpdateLivyComputeRequestAutoStartConfiguration>("autoStartConfiguration", *request->autoStartConfiguration));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateLivyComputeRequestAutoStopConfiguration>(request->autoStopConfiguration)) {
+    body->insert(pair<string, UpdateLivyComputeRequestAutoStopConfiguration>("autoStopConfiguration", *request->autoStopConfiguration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuLimit)) {
+    body->insert(pair<string, string>("cpuLimit", *request->cpuLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayReleaseVersion)) {
+    body->insert(pair<string, string>("displayReleaseVersion", *request->displayReleaseVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enablePublic)) {
+    body->insert(pair<string, bool>("enablePublic", *request->enablePublic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
+    body->insert(pair<string, string>("environmentId", *request->environmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->fusion)) {
+    body->insert(pair<string, bool>("fusion", *request->fusion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->livyServerConf)) {
+    body->insert(pair<string, string>("livyServerConf", *request->livyServerConf));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->livyVersion)) {
+    body->insert(pair<string, string>("livyVersion", *request->livyVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->memoryLimit)) {
+    body->insert(pair<string, string>("memoryLimit", *request->memoryLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkName)) {
+    body->insert(pair<string, string>("networkName", *request->networkName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
+    body->insert(pair<string, string>("queueName", *request->queueName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->releaseVersion)) {
+    body->insert(pair<string, string>("releaseVersion", *request->releaseVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateLivyCompute"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/interactive/v1/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceBizId)) + string("/livycompute/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(livyComputeId)))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateLivyComputeResponse(callApi(params, req, runtime));
+}
+
+UpdateLivyComputeResponse Alibabacloud_Emr-serverless-spark20230808::Client::updateLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<UpdateLivyComputeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
 }
 
 UpdateProcessDefinitionWithScheduleResponse Alibabacloud_Emr-serverless-spark20230808::Client::updateProcessDefinitionWithScheduleWithOptions(shared_ptr<string> bizId,

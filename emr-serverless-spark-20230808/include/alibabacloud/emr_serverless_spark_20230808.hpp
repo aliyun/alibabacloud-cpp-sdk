@@ -2035,6 +2035,573 @@ public:
 
   virtual ~CancelJobRunResponse() = default;
 };
+class CreateLivyComputeRequestAutoStartConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  CreateLivyComputeRequestAutoStartConfiguration() {}
+
+  explicit CreateLivyComputeRequestAutoStartConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeRequestAutoStartConfiguration() = default;
+};
+class CreateLivyComputeRequestAutoStopConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<long> idleTimeoutMinutes{};
+
+  CreateLivyComputeRequestAutoStopConfiguration() {}
+
+  explicit CreateLivyComputeRequestAutoStopConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (idleTimeoutMinutes) {
+      res["idleTimeoutMinutes"] = boost::any(*idleTimeoutMinutes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("idleTimeoutMinutes") != m.end() && !m["idleTimeoutMinutes"].empty()) {
+      idleTimeoutMinutes = make_shared<long>(boost::any_cast<long>(m["idleTimeoutMinutes"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeRequestAutoStopConfiguration() = default;
+};
+class CreateLivyComputeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authType{};
+  shared_ptr<CreateLivyComputeRequestAutoStartConfiguration> autoStartConfiguration{};
+  shared_ptr<CreateLivyComputeRequestAutoStopConfiguration> autoStopConfiguration{};
+  shared_ptr<string> cpuLimit{};
+  shared_ptr<string> displayReleaseVersion{};
+  shared_ptr<bool> enablePublic{};
+  shared_ptr<string> environmentId{};
+  shared_ptr<bool> fusion{};
+  shared_ptr<string> livyServerConf{};
+  shared_ptr<string> livyVersion{};
+  shared_ptr<string> memoryLimit{};
+  shared_ptr<string> name{};
+  shared_ptr<string> networkName{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> releaseVersion{};
+  shared_ptr<string> regionId{};
+
+  CreateLivyComputeRequest() {}
+
+  explicit CreateLivyComputeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authType) {
+      res["authType"] = boost::any(*authType);
+    }
+    if (autoStartConfiguration) {
+      res["autoStartConfiguration"] = autoStartConfiguration ? boost::any(autoStartConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoStopConfiguration) {
+      res["autoStopConfiguration"] = autoStopConfiguration ? boost::any(autoStopConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (cpuLimit) {
+      res["cpuLimit"] = boost::any(*cpuLimit);
+    }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
+    if (enablePublic) {
+      res["enablePublic"] = boost::any(*enablePublic);
+    }
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
+    }
+    if (livyServerConf) {
+      res["livyServerConf"] = boost::any(*livyServerConf);
+    }
+    if (livyVersion) {
+      res["livyVersion"] = boost::any(*livyVersion);
+    }
+    if (memoryLimit) {
+      res["memoryLimit"] = boost::any(*memoryLimit);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (networkName) {
+      res["networkName"] = boost::any(*networkName);
+    }
+    if (queueName) {
+      res["queueName"] = boost::any(*queueName);
+    }
+    if (releaseVersion) {
+      res["releaseVersion"] = boost::any(*releaseVersion);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("authType") != m.end() && !m["authType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("autoStartConfiguration") != m.end() && !m["autoStartConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoStartConfiguration"].type()) {
+        CreateLivyComputeRequestAutoStartConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStartConfiguration"]));
+        autoStartConfiguration = make_shared<CreateLivyComputeRequestAutoStartConfiguration>(model1);
+      }
+    }
+    if (m.find("autoStopConfiguration") != m.end() && !m["autoStopConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoStopConfiguration"].type()) {
+        CreateLivyComputeRequestAutoStopConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStopConfiguration"]));
+        autoStopConfiguration = make_shared<CreateLivyComputeRequestAutoStopConfiguration>(model1);
+      }
+    }
+    if (m.find("cpuLimit") != m.end() && !m["cpuLimit"].empty()) {
+      cpuLimit = make_shared<string>(boost::any_cast<string>(m["cpuLimit"]));
+    }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
+    if (m.find("enablePublic") != m.end() && !m["enablePublic"].empty()) {
+      enablePublic = make_shared<bool>(boost::any_cast<bool>(m["enablePublic"]));
+    }
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
+    }
+    if (m.find("livyServerConf") != m.end() && !m["livyServerConf"].empty()) {
+      livyServerConf = make_shared<string>(boost::any_cast<string>(m["livyServerConf"]));
+    }
+    if (m.find("livyVersion") != m.end() && !m["livyVersion"].empty()) {
+      livyVersion = make_shared<string>(boost::any_cast<string>(m["livyVersion"]));
+    }
+    if (m.find("memoryLimit") != m.end() && !m["memoryLimit"].empty()) {
+      memoryLimit = make_shared<string>(boost::any_cast<string>(m["memoryLimit"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("networkName") != m.end() && !m["networkName"].empty()) {
+      networkName = make_shared<string>(boost::any_cast<string>(m["networkName"]));
+    }
+    if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
+    }
+    if (m.find("releaseVersion") != m.end() && !m["releaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["releaseVersion"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeRequest() = default;
+};
+class CreateLivyComputeResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> livyComputeId{};
+
+  CreateLivyComputeResponseBodyData() {}
+
+  explicit CreateLivyComputeResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (livyComputeId) {
+      res["livyComputeId"] = boost::any(*livyComputeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("livyComputeId") != m.end() && !m["livyComputeId"].empty()) {
+      livyComputeId = make_shared<string>(boost::any_cast<string>(m["livyComputeId"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeResponseBodyData() = default;
+};
+class CreateLivyComputeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreateLivyComputeResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  CreateLivyComputeResponseBody() {}
+
+  explicit CreateLivyComputeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        CreateLivyComputeResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<CreateLivyComputeResponseBodyData>(model1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeResponseBody() = default;
+};
+class CreateLivyComputeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateLivyComputeResponseBody> body{};
+
+  CreateLivyComputeResponse() {}
+
+  explicit CreateLivyComputeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateLivyComputeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateLivyComputeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateLivyComputeResponse() = default;
+};
+class CreateLivyComputeTokenRequestAutoExpireConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<long> expireDays{};
+
+  CreateLivyComputeTokenRequestAutoExpireConfiguration() {}
+
+  explicit CreateLivyComputeTokenRequestAutoExpireConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (expireDays) {
+      res["expireDays"] = boost::any(*expireDays);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("expireDays") != m.end() && !m["expireDays"].empty()) {
+      expireDays = make_shared<long>(boost::any_cast<long>(m["expireDays"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeTokenRequestAutoExpireConfiguration() = default;
+};
+class CreateLivyComputeTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<CreateLivyComputeTokenRequestAutoExpireConfiguration> autoExpireConfiguration{};
+  shared_ptr<string> name{};
+  shared_ptr<string> token{};
+  shared_ptr<string> regionId{};
+
+  CreateLivyComputeTokenRequest() {}
+
+  explicit CreateLivyComputeTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoExpireConfiguration) {
+      res["autoExpireConfiguration"] = autoExpireConfiguration ? boost::any(autoExpireConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (token) {
+      res["token"] = boost::any(*token);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoExpireConfiguration") != m.end() && !m["autoExpireConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoExpireConfiguration"].type()) {
+        CreateLivyComputeTokenRequestAutoExpireConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoExpireConfiguration"]));
+        autoExpireConfiguration = make_shared<CreateLivyComputeTokenRequestAutoExpireConfiguration>(model1);
+      }
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("token") != m.end() && !m["token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["token"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeTokenRequest() = default;
+};
+class CreateLivyComputeTokenResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> tokenId{};
+
+  CreateLivyComputeTokenResponseBodyData() {}
+
+  explicit CreateLivyComputeTokenResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tokenId) {
+      res["tokenId"] = boost::any(*tokenId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tokenId") != m.end() && !m["tokenId"].empty()) {
+      tokenId = make_shared<string>(boost::any_cast<string>(m["tokenId"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeTokenResponseBodyData() = default;
+};
+class CreateLivyComputeTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreateLivyComputeTokenResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  CreateLivyComputeTokenResponseBody() {}
+
+  explicit CreateLivyComputeTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        CreateLivyComputeTokenResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<CreateLivyComputeTokenResponseBodyData>(model1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~CreateLivyComputeTokenResponseBody() = default;
+};
+class CreateLivyComputeTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateLivyComputeTokenResponseBody> body{};
+
+  CreateLivyComputeTokenResponse() {}
+
+  explicit CreateLivyComputeTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateLivyComputeTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateLivyComputeTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateLivyComputeTokenResponse() = default;
+};
 class CreateProcessDefinitionWithScheduleRequestGlobalParams : public Darabonba::Model {
 public:
   shared_ptr<string> direct{};
@@ -3872,6 +4439,254 @@ public:
 
   virtual ~CreateWorkspaceResponse() = default;
 };
+class DeleteLivyComputeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  DeleteLivyComputeRequest() {}
+
+  explicit DeleteLivyComputeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~DeleteLivyComputeRequest() = default;
+};
+class DeleteLivyComputeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteLivyComputeResponseBody() {}
+
+  explicit DeleteLivyComputeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~DeleteLivyComputeResponseBody() = default;
+};
+class DeleteLivyComputeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteLivyComputeResponseBody> body{};
+
+  DeleteLivyComputeResponse() {}
+
+  explicit DeleteLivyComputeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteLivyComputeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteLivyComputeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteLivyComputeResponse() = default;
+};
+class DeleteLivyComputeTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  DeleteLivyComputeTokenRequest() {}
+
+  explicit DeleteLivyComputeTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~DeleteLivyComputeTokenRequest() = default;
+};
+class DeleteLivyComputeTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteLivyComputeTokenResponseBody() {}
+
+  explicit DeleteLivyComputeTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~DeleteLivyComputeTokenResponseBody() = default;
+};
+class DeleteLivyComputeTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteLivyComputeTokenResponseBody> body{};
+
+  DeleteLivyComputeTokenResponse() {}
+
+  explicit DeleteLivyComputeTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteLivyComputeTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteLivyComputeTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteLivyComputeTokenResponse() = default;
+};
 class EditWorkspaceQueueRequestResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cu{};
@@ -4762,6 +5577,610 @@ public:
 
 
   virtual ~GetJobRunResponse() = default;
+};
+class GetLivyComputeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  GetLivyComputeRequest() {}
+
+  explicit GetLivyComputeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~GetLivyComputeRequest() = default;
+};
+class GetLivyComputeResponseBodyDataAutoStopConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<long> idleTimeoutMinutes{};
+
+  GetLivyComputeResponseBodyDataAutoStopConfiguration() {}
+
+  explicit GetLivyComputeResponseBodyDataAutoStopConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (idleTimeoutMinutes) {
+      res["idleTimeoutMinutes"] = boost::any(*idleTimeoutMinutes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("idleTimeoutMinutes") != m.end() && !m["idleTimeoutMinutes"].empty()) {
+      idleTimeoutMinutes = make_shared<long>(boost::any_cast<long>(m["idleTimeoutMinutes"]));
+    }
+  }
+
+
+  virtual ~GetLivyComputeResponseBodyDataAutoStopConfiguration() = default;
+};
+class GetLivyComputeResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> authType{};
+  shared_ptr<GetLivyComputeResponseBodyDataAutoStopConfiguration> autoStopConfiguration{};
+  shared_ptr<string> computeId{};
+  shared_ptr<string> cpuLimit{};
+  shared_ptr<string> createdBy{};
+  shared_ptr<string> displayReleaseVersion{};
+  shared_ptr<bool> enablePublic{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> endpointInner{};
+  shared_ptr<string> environmentId{};
+  shared_ptr<bool> fusion{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<string> livyServerConf{};
+  shared_ptr<string> livyVersion{};
+  shared_ptr<string> memoryLimit{};
+  shared_ptr<string> name{};
+  shared_ptr<string> networkName{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> ramUserId{};
+  shared_ptr<string> releaseVersion{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+
+  GetLivyComputeResponseBodyData() {}
+
+  explicit GetLivyComputeResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authType) {
+      res["authType"] = boost::any(*authType);
+    }
+    if (autoStopConfiguration) {
+      res["autoStopConfiguration"] = autoStopConfiguration ? boost::any(autoStopConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (computeId) {
+      res["computeId"] = boost::any(*computeId);
+    }
+    if (cpuLimit) {
+      res["cpuLimit"] = boost::any(*cpuLimit);
+    }
+    if (createdBy) {
+      res["createdBy"] = boost::any(*createdBy);
+    }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
+    if (enablePublic) {
+      res["enablePublic"] = boost::any(*enablePublic);
+    }
+    if (endpoint) {
+      res["endpoint"] = boost::any(*endpoint);
+    }
+    if (endpointInner) {
+      res["endpointInner"] = boost::any(*endpointInner);
+    }
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (livyServerConf) {
+      res["livyServerConf"] = boost::any(*livyServerConf);
+    }
+    if (livyVersion) {
+      res["livyVersion"] = boost::any(*livyVersion);
+    }
+    if (memoryLimit) {
+      res["memoryLimit"] = boost::any(*memoryLimit);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (networkName) {
+      res["networkName"] = boost::any(*networkName);
+    }
+    if (queueName) {
+      res["queueName"] = boost::any(*queueName);
+    }
+    if (ramUserId) {
+      res["ramUserId"] = boost::any(*ramUserId);
+    }
+    if (releaseVersion) {
+      res["releaseVersion"] = boost::any(*releaseVersion);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("authType") != m.end() && !m["authType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("autoStopConfiguration") != m.end() && !m["autoStopConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoStopConfiguration"].type()) {
+        GetLivyComputeResponseBodyDataAutoStopConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStopConfiguration"]));
+        autoStopConfiguration = make_shared<GetLivyComputeResponseBodyDataAutoStopConfiguration>(model1);
+      }
+    }
+    if (m.find("computeId") != m.end() && !m["computeId"].empty()) {
+      computeId = make_shared<string>(boost::any_cast<string>(m["computeId"]));
+    }
+    if (m.find("cpuLimit") != m.end() && !m["cpuLimit"].empty()) {
+      cpuLimit = make_shared<string>(boost::any_cast<string>(m["cpuLimit"]));
+    }
+    if (m.find("createdBy") != m.end() && !m["createdBy"].empty()) {
+      createdBy = make_shared<string>(boost::any_cast<string>(m["createdBy"]));
+    }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
+    if (m.find("enablePublic") != m.end() && !m["enablePublic"].empty()) {
+      enablePublic = make_shared<bool>(boost::any_cast<bool>(m["enablePublic"]));
+    }
+    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("endpointInner") != m.end() && !m["endpointInner"].empty()) {
+      endpointInner = make_shared<string>(boost::any_cast<string>(m["endpointInner"]));
+    }
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
+    }
+    if (m.find("livyServerConf") != m.end() && !m["livyServerConf"].empty()) {
+      livyServerConf = make_shared<string>(boost::any_cast<string>(m["livyServerConf"]));
+    }
+    if (m.find("livyVersion") != m.end() && !m["livyVersion"].empty()) {
+      livyVersion = make_shared<string>(boost::any_cast<string>(m["livyVersion"]));
+    }
+    if (m.find("memoryLimit") != m.end() && !m["memoryLimit"].empty()) {
+      memoryLimit = make_shared<string>(boost::any_cast<string>(m["memoryLimit"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("networkName") != m.end() && !m["networkName"].empty()) {
+      networkName = make_shared<string>(boost::any_cast<string>(m["networkName"]));
+    }
+    if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
+    }
+    if (m.find("ramUserId") != m.end() && !m["ramUserId"].empty()) {
+      ramUserId = make_shared<string>(boost::any_cast<string>(m["ramUserId"]));
+    }
+    if (m.find("releaseVersion") != m.end() && !m["releaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["releaseVersion"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+  }
+
+
+  virtual ~GetLivyComputeResponseBodyData() = default;
+};
+class GetLivyComputeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetLivyComputeResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GetLivyComputeResponseBody() {}
+
+  explicit GetLivyComputeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetLivyComputeResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetLivyComputeResponseBodyData>(model1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetLivyComputeResponseBody() = default;
+};
+class GetLivyComputeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetLivyComputeResponseBody> body{};
+
+  GetLivyComputeResponse() {}
+
+  explicit GetLivyComputeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetLivyComputeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetLivyComputeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetLivyComputeResponse() = default;
+};
+class GetLivyComputeTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  GetLivyComputeTokenRequest() {}
+
+  explicit GetLivyComputeTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~GetLivyComputeTokenRequest() = default;
+};
+class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<long> expireDays{};
+
+  GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration() {}
+
+  explicit GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (expireDays) {
+      res["expireDays"] = boost::any(*expireDays);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("expireDays") != m.end() && !m["expireDays"].empty()) {
+      expireDays = make_shared<long>(boost::any_cast<long>(m["expireDays"]));
+    }
+  }
+
+
+  virtual ~GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration() = default;
+};
+class GetLivyComputeTokenResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration> autoExpireConfiguration{};
+  shared_ptr<long> createTime{};
+  shared_ptr<string> createdBy{};
+  shared_ptr<long> expireTime{};
+  shared_ptr<long> lastUsedTime{};
+  shared_ptr<string> name{};
+  shared_ptr<string> token{};
+  shared_ptr<string> tokenId{};
+
+  GetLivyComputeTokenResponseBodyData() {}
+
+  explicit GetLivyComputeTokenResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoExpireConfiguration) {
+      res["autoExpireConfiguration"] = autoExpireConfiguration ? boost::any(autoExpireConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (createdBy) {
+      res["createdBy"] = boost::any(*createdBy);
+    }
+    if (expireTime) {
+      res["expireTime"] = boost::any(*expireTime);
+    }
+    if (lastUsedTime) {
+      res["lastUsedTime"] = boost::any(*lastUsedTime);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (token) {
+      res["token"] = boost::any(*token);
+    }
+    if (tokenId) {
+      res["tokenId"] = boost::any(*tokenId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoExpireConfiguration") != m.end() && !m["autoExpireConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoExpireConfiguration"].type()) {
+        GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoExpireConfiguration"]));
+        autoExpireConfiguration = make_shared<GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration>(model1);
+      }
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["createTime"]));
+    }
+    if (m.find("createdBy") != m.end() && !m["createdBy"].empty()) {
+      createdBy = make_shared<string>(boost::any_cast<string>(m["createdBy"]));
+    }
+    if (m.find("expireTime") != m.end() && !m["expireTime"].empty()) {
+      expireTime = make_shared<long>(boost::any_cast<long>(m["expireTime"]));
+    }
+    if (m.find("lastUsedTime") != m.end() && !m["lastUsedTime"].empty()) {
+      lastUsedTime = make_shared<long>(boost::any_cast<long>(m["lastUsedTime"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("token") != m.end() && !m["token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["token"]));
+    }
+    if (m.find("tokenId") != m.end() && !m["tokenId"].empty()) {
+      tokenId = make_shared<string>(boost::any_cast<string>(m["tokenId"]));
+    }
+  }
+
+
+  virtual ~GetLivyComputeTokenResponseBodyData() = default;
+};
+class GetLivyComputeTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetLivyComputeTokenResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GetLivyComputeTokenResponseBody() {}
+
+  explicit GetLivyComputeTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetLivyComputeTokenResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetLivyComputeTokenResponseBodyData>(model1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetLivyComputeTokenResponseBody() = default;
+};
+class GetLivyComputeTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetLivyComputeTokenResponseBody> body{};
+
+  GetLivyComputeTokenResponse() {}
+
+  explicit GetLivyComputeTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetLivyComputeTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetLivyComputeTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetLivyComputeTokenResponse() = default;
 };
 class GetSessionClusterRequest : public Darabonba::Model {
 public:
@@ -7494,6 +8913,525 @@ public:
 
   virtual ~ListKyuubiTokenResponse() = default;
 };
+class ListLivyComputeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> environmentId{};
+  shared_ptr<string> regionId{};
+
+  ListLivyComputeRequest() {}
+
+  explicit ListLivyComputeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~ListLivyComputeRequest() = default;
+};
+class ListLivyComputeResponseBodyDataLivyComputes : public Darabonba::Model {
+public:
+  shared_ptr<string> computeId{};
+  shared_ptr<string> createdBy{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> endpointInner{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<string> name{};
+  shared_ptr<string> queueName{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+
+  ListLivyComputeResponseBodyDataLivyComputes() {}
+
+  explicit ListLivyComputeResponseBodyDataLivyComputes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (computeId) {
+      res["computeId"] = boost::any(*computeId);
+    }
+    if (createdBy) {
+      res["createdBy"] = boost::any(*createdBy);
+    }
+    if (endpoint) {
+      res["endpoint"] = boost::any(*endpoint);
+    }
+    if (endpointInner) {
+      res["endpointInner"] = boost::any(*endpointInner);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (queueName) {
+      res["queueName"] = boost::any(*queueName);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("computeId") != m.end() && !m["computeId"].empty()) {
+      computeId = make_shared<string>(boost::any_cast<string>(m["computeId"]));
+    }
+    if (m.find("createdBy") != m.end() && !m["createdBy"].empty()) {
+      createdBy = make_shared<string>(boost::any_cast<string>(m["createdBy"]));
+    }
+    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("endpointInner") != m.end() && !m["endpointInner"].empty()) {
+      endpointInner = make_shared<string>(boost::any_cast<string>(m["endpointInner"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+  }
+
+
+  virtual ~ListLivyComputeResponseBodyDataLivyComputes() = default;
+};
+class ListLivyComputeResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListLivyComputeResponseBodyDataLivyComputes>> livyComputes{};
+
+  ListLivyComputeResponseBodyData() {}
+
+  explicit ListLivyComputeResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (livyComputes) {
+      vector<boost::any> temp1;
+      for(auto item1:*livyComputes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["livyComputes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("livyComputes") != m.end() && !m["livyComputes"].empty()) {
+      if (typeid(vector<boost::any>) == m["livyComputes"].type()) {
+        vector<ListLivyComputeResponseBodyDataLivyComputes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["livyComputes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListLivyComputeResponseBodyDataLivyComputes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        livyComputes = make_shared<vector<ListLivyComputeResponseBodyDataLivyComputes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListLivyComputeResponseBodyData() = default;
+};
+class ListLivyComputeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListLivyComputeResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ListLivyComputeResponseBody() {}
+
+  explicit ListLivyComputeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ListLivyComputeResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ListLivyComputeResponseBodyData>(model1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListLivyComputeResponseBody() = default;
+};
+class ListLivyComputeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListLivyComputeResponseBody> body{};
+
+  ListLivyComputeResponse() {}
+
+  explicit ListLivyComputeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListLivyComputeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListLivyComputeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListLivyComputeResponse() = default;
+};
+class ListLivyComputeTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  ListLivyComputeTokenRequest() {}
+
+  explicit ListLivyComputeTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~ListLivyComputeTokenRequest() = default;
+};
+class ListLivyComputeTokenResponseBodyDataTokens : public Darabonba::Model {
+public:
+  shared_ptr<long> createTime{};
+  shared_ptr<string> createdby{};
+  shared_ptr<long> expireTime{};
+  shared_ptr<long> lastUsedTime{};
+  shared_ptr<string> name{};
+  shared_ptr<string> token{};
+  shared_ptr<string> tokenId{};
+
+  ListLivyComputeTokenResponseBodyDataTokens() {}
+
+  explicit ListLivyComputeTokenResponseBodyDataTokens(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (createdby) {
+      res["createdby"] = boost::any(*createdby);
+    }
+    if (expireTime) {
+      res["expireTime"] = boost::any(*expireTime);
+    }
+    if (lastUsedTime) {
+      res["lastUsedTime"] = boost::any(*lastUsedTime);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (token) {
+      res["token"] = boost::any(*token);
+    }
+    if (tokenId) {
+      res["tokenId"] = boost::any(*tokenId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["createTime"]));
+    }
+    if (m.find("createdby") != m.end() && !m["createdby"].empty()) {
+      createdby = make_shared<string>(boost::any_cast<string>(m["createdby"]));
+    }
+    if (m.find("expireTime") != m.end() && !m["expireTime"].empty()) {
+      expireTime = make_shared<long>(boost::any_cast<long>(m["expireTime"]));
+    }
+    if (m.find("lastUsedTime") != m.end() && !m["lastUsedTime"].empty()) {
+      lastUsedTime = make_shared<long>(boost::any_cast<long>(m["lastUsedTime"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("token") != m.end() && !m["token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["token"]));
+    }
+    if (m.find("tokenId") != m.end() && !m["tokenId"].empty()) {
+      tokenId = make_shared<string>(boost::any_cast<string>(m["tokenId"]));
+    }
+  }
+
+
+  virtual ~ListLivyComputeTokenResponseBodyDataTokens() = default;
+};
+class ListLivyComputeTokenResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListLivyComputeTokenResponseBodyDataTokens>> tokens{};
+
+  ListLivyComputeTokenResponseBodyData() {}
+
+  explicit ListLivyComputeTokenResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tokens) {
+      vector<boost::any> temp1;
+      for(auto item1:*tokens){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tokens"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tokens") != m.end() && !m["tokens"].empty()) {
+      if (typeid(vector<boost::any>) == m["tokens"].type()) {
+        vector<ListLivyComputeTokenResponseBodyDataTokens> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tokens"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListLivyComputeTokenResponseBodyDataTokens model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tokens = make_shared<vector<ListLivyComputeTokenResponseBodyDataTokens>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListLivyComputeTokenResponseBodyData() = default;
+};
+class ListLivyComputeTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListLivyComputeTokenResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ListLivyComputeTokenResponseBody() {}
+
+  explicit ListLivyComputeTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ListLivyComputeTokenResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ListLivyComputeTokenResponseBodyData>(model1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListLivyComputeTokenResponseBody() = default;
+};
+class ListLivyComputeTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListLivyComputeTokenResponseBody> body{};
+
+  ListLivyComputeTokenResponse() {}
+
+  explicit ListLivyComputeTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListLivyComputeTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListLivyComputeTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListLivyComputeTokenResponse() = default;
+};
 class ListLogContentsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
@@ -9568,6 +11506,191 @@ public:
 
   virtual ~ListWorkspacesResponse() = default;
 };
+class RefreshLivyComputeTokenRequestAutoExpireConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<long> expireDays{};
+
+  RefreshLivyComputeTokenRequestAutoExpireConfiguration() {}
+
+  explicit RefreshLivyComputeTokenRequestAutoExpireConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (expireDays) {
+      res["expireDays"] = boost::any(*expireDays);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("expireDays") != m.end() && !m["expireDays"].empty()) {
+      expireDays = make_shared<long>(boost::any_cast<long>(m["expireDays"]));
+    }
+  }
+
+
+  virtual ~RefreshLivyComputeTokenRequestAutoExpireConfiguration() = default;
+};
+class RefreshLivyComputeTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<RefreshLivyComputeTokenRequestAutoExpireConfiguration> autoExpireConfiguration{};
+  shared_ptr<string> name{};
+  shared_ptr<string> token{};
+  shared_ptr<string> regionId{};
+
+  RefreshLivyComputeTokenRequest() {}
+
+  explicit RefreshLivyComputeTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoExpireConfiguration) {
+      res["autoExpireConfiguration"] = autoExpireConfiguration ? boost::any(autoExpireConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (token) {
+      res["token"] = boost::any(*token);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoExpireConfiguration") != m.end() && !m["autoExpireConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoExpireConfiguration"].type()) {
+        RefreshLivyComputeTokenRequestAutoExpireConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoExpireConfiguration"]));
+        autoExpireConfiguration = make_shared<RefreshLivyComputeTokenRequestAutoExpireConfiguration>(model1);
+      }
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("token") != m.end() && !m["token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["token"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~RefreshLivyComputeTokenRequest() = default;
+};
+class RefreshLivyComputeTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  RefreshLivyComputeTokenResponseBody() {}
+
+  explicit RefreshLivyComputeTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~RefreshLivyComputeTokenResponseBody() = default;
+};
+class RefreshLivyComputeTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RefreshLivyComputeTokenResponseBody> body{};
+
+  RefreshLivyComputeTokenResponse() {}
+
+  explicit RefreshLivyComputeTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RefreshLivyComputeTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RefreshLivyComputeTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RefreshLivyComputeTokenResponse() = default;
+};
 class StartJobRunRequestConfigurationOverridesConfigurations : public Darabonba::Model {
 public:
   shared_ptr<string> configFileName{};
@@ -9876,6 +11999,130 @@ public:
 
 
   virtual ~StartJobRunResponse() = default;
+};
+class StartLivyComputeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  StartLivyComputeRequest() {}
+
+  explicit StartLivyComputeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~StartLivyComputeRequest() = default;
+};
+class StartLivyComputeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  StartLivyComputeResponseBody() {}
+
+  explicit StartLivyComputeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~StartLivyComputeResponseBody() = default;
+};
+class StartLivyComputeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartLivyComputeResponseBody> body{};
+
+  StartLivyComputeResponse() {}
+
+  explicit StartLivyComputeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartLivyComputeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartLivyComputeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartLivyComputeResponse() = default;
 };
 class StartProcessInstanceRequest : public Darabonba::Model {
 public:
@@ -10230,6 +12477,130 @@ public:
 
   virtual ~StartSessionClusterResponse() = default;
 };
+class StopLivyComputeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  StopLivyComputeRequest() {}
+
+  explicit StopLivyComputeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~StopLivyComputeRequest() = default;
+};
+class StopLivyComputeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  StopLivyComputeResponseBody() {}
+
+  explicit StopLivyComputeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~StopLivyComputeResponseBody() = default;
+};
+class StopLivyComputeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopLivyComputeResponseBody> body{};
+
+  StopLivyComputeResponse() {}
+
+  explicit StopLivyComputeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopLivyComputeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopLivyComputeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopLivyComputeResponse() = default;
+};
 class StopSessionClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> queueName{};
@@ -10470,6 +12841,308 @@ public:
 
 
   virtual ~TerminateSqlStatementResponse() = default;
+};
+class UpdateLivyComputeRequestAutoStartConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  UpdateLivyComputeRequestAutoStartConfiguration() {}
+
+  explicit UpdateLivyComputeRequestAutoStartConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+  }
+
+
+  virtual ~UpdateLivyComputeRequestAutoStartConfiguration() = default;
+};
+class UpdateLivyComputeRequestAutoStopConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<long> idleTimeoutMinutes{};
+
+  UpdateLivyComputeRequestAutoStopConfiguration() {}
+
+  explicit UpdateLivyComputeRequestAutoStopConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (idleTimeoutMinutes) {
+      res["idleTimeoutMinutes"] = boost::any(*idleTimeoutMinutes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("idleTimeoutMinutes") != m.end() && !m["idleTimeoutMinutes"].empty()) {
+      idleTimeoutMinutes = make_shared<long>(boost::any_cast<long>(m["idleTimeoutMinutes"]));
+    }
+  }
+
+
+  virtual ~UpdateLivyComputeRequestAutoStopConfiguration() = default;
+};
+class UpdateLivyComputeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authType{};
+  shared_ptr<UpdateLivyComputeRequestAutoStartConfiguration> autoStartConfiguration{};
+  shared_ptr<UpdateLivyComputeRequestAutoStopConfiguration> autoStopConfiguration{};
+  shared_ptr<string> cpuLimit{};
+  shared_ptr<string> displayReleaseVersion{};
+  shared_ptr<bool> enablePublic{};
+  shared_ptr<string> environmentId{};
+  shared_ptr<bool> fusion{};
+  shared_ptr<string> livyServerConf{};
+  shared_ptr<string> livyVersion{};
+  shared_ptr<string> memoryLimit{};
+  shared_ptr<string> name{};
+  shared_ptr<string> networkName{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> releaseVersion{};
+  shared_ptr<string> regionId{};
+
+  UpdateLivyComputeRequest() {}
+
+  explicit UpdateLivyComputeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authType) {
+      res["authType"] = boost::any(*authType);
+    }
+    if (autoStartConfiguration) {
+      res["autoStartConfiguration"] = autoStartConfiguration ? boost::any(autoStartConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoStopConfiguration) {
+      res["autoStopConfiguration"] = autoStopConfiguration ? boost::any(autoStopConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (cpuLimit) {
+      res["cpuLimit"] = boost::any(*cpuLimit);
+    }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
+    if (enablePublic) {
+      res["enablePublic"] = boost::any(*enablePublic);
+    }
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
+    }
+    if (livyServerConf) {
+      res["livyServerConf"] = boost::any(*livyServerConf);
+    }
+    if (livyVersion) {
+      res["livyVersion"] = boost::any(*livyVersion);
+    }
+    if (memoryLimit) {
+      res["memoryLimit"] = boost::any(*memoryLimit);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (networkName) {
+      res["networkName"] = boost::any(*networkName);
+    }
+    if (queueName) {
+      res["queueName"] = boost::any(*queueName);
+    }
+    if (releaseVersion) {
+      res["releaseVersion"] = boost::any(*releaseVersion);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("authType") != m.end() && !m["authType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("autoStartConfiguration") != m.end() && !m["autoStartConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoStartConfiguration"].type()) {
+        UpdateLivyComputeRequestAutoStartConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStartConfiguration"]));
+        autoStartConfiguration = make_shared<UpdateLivyComputeRequestAutoStartConfiguration>(model1);
+      }
+    }
+    if (m.find("autoStopConfiguration") != m.end() && !m["autoStopConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoStopConfiguration"].type()) {
+        UpdateLivyComputeRequestAutoStopConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStopConfiguration"]));
+        autoStopConfiguration = make_shared<UpdateLivyComputeRequestAutoStopConfiguration>(model1);
+      }
+    }
+    if (m.find("cpuLimit") != m.end() && !m["cpuLimit"].empty()) {
+      cpuLimit = make_shared<string>(boost::any_cast<string>(m["cpuLimit"]));
+    }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
+    if (m.find("enablePublic") != m.end() && !m["enablePublic"].empty()) {
+      enablePublic = make_shared<bool>(boost::any_cast<bool>(m["enablePublic"]));
+    }
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
+    }
+    if (m.find("livyServerConf") != m.end() && !m["livyServerConf"].empty()) {
+      livyServerConf = make_shared<string>(boost::any_cast<string>(m["livyServerConf"]));
+    }
+    if (m.find("livyVersion") != m.end() && !m["livyVersion"].empty()) {
+      livyVersion = make_shared<string>(boost::any_cast<string>(m["livyVersion"]));
+    }
+    if (m.find("memoryLimit") != m.end() && !m["memoryLimit"].empty()) {
+      memoryLimit = make_shared<string>(boost::any_cast<string>(m["memoryLimit"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("networkName") != m.end() && !m["networkName"].empty()) {
+      networkName = make_shared<string>(boost::any_cast<string>(m["networkName"]));
+    }
+    if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
+    }
+    if (m.find("releaseVersion") != m.end() && !m["releaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["releaseVersion"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~UpdateLivyComputeRequest() = default;
+};
+class UpdateLivyComputeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  UpdateLivyComputeResponseBody() {}
+
+  explicit UpdateLivyComputeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~UpdateLivyComputeResponseBody() = default;
+};
+class UpdateLivyComputeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateLivyComputeResponseBody> body{};
+
+  UpdateLivyComputeResponse() {}
+
+  explicit UpdateLivyComputeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateLivyComputeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateLivyComputeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateLivyComputeResponse() = default;
 };
 class UpdateProcessDefinitionWithScheduleRequestGlobalParams : public Darabonba::Model {
 public:
@@ -11631,6 +14304,17 @@ public:
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelJobRunResponse cancelJobRun(shared_ptr<string> workspaceId, shared_ptr<string> jobRunId, shared_ptr<CancelJobRunRequest> request);
+  CreateLivyComputeResponse createLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                         shared_ptr<CreateLivyComputeRequest> request,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateLivyComputeResponse createLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<CreateLivyComputeRequest> request);
+  CreateLivyComputeTokenResponse createLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                                   shared_ptr<string> livyComputeId,
+                                                                   shared_ptr<CreateLivyComputeTokenRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateLivyComputeTokenResponse createLivyComputeToken(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<CreateLivyComputeTokenRequest> request);
   CreateProcessDefinitionWithScheduleResponse createProcessDefinitionWithScheduleWithOptions(shared_ptr<string> bizId,
                                                                                              shared_ptr<CreateProcessDefinitionWithScheduleRequest> tmpReq,
                                                                                              shared_ptr<map<string, string>> headers,
@@ -11648,6 +14332,22 @@ public:
   CreateSqlStatementResponse createSqlStatement(shared_ptr<string> workspaceId, shared_ptr<CreateSqlStatementRequest> request);
   CreateWorkspaceResponse createWorkspaceWithOptions(shared_ptr<CreateWorkspaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWorkspaceResponse createWorkspace(shared_ptr<CreateWorkspaceRequest> request);
+  DeleteLivyComputeResponse deleteLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                         shared_ptr<string> livyComputeId,
+                                                         shared_ptr<DeleteLivyComputeRequest> request,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteLivyComputeResponse deleteLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<DeleteLivyComputeRequest> request);
+  DeleteLivyComputeTokenResponse deleteLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                                   shared_ptr<string> livyComputeId,
+                                                                   shared_ptr<string> tokenId,
+                                                                   shared_ptr<DeleteLivyComputeTokenRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteLivyComputeTokenResponse deleteLivyComputeToken(shared_ptr<string> workspaceBizId,
+                                                        shared_ptr<string> livyComputeId,
+                                                        shared_ptr<string> tokenId,
+                                                        shared_ptr<DeleteLivyComputeTokenRequest> request);
   EditWorkspaceQueueResponse editWorkspaceQueueWithOptions(shared_ptr<EditWorkspaceQueueRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EditWorkspaceQueueResponse editWorkspaceQueue(shared_ptr<EditWorkspaceQueueRequest> request);
   GetCuHoursResponse getCuHoursWithOptions(shared_ptr<string> workspaceId,
@@ -11668,6 +14368,22 @@ public:
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobRunResponse getJobRun(shared_ptr<string> workspaceId, shared_ptr<string> jobRunId, shared_ptr<GetJobRunRequest> request);
+  GetLivyComputeResponse getLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                   shared_ptr<string> livyComputeId,
+                                                   shared_ptr<GetLivyComputeRequest> request,
+                                                   shared_ptr<map<string, string>> headers,
+                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetLivyComputeResponse getLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<GetLivyComputeRequest> request);
+  GetLivyComputeTokenResponse getLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                             shared_ptr<string> livyComputeId,
+                                                             shared_ptr<string> tokenId,
+                                                             shared_ptr<GetLivyComputeTokenRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetLivyComputeTokenResponse getLivyComputeToken(shared_ptr<string> workspaceBizId,
+                                                  shared_ptr<string> livyComputeId,
+                                                  shared_ptr<string> tokenId,
+                                                  shared_ptr<GetLivyComputeTokenRequest> request);
   GetSessionClusterResponse getSessionClusterWithOptions(shared_ptr<string> workspaceId,
                                                          shared_ptr<string> sessionClusterId,
                                                          shared_ptr<GetSessionClusterRequest> request,
@@ -11706,6 +14422,17 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListKyuubiTokenResponse listKyuubiToken(shared_ptr<string> workspaceId, shared_ptr<string> kyuubiServiceId, shared_ptr<ListKyuubiTokenRequest> request);
+  ListLivyComputeResponse listLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                     shared_ptr<ListLivyComputeRequest> request,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListLivyComputeResponse listLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<ListLivyComputeRequest> request);
+  ListLivyComputeTokenResponse listLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                               shared_ptr<string> livyComputeId,
+                                                               shared_ptr<ListLivyComputeTokenRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListLivyComputeTokenResponse listLivyComputeToken(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<ListLivyComputeTokenRequest> request);
   ListLogContentsResponse listLogContentsWithOptions(shared_ptr<string> workspaceId,
                                                      shared_ptr<ListLogContentsRequest> request,
                                                      shared_ptr<map<string, string>> headers,
@@ -11725,11 +14452,27 @@ public:
   ListWorkspaceQueuesResponse listWorkspaceQueues(shared_ptr<string> workspaceId, shared_ptr<ListWorkspaceQueuesRequest> request);
   ListWorkspacesResponse listWorkspacesWithOptions(shared_ptr<ListWorkspacesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListWorkspacesResponse listWorkspaces(shared_ptr<ListWorkspacesRequest> request);
+  RefreshLivyComputeTokenResponse refreshLivyComputeTokenWithOptions(shared_ptr<string> workspaceBizId,
+                                                                     shared_ptr<string> livyComputeId,
+                                                                     shared_ptr<string> tokenId,
+                                                                     shared_ptr<RefreshLivyComputeTokenRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RefreshLivyComputeTokenResponse refreshLivyComputeToken(shared_ptr<string> workspaceBizId,
+                                                          shared_ptr<string> livyComputeId,
+                                                          shared_ptr<string> tokenId,
+                                                          shared_ptr<RefreshLivyComputeTokenRequest> request);
   StartJobRunResponse startJobRunWithOptions(shared_ptr<string> workspaceId,
                                              shared_ptr<StartJobRunRequest> request,
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartJobRunResponse startJobRun(shared_ptr<string> workspaceId, shared_ptr<StartJobRunRequest> request);
+  StartLivyComputeResponse startLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                       shared_ptr<string> livyComputeId,
+                                                       shared_ptr<StartLivyComputeRequest> request,
+                                                       shared_ptr<map<string, string>> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartLivyComputeResponse startLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<StartLivyComputeRequest> request);
   StartProcessInstanceResponse startProcessInstanceWithOptions(shared_ptr<string> bizId,
                                                                shared_ptr<StartProcessInstanceRequest> request,
                                                                shared_ptr<map<string, string>> headers,
@@ -11740,6 +14483,12 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartSessionClusterResponse startSessionCluster(shared_ptr<string> workspaceId, shared_ptr<StartSessionClusterRequest> request);
+  StopLivyComputeResponse stopLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                     shared_ptr<string> livyComputeId,
+                                                     shared_ptr<StopLivyComputeRequest> request,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopLivyComputeResponse stopLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<StopLivyComputeRequest> request);
   StopSessionClusterResponse stopSessionClusterWithOptions(shared_ptr<string> workspaceId,
                                                            shared_ptr<StopSessionClusterRequest> request,
                                                            shared_ptr<map<string, string>> headers,
@@ -11751,6 +14500,12 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TerminateSqlStatementResponse terminateSqlStatement(shared_ptr<string> workspaceId, shared_ptr<string> statementId, shared_ptr<TerminateSqlStatementRequest> request);
+  UpdateLivyComputeResponse updateLivyComputeWithOptions(shared_ptr<string> workspaceBizId,
+                                                         shared_ptr<string> livyComputeId,
+                                                         shared_ptr<UpdateLivyComputeRequest> request,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateLivyComputeResponse updateLivyCompute(shared_ptr<string> workspaceBizId, shared_ptr<string> livyComputeId, shared_ptr<UpdateLivyComputeRequest> request);
   UpdateProcessDefinitionWithScheduleResponse updateProcessDefinitionWithScheduleWithOptions(shared_ptr<string> bizId,
                                                                                              shared_ptr<string> code,
                                                                                              shared_ptr<UpdateProcessDefinitionWithScheduleRequest> tmpReq,
