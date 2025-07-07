@@ -9765,6 +9765,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> promotionId{};
+  shared_ptr<string> qosRuleId{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceGroupId{};
@@ -9865,6 +9866,9 @@ public:
     }
     if (promotionId) {
       res["PromotionId"] = boost::any(*promotionId);
+    }
+    if (qosRuleId) {
+      res["QosRuleId"] = boost::any(*qosRuleId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -10020,6 +10024,9 @@ public:
     }
     if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
       promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
+    }
+    if (m.find("QosRuleId") != m.end() && !m["QosRuleId"].empty()) {
+      qosRuleId = make_shared<string>(boost::any_cast<string>(m["QosRuleId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -10381,6 +10388,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> promotionId{};
+  shared_ptr<string> qosRuleId{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceGroupId{};
@@ -10481,6 +10489,9 @@ public:
     }
     if (promotionId) {
       res["PromotionId"] = boost::any(*promotionId);
+    }
+    if (qosRuleId) {
+      res["QosRuleId"] = boost::any(*qosRuleId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -10632,6 +10643,9 @@ public:
     }
     if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
       promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
+    }
+    if (m.find("QosRuleId") != m.end() && !m["QosRuleId"].empty()) {
+      qosRuleId = make_shared<string>(boost::any_cast<string>(m["QosRuleId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -23333,6 +23347,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sessionStatus{};
   shared_ptr<string> startTime{};
   shared_ptr<string> subPayType{};
@@ -23376,6 +23391,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sessionStatus) {
       res["SessionStatus"] = boost::any(*sessionStatus);
@@ -23427,6 +23445,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SessionStatus") != m.end() && !m["SessionStatus"].empty()) {
       sessionStatus = make_shared<string>(boost::any_cast<string>(m["SessionStatus"]));
     }
@@ -23440,6 +23461,42 @@ public:
 
 
   virtual ~DescribeDesktopSessionsRequest() = default;
+};
+class DescribeDesktopSessionsResponseBodySessionsResourceGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+
+  DescribeDesktopSessionsResponseBodySessionsResourceGroups() {}
+
+  explicit DescribeDesktopSessionsResponseBodySessionsResourceGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopSessionsResponseBodySessionsResourceGroups() = default;
 };
 class DescribeDesktopSessionsResponseBodySessions : public Darabonba::Model {
 public:
@@ -23456,6 +23513,7 @@ public:
   shared_ptr<string> osSessionStatus{};
   shared_ptr<string> osType{};
   shared_ptr<string> protocolType{};
+  shared_ptr<vector<DescribeDesktopSessionsResponseBodySessionsResourceGroups>> resourceGroups{};
   shared_ptr<string> sessionEndTime{};
   shared_ptr<long> sessionIdleTime{};
   shared_ptr<string> sessionStartTime{};
@@ -23511,6 +23569,13 @@ public:
     }
     if (protocolType) {
       res["ProtocolType"] = boost::any(*protocolType);
+    }
+    if (resourceGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceGroups"] = boost::any(temp1);
     }
     if (sessionEndTime) {
       res["SessionEndTime"] = boost::any(*sessionEndTime);
@@ -23572,6 +23637,19 @@ public:
     }
     if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
       protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
+    }
+    if (m.find("ResourceGroups") != m.end() && !m["ResourceGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceGroups"].type()) {
+        vector<DescribeDesktopSessionsResponseBodySessionsResourceGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDesktopSessionsResponseBodySessionsResourceGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceGroups = make_shared<vector<DescribeDesktopSessionsResponseBodySessionsResourceGroups>>(expect1);
+      }
     }
     if (m.find("SessionEndTime") != m.end() && !m["SessionEndTime"].empty()) {
       sessionEndTime = make_shared<string>(boost::any_cast<string>(m["SessionEndTime"]));
@@ -31186,6 +31264,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> securityProtection{};
   shared_ptr<string> status{};
+  shared_ptr<string> vpcId{};
 
   DescribeOfficeSitesRequest() {}
 
@@ -31218,6 +31297,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -31249,6 +31331,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 

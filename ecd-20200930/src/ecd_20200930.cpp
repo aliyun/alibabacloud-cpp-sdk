@@ -2331,6 +2331,9 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->promotionId)) {
     query->insert(pair<string, string>("PromotionId", *request->promotionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->qosRuleId)) {
+    query->insert(pair<string, string>("QosRuleId", *request->qosRuleId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -4574,6 +4577,9 @@ DescribeDesktopSessionsResponse Alibabacloud_Ecd20200930::Client::describeDeskto
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionStatus)) {
     query->insert(pair<string, string>("SessionStatus", *request->sessionStatus));
   }
@@ -5567,6 +5573,9 @@ DescribeOfficeSitesResponse Alibabacloud_Ecd20200930::Client::describeOfficeSite
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
