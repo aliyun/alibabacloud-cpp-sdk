@@ -1189,8 +1189,13 @@ DescribeLensServiceStatusResponse Alibabacloud_Ebs20210730::Client::describeLens
   return describeLensServiceStatusWithOptions(runtime);
 }
 
-DescribeMetricDataResponse Alibabacloud_Ebs20210730::Client::describeMetricDataWithOptions(shared_ptr<DescribeMetricDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DescribeMetricDataResponse Alibabacloud_Ebs20210730::Client::describeMetricDataWithOptions(shared_ptr<DescribeMetricDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeMetricDataShrinkRequest> request = make_shared<DescribeMetricDataShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->groupByLabels)) {
+    request->groupByLabelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->groupByLabels, make_shared<string>("GroupByLabels"), make_shared<string>("simple")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggreOps)) {
     query->insert(pair<string, string>("AggreOps", *request->aggreOps));
@@ -1203,6 +1208,9 @@ DescribeMetricDataResponse Alibabacloud_Ebs20210730::Client::describeMetricDataW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupByLabelsShrink)) {
+    query->insert(pair<string, string>("GroupByLabels", *request->groupByLabelsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->metricName)) {
     query->insert(pair<string, string>("MetricName", *request->metricName));
@@ -1604,9 +1612,6 @@ ListReportsResponse Alibabacloud_Ebs20210730::Client::listReportsWithOptions(sha
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
-    body->insert(pair<string, string>("AppName", *request->appName));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }

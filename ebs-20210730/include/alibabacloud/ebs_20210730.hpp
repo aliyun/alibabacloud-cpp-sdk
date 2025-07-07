@@ -7300,6 +7300,7 @@ public:
   shared_ptr<string> aggreOverLineOps{};
   shared_ptr<string> dimensions{};
   shared_ptr<string> endTime{};
+  shared_ptr<vector<string>> groupByLabels{};
   shared_ptr<string> metricName{};
   shared_ptr<long> period{};
   shared_ptr<string> regionId{};
@@ -7326,6 +7327,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (groupByLabels) {
+      res["GroupByLabels"] = boost::any(*groupByLabels);
     }
     if (metricName) {
       res["MetricName"] = boost::any(*metricName);
@@ -7355,6 +7359,16 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("GroupByLabels") != m.end() && !m["GroupByLabels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GroupByLabels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GroupByLabels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupByLabels = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
       metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
     }
@@ -7371,6 +7385,91 @@ public:
 
 
   virtual ~DescribeMetricDataRequest() = default;
+};
+class DescribeMetricDataShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aggreOps{};
+  shared_ptr<string> aggreOverLineOps{};
+  shared_ptr<string> dimensions{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> groupByLabelsShrink{};
+  shared_ptr<string> metricName{};
+  shared_ptr<long> period{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> startTime{};
+
+  DescribeMetricDataShrinkRequest() {}
+
+  explicit DescribeMetricDataShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggreOps) {
+      res["AggreOps"] = boost::any(*aggreOps);
+    }
+    if (aggreOverLineOps) {
+      res["AggreOverLineOps"] = boost::any(*aggreOverLineOps);
+    }
+    if (dimensions) {
+      res["Dimensions"] = boost::any(*dimensions);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (groupByLabelsShrink) {
+      res["GroupByLabels"] = boost::any(*groupByLabelsShrink);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggreOps") != m.end() && !m["AggreOps"].empty()) {
+      aggreOps = make_shared<string>(boost::any_cast<string>(m["AggreOps"]));
+    }
+    if (m.find("AggreOverLineOps") != m.end() && !m["AggreOverLineOps"].empty()) {
+      aggreOverLineOps = make_shared<string>(boost::any_cast<string>(m["AggreOverLineOps"]));
+    }
+    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
+      dimensions = make_shared<string>(boost::any_cast<string>(m["Dimensions"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GroupByLabels") != m.end() && !m["GroupByLabels"].empty()) {
+      groupByLabelsShrink = make_shared<string>(boost::any_cast<string>(m["GroupByLabels"]));
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeMetricDataShrinkRequest() = default;
 };
 class DescribeMetricDataResponseBodyDataList : public Darabonba::Model {
 public:
@@ -9415,7 +9514,6 @@ public:
 class ListReportsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
-  shared_ptr<string> appName{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> pageNumber{};
@@ -9434,9 +9532,6 @@ public:
     map<string, boost::any> res;
     if (appId) {
       res["AppId"] = boost::any(*appId);
-    }
-    if (appName) {
-      res["AppName"] = boost::any(*appName);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -9459,9 +9554,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
-    }
-    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
-      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -13367,7 +13459,7 @@ public:
   DescribeLensMonitorDisksResponse describeLensMonitorDisks(shared_ptr<DescribeLensMonitorDisksRequest> request);
   DescribeLensServiceStatusResponse describeLensServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLensServiceStatusResponse describeLensServiceStatus();
-  DescribeMetricDataResponse describeMetricDataWithOptions(shared_ptr<DescribeMetricDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeMetricDataResponse describeMetricDataWithOptions(shared_ptr<DescribeMetricDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeMetricDataResponse describeMetricData(shared_ptr<DescribeMetricDataRequest> request);
   DescribePairDrillsResponse describePairDrillsWithOptions(shared_ptr<DescribePairDrillsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePairDrillsResponse describePairDrills(shared_ptr<DescribePairDrillsRequest> request);
