@@ -1,16 +1,16 @@
 // This file is auto-generated, don't edit it. Thanks.
 
 #include <alibabacloud/dataworks_public_20240518.hpp>
+#include <alibabacloud/credential.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
-#include <alibabacloud/open_platform_20191219.hpp>
-#include <alibabacloud/oss.hpp>
-#include <alibabacloud/ossutil.hpp>
 #include <boost/any.hpp>
+#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/file_form.hpp>
 #include <darabonba/util.hpp>
+#include <darabonba/xml.hpp>
 #include <iostream>
 #include <map>
 #include <vector>
@@ -51,6 +51,42 @@ Alibabacloud_Dataworks-public20240518::Client::Client(const shared_ptr<Alibabacl
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("dataworks-public"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
 };
+
+map<string, boost::any> Alibabacloud_Dataworks-public20240518::Client::_postOSSObject(shared_ptr<string> bucketName, shared_ptr<map<string, boost::any>> data) {
+  shared_ptr<Darabonba::Request> request_ = make_shared<Darabonba::Request>();
+  shared_ptr<map<string, boost::any>> form = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(data));
+  shared_ptr<string> boundary = make_shared<string>(Darabonba_FileForm::Client::getBoundary());
+  shared_ptr<string> host = make_shared<string>(Darabonba_Util::Client::assertAsString(make_shared<boost::any>((*form)["host"])));
+  request_->protocol = "HTTPS";
+  request_->method = "POST";
+  request_->pathname = string("/");
+  request_->headers = {
+    {"host", !host ? string() : *host},
+    {"date", Darabonba_Util::Client::getDateUTCString()},
+    {"user-agent", Darabonba_Util::Client::getUserAgent(make_shared<string>(""))}
+  };
+  request_->headers.insert(pair<string, string>("content-type", string("multipart/form-data; boundary=") + string(*boundary)));
+  request_->body = Darabonba::Converter::toStream(Darabonba_FileForm::Client::toFileForm(form, boundary));
+  shared_ptr<Darabonba::Request> _lastRequest = request_;
+  shared_ptr<Darabonba::Response> response_ = make_shared<Darabonba::Response>(Darabonba::Core::doAction(request_));
+  shared_ptr<map<string, boost::any>> respMap;
+  shared_ptr<string> bodyStr = make_shared<string>(Darabonba_Util::Client::readAsString(response_->body));
+  if (Darabonba_Util::Client::is4xx(make_shared<int>(response_->statusCode)) || Darabonba_Util::Client::is5xx(make_shared<int>(response_->statusCode))) {
+    respMap = make_shared<map<string, boost::any>>(Darabonba_XML::Client::parseXml(bodyStr, nullptr));
+    shared_ptr<map<string, boost::any>> err = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(make_shared<boost::any>((*respMap)["Error"])));
+    BOOST_THROW_EXCEPTION(Darabonba::Error(map<string, boost::any>({
+      {"code", (*err)["Code"]},
+      {"message", (*err)["Message"]},
+      {"data", boost::any(map<string, boost::any>({
+        {"httpCode", boost::any(response_->statusCode)},
+        {"requestId", (*err)["RequestId"]},
+        {"hostId", (*err)["HostId"]}
+      }))}
+    })));
+  }
+  respMap = make_shared<map<string, boost::any>>(Darabonba_XML::Client::parseXml(bodyStr, nullptr));
+  return Darabonba::Converter::merge(map<string, boost::any>(), !respMap ? map<string, boost::any>() : *respMap);
+}
 
 string Alibabacloud_Dataworks-public20240518::Client::getEndpoint(shared_ptr<string> productId,
                                                                   shared_ptr<string> regionId,
@@ -416,6 +452,28 @@ CreateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::createDIJobWi
   if (!Darabonba_Util::Client::isUnset<vector<CreateDIJobRequestTransformationRules>>(tmpReq->transformationRules)) {
     request->transformationRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transformationRules, make_shared<string>("TransformationRules"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationDataSourceType)) {
+    query->insert(pair<string, string>("DestinationDataSourceType", *request->destinationDataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobName)) {
+    query->insert(pair<string, string>("JobName", *request->jobName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
+    query->insert(pair<string, string>("JobType", *request->jobType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->migrationType)) {
+    query->insert(pair<string, string>("MigrationType", *request->migrationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    query->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDataSourceType)) {
+    query->insert(pair<string, string>("SourceDataSourceType", *request->sourceDataSourceType));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
@@ -423,35 +481,14 @@ CreateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::createDIJobWi
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationDataSourceSettingsShrink)) {
     body->insert(pair<string, string>("DestinationDataSourceSettings", *request->destinationDataSourceSettingsShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->destinationDataSourceType)) {
-    body->insert(pair<string, string>("DestinationDataSourceType", *request->destinationDataSourceType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->jobName)) {
-    body->insert(pair<string, string>("JobName", *request->jobName));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobSettingsShrink)) {
     body->insert(pair<string, string>("JobSettings", *request->jobSettingsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
-    body->insert(pair<string, string>("JobType", *request->jobType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->migrationType)) {
-    body->insert(pair<string, string>("MigrationType", *request->migrationType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    body->insert(pair<string, string>("Name", *request->name));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
-    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceSettingsShrink)) {
     body->insert(pair<string, string>("ResourceSettings", *request->resourceSettingsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceDataSourceSettingsShrink)) {
     body->insert(pair<string, string>("SourceDataSourceSettings", *request->sourceDataSourceSettingsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDataSourceType)) {
-    body->insert(pair<string, string>("SourceDataSourceType", *request->sourceDataSourceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tableMappingsShrink)) {
     body->insert(pair<string, string>("TableMappings", *request->tableMappingsShrink));
@@ -460,6 +497,7 @@ CreateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::createDIJobWi
     body->insert(pair<string, string>("TransformationRules", *request->transformationRulesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1362,10 +1400,18 @@ CreateResourceResponse Alibabacloud_Dataworks-public20240518::Client::createReso
 
 CreateResourceResponse Alibabacloud_Dataworks-public20240518::Client::createResourceAdvance(shared_ptr<CreateResourceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   // Step 0: init client
-  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
-  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
-  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
-  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<Alibabacloud_Credential::CredentialModel> credentialModel;
+  if (Darabonba_Util::Client::isUnset<Alibabacloud_Credential::Client>(_credential)) {
+    BOOST_THROW_EXCEPTION(Darabonba::Error(map<string, string>({
+      {"code", "InvalidCredentials"},
+      {"message", "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    })));
+  }
+  credentialModel = make_shared<Alibabacloud_Credential::CredentialModel>(_credential->getCredential());
+  shared_ptr<string> accessKeyId = credentialModel->accessKeyId;
+  shared_ptr<string> accessKeySecret = credentialModel->accessKeySecret;
+  shared_ptr<string> securityToken = credentialModel->securityToken;
+  shared_ptr<string> credentialType = credentialModel->type;
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
@@ -1382,51 +1428,57 @@ CreateResourceResponse Alibabacloud_Dataworks-public20240518::Client::createReso
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
-    {"product", boost::any(string("dataworks-public"))},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  shared_ptr<Alibabacloud_OpenApi::Client> authClient = make_shared<Alibabacloud_OpenApi::Client>(authConfig);
+  shared_ptr<map<string, string>> authRequest = make_shared<map<string, string>>(map<string, string>({
+    {"Product", "dataworks-public"},
+    {"RegionId", !_regionId ? string() : *_regionId}
+  })
+);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> authReq = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(authRequest))}
   }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
-  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
-    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
-    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
-    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  shared_ptr<Alibabacloud_OpenApi::Params> authParams = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthorizeFileUpload"))},
+    {"version", boost::any(string("2019-12-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  shared_ptr<map<string, boost::any>> authResponse = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
-  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
-  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<map<string, boost::any>> ossHeader = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> tmpBody = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<bool> useAccelerate = make_shared<bool>(false);
+  shared_ptr<map<string, string>> authResponseBody = make_shared<map<string, string>>(map<string, string>());
   shared_ptr<CreateResourceRequest> createResourceReq = make_shared<CreateResourceRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, createResourceReq);
   if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->resourceFileObject)) {
-    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
-    ossConfig->accessKeyId = authResponse->body->accessKeyId;
-    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
-    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    shared_ptr<boost::any> tmpResp0 = make_shared<boost::any>(authClient->callApi(authParams, authReq, runtime));
+    authResponse = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(tmpResp0));
+    tmpBody = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(make_shared<boost::any>((*authResponse)["body"])));
+    useAccelerate = make_shared<bool>(Darabonba_Util::Client::assertAsBoolean(make_shared<boost::any>((*tmpBody)["UseAccelerate"])));
+    authResponseBody = make_shared<map<string, string>>(Darabonba_Util::Client::stringifyMapValue(tmpBody));
     fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
-      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"filename", boost::any(string((*authResponseBody)["ObjectKey"]))},
       {"content", !request->resourceFileObject ? boost::any() : boost::any(*request->resourceFileObject)},
       {"contentType", boost::any(string(""))}
     }));
-    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
-      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
-      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
-      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
-      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+    ossHeader = make_shared<map<string, boost::any>>(map<string, boost::any>({
+      {"host", boost::any(string((*authResponseBody)["Bucket"]) + string(".") + string(Alibabacloud_OpenApiUtil::Client::getEndpoint(make_shared<string>((*authResponseBody)["Endpoint"]), useAccelerate, _endpointType)))},
+      {"OSSAccessKeyId", boost::any(string((*authResponseBody)["AccessKeyId"]))},
+      {"policy", boost::any(string((*authResponseBody)["EncodedPolicy"]))},
+      {"Signature", boost::any(string((*authResponseBody)["Signature"]))},
+      {"key", boost::any(string((*authResponseBody)["ObjectKey"]))},
       {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
-      {"successActionStatus", boost::any(string("201"))}
-    }));
-    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
-      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
-      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
-    }));
-    ossClient->postObject(uploadRequest, ossRuntime);
-    createResourceReq->resourceFile = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
+      {"success_action_status", boost::any(string("201"))}
+    })
+);
+    _postOSSObject(make_shared<string>((*authResponseBody)["Bucket"]), ossHeader);
+    createResourceReq->resourceFile = make_shared<string>(string("http://") + string((*authResponseBody)["Bucket"]) + string(".") + string((*authResponseBody)["Endpoint"]) + string("/") + string((*authResponseBody)["ObjectKey"]));
   }
   shared_ptr<CreateResourceResponse> createResourceResp = make_shared<CreateResourceResponse>(createResourceWithOptions(createResourceReq, runtime));
   return *createResourceResp;
@@ -1495,10 +1547,18 @@ CreateResourceFileResponse Alibabacloud_Dataworks-public20240518::Client::create
 
 CreateResourceFileResponse Alibabacloud_Dataworks-public20240518::Client::createResourceFileAdvance(shared_ptr<CreateResourceFileAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   // Step 0: init client
-  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
-  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
-  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
-  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<Alibabacloud_Credential::CredentialModel> credentialModel;
+  if (Darabonba_Util::Client::isUnset<Alibabacloud_Credential::Client>(_credential)) {
+    BOOST_THROW_EXCEPTION(Darabonba::Error(map<string, string>({
+      {"code", "InvalidCredentials"},
+      {"message", "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    })));
+  }
+  credentialModel = make_shared<Alibabacloud_Credential::CredentialModel>(_credential->getCredential());
+  shared_ptr<string> accessKeyId = credentialModel->accessKeyId;
+  shared_ptr<string> accessKeySecret = credentialModel->accessKeySecret;
+  shared_ptr<string> securityToken = credentialModel->securityToken;
+  shared_ptr<string> credentialType = credentialModel->type;
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
@@ -1515,51 +1575,57 @@ CreateResourceFileResponse Alibabacloud_Dataworks-public20240518::Client::create
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
-    {"product", boost::any(string("dataworks-public"))},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  shared_ptr<Alibabacloud_OpenApi::Client> authClient = make_shared<Alibabacloud_OpenApi::Client>(authConfig);
+  shared_ptr<map<string, string>> authRequest = make_shared<map<string, string>>(map<string, string>({
+    {"Product", "dataworks-public"},
+    {"RegionId", !_regionId ? string() : *_regionId}
+  })
+);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> authReq = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(authRequest))}
   }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
-  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
-    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
-    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
-    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  shared_ptr<Alibabacloud_OpenApi::Params> authParams = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthorizeFileUpload"))},
+    {"version", boost::any(string("2019-12-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  shared_ptr<map<string, boost::any>> authResponse = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
-  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
-  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<map<string, boost::any>> ossHeader = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> tmpBody = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<bool> useAccelerate = make_shared<bool>(false);
+  shared_ptr<map<string, string>> authResponseBody = make_shared<map<string, string>>(map<string, string>());
   shared_ptr<CreateResourceFileRequest> createResourceFileReq = make_shared<CreateResourceFileRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, createResourceFileReq);
   if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->resourceFileObject)) {
-    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
-    ossConfig->accessKeyId = authResponse->body->accessKeyId;
-    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
-    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    shared_ptr<boost::any> tmpResp0 = make_shared<boost::any>(authClient->callApi(authParams, authReq, runtime));
+    authResponse = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(tmpResp0));
+    tmpBody = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(make_shared<boost::any>((*authResponse)["body"])));
+    useAccelerate = make_shared<bool>(Darabonba_Util::Client::assertAsBoolean(make_shared<boost::any>((*tmpBody)["UseAccelerate"])));
+    authResponseBody = make_shared<map<string, string>>(Darabonba_Util::Client::stringifyMapValue(tmpBody));
     fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
-      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"filename", boost::any(string((*authResponseBody)["ObjectKey"]))},
       {"content", !request->resourceFileObject ? boost::any() : boost::any(*request->resourceFileObject)},
       {"contentType", boost::any(string(""))}
     }));
-    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
-      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
-      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
-      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
-      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+    ossHeader = make_shared<map<string, boost::any>>(map<string, boost::any>({
+      {"host", boost::any(string((*authResponseBody)["Bucket"]) + string(".") + string(Alibabacloud_OpenApiUtil::Client::getEndpoint(make_shared<string>((*authResponseBody)["Endpoint"]), useAccelerate, _endpointType)))},
+      {"OSSAccessKeyId", boost::any(string((*authResponseBody)["AccessKeyId"]))},
+      {"policy", boost::any(string((*authResponseBody)["EncodedPolicy"]))},
+      {"Signature", boost::any(string((*authResponseBody)["Signature"]))},
+      {"key", boost::any(string((*authResponseBody)["ObjectKey"]))},
       {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
-      {"successActionStatus", boost::any(string("201"))}
-    }));
-    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
-      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
-      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
-    }));
-    ossClient->postObject(uploadRequest, ossRuntime);
-    createResourceFileReq->resourceFile = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
+      {"success_action_status", boost::any(string("201"))}
+    })
+);
+    _postOSSObject(make_shared<string>((*authResponseBody)["Bucket"]), ossHeader);
+    createResourceFileReq->resourceFile = make_shared<string>(string("http://") + string((*authResponseBody)["Bucket"]) + string(".") + string((*authResponseBody)["Endpoint"]) + string("/") + string((*authResponseBody)["ObjectKey"]));
   }
   shared_ptr<CreateResourceFileResponse> createResourceFileResp = make_shared<CreateResourceFileResponse>(createResourceFileWithOptions(createResourceFileReq, runtime));
   return *createResourceFileResp;
@@ -4046,10 +4112,18 @@ ImportCertificateResponse Alibabacloud_Dataworks-public20240518::Client::importC
 
 ImportCertificateResponse Alibabacloud_Dataworks-public20240518::Client::importCertificateAdvance(shared_ptr<ImportCertificateAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   // Step 0: init client
-  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
-  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
-  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
-  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<Alibabacloud_Credential::CredentialModel> credentialModel;
+  if (Darabonba_Util::Client::isUnset<Alibabacloud_Credential::Client>(_credential)) {
+    BOOST_THROW_EXCEPTION(Darabonba::Error(map<string, string>({
+      {"code", "InvalidCredentials"},
+      {"message", "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    })));
+  }
+  credentialModel = make_shared<Alibabacloud_Credential::CredentialModel>(_credential->getCredential());
+  shared_ptr<string> accessKeyId = credentialModel->accessKeyId;
+  shared_ptr<string> accessKeySecret = credentialModel->accessKeySecret;
+  shared_ptr<string> securityToken = credentialModel->securityToken;
+  shared_ptr<string> credentialType = credentialModel->type;
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
@@ -4066,51 +4140,57 @@ ImportCertificateResponse Alibabacloud_Dataworks-public20240518::Client::importC
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
-    {"product", boost::any(string("dataworks-public"))},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  shared_ptr<Alibabacloud_OpenApi::Client> authClient = make_shared<Alibabacloud_OpenApi::Client>(authConfig);
+  shared_ptr<map<string, string>> authRequest = make_shared<map<string, string>>(map<string, string>({
+    {"Product", "dataworks-public"},
+    {"RegionId", !_regionId ? string() : *_regionId}
+  })
+);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> authReq = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(authRequest))}
   }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
-  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
-    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
-    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
-    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  shared_ptr<Alibabacloud_OpenApi::Params> authParams = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthorizeFileUpload"))},
+    {"version", boost::any(string("2019-12-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  shared_ptr<map<string, boost::any>> authResponse = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
-  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
-  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<map<string, boost::any>> ossHeader = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> tmpBody = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<bool> useAccelerate = make_shared<bool>(false);
+  shared_ptr<map<string, string>> authResponseBody = make_shared<map<string, string>>(map<string, string>());
   shared_ptr<ImportCertificateRequest> importCertificateReq = make_shared<ImportCertificateRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, importCertificateReq);
   if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->certificateFileObject)) {
-    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
-    ossConfig->accessKeyId = authResponse->body->accessKeyId;
-    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
-    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    shared_ptr<boost::any> tmpResp0 = make_shared<boost::any>(authClient->callApi(authParams, authReq, runtime));
+    authResponse = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(tmpResp0));
+    tmpBody = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(make_shared<boost::any>((*authResponse)["body"])));
+    useAccelerate = make_shared<bool>(Darabonba_Util::Client::assertAsBoolean(make_shared<boost::any>((*tmpBody)["UseAccelerate"])));
+    authResponseBody = make_shared<map<string, string>>(Darabonba_Util::Client::stringifyMapValue(tmpBody));
     fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
-      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"filename", boost::any(string((*authResponseBody)["ObjectKey"]))},
       {"content", !request->certificateFileObject ? boost::any() : boost::any(*request->certificateFileObject)},
       {"contentType", boost::any(string(""))}
     }));
-    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
-      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
-      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
-      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
-      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+    ossHeader = make_shared<map<string, boost::any>>(map<string, boost::any>({
+      {"host", boost::any(string((*authResponseBody)["Bucket"]) + string(".") + string(Alibabacloud_OpenApiUtil::Client::getEndpoint(make_shared<string>((*authResponseBody)["Endpoint"]), useAccelerate, _endpointType)))},
+      {"OSSAccessKeyId", boost::any(string((*authResponseBody)["AccessKeyId"]))},
+      {"policy", boost::any(string((*authResponseBody)["EncodedPolicy"]))},
+      {"Signature", boost::any(string((*authResponseBody)["Signature"]))},
+      {"key", boost::any(string((*authResponseBody)["ObjectKey"]))},
       {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
-      {"successActionStatus", boost::any(string("201"))}
-    }));
-    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
-      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
-      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
-    }));
-    ossClient->postObject(uploadRequest, ossRuntime);
-    importCertificateReq->certificateFile = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
+      {"success_action_status", boost::any(string("201"))}
+    })
+);
+    _postOSSObject(make_shared<string>((*authResponseBody)["Bucket"]), ossHeader);
+    importCertificateReq->certificateFile = make_shared<string>(string("http://") + string((*authResponseBody)["Bucket"]) + string(".") + string((*authResponseBody)["Endpoint"]) + string("/") + string((*authResponseBody)["ObjectKey"]));
   }
   shared_ptr<ImportCertificateResponse> importCertificateResp = make_shared<ImportCertificateResponse>(importCertificateWithOptions(importCertificateReq, runtime));
   return *importCertificateResp;
@@ -7189,21 +7269,21 @@ UpdateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::updateDIJobWi
     request->transformationRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transformationRules, make_shared<string>("TransformationRules"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->DIJobId)) {
+    query->insert(pair<string, long>("DIJobId", *request->DIJobId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->DIJobId)) {
-    body->insert(pair<string, long>("DIJobId", *request->DIJobId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    query->insert(pair<string, long>("ProjectId", *request->projectId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobSettingsShrink)) {
     body->insert(pair<string, string>("JobSettings", *request->jobSettingsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
-    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceSettingsShrink)) {
     body->insert(pair<string, string>("ResourceSettings", *request->resourceSettingsShrink));
@@ -7911,10 +7991,18 @@ UpdateResourceResponse Alibabacloud_Dataworks-public20240518::Client::updateReso
 
 UpdateResourceResponse Alibabacloud_Dataworks-public20240518::Client::updateResourceAdvance(shared_ptr<UpdateResourceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   // Step 0: init client
-  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
-  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
-  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
-  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<Alibabacloud_Credential::CredentialModel> credentialModel;
+  if (Darabonba_Util::Client::isUnset<Alibabacloud_Credential::Client>(_credential)) {
+    BOOST_THROW_EXCEPTION(Darabonba::Error(map<string, string>({
+      {"code", "InvalidCredentials"},
+      {"message", "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    })));
+  }
+  credentialModel = make_shared<Alibabacloud_Credential::CredentialModel>(_credential->getCredential());
+  shared_ptr<string> accessKeyId = credentialModel->accessKeyId;
+  shared_ptr<string> accessKeySecret = credentialModel->accessKeySecret;
+  shared_ptr<string> securityToken = credentialModel->securityToken;
+  shared_ptr<string> credentialType = credentialModel->type;
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
@@ -7931,51 +8019,57 @@ UpdateResourceResponse Alibabacloud_Dataworks-public20240518::Client::updateReso
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
-    {"product", boost::any(string("dataworks-public"))},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  shared_ptr<Alibabacloud_OpenApi::Client> authClient = make_shared<Alibabacloud_OpenApi::Client>(authConfig);
+  shared_ptr<map<string, string>> authRequest = make_shared<map<string, string>>(map<string, string>({
+    {"Product", "dataworks-public"},
+    {"RegionId", !_regionId ? string() : *_regionId}
+  })
+);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> authReq = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(authRequest))}
   }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
-  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
-    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
-    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
-    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  shared_ptr<Alibabacloud_OpenApi::Params> authParams = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthorizeFileUpload"))},
+    {"version", boost::any(string("2019-12-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  shared_ptr<map<string, boost::any>> authResponse = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
-  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
-  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<map<string, boost::any>> ossHeader = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> tmpBody = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<bool> useAccelerate = make_shared<bool>(false);
+  shared_ptr<map<string, string>> authResponseBody = make_shared<map<string, string>>(map<string, string>());
   shared_ptr<UpdateResourceRequest> updateResourceReq = make_shared<UpdateResourceRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, updateResourceReq);
   if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->resourceFileObject)) {
-    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
-    ossConfig->accessKeyId = authResponse->body->accessKeyId;
-    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
-    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    shared_ptr<boost::any> tmpResp0 = make_shared<boost::any>(authClient->callApi(authParams, authReq, runtime));
+    authResponse = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(tmpResp0));
+    tmpBody = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(make_shared<boost::any>((*authResponse)["body"])));
+    useAccelerate = make_shared<bool>(Darabonba_Util::Client::assertAsBoolean(make_shared<boost::any>((*tmpBody)["UseAccelerate"])));
+    authResponseBody = make_shared<map<string, string>>(Darabonba_Util::Client::stringifyMapValue(tmpBody));
     fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
-      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"filename", boost::any(string((*authResponseBody)["ObjectKey"]))},
       {"content", !request->resourceFileObject ? boost::any() : boost::any(*request->resourceFileObject)},
       {"contentType", boost::any(string(""))}
     }));
-    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
-      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
-      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
-      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
-      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+    ossHeader = make_shared<map<string, boost::any>>(map<string, boost::any>({
+      {"host", boost::any(string((*authResponseBody)["Bucket"]) + string(".") + string(Alibabacloud_OpenApiUtil::Client::getEndpoint(make_shared<string>((*authResponseBody)["Endpoint"]), useAccelerate, _endpointType)))},
+      {"OSSAccessKeyId", boost::any(string((*authResponseBody)["AccessKeyId"]))},
+      {"policy", boost::any(string((*authResponseBody)["EncodedPolicy"]))},
+      {"Signature", boost::any(string((*authResponseBody)["Signature"]))},
+      {"key", boost::any(string((*authResponseBody)["ObjectKey"]))},
       {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
-      {"successActionStatus", boost::any(string("201"))}
-    }));
-    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
-      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
-      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
-    }));
-    ossClient->postObject(uploadRequest, ossRuntime);
-    updateResourceReq->resourceFile = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
+      {"success_action_status", boost::any(string("201"))}
+    })
+);
+    _postOSSObject(make_shared<string>((*authResponseBody)["Bucket"]), ossHeader);
+    updateResourceReq->resourceFile = make_shared<string>(string("http://") + string((*authResponseBody)["Bucket"]) + string(".") + string((*authResponseBody)["Endpoint"]) + string("/") + string((*authResponseBody)["ObjectKey"]));
   }
   shared_ptr<UpdateResourceResponse> updateResourceResp = make_shared<UpdateResourceResponse>(updateResourceWithOptions(updateResourceReq, runtime));
   return *updateResourceResp;

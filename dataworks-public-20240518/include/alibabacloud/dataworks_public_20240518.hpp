@@ -33932,6 +33932,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> type{};
   shared_ptr<long> workflowId{};
+  shared_ptr<string> workflowParameters{};
 
   GetWorkflowInstanceResponseBodyWorkflowInstance() {}
 
@@ -33985,6 +33986,9 @@ public:
     if (workflowId) {
       res["WorkflowId"] = boost::any(*workflowId);
     }
+    if (workflowParameters) {
+      res["WorkflowParameters"] = boost::any(*workflowParameters);
+    }
     return res;
   }
 
@@ -34030,6 +34034,9 @@ public:
     }
     if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
       workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
+    }
+    if (m.find("WorkflowParameters") != m.end() && !m["WorkflowParameters"].empty()) {
+      workflowParameters = make_shared<string>(boost::any_cast<string>(m["WorkflowParameters"]));
     }
   }
 
@@ -61047,6 +61054,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> type{};
   shared_ptr<long> workflowId{};
+  shared_ptr<string> workflowParameters{};
 
   ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances() {}
 
@@ -61100,6 +61108,9 @@ public:
     if (workflowId) {
       res["WorkflowId"] = boost::any(*workflowId);
     }
+    if (workflowParameters) {
+      res["WorkflowParameters"] = boost::any(*workflowParameters);
+    }
     return res;
   }
 
@@ -61145,6 +61156,9 @@ public:
     }
     if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
       workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
+    }
+    if (m.find("WorkflowParameters") != m.end() && !m["WorkflowParameters"].empty()) {
+      workflowParameters = make_shared<string>(boost::any_cast<string>(m["WorkflowParameters"]));
     }
   }
 
@@ -75912,6 +75926,7 @@ public:
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
+  map<string, boost::any> _postOSSObject(shared_ptr<string> bucketName, shared_ptr<map<string, boost::any>> data);
   string getEndpoint(shared_ptr<string> productId,
                      shared_ptr<string> regionId,
                      shared_ptr<string> endpointRule,
