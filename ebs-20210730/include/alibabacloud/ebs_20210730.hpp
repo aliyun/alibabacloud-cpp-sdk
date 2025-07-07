@@ -1111,6 +1111,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> destinationRegionId{};
   shared_ptr<string> destinationZoneId{};
+  shared_ptr<bool> enableRtc{};
   shared_ptr<string> groupName{};
   shared_ptr<long> RPO{};
   shared_ptr<string> regionId{};
@@ -1142,6 +1143,9 @@ public:
     }
     if (destinationZoneId) {
       res["DestinationZoneId"] = boost::any(*destinationZoneId);
+    }
+    if (enableRtc) {
+      res["EnableRtc"] = boost::any(*enableRtc);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -1183,6 +1187,9 @@ public:
     }
     if (m.find("DestinationZoneId") != m.end() && !m["DestinationZoneId"].empty()) {
       destinationZoneId = make_shared<string>(boost::any_cast<string>(m["DestinationZoneId"]));
+    }
+    if (m.find("EnableRtc") != m.end() && !m["EnableRtc"].empty()) {
+      enableRtc = make_shared<bool>(boost::any_cast<bool>(m["EnableRtc"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -1351,6 +1358,7 @@ public:
   shared_ptr<string> destinationRegionId{};
   shared_ptr<string> destinationZoneId{};
   shared_ptr<string> diskId{};
+  shared_ptr<bool> enableRtc{};
   shared_ptr<string> pairName{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -1393,6 +1401,9 @@ public:
     }
     if (diskId) {
       res["DiskId"] = boost::any(*diskId);
+    }
+    if (enableRtc) {
+      res["EnableRtc"] = boost::any(*enableRtc);
     }
     if (pairName) {
       res["PairName"] = boost::any(*pairName);
@@ -1449,6 +1460,9 @@ public:
     }
     if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
       diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("EnableRtc") != m.end() && !m["EnableRtc"].empty()) {
+      enableRtc = make_shared<bool>(boost::any_cast<bool>(m["EnableRtc"]));
     }
     if (m.find("PairName") != m.end() && !m["PairName"].empty()) {
       pairName = make_shared<string>(boost::any_cast<string>(m["PairName"]));
@@ -4752,6 +4766,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> destinationRegionId{};
   shared_ptr<string> destinationZoneId{};
+  shared_ptr<bool> enableRtc{};
   shared_ptr<string> groupName{};
   shared_ptr<long> lastRecoverPoint{};
   shared_ptr<vector<vector<uint8_t>>> pairIds{};
@@ -4790,6 +4805,9 @@ public:
     }
     if (destinationZoneId) {
       res["DestinationZoneId"] = boost::any(*destinationZoneId);
+    }
+    if (enableRtc) {
+      res["EnableRtc"] = boost::any(*enableRtc);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -4858,6 +4876,9 @@ public:
     }
     if (m.find("DestinationZoneId") != m.end() && !m["DestinationZoneId"].empty()) {
       destinationZoneId = make_shared<string>(boost::any_cast<string>(m["DestinationZoneId"]));
+    }
+    if (m.find("EnableRtc") != m.end() && !m["EnableRtc"].empty()) {
+      enableRtc = make_shared<bool>(boost::any_cast<bool>(m["EnableRtc"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -5384,6 +5405,7 @@ public:
   shared_ptr<string> destinationDiskId{};
   shared_ptr<string> destinationRegion{};
   shared_ptr<string> destinationZoneId{};
+  shared_ptr<bool> enableRtc{};
   shared_ptr<long> expiredTime{};
   shared_ptr<long> lastRecoverPoint{};
   shared_ptr<string> pairName{};
@@ -5434,6 +5456,9 @@ public:
     }
     if (destinationZoneId) {
       res["DestinationZoneId"] = boost::any(*destinationZoneId);
+    }
+    if (enableRtc) {
+      res["EnableRtc"] = boost::any(*enableRtc);
     }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
@@ -5520,6 +5545,9 @@ public:
     }
     if (m.find("DestinationZoneId") != m.end() && !m["DestinationZoneId"].empty()) {
       destinationZoneId = make_shared<string>(boost::any_cast<string>(m["DestinationZoneId"]));
+    }
+    if (m.find("EnableRtc") != m.end() && !m["EnableRtc"].empty()) {
+      enableRtc = make_shared<bool>(boost::any_cast<bool>(m["EnableRtc"]));
     }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<long>(boost::any_cast<long>(m["ExpiredTime"]));
@@ -10185,6 +10213,7 @@ public:
   shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enableRtc{};
   shared_ptr<string> groupName{};
   shared_ptr<long> RPO{};
   shared_ptr<string> regionId{};
@@ -10208,6 +10237,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (enableRtc) {
+      res["EnableRtc"] = boost::any(*enableRtc);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -10233,6 +10265,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnableRtc") != m.end() && !m["EnableRtc"].empty()) {
+      enableRtc = make_shared<bool>(boost::any_cast<bool>(m["EnableRtc"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -10337,6 +10372,7 @@ public:
   shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enableRtc{};
   shared_ptr<string> pairName{};
   shared_ptr<long> RPO{};
   shared_ptr<string> regionId{};
@@ -10360,6 +10396,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (enableRtc) {
+      res["EnableRtc"] = boost::any(*enableRtc);
     }
     if (pairName) {
       res["PairName"] = boost::any(*pairName);
@@ -10385,6 +10424,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnableRtc") != m.end() && !m["EnableRtc"].empty()) {
+      enableRtc = make_shared<bool>(boost::any_cast<bool>(m["EnableRtc"]));
     }
     if (m.find("PairName") != m.end() && !m["PairName"].empty()) {
       pairName = make_shared<string>(boost::any_cast<string>(m["PairName"]));

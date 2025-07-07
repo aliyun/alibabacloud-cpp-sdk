@@ -334,6 +334,9 @@ CreateDiskReplicaGroupResponse Alibabacloud_Ebs20210730::Client::createDiskRepli
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationZoneId)) {
     query->insert(pair<string, string>("DestinationZoneId", *request->destinationZoneId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableRtc)) {
+    query->insert(pair<string, bool>("EnableRtc", *request->enableRtc));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
@@ -400,6 +403,9 @@ CreateDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::createDiskReplic
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->diskId)) {
     query->insert(pair<string, string>("DiskId", *request->diskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableRtc)) {
+    query->insert(pair<string, bool>("EnableRtc", *request->enableRtc));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pairName)) {
     query->insert(pair<string, string>("PairName", *request->pairName));
@@ -1733,6 +1739,9 @@ ModifyDiskReplicaGroupResponse Alibabacloud_Ebs20210730::Client::modifyDiskRepli
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableRtc)) {
+    query->insert(pair<string, bool>("EnableRtc", *request->enableRtc));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
@@ -1778,6 +1787,9 @@ ModifyDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::modifyDiskReplic
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableRtc)) {
+    query->insert(pair<string, bool>("EnableRtc", *request->enableRtc));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pairName)) {
     query->insert(pair<string, string>("PairName", *request->pairName));
