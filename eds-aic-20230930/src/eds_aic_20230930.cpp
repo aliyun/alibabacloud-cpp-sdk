@@ -455,6 +455,9 @@ CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPh
   if (!Darabonba_Util::Client::isUnset<long>(request->phoneCount)) {
     query->insert(pair<string, long>("PhoneCount", *request->phoneCount));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->phoneDataVolume)) {
+    query->insert(pair<string, long>("PhoneDataVolume", *request->phoneDataVolume));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->resolutionHeight)) {
     query->insert(pair<string, long>("ResolutionHeight", *request->resolutionHeight));
   }

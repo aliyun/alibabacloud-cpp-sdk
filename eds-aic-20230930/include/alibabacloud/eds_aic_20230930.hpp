@@ -2169,6 +2169,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<long> phoneCount{};
+  shared_ptr<long> phoneDataVolume{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
   shared_ptr<long> serverShareDataVolume{};
@@ -2225,6 +2226,9 @@ public:
     }
     if (phoneCount) {
       res["PhoneCount"] = boost::any(*phoneCount);
+    }
+    if (phoneDataVolume) {
+      res["PhoneDataVolume"] = boost::any(*phoneDataVolume);
     }
     if (resolutionHeight) {
       res["ResolutionHeight"] = boost::any(*resolutionHeight);
@@ -2297,6 +2301,9 @@ public:
     }
     if (m.find("PhoneCount") != m.end() && !m["PhoneCount"].empty()) {
       phoneCount = make_shared<long>(boost::any_cast<long>(m["PhoneCount"]));
+    }
+    if (m.find("PhoneDataVolume") != m.end() && !m["PhoneDataVolume"].empty()) {
+      phoneDataVolume = make_shared<long>(boost::any_cast<long>(m["PhoneDataVolume"]));
     }
     if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
       resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
@@ -2385,6 +2392,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<long> phoneCount{};
+  shared_ptr<long> phoneDataVolume{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
   shared_ptr<long> serverShareDataVolume{};
@@ -2441,6 +2449,9 @@ public:
     }
     if (phoneCount) {
       res["PhoneCount"] = boost::any(*phoneCount);
+    }
+    if (phoneDataVolume) {
+      res["PhoneDataVolume"] = boost::any(*phoneDataVolume);
     }
     if (resolutionHeight) {
       res["ResolutionHeight"] = boost::any(*resolutionHeight);
@@ -2509,6 +2520,9 @@ public:
     }
     if (m.find("PhoneCount") != m.end() && !m["PhoneCount"].empty()) {
       phoneCount = make_shared<long>(boost::any_cast<long>(m["PhoneCount"]));
+    }
+    if (m.find("PhoneDataVolume") != m.end() && !m["PhoneDataVolume"].empty()) {
+      phoneDataVolume = make_shared<long>(boost::any_cast<long>(m["PhoneDataVolume"]));
     }
     if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
       resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
