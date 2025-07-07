@@ -2502,8 +2502,11 @@ class AppInfoDTO : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
   shared_ptr<long> appType{};
+  shared_ptr<string> creationTime{};
   shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
   shared_ptr<string> itemId{};
+  shared_ptr<string> modificationTime{};
   shared_ptr<vector<AppInfoDTOPlatforms>> platforms{};
   shared_ptr<long> userId{};
 
@@ -2523,11 +2526,20 @@ public:
     if (appType) {
       res["AppType"] = boost::any(*appType);
     }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
     if (itemId) {
       res["ItemId"] = boost::any(*itemId);
+    }
+    if (modificationTime) {
+      res["ModificationTime"] = boost::any(*modificationTime);
     }
     if (platforms) {
       vector<boost::any> temp1;
@@ -2549,11 +2561,20 @@ public:
     if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
       appType = make_shared<long>(boost::any_cast<long>(m["AppType"]));
     }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
     }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
     if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
       itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
+      modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
     }
     if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
       if (typeid(vector<boost::any>) == m["Platforms"].type()) {
@@ -41352,6 +41373,8 @@ public:
 };
 class GetSmartHandleJobResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
   shared_ptr<string> jobId{};
   shared_ptr<GetSmartHandleJobResponseBodyJobResult> jobResult{};
   shared_ptr<string> output{};
@@ -41370,6 +41393,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
@@ -41395,6 +41424,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
