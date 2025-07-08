@@ -264,6 +264,53 @@ GetXtraceTokenResponse Alibabacloud_PaiLLMTrace20240311::Client::getXtraceToken(
   return getXtraceTokenWithOptions(headers, runtime);
 }
 
+ListEvalResultsResponse Alibabacloud_PaiLLMTrace20240311::Client::listEvalResultsWithOptions(shared_ptr<ListEvalResultsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListEvalResultsShrinkRequest> request = make_shared<ListEvalResultsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->recordIds)) {
+    request->recordIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->recordIds, make_shared<string>("RecordIds"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->evaluationId)) {
+    query->insert(pair<string, string>("EvaluationId", *request->evaluationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordIdsShrink)) {
+    query->insert(pair<string, string>("RecordIds", *request->recordIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListEvalResults"))},
+    {"version", boost::any(string("2024-03-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/PAILLMTrace/eval/results"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListEvalResultsResponse(callApi(params, req, runtime));
+}
+
+ListEvalResultsResponse Alibabacloud_PaiLLMTrace20240311::Client::listEvalResults(shared_ptr<ListEvalResultsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listEvalResultsWithOptions(request, headers, runtime);
+}
+
 ListOnlineEvalTaskResultsResponse Alibabacloud_PaiLLMTrace20240311::Client::listOnlineEvalTaskResultsWithOptions(shared_ptr<ListOnlineEvalTaskResultsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ListOnlineEvalTaskResultsShrinkRequest> request = make_shared<ListOnlineEvalTaskResultsShrinkRequest>();
@@ -382,8 +429,14 @@ ListTracesDatasResponse Alibabacloud_PaiLLMTrace20240311::Client::listTracesData
   if (!Darabonba_Util::Client::isUnset<string>(request->llmAppName)) {
     query->insert(pair<string, string>("LlmAppName", *request->llmAppName));
   }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxDuration)) {
+    query->insert(pair<string, double>("MaxDuration", *request->maxDuration));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->maxTime)) {
     query->insert(pair<string, string>("MaxTime", *request->maxTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minDuration)) {
+    query->insert(pair<string, double>("MinDuration", *request->minDuration));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->minTime)) {
     query->insert(pair<string, string>("MinTime", *request->minTime));
@@ -411,6 +464,9 @@ ListTracesDatasResponse Alibabacloud_PaiLLMTrace20240311::Client::listTracesData
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spanIdsShrink)) {
     query->insert(pair<string, string>("SpanIds", *request->spanIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spanName)) {
+    query->insert(pair<string, string>("SpanName", *request->spanName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->traceIdsShrink)) {
     query->insert(pair<string, string>("TraceIds", *request->traceIdsShrink));

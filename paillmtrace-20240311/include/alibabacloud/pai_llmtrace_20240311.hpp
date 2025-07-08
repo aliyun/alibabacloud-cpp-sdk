@@ -1642,6 +1642,243 @@ public:
 
   virtual ~GetXtraceTokenResponse() = default;
 };
+class ListEvalResultsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> evaluationId{};
+  shared_ptr<string> keyword{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<string>> recordIds{};
+
+  ListEvalResultsRequest() {}
+
+  explicit ListEvalResultsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (evaluationId) {
+      res["EvaluationId"] = boost::any(*evaluationId);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (recordIds) {
+      res["RecordIds"] = boost::any(*recordIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EvaluationId") != m.end() && !m["EvaluationId"].empty()) {
+      evaluationId = make_shared<string>(boost::any_cast<string>(m["EvaluationId"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RecordIds") != m.end() && !m["RecordIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListEvalResultsRequest() = default;
+};
+class ListEvalResultsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> evaluationId{};
+  shared_ptr<string> keyword{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> recordIdsShrink{};
+
+  ListEvalResultsShrinkRequest() {}
+
+  explicit ListEvalResultsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (evaluationId) {
+      res["EvaluationId"] = boost::any(*evaluationId);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (recordIdsShrink) {
+      res["RecordIds"] = boost::any(*recordIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EvaluationId") != m.end() && !m["EvaluationId"].empty()) {
+      evaluationId = make_shared<string>(boost::any_cast<string>(m["EvaluationId"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RecordIds") != m.end() && !m["RecordIds"].empty()) {
+      recordIdsShrink = make_shared<string>(boost::any_cast<string>(m["RecordIds"]));
+    }
+  }
+
+
+  virtual ~ListEvalResultsShrinkRequest() = default;
+};
+class ListEvalResultsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<string>> evaluationResults{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListEvalResultsResponseBody() {}
+
+  explicit ListEvalResultsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (evaluationResults) {
+      res["EvaluationResults"] = boost::any(*evaluationResults);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("EvaluationResults") != m.end() && !m["EvaluationResults"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EvaluationResults"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EvaluationResults"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      evaluationResults = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListEvalResultsResponseBody() = default;
+};
+class ListEvalResultsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListEvalResultsResponseBody> body{};
+
+  ListEvalResultsResponse() {}
+
+  explicit ListEvalResultsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListEvalResultsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListEvalResultsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListEvalResultsResponse() = default;
+};
 class ListOnlineEvalTaskResultsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> evaluationId{};
@@ -2301,7 +2538,9 @@ public:
   shared_ptr<bool> hasEvents{};
   shared_ptr<bool> hasStatusMessage{};
   shared_ptr<string> llmAppName{};
+  shared_ptr<double> maxDuration{};
   shared_ptr<string> maxTime{};
+  shared_ptr<double> minDuration{};
   shared_ptr<string> minTime{};
   shared_ptr<bool> opentelemetryCompatible{};
   shared_ptr<string> ownerId{};
@@ -2311,6 +2550,7 @@ public:
   shared_ptr<string> sortBy{};
   shared_ptr<string> sortOrder{};
   shared_ptr<vector<string>> spanIds{};
+  shared_ptr<string> spanName{};
   shared_ptr<vector<string>> traceIds{};
   shared_ptr<string> traceReduceMethod{};
 
@@ -2343,8 +2583,14 @@ public:
     if (llmAppName) {
       res["LlmAppName"] = boost::any(*llmAppName);
     }
+    if (maxDuration) {
+      res["MaxDuration"] = boost::any(*maxDuration);
+    }
     if (maxTime) {
       res["MaxTime"] = boost::any(*maxTime);
+    }
+    if (minDuration) {
+      res["MinDuration"] = boost::any(*minDuration);
     }
     if (minTime) {
       res["MinTime"] = boost::any(*minTime);
@@ -2372,6 +2618,9 @@ public:
     }
     if (spanIds) {
       res["SpanIds"] = boost::any(*spanIds);
+    }
+    if (spanName) {
+      res["SpanName"] = boost::any(*spanName);
     }
     if (traceIds) {
       res["TraceIds"] = boost::any(*traceIds);
@@ -2408,8 +2657,14 @@ public:
     if (m.find("LlmAppName") != m.end() && !m["LlmAppName"].empty()) {
       llmAppName = make_shared<string>(boost::any_cast<string>(m["LlmAppName"]));
     }
+    if (m.find("MaxDuration") != m.end() && !m["MaxDuration"].empty()) {
+      maxDuration = make_shared<double>(boost::any_cast<double>(m["MaxDuration"]));
+    }
     if (m.find("MaxTime") != m.end() && !m["MaxTime"].empty()) {
       maxTime = make_shared<string>(boost::any_cast<string>(m["MaxTime"]));
+    }
+    if (m.find("MinDuration") != m.end() && !m["MinDuration"].empty()) {
+      minDuration = make_shared<double>(boost::any_cast<double>(m["MinDuration"]));
     }
     if (m.find("MinTime") != m.end() && !m["MinTime"].empty()) {
       minTime = make_shared<string>(boost::any_cast<string>(m["MinTime"]));
@@ -2445,6 +2700,9 @@ public:
       }
       spanIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("SpanName") != m.end() && !m["SpanName"].empty()) {
+      spanName = make_shared<string>(boost::any_cast<string>(m["SpanName"]));
+    }
     if (m.find("TraceIds") != m.end() && !m["TraceIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["TraceIds"].type()) {
@@ -2470,7 +2728,9 @@ public:
   shared_ptr<bool> hasEvents{};
   shared_ptr<bool> hasStatusMessage{};
   shared_ptr<string> llmAppName{};
+  shared_ptr<double> maxDuration{};
   shared_ptr<string> maxTime{};
+  shared_ptr<double> minDuration{};
   shared_ptr<string> minTime{};
   shared_ptr<bool> opentelemetryCompatible{};
   shared_ptr<string> ownerId{};
@@ -2480,6 +2740,7 @@ public:
   shared_ptr<string> sortBy{};
   shared_ptr<string> sortOrder{};
   shared_ptr<string> spanIdsShrink{};
+  shared_ptr<string> spanName{};
   shared_ptr<string> traceIdsShrink{};
   shared_ptr<string> traceReduceMethod{};
 
@@ -2508,8 +2769,14 @@ public:
     if (llmAppName) {
       res["LlmAppName"] = boost::any(*llmAppName);
     }
+    if (maxDuration) {
+      res["MaxDuration"] = boost::any(*maxDuration);
+    }
     if (maxTime) {
       res["MaxTime"] = boost::any(*maxTime);
+    }
+    if (minDuration) {
+      res["MinDuration"] = boost::any(*minDuration);
     }
     if (minTime) {
       res["MinTime"] = boost::any(*minTime);
@@ -2538,6 +2805,9 @@ public:
     if (spanIdsShrink) {
       res["SpanIds"] = boost::any(*spanIdsShrink);
     }
+    if (spanName) {
+      res["SpanName"] = boost::any(*spanName);
+    }
     if (traceIdsShrink) {
       res["TraceIds"] = boost::any(*traceIdsShrink);
     }
@@ -2563,8 +2833,14 @@ public:
     if (m.find("LlmAppName") != m.end() && !m["LlmAppName"].empty()) {
       llmAppName = make_shared<string>(boost::any_cast<string>(m["LlmAppName"]));
     }
+    if (m.find("MaxDuration") != m.end() && !m["MaxDuration"].empty()) {
+      maxDuration = make_shared<double>(boost::any_cast<double>(m["MaxDuration"]));
+    }
     if (m.find("MaxTime") != m.end() && !m["MaxTime"].empty()) {
       maxTime = make_shared<string>(boost::any_cast<string>(m["MaxTime"]));
+    }
+    if (m.find("MinDuration") != m.end() && !m["MinDuration"].empty()) {
+      minDuration = make_shared<double>(boost::any_cast<double>(m["MinDuration"]));
     }
     if (m.find("MinTime") != m.end() && !m["MinTime"].empty()) {
       minTime = make_shared<string>(boost::any_cast<string>(m["MinTime"]));
@@ -2592,6 +2868,9 @@ public:
     }
     if (m.find("SpanIds") != m.end() && !m["SpanIds"].empty()) {
       spanIdsShrink = make_shared<string>(boost::any_cast<string>(m["SpanIds"]));
+    }
+    if (m.find("SpanName") != m.end() && !m["SpanName"].empty()) {
+      spanName = make_shared<string>(boost::any_cast<string>(m["SpanName"]));
     }
     if (m.find("TraceIds") != m.end() && !m["TraceIds"].empty()) {
       traceIdsShrink = make_shared<string>(boost::any_cast<string>(m["TraceIds"]));
@@ -3096,6 +3375,8 @@ public:
   GetServiceIdentityRoleResponse getServiceIdentityRole();
   GetXtraceTokenResponse getXtraceTokenWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetXtraceTokenResponse getXtraceToken();
+  ListEvalResultsResponse listEvalResultsWithOptions(shared_ptr<ListEvalResultsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListEvalResultsResponse listEvalResults(shared_ptr<ListEvalResultsRequest> request);
   ListOnlineEvalTaskResultsResponse listOnlineEvalTaskResultsWithOptions(shared_ptr<ListOnlineEvalTaskResultsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOnlineEvalTaskResultsResponse listOnlineEvalTaskResults(shared_ptr<ListOnlineEvalTaskResultsRequest> request);
   ListOnlineEvalTasksResponse listOnlineEvalTasksWithOptions(shared_ptr<ListOnlineEvalTasksRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
