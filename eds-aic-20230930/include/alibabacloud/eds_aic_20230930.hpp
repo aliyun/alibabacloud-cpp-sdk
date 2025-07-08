@@ -8183,6 +8183,442 @@ public:
 
   virtual ~DescribeKeyPairsResponse() = default;
 };
+class DescribeMetricLastRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> length{};
+  shared_ptr<vector<string>> metricNames{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> period{};
+  shared_ptr<string> startTime{};
+
+  DescribeMetricLastRequest() {}
+
+  explicit DescribeMetricLastRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceIds) {
+      res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (length) {
+      res["Length"] = boost::any(*length);
+    }
+    if (metricNames) {
+      res["MetricNames"] = boost::any(*metricNames);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceIds") != m.end() && !m["AndroidInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Length") != m.end() && !m["Length"].empty()) {
+      length = make_shared<string>(boost::any_cast<string>(m["Length"]));
+    }
+    if (m.find("MetricNames") != m.end() && !m["MetricNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MetricNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MetricNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      metricNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeMetricLastRequest() = default;
+};
+class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints : public Darabonba::Model {
+public:
+  shared_ptr<double> average{};
+  shared_ptr<double> maximum{};
+  shared_ptr<double> minimum{};
+  shared_ptr<long> timestamp{};
+
+  DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints() {}
+
+  explicit DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (average) {
+      res["Average"] = boost::any(*average);
+    }
+    if (maximum) {
+      res["Maximum"] = boost::any(*maximum);
+    }
+    if (minimum) {
+      res["Minimum"] = boost::any(*minimum);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Average") != m.end() && !m["Average"].empty()) {
+      average = make_shared<double>(boost::any_cast<double>(m["Average"]));
+    }
+    if (m.find("Maximum") != m.end() && !m["Maximum"].empty()) {
+      maximum = make_shared<double>(boost::any_cast<double>(m["Maximum"]));
+    }
+    if (m.find("Minimum") != m.end() && !m["Minimum"].empty()) {
+      minimum = make_shared<double>(boost::any_cast<double>(m["Minimum"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints() = default;
+};
+class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos : public Darabonba::Model {
+public:
+  shared_ptr<double> cpuUsage{};
+  shared_ptr<double> memoryUsage{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<long>> processIds{};
+  shared_ptr<long> timestamp{};
+
+  DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos() {}
+
+  explicit DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuUsage) {
+      res["CpuUsage"] = boost::any(*cpuUsage);
+    }
+    if (memoryUsage) {
+      res["MemoryUsage"] = boost::any(*memoryUsage);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (processIds) {
+      res["ProcessIds"] = boost::any(*processIds);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CpuUsage") != m.end() && !m["CpuUsage"].empty()) {
+      cpuUsage = make_shared<double>(boost::any_cast<double>(m["CpuUsage"]));
+    }
+    if (m.find("MemoryUsage") != m.end() && !m["MemoryUsage"].empty()) {
+      memoryUsage = make_shared<double>(boost::any_cast<double>(m["MemoryUsage"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProcessIds") != m.end() && !m["ProcessIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ProcessIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ProcessIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      processIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos() = default;
+};
+class DescribeMetricLastResponseBodyMetricTotalModelMetricModelList : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints>> dataPoints{};
+  shared_ptr<string> metricName{};
+  shared_ptr<vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos>> processLastInfos{};
+
+  DescribeMetricLastResponseBodyMetricTotalModelMetricModelList() {}
+
+  explicit DescribeMetricLastResponseBodyMetricTotalModelMetricModelList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DataPoints"] = boost::any(temp1);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (processLastInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*processLastInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ProcessLastInfos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataPoints") != m.end() && !m["DataPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["DataPoints"].type()) {
+        vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DataPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataPoints = make_shared<vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints>>(expect1);
+      }
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("ProcessLastInfos") != m.end() && !m["ProcessLastInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ProcessLastInfos"].type()) {
+        vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ProcessLastInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        processLastInfos = make_shared<vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMetricLastResponseBodyMetricTotalModelMetricModelList() = default;
+};
+class DescribeMetricLastResponseBodyMetricTotalModel : public Darabonba::Model {
+public:
+  shared_ptr<string> androidInstanceId{};
+  shared_ptr<vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelList>> metricModelList{};
+
+  DescribeMetricLastResponseBodyMetricTotalModel() {}
+
+  explicit DescribeMetricLastResponseBodyMetricTotalModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceId) {
+      res["AndroidInstanceId"] = boost::any(*androidInstanceId);
+    }
+    if (metricModelList) {
+      vector<boost::any> temp1;
+      for(auto item1:*metricModelList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MetricModelList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
+      androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
+    }
+    if (m.find("MetricModelList") != m.end() && !m["MetricModelList"].empty()) {
+      if (typeid(vector<boost::any>) == m["MetricModelList"].type()) {
+        vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MetricModelList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMetricLastResponseBodyMetricTotalModelMetricModelList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metricModelList = make_shared<vector<DescribeMetricLastResponseBodyMetricTotalModelMetricModelList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMetricLastResponseBodyMetricTotalModel() = default;
+};
+class DescribeMetricLastResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<vector<DescribeMetricLastResponseBodyMetricTotalModel>> metricTotalModel{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+
+  DescribeMetricLastResponseBody() {}
+
+  explicit DescribeMetricLastResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (metricTotalModel) {
+      vector<boost::any> temp1;
+      for(auto item1:*metricTotalModel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MetricTotalModel"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("MetricTotalModel") != m.end() && !m["MetricTotalModel"].empty()) {
+      if (typeid(vector<boost::any>) == m["MetricTotalModel"].type()) {
+        vector<DescribeMetricLastResponseBodyMetricTotalModel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MetricTotalModel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMetricLastResponseBodyMetricTotalModel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metricTotalModel = make_shared<vector<DescribeMetricLastResponseBodyMetricTotalModel>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeMetricLastResponseBody() = default;
+};
+class DescribeMetricLastResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeMetricLastResponseBody> body{};
+
+  DescribeMetricLastResponse() {}
+
+  explicit DescribeMetricLastResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeMetricLastResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeMetricLastResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMetricLastResponse() = default;
+};
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -15098,6 +15534,8 @@ public:
   DescribeInvocationsResponse describeInvocations(shared_ptr<DescribeInvocationsRequest> request);
   DescribeKeyPairsResponse describeKeyPairsWithOptions(shared_ptr<DescribeKeyPairsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeKeyPairsResponse describeKeyPairs(shared_ptr<DescribeKeyPairsRequest> request);
+  DescribeMetricLastResponse describeMetricLastWithOptions(shared_ptr<DescribeMetricLastRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeMetricLastResponse describeMetricLast(shared_ptr<DescribeMetricLastRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeSpecResponse describeSpecWithOptions(shared_ptr<DescribeSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

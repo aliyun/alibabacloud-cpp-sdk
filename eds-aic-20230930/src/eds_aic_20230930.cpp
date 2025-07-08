@@ -1318,6 +1318,52 @@ DescribeKeyPairsResponse Alibabacloud_Eds-aic20230930::Client::describeKeyPairs(
   return describeKeyPairsWithOptions(request, runtime);
 }
 
+DescribeMetricLastResponse Alibabacloud_Eds-aic20230930::Client::describeMetricLastWithOptions(shared_ptr<DescribeMetricLastRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
+    body->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->length)) {
+    body->insert(pair<string, string>("Length", *request->length));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->metricNames)) {
+    body->insert(pair<string, vector<string>>("MetricNames", *request->metricNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    body->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    body->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeMetricLast"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeMetricLastResponse(callApi(params, req, runtime));
+}
+
+DescribeMetricLastResponse Alibabacloud_Eds-aic20230930::Client::describeMetricLast(shared_ptr<DescribeMetricLastRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeMetricLastWithOptions(request, runtime);
+}
+
 DescribeRegionsResponse Alibabacloud_Eds-aic20230930::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
