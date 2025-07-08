@@ -7612,6 +7612,9 @@ DescribeDedicatedHostsResponse Alibabacloud_Ecs20140526::Client::describeDedicat
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->queryInventory)) {
+    query->insert(pair<string, bool>("QueryInventory", *request->queryInventory));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
