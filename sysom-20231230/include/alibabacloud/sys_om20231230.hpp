@@ -10273,12 +10273,19 @@ public:
 class StartAIAnalysisRequest : public Darabonba::Model {
 public:
   shared_ptr<string> analysisTool{};
+  shared_ptr<vector<string>> analysisParams{};
   shared_ptr<string> channel{};
   shared_ptr<string> comms{};
+  shared_ptr<string> createdBy{};
   shared_ptr<string> instance{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> iterationFunc{};
+  shared_ptr<string> iterationMod{};
+  shared_ptr<vector<long>> iterationRange{};
   shared_ptr<string> pids{};
   shared_ptr<string> region{};
   shared_ptr<long> timeout{};
+  shared_ptr<string> uid{};
 
   StartAIAnalysisRequest() {}
 
@@ -10293,14 +10300,32 @@ public:
     if (analysisTool) {
       res["analysisTool"] = boost::any(*analysisTool);
     }
+    if (analysisParams) {
+      res["analysis_params"] = boost::any(*analysisParams);
+    }
     if (channel) {
       res["channel"] = boost::any(*channel);
     }
     if (comms) {
       res["comms"] = boost::any(*comms);
     }
+    if (createdBy) {
+      res["created_by"] = boost::any(*createdBy);
+    }
     if (instance) {
       res["instance"] = boost::any(*instance);
+    }
+    if (instanceType) {
+      res["instance_type"] = boost::any(*instanceType);
+    }
+    if (iterationFunc) {
+      res["iteration_func"] = boost::any(*iterationFunc);
+    }
+    if (iterationMod) {
+      res["iteration_mod"] = boost::any(*iterationMod);
+    }
+    if (iterationRange) {
+      res["iteration_range"] = boost::any(*iterationRange);
     }
     if (pids) {
       res["pids"] = boost::any(*pids);
@@ -10311,6 +10336,9 @@ public:
     if (timeout) {
       res["timeout"] = boost::any(*timeout);
     }
+    if (uid) {
+      res["uid"] = boost::any(*uid);
+    }
     return res;
   }
 
@@ -10318,14 +10346,46 @@ public:
     if (m.find("analysisTool") != m.end() && !m["analysisTool"].empty()) {
       analysisTool = make_shared<string>(boost::any_cast<string>(m["analysisTool"]));
     }
+    if (m.find("analysis_params") != m.end() && !m["analysis_params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["analysis_params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["analysis_params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      analysisParams = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("channel") != m.end() && !m["channel"].empty()) {
       channel = make_shared<string>(boost::any_cast<string>(m["channel"]));
     }
     if (m.find("comms") != m.end() && !m["comms"].empty()) {
       comms = make_shared<string>(boost::any_cast<string>(m["comms"]));
     }
+    if (m.find("created_by") != m.end() && !m["created_by"].empty()) {
+      createdBy = make_shared<string>(boost::any_cast<string>(m["created_by"]));
+    }
     if (m.find("instance") != m.end() && !m["instance"].empty()) {
       instance = make_shared<string>(boost::any_cast<string>(m["instance"]));
+    }
+    if (m.find("instance_type") != m.end() && !m["instance_type"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["instance_type"]));
+    }
+    if (m.find("iteration_func") != m.end() && !m["iteration_func"].empty()) {
+      iterationFunc = make_shared<string>(boost::any_cast<string>(m["iteration_func"]));
+    }
+    if (m.find("iteration_mod") != m.end() && !m["iteration_mod"].empty()) {
+      iterationMod = make_shared<string>(boost::any_cast<string>(m["iteration_mod"]));
+    }
+    if (m.find("iteration_range") != m.end() && !m["iteration_range"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["iteration_range"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["iteration_range"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      iterationRange = make_shared<vector<long>>(toVec1);
     }
     if (m.find("pids") != m.end() && !m["pids"].empty()) {
       pids = make_shared<string>(boost::any_cast<string>(m["pids"]));
@@ -10335,6 +10395,9 @@ public:
     }
     if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
       timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+    if (m.find("uid") != m.end() && !m["uid"].empty()) {
+      uid = make_shared<string>(boost::any_cast<string>(m["uid"]));
     }
   }
 
@@ -10475,6 +10538,266 @@ public:
 
 
   virtual ~StartAIAnalysisResponse() = default;
+};
+class StartAIDiffAnalysisRequestTask1 : public Darabonba::Model {
+public:
+  shared_ptr<string> analysisId{};
+  shared_ptr<vector<string>> pids{};
+  shared_ptr<double> stepEnd{};
+  shared_ptr<double> stepStart{};
+
+  StartAIDiffAnalysisRequestTask1() {}
+
+  explicit StartAIDiffAnalysisRequestTask1(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (analysisId) {
+      res["analysisId"] = boost::any(*analysisId);
+    }
+    if (pids) {
+      res["pids"] = boost::any(*pids);
+    }
+    if (stepEnd) {
+      res["step_end"] = boost::any(*stepEnd);
+    }
+    if (stepStart) {
+      res["step_start"] = boost::any(*stepStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("analysisId") != m.end() && !m["analysisId"].empty()) {
+      analysisId = make_shared<string>(boost::any_cast<string>(m["analysisId"]));
+    }
+    if (m.find("pids") != m.end() && !m["pids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["pids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["pids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      pids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("step_end") != m.end() && !m["step_end"].empty()) {
+      stepEnd = make_shared<double>(boost::any_cast<double>(m["step_end"]));
+    }
+    if (m.find("step_start") != m.end() && !m["step_start"].empty()) {
+      stepStart = make_shared<double>(boost::any_cast<double>(m["step_start"]));
+    }
+  }
+
+
+  virtual ~StartAIDiffAnalysisRequestTask1() = default;
+};
+class StartAIDiffAnalysisRequestTask2 : public Darabonba::Model {
+public:
+  shared_ptr<string> analysisId{};
+  shared_ptr<vector<string>> pids{};
+  shared_ptr<double> stepEnd{};
+  shared_ptr<double> stepStart{};
+
+  StartAIDiffAnalysisRequestTask2() {}
+
+  explicit StartAIDiffAnalysisRequestTask2(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (analysisId) {
+      res["analysisId"] = boost::any(*analysisId);
+    }
+    if (pids) {
+      res["pids"] = boost::any(*pids);
+    }
+    if (stepEnd) {
+      res["step_end"] = boost::any(*stepEnd);
+    }
+    if (stepStart) {
+      res["step_start"] = boost::any(*stepStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("analysisId") != m.end() && !m["analysisId"].empty()) {
+      analysisId = make_shared<string>(boost::any_cast<string>(m["analysisId"]));
+    }
+    if (m.find("pids") != m.end() && !m["pids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["pids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["pids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      pids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("step_end") != m.end() && !m["step_end"].empty()) {
+      stepEnd = make_shared<double>(boost::any_cast<double>(m["step_end"]));
+    }
+    if (m.find("step_start") != m.end() && !m["step_start"].empty()) {
+      stepStart = make_shared<double>(boost::any_cast<double>(m["step_start"]));
+    }
+  }
+
+
+  virtual ~StartAIDiffAnalysisRequestTask2() = default;
+};
+class StartAIDiffAnalysisRequest : public Darabonba::Model {
+public:
+  shared_ptr<StartAIDiffAnalysisRequestTask1> task1{};
+  shared_ptr<StartAIDiffAnalysisRequestTask2> task2{};
+
+  StartAIDiffAnalysisRequest() {}
+
+  explicit StartAIDiffAnalysisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (task1) {
+      res["task1"] = task1 ? boost::any(task1->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (task2) {
+      res["task2"] = task2 ? boost::any(task2->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("task1") != m.end() && !m["task1"].empty()) {
+      if (typeid(map<string, boost::any>) == m["task1"].type()) {
+        StartAIDiffAnalysisRequestTask1 model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["task1"]));
+        task1 = make_shared<StartAIDiffAnalysisRequestTask1>(model1);
+      }
+    }
+    if (m.find("task2") != m.end() && !m["task2"].empty()) {
+      if (typeid(map<string, boost::any>) == m["task2"].type()) {
+        StartAIDiffAnalysisRequestTask2 model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["task2"]));
+        task2 = make_shared<StartAIDiffAnalysisRequestTask2>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartAIDiffAnalysisRequest() = default;
+};
+class StartAIDiffAnalysisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  StartAIDiffAnalysisResponseBody() {}
+
+  explicit StartAIDiffAnalysisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["data"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~StartAIDiffAnalysisResponseBody() = default;
+};
+class StartAIDiffAnalysisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartAIDiffAnalysisResponseBody> body{};
+
+  StartAIDiffAnalysisResponse() {}
+
+  explicit StartAIDiffAnalysisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartAIDiffAnalysisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartAIDiffAnalysisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartAIDiffAnalysisResponse() = default;
 };
 class UninstallAgentRequestInstances : public Darabonba::Model {
 public:
@@ -11942,6 +12265,8 @@ public:
   ListRegionsResponse listRegions();
   StartAIAnalysisResponse startAIAnalysisWithOptions(shared_ptr<StartAIAnalysisRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartAIAnalysisResponse startAIAnalysis(shared_ptr<StartAIAnalysisRequest> request);
+  StartAIDiffAnalysisResponse startAIDiffAnalysisWithOptions(shared_ptr<StartAIDiffAnalysisRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartAIDiffAnalysisResponse startAIDiffAnalysis(shared_ptr<StartAIDiffAnalysisRequest> request);
   UninstallAgentResponse uninstallAgentWithOptions(shared_ptr<UninstallAgentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UninstallAgentResponse uninstallAgent(shared_ptr<UninstallAgentRequest> request);
   UninstallAgentForClusterResponse uninstallAgentForClusterWithOptions(shared_ptr<UninstallAgentForClusterRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

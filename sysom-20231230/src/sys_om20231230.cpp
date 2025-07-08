@@ -1754,14 +1754,32 @@ StartAIAnalysisResponse Alibabacloud_SysOM20231230::Client::startAIAnalysisWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->analysisTool)) {
     body->insert(pair<string, string>("analysisTool", *request->analysisTool));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->analysisParams)) {
+    body->insert(pair<string, vector<string>>("analysis_params", *request->analysisParams));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->channel)) {
     body->insert(pair<string, string>("channel", *request->channel));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->comms)) {
     body->insert(pair<string, string>("comms", *request->comms));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createdBy)) {
+    body->insert(pair<string, string>("created_by", *request->createdBy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instance)) {
     body->insert(pair<string, string>("instance", *request->instance));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    body->insert(pair<string, string>("instance_type", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iterationFunc)) {
+    body->insert(pair<string, string>("iteration_func", *request->iterationFunc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iterationMod)) {
+    body->insert(pair<string, string>("iteration_mod", *request->iterationMod));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->iterationRange)) {
+    body->insert(pair<string, vector<long>>("iteration_range", *request->iterationRange));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pids)) {
     body->insert(pair<string, string>("pids", *request->pids));
@@ -1771,6 +1789,9 @@ StartAIAnalysisResponse Alibabacloud_SysOM20231230::Client::startAIAnalysisWithO
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
     body->insert(pair<string, long>("timeout", *request->timeout));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uid)) {
+    body->insert(pair<string, string>("uid", *request->uid));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1794,6 +1815,39 @@ StartAIAnalysisResponse Alibabacloud_SysOM20231230::Client::startAIAnalysis(shar
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return startAIAnalysisWithOptions(request, headers, runtime);
+}
+
+StartAIDiffAnalysisResponse Alibabacloud_SysOM20231230::Client::startAIDiffAnalysisWithOptions(shared_ptr<StartAIDiffAnalysisRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<StartAIDiffAnalysisRequestTask1>(request->task1)) {
+    body->insert(pair<string, StartAIDiffAnalysisRequestTask1>("task1", *request->task1));
+  }
+  if (!Darabonba_Util::Client::isUnset<StartAIDiffAnalysisRequestTask2>(request->task2)) {
+    body->insert(pair<string, StartAIDiffAnalysisRequestTask2>("task2", *request->task2));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartAIDiffAnalysis"))},
+    {"version", boost::any(string("2023-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/appObserv/aiAnalysis/diffAnalysis"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartAIDiffAnalysisResponse(callApi(params, req, runtime));
+}
+
+StartAIDiffAnalysisResponse Alibabacloud_SysOM20231230::Client::startAIDiffAnalysis(shared_ptr<StartAIDiffAnalysisRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return startAIDiffAnalysisWithOptions(request, headers, runtime);
 }
 
 UninstallAgentResponse Alibabacloud_SysOM20231230::Client::uninstallAgentWithOptions(shared_ptr<UninstallAgentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
