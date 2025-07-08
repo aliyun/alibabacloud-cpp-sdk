@@ -9001,6 +9001,45 @@ RemoveSDGResponse Alibabacloud_Ens20171110::Client::removeSDG(shared_ptr<RemoveS
   return removeSDGWithOptions(request, runtime);
 }
 
+RemoveSDGsResponse Alibabacloud_Ens20171110::Client::removeSDGsWithOptions(shared_ptr<RemoveSDGsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RemoveSDGsShrinkRequest> request = make_shared<RemoveSDGsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceIds)) {
+    request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->sdgIds)) {
+    request->sdgIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sdgIds, make_shared<string>("SdgIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIdsShrink)) {
+    query->insert(pair<string, string>("InstanceIds", *request->instanceIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sdgIdsShrink)) {
+    query->insert(pair<string, string>("SdgIds", *request->sdgIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RemoveSDGs"))},
+    {"version", boost::any(string("2017-11-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RemoveSDGsResponse(callApi(params, req, runtime));
+}
+
+RemoveSDGsResponse Alibabacloud_Ens20171110::Client::removeSDGs(shared_ptr<RemoveSDGsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return removeSDGsWithOptions(request, runtime);
+}
+
 RemoveVSwitchesFromEpnInstanceResponse Alibabacloud_Ens20171110::Client::removeVSwitchesFromEpnInstanceWithOptions(shared_ptr<RemoveVSwitchesFromEpnInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

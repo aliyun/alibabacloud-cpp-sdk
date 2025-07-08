@@ -15480,6 +15480,7 @@ public:
 };
 class DescribeAICImagesResponseBodyImages : public Darabonba::Model {
 public:
+  shared_ptr<string> androidVersion{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> description{};
   shared_ptr<string> imageId{};
@@ -15497,6 +15498,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (androidVersion) {
+      res["AndroidVersion"] = boost::any(*androidVersion);
+    }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
     }
@@ -15519,6 +15523,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidVersion") != m.end() && !m["AndroidVersion"].empty()) {
+      androidVersion = make_shared<string>(boost::any_cast<string>(m["AndroidVersion"]));
+    }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
     }
@@ -62136,6 +62143,324 @@ public:
 
   virtual ~RemoveSDGResponse() = default;
 };
+class RemoveSDGsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<vector<string>> sdgIds{};
+
+  RemoveSDGsRequest() {}
+
+  explicit RemoveSDGsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (sdgIds) {
+      res["SdgIds"] = boost::any(*sdgIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SdgIds") != m.end() && !m["SdgIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SdgIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SdgIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sdgIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RemoveSDGsRequest() = default;
+};
+class RemoveSDGsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceIdsShrink{};
+  shared_ptr<string> sdgIdsShrink{};
+
+  RemoveSDGsShrinkRequest() {}
+
+  explicit RemoveSDGsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceIdsShrink) {
+      res["InstanceIds"] = boost::any(*instanceIdsShrink);
+    }
+    if (sdgIdsShrink) {
+      res["SdgIds"] = boost::any(*sdgIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      instanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));
+    }
+    if (m.find("SdgIds") != m.end() && !m["SdgIds"].empty()) {
+      sdgIdsShrink = make_shared<string>(boost::any_cast<string>(m["SdgIds"]));
+    }
+  }
+
+
+  virtual ~RemoveSDGsShrinkRequest() = default;
+};
+class RemoveSDGsResponseBodyDataResultFailedItems : public Darabonba::Model {
+public:
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> instanceId{};
+
+  RemoveSDGsResponseBodyDataResultFailedItems() {}
+
+  explicit RemoveSDGsResponseBodyDataResultFailedItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~RemoveSDGsResponseBodyDataResultFailedItems() = default;
+};
+class RemoveSDGsResponseBodyDataResult : public Darabonba::Model {
+public:
+  shared_ptr<long> failedCount{};
+  shared_ptr<vector<RemoveSDGsResponseBodyDataResultFailedItems>> failedItems{};
+  shared_ptr<long> successCount{};
+
+  RemoveSDGsResponseBodyDataResult() {}
+
+  explicit RemoveSDGsResponseBodyDataResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failedCount) {
+      res["FailedCount"] = boost::any(*failedCount);
+    }
+    if (failedItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*failedItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailedItems"] = boost::any(temp1);
+    }
+    if (successCount) {
+      res["SuccessCount"] = boost::any(*successCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailedCount") != m.end() && !m["FailedCount"].empty()) {
+      failedCount = make_shared<long>(boost::any_cast<long>(m["FailedCount"]));
+    }
+    if (m.find("FailedItems") != m.end() && !m["FailedItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailedItems"].type()) {
+        vector<RemoveSDGsResponseBodyDataResultFailedItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailedItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RemoveSDGsResponseBodyDataResultFailedItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failedItems = make_shared<vector<RemoveSDGsResponseBodyDataResultFailedItems>>(expect1);
+      }
+    }
+    if (m.find("SuccessCount") != m.end() && !m["SuccessCount"].empty()) {
+      successCount = make_shared<long>(boost::any_cast<long>(m["SuccessCount"]));
+    }
+  }
+
+
+  virtual ~RemoveSDGsResponseBodyDataResult() = default;
+};
+class RemoveSDGsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<RemoveSDGsResponseBodyDataResult> result{};
+  shared_ptr<bool> success{};
+
+  RemoveSDGsResponseBodyData() {}
+
+  explicit RemoveSDGsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        RemoveSDGsResponseBodyDataResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<RemoveSDGsResponseBodyDataResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RemoveSDGsResponseBodyData() = default;
+};
+class RemoveSDGsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RemoveSDGsResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  RemoveSDGsResponseBody() {}
+
+  explicit RemoveSDGsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        RemoveSDGsResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<RemoveSDGsResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RemoveSDGsResponseBody() = default;
+};
+class RemoveSDGsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemoveSDGsResponseBody> body{};
+
+  RemoveSDGsResponse() {}
+
+  explicit RemoveSDGsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveSDGsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveSDGsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveSDGsResponse() = default;
+};
 class RemoveVSwitchesFromEpnInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> EPNInstanceId{};
@@ -70265,6 +70590,8 @@ public:
   RemovePublicIpsFromEpnInstanceResponse removePublicIpsFromEpnInstance(shared_ptr<RemovePublicIpsFromEpnInstanceRequest> request);
   RemoveSDGResponse removeSDGWithOptions(shared_ptr<RemoveSDGRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveSDGResponse removeSDG(shared_ptr<RemoveSDGRequest> request);
+  RemoveSDGsResponse removeSDGsWithOptions(shared_ptr<RemoveSDGsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveSDGsResponse removeSDGs(shared_ptr<RemoveSDGsRequest> request);
   RemoveVSwitchesFromEpnInstanceResponse removeVSwitchesFromEpnInstanceWithOptions(shared_ptr<RemoveVSwitchesFromEpnInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveVSwitchesFromEpnInstanceResponse removeVSwitchesFromEpnInstance(shared_ptr<RemoveVSwitchesFromEpnInstanceRequest> request);
   RenewARMServerInstanceResponse renewARMServerInstanceWithOptions(shared_ptr<RenewARMServerInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
