@@ -5048,6 +5048,42 @@ public:
 
   virtual ~ListTagResourcesResponse() = default;
 };
+class ListTemplateRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListTemplateRequestTag() {}
+
+  explicit ListTemplateRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListTemplateRequestTag() = default;
+};
 class ListTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> keyword{};
@@ -5055,6 +5091,7 @@ public:
   shared_ptr<long> nextToken{};
   shared_ptr<long> orderType{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<ListTemplateRequestTag>> tag{};
   shared_ptr<long> tagList{};
   shared_ptr<string> type{};
 
@@ -5083,6 +5120,13 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     if (tagList) {
       res["TagList"] = boost::any(*tagList);
     }
@@ -5108,6 +5152,19 @@ public:
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListTemplateRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTemplateRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListTemplateRequestTag>>(expect1);
+      }
+    }
     if (m.find("TagList") != m.end() && !m["TagList"].empty()) {
       tagList = make_shared<long>(boost::any_cast<long>(m["TagList"]));
     }
@@ -5118,6 +5175,84 @@ public:
 
 
   virtual ~ListTemplateRequest() = default;
+};
+class ListTemplateShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keyword{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<long> nextToken{};
+  shared_ptr<long> orderType{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> tagShrink{};
+  shared_ptr<long> tagList{};
+  shared_ptr<string> type{};
+
+  ListTemplateShrinkRequest() {}
+
+  explicit ListTemplateShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    if (tagList) {
+      res["TagList"] = boost::any(*tagList);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<long>(boost::any_cast<long>(m["NextToken"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<long>(boost::any_cast<long>(m["OrderType"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+    if (m.find("TagList") != m.end() && !m["TagList"].empty()) {
+      tagList = make_shared<long>(boost::any_cast<long>(m["TagList"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListTemplateShrinkRequest() = default;
 };
 class ListTemplateResponseBodyData : public Darabonba::Model {
 public:
@@ -7231,7 +7366,7 @@ public:
   ListFoCreatedAppsResponse listFoCreatedApps();
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
-  ListTemplateResponse listTemplateWithOptions(shared_ptr<ListTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTemplateResponse listTemplateWithOptions(shared_ptr<ListTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTemplateResponse listTemplate(shared_ptr<ListTemplateRequest> request);
   ModifyApplicationSpecResponse modifyApplicationSpecWithOptions(shared_ptr<ModifyApplicationSpecRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyApplicationSpecResponse modifyApplicationSpec(shared_ptr<ModifyApplicationSpecRequest> request);

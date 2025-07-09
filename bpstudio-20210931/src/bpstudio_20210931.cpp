@@ -809,8 +809,13 @@ ListTagResourcesResponse Alibabacloud_BPStudio20210931::Client::listTagResources
   return listTagResourcesWithOptions(request, runtime);
 }
 
-ListTemplateResponse Alibabacloud_BPStudio20210931::Client::listTemplateWithOptions(shared_ptr<ListTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListTemplateResponse Alibabacloud_BPStudio20210931::Client::listTemplateWithOptions(shared_ptr<ListTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListTemplateShrinkRequest> request = make_shared<ListTemplateShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListTemplateRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
     body->insert(pair<string, string>("Keyword", *request->keyword));
@@ -826,6 +831,9 @@ ListTemplateResponse Alibabacloud_BPStudio20210931::Client::listTemplateWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    body->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tagList)) {
     body->insert(pair<string, long>("TagList", *request->tagList));
