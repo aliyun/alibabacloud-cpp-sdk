@@ -3279,8 +3279,8 @@ DescribeSampleSqlRawTextsResponse Alibabacloud_OceanBasePro20190901::Client::des
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->limit)) {
-    body->insert(pair<string, string>("Limit", *request->limit));
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    body->insert(pair<string, long>("Limit", *request->limit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sqlId)) {
     body->insert(pair<string, string>("SqlId", *request->sqlId));

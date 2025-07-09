@@ -22656,7 +22656,7 @@ public:
   shared_ptr<string> diagnosis{};
   shared_ptr<bool> dynamicSql{};
   shared_ptr<double> executions{};
-  shared_ptr<double> lastExecutedTime{};
+  shared_ptr<string> lastExecutedTime{};
   shared_ptr<string> riskLevel{};
   shared_ptr<string> sqlId{};
   shared_ptr<vector<DescribeOasAnomalySQLListResponseBodyDataSqlList>> sqlList{};
@@ -22795,7 +22795,7 @@ public:
       executions = make_shared<double>(boost::any_cast<double>(m["Executions"]));
     }
     if (m.find("LastExecutedTime") != m.end() && !m["LastExecutedTime"].empty()) {
-      lastExecutedTime = make_shared<double>(boost::any_cast<double>(m["LastExecutedTime"]));
+      lastExecutedTime = make_shared<string>(boost::any_cast<string>(m["LastExecutedTime"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
@@ -23269,32 +23269,32 @@ public:
 };
 class DescribeOasSQLHistoryListResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<long> avgAffectedRows{};
+  shared_ptr<double> avgAffectedRows{};
   shared_ptr<double> avgApplicationWaitTime{};
-  shared_ptr<long> avgBlockCacheHit{};
-  shared_ptr<long> avgBlockIndexCacheHit{};
-  shared_ptr<long> avgBloomFilterCacheHit{};
+  shared_ptr<double> avgBlockCacheHit{};
+  shared_ptr<double> avgBlockIndexCacheHit{};
+  shared_ptr<double> avgBloomFilterCacheHit{};
   shared_ptr<double> avgConcurrencyWaitTime{};
   shared_ptr<double> avgCpuTime{};
   shared_ptr<double> avgDbTime{};
   shared_ptr<double> avgDecodeTime{};
-  shared_ptr<long> avgDiskReads{};
+  shared_ptr<double> avgDiskReads{};
   shared_ptr<double> avgElapsedTime{};
   shared_ptr<double> avgExecuteTime{};
   shared_ptr<double> avgExecutorRpcCount{};
   shared_ptr<double> avgExpectedWorkerCount{};
   shared_ptr<double> avgGetPlanTime{};
-  shared_ptr<long> avgLogicalReads{};
-  shared_ptr<long> avgMemstoreReadRows{};
+  shared_ptr<double> avgLogicalReads{};
+  shared_ptr<double> avgMemstoreReadRows{};
   shared_ptr<double> avgNetTime{};
   shared_ptr<double> avgNetWaitTime{};
   shared_ptr<double> avgPartitionCount{};
   shared_ptr<double> avgQueueTime{};
-  shared_ptr<long> avgReturnRows{};
-  shared_ptr<long> avgRowCacheHit{};
-  shared_ptr<long> avgRpcCount{};
+  shared_ptr<double> avgReturnRows{};
+  shared_ptr<double> avgRowCacheHit{};
+  shared_ptr<double> avgRpcCount{};
   shared_ptr<double> avgScheduleTime{};
-  shared_ptr<long> avgSsstoreReadRows{};
+  shared_ptr<double> avgSsstoreReadRows{};
   shared_ptr<double> avgUsedWorkerCount{};
   shared_ptr<double> avgUserIoWaitTime{};
   shared_ptr<double> avgWaitCount{};
@@ -23319,13 +23319,13 @@ public:
   shared_ptr<long> missPlans{};
   shared_ptr<double> remotePlanPercentage{};
   shared_ptr<long> remotePlans{};
-  shared_ptr<double> retCode4012Count{};
-  shared_ptr<double> retCode4013Count{};
-  shared_ptr<double> retCode5001Count{};
-  shared_ptr<double> retCode5024Count{};
-  shared_ptr<double> retCode5167Count{};
-  shared_ptr<double> retCode5217Count{};
-  shared_ptr<double> retCode6002Count{};
+  shared_ptr<long> retCode4012Count{};
+  shared_ptr<long> retCode4013Count{};
+  shared_ptr<long> retCode5001Count{};
+  shared_ptr<long> retCode5024Count{};
+  shared_ptr<long> retCode5167Count{};
+  shared_ptr<long> retCode5217Count{};
+  shared_ptr<long> retCode6002Count{};
   shared_ptr<long> retryCount{};
   shared_ptr<string> SQLId{};
   shared_ptr<string> server{};
@@ -23565,19 +23565,19 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AvgAffectedRows") != m.end() && !m["AvgAffectedRows"].empty()) {
-      avgAffectedRows = make_shared<long>(boost::any_cast<long>(m["AvgAffectedRows"]));
+      avgAffectedRows = make_shared<double>(boost::any_cast<double>(m["AvgAffectedRows"]));
     }
     if (m.find("AvgApplicationWaitTime") != m.end() && !m["AvgApplicationWaitTime"].empty()) {
       avgApplicationWaitTime = make_shared<double>(boost::any_cast<double>(m["AvgApplicationWaitTime"]));
     }
     if (m.find("AvgBlockCacheHit") != m.end() && !m["AvgBlockCacheHit"].empty()) {
-      avgBlockCacheHit = make_shared<long>(boost::any_cast<long>(m["AvgBlockCacheHit"]));
+      avgBlockCacheHit = make_shared<double>(boost::any_cast<double>(m["AvgBlockCacheHit"]));
     }
     if (m.find("AvgBlockIndexCacheHit") != m.end() && !m["AvgBlockIndexCacheHit"].empty()) {
-      avgBlockIndexCacheHit = make_shared<long>(boost::any_cast<long>(m["AvgBlockIndexCacheHit"]));
+      avgBlockIndexCacheHit = make_shared<double>(boost::any_cast<double>(m["AvgBlockIndexCacheHit"]));
     }
     if (m.find("AvgBloomFilterCacheHit") != m.end() && !m["AvgBloomFilterCacheHit"].empty()) {
-      avgBloomFilterCacheHit = make_shared<long>(boost::any_cast<long>(m["AvgBloomFilterCacheHit"]));
+      avgBloomFilterCacheHit = make_shared<double>(boost::any_cast<double>(m["AvgBloomFilterCacheHit"]));
     }
     if (m.find("AvgConcurrencyWaitTime") != m.end() && !m["AvgConcurrencyWaitTime"].empty()) {
       avgConcurrencyWaitTime = make_shared<double>(boost::any_cast<double>(m["AvgConcurrencyWaitTime"]));
@@ -23592,7 +23592,7 @@ public:
       avgDecodeTime = make_shared<double>(boost::any_cast<double>(m["AvgDecodeTime"]));
     }
     if (m.find("AvgDiskReads") != m.end() && !m["AvgDiskReads"].empty()) {
-      avgDiskReads = make_shared<long>(boost::any_cast<long>(m["AvgDiskReads"]));
+      avgDiskReads = make_shared<double>(boost::any_cast<double>(m["AvgDiskReads"]));
     }
     if (m.find("AvgElapsedTime") != m.end() && !m["AvgElapsedTime"].empty()) {
       avgElapsedTime = make_shared<double>(boost::any_cast<double>(m["AvgElapsedTime"]));
@@ -23610,10 +23610,10 @@ public:
       avgGetPlanTime = make_shared<double>(boost::any_cast<double>(m["AvgGetPlanTime"]));
     }
     if (m.find("AvgLogicalReads") != m.end() && !m["AvgLogicalReads"].empty()) {
-      avgLogicalReads = make_shared<long>(boost::any_cast<long>(m["AvgLogicalReads"]));
+      avgLogicalReads = make_shared<double>(boost::any_cast<double>(m["AvgLogicalReads"]));
     }
     if (m.find("AvgMemstoreReadRows") != m.end() && !m["AvgMemstoreReadRows"].empty()) {
-      avgMemstoreReadRows = make_shared<long>(boost::any_cast<long>(m["AvgMemstoreReadRows"]));
+      avgMemstoreReadRows = make_shared<double>(boost::any_cast<double>(m["AvgMemstoreReadRows"]));
     }
     if (m.find("AvgNetTime") != m.end() && !m["AvgNetTime"].empty()) {
       avgNetTime = make_shared<double>(boost::any_cast<double>(m["AvgNetTime"]));
@@ -23628,19 +23628,19 @@ public:
       avgQueueTime = make_shared<double>(boost::any_cast<double>(m["AvgQueueTime"]));
     }
     if (m.find("AvgReturnRows") != m.end() && !m["AvgReturnRows"].empty()) {
-      avgReturnRows = make_shared<long>(boost::any_cast<long>(m["AvgReturnRows"]));
+      avgReturnRows = make_shared<double>(boost::any_cast<double>(m["AvgReturnRows"]));
     }
     if (m.find("AvgRowCacheHit") != m.end() && !m["AvgRowCacheHit"].empty()) {
-      avgRowCacheHit = make_shared<long>(boost::any_cast<long>(m["AvgRowCacheHit"]));
+      avgRowCacheHit = make_shared<double>(boost::any_cast<double>(m["AvgRowCacheHit"]));
     }
     if (m.find("AvgRpcCount") != m.end() && !m["AvgRpcCount"].empty()) {
-      avgRpcCount = make_shared<long>(boost::any_cast<long>(m["AvgRpcCount"]));
+      avgRpcCount = make_shared<double>(boost::any_cast<double>(m["AvgRpcCount"]));
     }
     if (m.find("AvgScheduleTime") != m.end() && !m["AvgScheduleTime"].empty()) {
       avgScheduleTime = make_shared<double>(boost::any_cast<double>(m["AvgScheduleTime"]));
     }
     if (m.find("AvgSsstoreReadRows") != m.end() && !m["AvgSsstoreReadRows"].empty()) {
-      avgSsstoreReadRows = make_shared<long>(boost::any_cast<long>(m["AvgSsstoreReadRows"]));
+      avgSsstoreReadRows = make_shared<double>(boost::any_cast<double>(m["AvgSsstoreReadRows"]));
     }
     if (m.find("AvgUsedWorkerCount") != m.end() && !m["AvgUsedWorkerCount"].empty()) {
       avgUsedWorkerCount = make_shared<double>(boost::any_cast<double>(m["AvgUsedWorkerCount"]));
@@ -23715,25 +23715,25 @@ public:
       remotePlans = make_shared<long>(boost::any_cast<long>(m["RemotePlans"]));
     }
     if (m.find("RetCode4012Count") != m.end() && !m["RetCode4012Count"].empty()) {
-      retCode4012Count = make_shared<double>(boost::any_cast<double>(m["RetCode4012Count"]));
+      retCode4012Count = make_shared<long>(boost::any_cast<long>(m["RetCode4012Count"]));
     }
     if (m.find("RetCode4013Count") != m.end() && !m["RetCode4013Count"].empty()) {
-      retCode4013Count = make_shared<double>(boost::any_cast<double>(m["RetCode4013Count"]));
+      retCode4013Count = make_shared<long>(boost::any_cast<long>(m["RetCode4013Count"]));
     }
     if (m.find("RetCode5001Count") != m.end() && !m["RetCode5001Count"].empty()) {
-      retCode5001Count = make_shared<double>(boost::any_cast<double>(m["RetCode5001Count"]));
+      retCode5001Count = make_shared<long>(boost::any_cast<long>(m["RetCode5001Count"]));
     }
     if (m.find("RetCode5024Count") != m.end() && !m["RetCode5024Count"].empty()) {
-      retCode5024Count = make_shared<double>(boost::any_cast<double>(m["RetCode5024Count"]));
+      retCode5024Count = make_shared<long>(boost::any_cast<long>(m["RetCode5024Count"]));
     }
     if (m.find("RetCode5167Count") != m.end() && !m["RetCode5167Count"].empty()) {
-      retCode5167Count = make_shared<double>(boost::any_cast<double>(m["RetCode5167Count"]));
+      retCode5167Count = make_shared<long>(boost::any_cast<long>(m["RetCode5167Count"]));
     }
     if (m.find("RetCode5217Count") != m.end() && !m["RetCode5217Count"].empty()) {
-      retCode5217Count = make_shared<double>(boost::any_cast<double>(m["RetCode5217Count"]));
+      retCode5217Count = make_shared<long>(boost::any_cast<long>(m["RetCode5217Count"]));
     }
     if (m.find("RetCode6002Count") != m.end() && !m["RetCode6002Count"].empty()) {
-      retCode6002Count = make_shared<double>(boost::any_cast<double>(m["RetCode6002Count"]));
+      retCode6002Count = make_shared<long>(boost::any_cast<long>(m["RetCode6002Count"]));
     }
     if (m.find("RetryCount") != m.end() && !m["RetryCount"].empty()) {
       retryCount = make_shared<long>(boost::any_cast<long>(m["RetryCount"]));
@@ -24700,8 +24700,8 @@ public:
   shared_ptr<string> dbName{};
   shared_ptr<double> distPlanPercentage{};
   shared_ptr<double> execPs{};
-  shared_ptr<double> executions{};
-  shared_ptr<double> failCount{};
+  shared_ptr<long> executions{};
+  shared_ptr<long> failCount{};
   shared_ptr<double> failPercentage{};
   shared_ptr<bool> inner{};
   shared_ptr<double> localPlanPercentage{};
@@ -24715,9 +24715,9 @@ public:
   shared_ptr<double> maxUserIoWaitTime{};
   shared_ptr<double> maxWaitTime{};
   shared_ptr<double> missPlanPercentage{};
-  shared_ptr<double> missPlans{};
+  shared_ptr<long> missPlans{};
   shared_ptr<double> remotePlanPercentage{};
-  shared_ptr<double> remotePlans{};
+  shared_ptr<long> remotePlans{};
   shared_ptr<long> retCode4012Count{};
   shared_ptr<long> retCode4013Count{};
   shared_ptr<long> retCode5001Count{};
@@ -24725,7 +24725,7 @@ public:
   shared_ptr<long> retCode5167Count{};
   shared_ptr<long> retCode5217Count{};
   shared_ptr<long> retCode6002Count{};
-  shared_ptr<double> retryCount{};
+  shared_ptr<long> retryCount{};
   shared_ptr<double> rpcCount{};
   shared_ptr<string> server{};
   shared_ptr<string> serverIp{};
@@ -25092,10 +25092,10 @@ public:
       execPs = make_shared<double>(boost::any_cast<double>(m["ExecPs"]));
     }
     if (m.find("Executions") != m.end() && !m["Executions"].empty()) {
-      executions = make_shared<double>(boost::any_cast<double>(m["Executions"]));
+      executions = make_shared<long>(boost::any_cast<long>(m["Executions"]));
     }
     if (m.find("FailCount") != m.end() && !m["FailCount"].empty()) {
-      failCount = make_shared<double>(boost::any_cast<double>(m["FailCount"]));
+      failCount = make_shared<long>(boost::any_cast<long>(m["FailCount"]));
     }
     if (m.find("FailPercentage") != m.end() && !m["FailPercentage"].empty()) {
       failPercentage = make_shared<double>(boost::any_cast<double>(m["FailPercentage"]));
@@ -25137,13 +25137,13 @@ public:
       missPlanPercentage = make_shared<double>(boost::any_cast<double>(m["MissPlanPercentage"]));
     }
     if (m.find("MissPlans") != m.end() && !m["MissPlans"].empty()) {
-      missPlans = make_shared<double>(boost::any_cast<double>(m["MissPlans"]));
+      missPlans = make_shared<long>(boost::any_cast<long>(m["MissPlans"]));
     }
     if (m.find("RemotePlanPercentage") != m.end() && !m["RemotePlanPercentage"].empty()) {
       remotePlanPercentage = make_shared<double>(boost::any_cast<double>(m["RemotePlanPercentage"]));
     }
     if (m.find("RemotePlans") != m.end() && !m["RemotePlans"].empty()) {
-      remotePlans = make_shared<double>(boost::any_cast<double>(m["RemotePlans"]));
+      remotePlans = make_shared<long>(boost::any_cast<long>(m["RemotePlans"]));
     }
     if (m.find("RetCode4012Count") != m.end() && !m["RetCode4012Count"].empty()) {
       retCode4012Count = make_shared<long>(boost::any_cast<long>(m["RetCode4012Count"]));
@@ -25167,7 +25167,7 @@ public:
       retCode6002Count = make_shared<long>(boost::any_cast<long>(m["RetCode6002Count"]));
     }
     if (m.find("RetryCount") != m.end() && !m["RetryCount"].empty()) {
-      retryCount = make_shared<double>(boost::any_cast<double>(m["RetryCount"]));
+      retryCount = make_shared<long>(boost::any_cast<long>(m["RetryCount"]));
     }
     if (m.find("RpcCount") != m.end() && !m["RpcCount"].empty()) {
       rpcCount = make_shared<double>(boost::any_cast<double>(m["RpcCount"]));
@@ -25262,8 +25262,8 @@ public:
   shared_ptr<double> distPlanPercentage{};
   shared_ptr<bool> dynamicSql{};
   shared_ptr<double> execPs{};
-  shared_ptr<double> executions{};
-  shared_ptr<double> failCount{};
+  shared_ptr<long> executions{};
+  shared_ptr<long> failCount{};
   shared_ptr<double> failPercentage{};
   shared_ptr<bool> inner{};
   shared_ptr<double> localPlanPercentage{};
@@ -25277,17 +25277,17 @@ public:
   shared_ptr<double> maxUserIoWaitTime{};
   shared_ptr<double> maxWaitTime{};
   shared_ptr<double> missPlanPercentage{};
-  shared_ptr<double> missPlans{};
+  shared_ptr<long> missPlans{};
   shared_ptr<double> remotePlanPercentage{};
-  shared_ptr<double> remotePlans{};
+  shared_ptr<long> remotePlans{};
   shared_ptr<long> retCode4012Count{};
   shared_ptr<long> retCode4013Count{};
-  shared_ptr<double> retCode5001Count{};
-  shared_ptr<double> retCode5024Count{};
-  shared_ptr<double> retCode5167Count{};
-  shared_ptr<double> retCode5217Count{};
-  shared_ptr<double> retCode6002Count{};
-  shared_ptr<double> retryCount{};
+  shared_ptr<long> retCode5001Count{};
+  shared_ptr<long> retCode5024Count{};
+  shared_ptr<long> retCode5167Count{};
+  shared_ptr<long> retCode5217Count{};
+  shared_ptr<long> retCode6002Count{};
+  shared_ptr<long> retryCount{};
   shared_ptr<double> rpcCount{};
   shared_ptr<string> server{};
   shared_ptr<string> serverIp{};
@@ -25668,10 +25668,10 @@ public:
       execPs = make_shared<double>(boost::any_cast<double>(m["ExecPs"]));
     }
     if (m.find("Executions") != m.end() && !m["Executions"].empty()) {
-      executions = make_shared<double>(boost::any_cast<double>(m["Executions"]));
+      executions = make_shared<long>(boost::any_cast<long>(m["Executions"]));
     }
     if (m.find("FailCount") != m.end() && !m["FailCount"].empty()) {
-      failCount = make_shared<double>(boost::any_cast<double>(m["FailCount"]));
+      failCount = make_shared<long>(boost::any_cast<long>(m["FailCount"]));
     }
     if (m.find("FailPercentage") != m.end() && !m["FailPercentage"].empty()) {
       failPercentage = make_shared<double>(boost::any_cast<double>(m["FailPercentage"]));
@@ -25713,13 +25713,13 @@ public:
       missPlanPercentage = make_shared<double>(boost::any_cast<double>(m["MissPlanPercentage"]));
     }
     if (m.find("MissPlans") != m.end() && !m["MissPlans"].empty()) {
-      missPlans = make_shared<double>(boost::any_cast<double>(m["MissPlans"]));
+      missPlans = make_shared<long>(boost::any_cast<long>(m["MissPlans"]));
     }
     if (m.find("RemotePlanPercentage") != m.end() && !m["RemotePlanPercentage"].empty()) {
       remotePlanPercentage = make_shared<double>(boost::any_cast<double>(m["RemotePlanPercentage"]));
     }
     if (m.find("RemotePlans") != m.end() && !m["RemotePlans"].empty()) {
-      remotePlans = make_shared<double>(boost::any_cast<double>(m["RemotePlans"]));
+      remotePlans = make_shared<long>(boost::any_cast<long>(m["RemotePlans"]));
     }
     if (m.find("RetCode4012Count") != m.end() && !m["RetCode4012Count"].empty()) {
       retCode4012Count = make_shared<long>(boost::any_cast<long>(m["RetCode4012Count"]));
@@ -25728,22 +25728,22 @@ public:
       retCode4013Count = make_shared<long>(boost::any_cast<long>(m["RetCode4013Count"]));
     }
     if (m.find("RetCode5001Count") != m.end() && !m["RetCode5001Count"].empty()) {
-      retCode5001Count = make_shared<double>(boost::any_cast<double>(m["RetCode5001Count"]));
+      retCode5001Count = make_shared<long>(boost::any_cast<long>(m["RetCode5001Count"]));
     }
     if (m.find("RetCode5024Count") != m.end() && !m["RetCode5024Count"].empty()) {
-      retCode5024Count = make_shared<double>(boost::any_cast<double>(m["RetCode5024Count"]));
+      retCode5024Count = make_shared<long>(boost::any_cast<long>(m["RetCode5024Count"]));
     }
     if (m.find("RetCode5167Count") != m.end() && !m["RetCode5167Count"].empty()) {
-      retCode5167Count = make_shared<double>(boost::any_cast<double>(m["RetCode5167Count"]));
+      retCode5167Count = make_shared<long>(boost::any_cast<long>(m["RetCode5167Count"]));
     }
     if (m.find("RetCode5217Count") != m.end() && !m["RetCode5217Count"].empty()) {
-      retCode5217Count = make_shared<double>(boost::any_cast<double>(m["RetCode5217Count"]));
+      retCode5217Count = make_shared<long>(boost::any_cast<long>(m["RetCode5217Count"]));
     }
     if (m.find("RetCode6002Count") != m.end() && !m["RetCode6002Count"].empty()) {
-      retCode6002Count = make_shared<double>(boost::any_cast<double>(m["RetCode6002Count"]));
+      retCode6002Count = make_shared<long>(boost::any_cast<long>(m["RetCode6002Count"]));
     }
     if (m.find("RetryCount") != m.end() && !m["RetryCount"].empty()) {
-      retryCount = make_shared<double>(boost::any_cast<double>(m["RetryCount"]));
+      retryCount = make_shared<long>(boost::any_cast<long>(m["RetryCount"]));
     }
     if (m.find("RpcCount") != m.end() && !m["RpcCount"].empty()) {
       rpcCount = make_shared<double>(boost::any_cast<double>(m["RpcCount"]));
@@ -26131,7 +26131,7 @@ public:
   shared_ptr<double> distPlanPercentage{};
   shared_ptr<double> execPs{};
   shared_ptr<long> executions{};
-  shared_ptr<double> failCount{};
+  shared_ptr<long> failCount{};
   shared_ptr<double> failPercentage{};
   shared_ptr<bool> inner{};
   shared_ptr<double> localPlanPercentage{};
@@ -26145,9 +26145,9 @@ public:
   shared_ptr<double> maxUserIoWaitTime{};
   shared_ptr<double> maxWaitTime{};
   shared_ptr<double> missPlanPercentage{};
-  shared_ptr<double> missPlans{};
+  shared_ptr<long> missPlans{};
   shared_ptr<double> remotePlanPercentage{};
-  shared_ptr<double> remotePlans{};
+  shared_ptr<long> remotePlans{};
   shared_ptr<long> retCode4012Count{};
   shared_ptr<long> retCode4013Count{};
   shared_ptr<long> retCode5001Count{};
@@ -26155,7 +26155,7 @@ public:
   shared_ptr<long> retCode5167Count{};
   shared_ptr<long> retCode5217Count{};
   shared_ptr<long> retCode6002Count{};
-  shared_ptr<double> retryCount{};
+  shared_ptr<long> retryCount{};
   shared_ptr<double> rpcCount{};
   shared_ptr<string> server{};
   shared_ptr<string> serverIp{};
@@ -26531,7 +26531,7 @@ public:
       executions = make_shared<long>(boost::any_cast<long>(m["Executions"]));
     }
     if (m.find("FailCount") != m.end() && !m["FailCount"].empty()) {
-      failCount = make_shared<double>(boost::any_cast<double>(m["FailCount"]));
+      failCount = make_shared<long>(boost::any_cast<long>(m["FailCount"]));
     }
     if (m.find("FailPercentage") != m.end() && !m["FailPercentage"].empty()) {
       failPercentage = make_shared<double>(boost::any_cast<double>(m["FailPercentage"]));
@@ -26573,13 +26573,13 @@ public:
       missPlanPercentage = make_shared<double>(boost::any_cast<double>(m["MissPlanPercentage"]));
     }
     if (m.find("MissPlans") != m.end() && !m["MissPlans"].empty()) {
-      missPlans = make_shared<double>(boost::any_cast<double>(m["MissPlans"]));
+      missPlans = make_shared<long>(boost::any_cast<long>(m["MissPlans"]));
     }
     if (m.find("RemotePlanPercentage") != m.end() && !m["RemotePlanPercentage"].empty()) {
       remotePlanPercentage = make_shared<double>(boost::any_cast<double>(m["RemotePlanPercentage"]));
     }
     if (m.find("RemotePlans") != m.end() && !m["RemotePlans"].empty()) {
-      remotePlans = make_shared<double>(boost::any_cast<double>(m["RemotePlans"]));
+      remotePlans = make_shared<long>(boost::any_cast<long>(m["RemotePlans"]));
     }
     if (m.find("RetCode4012Count") != m.end() && !m["RetCode4012Count"].empty()) {
       retCode4012Count = make_shared<long>(boost::any_cast<long>(m["RetCode4012Count"]));
@@ -26603,7 +26603,7 @@ public:
       retCode6002Count = make_shared<long>(boost::any_cast<long>(m["RetCode6002Count"]));
     }
     if (m.find("RetryCount") != m.end() && !m["RetryCount"].empty()) {
-      retryCount = make_shared<double>(boost::any_cast<double>(m["RetryCount"]));
+      retryCount = make_shared<long>(boost::any_cast<long>(m["RetryCount"]));
     }
     if (m.find("RpcCount") != m.end() && !m["RpcCount"].empty()) {
       rpcCount = make_shared<double>(boost::any_cast<double>(m["RpcCount"]));
@@ -26701,7 +26701,7 @@ public:
   shared_ptr<bool> dynamicSql{};
   shared_ptr<double> execPs{};
   shared_ptr<long> executions{};
-  shared_ptr<double> failCount{};
+  shared_ptr<long> failCount{};
   shared_ptr<double> failPercentage{};
   shared_ptr<bool> inner{};
   shared_ptr<long> lastFailCode{};
@@ -26716,10 +26716,10 @@ public:
   shared_ptr<double> maxUserIoWaitTime{};
   shared_ptr<double> maxWaitTime{};
   shared_ptr<double> missPlanPercentage{};
-  shared_ptr<double> missPlans{};
-  shared_ptr<string> obDbId{};
+  shared_ptr<long> missPlans{};
+  shared_ptr<long> obDbId{};
   shared_ptr<double> remotePlanPercentage{};
-  shared_ptr<double> remotePlans{};
+  shared_ptr<long> remotePlans{};
   shared_ptr<long> retCode4012Count{};
   shared_ptr<long> retCode4013Count{};
   shared_ptr<long> retCode5001Count{};
@@ -26727,7 +26727,7 @@ public:
   shared_ptr<long> retCode5167Count{};
   shared_ptr<long> retCode5217Count{};
   shared_ptr<long> retCode6002Count{};
-  shared_ptr<double> retryCount{};
+  shared_ptr<long> retryCount{};
   shared_ptr<double> rpcCount{};
   shared_ptr<string> server{};
   shared_ptr<string> serverIp{};
@@ -27133,7 +27133,7 @@ public:
       executions = make_shared<long>(boost::any_cast<long>(m["Executions"]));
     }
     if (m.find("FailCount") != m.end() && !m["FailCount"].empty()) {
-      failCount = make_shared<double>(boost::any_cast<double>(m["FailCount"]));
+      failCount = make_shared<long>(boost::any_cast<long>(m["FailCount"]));
     }
     if (m.find("FailPercentage") != m.end() && !m["FailPercentage"].empty()) {
       failPercentage = make_shared<double>(boost::any_cast<double>(m["FailPercentage"]));
@@ -27178,16 +27178,16 @@ public:
       missPlanPercentage = make_shared<double>(boost::any_cast<double>(m["MissPlanPercentage"]));
     }
     if (m.find("MissPlans") != m.end() && !m["MissPlans"].empty()) {
-      missPlans = make_shared<double>(boost::any_cast<double>(m["MissPlans"]));
+      missPlans = make_shared<long>(boost::any_cast<long>(m["MissPlans"]));
     }
     if (m.find("ObDbId") != m.end() && !m["ObDbId"].empty()) {
-      obDbId = make_shared<string>(boost::any_cast<string>(m["ObDbId"]));
+      obDbId = make_shared<long>(boost::any_cast<long>(m["ObDbId"]));
     }
     if (m.find("RemotePlanPercentage") != m.end() && !m["RemotePlanPercentage"].empty()) {
       remotePlanPercentage = make_shared<double>(boost::any_cast<double>(m["RemotePlanPercentage"]));
     }
     if (m.find("RemotePlans") != m.end() && !m["RemotePlans"].empty()) {
-      remotePlans = make_shared<double>(boost::any_cast<double>(m["RemotePlans"]));
+      remotePlans = make_shared<long>(boost::any_cast<long>(m["RemotePlans"]));
     }
     if (m.find("RetCode4012Count") != m.end() && !m["RetCode4012Count"].empty()) {
       retCode4012Count = make_shared<long>(boost::any_cast<long>(m["RetCode4012Count"]));
@@ -27211,7 +27211,7 @@ public:
       retCode6002Count = make_shared<long>(boost::any_cast<long>(m["RetCode6002Count"]));
     }
     if (m.find("RetryCount") != m.end() && !m["RetryCount"].empty()) {
-      retryCount = make_shared<double>(boost::any_cast<double>(m["RetryCount"]));
+      retryCount = make_shared<long>(boost::any_cast<long>(m["RetryCount"]));
     }
     if (m.find("RpcCount") != m.end() && !m["RpcCount"].empty()) {
       rpcCount = make_shared<double>(boost::any_cast<double>(m["RpcCount"]));
@@ -28244,7 +28244,7 @@ public:
   shared_ptr<string> command{};
   shared_ptr<long> cpuTime{};
   shared_ptr<string> database{};
-  shared_ptr<string> dynamicSql{};
+  shared_ptr<bool> dynamicSql{};
   shared_ptr<long> executeTime{};
   shared_ptr<string> planId{};
   shared_ptr<string> proxySessId{};
@@ -28332,7 +28332,7 @@ public:
       database = make_shared<string>(boost::any_cast<string>(m["Database"]));
     }
     if (m.find("DynamicSql") != m.end() && !m["DynamicSql"].empty()) {
-      dynamicSql = make_shared<string>(boost::any_cast<string>(m["DynamicSql"]));
+      dynamicSql = make_shared<bool>(boost::any_cast<bool>(m["DynamicSql"]));
     }
     if (m.find("ExecuteTime") != m.end() && !m["ExecuteTime"].empty()) {
       executeTime = make_shared<long>(boost::any_cast<long>(m["ExecuteTime"]));
@@ -28378,7 +28378,7 @@ public:
   shared_ptr<string> command{};
   shared_ptr<long> cpuTime{};
   shared_ptr<string> database{};
-  shared_ptr<string> dynamicSql{};
+  shared_ptr<bool> dynamicSql{};
   shared_ptr<long> executeTime{};
   shared_ptr<string> planId{};
   shared_ptr<vector<DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlListsProcessSqlList>> processSqlList{};
@@ -28474,7 +28474,7 @@ public:
       database = make_shared<string>(boost::any_cast<string>(m["Database"]));
     }
     if (m.find("DynamicSql") != m.end() && !m["DynamicSql"].empty()) {
-      dynamicSql = make_shared<string>(boost::any_cast<string>(m["DynamicSql"]));
+      dynamicSql = make_shared<bool>(boost::any_cast<bool>(m["DynamicSql"]));
     }
     if (m.find("ExecuteTime") != m.end() && !m["ExecuteTime"].empty()) {
       executeTime = make_shared<long>(boost::any_cast<long>(m["ExecuteTime"]));
@@ -28533,7 +28533,7 @@ public:
   shared_ptr<string> command{};
   shared_ptr<long> cpuTime{};
   shared_ptr<string> database{};
-  shared_ptr<string> dynamicSql{};
+  shared_ptr<bool> dynamicSql{};
   shared_ptr<long> executeTime{};
   shared_ptr<string> planId{};
   shared_ptr<vector<DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlLists>> processSqlLists{};
@@ -28633,7 +28633,7 @@ public:
       database = make_shared<string>(boost::any_cast<string>(m["Database"]));
     }
     if (m.find("DynamicSql") != m.end() && !m["DynamicSql"].empty()) {
-      dynamicSql = make_shared<string>(boost::any_cast<string>(m["DynamicSql"]));
+      dynamicSql = make_shared<bool>(boost::any_cast<bool>(m["DynamicSql"]));
     }
     if (m.find("ExecuteTime") != m.end() && !m["ExecuteTime"].empty()) {
       executeTime = make_shared<long>(boost::any_cast<long>(m["ExecuteTime"]));
@@ -38414,13 +38414,13 @@ public:
 };
 class DescribeSQLSamplesResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<double> affectedRows{};
+  shared_ptr<long> affectedRows{};
   shared_ptr<double> applicationWaitTime{};
   shared_ptr<double> blockCacheHit{};
   shared_ptr<double> blockIndexCacheHit{};
   shared_ptr<double> bloomFilterCacheHit{};
   shared_ptr<string> clientIp{};
-  shared_ptr<string> clientPort{};
+  shared_ptr<long> clientPort{};
   shared_ptr<double> concurrencyWaitTime{};
   shared_ptr<string> consistencyLevel{};
   shared_ptr<double> cpuTime{};
@@ -38430,42 +38430,42 @@ public:
   shared_ptr<double> elapsedTime{};
   shared_ptr<double> executeTime{};
   shared_ptr<bool> executorRpc{};
-  shared_ptr<double> expectedWorkerCount{};
+  shared_ptr<long> expectedWorkerCount{};
   shared_ptr<string> fullSqlText{};
   shared_ptr<double> getPlanTime{};
   shared_ptr<bool> hitPlan{};
   shared_ptr<bool> inner{};
-  shared_ptr<double> memstoreReadRows{};
+  shared_ptr<long> memstoreReadRows{};
   shared_ptr<double> netTime{};
   shared_ptr<double> netWaitTime{};
-  shared_ptr<double> obDbId{};
-  shared_ptr<double> obServerId{};
-  shared_ptr<double> obUserId{};
+  shared_ptr<long> obDbId{};
+  shared_ptr<long> obServerId{};
+  shared_ptr<long> obUserId{};
   shared_ptr<string> paramsValue{};
-  shared_ptr<double> partitionCount{};
-  shared_ptr<double> planId{};
+  shared_ptr<long> partitionCount{};
+  shared_ptr<long> planId{};
   shared_ptr<string> planType{};
   shared_ptr<double> queueTime{};
-  shared_ptr<string> requestId{};
+  shared_ptr<long> requestId{};
   shared_ptr<string> requestTime{};
-  shared_ptr<double> retCode{};
-  shared_ptr<double> retryCount{};
-  shared_ptr<double> returnRows{};
+  shared_ptr<long> retCode{};
+  shared_ptr<long> retryCount{};
+  shared_ptr<long> returnRows{};
   shared_ptr<double> rowCacheHit{};
-  shared_ptr<double> rpcCount{};
+  shared_ptr<long> rpcCount{};
   shared_ptr<double> scheduleTime{};
   shared_ptr<string> server{};
   shared_ptr<string> sqlText{};
   shared_ptr<string> sqlType{};
-  shared_ptr<double> ssstoreReadRows{};
+  shared_ptr<long> ssstoreReadRows{};
   shared_ptr<string> statement{};
   shared_ptr<bool> tableScan{};
   shared_ptr<string> traceId{};
   shared_ptr<string> transHash{};
-  shared_ptr<double> usedWorkerCount{};
+  shared_ptr<long> usedWorkerCount{};
   shared_ptr<double> userIoWaitTime{};
   shared_ptr<string> userName{};
-  shared_ptr<double> waitCount{};
+  shared_ptr<long> waitCount{};
   shared_ptr<string> waitEvent{};
   shared_ptr<double> waitTime{};
 
@@ -38646,7 +38646,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AffectedRows") != m.end() && !m["AffectedRows"].empty()) {
-      affectedRows = make_shared<double>(boost::any_cast<double>(m["AffectedRows"]));
+      affectedRows = make_shared<long>(boost::any_cast<long>(m["AffectedRows"]));
     }
     if (m.find("ApplicationWaitTime") != m.end() && !m["ApplicationWaitTime"].empty()) {
       applicationWaitTime = make_shared<double>(boost::any_cast<double>(m["ApplicationWaitTime"]));
@@ -38664,7 +38664,7 @@ public:
       clientIp = make_shared<string>(boost::any_cast<string>(m["ClientIp"]));
     }
     if (m.find("ClientPort") != m.end() && !m["ClientPort"].empty()) {
-      clientPort = make_shared<string>(boost::any_cast<string>(m["ClientPort"]));
+      clientPort = make_shared<long>(boost::any_cast<long>(m["ClientPort"]));
     }
     if (m.find("ConcurrencyWaitTime") != m.end() && !m["ConcurrencyWaitTime"].empty()) {
       concurrencyWaitTime = make_shared<double>(boost::any_cast<double>(m["ConcurrencyWaitTime"]));
@@ -38694,7 +38694,7 @@ public:
       executorRpc = make_shared<bool>(boost::any_cast<bool>(m["ExecutorRpc"]));
     }
     if (m.find("ExpectedWorkerCount") != m.end() && !m["ExpectedWorkerCount"].empty()) {
-      expectedWorkerCount = make_shared<double>(boost::any_cast<double>(m["ExpectedWorkerCount"]));
+      expectedWorkerCount = make_shared<long>(boost::any_cast<long>(m["ExpectedWorkerCount"]));
     }
     if (m.find("FullSqlText") != m.end() && !m["FullSqlText"].empty()) {
       fullSqlText = make_shared<string>(boost::any_cast<string>(m["FullSqlText"]));
@@ -38709,7 +38709,7 @@ public:
       inner = make_shared<bool>(boost::any_cast<bool>(m["Inner"]));
     }
     if (m.find("MemstoreReadRows") != m.end() && !m["MemstoreReadRows"].empty()) {
-      memstoreReadRows = make_shared<double>(boost::any_cast<double>(m["MemstoreReadRows"]));
+      memstoreReadRows = make_shared<long>(boost::any_cast<long>(m["MemstoreReadRows"]));
     }
     if (m.find("NetTime") != m.end() && !m["NetTime"].empty()) {
       netTime = make_shared<double>(boost::any_cast<double>(m["NetTime"]));
@@ -38718,22 +38718,22 @@ public:
       netWaitTime = make_shared<double>(boost::any_cast<double>(m["NetWaitTime"]));
     }
     if (m.find("ObDbId") != m.end() && !m["ObDbId"].empty()) {
-      obDbId = make_shared<double>(boost::any_cast<double>(m["ObDbId"]));
+      obDbId = make_shared<long>(boost::any_cast<long>(m["ObDbId"]));
     }
     if (m.find("ObServerId") != m.end() && !m["ObServerId"].empty()) {
-      obServerId = make_shared<double>(boost::any_cast<double>(m["ObServerId"]));
+      obServerId = make_shared<long>(boost::any_cast<long>(m["ObServerId"]));
     }
     if (m.find("ObUserId") != m.end() && !m["ObUserId"].empty()) {
-      obUserId = make_shared<double>(boost::any_cast<double>(m["ObUserId"]));
+      obUserId = make_shared<long>(boost::any_cast<long>(m["ObUserId"]));
     }
     if (m.find("ParamsValue") != m.end() && !m["ParamsValue"].empty()) {
       paramsValue = make_shared<string>(boost::any_cast<string>(m["ParamsValue"]));
     }
     if (m.find("PartitionCount") != m.end() && !m["PartitionCount"].empty()) {
-      partitionCount = make_shared<double>(boost::any_cast<double>(m["PartitionCount"]));
+      partitionCount = make_shared<long>(boost::any_cast<long>(m["PartitionCount"]));
     }
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
-      planId = make_shared<double>(boost::any_cast<double>(m["PlanId"]));
+      planId = make_shared<long>(boost::any_cast<long>(m["PlanId"]));
     }
     if (m.find("PlanType") != m.end() && !m["PlanType"].empty()) {
       planType = make_shared<string>(boost::any_cast<string>(m["PlanType"]));
@@ -38742,25 +38742,25 @@ public:
       queueTime = make_shared<double>(boost::any_cast<double>(m["QueueTime"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+      requestId = make_shared<long>(boost::any_cast<long>(m["RequestId"]));
     }
     if (m.find("RequestTime") != m.end() && !m["RequestTime"].empty()) {
       requestTime = make_shared<string>(boost::any_cast<string>(m["RequestTime"]));
     }
     if (m.find("RetCode") != m.end() && !m["RetCode"].empty()) {
-      retCode = make_shared<double>(boost::any_cast<double>(m["RetCode"]));
+      retCode = make_shared<long>(boost::any_cast<long>(m["RetCode"]));
     }
     if (m.find("RetryCount") != m.end() && !m["RetryCount"].empty()) {
-      retryCount = make_shared<double>(boost::any_cast<double>(m["RetryCount"]));
+      retryCount = make_shared<long>(boost::any_cast<long>(m["RetryCount"]));
     }
     if (m.find("ReturnRows") != m.end() && !m["ReturnRows"].empty()) {
-      returnRows = make_shared<double>(boost::any_cast<double>(m["ReturnRows"]));
+      returnRows = make_shared<long>(boost::any_cast<long>(m["ReturnRows"]));
     }
     if (m.find("RowCacheHit") != m.end() && !m["RowCacheHit"].empty()) {
       rowCacheHit = make_shared<double>(boost::any_cast<double>(m["RowCacheHit"]));
     }
     if (m.find("RpcCount") != m.end() && !m["RpcCount"].empty()) {
-      rpcCount = make_shared<double>(boost::any_cast<double>(m["RpcCount"]));
+      rpcCount = make_shared<long>(boost::any_cast<long>(m["RpcCount"]));
     }
     if (m.find("ScheduleTime") != m.end() && !m["ScheduleTime"].empty()) {
       scheduleTime = make_shared<double>(boost::any_cast<double>(m["ScheduleTime"]));
@@ -38775,7 +38775,7 @@ public:
       sqlType = make_shared<string>(boost::any_cast<string>(m["SqlType"]));
     }
     if (m.find("SsstoreReadRows") != m.end() && !m["SsstoreReadRows"].empty()) {
-      ssstoreReadRows = make_shared<double>(boost::any_cast<double>(m["SsstoreReadRows"]));
+      ssstoreReadRows = make_shared<long>(boost::any_cast<long>(m["SsstoreReadRows"]));
     }
     if (m.find("Statement") != m.end() && !m["Statement"].empty()) {
       statement = make_shared<string>(boost::any_cast<string>(m["Statement"]));
@@ -38790,7 +38790,7 @@ public:
       transHash = make_shared<string>(boost::any_cast<string>(m["TransHash"]));
     }
     if (m.find("UsedWorkerCount") != m.end() && !m["UsedWorkerCount"].empty()) {
-      usedWorkerCount = make_shared<double>(boost::any_cast<double>(m["UsedWorkerCount"]));
+      usedWorkerCount = make_shared<long>(boost::any_cast<long>(m["UsedWorkerCount"]));
     }
     if (m.find("UserIoWaitTime") != m.end() && !m["UserIoWaitTime"].empty()) {
       userIoWaitTime = make_shared<double>(boost::any_cast<double>(m["UserIoWaitTime"]));
@@ -38799,7 +38799,7 @@ public:
       userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
     }
     if (m.find("WaitCount") != m.end() && !m["WaitCount"].empty()) {
-      waitCount = make_shared<double>(boost::any_cast<double>(m["WaitCount"]));
+      waitCount = make_shared<long>(boost::any_cast<long>(m["WaitCount"]));
     }
     if (m.find("WaitEvent") != m.end() && !m["WaitEvent"].empty()) {
       waitEvent = make_shared<string>(boost::any_cast<string>(m["WaitEvent"]));
@@ -39478,7 +39478,7 @@ public:
   shared_ptr<bool> dynamicSql{};
   shared_ptr<string> endTime{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> limit{};
+  shared_ptr<long> limit{};
   shared_ptr<string> sqlId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> tenantId{};
@@ -39538,7 +39538,7 @@ public:
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
-      limit = make_shared<string>(boost::any_cast<string>(m["Limit"]));
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
     }
     if (m.find("SqlId") != m.end() && !m["SqlId"].empty()) {
       sqlId = make_shared<string>(boost::any_cast<string>(m["SqlId"]));
