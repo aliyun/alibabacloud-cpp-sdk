@@ -2438,8 +2438,52 @@ public:
 
   virtual ~TableModel() = default;
 };
+class OpenStructMvDetailModelBaseTableInfos : public Darabonba::Model {
+public:
+  shared_ptr<bool> baseTableIsMv{};
+  shared_ptr<string> schemaName{};
+  shared_ptr<string> tableName{};
+
+  OpenStructMvDetailModelBaseTableInfos() {}
+
+  explicit OpenStructMvDetailModelBaseTableInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseTableIsMv) {
+      res["BaseTableIsMv"] = boost::any(*baseTableIsMv);
+    }
+    if (schemaName) {
+      res["SchemaName"] = boost::any(*schemaName);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseTableIsMv") != m.end() && !m["BaseTableIsMv"].empty()) {
+      baseTableIsMv = make_shared<bool>(boost::any_cast<bool>(m["BaseTableIsMv"]));
+    }
+    if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~OpenStructMvDetailModelBaseTableInfos() = default;
+};
 class OpenStructMvDetailModel : public Darabonba::Model {
 public:
+  shared_ptr<vector<OpenStructMvDetailModelBaseTableInfos>> baseTableInfos{};
   shared_ptr<vector<vector<string>>> baseTableNames{};
   shared_ptr<long> explicitHit{};
   shared_ptr<string> firstRefreshTime{};
@@ -2463,6 +2507,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (baseTableInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*baseTableInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BaseTableInfos"] = boost::any(temp1);
+    }
     if (baseTableNames) {
       res["BaseTableNames"] = boost::any(*baseTableNames);
     }
@@ -2503,6 +2554,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseTableInfos") != m.end() && !m["BaseTableInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["BaseTableInfos"].type()) {
+        vector<OpenStructMvDetailModelBaseTableInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BaseTableInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OpenStructMvDetailModelBaseTableInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        baseTableInfos = make_shared<vector<OpenStructMvDetailModelBaseTableInfos>>(expect1);
+      }
+    }
     if (m.find("BaseTableNames") != m.end() && !m["BaseTableNames"].empty()) {
       vector<vector<string>> toVec1;
       if (typeid(vector<boost::any>) == m["BaseTableNames"].type()) {
@@ -2918,6 +2982,7 @@ public:
   shared_ptr<string> refreshInterval{};
   shared_ptr<string> refreshModel{};
   shared_ptr<string> resourceGroup{};
+  shared_ptr<string> scheduledStartTime{};
   shared_ptr<string> schemaName{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
@@ -2950,6 +3015,9 @@ public:
     if (resourceGroup) {
       res["ResourceGroup"] = boost::any(*resourceGroup);
     }
+    if (scheduledStartTime) {
+      res["ScheduledStartTime"] = boost::any(*scheduledStartTime);
+    }
     if (schemaName) {
       res["SchemaName"] = boost::any(*schemaName);
     }
@@ -2980,6 +3048,9 @@ public:
     }
     if (m.find("ResourceGroup") != m.end() && !m["ResourceGroup"].empty()) {
       resourceGroup = make_shared<string>(boost::any_cast<string>(m["ResourceGroup"]));
+    }
+    if (m.find("ScheduledStartTime") != m.end() && !m["ScheduledStartTime"].empty()) {
+      scheduledStartTime = make_shared<string>(boost::any_cast<string>(m["ScheduledStartTime"]));
     }
     if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
       schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
@@ -3123,6 +3194,8 @@ class ApplyAdviceByIdRequest : public Darabonba::Model {
 public:
   shared_ptr<long> adviceDate{};
   shared_ptr<string> adviceId{};
+  shared_ptr<string> applyType{};
+  shared_ptr<bool> buildImmediately{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> regionId{};
 
@@ -3142,6 +3215,12 @@ public:
     if (adviceId) {
       res["AdviceId"] = boost::any(*adviceId);
     }
+    if (applyType) {
+      res["ApplyType"] = boost::any(*applyType);
+    }
+    if (buildImmediately) {
+      res["BuildImmediately"] = boost::any(*buildImmediately);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
@@ -3157,6 +3236,12 @@ public:
     }
     if (m.find("AdviceId") != m.end() && !m["AdviceId"].empty()) {
       adviceId = make_shared<string>(boost::any_cast<string>(m["AdviceId"]));
+    }
+    if (m.find("ApplyType") != m.end() && !m["ApplyType"].empty()) {
+      applyType = make_shared<string>(boost::any_cast<string>(m["ApplyType"]));
+    }
+    if (m.find("BuildImmediately") != m.end() && !m["BuildImmediately"].empty()) {
+      buildImmediately = make_shared<bool>(boost::any_cast<bool>(m["BuildImmediately"]));
     }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
@@ -3364,6 +3449,8 @@ class BatchApplyAdviceByIdListRequest : public Darabonba::Model {
 public:
   shared_ptr<long> adviceDate{};
   shared_ptr<string> adviceIdList{};
+  shared_ptr<string> applyType{};
+  shared_ptr<bool> buildImmediately{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> regionId{};
 
@@ -3383,6 +3470,12 @@ public:
     if (adviceIdList) {
       res["AdviceIdList"] = boost::any(*adviceIdList);
     }
+    if (applyType) {
+      res["ApplyType"] = boost::any(*applyType);
+    }
+    if (buildImmediately) {
+      res["BuildImmediately"] = boost::any(*buildImmediately);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
@@ -3398,6 +3491,12 @@ public:
     }
     if (m.find("AdviceIdList") != m.end() && !m["AdviceIdList"].empty()) {
       adviceIdList = make_shared<string>(boost::any_cast<string>(m["AdviceIdList"]));
+    }
+    if (m.find("ApplyType") != m.end() && !m["ApplyType"].empty()) {
+      applyType = make_shared<string>(boost::any_cast<string>(m["ApplyType"]));
+    }
+    if (m.find("BuildImmediately") != m.end() && !m["BuildImmediately"].empty()) {
+      buildImmediately = make_shared<bool>(boost::any_cast<bool>(m["BuildImmediately"]));
     }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
@@ -13901,6 +14000,7 @@ public:
   shared_ptr<string> adviceId{};
   shared_ptr<string> benefit{};
   shared_ptr<string> buildSQL{};
+  shared_ptr<string> indexFields{};
   shared_ptr<string> jobStatus{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -13930,6 +14030,9 @@ public:
     }
     if (buildSQL) {
       res["BuildSQL"] = boost::any(*buildSQL);
+    }
+    if (indexFields) {
+      res["IndexFields"] = boost::any(*indexFields);
     }
     if (jobStatus) {
       res["JobStatus"] = boost::any(*jobStatus);
@@ -13973,6 +14076,9 @@ public:
     }
     if (m.find("BuildSQL") != m.end() && !m["BuildSQL"].empty()) {
       buildSQL = make_shared<string>(boost::any_cast<string>(m["BuildSQL"]));
+    }
+    if (m.find("IndexFields") != m.end() && !m["IndexFields"].empty()) {
+      indexFields = make_shared<string>(boost::any_cast<string>(m["IndexFields"]));
     }
     if (m.find("JobStatus") != m.end() && !m["JobStatus"].empty()) {
       jobStatus = make_shared<string>(boost::any_cast<string>(m["JobStatus"]));
@@ -17389,6 +17495,7 @@ public:
   shared_ptr<string> adviceId{};
   shared_ptr<string> adviceType{};
   shared_ptr<string> benefit{};
+  shared_ptr<string> indexFields{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> reason{};
@@ -17418,6 +17525,9 @@ public:
     }
     if (benefit) {
       res["Benefit"] = boost::any(*benefit);
+    }
+    if (indexFields) {
+      res["IndexFields"] = boost::any(*indexFields);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -17455,6 +17565,9 @@ public:
     }
     if (m.find("Benefit") != m.end() && !m["Benefit"].empty()) {
       benefit = make_shared<string>(boost::any_cast<string>(m["Benefit"]));
+    }
+    if (m.find("IndexFields") != m.end() && !m["IndexFields"].empty()) {
+      indexFields = make_shared<string>(boost::any_cast<string>(m["IndexFields"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
