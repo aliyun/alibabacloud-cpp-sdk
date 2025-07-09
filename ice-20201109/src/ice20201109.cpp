@@ -2746,6 +2746,9 @@ DeleteMediaFromSearchLibResponse Alibabacloud_ICE20201109::Client::deleteMediaFr
   if (!Darabonba_Util::Client::isUnset<string>(request->msgBody)) {
     query->insert(pair<string, string>("MsgBody", *request->msgBody));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchLibName)) {
     query->insert(pair<string, string>("SearchLibName", *request->searchLibName));
   }
@@ -5716,6 +5719,9 @@ InsertMediaToSearchLibResponse Alibabacloud_ICE20201109::Client::insertMediaToSe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->msgBody)) {
     query->insert(pair<string, string>("MsgBody", *request->msgBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchLibName)) {
     query->insert(pair<string, string>("SearchLibName", *request->searchLibName));
@@ -8799,6 +8805,9 @@ SearchIndexJobRerunResponse Alibabacloud_ICE20201109::Client::searchIndexJobReru
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->mediaIds)) {
     query->insert(pair<string, string>("MediaIds", *request->mediaIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchLibName)) {
     query->insert(pair<string, string>("SearchLibName", *request->searchLibName));
@@ -12863,6 +12872,9 @@ UpdateMediaToSearchLibResponse Alibabacloud_ICE20201109::Client::updateMediaToSe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->msgBody)) {
     query->insert(pair<string, string>("MsgBody", *request->msgBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchLibName)) {
     query->insert(pair<string, string>("SearchLibName", *request->searchLibName));

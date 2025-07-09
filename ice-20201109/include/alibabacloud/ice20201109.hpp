@@ -20942,6 +20942,7 @@ class DeleteMediaFromSearchLibRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mediaId{};
   shared_ptr<string> msgBody{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> searchLibName{};
 
   DeleteMediaFromSearchLibRequest() {}
@@ -20960,6 +20961,9 @@ public:
     if (msgBody) {
       res["MsgBody"] = boost::any(*msgBody);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (searchLibName) {
       res["SearchLibName"] = boost::any(*searchLibName);
     }
@@ -20972,6 +20976,9 @@ public:
     }
     if (m.find("MsgBody") != m.end() && !m["MsgBody"].empty()) {
       msgBody = make_shared<string>(boost::any_cast<string>(m["MsgBody"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("SearchLibName") != m.end() && !m["SearchLibName"].empty()) {
       searchLibName = make_shared<string>(boost::any_cast<string>(m["SearchLibName"]));
@@ -48502,6 +48509,7 @@ public:
   shared_ptr<string> mediaId{};
   shared_ptr<string> mediaType{};
   shared_ptr<string> msgBody{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> searchLibName{};
 
   InsertMediaToSearchLibRequest() {}
@@ -48529,6 +48537,9 @@ public:
     if (msgBody) {
       res["MsgBody"] = boost::any(*msgBody);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (searchLibName) {
       res["SearchLibName"] = boost::any(*searchLibName);
     }
@@ -48550,6 +48561,9 @@ public:
     }
     if (m.find("MsgBody") != m.end() && !m["MsgBody"].empty()) {
       msgBody = make_shared<string>(boost::any_cast<string>(m["MsgBody"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("SearchLibName") != m.end() && !m["SearchLibName"].empty()) {
       searchLibName = make_shared<string>(boost::any_cast<string>(m["SearchLibName"]));
@@ -74620,6 +74634,7 @@ public:
 class SearchIndexJobRerunRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mediaIds{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> searchLibName{};
   shared_ptr<string> task{};
 
@@ -74636,6 +74651,9 @@ public:
     if (mediaIds) {
       res["MediaIds"] = boost::any(*mediaIds);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (searchLibName) {
       res["SearchLibName"] = boost::any(*searchLibName);
     }
@@ -74648,6 +74666,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("MediaIds") != m.end() && !m["MediaIds"].empty()) {
       mediaIds = make_shared<string>(boost::any_cast<string>(m["MediaIds"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("SearchLibName") != m.end() && !m["SearchLibName"].empty()) {
       searchLibName = make_shared<string>(boost::any_cast<string>(m["SearchLibName"]));
@@ -103946,6 +103967,7 @@ class UpdateMediaToSearchLibRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mediaId{};
   shared_ptr<string> msgBody{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> searchLibName{};
 
   UpdateMediaToSearchLibRequest() {}
@@ -103964,6 +103986,9 @@ public:
     if (msgBody) {
       res["MsgBody"] = boost::any(*msgBody);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (searchLibName) {
       res["SearchLibName"] = boost::any(*searchLibName);
     }
@@ -103976,6 +104001,9 @@ public:
     }
     if (m.find("MsgBody") != m.end() && !m["MsgBody"].empty()) {
       msgBody = make_shared<string>(boost::any_cast<string>(m["MsgBody"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("SearchLibName") != m.end() && !m["SearchLibName"].empty()) {
       searchLibName = make_shared<string>(boost::any_cast<string>(m["SearchLibName"]));
