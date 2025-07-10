@@ -1345,6 +1345,7 @@ public:
   shared_ptr<bool> resourceAutoPay{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceInstanceId{};
   shared_ptr<string> serviceVersion{};
   shared_ptr<string> specificationCode{};
   shared_ptr<string> specificationName{};
@@ -1400,6 +1401,9 @@ public:
     }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceInstanceId) {
+      res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
     }
     if (serviceVersion) {
       res["ServiceVersion"] = boost::any(*serviceVersion);
@@ -1478,6 +1482,9 @@ public:
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
+      serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
     }
     if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
       serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
@@ -1677,6 +1684,7 @@ public:
   shared_ptr<bool> resourceAutoPay{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceInstanceId{};
   shared_ptr<string> serviceVersion{};
   shared_ptr<string> specificationCode{};
   shared_ptr<string> specificationName{};
@@ -1732,6 +1740,9 @@ public:
     }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceInstanceId) {
+      res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
     }
     if (serviceVersion) {
       res["ServiceVersion"] = boost::any(*serviceVersion);
@@ -1805,6 +1816,9 @@ public:
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
+      serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
     }
     if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
       serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
@@ -4979,6 +4993,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> statusDetail{};
   shared_ptr<long> supplierUid{};
+  shared_ptr<bool> supportTrialToPrivate{};
   shared_ptr<vector<GetServiceInstanceResponseBodyTags>> tags{};
   shared_ptr<string> templateName{};
   shared_ptr<string> updateTime{};
@@ -5083,6 +5098,9 @@ public:
     }
     if (supplierUid) {
       res["SupplierUid"] = boost::any(*supplierUid);
+    }
+    if (supportTrialToPrivate) {
+      res["SupportTrialToPrivate"] = boost::any(*supportTrialToPrivate);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -5201,6 +5219,9 @@ public:
     }
     if (m.find("SupplierUid") != m.end() && !m["SupplierUid"].empty()) {
       supplierUid = make_shared<long>(boost::any_cast<long>(m["SupplierUid"]));
+    }
+    if (m.find("SupportTrialToPrivate") != m.end() && !m["SupportTrialToPrivate"].empty()) {
+      supportTrialToPrivate = make_shared<bool>(boost::any_cast<bool>(m["SupportTrialToPrivate"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -8959,6 +8980,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> status{};
   shared_ptr<string> statusDetail{};
+  shared_ptr<bool> supportTrialToPrivate{};
   shared_ptr<vector<ListServiceInstancesResponseBodyServiceInstancesTags>> tags{};
   shared_ptr<string> templateName{};
   shared_ptr<string> updateTime{};
@@ -9038,6 +9060,9 @@ public:
     }
     if (statusDetail) {
       res["StatusDetail"] = boost::any(*statusDetail);
+    }
+    if (supportTrialToPrivate) {
+      res["SupportTrialToPrivate"] = boost::any(*supportTrialToPrivate);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -9125,6 +9150,9 @@ public:
     }
     if (m.find("StatusDetail") != m.end() && !m["StatusDetail"].empty()) {
       statusDetail = make_shared<string>(boost::any_cast<string>(m["StatusDetail"]));
+    }
+    if (m.find("SupportTrialToPrivate") != m.end() && !m["SupportTrialToPrivate"].empty()) {
+      supportTrialToPrivate = make_shared<bool>(boost::any_cast<bool>(m["SupportTrialToPrivate"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {

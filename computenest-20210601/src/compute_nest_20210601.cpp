@@ -241,6 +241,9 @@ CreateServiceInstanceResponse Alibabacloud_ComputeNest20210601::Client::createSe
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
     query->insert(pair<string, string>("ServiceId", *request->serviceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceInstanceId)) {
+    query->insert(pair<string, string>("ServiceInstanceId", *request->serviceInstanceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceVersion)) {
     query->insert(pair<string, string>("ServiceVersion", *request->serviceVersion));
   }
