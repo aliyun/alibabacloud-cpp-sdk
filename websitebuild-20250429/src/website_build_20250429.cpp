@@ -40,6 +40,9 @@ string Alibabacloud_WebsiteBuild20250429::Client::getEndpoint(shared_ptr<string>
 CreateLogoTaskResponse Alibabacloud_WebsiteBuild20250429::Client::createLogoTaskWithOptions(shared_ptr<CreateLogoTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->logoVersion)) {
+    query->insert(pair<string, string>("LogoVersion", *request->logoVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->negativePrompt)) {
     query->insert(pair<string, string>("NegativePrompt", *request->negativePrompt));
   }
@@ -48,9 +51,6 @@ CreateLogoTaskResponse Alibabacloud_WebsiteBuild20250429::Client::createLogoTask
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
     query->insert(pair<string, string>("Prompt", *request->prompt));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
-    query->insert(pair<string, string>("Version", *request->version));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

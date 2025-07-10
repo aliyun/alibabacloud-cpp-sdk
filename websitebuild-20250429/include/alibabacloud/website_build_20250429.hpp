@@ -15,10 +15,10 @@ using namespace std;
 namespace Alibabacloud_WebsiteBuild20250429 {
 class CreateLogoTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> logoVersion{};
   shared_ptr<string> negativePrompt{};
   shared_ptr<string> parameters{};
   shared_ptr<string> prompt{};
-  shared_ptr<string> version{};
 
   CreateLogoTaskRequest() {}
 
@@ -30,6 +30,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (logoVersion) {
+      res["LogoVersion"] = boost::any(*logoVersion);
+    }
     if (negativePrompt) {
       res["NegativePrompt"] = boost::any(*negativePrompt);
     }
@@ -39,13 +42,13 @@ public:
     if (prompt) {
       res["Prompt"] = boost::any(*prompt);
     }
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogoVersion") != m.end() && !m["LogoVersion"].empty()) {
+      logoVersion = make_shared<string>(boost::any_cast<string>(m["LogoVersion"]));
+    }
     if (m.find("NegativePrompt") != m.end() && !m["NegativePrompt"].empty()) {
       negativePrompt = make_shared<string>(boost::any_cast<string>(m["NegativePrompt"]));
     }
@@ -54,9 +57,6 @@ public:
     }
     if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
       prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
