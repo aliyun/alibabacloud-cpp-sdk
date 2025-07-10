@@ -14738,6 +14738,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> egressIp{};
   shared_ptr<string> hostname{};
+  shared_ptr<string> internalIp{};
   shared_ptr<string> isp{};
   shared_ptr<vector<DescribeRenderingInstanceResponseBodyPortMappings>> portMappings{};
   shared_ptr<string> renderingInstanceId{};
@@ -14775,6 +14776,9 @@ public:
     }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
+    }
+    if (internalIp) {
+      res["InternalIp"] = boost::any(*internalIp);
     }
     if (isp) {
       res["Isp"] = boost::any(*isp);
@@ -14836,6 +14840,9 @@ public:
     }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("InternalIp") != m.end() && !m["InternalIp"].empty()) {
+      internalIp = make_shared<string>(boost::any_cast<string>(m["InternalIp"]));
     }
     if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
       isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
@@ -24820,7 +24827,11 @@ public:
 class InstallCloudAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> projectId{};
   shared_ptr<string> renderingInstanceId{};
+  shared_ptr<vector<string>> renderingInstanceIds{};
 
   InstallCloudAppRequest() {}
 
@@ -24835,8 +24846,20 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    if (renderingInstanceIds) {
+      res["RenderingInstanceIds"] = boost::any(*renderingInstanceIds);
     }
     return res;
   }
@@ -24845,17 +24868,176 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("RenderingInstanceIds") != m.end() && !m["RenderingInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RenderingInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RenderingInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      renderingInstanceIds = make_shared<vector<string>>(toVec1);
     }
   }
 
 
   virtual ~InstallCloudAppRequest() = default;
 };
+class InstallCloudAppShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> renderingInstanceId{};
+  shared_ptr<string> renderingInstanceIdsShrink{};
+
+  InstallCloudAppShrinkRequest() {}
+
+  explicit InstallCloudAppShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    if (renderingInstanceIdsShrink) {
+      res["RenderingInstanceIds"] = boost::any(*renderingInstanceIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("RenderingInstanceIds") != m.end() && !m["RenderingInstanceIds"].empty()) {
+      renderingInstanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceIds"]));
+    }
+  }
+
+
+  virtual ~InstallCloudAppShrinkRequest() = default;
+};
+class InstallCloudAppResponseBodyFailedInstances : public Darabonba::Model {
+public:
+  shared_ptr<long> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> renderingInstanceId{};
+
+  InstallCloudAppResponseBodyFailedInstances() {}
+
+  explicit InstallCloudAppResponseBodyFailedInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<long>(boost::any_cast<long>(m["ErrCode"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+  }
+
+
+  virtual ~InstallCloudAppResponseBodyFailedInstances() = default;
+};
+class InstallCloudAppResponseBodySuccessInstances : public Darabonba::Model {
+public:
+  shared_ptr<string> renderingInstanceId{};
+
+  InstallCloudAppResponseBodySuccessInstances() {}
+
+  explicit InstallCloudAppResponseBodySuccessInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+  }
+
+
+  virtual ~InstallCloudAppResponseBodySuccessInstances() = default;
+};
 class InstallCloudAppResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> failedInstanceCount{};
+  shared_ptr<vector<InstallCloudAppResponseBodyFailedInstances>> failedInstances{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> successInstanceCount{};
+  shared_ptr<vector<InstallCloudAppResponseBodySuccessInstances>> successInstances{};
 
   InstallCloudAppResponseBody() {}
 
@@ -24867,15 +25049,67 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (failedInstanceCount) {
+      res["FailedInstanceCount"] = boost::any(*failedInstanceCount);
+    }
+    if (failedInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*failedInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailedInstances"] = boost::any(temp1);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (successInstanceCount) {
+      res["SuccessInstanceCount"] = boost::any(*successInstanceCount);
+    }
+    if (successInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*successInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SuccessInstances"] = boost::any(temp1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailedInstanceCount") != m.end() && !m["FailedInstanceCount"].empty()) {
+      failedInstanceCount = make_shared<long>(boost::any_cast<long>(m["FailedInstanceCount"]));
+    }
+    if (m.find("FailedInstances") != m.end() && !m["FailedInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailedInstances"].type()) {
+        vector<InstallCloudAppResponseBodyFailedInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailedInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InstallCloudAppResponseBodyFailedInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failedInstances = make_shared<vector<InstallCloudAppResponseBodyFailedInstances>>(expect1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessInstanceCount") != m.end() && !m["SuccessInstanceCount"].empty()) {
+      successInstanceCount = make_shared<long>(boost::any_cast<long>(m["SuccessInstanceCount"]));
+    }
+    if (m.find("SuccessInstances") != m.end() && !m["SuccessInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["SuccessInstances"].type()) {
+        vector<InstallCloudAppResponseBodySuccessInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SuccessInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InstallCloudAppResponseBodySuccessInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        successInstances = make_shared<vector<InstallCloudAppResponseBodySuccessInstances>>(expect1);
+      }
     }
   }
 
@@ -24939,9 +25173,12 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> appVersion{};
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> projectId{};
   shared_ptr<string> renderingInstanceId{};
+  shared_ptr<string> startTime{};
 
   ListCloudAppInstallationsRequest() {}
 
@@ -24962,14 +25199,23 @@ public:
     if (appVersion) {
       res["AppVersion"] = boost::any(*appVersion);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -24984,14 +25230,23 @@ public:
     if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
       appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
   }
 
@@ -25204,8 +25459,11 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> appVersion{};
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> pkgType{};
+  shared_ptr<string> startTime{};
 
   ListCloudAppsRequest() {}
 
@@ -25226,11 +25484,20 @@ public:
     if (appVersion) {
       res["AppVersion"] = boost::any(*appVersion);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (pkgType) {
+      res["PkgType"] = boost::any(*pkgType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -25245,11 +25512,20 @@ public:
     if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
       appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PkgType") != m.end() && !m["PkgType"].empty()) {
+      pkgType = make_shared<string>(boost::any_cast<string>(m["PkgType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
   }
 
@@ -25262,6 +25538,8 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> appVersion{};
   shared_ptr<string> description{};
+  shared_ptr<string> pkgFormat{};
+  shared_ptr<string> pkgType{};
   shared_ptr<string> status{};
   shared_ptr<string> statusDescription{};
   shared_ptr<string> updateTime{};
@@ -25288,6 +25566,12 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (pkgFormat) {
+      res["PkgFormat"] = boost::any(*pkgFormat);
+    }
+    if (pkgType) {
+      res["PkgType"] = boost::any(*pkgType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -25316,6 +25600,12 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("PkgFormat") != m.end() && !m["PkgFormat"].empty()) {
+      pkgFormat = make_shared<string>(boost::any_cast<string>(m["PkgFormat"]));
+    }
+    if (m.find("PkgType") != m.end() && !m["PkgType"].empty()) {
+      pkgType = make_shared<string>(boost::any_cast<string>(m["PkgType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -25459,11 +25749,13 @@ public:
 };
 class ListFilePushStatusesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTime{};
   shared_ptr<string> fileId{};
   shared_ptr<string> fileName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> renderingInstanceId{};
+  shared_ptr<string> startTime{};
 
   ListFilePushStatusesRequest() {}
 
@@ -25475,6 +25767,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (fileId) {
       res["FileId"] = boost::any(*fileId);
     }
@@ -25490,10 +25785,16 @@ public:
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
       fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
     }
@@ -25508,6 +25809,9 @@ public:
     }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
   }
 
@@ -25710,10 +26014,12 @@ public:
 };
 class ListFilesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTime{};
   shared_ptr<string> fileId{};
   shared_ptr<string> fileName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> startTime{};
 
   ListFilesRequest() {}
 
@@ -25725,6 +26031,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (fileId) {
       res["FileId"] = boost::any(*fileId);
     }
@@ -25737,10 +26046,16 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
       fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
     }
@@ -25752,6 +26067,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
   }
 
@@ -25961,11 +26279,13 @@ public:
 };
 class ListPublicKeysRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTime{};
   shared_ptr<string> keyGroup{};
   shared_ptr<string> keyName{};
   shared_ptr<string> keyType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> startTime{};
 
   ListPublicKeysRequest() {}
 
@@ -25977,6 +26297,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (keyGroup) {
       res["KeyGroup"] = boost::any(*keyGroup);
     }
@@ -25992,10 +26315,16 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("KeyGroup") != m.end() && !m["KeyGroup"].empty()) {
       keyGroup = make_shared<string>(boost::any_cast<string>(m["KeyGroup"]));
     }
@@ -26010,6 +26339,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
   }
 
@@ -26207,9 +26539,11 @@ class ListRenderingDataPackagesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
   shared_ptr<string> dataPackageId{};
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> size{};
+  shared_ptr<string> startTime{};
   shared_ptr<string> status{};
 
   ListRenderingDataPackagesRequest() {}
@@ -26228,6 +26562,9 @@ public:
     if (dataPackageId) {
       res["DataPackageId"] = boost::any(*dataPackageId);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -26236,6 +26573,9 @@ public:
     }
     if (size) {
       res["Size"] = boost::any(*size);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -26250,6 +26590,9 @@ public:
     if (m.find("DataPackageId") != m.end() && !m["DataPackageId"].empty()) {
       dataPackageId = make_shared<string>(boost::any_cast<string>(m["DataPackageId"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -26258,6 +26601,9 @@ public:
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -26456,10 +26802,12 @@ public:
 };
 class ListRenderingInstanceGatewayRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTime{};
   shared_ptr<string> gatewayInstanceId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> renderingInstanceId{};
+  shared_ptr<string> startTime{};
 
   ListRenderingInstanceGatewayRequest() {}
 
@@ -26471,6 +26819,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (gatewayInstanceId) {
       res["GatewayInstanceId"] = boost::any(*gatewayInstanceId);
     }
@@ -26483,10 +26834,16 @@ public:
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("GatewayInstanceId") != m.end() && !m["GatewayInstanceId"].empty()) {
       gatewayInstanceId = make_shared<string>(boost::any_cast<string>(m["GatewayInstanceId"]));
     }
@@ -26498,6 +26855,9 @@ public:
     }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
   }
 
@@ -26686,10 +27046,12 @@ public:
 };
 class ListRenderingInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> renderingInstanceId{};
   shared_ptr<string> renderingSpec{};
+  shared_ptr<string> startTime{};
   shared_ptr<long> storageSize{};
 
   ListRenderingInstancesRequest() {}
@@ -26702,6 +27064,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -26714,6 +27079,9 @@ public:
     if (renderingSpec) {
       res["RenderingSpec"] = boost::any(*renderingSpec);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     if (storageSize) {
       res["StorageSize"] = boost::any(*storageSize);
     }
@@ -26721,6 +27089,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -26732,6 +27103,9 @@ public:
     }
     if (m.find("RenderingSpec") != m.end() && !m["RenderingSpec"].empty()) {
       renderingSpec = make_shared<string>(boost::any_cast<string>(m["RenderingSpec"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
       storageSize = make_shared<long>(boost::any_cast<long>(m["StorageSize"]));
@@ -26902,10 +27276,12 @@ public:
 };
 class ListRenderingProjectInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> projectId{};
   shared_ptr<string> renderingInstanceId{};
+  shared_ptr<string> startTime{};
   shared_ptr<string> state{};
 
   ListRenderingProjectInstancesRequest() {}
@@ -26918,6 +27294,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -26930,6 +27309,9 @@ public:
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -26937,6 +27319,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -26948,6 +27333,9 @@ public:
     }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -27158,10 +27546,12 @@ public:
 };
 class ListRenderingProjectsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> projectId{};
   shared_ptr<string> projectName{};
+  shared_ptr<string> startTime{};
 
   ListRenderingProjectsRequest() {}
 
@@ -27173,6 +27563,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -27185,10 +27578,16 @@ public:
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -27200,6 +27599,9 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
   }
 
@@ -27416,11 +27818,13 @@ class ListRenderingSessionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> clientId{};
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> projectId{};
   shared_ptr<string> renderingInstanceId{};
   shared_ptr<string> sessionId{};
+  shared_ptr<string> startTime{};
   shared_ptr<string> state{};
 
   ListRenderingSessionsRequest() {}
@@ -27439,6 +27843,9 @@ public:
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -27454,6 +27861,9 @@ public:
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -27466,6 +27876,9 @@ public:
     }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -27481,6 +27894,9 @@ public:
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -34323,7 +34739,11 @@ public:
 class UninstallCloudAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> projectId{};
   shared_ptr<string> renderingInstanceId{};
+  shared_ptr<vector<string>> renderingInstanceIds{};
 
   UninstallCloudAppRequest() {}
 
@@ -34338,8 +34758,20 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    if (renderingInstanceIds) {
+      res["RenderingInstanceIds"] = boost::any(*renderingInstanceIds);
     }
     return res;
   }
@@ -34348,17 +34780,176 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("RenderingInstanceIds") != m.end() && !m["RenderingInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RenderingInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RenderingInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      renderingInstanceIds = make_shared<vector<string>>(toVec1);
     }
   }
 
 
   virtual ~UninstallCloudAppRequest() = default;
 };
+class UninstallCloudAppShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> renderingInstanceId{};
+  shared_ptr<string> renderingInstanceIdsShrink{};
+
+  UninstallCloudAppShrinkRequest() {}
+
+  explicit UninstallCloudAppShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    if (renderingInstanceIdsShrink) {
+      res["RenderingInstanceIds"] = boost::any(*renderingInstanceIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+    if (m.find("RenderingInstanceIds") != m.end() && !m["RenderingInstanceIds"].empty()) {
+      renderingInstanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceIds"]));
+    }
+  }
+
+
+  virtual ~UninstallCloudAppShrinkRequest() = default;
+};
+class UninstallCloudAppResponseBodyFailedInstances : public Darabonba::Model {
+public:
+  shared_ptr<long> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> renderingInstanceId{};
+
+  UninstallCloudAppResponseBodyFailedInstances() {}
+
+  explicit UninstallCloudAppResponseBodyFailedInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<long>(boost::any_cast<long>(m["ErrCode"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+  }
+
+
+  virtual ~UninstallCloudAppResponseBodyFailedInstances() = default;
+};
+class UninstallCloudAppResponseBodySuccessInstances : public Darabonba::Model {
+public:
+  shared_ptr<string> renderingInstanceId{};
+
+  UninstallCloudAppResponseBodySuccessInstances() {}
+
+  explicit UninstallCloudAppResponseBodySuccessInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (renderingInstanceId) {
+      res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
+      renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));
+    }
+  }
+
+
+  virtual ~UninstallCloudAppResponseBodySuccessInstances() = default;
+};
 class UninstallCloudAppResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> failedInstanceCount{};
+  shared_ptr<vector<UninstallCloudAppResponseBodyFailedInstances>> failedInstances{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> successInstanceCount{};
+  shared_ptr<vector<UninstallCloudAppResponseBodySuccessInstances>> successInstances{};
 
   UninstallCloudAppResponseBody() {}
 
@@ -34370,15 +34961,67 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (failedInstanceCount) {
+      res["FailedInstanceCount"] = boost::any(*failedInstanceCount);
+    }
+    if (failedInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*failedInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailedInstances"] = boost::any(temp1);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (successInstanceCount) {
+      res["SuccessInstanceCount"] = boost::any(*successInstanceCount);
+    }
+    if (successInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*successInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SuccessInstances"] = boost::any(temp1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailedInstanceCount") != m.end() && !m["FailedInstanceCount"].empty()) {
+      failedInstanceCount = make_shared<long>(boost::any_cast<long>(m["FailedInstanceCount"]));
+    }
+    if (m.find("FailedInstances") != m.end() && !m["FailedInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailedInstances"].type()) {
+        vector<UninstallCloudAppResponseBodyFailedInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailedInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UninstallCloudAppResponseBodyFailedInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failedInstances = make_shared<vector<UninstallCloudAppResponseBodyFailedInstances>>(expect1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessInstanceCount") != m.end() && !m["SuccessInstanceCount"].empty()) {
+      successInstanceCount = make_shared<long>(boost::any_cast<long>(m["SuccessInstanceCount"]));
+    }
+    if (m.find("SuccessInstances") != m.end() && !m["SuccessInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["SuccessInstances"].type()) {
+        vector<UninstallCloudAppResponseBodySuccessInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SuccessInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UninstallCloudAppResponseBodySuccessInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        successInstances = make_shared<vector<UninstallCloudAppResponseBodySuccessInstances>>(expect1);
+      }
     }
   }
 
@@ -35631,6 +36274,8 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> downloadUrl{};
   shared_ptr<string> md5{};
+  shared_ptr<string> pkgFormat{};
+  shared_ptr<string> pkgType{};
 
   UploadCloudAppRequest() {}
 
@@ -35657,6 +36302,12 @@ public:
     if (md5) {
       res["Md5"] = boost::any(*md5);
     }
+    if (pkgFormat) {
+      res["PkgFormat"] = boost::any(*pkgFormat);
+    }
+    if (pkgType) {
+      res["PkgType"] = boost::any(*pkgType);
+    }
     return res;
   }
 
@@ -35675,6 +36326,12 @@ public:
     }
     if (m.find("Md5") != m.end() && !m["Md5"].empty()) {
       md5 = make_shared<string>(boost::any_cast<string>(m["Md5"]));
+    }
+    if (m.find("PkgFormat") != m.end() && !m["PkgFormat"].empty()) {
+      pkgFormat = make_shared<string>(boost::any_cast<string>(m["PkgFormat"]));
+    }
+    if (m.find("PkgType") != m.end() && !m["PkgType"].empty()) {
+      pkgType = make_shared<string>(boost::any_cast<string>(m["PkgType"]));
     }
   }
 
@@ -36417,7 +37074,7 @@ public:
   GetRenderingProjectInstanceStateMetricsResponse getRenderingProjectInstanceStateMetrics(shared_ptr<GetRenderingProjectInstanceStateMetricsRequest> request);
   GotoPresetResponse gotoPresetWithOptions(shared_ptr<GotoPresetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GotoPresetResponse gotoPreset(shared_ptr<GotoPresetRequest> request);
-  InstallCloudAppResponse installCloudAppWithOptions(shared_ptr<InstallCloudAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InstallCloudAppResponse installCloudAppWithOptions(shared_ptr<InstallCloudAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InstallCloudAppResponse installCloudApp(shared_ptr<InstallCloudAppRequest> request);
   ListCloudAppInstallationsResponse listCloudAppInstallationsWithOptions(shared_ptr<ListCloudAppInstallationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCloudAppInstallationsResponse listCloudAppInstallations(shared_ptr<ListCloudAppInstallationsRequest> request);
@@ -36531,7 +37188,7 @@ public:
   UnbindPurchasedDeviceResponse unbindPurchasedDevice(shared_ptr<UnbindPurchasedDeviceRequest> request);
   UnbindTemplateResponse unbindTemplateWithOptions(shared_ptr<UnbindTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnbindTemplateResponse unbindTemplate(shared_ptr<UnbindTemplateRequest> request);
-  UninstallCloudAppResponse uninstallCloudAppWithOptions(shared_ptr<UninstallCloudAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UninstallCloudAppResponse uninstallCloudAppWithOptions(shared_ptr<UninstallCloudAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UninstallCloudAppResponse uninstallCloudApp(shared_ptr<UninstallCloudAppRequest> request);
   UnlockDeviceResponse unlockDeviceWithOptions(shared_ptr<UnlockDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnlockDeviceResponse unlockDevice(shared_ptr<UnlockDeviceRequest> request);
