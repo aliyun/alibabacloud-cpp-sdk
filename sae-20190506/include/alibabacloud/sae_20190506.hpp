@@ -44681,6 +44681,7 @@ public:
   shared_ptr<long> completionTime{};
   shared_ptr<long> cpu{};
   shared_ptr<long> failed{};
+  shared_ptr<string> imageUrl{};
   shared_ptr<string> lastChangeorderState{};
   shared_ptr<string> lastJobState{};
   shared_ptr<long> lastStartTime{};
@@ -44723,6 +44724,9 @@ public:
     }
     if (failed) {
       res["Failed"] = boost::any(*failed);
+    }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
     }
     if (lastChangeorderState) {
       res["LastChangeorderState"] = boost::any(*lastChangeorderState);
@@ -44785,6 +44789,9 @@ public:
     }
     if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
       failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
     }
     if (m.find("LastChangeorderState") != m.end() && !m["LastChangeorderState"].empty()) {
       lastChangeorderState = make_shared<string>(boost::any_cast<string>(m["LastChangeorderState"]));
