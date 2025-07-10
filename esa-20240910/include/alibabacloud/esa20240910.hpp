@@ -12250,6 +12250,7 @@ public:
 class CreateRoutineRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bypass{};
+  shared_ptr<string> fallback{};
   shared_ptr<string> routeEnable{};
   shared_ptr<string> routeName{};
   shared_ptr<string> routineName{};
@@ -12269,6 +12270,9 @@ public:
     map<string, boost::any> res;
     if (bypass) {
       res["Bypass"] = boost::any(*bypass);
+    }
+    if (fallback) {
+      res["Fallback"] = boost::any(*fallback);
     }
     if (routeEnable) {
       res["RouteEnable"] = boost::any(*routeEnable);
@@ -12294,6 +12298,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Bypass") != m.end() && !m["Bypass"].empty()) {
       bypass = make_shared<string>(boost::any_cast<string>(m["Bypass"]));
+    }
+    if (m.find("Fallback") != m.end() && !m["Fallback"].empty()) {
+      fallback = make_shared<string>(boost::any_cast<string>(m["Fallback"]));
     }
     if (m.find("RouteEnable") != m.end() && !m["RouteEnable"].empty()) {
       routeEnable = make_shared<string>(boost::any_cast<string>(m["RouteEnable"]));
@@ -25716,6 +25723,271 @@ public:
 
   virtual ~DescribeSiteTopDataResponse() = default;
 };
+class DescribeUrlObservationDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientPlatform{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> metric{};
+  shared_ptr<string> siteId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> url{};
+
+  DescribeUrlObservationDataRequest() {}
+
+  explicit DescribeUrlObservationDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientPlatform) {
+      res["ClientPlatform"] = boost::any(*clientPlatform);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientPlatform") != m.end() && !m["ClientPlatform"].empty()) {
+      clientPlatform = make_shared<string>(boost::any_cast<string>(m["ClientPlatform"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<string>(boost::any_cast<string>(m["SiteId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~DescribeUrlObservationDataRequest() = default;
+};
+class DescribeUrlObservationDataResponseBodyUrlDetailData : public Darabonba::Model {
+public:
+  shared_ptr<double> CLS{};
+  shared_ptr<string> clientPlatform{};
+  shared_ptr<string> country{};
+  shared_ptr<double> FCP{};
+  shared_ptr<double> FID{};
+  shared_ptr<double> INP{};
+  shared_ptr<double> LCP{};
+  shared_ptr<double> TTFB{};
+  shared_ptr<string> url{};
+
+  DescribeUrlObservationDataResponseBodyUrlDetailData() {}
+
+  explicit DescribeUrlObservationDataResponseBodyUrlDetailData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CLS) {
+      res["CLS"] = boost::any(*CLS);
+    }
+    if (clientPlatform) {
+      res["ClientPlatform"] = boost::any(*clientPlatform);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    if (FCP) {
+      res["FCP"] = boost::any(*FCP);
+    }
+    if (FID) {
+      res["FID"] = boost::any(*FID);
+    }
+    if (INP) {
+      res["INP"] = boost::any(*INP);
+    }
+    if (LCP) {
+      res["LCP"] = boost::any(*LCP);
+    }
+    if (TTFB) {
+      res["TTFB"] = boost::any(*TTFB);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CLS") != m.end() && !m["CLS"].empty()) {
+      CLS = make_shared<double>(boost::any_cast<double>(m["CLS"]));
+    }
+    if (m.find("ClientPlatform") != m.end() && !m["ClientPlatform"].empty()) {
+      clientPlatform = make_shared<string>(boost::any_cast<string>(m["ClientPlatform"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+    if (m.find("FCP") != m.end() && !m["FCP"].empty()) {
+      FCP = make_shared<double>(boost::any_cast<double>(m["FCP"]));
+    }
+    if (m.find("FID") != m.end() && !m["FID"].empty()) {
+      FID = make_shared<double>(boost::any_cast<double>(m["FID"]));
+    }
+    if (m.find("INP") != m.end() && !m["INP"].empty()) {
+      INP = make_shared<double>(boost::any_cast<double>(m["INP"]));
+    }
+    if (m.find("LCP") != m.end() && !m["LCP"].empty()) {
+      LCP = make_shared<double>(boost::any_cast<double>(m["LCP"]));
+    }
+    if (m.find("TTFB") != m.end() && !m["TTFB"].empty()) {
+      TTFB = make_shared<double>(boost::any_cast<double>(m["TTFB"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~DescribeUrlObservationDataResponseBodyUrlDetailData() = default;
+};
+class DescribeUrlObservationDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<vector<DescribeUrlObservationDataResponseBodyUrlDetailData>> urlDetailData{};
+
+  DescribeUrlObservationDataResponseBody() {}
+
+  explicit DescribeUrlObservationDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (urlDetailData) {
+      vector<boost::any> temp1;
+      for(auto item1:*urlDetailData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UrlDetailData"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("UrlDetailData") != m.end() && !m["UrlDetailData"].empty()) {
+      if (typeid(vector<boost::any>) == m["UrlDetailData"].type()) {
+        vector<DescribeUrlObservationDataResponseBodyUrlDetailData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UrlDetailData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeUrlObservationDataResponseBodyUrlDetailData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        urlDetailData = make_shared<vector<DescribeUrlObservationDataResponseBodyUrlDetailData>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeUrlObservationDataResponseBody() = default;
+};
+class DescribeUrlObservationDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeUrlObservationDataResponseBody> body{};
+
+  DescribeUrlObservationDataResponse() {}
+
+  explicit DescribeUrlObservationDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeUrlObservationDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeUrlObservationDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeUrlObservationDataResponse() = default;
+};
 class DisableCustomScenePolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<long> policyId{};
@@ -29339,6 +29611,8 @@ public:
 };
 class GetEdgeContainerAppResourceStatusResponseBodyRegions : public Darabonba::Model {
 public:
+  shared_ptr<bool> isOffline{};
+  shared_ptr<bool> isStaging{};
   shared_ptr<string> isp{};
   shared_ptr<long> ready{};
   shared_ptr<string> region{};
@@ -29354,6 +29628,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (isOffline) {
+      res["IsOffline"] = boost::any(*isOffline);
+    }
+    if (isStaging) {
+      res["IsStaging"] = boost::any(*isStaging);
+    }
     if (isp) {
       res["Isp"] = boost::any(*isp);
     }
@@ -29370,6 +29650,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsOffline") != m.end() && !m["IsOffline"].empty()) {
+      isOffline = make_shared<bool>(boost::any_cast<bool>(m["IsOffline"]));
+    }
+    if (m.find("IsStaging") != m.end() && !m["IsStaging"].empty()) {
+      isStaging = make_shared<bool>(boost::any_cast<bool>(m["IsStaging"]));
+    }
     if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
       isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
     }
@@ -37440,6 +37726,7 @@ public:
   shared_ptr<string> bypass{};
   shared_ptr<long> configId{};
   shared_ptr<string> configType{};
+  shared_ptr<string> fallback{};
   shared_ptr<string> mode{};
   shared_ptr<string> requestId{};
   shared_ptr<string> routeEnable{};
@@ -37467,6 +37754,9 @@ public:
     }
     if (configType) {
       res["ConfigType"] = boost::any(*configType);
+    }
+    if (fallback) {
+      res["Fallback"] = boost::any(*fallback);
     }
     if (mode) {
       res["Mode"] = boost::any(*mode);
@@ -37504,6 +37794,9 @@ public:
     }
     if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
       configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("Fallback") != m.end() && !m["Fallback"].empty()) {
+      fallback = make_shared<string>(boost::any_cast<string>(m["Fallback"]));
     }
     if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
       mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
@@ -54683,6 +54976,7 @@ public:
   shared_ptr<string> bypass{};
   shared_ptr<long> configId{};
   shared_ptr<string> configType{};
+  shared_ptr<string> fallback{};
   shared_ptr<string> mode{};
   shared_ptr<string> routeEnable{};
   shared_ptr<string> routeName{};
@@ -54711,6 +55005,9 @@ public:
     }
     if (configType) {
       res["ConfigType"] = boost::any(*configType);
+    }
+    if (fallback) {
+      res["Fallback"] = boost::any(*fallback);
     }
     if (mode) {
       res["Mode"] = boost::any(*mode);
@@ -54751,6 +55048,9 @@ public:
     }
     if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
       configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("Fallback") != m.end() && !m["Fallback"].empty()) {
+      fallback = make_shared<string>(boost::any_cast<string>(m["Fallback"]));
     }
     if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
       mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
@@ -55722,6 +56022,7 @@ public:
   shared_ptr<string> bypass{};
   shared_ptr<long> configId{};
   shared_ptr<string> configType{};
+  shared_ptr<string> fallback{};
   shared_ptr<string> mode{};
   shared_ptr<string> routeEnable{};
   shared_ptr<string> routeName{};
@@ -55748,6 +56049,9 @@ public:
     }
     if (configType) {
       res["ConfigType"] = boost::any(*configType);
+    }
+    if (fallback) {
+      res["Fallback"] = boost::any(*fallback);
     }
     if (mode) {
       res["Mode"] = boost::any(*mode);
@@ -55782,6 +56086,9 @@ public:
     }
     if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
       configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("Fallback") != m.end() && !m["Fallback"].empty()) {
+      fallback = make_shared<string>(boost::any_cast<string>(m["Fallback"]));
     }
     if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
       mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
@@ -71407,6 +71714,7 @@ class UpdateRoutineRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bypass{};
   shared_ptr<long> configId{};
+  shared_ptr<string> fallback{};
   shared_ptr<string> routeEnable{};
   shared_ptr<string> routeName{};
   shared_ptr<string> routineName{};
@@ -71429,6 +71737,9 @@ public:
     }
     if (configId) {
       res["ConfigId"] = boost::any(*configId);
+    }
+    if (fallback) {
+      res["Fallback"] = boost::any(*fallback);
     }
     if (routeEnable) {
       res["RouteEnable"] = boost::any(*routeEnable);
@@ -71457,6 +71768,9 @@ public:
     }
     if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
       configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Fallback") != m.end() && !m["Fallback"].empty()) {
+      fallback = make_shared<string>(boost::any_cast<string>(m["Fallback"]));
     }
     if (m.find("RouteEnable") != m.end() && !m["RouteEnable"].empty()) {
       routeEnable = make_shared<string>(boost::any_cast<string>(m["RouteEnable"]));
@@ -75911,6 +76225,7 @@ public:
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
+  map<string, boost::any> _postOSSObject(shared_ptr<string> bucketName, shared_ptr<map<string, boost::any>> data);
   string getEndpoint(shared_ptr<string> productId,
                      shared_ptr<string> regionId,
                      shared_ptr<string> endpointRule,
@@ -76154,6 +76469,8 @@ public:
   DescribeSiteTimeSeriesDataResponse describeSiteTimeSeriesData(shared_ptr<DescribeSiteTimeSeriesDataRequest> request);
   DescribeSiteTopDataResponse describeSiteTopDataWithOptions(shared_ptr<DescribeSiteTopDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSiteTopDataResponse describeSiteTopData(shared_ptr<DescribeSiteTopDataRequest> request);
+  DescribeUrlObservationDataResponse describeUrlObservationDataWithOptions(shared_ptr<DescribeUrlObservationDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeUrlObservationDataResponse describeUrlObservationData(shared_ptr<DescribeUrlObservationDataRequest> request);
   DisableCustomScenePolicyResponse disableCustomScenePolicyWithOptions(shared_ptr<DisableCustomScenePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableCustomScenePolicyResponse disableCustomScenePolicy(shared_ptr<DisableCustomScenePolicyRequest> request);
   EditSiteWafSettingsResponse editSiteWafSettingsWithOptions(shared_ptr<EditSiteWafSettingsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
