@@ -6216,6 +6216,193 @@ public:
 
   virtual ~CreateStreamingJobResponse() = default;
 };
+class CreateSupabaseProjectRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountPassword{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> diskPerformanceLevel{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> projectSpec{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> securityIPList{};
+  shared_ptr<long> storageSize{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> zoneId{};
+
+  CreateSupabaseProjectRequest() {}
+
+  explicit CreateSupabaseProjectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountPassword) {
+      res["AccountPassword"] = boost::any(*accountPassword);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (diskPerformanceLevel) {
+      res["DiskPerformanceLevel"] = boost::any(*diskPerformanceLevel);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (projectSpec) {
+      res["ProjectSpec"] = boost::any(*projectSpec);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (securityIPList) {
+      res["SecurityIPList"] = boost::any(*securityIPList);
+    }
+    if (storageSize) {
+      res["StorageSize"] = boost::any(*storageSize);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountPassword") != m.end() && !m["AccountPassword"].empty()) {
+      accountPassword = make_shared<string>(boost::any_cast<string>(m["AccountPassword"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DiskPerformanceLevel") != m.end() && !m["DiskPerformanceLevel"].empty()) {
+      diskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["DiskPerformanceLevel"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("ProjectSpec") != m.end() && !m["ProjectSpec"].empty()) {
+      projectSpec = make_shared<string>(boost::any_cast<string>(m["ProjectSpec"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
+      securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
+    }
+    if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
+      storageSize = make_shared<long>(boost::any_cast<long>(m["StorageSize"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~CreateSupabaseProjectRequest() = default;
+};
+class CreateSupabaseProjectResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> projectId{};
+  shared_ptr<string> requestId{};
+
+  CreateSupabaseProjectResponseBody() {}
+
+  explicit CreateSupabaseProjectResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateSupabaseProjectResponseBody() = default;
+};
+class CreateSupabaseProjectResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSupabaseProjectResponseBody> body{};
+
+  CreateSupabaseProjectResponse() {}
+
+  explicit CreateSupabaseProjectResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSupabaseProjectResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSupabaseProjectResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSupabaseProjectResponse() = default;
+};
 class CreateVectorIndexRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
@@ -9274,6 +9461,123 @@ public:
 
 
   virtual ~DeleteStreamingJobResponse() = default;
+};
+class DeleteSupabaseProjectRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectId{};
+  shared_ptr<string> regionId{};
+
+  DeleteSupabaseProjectRequest() {}
+
+  explicit DeleteSupabaseProjectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteSupabaseProjectRequest() = default;
+};
+class DeleteSupabaseProjectResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteSupabaseProjectResponseBody() {}
+
+  explicit DeleteSupabaseProjectResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteSupabaseProjectResponseBody() = default;
+};
+class DeleteSupabaseProjectResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteSupabaseProjectResponseBody> body{};
+
+  DeleteSupabaseProjectResponse() {}
+
+  explicit DeleteSupabaseProjectResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSupabaseProjectResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSupabaseProjectResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSupabaseProjectResponse() = default;
 };
 class DeleteVectorIndexRequest : public Darabonba::Model {
 public:
@@ -28753,6 +29057,568 @@ public:
 
   virtual ~GetStatementResultResponse() = default;
 };
+class GetSupabaseProjectRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectId{};
+  shared_ptr<string> regionId{};
+
+  GetSupabaseProjectRequest() {}
+
+  explicit GetSupabaseProjectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectRequest() = default;
+};
+class GetSupabaseProjectResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> dashboardPassword{};
+  shared_ptr<string> dashboardUserName{};
+  shared_ptr<string> diskPerformanceLevel{};
+  shared_ptr<string> engine{};
+  shared_ptr<string> engineVersion{};
+  shared_ptr<string> privateConnectUrl{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> projectSpec{};
+  shared_ptr<string> publicConnectUrl{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> securityIpList{};
+  shared_ptr<string> status{};
+  shared_ptr<long> storageSize{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> zoneId{};
+
+  GetSupabaseProjectResponseBody() {}
+
+  explicit GetSupabaseProjectResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dashboardPassword) {
+      res["DashboardPassword"] = boost::any(*dashboardPassword);
+    }
+    if (dashboardUserName) {
+      res["DashboardUserName"] = boost::any(*dashboardUserName);
+    }
+    if (diskPerformanceLevel) {
+      res["DiskPerformanceLevel"] = boost::any(*diskPerformanceLevel);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineVersion) {
+      res["EngineVersion"] = boost::any(*engineVersion);
+    }
+    if (privateConnectUrl) {
+      res["PrivateConnectUrl"] = boost::any(*privateConnectUrl);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (projectSpec) {
+      res["ProjectSpec"] = boost::any(*projectSpec);
+    }
+    if (publicConnectUrl) {
+      res["PublicConnectUrl"] = boost::any(*publicConnectUrl);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (securityIpList) {
+      res["SecurityIpList"] = boost::any(*securityIpList);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (storageSize) {
+      res["StorageSize"] = boost::any(*storageSize);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DashboardPassword") != m.end() && !m["DashboardPassword"].empty()) {
+      dashboardPassword = make_shared<string>(boost::any_cast<string>(m["DashboardPassword"]));
+    }
+    if (m.find("DashboardUserName") != m.end() && !m["DashboardUserName"].empty()) {
+      dashboardUserName = make_shared<string>(boost::any_cast<string>(m["DashboardUserName"]));
+    }
+    if (m.find("DiskPerformanceLevel") != m.end() && !m["DiskPerformanceLevel"].empty()) {
+      diskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["DiskPerformanceLevel"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
+      engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
+    }
+    if (m.find("PrivateConnectUrl") != m.end() && !m["PrivateConnectUrl"].empty()) {
+      privateConnectUrl = make_shared<string>(boost::any_cast<string>(m["PrivateConnectUrl"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("ProjectSpec") != m.end() && !m["ProjectSpec"].empty()) {
+      projectSpec = make_shared<string>(boost::any_cast<string>(m["ProjectSpec"]));
+    }
+    if (m.find("PublicConnectUrl") != m.end() && !m["PublicConnectUrl"].empty()) {
+      publicConnectUrl = make_shared<string>(boost::any_cast<string>(m["PublicConnectUrl"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SecurityIpList") != m.end() && !m["SecurityIpList"].empty()) {
+      securityIpList = make_shared<string>(boost::any_cast<string>(m["SecurityIpList"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
+      storageSize = make_shared<long>(boost::any_cast<long>(m["StorageSize"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectResponseBody() = default;
+};
+class GetSupabaseProjectResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSupabaseProjectResponseBody> body{};
+
+  GetSupabaseProjectResponse() {}
+
+  explicit GetSupabaseProjectResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSupabaseProjectResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSupabaseProjectResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectResponse() = default;
+};
+class GetSupabaseProjectApiKeysRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectId{};
+  shared_ptr<string> regionId{};
+
+  GetSupabaseProjectApiKeysRequest() {}
+
+  explicit GetSupabaseProjectApiKeysRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectApiKeysRequest() = default;
+};
+class GetSupabaseProjectApiKeysResponseBodyApiKeys : public Darabonba::Model {
+public:
+  shared_ptr<string> apiKey{};
+  shared_ptr<string> name{};
+
+  GetSupabaseProjectApiKeysResponseBodyApiKeys() {}
+
+  explicit GetSupabaseProjectApiKeysResponseBodyApiKeys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiKey) {
+      res["ApiKey"] = boost::any(*apiKey);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiKey") != m.end() && !m["ApiKey"].empty()) {
+      apiKey = make_shared<string>(boost::any_cast<string>(m["ApiKey"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectApiKeysResponseBodyApiKeys() = default;
+};
+class GetSupabaseProjectApiKeysResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetSupabaseProjectApiKeysResponseBodyApiKeys>> apiKeys{};
+  shared_ptr<string> requestId{};
+
+  GetSupabaseProjectApiKeysResponseBody() {}
+
+  explicit GetSupabaseProjectApiKeysResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiKeys) {
+      vector<boost::any> temp1;
+      for(auto item1:*apiKeys){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApiKeys"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiKeys") != m.end() && !m["ApiKeys"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApiKeys"].type()) {
+        vector<GetSupabaseProjectApiKeysResponseBodyApiKeys> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApiKeys"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSupabaseProjectApiKeysResponseBodyApiKeys model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apiKeys = make_shared<vector<GetSupabaseProjectApiKeysResponseBodyApiKeys>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectApiKeysResponseBody() = default;
+};
+class GetSupabaseProjectApiKeysResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSupabaseProjectApiKeysResponseBody> body{};
+
+  GetSupabaseProjectApiKeysResponse() {}
+
+  explicit GetSupabaseProjectApiKeysResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSupabaseProjectApiKeysResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSupabaseProjectApiKeysResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectApiKeysResponse() = default;
+};
+class GetSupabaseProjectDashboardAccountRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectId{};
+  shared_ptr<string> regionId{};
+
+  GetSupabaseProjectDashboardAccountRequest() {}
+
+  explicit GetSupabaseProjectDashboardAccountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectDashboardAccountRequest() = default;
+};
+class GetSupabaseProjectDashboardAccountResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> dashboardPassword{};
+  shared_ptr<string> dashboardUsername{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> requestId{};
+
+  GetSupabaseProjectDashboardAccountResponseBody() {}
+
+  explicit GetSupabaseProjectDashboardAccountResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dashboardPassword) {
+      res["DashboardPassword"] = boost::any(*dashboardPassword);
+    }
+    if (dashboardUsername) {
+      res["DashboardUsername"] = boost::any(*dashboardUsername);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DashboardPassword") != m.end() && !m["DashboardPassword"].empty()) {
+      dashboardPassword = make_shared<string>(boost::any_cast<string>(m["DashboardPassword"]));
+    }
+    if (m.find("DashboardUsername") != m.end() && !m["DashboardUsername"].empty()) {
+      dashboardUsername = make_shared<string>(boost::any_cast<string>(m["DashboardUsername"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectDashboardAccountResponseBody() = default;
+};
+class GetSupabaseProjectDashboardAccountResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSupabaseProjectDashboardAccountResponseBody> body{};
+
+  GetSupabaseProjectDashboardAccountResponse() {}
+
+  explicit GetSupabaseProjectDashboardAccountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSupabaseProjectDashboardAccountResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSupabaseProjectDashboardAccountResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSupabaseProjectDashboardAccountResponse() = default;
+};
 class GetUploadDocumentJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
@@ -34086,6 +34952,341 @@ public:
 
   virtual ~ListStreamingJobsResponse() = default;
 };
+class ListSupabaseProjectsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+
+  ListSupabaseProjectsRequest() {}
+
+  explicit ListSupabaseProjectsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListSupabaseProjectsRequest() = default;
+};
+class ListSupabaseProjectsResponseBodyItems : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> dashboardPassword{};
+  shared_ptr<string> dashboardUserName{};
+  shared_ptr<string> diskPerformanceLevel{};
+  shared_ptr<string> engine{};
+  shared_ptr<string> engineVersion{};
+  shared_ptr<string> payType{};
+  shared_ptr<string> privateConnectUrl{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> projectSpec{};
+  shared_ptr<string> publicConnectUrl{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> securityIPList{};
+  shared_ptr<string> status{};
+  shared_ptr<long> storageSize{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> zoneId{};
+
+  ListSupabaseProjectsResponseBodyItems() {}
+
+  explicit ListSupabaseProjectsResponseBodyItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dashboardPassword) {
+      res["DashboardPassword"] = boost::any(*dashboardPassword);
+    }
+    if (dashboardUserName) {
+      res["DashboardUserName"] = boost::any(*dashboardUserName);
+    }
+    if (diskPerformanceLevel) {
+      res["DiskPerformanceLevel"] = boost::any(*diskPerformanceLevel);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineVersion) {
+      res["EngineVersion"] = boost::any(*engineVersion);
+    }
+    if (payType) {
+      res["PayType"] = boost::any(*payType);
+    }
+    if (privateConnectUrl) {
+      res["PrivateConnectUrl"] = boost::any(*privateConnectUrl);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (projectSpec) {
+      res["ProjectSpec"] = boost::any(*projectSpec);
+    }
+    if (publicConnectUrl) {
+      res["PublicConnectUrl"] = boost::any(*publicConnectUrl);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (securityIPList) {
+      res["SecurityIPList"] = boost::any(*securityIPList);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (storageSize) {
+      res["StorageSize"] = boost::any(*storageSize);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DashboardPassword") != m.end() && !m["DashboardPassword"].empty()) {
+      dashboardPassword = make_shared<string>(boost::any_cast<string>(m["DashboardPassword"]));
+    }
+    if (m.find("DashboardUserName") != m.end() && !m["DashboardUserName"].empty()) {
+      dashboardUserName = make_shared<string>(boost::any_cast<string>(m["DashboardUserName"]));
+    }
+    if (m.find("DiskPerformanceLevel") != m.end() && !m["DiskPerformanceLevel"].empty()) {
+      diskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["DiskPerformanceLevel"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
+      engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
+    }
+    if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
+      payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
+    }
+    if (m.find("PrivateConnectUrl") != m.end() && !m["PrivateConnectUrl"].empty()) {
+      privateConnectUrl = make_shared<string>(boost::any_cast<string>(m["PrivateConnectUrl"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("ProjectSpec") != m.end() && !m["ProjectSpec"].empty()) {
+      projectSpec = make_shared<string>(boost::any_cast<string>(m["ProjectSpec"]));
+    }
+    if (m.find("PublicConnectUrl") != m.end() && !m["PublicConnectUrl"].empty()) {
+      publicConnectUrl = make_shared<string>(boost::any_cast<string>(m["PublicConnectUrl"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
+      securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
+      storageSize = make_shared<long>(boost::any_cast<long>(m["StorageSize"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~ListSupabaseProjectsResponseBodyItems() = default;
+};
+class ListSupabaseProjectsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSupabaseProjectsResponseBodyItems>> items{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageRecordCount{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalRecordCount{};
+
+  ListSupabaseProjectsResponseBody() {}
+
+  explicit ListSupabaseProjectsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageRecordCount) {
+      res["PageRecordCount"] = boost::any(*pageRecordCount);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalRecordCount) {
+      res["TotalRecordCount"] = boost::any(*totalRecordCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<ListSupabaseProjectsResponseBodyItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSupabaseProjectsResponseBodyItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<ListSupabaseProjectsResponseBodyItems>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageRecordCount") != m.end() && !m["PageRecordCount"].empty()) {
+      pageRecordCount = make_shared<long>(boost::any_cast<long>(m["PageRecordCount"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalRecordCount") != m.end() && !m["TotalRecordCount"].empty()) {
+      totalRecordCount = make_shared<long>(boost::any_cast<long>(m["TotalRecordCount"]));
+    }
+  }
+
+
+  virtual ~ListSupabaseProjectsResponseBody() = default;
+};
+class ListSupabaseProjectsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSupabaseProjectsResponseBody> body{};
+
+  ListSupabaseProjectsResponse() {}
+
+  explicit ListSupabaseProjectsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSupabaseProjectsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSupabaseProjectsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSupabaseProjectsResponse() = default;
+};
 class ListTablesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -38576,6 +39777,130 @@ public:
 
   virtual ~ModifyStreamingJobResponse() = default;
 };
+class ModifySupabaseProjectSecurityIpsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> securityIPList{};
+
+  ModifySupabaseProjectSecurityIpsRequest() {}
+
+  explicit ModifySupabaseProjectSecurityIpsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (securityIPList) {
+      res["SecurityIPList"] = boost::any(*securityIPList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
+      securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
+    }
+  }
+
+
+  virtual ~ModifySupabaseProjectSecurityIpsRequest() = default;
+};
+class ModifySupabaseProjectSecurityIpsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifySupabaseProjectSecurityIpsResponseBody() {}
+
+  explicit ModifySupabaseProjectSecurityIpsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifySupabaseProjectSecurityIpsResponseBody() = default;
+};
+class ModifySupabaseProjectSecurityIpsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifySupabaseProjectSecurityIpsResponseBody> body{};
+
+  ModifySupabaseProjectSecurityIpsResponse() {}
+
+  explicit ModifySupabaseProjectSecurityIpsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifySupabaseProjectSecurityIpsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifySupabaseProjectSecurityIpsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifySupabaseProjectSecurityIpsResponse() = default;
+};
 class ModifyVectorConfigurationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -41613,6 +42938,130 @@ public:
 
 
   virtual ~ResetIMVMonitorDataResponse() = default;
+};
+class ResetSupabaseProjectPasswordRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountPassword{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> regionId{};
+
+  ResetSupabaseProjectPasswordRequest() {}
+
+  explicit ResetSupabaseProjectPasswordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountPassword) {
+      res["AccountPassword"] = boost::any(*accountPassword);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountPassword") != m.end() && !m["AccountPassword"].empty()) {
+      accountPassword = make_shared<string>(boost::any_cast<string>(m["AccountPassword"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ResetSupabaseProjectPasswordRequest() = default;
+};
+class ResetSupabaseProjectPasswordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ResetSupabaseProjectPasswordResponseBody() {}
+
+  explicit ResetSupabaseProjectPasswordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ResetSupabaseProjectPasswordResponseBody() = default;
+};
+class ResetSupabaseProjectPasswordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ResetSupabaseProjectPasswordResponseBody> body{};
+
+  ResetSupabaseProjectPasswordResponse() {}
+
+  explicit ResetSupabaseProjectPasswordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ResetSupabaseProjectPasswordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ResetSupabaseProjectPasswordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ResetSupabaseProjectPasswordResponse() = default;
 };
 class RestartDBInstanceRequest : public Darabonba::Model {
 public:
@@ -46096,6 +47545,7 @@ public:
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
+  map<string, boost::any> _postOSSObject(shared_ptr<string> bucketName, shared_ptr<map<string, boost::any>> data);
   string getEndpoint(shared_ptr<string> productId,
                      shared_ptr<string> regionId,
                      shared_ptr<string> endpointRule,
@@ -46163,6 +47613,8 @@ public:
   CreateStreamingDataSourceResponse createStreamingDataSource(shared_ptr<CreateStreamingDataSourceRequest> request);
   CreateStreamingJobResponse createStreamingJobWithOptions(shared_ptr<CreateStreamingJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateStreamingJobResponse createStreamingJob(shared_ptr<CreateStreamingJobRequest> request);
+  CreateSupabaseProjectResponse createSupabaseProjectWithOptions(shared_ptr<CreateSupabaseProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSupabaseProjectResponse createSupabaseProject(shared_ptr<CreateSupabaseProjectRequest> request);
   CreateVectorIndexResponse createVectorIndexWithOptions(shared_ptr<CreateVectorIndexRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateVectorIndexResponse createVectorIndex(shared_ptr<CreateVectorIndexRequest> request);
   DeleteAccountResponse deleteAccountWithOptions(shared_ptr<DeleteAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -46205,6 +47657,8 @@ public:
   DeleteStreamingDataSourceResponse deleteStreamingDataSource(shared_ptr<DeleteStreamingDataSourceRequest> request);
   DeleteStreamingJobResponse deleteStreamingJobWithOptions(shared_ptr<DeleteStreamingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteStreamingJobResponse deleteStreamingJob(shared_ptr<DeleteStreamingJobRequest> request);
+  DeleteSupabaseProjectResponse deleteSupabaseProjectWithOptions(shared_ptr<DeleteSupabaseProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSupabaseProjectResponse deleteSupabaseProject(shared_ptr<DeleteSupabaseProjectRequest> request);
   DeleteVectorIndexResponse deleteVectorIndexWithOptions(shared_ptr<DeleteVectorIndexRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVectorIndexResponse deleteVectorIndex(shared_ptr<DeleteVectorIndexRequest> request);
   DescribeAccountsResponse describeAccountsWithOptions(shared_ptr<DescribeAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -46353,6 +47807,12 @@ public:
   GetSecretValueResponse getSecretValue(shared_ptr<GetSecretValueRequest> request);
   GetStatementResultResponse getStatementResultWithOptions(shared_ptr<GetStatementResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetStatementResultResponse getStatementResult(shared_ptr<GetStatementResultRequest> request);
+  GetSupabaseProjectResponse getSupabaseProjectWithOptions(shared_ptr<GetSupabaseProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSupabaseProjectResponse getSupabaseProject(shared_ptr<GetSupabaseProjectRequest> request);
+  GetSupabaseProjectApiKeysResponse getSupabaseProjectApiKeysWithOptions(shared_ptr<GetSupabaseProjectApiKeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSupabaseProjectApiKeysResponse getSupabaseProjectApiKeys(shared_ptr<GetSupabaseProjectApiKeysRequest> request);
+  GetSupabaseProjectDashboardAccountResponse getSupabaseProjectDashboardAccountWithOptions(shared_ptr<GetSupabaseProjectDashboardAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSupabaseProjectDashboardAccountResponse getSupabaseProjectDashboardAccount(shared_ptr<GetSupabaseProjectDashboardAccountRequest> request);
   GetUploadDocumentJobResponse getUploadDocumentJobWithOptions(shared_ptr<GetUploadDocumentJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUploadDocumentJobResponse getUploadDocumentJob(shared_ptr<GetUploadDocumentJobRequest> request);
   GetUpsertCollectionDataJobResponse getUpsertCollectionDataJobWithOptions(shared_ptr<GetUpsertCollectionDataJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -46395,6 +47855,8 @@ public:
   ListStreamingDataSourcesResponse listStreamingDataSources(shared_ptr<ListStreamingDataSourcesRequest> request);
   ListStreamingJobsResponse listStreamingJobsWithOptions(shared_ptr<ListStreamingJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListStreamingJobsResponse listStreamingJobs(shared_ptr<ListStreamingJobsRequest> request);
+  ListSupabaseProjectsResponse listSupabaseProjectsWithOptions(shared_ptr<ListSupabaseProjectsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSupabaseProjectsResponse listSupabaseProjects(shared_ptr<ListSupabaseProjectsRequest> request);
   ListTablesResponse listTablesWithOptions(shared_ptr<ListTablesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTablesResponse listTables(shared_ptr<ListTablesRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -46447,6 +47909,8 @@ public:
   ModifyStreamingDataSourceResponse modifyStreamingDataSource(shared_ptr<ModifyStreamingDataSourceRequest> request);
   ModifyStreamingJobResponse modifyStreamingJobWithOptions(shared_ptr<ModifyStreamingJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyStreamingJobResponse modifyStreamingJob(shared_ptr<ModifyStreamingJobRequest> request);
+  ModifySupabaseProjectSecurityIpsResponse modifySupabaseProjectSecurityIpsWithOptions(shared_ptr<ModifySupabaseProjectSecurityIpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifySupabaseProjectSecurityIpsResponse modifySupabaseProjectSecurityIps(shared_ptr<ModifySupabaseProjectSecurityIpsRequest> request);
   ModifyVectorConfigurationResponse modifyVectorConfigurationWithOptions(shared_ptr<ModifyVectorConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyVectorConfigurationResponse modifyVectorConfiguration(shared_ptr<ModifyVectorConfigurationRequest> request);
   PauseDataRedistributeResponse pauseDataRedistributeWithOptions(shared_ptr<PauseDataRedistributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -46468,6 +47932,8 @@ public:
   ResetAccountPasswordResponse resetAccountPassword(shared_ptr<ResetAccountPasswordRequest> request);
   ResetIMVMonitorDataResponse resetIMVMonitorDataWithOptions(shared_ptr<ResetIMVMonitorDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResetIMVMonitorDataResponse resetIMVMonitorData(shared_ptr<ResetIMVMonitorDataRequest> request);
+  ResetSupabaseProjectPasswordResponse resetSupabaseProjectPasswordWithOptions(shared_ptr<ResetSupabaseProjectPasswordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ResetSupabaseProjectPasswordResponse resetSupabaseProjectPassword(shared_ptr<ResetSupabaseProjectPasswordRequest> request);
   RestartDBInstanceResponse restartDBInstanceWithOptions(shared_ptr<RestartDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RestartDBInstanceResponse restartDBInstance(shared_ptr<RestartDBInstanceRequest> request);
   ResumeDataRedistributeResponse resumeDataRedistributeWithOptions(shared_ptr<ResumeDataRedistributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
