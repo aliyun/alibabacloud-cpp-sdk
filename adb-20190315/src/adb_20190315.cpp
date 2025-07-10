@@ -136,6 +136,12 @@ ApplyAdviceByIdResponse Alibabacloud_Adb20190315::Client::applyAdviceByIdWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->adviceId)) {
     query->insert(pair<string, string>("AdviceId", *request->adviceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->applyType)) {
+    query->insert(pair<string, string>("ApplyType", *request->applyType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->buildImmediately)) {
+    query->insert(pair<string, bool>("BuildImmediately", *request->buildImmediately));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
@@ -212,6 +218,12 @@ BatchApplyAdviceByIdListResponse Alibabacloud_Adb20190315::Client::batchApplyAdv
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->adviceIdList)) {
     query->insert(pair<string, string>("AdviceIdList", *request->adviceIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->applyType)) {
+    query->insert(pair<string, string>("ApplyType", *request->applyType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->buildImmediately)) {
+    query->insert(pair<string, bool>("BuildImmediately", *request->buildImmediately));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
