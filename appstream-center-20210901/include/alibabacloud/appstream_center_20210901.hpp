@@ -10232,6 +10232,9 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> productType{};
   shared_ptr<string> promotionId{};
+  shared_ptr<long> renewAmount{};
+  shared_ptr<string> renewMode{};
+  shared_ptr<vector<string>> renewNodes{};
 
   RenewAppInstanceGroupRequest() {}
 
@@ -10261,6 +10264,15 @@ public:
     if (promotionId) {
       res["PromotionId"] = boost::any(*promotionId);
     }
+    if (renewAmount) {
+      res["RenewAmount"] = boost::any(*renewAmount);
+    }
+    if (renewMode) {
+      res["RenewMode"] = boost::any(*renewMode);
+    }
+    if (renewNodes) {
+      res["RenewNodes"] = boost::any(*renewNodes);
+    }
     return res;
   }
 
@@ -10283,10 +10295,111 @@ public:
     if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
       promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
     }
+    if (m.find("RenewAmount") != m.end() && !m["RenewAmount"].empty()) {
+      renewAmount = make_shared<long>(boost::any_cast<long>(m["RenewAmount"]));
+    }
+    if (m.find("RenewMode") != m.end() && !m["RenewMode"].empty()) {
+      renewMode = make_shared<string>(boost::any_cast<string>(m["RenewMode"]));
+    }
+    if (m.find("RenewNodes") != m.end() && !m["RenewNodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RenewNodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RenewNodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      renewNodes = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~RenewAppInstanceGroupRequest() = default;
+};
+class RenewAppInstanceGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<bool> autoPay{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
+  shared_ptr<string> productType{};
+  shared_ptr<string> promotionId{};
+  shared_ptr<long> renewAmount{};
+  shared_ptr<string> renewMode{};
+  shared_ptr<string> renewNodesShrink{};
+
+  RenewAppInstanceGroupShrinkRequest() {}
+
+  explicit RenewAppInstanceGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstanceGroupId) {
+      res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
+    }
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["PeriodUnit"] = boost::any(*periodUnit);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    if (promotionId) {
+      res["PromotionId"] = boost::any(*promotionId);
+    }
+    if (renewAmount) {
+      res["RenewAmount"] = boost::any(*renewAmount);
+    }
+    if (renewMode) {
+      res["RenewMode"] = boost::any(*renewMode);
+    }
+    if (renewNodesShrink) {
+      res["RenewNodes"] = boost::any(*renewNodesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
+      appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
+    }
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
+      promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
+    }
+    if (m.find("RenewAmount") != m.end() && !m["RenewAmount"].empty()) {
+      renewAmount = make_shared<long>(boost::any_cast<long>(m["RenewAmount"]));
+    }
+    if (m.find("RenewMode") != m.end() && !m["RenewMode"].empty()) {
+      renewMode = make_shared<string>(boost::any_cast<string>(m["RenewMode"]));
+    }
+    if (m.find("RenewNodes") != m.end() && !m["RenewNodes"].empty()) {
+      renewNodesShrink = make_shared<string>(boost::any_cast<string>(m["RenewNodes"]));
+    }
+  }
+
+
+  virtual ~RenewAppInstanceGroupShrinkRequest() = default;
 };
 class RenewAppInstanceGroupResponseBody : public Darabonba::Model {
 public:
@@ -11325,7 +11438,7 @@ public:
   ModifyTenantConfigResponse modifyTenantConfig(shared_ptr<ModifyTenantConfigRequest> request);
   PageListAppInstanceGroupUserResponse pageListAppInstanceGroupUserWithOptions(shared_ptr<PageListAppInstanceGroupUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PageListAppInstanceGroupUserResponse pageListAppInstanceGroupUser(shared_ptr<PageListAppInstanceGroupUserRequest> request);
-  RenewAppInstanceGroupResponse renewAppInstanceGroupWithOptions(shared_ptr<RenewAppInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RenewAppInstanceGroupResponse renewAppInstanceGroupWithOptions(shared_ptr<RenewAppInstanceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RenewAppInstanceGroupResponse renewAppInstanceGroup(shared_ptr<RenewAppInstanceGroupRequest> request);
   TagCloudResourcesResponse tagCloudResourcesWithOptions(shared_ptr<TagCloudResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagCloudResourcesResponse tagCloudResources(shared_ptr<TagCloudResourcesRequest> request);

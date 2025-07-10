@@ -1376,8 +1376,13 @@ PageListAppInstanceGroupUserResponse Alibabacloud_Appstream-center20210901::Clie
   return pageListAppInstanceGroupUserWithOptions(request, runtime);
 }
 
-RenewAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::renewAppInstanceGroupWithOptions(shared_ptr<RenewAppInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+RenewAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::renewAppInstanceGroupWithOptions(shared_ptr<RenewAppInstanceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RenewAppInstanceGroupShrinkRequest> request = make_shared<RenewAppInstanceGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->renewNodes)) {
+    request->renewNodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->renewNodes, make_shared<string>("RenewNodes"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceGroupId)) {
     query->insert(pair<string, string>("AppInstanceGroupId", *request->appInstanceGroupId));
@@ -1396,6 +1401,15 @@ RenewAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::ren
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->promotionId)) {
     query->insert(pair<string, string>("PromotionId", *request->promotionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->renewAmount)) {
+    query->insert(pair<string, long>("RenewAmount", *request->renewAmount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->renewMode)) {
+    query->insert(pair<string, string>("RenewMode", *request->renewMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->renewNodesShrink)) {
+    query->insert(pair<string, string>("RenewNodes", *request->renewNodesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
