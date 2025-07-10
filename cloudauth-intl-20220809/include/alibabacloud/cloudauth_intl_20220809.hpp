@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_CLOUDAUTH-INTL20220809_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -3970,6 +3971,8 @@ public:
   shared_ptr<string> crop{};
   shared_ptr<string> dateOfBirth{};
   shared_ptr<string> dateOfExpiry{};
+  shared_ptr<string> docName{};
+  shared_ptr<string> docNo{};
   shared_ptr<vector<string>> docPageConfig{};
   shared_ptr<string> docScanMode{};
   shared_ptr<string> docType{};
@@ -4034,6 +4037,12 @@ public:
     }
     if (dateOfExpiry) {
       res["DateOfExpiry"] = boost::any(*dateOfExpiry);
+    }
+    if (docName) {
+      res["DocName"] = boost::any(*docName);
+    }
+    if (docNo) {
+      res["DocNo"] = boost::any(*docNo);
     }
     if (docPageConfig) {
       res["DocPageConfig"] = boost::any(*docPageConfig);
@@ -4153,6 +4162,12 @@ public:
     if (m.find("DateOfExpiry") != m.end() && !m["DateOfExpiry"].empty()) {
       dateOfExpiry = make_shared<string>(boost::any_cast<string>(m["DateOfExpiry"]));
     }
+    if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
+      docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("DocNo") != m.end() && !m["DocNo"].empty()) {
+      docNo = make_shared<string>(boost::any_cast<string>(m["DocNo"]));
+    }
     if (m.find("DocPageConfig") != m.end() && !m["DocPageConfig"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["DocPageConfig"].type()) {
@@ -4265,6 +4280,8 @@ public:
   shared_ptr<string> crop{};
   shared_ptr<string> dateOfBirth{};
   shared_ptr<string> dateOfExpiry{};
+  shared_ptr<string> docName{};
+  shared_ptr<string> docNo{};
   shared_ptr<string> docPageConfigShrink{};
   shared_ptr<string> docScanMode{};
   shared_ptr<string> docType{};
@@ -4329,6 +4346,12 @@ public:
     }
     if (dateOfExpiry) {
       res["DateOfExpiry"] = boost::any(*dateOfExpiry);
+    }
+    if (docName) {
+      res["DocName"] = boost::any(*docName);
+    }
+    if (docNo) {
+      res["DocNo"] = boost::any(*docNo);
     }
     if (docPageConfigShrink) {
       res["DocPageConfig"] = boost::any(*docPageConfigShrink);
@@ -4447,6 +4470,12 @@ public:
     }
     if (m.find("DateOfExpiry") != m.end() && !m["DateOfExpiry"].empty()) {
       dateOfExpiry = make_shared<string>(boost::any_cast<string>(m["DateOfExpiry"]));
+    }
+    if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
+      docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("DocNo") != m.end() && !m["DocNo"].empty()) {
+      docNo = make_shared<string>(boost::any_cast<string>(m["DocNo"]));
     }
     if (m.find("DocPageConfig") != m.end() && !m["DocPageConfig"].empty()) {
       docPageConfigShrink = make_shared<string>(boost::any_cast<string>(m["DocPageConfig"]));
@@ -4908,6 +4937,7 @@ public:
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
+  map<string, boost::any> _postOSSObject(shared_ptr<string> bucketName, shared_ptr<map<string, boost::any>> data);
   string getEndpoint(shared_ptr<string> productId,
                      shared_ptr<string> regionId,
                      shared_ptr<string> endpointRule,
