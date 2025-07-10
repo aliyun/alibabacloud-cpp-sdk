@@ -304,6 +304,8 @@ public:
 };
 class CreateEventRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> deliveryMode{};
   shared_ptr<vector<CreateEventRuleRequestEndpoints>> endpoints{};
   shared_ptr<vector<string>> eventTypes{};
   shared_ptr<vector<vector<EventMatchRule>>> matchRules{};
@@ -320,6 +322,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (deliveryMode) {
+      res["DeliveryMode"] = boost::any(*deliveryMode);
+    }
     if (endpoints) {
       vector<boost::any> temp1;
       for(auto item1:*endpoints){
@@ -351,6 +359,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DeliveryMode") != m.end() && !m["DeliveryMode"].empty()) {
+      deliveryMode = make_shared<string>(boost::any_cast<string>(m["DeliveryMode"]));
+    }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
       if (typeid(vector<boost::any>) == m["Endpoints"].type()) {
         vector<CreateEventRuleRequestEndpoints> expect1;
@@ -406,6 +420,8 @@ public:
 };
 class CreateEventRuleShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> deliveryMode{};
   shared_ptr<string> endpointsShrink{};
   shared_ptr<string> eventTypesShrink{};
   shared_ptr<string> matchRulesShrink{};
@@ -422,6 +438,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (deliveryMode) {
+      res["DeliveryMode"] = boost::any(*deliveryMode);
+    }
     if (endpointsShrink) {
       res["Endpoints"] = boost::any(*endpointsShrink);
     }
@@ -441,6 +463,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DeliveryMode") != m.end() && !m["DeliveryMode"].empty()) {
+      deliveryMode = make_shared<string>(boost::any_cast<string>(m["DeliveryMode"]));
+    }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
       endpointsShrink = make_shared<string>(boost::any_cast<string>(m["Endpoints"]));
     }
@@ -656,6 +684,42 @@ public:
 
   virtual ~CreateQueueRequestTag() = default;
 };
+class CreateQueueRequestTenantRateLimitPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> maxReceivesPerSecond{};
+
+  CreateQueueRequestTenantRateLimitPolicy() {}
+
+  explicit CreateQueueRequestTenantRateLimitPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceivesPerSecond) {
+      res["MaxReceivesPerSecond"] = boost::any(*maxReceivesPerSecond);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceivesPerSecond") != m.end() && !m["MaxReceivesPerSecond"].empty()) {
+      maxReceivesPerSecond = make_shared<long>(boost::any_cast<long>(m["MaxReceivesPerSecond"]));
+    }
+  }
+
+
+  virtual ~CreateQueueRequestTenantRateLimitPolicy() = default;
+};
 class CreateQueueRequest : public Darabonba::Model {
 public:
   shared_ptr<long> delaySeconds{};
@@ -666,6 +730,7 @@ public:
   shared_ptr<long> pollingWaitSeconds{};
   shared_ptr<string> queueName{};
   shared_ptr<vector<CreateQueueRequestTag>> tag{};
+  shared_ptr<CreateQueueRequestTenantRateLimitPolicy> tenantRateLimitPolicy{};
   shared_ptr<long> visibilityTimeout{};
 
   CreateQueueRequest() {}
@@ -705,6 +770,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tag"] = boost::any(temp1);
+    }
+    if (tenantRateLimitPolicy) {
+      res["TenantRateLimitPolicy"] = tenantRateLimitPolicy ? boost::any(tenantRateLimitPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (visibilityTimeout) {
       res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
@@ -749,6 +817,13 @@ public:
           }
         }
         tag = make_shared<vector<CreateQueueRequestTag>>(expect1);
+      }
+    }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantRateLimitPolicy"].type()) {
+        CreateQueueRequestTenantRateLimitPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantRateLimitPolicy"]));
+        tenantRateLimitPolicy = make_shared<CreateQueueRequestTenantRateLimitPolicy>(model1);
       }
     }
     if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
@@ -805,6 +880,7 @@ public:
   shared_ptr<long> pollingWaitSeconds{};
   shared_ptr<string> queueName{};
   shared_ptr<vector<CreateQueueShrinkRequestTag>> tag{};
+  shared_ptr<string> tenantRateLimitPolicyShrink{};
   shared_ptr<long> visibilityTimeout{};
 
   CreateQueueShrinkRequest() {}
@@ -844,6 +920,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tag"] = boost::any(temp1);
+    }
+    if (tenantRateLimitPolicyShrink) {
+      res["TenantRateLimitPolicy"] = boost::any(*tenantRateLimitPolicyShrink);
     }
     if (visibilityTimeout) {
       res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
@@ -885,6 +964,9 @@ public:
         }
         tag = make_shared<vector<CreateQueueShrinkRequestTag>>(expect1);
       }
+    }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      tenantRateLimitPolicyShrink = make_shared<string>(boost::any_cast<string>(m["TenantRateLimitPolicy"]));
     }
     if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
       visibilityTimeout = make_shared<long>(boost::any_cast<long>(m["VisibilityTimeout"]));
@@ -2490,6 +2572,42 @@ public:
 
   virtual ~GetQueueAttributesResponseBodyDataTags() = default;
 };
+class GetQueueAttributesResponseBodyDataTenantRateLimitPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> maxReceivesPerSecond{};
+
+  GetQueueAttributesResponseBodyDataTenantRateLimitPolicy() {}
+
+  explicit GetQueueAttributesResponseBodyDataTenantRateLimitPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceivesPerSecond) {
+      res["MaxReceivesPerSecond"] = boost::any(*maxReceivesPerSecond);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceivesPerSecond") != m.end() && !m["MaxReceivesPerSecond"].empty()) {
+      maxReceivesPerSecond = make_shared<long>(boost::any_cast<long>(m["MaxReceivesPerSecond"]));
+    }
+  }
+
+
+  virtual ~GetQueueAttributesResponseBodyDataTenantRateLimitPolicy() = default;
+};
 class GetQueueAttributesResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> activeMessages{};
@@ -2505,6 +2623,7 @@ public:
   shared_ptr<long> pollingWaitSeconds{};
   shared_ptr<string> queueName{};
   shared_ptr<vector<GetQueueAttributesResponseBodyDataTags>> tags{};
+  shared_ptr<GetQueueAttributesResponseBodyDataTenantRateLimitPolicy> tenantRateLimitPolicy{};
   shared_ptr<long> visibilityTimeout{};
 
   GetQueueAttributesResponseBodyData() {}
@@ -2559,6 +2678,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (tenantRateLimitPolicy) {
+      res["TenantRateLimitPolicy"] = tenantRateLimitPolicy ? boost::any(tenantRateLimitPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (visibilityTimeout) {
       res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
@@ -2618,6 +2740,13 @@ public:
           }
         }
         tags = make_shared<vector<GetQueueAttributesResponseBodyDataTags>>(expect1);
+      }
+    }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantRateLimitPolicy"].type()) {
+        GetQueueAttributesResponseBodyDataTenantRateLimitPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantRateLimitPolicy"]));
+        tenantRateLimitPolicy = make_shared<GetQueueAttributesResponseBodyDataTenantRateLimitPolicy>(model1);
       }
     }
     if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
@@ -2820,6 +2949,42 @@ public:
 
   virtual ~GetSubscriptionAttributesResponseBodyDataDlqPolicy() = default;
 };
+class GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> maxReceivesPerSecond{};
+
+  GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy() {}
+
+  explicit GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceivesPerSecond) {
+      res["MaxReceivesPerSecond"] = boost::any(*maxReceivesPerSecond);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceivesPerSecond") != m.end() && !m["MaxReceivesPerSecond"].empty()) {
+      maxReceivesPerSecond = make_shared<long>(boost::any_cast<long>(m["MaxReceivesPerSecond"]));
+    }
+  }
+
+
+  virtual ~GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy() = default;
+};
 class GetSubscriptionAttributesResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> createTime{};
@@ -2830,6 +2995,7 @@ public:
   shared_ptr<string> notifyContentFormat{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> subscriptionName{};
+  shared_ptr<GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy> tenantRateLimitPolicy{};
   shared_ptr<string> topicName{};
   shared_ptr<string> topicOwner{};
 
@@ -2866,6 +3032,9 @@ public:
     }
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
+    }
+    if (tenantRateLimitPolicy) {
+      res["TenantRateLimitPolicy"] = tenantRateLimitPolicy ? boost::any(tenantRateLimitPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
@@ -2904,6 +3073,13 @@ public:
     }
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
+    }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantRateLimitPolicy"].type()) {
+        GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantRateLimitPolicy"]));
+        tenantRateLimitPolicy = make_shared<GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy>(model1);
+      }
     }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
@@ -4950,6 +5126,42 @@ public:
 
   virtual ~SetQueueAttributesRequestDlqPolicy() = default;
 };
+class SetQueueAttributesRequestTenantRateLimitPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> maxReceivesPerSecond{};
+
+  SetQueueAttributesRequestTenantRateLimitPolicy() {}
+
+  explicit SetQueueAttributesRequestTenantRateLimitPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceivesPerSecond) {
+      res["MaxReceivesPerSecond"] = boost::any(*maxReceivesPerSecond);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceivesPerSecond") != m.end() && !m["MaxReceivesPerSecond"].empty()) {
+      maxReceivesPerSecond = make_shared<long>(boost::any_cast<long>(m["MaxReceivesPerSecond"]));
+    }
+  }
+
+
+  virtual ~SetQueueAttributesRequestTenantRateLimitPolicy() = default;
+};
 class SetQueueAttributesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> delaySeconds{};
@@ -4959,6 +5171,7 @@ public:
   shared_ptr<long> messageRetentionPeriod{};
   shared_ptr<long> pollingWaitSeconds{};
   shared_ptr<string> queueName{};
+  shared_ptr<SetQueueAttributesRequestTenantRateLimitPolicy> tenantRateLimitPolicy{};
   shared_ptr<long> visibilityTimeout{};
 
   SetQueueAttributesRequest() {}
@@ -4992,6 +5205,9 @@ public:
     if (queueName) {
       res["QueueName"] = boost::any(*queueName);
     }
+    if (tenantRateLimitPolicy) {
+      res["TenantRateLimitPolicy"] = tenantRateLimitPolicy ? boost::any(tenantRateLimitPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (visibilityTimeout) {
       res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
     }
@@ -5024,6 +5240,13 @@ public:
     if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
     }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantRateLimitPolicy"].type()) {
+        SetQueueAttributesRequestTenantRateLimitPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantRateLimitPolicy"]));
+        tenantRateLimitPolicy = make_shared<SetQueueAttributesRequestTenantRateLimitPolicy>(model1);
+      }
+    }
     if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
       visibilityTimeout = make_shared<long>(boost::any_cast<long>(m["VisibilityTimeout"]));
     }
@@ -5041,6 +5264,7 @@ public:
   shared_ptr<long> messageRetentionPeriod{};
   shared_ptr<long> pollingWaitSeconds{};
   shared_ptr<string> queueName{};
+  shared_ptr<string> tenantRateLimitPolicyShrink{};
   shared_ptr<long> visibilityTimeout{};
 
   SetQueueAttributesShrinkRequest() {}
@@ -5074,6 +5298,9 @@ public:
     if (queueName) {
       res["QueueName"] = boost::any(*queueName);
     }
+    if (tenantRateLimitPolicyShrink) {
+      res["TenantRateLimitPolicy"] = boost::any(*tenantRateLimitPolicyShrink);
+    }
     if (visibilityTimeout) {
       res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
     }
@@ -5101,6 +5328,9 @@ public:
     }
     if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      tenantRateLimitPolicyShrink = make_shared<string>(boost::any_cast<string>(m["TenantRateLimitPolicy"]));
     }
     if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
       visibilityTimeout = make_shared<long>(boost::any_cast<long>(m["VisibilityTimeout"]));
@@ -5309,11 +5539,48 @@ public:
 
   virtual ~SetSubscriptionAttributesRequestDlqPolicy() = default;
 };
+class SetSubscriptionAttributesRequestTenantRateLimitPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> maxReceivesPerSecond{};
+
+  SetSubscriptionAttributesRequestTenantRateLimitPolicy() {}
+
+  explicit SetSubscriptionAttributesRequestTenantRateLimitPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceivesPerSecond) {
+      res["MaxReceivesPerSecond"] = boost::any(*maxReceivesPerSecond);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceivesPerSecond") != m.end() && !m["MaxReceivesPerSecond"].empty()) {
+      maxReceivesPerSecond = make_shared<long>(boost::any_cast<long>(m["MaxReceivesPerSecond"]));
+    }
+  }
+
+
+  virtual ~SetSubscriptionAttributesRequestTenantRateLimitPolicy() = default;
+};
 class SetSubscriptionAttributesRequest : public Darabonba::Model {
 public:
   shared_ptr<SetSubscriptionAttributesRequestDlqPolicy> dlqPolicy{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> subscriptionName{};
+  shared_ptr<SetSubscriptionAttributesRequestTenantRateLimitPolicy> tenantRateLimitPolicy{};
   shared_ptr<string> topicName{};
 
   SetSubscriptionAttributesRequest() {}
@@ -5335,6 +5602,9 @@ public:
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
     }
+    if (tenantRateLimitPolicy) {
+      res["TenantRateLimitPolicy"] = tenantRateLimitPolicy ? boost::any(tenantRateLimitPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
     }
@@ -5355,6 +5625,13 @@ public:
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
     }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantRateLimitPolicy"].type()) {
+        SetSubscriptionAttributesRequestTenantRateLimitPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantRateLimitPolicy"]));
+        tenantRateLimitPolicy = make_shared<SetSubscriptionAttributesRequestTenantRateLimitPolicy>(model1);
+      }
+    }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
     }
@@ -5368,6 +5645,7 @@ public:
   shared_ptr<string> dlqPolicyShrink{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> subscriptionName{};
+  shared_ptr<string> tenantRateLimitPolicyShrink{};
   shared_ptr<string> topicName{};
 
   SetSubscriptionAttributesShrinkRequest() {}
@@ -5389,6 +5667,9 @@ public:
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
     }
+    if (tenantRateLimitPolicyShrink) {
+      res["TenantRateLimitPolicy"] = boost::any(*tenantRateLimitPolicyShrink);
+    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
     }
@@ -5404,6 +5685,9 @@ public:
     }
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
+    }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      tenantRateLimitPolicyShrink = make_shared<string>(boost::any_cast<string>(m["TenantRateLimitPolicy"]));
     }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
@@ -5818,16 +6102,157 @@ public:
 
   virtual ~SubscribeRequestDlqPolicy() = default;
 };
+class SubscribeRequestDmAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> accountName{};
+  shared_ptr<string> subject{};
+
+  SubscribeRequestDmAttributes() {}
+
+  explicit SubscribeRequestDmAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+  }
+
+
+  virtual ~SubscribeRequestDmAttributes() = default;
+};
+class SubscribeRequestDysmsAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> signName{};
+  shared_ptr<string> templateCode{};
+
+  SubscribeRequestDysmsAttributes() {}
+
+  explicit SubscribeRequestDysmsAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+  }
+
+
+  virtual ~SubscribeRequestDysmsAttributes() = default;
+};
+class SubscribeRequestKafkaAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> businessMode{};
+
+  SubscribeRequestKafkaAttributes() {}
+
+  explicit SubscribeRequestKafkaAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessMode) {
+      res["BusinessMode"] = boost::any(*businessMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessMode") != m.end() && !m["BusinessMode"].empty()) {
+      businessMode = make_shared<string>(boost::any_cast<string>(m["BusinessMode"]));
+    }
+  }
+
+
+  virtual ~SubscribeRequestKafkaAttributes() = default;
+};
+class SubscribeRequestTenantRateLimitPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> maxReceivesPerSecond{};
+
+  SubscribeRequestTenantRateLimitPolicy() {}
+
+  explicit SubscribeRequestTenantRateLimitPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceivesPerSecond) {
+      res["MaxReceivesPerSecond"] = boost::any(*maxReceivesPerSecond);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceivesPerSecond") != m.end() && !m["MaxReceivesPerSecond"].empty()) {
+      maxReceivesPerSecond = make_shared<long>(boost::any_cast<long>(m["MaxReceivesPerSecond"]));
+    }
+  }
+
+
+  virtual ~SubscribeRequestTenantRateLimitPolicy() = default;
+};
 class SubscribeRequest : public Darabonba::Model {
 public:
   shared_ptr<SubscribeRequestDlqPolicy> dlqPolicy{};
+  shared_ptr<SubscribeRequestDmAttributes> dmAttributes{};
+  shared_ptr<SubscribeRequestDysmsAttributes> dysmsAttributes{};
   shared_ptr<string> endpoint{};
+  shared_ptr<SubscribeRequestKafkaAttributes> kafkaAttributes{};
   shared_ptr<string> messageTag{};
   shared_ptr<string> notifyContentFormat{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> pushType{};
   shared_ptr<string> stsRoleArn{};
   shared_ptr<string> subscriptionName{};
+  shared_ptr<SubscribeRequestTenantRateLimitPolicy> tenantRateLimitPolicy{};
   shared_ptr<string> topicName{};
 
   SubscribeRequest() {}
@@ -5843,8 +6268,17 @@ public:
     if (dlqPolicy) {
       res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (dmAttributes) {
+      res["DmAttributes"] = dmAttributes ? boost::any(dmAttributes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dysmsAttributes) {
+      res["DysmsAttributes"] = dysmsAttributes ? boost::any(dysmsAttributes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (kafkaAttributes) {
+      res["KafkaAttributes"] = kafkaAttributes ? boost::any(kafkaAttributes->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (messageTag) {
       res["MessageTag"] = boost::any(*messageTag);
@@ -5863,6 +6297,9 @@ public:
     }
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
+    }
+    if (tenantRateLimitPolicy) {
+      res["TenantRateLimitPolicy"] = tenantRateLimitPolicy ? boost::any(tenantRateLimitPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
@@ -5878,8 +6315,29 @@ public:
         dlqPolicy = make_shared<SubscribeRequestDlqPolicy>(model1);
       }
     }
+    if (m.find("DmAttributes") != m.end() && !m["DmAttributes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DmAttributes"].type()) {
+        SubscribeRequestDmAttributes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DmAttributes"]));
+        dmAttributes = make_shared<SubscribeRequestDmAttributes>(model1);
+      }
+    }
+    if (m.find("DysmsAttributes") != m.end() && !m["DysmsAttributes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DysmsAttributes"].type()) {
+        SubscribeRequestDysmsAttributes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DysmsAttributes"]));
+        dysmsAttributes = make_shared<SubscribeRequestDysmsAttributes>(model1);
+      }
+    }
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("KafkaAttributes") != m.end() && !m["KafkaAttributes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["KafkaAttributes"].type()) {
+        SubscribeRequestKafkaAttributes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["KafkaAttributes"]));
+        kafkaAttributes = make_shared<SubscribeRequestKafkaAttributes>(model1);
+      }
     }
     if (m.find("MessageTag") != m.end() && !m["MessageTag"].empty()) {
       messageTag = make_shared<string>(boost::any_cast<string>(m["MessageTag"]));
@@ -5899,6 +6357,13 @@ public:
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
     }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantRateLimitPolicy"].type()) {
+        SubscribeRequestTenantRateLimitPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantRateLimitPolicy"]));
+        tenantRateLimitPolicy = make_shared<SubscribeRequestTenantRateLimitPolicy>(model1);
+      }
+    }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
     }
@@ -5910,13 +6375,17 @@ public:
 class SubscribeShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dlqPolicyShrink{};
+  shared_ptr<string> dmAttributesShrink{};
+  shared_ptr<string> dysmsAttributesShrink{};
   shared_ptr<string> endpoint{};
+  shared_ptr<string> kafkaAttributesShrink{};
   shared_ptr<string> messageTag{};
   shared_ptr<string> notifyContentFormat{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> pushType{};
   shared_ptr<string> stsRoleArn{};
   shared_ptr<string> subscriptionName{};
+  shared_ptr<string> tenantRateLimitPolicyShrink{};
   shared_ptr<string> topicName{};
 
   SubscribeShrinkRequest() {}
@@ -5932,8 +6401,17 @@ public:
     if (dlqPolicyShrink) {
       res["DlqPolicy"] = boost::any(*dlqPolicyShrink);
     }
+    if (dmAttributesShrink) {
+      res["DmAttributes"] = boost::any(*dmAttributesShrink);
+    }
+    if (dysmsAttributesShrink) {
+      res["DysmsAttributes"] = boost::any(*dysmsAttributesShrink);
+    }
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (kafkaAttributesShrink) {
+      res["KafkaAttributes"] = boost::any(*kafkaAttributesShrink);
     }
     if (messageTag) {
       res["MessageTag"] = boost::any(*messageTag);
@@ -5953,6 +6431,9 @@ public:
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
     }
+    if (tenantRateLimitPolicyShrink) {
+      res["TenantRateLimitPolicy"] = boost::any(*tenantRateLimitPolicyShrink);
+    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
     }
@@ -5963,8 +6444,17 @@ public:
     if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
       dlqPolicyShrink = make_shared<string>(boost::any_cast<string>(m["DlqPolicy"]));
     }
+    if (m.find("DmAttributes") != m.end() && !m["DmAttributes"].empty()) {
+      dmAttributesShrink = make_shared<string>(boost::any_cast<string>(m["DmAttributes"]));
+    }
+    if (m.find("DysmsAttributes") != m.end() && !m["DysmsAttributes"].empty()) {
+      dysmsAttributesShrink = make_shared<string>(boost::any_cast<string>(m["DysmsAttributes"]));
+    }
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("KafkaAttributes") != m.end() && !m["KafkaAttributes"].empty()) {
+      kafkaAttributesShrink = make_shared<string>(boost::any_cast<string>(m["KafkaAttributes"]));
     }
     if (m.find("MessageTag") != m.end() && !m["MessageTag"].empty()) {
       messageTag = make_shared<string>(boost::any_cast<string>(m["MessageTag"]));
@@ -5983,6 +6473,9 @@ public:
     }
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
+    }
+    if (m.find("TenantRateLimitPolicy") != m.end() && !m["TenantRateLimitPolicy"].empty()) {
+      tenantRateLimitPolicyShrink = make_shared<string>(boost::any_cast<string>(m["TenantRateLimitPolicy"]));
     }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));

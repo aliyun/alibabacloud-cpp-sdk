@@ -90,6 +90,12 @@ CreateEventRuleResponse Alibabacloud_Mns-open20220119::Client::createEventRuleWi
     request->matchRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->matchRules, make_shared<string>("MatchRules"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deliveryMode)) {
+    query->insert(pair<string, string>("DeliveryMode", *request->deliveryMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointsShrink)) {
     query->insert(pair<string, string>("Endpoints", *request->endpointsShrink));
   }
@@ -134,6 +140,9 @@ CreateQueueResponse Alibabacloud_Mns-open20220119::Client::createQueueWithOption
   if (!Darabonba_Util::Client::isUnset<CreateQueueRequestDlqPolicy>(tmpReq->dlqPolicy)) {
     request->dlqPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dlqPolicy, make_shared<string>("DlqPolicy"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateQueueRequestTenantRateLimitPolicy>(tmpReq->tenantRateLimitPolicy)) {
+    request->tenantRateLimitPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantRateLimitPolicy, make_shared<string>("TenantRateLimitPolicy"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->delaySeconds)) {
     query->insert(pair<string, long>("DelaySeconds", *request->delaySeconds));
@@ -158,6 +167,9 @@ CreateQueueResponse Alibabacloud_Mns-open20220119::Client::createQueueWithOption
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateQueueShrinkRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreateQueueShrinkRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantRateLimitPolicyShrink)) {
+    query->insert(pair<string, string>("TenantRateLimitPolicy", *request->tenantRateLimitPolicyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->visibilityTimeout)) {
     query->insert(pair<string, long>("VisibilityTimeout", *request->visibilityTimeout));
@@ -650,6 +662,9 @@ SetQueueAttributesResponse Alibabacloud_Mns-open20220119::Client::setQueueAttrib
   if (!Darabonba_Util::Client::isUnset<SetQueueAttributesRequestDlqPolicy>(tmpReq->dlqPolicy)) {
     request->dlqPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dlqPolicy, make_shared<string>("DlqPolicy"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SetQueueAttributesRequestTenantRateLimitPolicy>(tmpReq->tenantRateLimitPolicy)) {
+    request->tenantRateLimitPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantRateLimitPolicy, make_shared<string>("TenantRateLimitPolicy"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->delaySeconds)) {
     query->insert(pair<string, long>("DelaySeconds", *request->delaySeconds));
@@ -671,6 +686,9 @@ SetQueueAttributesResponse Alibabacloud_Mns-open20220119::Client::setQueueAttrib
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
     query->insert(pair<string, string>("QueueName", *request->queueName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantRateLimitPolicyShrink)) {
+    query->insert(pair<string, string>("TenantRateLimitPolicy", *request->tenantRateLimitPolicyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->visibilityTimeout)) {
     query->insert(pair<string, long>("VisibilityTimeout", *request->visibilityTimeout));
@@ -704,6 +722,9 @@ SetSubscriptionAttributesResponse Alibabacloud_Mns-open20220119::Client::setSubs
   if (!Darabonba_Util::Client::isUnset<SetSubscriptionAttributesRequestDlqPolicy>(tmpReq->dlqPolicy)) {
     request->dlqPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dlqPolicy, make_shared<string>("DlqPolicy"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SetSubscriptionAttributesRequestTenantRateLimitPolicy>(tmpReq->tenantRateLimitPolicy)) {
+    request->tenantRateLimitPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantRateLimitPolicy, make_shared<string>("TenantRateLimitPolicy"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->dlqPolicyShrink)) {
     query->insert(pair<string, string>("DlqPolicy", *request->dlqPolicyShrink));
@@ -713,6 +734,9 @@ SetSubscriptionAttributesResponse Alibabacloud_Mns-open20220119::Client::setSubs
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionName)) {
     query->insert(pair<string, string>("SubscriptionName", *request->subscriptionName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantRateLimitPolicyShrink)) {
+    query->insert(pair<string, string>("TenantRateLimitPolicy", *request->tenantRateLimitPolicyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->topicName)) {
     query->insert(pair<string, string>("TopicName", *request->topicName));
@@ -780,12 +804,33 @@ SubscribeResponse Alibabacloud_Mns-open20220119::Client::subscribeWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<SubscribeRequestDlqPolicy>(tmpReq->dlqPolicy)) {
     request->dlqPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dlqPolicy, make_shared<string>("DlqPolicy"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SubscribeRequestDmAttributes>(tmpReq->dmAttributes)) {
+    request->dmAttributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dmAttributes, make_shared<string>("DmAttributes"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubscribeRequestDysmsAttributes>(tmpReq->dysmsAttributes)) {
+    request->dysmsAttributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dysmsAttributes, make_shared<string>("DysmsAttributes"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubscribeRequestKafkaAttributes>(tmpReq->kafkaAttributes)) {
+    request->kafkaAttributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->kafkaAttributes, make_shared<string>("KafkaAttributes"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubscribeRequestTenantRateLimitPolicy>(tmpReq->tenantRateLimitPolicy)) {
+    request->tenantRateLimitPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantRateLimitPolicy, make_shared<string>("TenantRateLimitPolicy"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->dlqPolicyShrink)) {
     query->insert(pair<string, string>("DlqPolicy", *request->dlqPolicyShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dmAttributesShrink)) {
+    query->insert(pair<string, string>("DmAttributes", *request->dmAttributesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dysmsAttributesShrink)) {
+    query->insert(pair<string, string>("DysmsAttributes", *request->dysmsAttributesShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpoint)) {
     query->insert(pair<string, string>("Endpoint", *request->endpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kafkaAttributesShrink)) {
+    query->insert(pair<string, string>("KafkaAttributes", *request->kafkaAttributesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->messageTag)) {
     query->insert(pair<string, string>("MessageTag", *request->messageTag));
@@ -804,6 +849,9 @@ SubscribeResponse Alibabacloud_Mns-open20220119::Client::subscribeWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionName)) {
     query->insert(pair<string, string>("SubscriptionName", *request->subscriptionName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantRateLimitPolicyShrink)) {
+    query->insert(pair<string, string>("TenantRateLimitPolicy", *request->tenantRateLimitPolicyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->topicName)) {
     query->insert(pair<string, string>("TopicName", *request->topicName));
