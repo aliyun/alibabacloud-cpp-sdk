@@ -6234,12 +6234,14 @@ public:
   shared_ptr<string> attackLevel{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataAttackResult>> attackResult{};
   shared_ptr<string> dataId{};
+  shared_ptr<string> detectedLanguage{};
   shared_ptr<string> manualTaskId{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataResult>> result{};
   shared_ptr<string> riskLevel{};
   shared_ptr<double> score{};
   shared_ptr<string> sensitiveLevel{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataSensitiveResult>> sensitiveResult{};
+  shared_ptr<string> translatedContent{};
 
   TextModerationPlusResponseBodyData() {}
 
@@ -6271,6 +6273,9 @@ public:
     if (dataId) {
       res["DataId"] = boost::any(*dataId);
     }
+    if (detectedLanguage) {
+      res["DetectedLanguage"] = boost::any(*detectedLanguage);
+    }
     if (manualTaskId) {
       res["ManualTaskId"] = boost::any(*manualTaskId);
     }
@@ -6296,6 +6301,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["SensitiveResult"] = boost::any(temp1);
+    }
+    if (translatedContent) {
+      res["TranslatedContent"] = boost::any(*translatedContent);
     }
     return res;
   }
@@ -6332,6 +6340,9 @@ public:
     }
     if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
       dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
+    if (m.find("DetectedLanguage") != m.end() && !m["DetectedLanguage"].empty()) {
+      detectedLanguage = make_shared<string>(boost::any_cast<string>(m["DetectedLanguage"]));
     }
     if (m.find("ManualTaskId") != m.end() && !m["ManualTaskId"].empty()) {
       manualTaskId = make_shared<string>(boost::any_cast<string>(m["ManualTaskId"]));
@@ -6370,6 +6381,9 @@ public:
         }
         sensitiveResult = make_shared<vector<TextModerationPlusResponseBodyDataSensitiveResult>>(expect1);
       }
+    }
+    if (m.find("TranslatedContent") != m.end() && !m["TranslatedContent"].empty()) {
+      translatedContent = make_shared<string>(boost::any_cast<string>(m["TranslatedContent"]));
     }
   }
 
