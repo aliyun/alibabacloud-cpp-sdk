@@ -21064,6 +21064,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
+  shared_ptr<bool> disabled{};
   shared_ptr<string> extend{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> requestId{};
@@ -21090,6 +21091,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (disabled) {
+      res["Disabled"] = boost::any(*disabled);
+    }
     if (extend) {
       res["Extend"] = boost::any(*extend);
     }
@@ -21114,6 +21118,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Disabled") != m.end() && !m["Disabled"].empty()) {
+      disabled = make_shared<bool>(boost::any_cast<bool>(m["Disabled"]));
     }
     if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
       extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));
@@ -21415,6 +21422,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
+  shared_ptr<bool> disabled{};
   shared_ptr<string> extend{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<DescribeAppAttributesResponseBodyAppsAppAttributeTags> tags{};
@@ -21441,6 +21449,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (disabled) {
+      res["Disabled"] = boost::any(*disabled);
+    }
     if (extend) {
       res["Extend"] = boost::any(*extend);
     }
@@ -21465,6 +21476,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Disabled") != m.end() && !m["Disabled"].empty()) {
+      disabled = make_shared<bool>(boost::any_cast<bool>(m["Disabled"]));
     }
     if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
       extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));
@@ -45882,6 +45896,7 @@ public:
   shared_ptr<long> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
+  shared_ptr<bool> disabled{};
   shared_ptr<string> extend{};
   shared_ptr<string> securityToken{};
   shared_ptr<vector<ModifyAppRequestTag>> tag{};
@@ -45904,6 +45919,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (disabled) {
+      res["Disabled"] = boost::any(*disabled);
     }
     if (extend) {
       res["Extend"] = boost::any(*extend);
@@ -45930,6 +45948,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Disabled") != m.end() && !m["Disabled"].empty()) {
+      disabled = make_shared<bool>(boost::any_cast<bool>(m["Disabled"]));
     }
     if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
       extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));

@@ -6731,6 +6731,9 @@ ModifyAppResponse Alibabacloud_CloudAPI20160714::Client::modifyAppWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disabled)) {
+    query->insert(pair<string, bool>("Disabled", *request->disabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
     query->insert(pair<string, string>("Extend", *request->extend));
   }
