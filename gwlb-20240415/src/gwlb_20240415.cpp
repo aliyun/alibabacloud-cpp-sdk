@@ -98,6 +98,9 @@ CreateListenerResponse Alibabacloud_Gwlb20240415::Client::createListenerWithOpti
   if (!Darabonba_Util::Client::isUnset<vector<CreateListenerRequestTag>>(request->tag)) {
     bodyFlat->insert(pair<string, vector<CreateListenerRequestTag>>("Tag", *request->tag));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tcpIdleTimeout)) {
+    body->insert(pair<string, long>("TcpIdleTimeout", *request->tcpIdleTimeout));
+  }
   body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -926,6 +929,9 @@ UpdateListenerAttributeResponse Alibabacloud_Gwlb20240415::Client::updateListene
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serverGroupId)) {
     body->insert(pair<string, string>("ServerGroupId", *request->serverGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tcpIdleTimeout)) {
+    body->insert(pair<string, long>("TcpIdleTimeout", *request->tcpIdleTimeout));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

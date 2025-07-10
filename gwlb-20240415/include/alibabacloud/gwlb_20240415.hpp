@@ -252,6 +252,7 @@ public:
   shared_ptr<string> loadBalancerId{};
   shared_ptr<string> serverGroupId{};
   shared_ptr<vector<CreateListenerRequestTag>> tag{};
+  shared_ptr<long> tcpIdleTimeout{};
 
   CreateListenerRequest() {}
 
@@ -285,6 +286,9 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (tcpIdleTimeout) {
+      res["TcpIdleTimeout"] = boost::any(*tcpIdleTimeout);
+    }
     return res;
   }
 
@@ -316,6 +320,9 @@ public:
         }
         tag = make_shared<vector<CreateListenerRequestTag>>(expect1);
       }
+    }
+    if (m.find("TcpIdleTimeout") != m.end() && !m["TcpIdleTimeout"].empty()) {
+      tcpIdleTimeout = make_shared<long>(boost::any_cast<long>(m["TcpIdleTimeout"]));
     }
   }
 
@@ -1851,6 +1858,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> serverGroupId{};
   shared_ptr<vector<GetListenerAttributeResponseBodyTags>> tags{};
+  shared_ptr<long> tcpIdleTimeout{};
 
   GetListenerAttributeResponseBody() {}
 
@@ -1890,6 +1898,9 @@ public:
       }
       res["Tags"] = boost::any(temp1);
     }
+    if (tcpIdleTimeout) {
+      res["TcpIdleTimeout"] = boost::any(*tcpIdleTimeout);
+    }
     return res;
   }
 
@@ -1927,6 +1938,9 @@ public:
         }
         tags = make_shared<vector<GetListenerAttributeResponseBodyTags>>(expect1);
       }
+    }
+    if (m.find("TcpIdleTimeout") != m.end() && !m["TcpIdleTimeout"].empty()) {
+      tcpIdleTimeout = make_shared<long>(boost::any_cast<long>(m["TcpIdleTimeout"]));
     }
   }
 
@@ -2935,6 +2949,7 @@ public:
   shared_ptr<string> loadBalancerId{};
   shared_ptr<string> serverGroupId{};
   shared_ptr<vector<ListListenersResponseBodyListenersTags>> tags{};
+  shared_ptr<long> tcpIdleTimeout{};
 
   ListListenersResponseBodyListeners() {}
 
@@ -2968,6 +2983,9 @@ public:
       }
       res["Tags"] = boost::any(temp1);
     }
+    if (tcpIdleTimeout) {
+      res["TcpIdleTimeout"] = boost::any(*tcpIdleTimeout);
+    }
     return res;
   }
 
@@ -2999,6 +3017,9 @@ public:
         }
         tags = make_shared<vector<ListListenersResponseBodyListenersTags>>(expect1);
       }
+    }
+    if (m.find("TcpIdleTimeout") != m.end() && !m["TcpIdleTimeout"].empty()) {
+      tcpIdleTimeout = make_shared<long>(boost::any_cast<long>(m["TcpIdleTimeout"]));
     }
   }
 
@@ -5522,6 +5543,7 @@ public:
   shared_ptr<string> listenerDescription{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> serverGroupId{};
+  shared_ptr<long> tcpIdleTimeout{};
 
   UpdateListenerAttributeRequest() {}
 
@@ -5548,6 +5570,9 @@ public:
     if (serverGroupId) {
       res["ServerGroupId"] = boost::any(*serverGroupId);
     }
+    if (tcpIdleTimeout) {
+      res["TcpIdleTimeout"] = boost::any(*tcpIdleTimeout);
+    }
     return res;
   }
 
@@ -5566,6 +5591,9 @@ public:
     }
     if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
       serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
+    }
+    if (m.find("TcpIdleTimeout") != m.end() && !m["TcpIdleTimeout"].empty()) {
+      tcpIdleTimeout = make_shared<long>(boost::any_cast<long>(m["TcpIdleTimeout"]));
     }
   }
 
