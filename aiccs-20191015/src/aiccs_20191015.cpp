@@ -700,6 +700,9 @@ CreateAiCallTaskResponse Alibabacloud_Aiccs20191015::Client::createAiCallTaskWit
   if (!Darabonba_Util::Client::isUnset<string>(request->startType)) {
     query->insert(pair<string, string>("StartType", *request->startType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->taskCps)) {
+    query->insert(pair<string, long>("TaskCps", *request->taskCps));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
     query->insert(pair<string, string>("TaskName", *request->taskName));
   }
@@ -4461,6 +4464,9 @@ LlmSmartCallResponse Alibabacloud_Aiccs20191015::Client::llmSmartCallWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->callerNumber)) {
     query->insert(pair<string, string>("CallerNumber", *request->callerNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerLineCode)) {
+    query->insert(pair<string, string>("CustomerLineCode", *request->customerLineCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->extension)) {
     query->insert(pair<string, string>("Extension", *request->extension));

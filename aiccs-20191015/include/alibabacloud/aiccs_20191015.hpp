@@ -2878,6 +2878,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> startType{};
+  shared_ptr<long> taskCps{};
   shared_ptr<string> taskName{};
   shared_ptr<long> taskStartTime{};
   shared_ptr<string> virtualNumber{};
@@ -2924,6 +2925,9 @@ public:
     }
     if (startType) {
       res["StartType"] = boost::any(*startType);
+    }
+    if (taskCps) {
+      res["TaskCps"] = boost::any(*taskCps);
     }
     if (taskName) {
       res["TaskName"] = boost::any(*taskName);
@@ -2992,6 +2996,9 @@ public:
     if (m.find("StartType") != m.end() && !m["StartType"].empty()) {
       startType = make_shared<string>(boost::any_cast<string>(m["StartType"]));
     }
+    if (m.find("TaskCps") != m.end() && !m["TaskCps"].empty()) {
+      taskCps = make_shared<long>(boost::any_cast<long>(m["TaskCps"]));
+    }
     if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
       taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
     }
@@ -3019,6 +3026,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> startType{};
+  shared_ptr<long> taskCps{};
   shared_ptr<string> taskName{};
   shared_ptr<long> taskStartTime{};
   shared_ptr<string> virtualNumber{};
@@ -3066,6 +3074,9 @@ public:
     if (startType) {
       res["StartType"] = boost::any(*startType);
     }
+    if (taskCps) {
+      res["TaskCps"] = boost::any(*taskCps);
+    }
     if (taskName) {
       res["TaskName"] = boost::any(*taskName);
     }
@@ -3111,6 +3122,9 @@ public:
     }
     if (m.find("StartType") != m.end() && !m["StartType"].empty()) {
       startType = make_shared<string>(boost::any_cast<string>(m["StartType"]));
+    }
+    if (m.find("TaskCps") != m.end() && !m["TaskCps"].empty()) {
+      taskCps = make_shared<long>(boost::any_cast<long>(m["TaskCps"]));
     }
     if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
       taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
@@ -28929,6 +28943,7 @@ public:
   shared_ptr<map<string, boost::any>> bizParam{};
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerNumber{};
+  shared_ptr<string> customerLineCode{};
   shared_ptr<string> extension{};
   shared_ptr<string> outId{};
   shared_ptr<map<string, boost::any>> promptParam{};
@@ -28959,6 +28974,9 @@ public:
     }
     if (callerNumber) {
       res["CallerNumber"] = boost::any(*callerNumber);
+    }
+    if (customerLineCode) {
+      res["CustomerLineCode"] = boost::any(*customerLineCode);
     }
     if (extension) {
       res["Extension"] = boost::any(*extension);
@@ -29005,6 +29023,9 @@ public:
     if (m.find("CallerNumber") != m.end() && !m["CallerNumber"].empty()) {
       callerNumber = make_shared<string>(boost::any_cast<string>(m["CallerNumber"]));
     }
+    if (m.find("CustomerLineCode") != m.end() && !m["CustomerLineCode"].empty()) {
+      customerLineCode = make_shared<string>(boost::any_cast<string>(m["CustomerLineCode"]));
+    }
     if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
       extension = make_shared<string>(boost::any_cast<string>(m["Extension"]));
     }
@@ -29050,6 +29071,7 @@ public:
   shared_ptr<string> bizParamShrink{};
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerNumber{};
+  shared_ptr<string> customerLineCode{};
   shared_ptr<string> extension{};
   shared_ptr<string> outId{};
   shared_ptr<string> promptParamShrink{};
@@ -29080,6 +29102,9 @@ public:
     }
     if (callerNumber) {
       res["CallerNumber"] = boost::any(*callerNumber);
+    }
+    if (customerLineCode) {
+      res["CustomerLineCode"] = boost::any(*customerLineCode);
     }
     if (extension) {
       res["Extension"] = boost::any(*extension);
@@ -29120,6 +29145,9 @@ public:
     }
     if (m.find("CallerNumber") != m.end() && !m["CallerNumber"].empty()) {
       callerNumber = make_shared<string>(boost::any_cast<string>(m["CallerNumber"]));
+    }
+    if (m.find("CustomerLineCode") != m.end() && !m["CustomerLineCode"].empty()) {
+      customerLineCode = make_shared<string>(boost::any_cast<string>(m["CustomerLineCode"]));
     }
     if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
       extension = make_shared<string>(boost::any_cast<string>(m["Extension"]));
