@@ -4442,11 +4442,13 @@ public:
 class ListExecutorsRequestFilter : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> executorIds{};
+  shared_ptr<string> image{};
   shared_ptr<vector<string>> ipAddresses{};
   shared_ptr<string> jobName{};
   shared_ptr<vector<string>> status{};
   shared_ptr<long> timeCreatedAfter{};
   shared_ptr<long> timeCreatedBefore{};
+  shared_ptr<string> vswitchId{};
 
   ListExecutorsRequestFilter() {}
 
@@ -4460,6 +4462,9 @@ public:
     map<string, boost::any> res;
     if (executorIds) {
       res["ExecutorIds"] = boost::any(*executorIds);
+    }
+    if (image) {
+      res["Image"] = boost::any(*image);
     }
     if (ipAddresses) {
       res["IpAddresses"] = boost::any(*ipAddresses);
@@ -4476,6 +4481,9 @@ public:
     if (timeCreatedBefore) {
       res["TimeCreatedBefore"] = boost::any(*timeCreatedBefore);
     }
+    if (vswitchId) {
+      res["VswitchId"] = boost::any(*vswitchId);
+    }
     return res;
   }
 
@@ -4489,6 +4497,9 @@ public:
         }
       }
       executorIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Image") != m.end() && !m["Image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["Image"]));
     }
     if (m.find("IpAddresses") != m.end() && !m["IpAddresses"].empty()) {
       vector<string> toVec1;
@@ -4518,6 +4529,9 @@ public:
     }
     if (m.find("TimeCreatedBefore") != m.end() && !m["TimeCreatedBefore"].empty()) {
       timeCreatedBefore = make_shared<long>(boost::any_cast<long>(m["TimeCreatedBefore"]));
+    }
+    if (m.find("VswitchId") != m.end() && !m["VswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["VswitchId"]));
     }
   }
 
