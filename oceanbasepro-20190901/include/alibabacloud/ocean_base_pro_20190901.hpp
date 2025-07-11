@@ -22492,7 +22492,7 @@ public:
   shared_ptr<string> sqlTextShort{};
   shared_ptr<string> suggestion{};
   shared_ptr<double> sumDbTime{};
-  shared_ptr<string> sumElapsedTime{};
+  shared_ptr<double> sumElapsedTime{};
   shared_ptr<double> sumRetryCount{};
   shared_ptr<string> userName{};
 
@@ -22629,7 +22629,7 @@ public:
       sumDbTime = make_shared<double>(boost::any_cast<double>(m["SumDbTime"]));
     }
     if (m.find("SumElapsedTime") != m.end() && !m["SumElapsedTime"].empty()) {
-      sumElapsedTime = make_shared<string>(boost::any_cast<string>(m["SumElapsedTime"]));
+      sumElapsedTime = make_shared<double>(boost::any_cast<double>(m["SumElapsedTime"]));
     }
     if (m.find("SumRetryCount") != m.end() && !m["SumRetryCount"].empty()) {
       sumRetryCount = make_shared<double>(boost::any_cast<double>(m["SumRetryCount"]));
@@ -22663,7 +22663,7 @@ public:
   shared_ptr<string> sqlTextShort{};
   shared_ptr<string> suggestion{};
   shared_ptr<double> sumDbTime{};
-  shared_ptr<string> sumElapsedTime{};
+  shared_ptr<double> sumElapsedTime{};
   shared_ptr<double> sumRetryCount{};
   shared_ptr<string> userName{};
 
@@ -22826,7 +22826,7 @@ public:
       sumDbTime = make_shared<double>(boost::any_cast<double>(m["SumDbTime"]));
     }
     if (m.find("SumElapsedTime") != m.end() && !m["SumElapsedTime"].empty()) {
-      sumElapsedTime = make_shared<string>(boost::any_cast<string>(m["SumElapsedTime"]));
+      sumElapsedTime = make_shared<double>(boost::any_cast<double>(m["SumElapsedTime"]));
     }
     if (m.find("SumRetryCount") != m.end() && !m["SumRetryCount"].empty()) {
       sumRetryCount = make_shared<double>(boost::any_cast<double>(m["SumRetryCount"]));
@@ -28246,7 +28246,7 @@ public:
   shared_ptr<string> database{};
   shared_ptr<bool> dynamicSql{};
   shared_ptr<long> executeTime{};
-  shared_ptr<string> planId{};
+  shared_ptr<long> planId{};
   shared_ptr<string> proxySessId{};
   shared_ptr<string> serverIp{};
   shared_ptr<long> sessionId{};
@@ -28338,7 +28338,7 @@ public:
       executeTime = make_shared<long>(boost::any_cast<long>(m["ExecuteTime"]));
     }
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
-      planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
+      planId = make_shared<long>(boost::any_cast<long>(m["PlanId"]));
     }
     if (m.find("ProxySessId") != m.end() && !m["ProxySessId"].empty()) {
       proxySessId = make_shared<string>(boost::any_cast<string>(m["ProxySessId"]));
@@ -28380,7 +28380,7 @@ public:
   shared_ptr<string> database{};
   shared_ptr<bool> dynamicSql{};
   shared_ptr<long> executeTime{};
-  shared_ptr<string> planId{};
+  shared_ptr<long> planId{};
   shared_ptr<vector<DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlListsProcessSqlList>> processSqlList{};
   shared_ptr<string> proxySessId{};
   shared_ptr<string> serverIp{};
@@ -28480,7 +28480,7 @@ public:
       executeTime = make_shared<long>(boost::any_cast<long>(m["ExecuteTime"]));
     }
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
-      planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
+      planId = make_shared<long>(boost::any_cast<long>(m["PlanId"]));
     }
     if (m.find("ProcessSqlList") != m.end() && !m["ProcessSqlList"].empty()) {
       if (typeid(vector<boost::any>) == m["ProcessSqlList"].type()) {
@@ -28535,7 +28535,7 @@ public:
   shared_ptr<string> database{};
   shared_ptr<bool> dynamicSql{};
   shared_ptr<long> executeTime{};
-  shared_ptr<string> planId{};
+  shared_ptr<long> planId{};
   shared_ptr<vector<DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlLists>> processSqlLists{};
   shared_ptr<string> proxySessId{};
   shared_ptr<string> serverIp{};
@@ -28639,7 +28639,7 @@ public:
       executeTime = make_shared<long>(boost::any_cast<long>(m["ExecuteTime"]));
     }
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
-      planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
+      planId = make_shared<long>(boost::any_cast<long>(m["PlanId"]));
     }
     if (m.find("ProcessSqlLists") != m.end() && !m["ProcessSqlLists"].empty()) {
       if (typeid(vector<boost::any>) == m["ProcessSqlLists"].type()) {
