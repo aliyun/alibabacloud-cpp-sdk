@@ -6135,6 +6135,7 @@ class CreateRenderingDataPackageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
   shared_ptr<string> description{};
+  shared_ptr<string> instanceBillingCycle{};
   shared_ptr<string> renderingInstanceId{};
 
   CreateRenderingDataPackageRequest() {}
@@ -6153,6 +6154,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (instanceBillingCycle) {
+      res["InstanceBillingCycle"] = boost::any(*instanceBillingCycle);
+    }
     if (renderingInstanceId) {
       res["RenderingInstanceId"] = boost::any(*renderingInstanceId);
     }
@@ -6165,6 +6169,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("InstanceBillingCycle") != m.end() && !m["InstanceBillingCycle"].empty()) {
+      instanceBillingCycle = make_shared<string>(boost::any_cast<string>(m["InstanceBillingCycle"]));
     }
     if (m.find("RenderingInstanceId") != m.end() && !m["RenderingInstanceId"].empty()) {
       renderingInstanceId = make_shared<string>(boost::any_cast<string>(m["RenderingInstanceId"]));

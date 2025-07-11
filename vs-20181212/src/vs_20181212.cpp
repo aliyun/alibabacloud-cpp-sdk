@@ -1350,6 +1350,9 @@ CreateRenderingDataPackageResponse Alibabacloud_Vs20181212::Client::createRender
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceBillingCycle)) {
+    query->insert(pair<string, string>("InstanceBillingCycle", *request->instanceBillingCycle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->renderingInstanceId)) {
     query->insert(pair<string, string>("RenderingInstanceId", *request->renderingInstanceId));
   }
