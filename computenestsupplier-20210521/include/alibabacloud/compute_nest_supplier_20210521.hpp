@@ -805,9 +805,11 @@ public:
   shared_ptr<string> commandContent{};
   shared_ptr<string> commandType{};
   shared_ptr<string> dockerfilePath{};
+  shared_ptr<bool> enableGpu{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sourceContainerImage{};
   shared_ptr<string> sourceImageId{};
+  shared_ptr<long> systemDiskSize{};
 
   CreateArtifactRequestArtifactBuildProperty() {}
 
@@ -838,6 +840,9 @@ public:
     if (dockerfilePath) {
       res["DockerfilePath"] = boost::any(*dockerfilePath);
     }
+    if (enableGpu) {
+      res["EnableGpu"] = boost::any(*enableGpu);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -846,6 +851,9 @@ public:
     }
     if (sourceImageId) {
       res["SourceImageId"] = boost::any(*sourceImageId);
+    }
+    if (systemDiskSize) {
+      res["SystemDiskSize"] = boost::any(*systemDiskSize);
     }
     return res;
   }
@@ -880,6 +888,9 @@ public:
     if (m.find("DockerfilePath") != m.end() && !m["DockerfilePath"].empty()) {
       dockerfilePath = make_shared<string>(boost::any_cast<string>(m["DockerfilePath"]));
     }
+    if (m.find("EnableGpu") != m.end() && !m["EnableGpu"].empty()) {
+      enableGpu = make_shared<bool>(boost::any_cast<bool>(m["EnableGpu"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -888,6 +899,9 @@ public:
     }
     if (m.find("SourceImageId") != m.end() && !m["SourceImageId"].empty()) {
       sourceImageId = make_shared<string>(boost::any_cast<string>(m["SourceImageId"]));
+    }
+    if (m.find("SystemDiskSize") != m.end() && !m["SystemDiskSize"].empty()) {
+      systemDiskSize = make_shared<long>(boost::any_cast<long>(m["SystemDiskSize"]));
     }
   }
 
@@ -19955,9 +19969,11 @@ public:
   shared_ptr<string> commandContent{};
   shared_ptr<string> commandType{};
   shared_ptr<string> dockerfilePath{};
+  shared_ptr<bool> enableGpu{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sourceContainerImage{};
   shared_ptr<string> sourceImageId{};
+  shared_ptr<long> systemDiskSize{};
 
   UpdateArtifactRequestArtifactBuildProperty() {}
 
@@ -19988,6 +20004,9 @@ public:
     if (dockerfilePath) {
       res["DockerfilePath"] = boost::any(*dockerfilePath);
     }
+    if (enableGpu) {
+      res["EnableGpu"] = boost::any(*enableGpu);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -19996,6 +20015,9 @@ public:
     }
     if (sourceImageId) {
       res["SourceImageId"] = boost::any(*sourceImageId);
+    }
+    if (systemDiskSize) {
+      res["SystemDiskSize"] = boost::any(*systemDiskSize);
     }
     return res;
   }
@@ -20030,6 +20052,9 @@ public:
     if (m.find("DockerfilePath") != m.end() && !m["DockerfilePath"].empty()) {
       dockerfilePath = make_shared<string>(boost::any_cast<string>(m["DockerfilePath"]));
     }
+    if (m.find("EnableGpu") != m.end() && !m["EnableGpu"].empty()) {
+      enableGpu = make_shared<bool>(boost::any_cast<bool>(m["EnableGpu"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -20038,6 +20063,9 @@ public:
     }
     if (m.find("SourceImageId") != m.end() && !m["SourceImageId"].empty()) {
       sourceImageId = make_shared<string>(boost::any_cast<string>(m["SourceImageId"]));
+    }
+    if (m.find("SystemDiskSize") != m.end() && !m["SystemDiskSize"].empty()) {
+      systemDiskSize = make_shared<long>(boost::any_cast<long>(m["SystemDiskSize"]));
     }
   }
 
