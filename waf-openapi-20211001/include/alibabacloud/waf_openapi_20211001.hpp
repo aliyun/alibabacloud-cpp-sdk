@@ -19078,6 +19078,7 @@ public:
 class DescribeHybridCloudClusterRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<long> clusterId{};
+  shared_ptr<string> clusterRuleResourceId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
@@ -19095,6 +19096,9 @@ public:
     map<string, boost::any> res;
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (clusterRuleResourceId) {
+      res["ClusterRuleResourceId"] = boost::any(*clusterRuleResourceId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -19115,6 +19119,9 @@ public:
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
     }
+    if (m.find("ClusterRuleResourceId") != m.end() && !m["ClusterRuleResourceId"].empty()) {
+      clusterRuleResourceId = make_shared<string>(boost::any_cast<string>(m["ClusterRuleResourceId"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -19134,6 +19141,7 @@ public:
 };
 class DescribeHybridCloudClusterRuleResponseBodyClusterRule : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterRuleResourceId{};
   shared_ptr<string> ruleConfig{};
   shared_ptr<string> ruleStatus{};
   shared_ptr<string> ruleType{};
@@ -19148,6 +19156,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterRuleResourceId) {
+      res["ClusterRuleResourceId"] = boost::any(*clusterRuleResourceId);
+    }
     if (ruleConfig) {
       res["RuleConfig"] = boost::any(*ruleConfig);
     }
@@ -19161,6 +19172,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterRuleResourceId") != m.end() && !m["ClusterRuleResourceId"].empty()) {
+      clusterRuleResourceId = make_shared<string>(boost::any_cast<string>(m["ClusterRuleResourceId"]));
+    }
     if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
       ruleConfig = make_shared<string>(boost::any_cast<string>(m["RuleConfig"]));
     }
@@ -38165,6 +38179,7 @@ public:
 class ModifyHybridCloudClusterRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<long> clusterId{};
+  shared_ptr<string> clusterRuleResourceId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
@@ -38184,6 +38199,9 @@ public:
     map<string, boost::any> res;
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (clusterRuleResourceId) {
+      res["ClusterRuleResourceId"] = boost::any(*clusterRuleResourceId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -38209,6 +38227,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
+    }
+    if (m.find("ClusterRuleResourceId") != m.end() && !m["ClusterRuleResourceId"].empty()) {
+      clusterRuleResourceId = make_shared<string>(boost::any_cast<string>(m["ClusterRuleResourceId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));

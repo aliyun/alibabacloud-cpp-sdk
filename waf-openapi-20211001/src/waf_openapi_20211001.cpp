@@ -7086,6 +7086,9 @@ ModifyHybridCloudClusterRuleResponse Alibabacloud_Waf-openapi20211001::Client::m
   if (!Darabonba_Util::Client::isUnset<long>(request->clusterId)) {
     query->insert(pair<string, long>("ClusterId", *request->clusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterRuleResourceId)) {
+    query->insert(pair<string, string>("ClusterRuleResourceId", *request->clusterRuleResourceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
