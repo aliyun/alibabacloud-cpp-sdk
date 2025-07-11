@@ -10937,6 +10937,345 @@ public:
 
   virtual ~CreateDiskEncryptionServiceResponse() = default;
 };
+class CreateDriveRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> aliUid{};
+  shared_ptr<string> description{};
+  shared_ptr<string> domainId{};
+  shared_ptr<string> driveName{};
+  shared_ptr<string> externalDomainId{};
+  shared_ptr<bool> profileRoaming{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> type{};
+  shared_ptr<string> userId{};
+
+  CreateDriveRequest() {}
+
+  explicit CreateDriveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliUid) {
+      res["AliUid"] = boost::any(*aliUid);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
+    if (driveName) {
+      res["DriveName"] = boost::any(*driveName);
+    }
+    if (externalDomainId) {
+      res["ExternalDomainId"] = boost::any(*externalDomainId);
+    }
+    if (profileRoaming) {
+      res["ProfileRoaming"] = boost::any(*profileRoaming);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
+      aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
+    }
+    if (m.find("DriveName") != m.end() && !m["DriveName"].empty()) {
+      driveName = make_shared<string>(boost::any_cast<string>(m["DriveName"]));
+    }
+    if (m.find("ExternalDomainId") != m.end() && !m["ExternalDomainId"].empty()) {
+      externalDomainId = make_shared<string>(boost::any_cast<string>(m["ExternalDomainId"]));
+    }
+    if (m.find("ProfileRoaming") != m.end() && !m["ProfileRoaming"].empty()) {
+      profileRoaming = make_shared<bool>(boost::any_cast<bool>(m["ProfileRoaming"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~CreateDriveRequest() = default;
+};
+class CreateDriveResponseBodyDrive : public Darabonba::Model {
+public:
+  shared_ptr<string> aliUid{};
+  shared_ptr<string> description{};
+  shared_ptr<string> domainId{};
+  shared_ptr<string> driveId{};
+  shared_ptr<string> externalDriveId{};
+  shared_ptr<string> externalUserId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> profileRoaming{};
+  shared_ptr<string> status{};
+  shared_ptr<long> totalSize{};
+  shared_ptr<string> type{};
+  shared_ptr<long> usedSize{};
+  shared_ptr<string> userId{};
+
+  CreateDriveResponseBodyDrive() {}
+
+  explicit CreateDriveResponseBodyDrive(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliUid) {
+      res["AliUid"] = boost::any(*aliUid);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
+    if (driveId) {
+      res["DriveId"] = boost::any(*driveId);
+    }
+    if (externalDriveId) {
+      res["ExternalDriveId"] = boost::any(*externalDriveId);
+    }
+    if (externalUserId) {
+      res["ExternalUserId"] = boost::any(*externalUserId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (profileRoaming) {
+      res["ProfileRoaming"] = boost::any(*profileRoaming);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (usedSize) {
+      res["UsedSize"] = boost::any(*usedSize);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
+      aliUid = make_shared<string>(boost::any_cast<string>(m["AliUid"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
+    }
+    if (m.find("DriveId") != m.end() && !m["DriveId"].empty()) {
+      driveId = make_shared<string>(boost::any_cast<string>(m["DriveId"]));
+    }
+    if (m.find("ExternalDriveId") != m.end() && !m["ExternalDriveId"].empty()) {
+      externalDriveId = make_shared<string>(boost::any_cast<string>(m["ExternalDriveId"]));
+    }
+    if (m.find("ExternalUserId") != m.end() && !m["ExternalUserId"].empty()) {
+      externalUserId = make_shared<string>(boost::any_cast<string>(m["ExternalUserId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProfileRoaming") != m.end() && !m["ProfileRoaming"].empty()) {
+      profileRoaming = make_shared<bool>(boost::any_cast<bool>(m["ProfileRoaming"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UsedSize") != m.end() && !m["UsedSize"].empty()) {
+      usedSize = make_shared<long>(boost::any_cast<long>(m["UsedSize"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~CreateDriveResponseBodyDrive() = default;
+};
+class CreateDriveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreateDriveResponseBodyDrive> drive{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateDriveResponseBody() {}
+
+  explicit CreateDriveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (drive) {
+      res["Drive"] = drive ? boost::any(drive->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Drive") != m.end() && !m["Drive"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Drive"].type()) {
+        CreateDriveResponseBodyDrive model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Drive"]));
+        drive = make_shared<CreateDriveResponseBodyDrive>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateDriveResponseBody() = default;
+};
+class CreateDriveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDriveResponseBody> body{};
+
+  CreateDriveResponse() {}
+
+  explicit CreateDriveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDriveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDriveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDriveResponse() = default;
+};
 class CreateImageRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoCleanUserdata{};
@@ -15011,6 +15350,151 @@ public:
 
 
   virtual ~DeleteDirectoriesResponse() = default;
+};
+class DeleteDriveRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> driveId{};
+  shared_ptr<string> regionId{};
+
+  DeleteDriveRequest() {}
+
+  explicit DeleteDriveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (driveId) {
+      res["DriveId"] = boost::any(*driveId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DriveId") != m.end() && !m["DriveId"].empty()) {
+      driveId = make_shared<string>(boost::any_cast<string>(m["DriveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteDriveRequest() = default;
+};
+class DeleteDriveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteDriveResponseBody() {}
+
+  explicit DeleteDriveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteDriveResponseBody() = default;
+};
+class DeleteDriveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDriveResponseBody> body{};
+
+  DeleteDriveResponse() {}
+
+  explicit DeleteDriveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDriveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDriveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDriveResponse() = default;
 };
 class DeleteEduRoomRequest : public Darabonba::Model {
 public:
@@ -27235,6 +27719,426 @@ public:
 
 
   virtual ~DescribeDirectoriesResponse() = default;
+};
+class DescribeDrivesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> domainIds{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> userId{};
+
+  DescribeDrivesRequest() {}
+
+  explicit DescribeDrivesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainIds) {
+      res["DomainIds"] = boost::any(*domainIds);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainIds") != m.end() && !m["DomainIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DomainIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DomainIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      domainIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeDrivesRequest() = default;
+};
+class DescribeDrivesResponseBodyDrivesDesktopGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> desktopGroupId{};
+  shared_ptr<string> desktopGroupName{};
+
+  DescribeDrivesResponseBodyDrivesDesktopGroups() {}
+
+  explicit DescribeDrivesResponseBodyDrivesDesktopGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desktopGroupId) {
+      res["DesktopGroupId"] = boost::any(*desktopGroupId);
+    }
+    if (desktopGroupName) {
+      res["DesktopGroupName"] = boost::any(*desktopGroupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
+      desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));
+    }
+    if (m.find("DesktopGroupName") != m.end() && !m["DesktopGroupName"].empty()) {
+      desktopGroupName = make_shared<string>(boost::any_cast<string>(m["DesktopGroupName"]));
+    }
+  }
+
+
+  virtual ~DescribeDrivesResponseBodyDrivesDesktopGroups() = default;
+};
+class DescribeDrivesResponseBodyDrives : public Darabonba::Model {
+public:
+  shared_ptr<long> aliUid{};
+  shared_ptr<string> description{};
+  shared_ptr<long> desktopGroupCount{};
+  shared_ptr<vector<DescribeDrivesResponseBodyDrivesDesktopGroups>> desktopGroups{};
+  shared_ptr<string> domainId{};
+  shared_ptr<string> driveId{};
+  shared_ptr<bool> enableProfileManagement{};
+  shared_ptr<string> externalDomainId{};
+  shared_ptr<string> externalDriveId{};
+  shared_ptr<string> externalUserId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> profileRoaming{};
+  shared_ptr<string> status{};
+  shared_ptr<long> totalSize{};
+  shared_ptr<string> type{};
+  shared_ptr<long> usedSize{};
+  shared_ptr<string> userId{};
+
+  DescribeDrivesResponseBodyDrives() {}
+
+  explicit DescribeDrivesResponseBodyDrives(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliUid) {
+      res["AliUid"] = boost::any(*aliUid);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (desktopGroupCount) {
+      res["DesktopGroupCount"] = boost::any(*desktopGroupCount);
+    }
+    if (desktopGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*desktopGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DesktopGroups"] = boost::any(temp1);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
+    if (driveId) {
+      res["DriveId"] = boost::any(*driveId);
+    }
+    if (enableProfileManagement) {
+      res["EnableProfileManagement"] = boost::any(*enableProfileManagement);
+    }
+    if (externalDomainId) {
+      res["ExternalDomainId"] = boost::any(*externalDomainId);
+    }
+    if (externalDriveId) {
+      res["ExternalDriveId"] = boost::any(*externalDriveId);
+    }
+    if (externalUserId) {
+      res["ExternalUserId"] = boost::any(*externalUserId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (profileRoaming) {
+      res["ProfileRoaming"] = boost::any(*profileRoaming);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (usedSize) {
+      res["UsedSize"] = boost::any(*usedSize);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
+      aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DesktopGroupCount") != m.end() && !m["DesktopGroupCount"].empty()) {
+      desktopGroupCount = make_shared<long>(boost::any_cast<long>(m["DesktopGroupCount"]));
+    }
+    if (m.find("DesktopGroups") != m.end() && !m["DesktopGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["DesktopGroups"].type()) {
+        vector<DescribeDrivesResponseBodyDrivesDesktopGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DesktopGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDrivesResponseBodyDrivesDesktopGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        desktopGroups = make_shared<vector<DescribeDrivesResponseBodyDrivesDesktopGroups>>(expect1);
+      }
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
+    }
+    if (m.find("DriveId") != m.end() && !m["DriveId"].empty()) {
+      driveId = make_shared<string>(boost::any_cast<string>(m["DriveId"]));
+    }
+    if (m.find("EnableProfileManagement") != m.end() && !m["EnableProfileManagement"].empty()) {
+      enableProfileManagement = make_shared<bool>(boost::any_cast<bool>(m["EnableProfileManagement"]));
+    }
+    if (m.find("ExternalDomainId") != m.end() && !m["ExternalDomainId"].empty()) {
+      externalDomainId = make_shared<string>(boost::any_cast<string>(m["ExternalDomainId"]));
+    }
+    if (m.find("ExternalDriveId") != m.end() && !m["ExternalDriveId"].empty()) {
+      externalDriveId = make_shared<string>(boost::any_cast<string>(m["ExternalDriveId"]));
+    }
+    if (m.find("ExternalUserId") != m.end() && !m["ExternalUserId"].empty()) {
+      externalUserId = make_shared<string>(boost::any_cast<string>(m["ExternalUserId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProfileRoaming") != m.end() && !m["ProfileRoaming"].empty()) {
+      profileRoaming = make_shared<bool>(boost::any_cast<bool>(m["ProfileRoaming"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UsedSize") != m.end() && !m["UsedSize"].empty()) {
+      usedSize = make_shared<long>(boost::any_cast<long>(m["UsedSize"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeDrivesResponseBodyDrives() = default;
+};
+class DescribeDrivesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> count{};
+  shared_ptr<vector<DescribeDrivesResponseBodyDrives>> drives{};
+  shared_ptr<string> message{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeDrivesResponseBody() {}
+
+  explicit DescribeDrivesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (drives) {
+      vector<boost::any> temp1;
+      for(auto item1:*drives){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Drives"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("Drives") != m.end() && !m["Drives"].empty()) {
+      if (typeid(vector<boost::any>) == m["Drives"].type()) {
+        vector<DescribeDrivesResponseBodyDrives> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Drives"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDrivesResponseBodyDrives model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        drives = make_shared<vector<DescribeDrivesResponseBodyDrives>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeDrivesResponseBody() = default;
+};
+class DescribeDrivesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDrivesResponseBody> body{};
+
+  DescribeDrivesResponse() {}
+
+  explicit DescribeDrivesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDrivesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDrivesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDrivesResponse() = default;
 };
 class DescribeFlowMetricRequest : public Darabonba::Model {
 public:
@@ -61426,6 +62330,8 @@ public:
   CreateDesktopsResponse createDesktops(shared_ptr<CreateDesktopsRequest> request);
   CreateDiskEncryptionServiceResponse createDiskEncryptionServiceWithOptions(shared_ptr<CreateDiskEncryptionServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDiskEncryptionServiceResponse createDiskEncryptionService(shared_ptr<CreateDiskEncryptionServiceRequest> request);
+  CreateDriveResponse createDriveWithOptions(shared_ptr<CreateDriveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDriveResponse createDrive(shared_ptr<CreateDriveRequest> request);
   CreateImageResponse createImageWithOptions(shared_ptr<CreateImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageResponse createImage(shared_ptr<CreateImageRequest> request);
   CreateNASFileSystemResponse createNASFileSystemWithOptions(shared_ptr<CreateNASFileSystemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -61464,6 +62370,8 @@ public:
   DeleteDevicesResponse deleteDevices(shared_ptr<DeleteDevicesRequest> request);
   DeleteDirectoriesResponse deleteDirectoriesWithOptions(shared_ptr<DeleteDirectoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDirectoriesResponse deleteDirectories(shared_ptr<DeleteDirectoriesRequest> request);
+  DeleteDriveResponse deleteDriveWithOptions(shared_ptr<DeleteDriveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDriveResponse deleteDrive(shared_ptr<DeleteDriveRequest> request);
   DeleteEduRoomResponse deleteEduRoomWithOptions(shared_ptr<DeleteEduRoomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteEduRoomResponse deleteEduRoom(shared_ptr<DeleteEduRoomRequest> request);
   DeleteImagesResponse deleteImagesWithOptions(shared_ptr<DeleteImagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -61530,6 +62438,8 @@ public:
   DescribeDevicesResponse describeDevices(shared_ptr<DescribeDevicesRequest> request);
   DescribeDirectoriesResponse describeDirectoriesWithOptions(shared_ptr<DescribeDirectoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDirectoriesResponse describeDirectories(shared_ptr<DescribeDirectoriesRequest> request);
+  DescribeDrivesResponse describeDrivesWithOptions(shared_ptr<DescribeDrivesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDrivesResponse describeDrives(shared_ptr<DescribeDrivesRequest> request);
   DescribeFlowMetricResponse describeFlowMetricWithOptions(shared_ptr<DescribeFlowMetricRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeFlowMetricResponse describeFlowMetric(shared_ptr<DescribeFlowMetricRequest> request);
   DescribeFlowStatisticResponse describeFlowStatisticWithOptions(shared_ptr<DescribeFlowStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

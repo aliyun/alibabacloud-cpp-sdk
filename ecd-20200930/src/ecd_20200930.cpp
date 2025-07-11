@@ -2423,6 +2423,61 @@ CreateDiskEncryptionServiceResponse Alibabacloud_Ecd20200930::Client::createDisk
   return createDiskEncryptionServiceWithOptions(request, runtime);
 }
 
+CreateDriveResponse Alibabacloud_Ecd20200930::Client::createDriveWithOptions(shared_ptr<CreateDriveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->aliUid)) {
+    query->insert(pair<string, long>("AliUid", *request->aliUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainId)) {
+    query->insert(pair<string, string>("DomainId", *request->domainId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->driveName)) {
+    query->insert(pair<string, string>("DriveName", *request->driveName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalDomainId)) {
+    query->insert(pair<string, string>("ExternalDomainId", *request->externalDomainId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->profileRoaming)) {
+    query->insert(pair<string, bool>("ProfileRoaming", *request->profileRoaming));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDrive"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDriveResponse(callApi(params, req, runtime));
+}
+
+CreateDriveResponse Alibabacloud_Ecd20200930::Client::createDrive(shared_ptr<CreateDriveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDriveWithOptions(request, runtime);
+}
+
 CreateImageResponse Alibabacloud_Ecd20200930::Client::createImageWithOptions(shared_ptr<CreateImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3390,6 +3445,37 @@ DeleteDirectoriesResponse Alibabacloud_Ecd20200930::Client::deleteDirectoriesWit
 DeleteDirectoriesResponse Alibabacloud_Ecd20200930::Client::deleteDirectories(shared_ptr<DeleteDirectoriesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDirectoriesWithOptions(request, runtime);
+}
+
+DeleteDriveResponse Alibabacloud_Ecd20200930::Client::deleteDriveWithOptions(shared_ptr<DeleteDriveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->driveId)) {
+    query->insert(pair<string, string>("DriveId", *request->driveId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDrive"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDriveResponse(callApi(params, req, runtime));
+}
+
+DeleteDriveResponse Alibabacloud_Ecd20200930::Client::deleteDrive(shared_ptr<DeleteDriveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteDriveWithOptions(request, runtime);
 }
 
 DeleteEduRoomResponse Alibabacloud_Ecd20200930::Client::deleteEduRoomWithOptions(shared_ptr<DeleteEduRoomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4971,6 +5057,49 @@ DescribeDirectoriesResponse Alibabacloud_Ecd20200930::Client::describeDirectorie
 DescribeDirectoriesResponse Alibabacloud_Ecd20200930::Client::describeDirectories(shared_ptr<DescribeDirectoriesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeDirectoriesWithOptions(request, runtime);
+}
+
+DescribeDrivesResponse Alibabacloud_Ecd20200930::Client::describeDrivesWithOptions(shared_ptr<DescribeDrivesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->domainIds)) {
+    query->insert(pair<string, vector<string>>("DomainIds", *request->domainIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDrives"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDrivesResponse(callApi(params, req, runtime));
+}
+
+DescribeDrivesResponse Alibabacloud_Ecd20200930::Client::describeDrives(shared_ptr<DescribeDrivesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDrivesWithOptions(request, runtime);
 }
 
 DescribeFlowMetricResponse Alibabacloud_Ecd20200930::Client::describeFlowMetricWithOptions(shared_ptr<DescribeFlowMetricRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
