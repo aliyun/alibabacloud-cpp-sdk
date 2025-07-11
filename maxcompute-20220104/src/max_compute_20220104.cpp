@@ -1328,6 +1328,128 @@ GetRunningJobsResponse Alibabacloud_MaxCompute20220104::Client::getRunningJobs(s
   return getRunningJobsWithOptions(request, headers, runtime);
 }
 
+GetStorageAmountSummaryResponse Alibabacloud_MaxCompute20220104::Client::getStorageAmountSummaryWithOptions(shared_ptr<GetStorageAmountSummaryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->date)) {
+    query->insert(pair<string, string>("date", *request->date));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    query->insert(pair<string, string>("tenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetStorageAmountSummary"))},
+    {"version", boost::any(string("2022-01-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/observations/analysis/storage/amount"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetStorageAmountSummaryResponse(callApi(params, req, runtime));
+}
+
+GetStorageAmountSummaryResponse Alibabacloud_MaxCompute20220104::Client::getStorageAmountSummary(shared_ptr<GetStorageAmountSummaryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getStorageAmountSummaryWithOptions(request, headers, runtime);
+}
+
+GetStorageSizeSummaryResponse Alibabacloud_MaxCompute20220104::Client::getStorageSizeSummaryWithOptions(shared_ptr<GetStorageSizeSummaryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->date)) {
+    query->insert(pair<string, string>("date", *request->date));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    query->insert(pair<string, string>("tenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetStorageSizeSummary"))},
+    {"version", boost::any(string("2022-01-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/observations/analysis/storage/size"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetStorageSizeSummaryResponse(callApi(params, req, runtime));
+}
+
+GetStorageSizeSummaryResponse Alibabacloud_MaxCompute20220104::Client::getStorageSizeSummary(shared_ptr<GetStorageSizeSummaryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getStorageSizeSummaryWithOptions(request, headers, runtime);
+}
+
+GetStorageSummaryComparedResponse Alibabacloud_MaxCompute20220104::Client::getStorageSummaryComparedWithOptions(shared_ptr<string> type,
+                                                                                                                shared_ptr<GetStorageSummaryComparedRequest> tmpReq,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetStorageSummaryComparedShrinkRequest> request = make_shared<GetStorageSummaryComparedShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->projects)) {
+    request->projectsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->projects, make_shared<string>("projects"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->beginDate)) {
+    query->insert(pair<string, string>("beginDate", *request->beginDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
+    query->insert(pair<string, string>("endDate", *request->endDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectsShrink)) {
+    query->insert(pair<string, string>("projects", *request->projectsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    query->insert(pair<string, string>("tenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetStorageSummaryCompared"))},
+    {"version", boost::any(string("2022-01-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/observations/analysis/storage/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(type)) + string("/compared"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetStorageSummaryComparedResponse(callApi(params, req, runtime));
+}
+
+GetStorageSummaryComparedResponse Alibabacloud_MaxCompute20220104::Client::getStorageSummaryCompared(shared_ptr<string> type, shared_ptr<GetStorageSummaryComparedRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getStorageSummaryComparedWithOptions(type, request, headers, runtime);
+}
+
 GetTableInfoResponse Alibabacloud_MaxCompute20220104::Client::getTableInfoWithOptions(shared_ptr<string> projectName,
                                                                                       shared_ptr<string> tableName,
                                                                                       shared_ptr<GetTableInfoRequest> request,
@@ -2479,6 +2601,60 @@ ListStoragePartitionsInfoResponse Alibabacloud_MaxCompute20220104::Client::listS
   return listStoragePartitionsInfoWithOptions(project, table, request, headers, runtime);
 }
 
+ListStorageProjectsInfoResponse Alibabacloud_MaxCompute20220104::Client::listStorageProjectsInfoWithOptions(shared_ptr<ListStorageProjectsInfoRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ascOrder)) {
+    query->insert(pair<string, bool>("ascOrder", *request->ascOrder));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->date)) {
+    query->insert(pair<string, string>("date", *request->date));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderColumn)) {
+    query->insert(pair<string, string>("orderColumn", *request->orderColumn));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectPrefix)) {
+    query->insert(pair<string, string>("projectPrefix", *request->projectPrefix));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recentDays)) {
+    query->insert(pair<string, long>("recentDays", *request->recentDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    query->insert(pair<string, string>("tenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListStorageProjectsInfo"))},
+    {"version", boost::any(string("2022-01-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/observations/analysis/storage/projectsInfo"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListStorageProjectsInfoResponse(callApi(params, req, runtime));
+}
+
+ListStorageProjectsInfoResponse Alibabacloud_MaxCompute20220104::Client::listStorageProjectsInfo(shared_ptr<ListStorageProjectsInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listStorageProjectsInfoWithOptions(request, headers, runtime);
+}
+
 ListStorageTablesInfoResponse Alibabacloud_MaxCompute20220104::Client::listStorageTablesInfoWithOptions(shared_ptr<string> project,
                                                                                                         shared_ptr<ListStorageTablesInfoRequest> tmpReq,
                                                                                                         shared_ptr<map<string, string>> headers,
@@ -2716,6 +2892,50 @@ QueryQuotaResponse Alibabacloud_MaxCompute20220104::Client::queryQuota(shared_pt
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return queryQuotaWithOptions(nickname, request, headers, runtime);
+}
+
+QueryStorageMetricResponse Alibabacloud_MaxCompute20220104::Client::queryStorageMetricWithOptions(shared_ptr<string> metric,
+                                                                                                  shared_ptr<QueryStorageMetricRequest> request,
+                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("endTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("startTime", *request->startTime));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->projectList)) {
+    body->insert(pair<string, vector<string>>("projectList", *request->projectList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->typeList)) {
+    body->insert(pair<string, vector<string>>("typeList", *request->typeList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryStorageMetric"))},
+    {"version", boost::any(string("2022-01-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/observations/storage/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(metric)))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryStorageMetricResponse(callApi(params, req, runtime));
+}
+
+QueryStorageMetricResponse Alibabacloud_MaxCompute20220104::Client::queryStorageMetric(shared_ptr<string> metric, shared_ptr<QueryStorageMetricRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryStorageMetricWithOptions(metric, request, headers, runtime);
 }
 
 QueryTunnelMetricResponse Alibabacloud_MaxCompute20220104::Client::queryTunnelMetricWithOptions(shared_ptr<string> metric,
@@ -3303,5 +3523,42 @@ UpdateTunnelQuotaTimerResponse Alibabacloud_MaxCompute20220104::Client::updateTu
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateTunnelQuotaTimerWithOptions(nickname, request, headers, runtime);
+}
+
+UpdateUsersToRoleResponse Alibabacloud_MaxCompute20220104::Client::updateUsersToRoleWithOptions(shared_ptr<string> projectName,
+                                                                                                shared_ptr<string> roleName,
+                                                                                                shared_ptr<UpdateUsersToRoleRequest> request,
+                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->add)) {
+    body->insert(pair<string, vector<string>>("add", *request->add));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->remove)) {
+    body->insert(pair<string, vector<string>>("remove", *request->remove));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateUsersToRole"))},
+    {"version", boost::any(string("2022-01-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(projectName)) + string("/roles/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(roleName)) + string("/users"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateUsersToRoleResponse(callApi(params, req, runtime));
+}
+
+UpdateUsersToRoleResponse Alibabacloud_MaxCompute20220104::Client::updateUsersToRole(shared_ptr<string> projectName, shared_ptr<string> roleName, shared_ptr<UpdateUsersToRoleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateUsersToRoleWithOptions(projectName, roleName, request, headers, runtime);
 }
 
