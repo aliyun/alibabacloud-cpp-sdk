@@ -4711,6 +4711,144 @@ public:
 
   virtual ~DeleteDefenseRuleResponse() = default;
 };
+class DeleteDefenseRuleBlockIpRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<long> ruleId{};
+  shared_ptr<long> templateId{};
+
+  DeleteDefenseRuleBlockIpRequest() {}
+
+  explicit DeleteDefenseRuleBlockIpRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~DeleteDefenseRuleBlockIpRequest() = default;
+};
+class DeleteDefenseRuleBlockIpResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteDefenseRuleBlockIpResponseBody() {}
+
+  explicit DeleteDefenseRuleBlockIpResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDefenseRuleBlockIpResponseBody() = default;
+};
+class DeleteDefenseRuleBlockIpResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDefenseRuleBlockIpResponseBody> body{};
+
+  DeleteDefenseRuleBlockIpResponse() {}
+
+  explicit DeleteDefenseRuleBlockIpResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDefenseRuleBlockIpResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDefenseRuleBlockIpResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDefenseRuleBlockIpResponse() = default;
+};
 class DeleteDefenseTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -16024,6 +16162,7 @@ public:
 class DescribeDomainDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
+  shared_ptr<string> domainId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
 
@@ -16040,6 +16179,9 @@ public:
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -16052,6 +16194,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -16643,6 +16788,7 @@ public:
   shared_ptr<DescribeDomainDetailResponseBodyCertDetail> certDetail{};
   shared_ptr<string> cname{};
   shared_ptr<string> domain{};
+  shared_ptr<string> domainId{};
   shared_ptr<DescribeDomainDetailResponseBodyListen> listen{};
   shared_ptr<DescribeDomainDetailResponseBodyRedirect> redirect{};
   shared_ptr<string> requestId{};
@@ -16668,6 +16814,9 @@ public:
     }
     if (domain) {
       res["Domain"] = boost::any(*domain);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
     }
     if (listen) {
       res["Listen"] = listen ? boost::any(listen->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16703,6 +16852,9 @@ public:
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
     }
     if (m.find("Listen") != m.end() && !m["Listen"].empty()) {
       if (typeid(map<string, boost::any>) == m["Listen"].type()) {
@@ -17227,6 +17379,7 @@ public:
   shared_ptr<DescribeDomainsResponseBodyDomainsBackeds> backeds{};
   shared_ptr<string> cname{};
   shared_ptr<string> domain{};
+  shared_ptr<string> domainId{};
   shared_ptr<DescribeDomainsResponseBodyDomainsListenPorts> listenPorts{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<long> status{};
@@ -17249,6 +17402,9 @@ public:
     }
     if (domain) {
       res["Domain"] = boost::any(*domain);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
     }
     if (listenPorts) {
       res["ListenPorts"] = listenPorts ? boost::any(listenPorts->toMap()) : boost::any(map<string,boost::any>({}));
@@ -17275,6 +17431,9 @@ public:
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
     }
     if (m.find("ListenPorts") != m.end() && !m["ListenPorts"].empty()) {
       if (typeid(map<string, boost::any>) == m["ListenPorts"].type()) {
@@ -37453,6 +37612,7 @@ class ModifyDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessType{};
   shared_ptr<string> domain{};
+  shared_ptr<string> domainId{};
   shared_ptr<string> instanceId{};
   shared_ptr<ModifyDomainRequestListen> listen{};
   shared_ptr<ModifyDomainRequestRedirect> redirect{};
@@ -37473,6 +37633,9 @@ public:
     }
     if (domain) {
       res["Domain"] = boost::any(*domain);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -37495,6 +37658,9 @@ public:
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -37525,6 +37691,7 @@ class ModifyDomainShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessType{};
   shared_ptr<string> domain{};
+  shared_ptr<string> domainId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> listenShrink{};
   shared_ptr<string> redirectShrink{};
@@ -37545,6 +37712,9 @@ public:
     }
     if (domain) {
       res["Domain"] = boost::any(*domain);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -37567,6 +37737,9 @@ public:
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -40420,6 +40593,8 @@ public:
   DeleteDefenseResourceGroupResponse deleteDefenseResourceGroup(shared_ptr<DeleteDefenseResourceGroupRequest> request);
   DeleteDefenseRuleResponse deleteDefenseRuleWithOptions(shared_ptr<DeleteDefenseRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDefenseRuleResponse deleteDefenseRule(shared_ptr<DeleteDefenseRuleRequest> request);
+  DeleteDefenseRuleBlockIpResponse deleteDefenseRuleBlockIpWithOptions(shared_ptr<DeleteDefenseRuleBlockIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDefenseRuleBlockIpResponse deleteDefenseRuleBlockIp(shared_ptr<DeleteDefenseRuleBlockIpRequest> request);
   DeleteDefenseTemplateResponse deleteDefenseTemplateWithOptions(shared_ptr<DeleteDefenseTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDefenseTemplateResponse deleteDefenseTemplate(shared_ptr<DeleteDefenseTemplateRequest> request);
   DeleteDomainResponse deleteDomainWithOptions(shared_ptr<DeleteDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
