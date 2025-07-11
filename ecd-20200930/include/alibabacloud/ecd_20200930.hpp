@@ -8563,6 +8563,7 @@ public:
   shared_ptr<long> dataDiskSize{};
   shared_ptr<long> defaultInitDesktopCount{};
   shared_ptr<string> defaultLanguage{};
+  shared_ptr<long> deleteDuration{};
   shared_ptr<string> desktopGroupName{};
   shared_ptr<string> desktopType{};
   shared_ptr<string> directoryId{};
@@ -8669,6 +8670,9 @@ public:
     }
     if (defaultLanguage) {
       res["DefaultLanguage"] = boost::any(*defaultLanguage);
+    }
+    if (deleteDuration) {
+      res["DeleteDuration"] = boost::any(*deleteDuration);
     }
     if (desktopGroupName) {
       res["DesktopGroupName"] = boost::any(*desktopGroupName);
@@ -8857,6 +8861,9 @@ public:
     }
     if (m.find("DefaultLanguage") != m.end() && !m["DefaultLanguage"].empty()) {
       defaultLanguage = make_shared<string>(boost::any_cast<string>(m["DefaultLanguage"]));
+    }
+    if (m.find("DeleteDuration") != m.end() && !m["DeleteDuration"].empty()) {
+      deleteDuration = make_shared<long>(boost::any_cast<long>(m["DeleteDuration"]));
     }
     if (m.find("DesktopGroupName") != m.end() && !m["DesktopGroupName"].empty()) {
       desktopGroupName = make_shared<string>(boost::any_cast<string>(m["DesktopGroupName"]));
@@ -22247,6 +22254,7 @@ public:
   shared_ptr<string> desktopType{};
   shared_ptr<long> endUserCount{};
   shared_ptr<string> expiredTime{};
+  shared_ptr<vector<string>> expiredTimes{};
   shared_ptr<double> gpuCount{};
   shared_ptr<string> gpuDriverVersion{};
   shared_ptr<string> gpuSpec{};
@@ -22347,6 +22355,9 @@ public:
     }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
+    }
+    if (expiredTimes) {
+      res["ExpiredTimes"] = boost::any(*expiredTimes);
     }
     if (gpuCount) {
       res["GpuCount"] = boost::any(*gpuCount);
@@ -22527,6 +22538,16 @@ public:
     }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
+    }
+    if (m.find("ExpiredTimes") != m.end() && !m["ExpiredTimes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExpiredTimes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExpiredTimes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      expiredTimes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
       gpuCount = make_shared<double>(boost::any_cast<double>(m["GpuCount"]));
@@ -26261,6 +26282,7 @@ public:
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<string> endUserName{};
   shared_ptr<vector<string>> endUserNames{};
+  shared_ptr<string> expiredTime{};
   shared_ptr<string> fotaVersion{};
   shared_ptr<string> gpuDriverVersion{};
   shared_ptr<string> imageId{};
@@ -26310,6 +26332,9 @@ public:
     }
     if (endUserNames) {
       res["EndUserNames"] = boost::any(*endUserNames);
+    }
+    if (expiredTime) {
+      res["ExpiredTime"] = boost::any(*expiredTime);
     }
     if (fotaVersion) {
       res["FotaVersion"] = boost::any(*fotaVersion);
@@ -26391,6 +26416,9 @@ public:
         }
       }
       endUserNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
+      expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
     }
     if (m.find("FotaVersion") != m.end() && !m["FotaVersion"].empty()) {
       fotaVersion = make_shared<string>(boost::any_cast<string>(m["FotaVersion"]));
@@ -43315,6 +43343,7 @@ public:
   shared_ptr<string> directoryId{};
   shared_ptr<string> directoryType{};
   shared_ptr<string> expiredTime{};
+  shared_ptr<vector<string>> expiredTimes{};
   shared_ptr<double> gpuCount{};
   shared_ptr<string> gpuSpec{};
   shared_ptr<long> idleDisconnectDuration{};
@@ -43329,6 +43358,7 @@ public:
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> officeSiteName{};
   shared_ptr<string> officeSiteType{};
+  shared_ptr<string> osType{};
   shared_ptr<string> ownBundleId{};
   shared_ptr<string> ownBundleName{};
   shared_ptr<long> ownType{};
@@ -43338,6 +43368,7 @@ public:
   shared_ptr<string> policyGroupName{};
   shared_ptr<vector<string>> policyGroupNames{};
   shared_ptr<bool> profileFollowSwitch{};
+  shared_ptr<string> protocolType{};
   shared_ptr<double> ratioThreshold{};
   shared_ptr<long> resType{};
   shared_ptr<long> resetType{};
@@ -43408,6 +43439,9 @@ public:
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
     }
+    if (expiredTimes) {
+      res["ExpiredTimes"] = boost::any(*expiredTimes);
+    }
     if (gpuCount) {
       res["GpuCount"] = boost::any(*gpuCount);
     }
@@ -43450,6 +43484,9 @@ public:
     if (officeSiteType) {
       res["OfficeSiteType"] = boost::any(*officeSiteType);
     }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
+    }
     if (ownBundleId) {
       res["OwnBundleId"] = boost::any(*ownBundleId);
     }
@@ -43476,6 +43513,9 @@ public:
     }
     if (profileFollowSwitch) {
       res["ProfileFollowSwitch"] = boost::any(*profileFollowSwitch);
+    }
+    if (protocolType) {
+      res["ProtocolType"] = boost::any(*protocolType);
     }
     if (ratioThreshold) {
       res["RatioThreshold"] = boost::any(*ratioThreshold);
@@ -43570,6 +43610,16 @@ public:
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
     }
+    if (m.find("ExpiredTimes") != m.end() && !m["ExpiredTimes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExpiredTimes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExpiredTimes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      expiredTimes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
       gpuCount = make_shared<double>(boost::any_cast<double>(m["GpuCount"]));
     }
@@ -43612,6 +43662,9 @@ public:
     if (m.find("OfficeSiteType") != m.end() && !m["OfficeSiteType"].empty()) {
       officeSiteType = make_shared<string>(boost::any_cast<string>(m["OfficeSiteType"]));
     }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
     if (m.find("OwnBundleId") != m.end() && !m["OwnBundleId"].empty()) {
       ownBundleId = make_shared<string>(boost::any_cast<string>(m["OwnBundleId"]));
     }
@@ -43652,6 +43705,9 @@ public:
     }
     if (m.find("ProfileFollowSwitch") != m.end() && !m["ProfileFollowSwitch"].empty()) {
       profileFollowSwitch = make_shared<bool>(boost::any_cast<bool>(m["ProfileFollowSwitch"]));
+    }
+    if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
+      protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
     }
     if (m.find("RatioThreshold") != m.end() && !m["RatioThreshold"].empty()) {
       ratioThreshold = make_shared<double>(boost::any_cast<double>(m["RatioThreshold"]));
@@ -50375,6 +50431,7 @@ public:
   shared_ptr<string> classify{};
   shared_ptr<string> comments{};
   shared_ptr<long> connectDuration{};
+  shared_ptr<long> deleteDuration{};
   shared_ptr<string> desktopGroupId{};
   shared_ptr<string> desktopGroupName{};
   shared_ptr<bool> disableSessionConfig{};
@@ -50425,6 +50482,9 @@ public:
     }
     if (connectDuration) {
       res["ConnectDuration"] = boost::any(*connectDuration);
+    }
+    if (deleteDuration) {
+      res["DeleteDuration"] = boost::any(*deleteDuration);
     }
     if (desktopGroupId) {
       res["DesktopGroupId"] = boost::any(*desktopGroupId);
@@ -50507,6 +50567,9 @@ public:
     }
     if (m.find("ConnectDuration") != m.end() && !m["ConnectDuration"].empty()) {
       connectDuration = make_shared<long>(boost::any_cast<long>(m["ConnectDuration"]));
+    }
+    if (m.find("DeleteDuration") != m.end() && !m["DeleteDuration"].empty()) {
+      deleteDuration = make_shared<long>(boost::any_cast<long>(m["DeleteDuration"]));
     }
     if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
       desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));

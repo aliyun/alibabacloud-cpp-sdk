@@ -2033,6 +2033,9 @@ CreateDesktopGroupResponse Alibabacloud_Ecd20200930::Client::createDesktopGroupW
   if (!Darabonba_Util::Client::isUnset<string>(request->defaultLanguage)) {
     query->insert(pair<string, string>("DefaultLanguage", *request->defaultLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->deleteDuration)) {
+    query->insert(pair<string, long>("DeleteDuration", *request->deleteDuration));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->desktopGroupName)) {
     query->insert(pair<string, string>("DesktopGroupName", *request->desktopGroupName));
   }
@@ -8760,6 +8763,9 @@ ModifyDesktopGroupResponse Alibabacloud_Ecd20200930::Client::modifyDesktopGroupW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->connectDuration)) {
     query->insert(pair<string, long>("ConnectDuration", *request->connectDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->deleteDuration)) {
+    query->insert(pair<string, long>("DeleteDuration", *request->deleteDuration));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->desktopGroupId)) {
     query->insert(pair<string, string>("DesktopGroupId", *request->desktopGroupId));
