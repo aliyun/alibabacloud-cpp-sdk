@@ -608,6 +608,52 @@ CreateDomainResponse Alibabacloud_Waf-openapi20211001::Client::createDomain(shar
   return createDomainWithOptions(request, runtime);
 }
 
+CreateHybridCloudClusterRuleResponse Alibabacloud_Waf-openapi20211001::Client::createHybridCloudClusterRuleWithOptions(shared_ptr<CreateHybridCloudClusterRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->clusterId)) {
+    query->insert(pair<string, long>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleConfig)) {
+    query->insert(pair<string, string>("RuleConfig", *request->ruleConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleStatus)) {
+    query->insert(pair<string, string>("RuleStatus", *request->ruleStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleType)) {
+    query->insert(pair<string, string>("RuleType", *request->ruleType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateHybridCloudClusterRule"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateHybridCloudClusterRuleResponse(callApi(params, req, runtime));
+}
+
+CreateHybridCloudClusterRuleResponse Alibabacloud_Waf-openapi20211001::Client::createHybridCloudClusterRule(shared_ptr<CreateHybridCloudClusterRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createHybridCloudClusterRuleWithOptions(request, runtime);
+}
+
 CreateHybridCloudGroupResponse Alibabacloud_Waf-openapi20211001::Client::createHybridCloudGroupWithOptions(shared_ptr<CreateHybridCloudGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1190,6 +1236,43 @@ DeleteDomainResponse Alibabacloud_Waf-openapi20211001::Client::deleteDomainWithO
 DeleteDomainResponse Alibabacloud_Waf-openapi20211001::Client::deleteDomain(shared_ptr<DeleteDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDomainWithOptions(request, runtime);
+}
+
+DeleteHybridCloudClusterRuleResponse Alibabacloud_Waf-openapi20211001::Client::deleteHybridCloudClusterRuleWithOptions(shared_ptr<DeleteHybridCloudClusterRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterRuleResourceId)) {
+    query->insert(pair<string, string>("ClusterRuleResourceId", *request->clusterRuleResourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteHybridCloudClusterRule"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteHybridCloudClusterRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteHybridCloudClusterRuleResponse Alibabacloud_Waf-openapi20211001::Client::deleteHybridCloudClusterRule(shared_ptr<DeleteHybridCloudClusterRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteHybridCloudClusterRuleWithOptions(request, runtime);
 }
 
 DeleteMajorProtectionBlackIpResponse Alibabacloud_Waf-openapi20211001::Client::deleteMajorProtectionBlackIpWithOptions(shared_ptr<DeleteMajorProtectionBlackIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3648,6 +3731,58 @@ DescribeHybridCloudClusterRuleResponse Alibabacloud_Waf-openapi20211001::Client:
 DescribeHybridCloudClusterRuleResponse Alibabacloud_Waf-openapi20211001::Client::describeHybridCloudClusterRule(shared_ptr<DescribeHybridCloudClusterRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeHybridCloudClusterRuleWithOptions(request, runtime);
+}
+
+DescribeHybridCloudClusterRulesResponse Alibabacloud_Waf-openapi20211001::Client::describeHybridCloudClusterRulesWithOptions(shared_ptr<DescribeHybridCloudClusterRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->clusterId)) {
+    query->insert(pair<string, long>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleContent)) {
+    query->insert(pair<string, string>("RuleContent", *request->ruleContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleMatchType)) {
+    query->insert(pair<string, string>("RuleMatchType", *request->ruleMatchType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleType)) {
+    query->insert(pair<string, string>("RuleType", *request->ruleType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeHybridCloudClusterRules"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeHybridCloudClusterRulesResponse(callApi(params, req, runtime));
+}
+
+DescribeHybridCloudClusterRulesResponse Alibabacloud_Waf-openapi20211001::Client::describeHybridCloudClusterRules(shared_ptr<DescribeHybridCloudClusterRulesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeHybridCloudClusterRulesWithOptions(request, runtime);
 }
 
 DescribeHybridCloudClustersResponse Alibabacloud_Waf-openapi20211001::Client::describeHybridCloudClustersWithOptions(shared_ptr<DescribeHybridCloudClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
