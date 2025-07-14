@@ -1270,6 +1270,7 @@ public:
   shared_ptr<vector<CreateClusterRequestNodeGroupsNodes>> nodes{};
   shared_ptr<CreateClusterRequestNodeGroupsSystemDisk> systemDisk{};
   shared_ptr<string> userData{};
+  shared_ptr<bool> virtualGpuEnabled{};
   shared_ptr<string> zoneId{};
 
   CreateClusterRequestNodeGroups() {}
@@ -1315,6 +1316,9 @@ public:
     }
     if (userData) {
       res["UserData"] = boost::any(*userData);
+    }
+    if (virtualGpuEnabled) {
+      res["VirtualGpuEnabled"] = boost::any(*virtualGpuEnabled);
     }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
@@ -1366,6 +1370,9 @@ public:
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("VirtualGpuEnabled") != m.end() && !m["VirtualGpuEnabled"].empty()) {
+      virtualGpuEnabled = make_shared<bool>(boost::any_cast<bool>(m["VirtualGpuEnabled"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
@@ -2908,6 +2915,7 @@ public:
   shared_ptr<string> nodeGroupName{};
   shared_ptr<CreateNodeGroupRequestNodeGroupSystemDisk> systemDisk{};
   shared_ptr<string> userData{};
+  shared_ptr<bool> virtualGpuEnabled{};
 
   CreateNodeGroupRequestNodeGroup() {}
 
@@ -2949,6 +2957,9 @@ public:
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
+    if (virtualGpuEnabled) {
+      res["VirtualGpuEnabled"] = boost::any(*virtualGpuEnabled);
+    }
     return res;
   }
 
@@ -2986,6 +2997,9 @@ public:
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("VirtualGpuEnabled") != m.end() && !m["VirtualGpuEnabled"].empty()) {
+      virtualGpuEnabled = make_shared<bool>(boost::any_cast<bool>(m["VirtualGpuEnabled"]));
     }
   }
 
@@ -11041,6 +11055,7 @@ public:
   shared_ptr<string> machineType{};
   shared_ptr<long> nodeCount{};
   shared_ptr<string> updateTime{};
+  shared_ptr<bool> virtualGpuEnabled{};
   shared_ptr<string> zoneId{};
 
   ListNodeGroupsResponseBodyGroups() {}
@@ -11089,6 +11104,9 @@ public:
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
+    if (virtualGpuEnabled) {
+      res["VirtualGpuEnabled"] = boost::any(*virtualGpuEnabled);
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -11131,6 +11149,9 @@ public:
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("VirtualGpuEnabled") != m.end() && !m["VirtualGpuEnabled"].empty()) {
+      virtualGpuEnabled = make_shared<bool>(boost::any_cast<bool>(m["VirtualGpuEnabled"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
