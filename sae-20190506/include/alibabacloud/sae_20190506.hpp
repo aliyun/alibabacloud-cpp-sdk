@@ -43908,7 +43908,9 @@ public:
 class ListIngressesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<long> currentPage{};
   shared_ptr<string> namespaceId{};
+  shared_ptr<long> pageSize{};
 
   ListIngressesRequest() {}
 
@@ -43923,8 +43925,14 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
     }
     return res;
   }
@@ -43933,8 +43941,14 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
   }
 
@@ -44376,7 +44390,10 @@ public:
 };
 class ListIngressesResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> currentPage{};
   shared_ptr<vector<ListIngressesResponseBodyDataIngressList>> ingressList{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalSize{};
 
   ListIngressesResponseBodyData() {}
 
@@ -44388,6 +44405,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
     if (ingressList) {
       vector<boost::any> temp1;
       for(auto item1:*ingressList){
@@ -44395,10 +44415,19 @@ public:
       }
       res["IngressList"] = boost::any(temp1);
     }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
     if (m.find("IngressList") != m.end() && !m["IngressList"].empty()) {
       if (typeid(vector<boost::any>) == m["IngressList"].type()) {
         vector<ListIngressesResponseBodyDataIngressList> expect1;
@@ -44411,6 +44440,12 @@ public:
         }
         ingressList = make_shared<vector<ListIngressesResponseBodyDataIngressList>>(expect1);
       }
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
     }
   }
 
