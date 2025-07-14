@@ -7627,6 +7627,40 @@ ListTagResourcesResponse Alibabacloud_Ecd20200930::Client::listTagResources(shar
   return listTagResourcesWithOptions(request, runtime);
 }
 
+ListTransferFilesResponse Alibabacloud_Ecd20200930::Client::listTransferFilesWithOptions(shared_ptr<ListTransferFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTransferFiles"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTransferFilesResponse(callApi(params, req, runtime));
+}
+
+ListTransferFilesResponse Alibabacloud_Ecd20200930::Client::listTransferFiles(shared_ptr<ListTransferFilesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listTransferFilesWithOptions(request, runtime);
+}
+
 ListUserAdOrganizationUnitsResponse Alibabacloud_Ecd20200930::Client::listUserAdOrganizationUnitsWithOptions(shared_ptr<ListUserAdOrganizationUnitsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -11175,6 +11209,43 @@ TagResourcesResponse Alibabacloud_Ecd20200930::Client::tagResourcesWithOptions(s
 TagResourcesResponse Alibabacloud_Ecd20200930::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return tagResourcesWithOptions(request, runtime);
+}
+
+TransferTaskApprovalCallbackResponse Alibabacloud_Ecd20200930::Client::transferTaskApprovalCallbackWithOptions(shared_ptr<TransferTaskApprovalCallbackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossBucketName)) {
+    query->insert(pair<string, string>("OssBucketName", *request->ossBucketName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossBucketRegionId)) {
+    query->insert(pair<string, string>("OssBucketRegionId", *request->ossBucketRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->result)) {
+    query->insert(pair<string, string>("Result", *request->result));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TransferTaskApprovalCallback"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TransferTaskApprovalCallbackResponse(callApi(params, req, runtime));
+}
+
+TransferTaskApprovalCallbackResponse Alibabacloud_Ecd20200930::Client::transferTaskApprovalCallback(shared_ptr<TransferTaskApprovalCallbackRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return transferTaskApprovalCallbackWithOptions(request, runtime);
 }
 
 UnbindConfigGroupResponse Alibabacloud_Ecd20200930::Client::unbindConfigGroupWithOptions(shared_ptr<UnbindConfigGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
