@@ -6505,6 +6505,7 @@ public:
   shared_ptr<long> callDurationGte{};
   shared_ptr<long> callDurationLte{};
   shared_ptr<string> calledNumber{};
+  shared_ptr<string> callingNumber{};
   shared_ptr<bool> hasAnswered{};
   shared_ptr<bool> hasHangUpByRejection{};
   shared_ptr<bool> hasReachedEndOfFlow{};
@@ -6551,6 +6552,9 @@ public:
     }
     if (calledNumber) {
       res["CalledNumber"] = boost::any(*calledNumber);
+    }
+    if (callingNumber) {
+      res["CallingNumber"] = boost::any(*callingNumber);
     }
     if (hasAnswered) {
       res["HasAnswered"] = boost::any(*hasAnswered);
@@ -6633,6 +6637,9 @@ public:
     }
     if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
       calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
+    }
+    if (m.find("CallingNumber") != m.end() && !m["CallingNumber"].empty()) {
+      callingNumber = make_shared<string>(boost::any_cast<string>(m["CallingNumber"]));
     }
     if (m.find("HasAnswered") != m.end() && !m["HasAnswered"].empty()) {
       hasAnswered = make_shared<bool>(boost::any_cast<bool>(m["HasAnswered"]));
@@ -44099,6 +44106,7 @@ public:
   shared_ptr<long> callDurationGte{};
   shared_ptr<long> callDurationLte{};
   shared_ptr<string> calledNumber{};
+  shared_ptr<string> callingNumber{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> jobGroupId{};
   shared_ptr<string> jobGroupNameQuery{};
@@ -44142,6 +44150,9 @@ public:
     }
     if (calledNumber) {
       res["CalledNumber"] = boost::any(*calledNumber);
+    }
+    if (callingNumber) {
+      res["CallingNumber"] = boost::any(*callingNumber);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -44216,6 +44227,9 @@ public:
     if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
       calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
     }
+    if (m.find("CallingNumber") != m.end() && !m["CallingNumber"].empty()) {
+      callingNumber = make_shared<string>(boost::any_cast<string>(m["CallingNumber"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -44281,6 +44295,7 @@ public:
   shared_ptr<long> callDuration{};
   shared_ptr<string> callDurationDisplay{};
   shared_ptr<string> calledNumber{};
+  shared_ptr<string> callingNumber{};
   shared_ptr<string> dialException{};
   shared_ptr<vector<string>> dialExceptionCodes{};
   shared_ptr<string> dialExceptionOld{};
@@ -44327,6 +44342,9 @@ public:
     }
     if (calledNumber) {
       res["CalledNumber"] = boost::any(*calledNumber);
+    }
+    if (callingNumber) {
+      res["CallingNumber"] = boost::any(*callingNumber);
     }
     if (dialException) {
       res["DialException"] = boost::any(*dialException);
@@ -44415,6 +44433,9 @@ public:
     }
     if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
       calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
+    }
+    if (m.find("CallingNumber") != m.end() && !m["CallingNumber"].empty()) {
+      callingNumber = make_shared<string>(boost::any_cast<string>(m["CallingNumber"]));
     }
     if (m.find("DialException") != m.end() && !m["DialException"].empty()) {
       dialException = make_shared<string>(boost::any_cast<string>(m["DialException"]));
