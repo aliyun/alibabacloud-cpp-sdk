@@ -2118,6 +2118,70 @@ public:
 
   virtual ~CreateCloudPhoneNodeRequestDisplayConfig() = default;
 };
+class CreateCloudPhoneNodeRequestNetworkInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> bandwidthPackageName{};
+  shared_ptr<string> cidrBlock{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<long> ipRatio{};
+  shared_ptr<string> isp{};
+  shared_ptr<long> limitedBandwidth{};
+
+  CreateCloudPhoneNodeRequestNetworkInfo() {}
+
+  explicit CreateCloudPhoneNodeRequestNetworkInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidthPackageName) {
+      res["BandwidthPackageName"] = boost::any(*bandwidthPackageName);
+    }
+    if (cidrBlock) {
+      res["CidrBlock"] = boost::any(*cidrBlock);
+    }
+    if (internetChargeType) {
+      res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (ipRatio) {
+      res["IpRatio"] = boost::any(*ipRatio);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
+    }
+    if (limitedBandwidth) {
+      res["LimitedBandwidth"] = boost::any(*limitedBandwidth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPackageName") != m.end() && !m["BandwidthPackageName"].empty()) {
+      bandwidthPackageName = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageName"]));
+    }
+    if (m.find("CidrBlock") != m.end() && !m["CidrBlock"].empty()) {
+      cidrBlock = make_shared<string>(boost::any_cast<string>(m["CidrBlock"]));
+    }
+    if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("IpRatio") != m.end() && !m["IpRatio"].empty()) {
+      ipRatio = make_shared<long>(boost::any_cast<long>(m["IpRatio"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
+    }
+    if (m.find("LimitedBandwidth") != m.end() && !m["LimitedBandwidth"].empty()) {
+      limitedBandwidth = make_shared<long>(boost::any_cast<long>(m["LimitedBandwidth"]));
+    }
+  }
+
+
+  virtual ~CreateCloudPhoneNodeRequestNetworkInfo() = default;
+};
 class CreateCloudPhoneNodeRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -2158,13 +2222,18 @@ class CreateCloudPhoneNodeRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<string> bandwidthPackageType{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> count{};
   shared_ptr<CreateCloudPhoneNodeRequestDisplayConfig> displayConfig{};
+  shared_ptr<long> downBandwidthLimit{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> networkId{};
+  shared_ptr<CreateCloudPhoneNodeRequestNetworkInfo> networkInfo{};
+  shared_ptr<string> networkType{};
   shared_ptr<string> nodeName{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -2176,6 +2245,7 @@ public:
   shared_ptr<string> serverType{};
   shared_ptr<long> streamMode{};
   shared_ptr<vector<CreateCloudPhoneNodeRequestTag>> tag{};
+  shared_ptr<long> upBandwidthLimit{};
   shared_ptr<string> vSwitchId{};
 
   CreateCloudPhoneNodeRequest() {}
@@ -2194,6 +2264,12 @@ public:
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (bandwidthPackageType) {
+      res["BandwidthPackageType"] = boost::any(*bandwidthPackageType);
+    }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
     }
@@ -2206,6 +2282,9 @@ public:
     if (displayConfig) {
       res["DisplayConfig"] = displayConfig ? boost::any(displayConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (downBandwidthLimit) {
+      res["DownBandwidthLimit"] = boost::any(*downBandwidthLimit);
+    }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
@@ -2214,6 +2293,12 @@ public:
     }
     if (networkId) {
       res["NetworkId"] = boost::any(*networkId);
+    }
+    if (networkInfo) {
+      res["NetworkInfo"] = networkInfo ? boost::any(networkInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
     }
     if (nodeName) {
       res["NodeName"] = boost::any(*nodeName);
@@ -2252,6 +2337,9 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (upBandwidthLimit) {
+      res["UpBandwidthLimit"] = boost::any(*upBandwidthLimit);
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -2264,6 +2352,12 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("BandwidthPackageType") != m.end() && !m["BandwidthPackageType"].empty()) {
+      bandwidthPackageType = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageType"]));
     }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
@@ -2281,6 +2375,9 @@ public:
         displayConfig = make_shared<CreateCloudPhoneNodeRequestDisplayConfig>(model1);
       }
     }
+    if (m.find("DownBandwidthLimit") != m.end() && !m["DownBandwidthLimit"].empty()) {
+      downBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["DownBandwidthLimit"]));
+    }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
@@ -2289,6 +2386,16 @@ public:
     }
     if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
       networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("NetworkInfo") != m.end() && !m["NetworkInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkInfo"].type()) {
+        CreateCloudPhoneNodeRequestNetworkInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkInfo"]));
+        networkInfo = make_shared<CreateCloudPhoneNodeRequestNetworkInfo>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
     if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
       nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
@@ -2332,6 +2439,9 @@ public:
         }
         tag = make_shared<vector<CreateCloudPhoneNodeRequestTag>>(expect1);
       }
+    }
+    if (m.find("UpBandwidthLimit") != m.end() && !m["UpBandwidthLimit"].empty()) {
+      upBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["UpBandwidthLimit"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -2381,13 +2491,18 @@ class CreateCloudPhoneNodeShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<string> bandwidthPackageType{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> count{};
   shared_ptr<string> displayConfigShrink{};
+  shared_ptr<long> downBandwidthLimit{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> networkId{};
+  shared_ptr<string> networkInfoShrink{};
+  shared_ptr<string> networkType{};
   shared_ptr<string> nodeName{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -2399,6 +2514,7 @@ public:
   shared_ptr<string> serverType{};
   shared_ptr<long> streamMode{};
   shared_ptr<vector<CreateCloudPhoneNodeShrinkRequestTag>> tag{};
+  shared_ptr<long> upBandwidthLimit{};
   shared_ptr<string> vSwitchId{};
 
   CreateCloudPhoneNodeShrinkRequest() {}
@@ -2417,6 +2533,12 @@ public:
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (bandwidthPackageType) {
+      res["BandwidthPackageType"] = boost::any(*bandwidthPackageType);
+    }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
     }
@@ -2429,6 +2551,9 @@ public:
     if (displayConfigShrink) {
       res["DisplayConfig"] = boost::any(*displayConfigShrink);
     }
+    if (downBandwidthLimit) {
+      res["DownBandwidthLimit"] = boost::any(*downBandwidthLimit);
+    }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
@@ -2437,6 +2562,12 @@ public:
     }
     if (networkId) {
       res["NetworkId"] = boost::any(*networkId);
+    }
+    if (networkInfoShrink) {
+      res["NetworkInfo"] = boost::any(*networkInfoShrink);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
     }
     if (nodeName) {
       res["NodeName"] = boost::any(*nodeName);
@@ -2475,6 +2606,9 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (upBandwidthLimit) {
+      res["UpBandwidthLimit"] = boost::any(*upBandwidthLimit);
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -2488,6 +2622,12 @@ public:
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("BandwidthPackageType") != m.end() && !m["BandwidthPackageType"].empty()) {
+      bandwidthPackageType = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageType"]));
+    }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
@@ -2500,6 +2640,9 @@ public:
     if (m.find("DisplayConfig") != m.end() && !m["DisplayConfig"].empty()) {
       displayConfigShrink = make_shared<string>(boost::any_cast<string>(m["DisplayConfig"]));
     }
+    if (m.find("DownBandwidthLimit") != m.end() && !m["DownBandwidthLimit"].empty()) {
+      downBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["DownBandwidthLimit"]));
+    }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
@@ -2508,6 +2651,12 @@ public:
     }
     if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
       networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("NetworkInfo") != m.end() && !m["NetworkInfo"].empty()) {
+      networkInfoShrink = make_shared<string>(boost::any_cast<string>(m["NetworkInfo"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
     if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
       nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
@@ -2552,6 +2701,9 @@ public:
         tag = make_shared<vector<CreateCloudPhoneNodeShrinkRequestTag>>(expect1);
       }
     }
+    if (m.find("UpBandwidthLimit") != m.end() && !m["UpBandwidthLimit"].empty()) {
+      upBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["UpBandwidthLimit"]));
+    }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
@@ -2559,6 +2711,42 @@ public:
 
 
   virtual ~CreateCloudPhoneNodeShrinkRequest() = default;
+};
+class CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel : public Darabonba::Model {
+public:
+  shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<string> bandwidthPackageOrderId{};
+
+  CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel() {}
+
+  explicit CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (bandwidthPackageOrderId) {
+      res["BandwidthPackageOrderId"] = boost::any(*bandwidthPackageOrderId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("BandwidthPackageOrderId") != m.end() && !m["BandwidthPackageOrderId"].empty()) {
+      bandwidthPackageOrderId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageOrderId"]));
+    }
+  }
+
+
+  virtual ~CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel() = default;
 };
 class CreateCloudPhoneNodeResponseBodyNodeInfos : public Darabonba::Model {
 public:
@@ -2605,6 +2793,7 @@ public:
 };
 class CreateCloudPhoneNodeResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel> networkPackageOrderModel{};
   shared_ptr<vector<CreateCloudPhoneNodeResponseBodyNodeInfos>> nodeInfos{};
   shared_ptr<string> orderId{};
   shared_ptr<string> requestId{};
@@ -2619,6 +2808,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (networkPackageOrderModel) {
+      res["NetworkPackageOrderModel"] = networkPackageOrderModel ? boost::any(networkPackageOrderModel->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (nodeInfos) {
       vector<boost::any> temp1;
       for(auto item1:*nodeInfos){
@@ -2636,6 +2828,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkPackageOrderModel") != m.end() && !m["NetworkPackageOrderModel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkPackageOrderModel"].type()) {
+        CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkPackageOrderModel"]));
+        networkPackageOrderModel = make_shared<CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel>(model1);
+      }
+    }
     if (m.find("NodeInfos") != m.end() && !m["NodeInfos"].empty()) {
       if (typeid(vector<boost::any>) == m["NodeInfos"].type()) {
         vector<CreateCloudPhoneNodeResponseBodyNodeInfos> expect1;
@@ -5161,6 +5360,7 @@ public:
   shared_ptr<string> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<vector<string>> officeSiteIds{};
+  shared_ptr<string> privateIpAddress{};
   shared_ptr<vector<string>> qosRuleIds{};
   shared_ptr<string> saleMode{};
   shared_ptr<string> status{};
@@ -5220,6 +5420,9 @@ public:
     }
     if (officeSiteIds) {
       res["OfficeSiteIds"] = boost::any(*officeSiteIds);
+    }
+    if (privateIpAddress) {
+      res["PrivateIpAddress"] = boost::any(*privateIpAddress);
     }
     if (qosRuleIds) {
       res["QosRuleIds"] = boost::any(*qosRuleIds);
@@ -5306,6 +5509,9 @@ public:
         }
       }
       officeSiteIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
+      privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
     }
     if (m.find("QosRuleIds") != m.end() && !m["QosRuleIds"].empty()) {
       vector<string> toVec1;
@@ -5553,11 +5759,14 @@ public:
   shared_ptr<string> appInstanceId{};
   shared_ptr<DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy> appManagePolicy{};
   shared_ptr<string> authorizedUserId{};
+  shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<string> bandwidthPackageType{};
   shared_ptr<string> bindUserId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> cpu{};
   shared_ptr<vector<DescribeAndroidInstancesResponseBodyInstanceModelDisks>> disks{};
   shared_ptr<DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig> displayConfig{};
+  shared_ptr<long> downBandwidthLimit{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtExpired{};
@@ -5569,6 +5778,7 @@ public:
   shared_ptr<long> memory{};
   shared_ptr<string> networkInterfaceIp{};
   shared_ptr<string> networkInterfaceIpv6Address{};
+  shared_ptr<string> networkType{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> persistentAppInstanceId{};
   shared_ptr<DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo> phoneDataInfo{};
@@ -5582,6 +5792,7 @@ public:
   shared_ptr<string> sessionStatus{};
   shared_ptr<long> streamMode{};
   shared_ptr<vector<DescribeAndroidInstancesResponseBodyInstanceModelTags>> tags{};
+  shared_ptr<long> upBandwidthLimit{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
 
@@ -5622,6 +5833,12 @@ public:
     if (authorizedUserId) {
       res["AuthorizedUserId"] = boost::any(*authorizedUserId);
     }
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (bandwidthPackageType) {
+      res["BandwidthPackageType"] = boost::any(*bandwidthPackageType);
+    }
     if (bindUserId) {
       res["BindUserId"] = boost::any(*bindUserId);
     }
@@ -5640,6 +5857,9 @@ public:
     }
     if (displayConfig) {
       res["DisplayConfig"] = displayConfig ? boost::any(displayConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (downBandwidthLimit) {
+      res["DownBandwidthLimit"] = boost::any(*downBandwidthLimit);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -5673,6 +5893,9 @@ public:
     }
     if (networkInterfaceIpv6Address) {
       res["NetworkInterfaceIpv6Address"] = boost::any(*networkInterfaceIpv6Address);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
     }
     if (officeSiteId) {
       res["OfficeSiteId"] = boost::any(*officeSiteId);
@@ -5717,6 +5940,9 @@ public:
       }
       res["Tags"] = boost::any(temp1);
     }
+    if (upBandwidthLimit) {
+      res["UpBandwidthLimit"] = boost::any(*upBandwidthLimit);
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -5758,6 +5984,12 @@ public:
     if (m.find("AuthorizedUserId") != m.end() && !m["AuthorizedUserId"].empty()) {
       authorizedUserId = make_shared<string>(boost::any_cast<string>(m["AuthorizedUserId"]));
     }
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("BandwidthPackageType") != m.end() && !m["BandwidthPackageType"].empty()) {
+      bandwidthPackageType = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageType"]));
+    }
     if (m.find("BindUserId") != m.end() && !m["BindUserId"].empty()) {
       bindUserId = make_shared<string>(boost::any_cast<string>(m["BindUserId"]));
     }
@@ -5786,6 +6018,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DisplayConfig"]));
         displayConfig = make_shared<DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig>(model1);
       }
+    }
+    if (m.find("DownBandwidthLimit") != m.end() && !m["DownBandwidthLimit"].empty()) {
+      downBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["DownBandwidthLimit"]));
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
@@ -5819,6 +6054,9 @@ public:
     }
     if (m.find("NetworkInterfaceIpv6Address") != m.end() && !m["NetworkInterfaceIpv6Address"].empty()) {
       networkInterfaceIpv6Address = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceIpv6Address"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
     if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
       officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
@@ -5872,6 +6110,9 @@ public:
         }
         tags = make_shared<vector<DescribeAndroidInstancesResponseBodyInstanceModelTags>>(expect1);
       }
+    }
+    if (m.find("UpBandwidthLimit") != m.end() && !m["UpBandwidthLimit"].empty()) {
+      upBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["UpBandwidthLimit"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -6756,6 +6997,7 @@ public:
 };
 class DescribeCloudPhoneNodesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidthPackageId{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> maxResults{};
@@ -6775,6 +7017,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
     }
@@ -6803,6 +7048,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
@@ -6841,7 +7089,10 @@ public:
 };
 class DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<string> bandwidthPackageType{};
   shared_ptr<string> networkId{};
+  shared_ptr<string> networkType{};
   shared_ptr<string> vSwitchId{};
 
   DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos() {}
@@ -6854,8 +7105,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (bandwidthPackageType) {
+      res["BandwidthPackageType"] = boost::any(*bandwidthPackageType);
+    }
     if (networkId) {
       res["NetworkId"] = boost::any(*networkId);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -6864,8 +7124,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("BandwidthPackageType") != m.end() && !m["BandwidthPackageType"].empty()) {
+      bandwidthPackageType = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageType"]));
+    }
     if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
       networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -6913,6 +7182,8 @@ public:
 };
 class DescribeCloudPhoneNodesResponseBodyNodeModel : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<string> bandwidthPackageType{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> cpu{};
   shared_ptr<string> gmtCreate{};
@@ -6922,6 +7193,7 @@ public:
   shared_ptr<long> memory{};
   shared_ptr<string> networkId{};
   shared_ptr<vector<DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos>> networkInfos{};
+  shared_ptr<string> networkType{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<long> phoneCount{};
@@ -6944,6 +7216,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (bandwidthPackageType) {
+      res["BandwidthPackageType"] = boost::any(*bandwidthPackageType);
+    }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
     }
@@ -6974,6 +7252,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["NetworkInfos"] = boost::any(temp1);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
@@ -7012,6 +7293,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("BandwidthPackageType") != m.end() && !m["BandwidthPackageType"].empty()) {
+      bandwidthPackageType = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageType"]));
+    }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
     }
@@ -7048,6 +7335,9 @@ public:
         }
         networkInfos = make_shared<vector<DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos>>(expect1);
       }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
@@ -11586,7 +11876,10 @@ public:
 class ModifyAndroidInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> androidInstanceId{};
+  shared_ptr<long> downBandwidthLimit{};
+  shared_ptr<vector<string>> instanceIds{};
   shared_ptr<string> newAndroidInstanceName{};
+  shared_ptr<long> upBandwidthLimit{};
 
   ModifyAndroidInstanceRequest() {}
 
@@ -11601,8 +11894,17 @@ public:
     if (androidInstanceId) {
       res["AndroidInstanceId"] = boost::any(*androidInstanceId);
     }
+    if (downBandwidthLimit) {
+      res["DownBandwidthLimit"] = boost::any(*downBandwidthLimit);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
     if (newAndroidInstanceName) {
       res["NewAndroidInstanceName"] = boost::any(*newAndroidInstanceName);
+    }
+    if (upBandwidthLimit) {
+      res["UpBandwidthLimit"] = boost::any(*upBandwidthLimit);
     }
     return res;
   }
@@ -11611,8 +11913,24 @@ public:
     if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
       androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
     }
+    if (m.find("DownBandwidthLimit") != m.end() && !m["DownBandwidthLimit"].empty()) {
+      downBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["DownBandwidthLimit"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("NewAndroidInstanceName") != m.end() && !m["NewAndroidInstanceName"].empty()) {
       newAndroidInstanceName = make_shared<string>(boost::any_cast<string>(m["NewAndroidInstanceName"]));
+    }
+    if (m.find("UpBandwidthLimit") != m.end() && !m["UpBandwidthLimit"].empty()) {
+      upBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["UpBandwidthLimit"]));
     }
   }
 

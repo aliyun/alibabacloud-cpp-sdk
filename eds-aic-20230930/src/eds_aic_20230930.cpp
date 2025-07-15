@@ -418,12 +418,21 @@ CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPh
   if (!Darabonba_Util::Client::isUnset<CreateCloudPhoneNodeRequestDisplayConfig>(tmpReq->displayConfig)) {
     request->displayConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->displayConfig, make_shared<string>("DisplayConfig"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateCloudPhoneNodeRequestNetworkInfo>(tmpReq->networkInfo)) {
+    request->networkInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->networkInfo, make_shared<string>("NetworkInfo"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bandwidthPackageId)) {
+    query->insert(pair<string, string>("BandwidthPackageId", *request->bandwidthPackageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bandwidthPackageType)) {
+    query->insert(pair<string, string>("BandwidthPackageType", *request->bandwidthPackageType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
     query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
@@ -434,6 +443,9 @@ CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPh
   if (!Darabonba_Util::Client::isUnset<string>(request->count)) {
     query->insert(pair<string, string>("Count", *request->count));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->downBandwidthLimit)) {
+    query->insert(pair<string, long>("DownBandwidthLimit", *request->downBandwidthLimit));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
   }
@@ -442,6 +454,12 @@ CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkId)) {
     query->insert(pair<string, string>("NetworkId", *request->networkId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkInfoShrink)) {
+    query->insert(pair<string, string>("NetworkInfo", *request->networkInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkType)) {
+    query->insert(pair<string, string>("NetworkType", *request->networkType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeName)) {
     query->insert(pair<string, string>("NodeName", *request->nodeName));
@@ -475,6 +493,9 @@ CreateCloudPhoneNodeResponse Alibabacloud_Eds-aic20230930::Client::createCloudPh
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateCloudPhoneNodeShrinkRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreateCloudPhoneNodeShrinkRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->upBandwidthLimit)) {
+    query->insert(pair<string, long>("UpBandwidthLimit", *request->upBandwidthLimit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
@@ -975,6 +996,9 @@ DescribeAndroidInstancesResponse Alibabacloud_Eds-aic20230930::Client::describeA
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->officeSiteIds)) {
     query->insert(pair<string, vector<string>>("OfficeSiteIds", *request->officeSiteIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->privateIpAddress)) {
+    query->insert(pair<string, string>("PrivateIpAddress", *request->privateIpAddress));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->qosRuleIds)) {
     query->insert(pair<string, vector<string>>("QosRuleIds", *request->qosRuleIds));
   }
@@ -1128,6 +1152,9 @@ DescribeBackupFilesResponse Alibabacloud_Eds-aic20230930::Client::describeBackup
 DescribeCloudPhoneNodesResponse Alibabacloud_Eds-aic20230930::Client::describeCloudPhoneNodesWithOptions(shared_ptr<DescribeCloudPhoneNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bandwidthPackageId)) {
+    query->insert(pair<string, string>("BandwidthPackageId", *request->bandwidthPackageId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
     query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
   }
@@ -1891,8 +1918,17 @@ ModifyAndroidInstanceResponse Alibabacloud_Eds-aic20230930::Client::modifyAndroi
   if (!Darabonba_Util::Client::isUnset<string>(request->androidInstanceId)) {
     query->insert(pair<string, string>("AndroidInstanceId", *request->androidInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->downBandwidthLimit)) {
+    query->insert(pair<string, long>("DownBandwidthLimit", *request->downBandwidthLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
+    query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->newAndroidInstanceName)) {
     query->insert(pair<string, string>("NewAndroidInstanceName", *request->newAndroidInstanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->upBandwidthLimit)) {
+    query->insert(pair<string, long>("UpBandwidthLimit", *request->upBandwidthLimit));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
