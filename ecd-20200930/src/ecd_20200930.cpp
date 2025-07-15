@@ -1817,6 +1817,46 @@ CreateCenterPolicyResponse Alibabacloud_Ecd20200930::Client::createCenterPolicy(
   return createCenterPolicyWithOptions(request, runtime);
 }
 
+CreateCloudDriveGroupResponse Alibabacloud_Ecd20200930::Client::createCloudDriveGroupWithOptions(shared_ptr<CreateCloudDriveGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->adminUserIds)) {
+    query->insert(pair<string, vector<string>>("AdminUserIds", *request->adminUserIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cdsId)) {
+    query->insert(pair<string, string>("CdsId", *request->cdsId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->totalSize)) {
+    query->insert(pair<string, long>("TotalSize", *request->totalSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCloudDriveGroup"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCloudDriveGroupResponse(callApi(params, req, runtime));
+}
+
+CreateCloudDriveGroupResponse Alibabacloud_Ecd20200930::Client::createCloudDriveGroup(shared_ptr<CreateCloudDriveGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCloudDriveGroupWithOptions(request, runtime);
+}
+
 CreateCloudDriveServiceResponse Alibabacloud_Ecd20200930::Client::createCloudDriveServiceWithOptions(shared_ptr<CreateCloudDriveServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2479,6 +2519,46 @@ CreateDriveResponse Alibabacloud_Ecd20200930::Client::createDriveWithOptions(sha
 CreateDriveResponse Alibabacloud_Ecd20200930::Client::createDrive(shared_ptr<CreateDriveRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createDriveWithOptions(request, runtime);
+}
+
+CreateEcdReportTaskResponse Alibabacloud_Ecd20200930::Client::createEcdReportTaskWithOptions(shared_ptr<CreateEcdReportTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEcdReportTaskRequestFilterList>>(request->filterList)) {
+    query->insert(pair<string, vector<CreateEcdReportTaskRequestFilterList>>("FilterList", *request->filterList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->langType)) {
+    query->insert(pair<string, string>("LangType", *request->langType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reportFileName)) {
+    query->insert(pair<string, string>("ReportFileName", *request->reportFileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subType)) {
+    query->insert(pair<string, string>("SubType", *request->subType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
+    query->insert(pair<string, string>("TaskType", *request->taskType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateEcdReportTask"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateEcdReportTaskResponse(callApi(params, req, runtime));
+}
+
+CreateEcdReportTaskResponse Alibabacloud_Ecd20200930::Client::createEcdReportTask(shared_ptr<CreateEcdReportTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createEcdReportTaskWithOptions(request, runtime);
 }
 
 CreateImageResponse Alibabacloud_Ecd20200930::Client::createImageWithOptions(shared_ptr<CreateImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5103,6 +5183,49 @@ DescribeDrivesResponse Alibabacloud_Ecd20200930::Client::describeDrivesWithOptio
 DescribeDrivesResponse Alibabacloud_Ecd20200930::Client::describeDrives(shared_ptr<DescribeDrivesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeDrivesWithOptions(request, runtime);
+}
+
+DescribeEcdReportTasksResponse Alibabacloud_Ecd20200930::Client::describeEcdReportTasksWithOptions(shared_ptr<DescribeEcdReportTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNum)) {
+    query->insert(pair<string, long>("PageNum", *request->pageNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->status)) {
+    query->insert(pair<string, vector<string>>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subType)) {
+    query->insert(pair<string, string>("SubType", *request->subType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
+    query->insert(pair<string, string>("TaskType", *request->taskType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeEcdReportTasks"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeEcdReportTasksResponse(callApi(params, req, runtime));
+}
+
+DescribeEcdReportTasksResponse Alibabacloud_Ecd20200930::Client::describeEcdReportTasks(shared_ptr<DescribeEcdReportTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeEcdReportTasksWithOptions(request, runtime);
 }
 
 DescribeFlowMetricResponse Alibabacloud_Ecd20200930::Client::describeFlowMetricWithOptions(shared_ptr<DescribeFlowMetricRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

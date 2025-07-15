@@ -7524,6 +7524,179 @@ public:
 
   virtual ~CreateCenterPolicyResponse() = default;
 };
+class CreateCloudDriveGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> adminUserIds{};
+  shared_ptr<string> cdsId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> totalSize{};
+
+  CreateCloudDriveGroupRequest() {}
+
+  explicit CreateCloudDriveGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adminUserIds) {
+      res["AdminUserIds"] = boost::any(*adminUserIds);
+    }
+    if (cdsId) {
+      res["CdsId"] = boost::any(*cdsId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdminUserIds") != m.end() && !m["AdminUserIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AdminUserIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AdminUserIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      adminUserIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CdsId") != m.end() && !m["CdsId"].empty()) {
+      cdsId = make_shared<string>(boost::any_cast<string>(m["CdsId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~CreateCloudDriveGroupRequest() = default;
+};
+class CreateCloudDriveGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateCloudDriveGroupResponseBody() {}
+
+  explicit CreateCloudDriveGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateCloudDriveGroupResponseBody() = default;
+};
+class CreateCloudDriveGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCloudDriveGroupResponseBody> body{};
+
+  CreateCloudDriveGroupResponse() {}
+
+  explicit CreateCloudDriveGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCloudDriveGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCloudDriveGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCloudDriveGroupResponse() = default;
+};
 class CreateCloudDriveServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -11282,6 +11455,229 @@ public:
 
 
   virtual ~CreateDriveResponse() = default;
+};
+class CreateEcdReportTaskRequestFilterList : public Darabonba::Model {
+public:
+  shared_ptr<string> filterKey{};
+  shared_ptr<vector<string>> filterValues{};
+
+  CreateEcdReportTaskRequestFilterList() {}
+
+  explicit CreateEcdReportTaskRequestFilterList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterKey) {
+      res["FilterKey"] = boost::any(*filterKey);
+    }
+    if (filterValues) {
+      res["FilterValues"] = boost::any(*filterValues);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterKey") != m.end() && !m["FilterKey"].empty()) {
+      filterKey = make_shared<string>(boost::any_cast<string>(m["FilterKey"]));
+    }
+    if (m.find("FilterValues") != m.end() && !m["FilterValues"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FilterValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FilterValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      filterValues = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateEcdReportTaskRequestFilterList() = default;
+};
+class CreateEcdReportTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateEcdReportTaskRequestFilterList>> filterList{};
+  shared_ptr<string> langType{};
+  shared_ptr<string> reportFileName{};
+  shared_ptr<string> subType{};
+  shared_ptr<string> taskType{};
+
+  CreateEcdReportTaskRequest() {}
+
+  explicit CreateEcdReportTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterList) {
+      vector<boost::any> temp1;
+      for(auto item1:*filterList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FilterList"] = boost::any(temp1);
+    }
+    if (langType) {
+      res["LangType"] = boost::any(*langType);
+    }
+    if (reportFileName) {
+      res["ReportFileName"] = boost::any(*reportFileName);
+    }
+    if (subType) {
+      res["SubType"] = boost::any(*subType);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterList") != m.end() && !m["FilterList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FilterList"].type()) {
+        vector<CreateEcdReportTaskRequestFilterList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FilterList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateEcdReportTaskRequestFilterList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filterList = make_shared<vector<CreateEcdReportTaskRequestFilterList>>(expect1);
+      }
+    }
+    if (m.find("LangType") != m.end() && !m["LangType"].empty()) {
+      langType = make_shared<string>(boost::any_cast<string>(m["LangType"]));
+    }
+    if (m.find("ReportFileName") != m.end() && !m["ReportFileName"].empty()) {
+      reportFileName = make_shared<string>(boost::any_cast<string>(m["ReportFileName"]));
+    }
+    if (m.find("SubType") != m.end() && !m["SubType"].empty()) {
+      subType = make_shared<string>(boost::any_cast<string>(m["SubType"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+  }
+
+
+  virtual ~CreateEcdReportTaskRequest() = default;
+};
+class CreateEcdReportTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> taskId{};
+
+  CreateEcdReportTaskResponseBody() {}
+
+  explicit CreateEcdReportTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateEcdReportTaskResponseBody() = default;
+};
+class CreateEcdReportTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateEcdReportTaskResponseBody> body{};
+
+  CreateEcdReportTaskResponse() {}
+
+  explicit CreateEcdReportTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateEcdReportTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateEcdReportTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateEcdReportTaskResponse() = default;
 };
 class CreateImageRequest : public Darabonba::Model {
 public:
@@ -28167,6 +28563,285 @@ public:
 
 
   virtual ~DescribeDrivesResponse() = default;
+};
+class DescribeEcdReportTasksRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<string>> status{};
+  shared_ptr<string> subType{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskType{};
+
+  DescribeEcdReportTasksRequest() {}
+
+  explicit DescribeEcdReportTasksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (subType) {
+      res["SubType"] = boost::any(*subType);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Status"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Status"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      status = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SubType") != m.end() && !m["SubType"].empty()) {
+      subType = make_shared<string>(boost::any_cast<string>(m["SubType"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+  }
+
+
+  virtual ~DescribeEcdReportTasksRequest() = default;
+};
+class DescribeEcdReportTasksResponseBodyExportTaskList : public Darabonba::Model {
+public:
+  shared_ptr<string> downloadUrl{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<double> progress{};
+  shared_ptr<string> reportFileName{};
+  shared_ptr<string> status{};
+  shared_ptr<string> subType{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskType{};
+
+  DescribeEcdReportTasksResponseBodyExportTaskList() {}
+
+  explicit DescribeEcdReportTasksResponseBodyExportTaskList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (downloadUrl) {
+      res["DownloadUrl"] = boost::any(*downloadUrl);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (reportFileName) {
+      res["ReportFileName"] = boost::any(*reportFileName);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (subType) {
+      res["SubType"] = boost::any(*subType);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DownloadUrl") != m.end() && !m["DownloadUrl"].empty()) {
+      downloadUrl = make_shared<string>(boost::any_cast<string>(m["DownloadUrl"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<double>(boost::any_cast<double>(m["Progress"]));
+    }
+    if (m.find("ReportFileName") != m.end() && !m["ReportFileName"].empty()) {
+      reportFileName = make_shared<string>(boost::any_cast<string>(m["ReportFileName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubType") != m.end() && !m["SubType"].empty()) {
+      subType = make_shared<string>(boost::any_cast<string>(m["SubType"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+  }
+
+
+  virtual ~DescribeEcdReportTasksResponseBodyExportTaskList() = default;
+};
+class DescribeEcdReportTasksResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeEcdReportTasksResponseBodyExportTaskList>> exportTaskList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeEcdReportTasksResponseBody() {}
+
+  explicit DescribeEcdReportTasksResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exportTaskList) {
+      vector<boost::any> temp1;
+      for(auto item1:*exportTaskList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExportTaskList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExportTaskList") != m.end() && !m["ExportTaskList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExportTaskList"].type()) {
+        vector<DescribeEcdReportTasksResponseBodyExportTaskList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExportTaskList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEcdReportTasksResponseBodyExportTaskList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        exportTaskList = make_shared<vector<DescribeEcdReportTasksResponseBodyExportTaskList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeEcdReportTasksResponseBody() = default;
+};
+class DescribeEcdReportTasksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeEcdReportTasksResponseBody> body{};
+
+  DescribeEcdReportTasksResponse() {}
+
+  explicit DescribeEcdReportTasksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeEcdReportTasksResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeEcdReportTasksResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEcdReportTasksResponse() = default;
 };
 class DescribeFlowMetricRequest : public Darabonba::Model {
 public:
@@ -62747,6 +63422,8 @@ public:
   CreateCdsFileShareLinkResponse createCdsFileShareLink(shared_ptr<CreateCdsFileShareLinkRequest> request);
   CreateCenterPolicyResponse createCenterPolicyWithOptions(shared_ptr<CreateCenterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCenterPolicyResponse createCenterPolicy(shared_ptr<CreateCenterPolicyRequest> request);
+  CreateCloudDriveGroupResponse createCloudDriveGroupWithOptions(shared_ptr<CreateCloudDriveGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCloudDriveGroupResponse createCloudDriveGroup(shared_ptr<CreateCloudDriveGroupRequest> request);
   CreateCloudDriveServiceResponse createCloudDriveServiceWithOptions(shared_ptr<CreateCloudDriveServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCloudDriveServiceResponse createCloudDriveService(shared_ptr<CreateCloudDriveServiceRequest> request);
   CreateCloudDriveUsersResponse createCloudDriveUsersWithOptions(shared_ptr<CreateCloudDriveUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -62763,6 +63440,8 @@ public:
   CreateDiskEncryptionServiceResponse createDiskEncryptionService(shared_ptr<CreateDiskEncryptionServiceRequest> request);
   CreateDriveResponse createDriveWithOptions(shared_ptr<CreateDriveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDriveResponse createDrive(shared_ptr<CreateDriveRequest> request);
+  CreateEcdReportTaskResponse createEcdReportTaskWithOptions(shared_ptr<CreateEcdReportTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateEcdReportTaskResponse createEcdReportTask(shared_ptr<CreateEcdReportTaskRequest> request);
   CreateImageResponse createImageWithOptions(shared_ptr<CreateImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageResponse createImage(shared_ptr<CreateImageRequest> request);
   CreateNASFileSystemResponse createNASFileSystemWithOptions(shared_ptr<CreateNASFileSystemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -62871,6 +63550,8 @@ public:
   DescribeDirectoriesResponse describeDirectories(shared_ptr<DescribeDirectoriesRequest> request);
   DescribeDrivesResponse describeDrivesWithOptions(shared_ptr<DescribeDrivesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDrivesResponse describeDrives(shared_ptr<DescribeDrivesRequest> request);
+  DescribeEcdReportTasksResponse describeEcdReportTasksWithOptions(shared_ptr<DescribeEcdReportTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeEcdReportTasksResponse describeEcdReportTasks(shared_ptr<DescribeEcdReportTasksRequest> request);
   DescribeFlowMetricResponse describeFlowMetricWithOptions(shared_ptr<DescribeFlowMetricRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeFlowMetricResponse describeFlowMetric(shared_ptr<DescribeFlowMetricRequest> request);
   DescribeFlowStatisticResponse describeFlowStatisticWithOptions(shared_ptr<DescribeFlowStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
