@@ -4761,6 +4761,7 @@ class ListExecutorsResponseBodyExecutors : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
   shared_ptr<long> arrayIndex{};
+  shared_ptr<long> blockDuration{};
   shared_ptr<string> createTime{};
   shared_ptr<string> endTime{};
   shared_ptr<string> executorId{};
@@ -4771,6 +4772,7 @@ public:
   shared_ptr<vector<string>> ipAddress{};
   shared_ptr<string> jobId{};
   shared_ptr<string> jobName{};
+  shared_ptr<bool> preemptible{};
   shared_ptr<ListExecutorsResponseBodyExecutorsResource> resource{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> startTime{};
@@ -4796,6 +4798,9 @@ public:
     }
     if (arrayIndex) {
       res["ArrayIndex"] = boost::any(*arrayIndex);
+    }
+    if (blockDuration) {
+      res["BlockDuration"] = boost::any(*blockDuration);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -4826,6 +4831,9 @@ public:
     }
     if (jobName) {
       res["JobName"] = boost::any(*jobName);
+    }
+    if (preemptible) {
+      res["Preemptible"] = boost::any(*preemptible);
     }
     if (resource) {
       res["Resource"] = resource ? boost::any(resource->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4867,6 +4875,9 @@ public:
     }
     if (m.find("ArrayIndex") != m.end() && !m["ArrayIndex"].empty()) {
       arrayIndex = make_shared<long>(boost::any_cast<long>(m["ArrayIndex"]));
+    }
+    if (m.find("BlockDuration") != m.end() && !m["BlockDuration"].empty()) {
+      blockDuration = make_shared<long>(boost::any_cast<long>(m["BlockDuration"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
@@ -4918,6 +4929,9 @@ public:
     }
     if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
       jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("Preemptible") != m.end() && !m["Preemptible"].empty()) {
+      preemptible = make_shared<bool>(boost::any_cast<bool>(m["Preemptible"]));
     }
     if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
       if (typeid(map<string, boost::any>) == m["Resource"].type()) {
@@ -5633,6 +5647,7 @@ public:
 class ListJobExecutorsResponseBodyExecutors : public Darabonba::Model {
 public:
   shared_ptr<long> arrayIndex{};
+  shared_ptr<long> blockDuration{};
   shared_ptr<string> createTime{};
   shared_ptr<string> endTime{};
   shared_ptr<string> executorId{};
@@ -5640,6 +5655,7 @@ public:
   shared_ptr<vector<string>> externalIpAddress{};
   shared_ptr<vector<string>> hostName{};
   shared_ptr<vector<string>> ipAddress{};
+  shared_ptr<bool> preemptible{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> statusReason{};
@@ -5657,6 +5673,9 @@ public:
     map<string, boost::any> res;
     if (arrayIndex) {
       res["ArrayIndex"] = boost::any(*arrayIndex);
+    }
+    if (blockDuration) {
+      res["BlockDuration"] = boost::any(*blockDuration);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -5678,6 +5697,9 @@ public:
     }
     if (ipAddress) {
       res["IpAddress"] = boost::any(*ipAddress);
+    }
+    if (preemptible) {
+      res["Preemptible"] = boost::any(*preemptible);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -5701,6 +5723,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ArrayIndex") != m.end() && !m["ArrayIndex"].empty()) {
       arrayIndex = make_shared<long>(boost::any_cast<long>(m["ArrayIndex"]));
+    }
+    if (m.find("BlockDuration") != m.end() && !m["BlockDuration"].empty()) {
+      blockDuration = make_shared<long>(boost::any_cast<long>(m["BlockDuration"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
@@ -5743,6 +5768,9 @@ public:
         }
       }
       ipAddress = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Preemptible") != m.end() && !m["Preemptible"].empty()) {
+      preemptible = make_shared<bool>(boost::any_cast<bool>(m["Preemptible"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
