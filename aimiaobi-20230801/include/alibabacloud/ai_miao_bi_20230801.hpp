@@ -18240,6 +18240,7 @@ public:
   shared_ptr<string> rightWord{};
   shared_ptr<string> subClassCode{};
   shared_ptr<string> subClassDesc{};
+  shared_ptr<string> url{};
 
   GetSmartAuditResultResponseBodyDataErrorItemDetails() {}
 
@@ -18287,6 +18288,9 @@ public:
     if (subClassDesc) {
       res["SubClassDesc"] = boost::any(*subClassDesc);
     }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
     return res;
   }
 
@@ -18326,6 +18330,9 @@ public:
     }
     if (m.find("SubClassDesc") != m.end() && !m["SubClassDesc"].empty()) {
       subClassDesc = make_shared<string>(boost::any_cast<string>(m["SubClassDesc"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
   }
 
@@ -35580,6 +35587,7 @@ public:
 class RunAbbreviationContentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> prompt{};
   shared_ptr<string> workspaceId{};
 
   RunAbbreviationContentRequest() {}
@@ -35595,6 +35603,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -35604,6 +35615,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -42015,6 +42029,7 @@ public:
 class RunExpandContentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> prompt{};
   shared_ptr<string> workspaceId{};
 
   RunExpandContentRequest() {}
@@ -42030,6 +42045,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -42039,6 +42057,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -43084,6 +43105,7 @@ public:
 };
 class RunKeywordsExtractionGenerationRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> prompt{};
   shared_ptr<RunKeywordsExtractionGenerationRequestReferenceData> referenceData{};
   shared_ptr<string> taskId{};
   shared_ptr<string> workspaceId{};
@@ -43098,6 +43120,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
     if (referenceData) {
       res["ReferenceData"] = referenceData ? boost::any(referenceData->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -43111,6 +43136,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
+    }
     if (m.find("ReferenceData") != m.end() && !m["ReferenceData"].empty()) {
       if (typeid(map<string, boost::any>) == m["ReferenceData"].type()) {
         RunKeywordsExtractionGenerationRequestReferenceData model1;
@@ -43131,6 +43159,7 @@ public:
 };
 class RunKeywordsExtractionGenerationShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> prompt{};
   shared_ptr<string> referenceDataShrink{};
   shared_ptr<string> taskId{};
   shared_ptr<string> workspaceId{};
@@ -43145,6 +43174,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
     if (referenceDataShrink) {
       res["ReferenceData"] = boost::any(*referenceDataShrink);
     }
@@ -43158,6 +43190,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
+    }
     if (m.find("ReferenceData") != m.end() && !m["ReferenceData"].empty()) {
       referenceDataShrink = make_shared<string>(boost::any_cast<string>(m["ReferenceData"]));
     }
@@ -51608,6 +51643,7 @@ public:
 class RunTextPolishingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> prompt{};
   shared_ptr<string> workspaceId{};
 
   RunTextPolishingRequest() {}
@@ -51623,6 +51659,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -51632,6 +51671,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -59934,11 +59976,48 @@ public:
 
   virtual ~SubmitImportTermsTaskResponse() = default;
 };
+class SubmitSmartAuditRequestImageUrls : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> url{};
+
+  SubmitSmartAuditRequestImageUrls() {}
+
+  explicit SubmitSmartAuditRequestImageUrls(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartAuditRequestImageUrls() = default;
+};
 class SubmitSmartAuditRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> subCodes{};
   shared_ptr<string> text{};
   shared_ptr<string> workspaceId{};
+  shared_ptr<vector<SubmitSmartAuditRequestImageUrls>> imageUrls{};
 
   SubmitSmartAuditRequest() {}
 
@@ -59958,6 +60037,13 @@ public:
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    if (imageUrls) {
+      vector<boost::any> temp1;
+      for(auto item1:*imageUrls){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["imageUrls"] = boost::any(temp1);
     }
     return res;
   }
@@ -59979,6 +60065,19 @@ public:
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
+    if (m.find("imageUrls") != m.end() && !m["imageUrls"].empty()) {
+      if (typeid(vector<boost::any>) == m["imageUrls"].type()) {
+        vector<SubmitSmartAuditRequestImageUrls> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["imageUrls"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitSmartAuditRequestImageUrls model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        imageUrls = make_shared<vector<SubmitSmartAuditRequestImageUrls>>(expect1);
+      }
+    }
   }
 
 
@@ -59989,6 +60088,7 @@ public:
   shared_ptr<string> subCodesShrink{};
   shared_ptr<string> text{};
   shared_ptr<string> workspaceId{};
+  shared_ptr<string> imageUrlsShrink{};
 
   SubmitSmartAuditShrinkRequest() {}
 
@@ -60009,6 +60109,9 @@ public:
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
+    if (imageUrlsShrink) {
+      res["imageUrls"] = boost::any(*imageUrlsShrink);
+    }
     return res;
   }
 
@@ -60021,6 +60124,9 @@ public:
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+    if (m.find("imageUrls") != m.end() && !m["imageUrls"].empty()) {
+      imageUrlsShrink = make_shared<string>(boost::any_cast<string>(m["imageUrls"]));
     }
   }
 

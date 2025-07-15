@@ -4229,6 +4229,9 @@ RunAbbreviationContentResponse Alibabacloud_AiMiaoBi20230801::Client::runAbbrevi
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     body->insert(pair<string, string>("Content", *request->content));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
   }
@@ -4935,6 +4938,9 @@ RunExpandContentResponse Alibabacloud_AiMiaoBi20230801::Client::runExpandContent
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     body->insert(pair<string, string>("Content", *request->content));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
   }
@@ -5051,6 +5057,9 @@ RunKeywordsExtractionGenerationResponse Alibabacloud_AiMiaoBi20230801::Client::r
     request->referenceDataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->referenceData, make_shared<string>("ReferenceData"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->referenceDataShrink)) {
     body->insert(pair<string, string>("ReferenceData", *request->referenceDataShrink));
   }
@@ -5364,6 +5373,9 @@ RunTextPolishingResponse Alibabacloud_AiMiaoBi20230801::Client::runTextPolishing
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     body->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("Prompt", *request->prompt));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -6398,6 +6410,9 @@ SubmitSmartAuditResponse Alibabacloud_AiMiaoBi20230801::Client::submitSmartAudit
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->subCodes)) {
     request->subCodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->subCodes, make_shared<string>("SubCodes"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitSmartAuditRequestImageUrls>>(tmpReq->imageUrls)) {
+    request->imageUrlsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->imageUrls, make_shared<string>("imageUrls"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->subCodesShrink)) {
     body->insert(pair<string, string>("SubCodes", *request->subCodesShrink));
@@ -6407,6 +6422,9 @@ SubmitSmartAuditResponse Alibabacloud_AiMiaoBi20230801::Client::submitSmartAudit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrlsShrink)) {
+    body->insert(pair<string, string>("imageUrls", *request->imageUrlsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
