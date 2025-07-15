@@ -46136,6 +46136,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceOwnerId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> resourceVpcId{};
   shared_ptr<string> tunnelIndex{};
 
   DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface() {}
@@ -46163,6 +46164,9 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (resourceVpcId) {
+      res["ResourceVpcId"] = boost::any(*resourceVpcId);
+    }
     if (tunnelIndex) {
       res["TunnelIndex"] = boost::any(*tunnelIndex);
     }
@@ -46188,6 +46192,9 @@ public:
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("ResourceVpcId") != m.end() && !m["ResourceVpcId"].empty()) {
+      resourceVpcId = make_shared<string>(boost::any_cast<string>(m["ResourceVpcId"]));
     }
     if (m.find("TunnelIndex") != m.end() && !m["TunnelIndex"].empty()) {
       tunnelIndex = make_shared<string>(boost::any_cast<string>(m["TunnelIndex"]));
@@ -73059,6 +73066,7 @@ public:
 };
 class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation : public Darabonba::Model {
 public:
+  shared_ptr<string> cidrList{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> prefixListId{};
   shared_ptr<string> reason{};
@@ -73078,6 +73086,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cidrList) {
+      res["CidrList"] = boost::any(*cidrList);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
@@ -73106,6 +73117,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrList") != m.end() && !m["CidrList"].empty()) {
+      cidrList = make_shared<string>(boost::any_cast<string>(m["CidrList"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
     }
