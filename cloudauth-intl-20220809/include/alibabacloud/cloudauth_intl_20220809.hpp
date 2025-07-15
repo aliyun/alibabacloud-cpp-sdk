@@ -2154,6 +2154,7 @@ public:
 };
 class DocOcrMaxRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> docPage{};
   shared_ptr<string> docType{};
   shared_ptr<string> idOcrPictureBase64{};
   shared_ptr<string> idOcrPictureUrl{};
@@ -2177,6 +2178,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (docPage) {
+      res["DocPage"] = boost::any(*docPage);
+    }
     if (docType) {
       res["DocType"] = boost::any(*docType);
     }
@@ -2217,6 +2221,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocPage") != m.end() && !m["DocPage"].empty()) {
+      docPage = make_shared<string>(boost::any_cast<string>(m["DocPage"]));
+    }
     if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
       docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
     }

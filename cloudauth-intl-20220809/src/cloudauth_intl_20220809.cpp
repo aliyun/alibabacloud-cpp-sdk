@@ -582,6 +582,9 @@ DocOcrResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcr(shared_ptr<Do
 DocOcrMaxResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrMaxWithOptions(shared_ptr<DocOcrMaxRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->docPage)) {
+    body->insert(pair<string, string>("DocPage", *request->docPage));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->docType)) {
     body->insert(pair<string, string>("DocType", *request->docType));
   }
