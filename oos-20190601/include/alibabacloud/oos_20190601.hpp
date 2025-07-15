@@ -6469,6 +6469,7 @@ public:
   shared_ptr<string> deployOutputs{};
   shared_ptr<string> deployParameters{};
   shared_ptr<string> deployRegionId{};
+  shared_ptr<string> deployedRevisionIds{};
   shared_ptr<string> description{};
   shared_ptr<string> errorDetail{};
   shared_ptr<string> errorType{};
@@ -6511,6 +6512,9 @@ public:
     }
     if (deployRegionId) {
       res["DeployRegionId"] = boost::any(*deployRegionId);
+    }
+    if (deployedRevisionIds) {
+      res["DeployedRevisionIds"] = boost::any(*deployedRevisionIds);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -6569,6 +6573,9 @@ public:
     }
     if (m.find("DeployRegionId") != m.end() && !m["DeployRegionId"].empty()) {
       deployRegionId = make_shared<string>(boost::any_cast<string>(m["DeployRegionId"]));
+    }
+    if (m.find("DeployedRevisionIds") != m.end() && !m["DeployedRevisionIds"].empty()) {
+      deployedRevisionIds = make_shared<string>(boost::any_cast<string>(m["DeployedRevisionIds"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -10526,6 +10533,7 @@ public:
   shared_ptr<string> createDate{};
   shared_ptr<string> deployParameters{};
   shared_ptr<string> deployRegionId{};
+  shared_ptr<string> deployedRevisionIds{};
   shared_ptr<string> description{};
   shared_ptr<string> errorDetail{};
   shared_ptr<string> errorType{};
@@ -10560,6 +10568,9 @@ public:
     }
     if (deployRegionId) {
       res["DeployRegionId"] = boost::any(*deployRegionId);
+    }
+    if (deployedRevisionIds) {
+      res["DeployedRevisionIds"] = boost::any(*deployedRevisionIds);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -10606,6 +10617,9 @@ public:
     }
     if (m.find("DeployRegionId") != m.end() && !m["DeployRegionId"].empty()) {
       deployRegionId = make_shared<string>(boost::any_cast<string>(m["DeployRegionId"]));
+    }
+    if (m.find("DeployedRevisionIds") != m.end() && !m["DeployedRevisionIds"].empty()) {
+      deployedRevisionIds = make_shared<string>(boost::any_cast<string>(m["DeployedRevisionIds"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -20799,6 +20813,7 @@ public:
 class UpdateApplicationGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationName{};
+  shared_ptr<string> deployedRevisionId{};
   shared_ptr<string> name{};
   shared_ptr<string> newName{};
   shared_ptr<string> operationName{};
@@ -20817,6 +20832,9 @@ public:
     map<string, boost::any> res;
     if (applicationName) {
       res["ApplicationName"] = boost::any(*applicationName);
+    }
+    if (deployedRevisionId) {
+      res["DeployedRevisionId"] = boost::any(*deployedRevisionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -20839,6 +20857,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
       applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("DeployedRevisionId") != m.end() && !m["DeployedRevisionId"].empty()) {
+      deployedRevisionId = make_shared<string>(boost::any_cast<string>(m["DeployedRevisionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -20868,6 +20889,7 @@ public:
 class UpdateApplicationGroupShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationName{};
+  shared_ptr<string> deployedRevisionId{};
   shared_ptr<string> name{};
   shared_ptr<string> newName{};
   shared_ptr<string> operationName{};
@@ -20886,6 +20908,9 @@ public:
     map<string, boost::any> res;
     if (applicationName) {
       res["ApplicationName"] = boost::any(*applicationName);
+    }
+    if (deployedRevisionId) {
+      res["DeployedRevisionId"] = boost::any(*deployedRevisionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -20908,6 +20933,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
       applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("DeployedRevisionId") != m.end() && !m["DeployedRevisionId"].empty()) {
+      deployedRevisionId = make_shared<string>(boost::any_cast<string>(m["DeployedRevisionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));

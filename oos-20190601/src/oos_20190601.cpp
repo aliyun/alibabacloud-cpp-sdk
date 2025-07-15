@@ -3391,6 +3391,9 @@ UpdateApplicationGroupResponse Alibabacloud_Oos20190601::Client::updateApplicati
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationName)) {
     query->insert(pair<string, string>("ApplicationName", *request->applicationName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deployedRevisionId)) {
+    query->insert(pair<string, string>("DeployedRevisionId", *request->deployedRevisionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
