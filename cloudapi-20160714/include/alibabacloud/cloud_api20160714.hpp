@@ -32566,6 +32566,7 @@ class DescribeInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> enableTagAuthorization{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
   shared_ptr<string> language{};
   shared_ptr<string> securityToken{};
   shared_ptr<vector<DescribeInstancesRequestTag>> tag{};
@@ -32585,6 +32586,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
     }
     if (language) {
       res["Language"] = boost::any(*language);
@@ -32608,6 +32612,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));

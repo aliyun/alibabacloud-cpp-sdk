@@ -4730,6 +4730,9 @@ DescribeInstancesResponse Alibabacloud_CloudAPI20160714::Client::describeInstanc
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
   }
