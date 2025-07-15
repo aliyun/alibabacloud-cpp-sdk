@@ -33808,6 +33808,7 @@ public:
   shared_ptr<string> offSiteAgentIds{};
   shared_ptr<string> offsiteAgentDestinationNumbers{};
   shared_ptr<string> offsiteAgentOriginatorNumbers{};
+  shared_ptr<string> offsiteAgentReleaseReason{};
   shared_ptr<string> outsideNumberReleaseReason{};
   shared_ptr<long> queueTime{};
   shared_ptr<long> recordingDuration{};
@@ -33826,6 +33827,8 @@ public:
   shared_ptr<ListCallDetailRecordsV2ResponseBodyDataListSummaryIndex> summaryIndex{};
   shared_ptr<long> talkTime{};
   shared_ptr<long> transferCount{};
+  shared_ptr<string> voicebotDestinationNumber{};
+  shared_ptr<string> voicebotOriginatorNumber{};
   shared_ptr<long> waitTime{};
 
   ListCallDetailRecordsV2ResponseBodyDataList() {}
@@ -33952,6 +33955,9 @@ public:
     if (offsiteAgentOriginatorNumbers) {
       res["OffsiteAgentOriginatorNumbers"] = boost::any(*offsiteAgentOriginatorNumbers);
     }
+    if (offsiteAgentReleaseReason) {
+      res["OffsiteAgentReleaseReason"] = boost::any(*offsiteAgentReleaseReason);
+    }
     if (outsideNumberReleaseReason) {
       res["OutsideNumberReleaseReason"] = boost::any(*outsideNumberReleaseReason);
     }
@@ -34005,6 +34011,12 @@ public:
     }
     if (transferCount) {
       res["TransferCount"] = boost::any(*transferCount);
+    }
+    if (voicebotDestinationNumber) {
+      res["VoicebotDestinationNumber"] = boost::any(*voicebotDestinationNumber);
+    }
+    if (voicebotOriginatorNumber) {
+      res["VoicebotOriginatorNumber"] = boost::any(*voicebotOriginatorNumber);
     }
     if (waitTime) {
       res["WaitTime"] = boost::any(*waitTime);
@@ -34131,6 +34143,9 @@ public:
     if (m.find("OffsiteAgentOriginatorNumbers") != m.end() && !m["OffsiteAgentOriginatorNumbers"].empty()) {
       offsiteAgentOriginatorNumbers = make_shared<string>(boost::any_cast<string>(m["OffsiteAgentOriginatorNumbers"]));
     }
+    if (m.find("OffsiteAgentReleaseReason") != m.end() && !m["OffsiteAgentReleaseReason"].empty()) {
+      offsiteAgentReleaseReason = make_shared<string>(boost::any_cast<string>(m["OffsiteAgentReleaseReason"]));
+    }
     if (m.find("OutsideNumberReleaseReason") != m.end() && !m["OutsideNumberReleaseReason"].empty()) {
       outsideNumberReleaseReason = make_shared<string>(boost::any_cast<string>(m["OutsideNumberReleaseReason"]));
     }
@@ -34188,6 +34203,12 @@ public:
     }
     if (m.find("TransferCount") != m.end() && !m["TransferCount"].empty()) {
       transferCount = make_shared<long>(boost::any_cast<long>(m["TransferCount"]));
+    }
+    if (m.find("VoicebotDestinationNumber") != m.end() && !m["VoicebotDestinationNumber"].empty()) {
+      voicebotDestinationNumber = make_shared<string>(boost::any_cast<string>(m["VoicebotDestinationNumber"]));
+    }
+    if (m.find("VoicebotOriginatorNumber") != m.end() && !m["VoicebotOriginatorNumber"].empty()) {
+      voicebotOriginatorNumber = make_shared<string>(boost::any_cast<string>(m["VoicebotOriginatorNumber"]));
     }
     if (m.find("WaitTime") != m.end() && !m["WaitTime"].empty()) {
       waitTime = make_shared<long>(boost::any_cast<long>(m["WaitTime"]));
@@ -51742,6 +51763,8 @@ public:
   shared_ptr<string> provider{};
   shared_ptr<string> providerCode{};
   shared_ptr<string> providerDisplayName{};
+  shared_ptr<string> providerShortName{};
+  shared_ptr<string> providerType{};
   shared_ptr<string> province{};
 
   ListOutboundNumbersOfUserResponseBodyDataList() {}
@@ -51769,6 +51792,12 @@ public:
     if (providerDisplayName) {
       res["ProviderDisplayName"] = boost::any(*providerDisplayName);
     }
+    if (providerShortName) {
+      res["ProviderShortName"] = boost::any(*providerShortName);
+    }
+    if (providerType) {
+      res["ProviderType"] = boost::any(*providerType);
+    }
     if (province) {
       res["Province"] = boost::any(*province);
     }
@@ -51790,6 +51819,12 @@ public:
     }
     if (m.find("ProviderDisplayName") != m.end() && !m["ProviderDisplayName"].empty()) {
       providerDisplayName = make_shared<string>(boost::any_cast<string>(m["ProviderDisplayName"]));
+    }
+    if (m.find("ProviderShortName") != m.end() && !m["ProviderShortName"].empty()) {
+      providerShortName = make_shared<string>(boost::any_cast<string>(m["ProviderShortName"]));
+    }
+    if (m.find("ProviderType") != m.end() && !m["ProviderType"].empty()) {
+      providerType = make_shared<string>(boost::any_cast<string>(m["ProviderType"]));
     }
     if (m.find("Province") != m.end() && !m["Province"].empty()) {
       province = make_shared<string>(boost::any_cast<string>(m["Province"]));
