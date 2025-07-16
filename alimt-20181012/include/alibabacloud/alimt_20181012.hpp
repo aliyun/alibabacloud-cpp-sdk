@@ -5053,6 +5053,7 @@ public:
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
+  map<string, boost::any> _postOSSObject(shared_ptr<string> bucketName, shared_ptr<map<string, boost::any>> data);
   string getEndpoint(shared_ptr<string> productId,
                      shared_ptr<string> regionId,
                      shared_ptr<string> endpointRule,
