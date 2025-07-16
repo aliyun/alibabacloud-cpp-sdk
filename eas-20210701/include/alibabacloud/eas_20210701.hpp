@@ -418,10 +418,18 @@ class Resource : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<long> cpuCount{};
+  shared_ptr<long> cpuUsed{};
   shared_ptr<string> createTime{};
   shared_ptr<map<string, boost::any>> extraData{};
+  shared_ptr<vector<string>> features{};
   shared_ptr<long> gpuCount{};
+  shared_ptr<double> gpuUsed{};
   shared_ptr<long> instanceCount{};
+  shared_ptr<long> instanceMaxAllocatableCPU{};
+  shared_ptr<double> instanceMaxAllocatableGPU{};
+  shared_ptr<long> instanceMaxAllocatableMemory{};
+  shared_ptr<long> memory{};
+  shared_ptr<long> memoryUsed{};
   shared_ptr<string> message{};
   shared_ptr<long> postPaidInstanceCount{};
   shared_ptr<long> prePaidInstanceCount{};
@@ -448,17 +456,41 @@ public:
     if (cpuCount) {
       res["CpuCount"] = boost::any(*cpuCount);
     }
+    if (cpuUsed) {
+      res["CpuUsed"] = boost::any(*cpuUsed);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
     if (extraData) {
       res["ExtraData"] = boost::any(*extraData);
     }
+    if (features) {
+      res["Features"] = boost::any(*features);
+    }
     if (gpuCount) {
       res["GpuCount"] = boost::any(*gpuCount);
     }
+    if (gpuUsed) {
+      res["GpuUsed"] = boost::any(*gpuUsed);
+    }
     if (instanceCount) {
       res["InstanceCount"] = boost::any(*instanceCount);
+    }
+    if (instanceMaxAllocatableCPU) {
+      res["InstanceMaxAllocatableCPU"] = boost::any(*instanceMaxAllocatableCPU);
+    }
+    if (instanceMaxAllocatableGPU) {
+      res["InstanceMaxAllocatableGPU"] = boost::any(*instanceMaxAllocatableGPU);
+    }
+    if (instanceMaxAllocatableMemory) {
+      res["InstanceMaxAllocatableMemory"] = boost::any(*instanceMaxAllocatableMemory);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (memoryUsed) {
+      res["MemoryUsed"] = boost::any(*memoryUsed);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -497,6 +529,9 @@ public:
     if (m.find("CpuCount") != m.end() && !m["CpuCount"].empty()) {
       cpuCount = make_shared<long>(boost::any_cast<long>(m["CpuCount"]));
     }
+    if (m.find("CpuUsed") != m.end() && !m["CpuUsed"].empty()) {
+      cpuUsed = make_shared<long>(boost::any_cast<long>(m["CpuUsed"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -508,11 +543,39 @@ public:
       }
       extraData = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("Features") != m.end() && !m["Features"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Features"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Features"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      features = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
       gpuCount = make_shared<long>(boost::any_cast<long>(m["GpuCount"]));
     }
+    if (m.find("GpuUsed") != m.end() && !m["GpuUsed"].empty()) {
+      gpuUsed = make_shared<double>(boost::any_cast<double>(m["GpuUsed"]));
+    }
     if (m.find("InstanceCount") != m.end() && !m["InstanceCount"].empty()) {
       instanceCount = make_shared<long>(boost::any_cast<long>(m["InstanceCount"]));
+    }
+    if (m.find("InstanceMaxAllocatableCPU") != m.end() && !m["InstanceMaxAllocatableCPU"].empty()) {
+      instanceMaxAllocatableCPU = make_shared<long>(boost::any_cast<long>(m["InstanceMaxAllocatableCPU"]));
+    }
+    if (m.find("InstanceMaxAllocatableGPU") != m.end() && !m["InstanceMaxAllocatableGPU"].empty()) {
+      instanceMaxAllocatableGPU = make_shared<double>(boost::any_cast<double>(m["InstanceMaxAllocatableGPU"]));
+    }
+    if (m.find("InstanceMaxAllocatableMemory") != m.end() && !m["InstanceMaxAllocatableMemory"].empty()) {
+      instanceMaxAllocatableMemory = make_shared<long>(boost::any_cast<long>(m["InstanceMaxAllocatableMemory"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("MemoryUsed") != m.end() && !m["MemoryUsed"].empty()) {
+      memoryUsed = make_shared<long>(boost::any_cast<long>(m["MemoryUsed"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -892,6 +955,49 @@ public:
 
   virtual ~ResourceInstanceWorker() = default;
 };
+class ServiceInstanceCountInResource : public Darabonba::Model {
+public:
+  shared_ptr<long> dedicated{};
+  shared_ptr<long> public_{};
+  shared_ptr<long> quota{};
+
+  ServiceInstanceCountInResource() {}
+
+  explicit ServiceInstanceCountInResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dedicated) {
+      res["Dedicated"] = boost::any(*dedicated);
+    }
+    if (public_) {
+      res["Public"] = boost::any(*public_);
+    }
+    if (quota) {
+      res["Quota"] = boost::any(*quota);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dedicated") != m.end() && !m["Dedicated"].empty()) {
+      dedicated = make_shared<long>(boost::any_cast<long>(m["Dedicated"]));
+    }
+    if (m.find("Public") != m.end() && !m["Public"].empty()) {
+      public_ = make_shared<long>(boost::any_cast<long>(m["Public"]));
+    }
+    if (m.find("Quota") != m.end() && !m["Quota"].empty()) {
+      quota = make_shared<long>(boost::any_cast<long>(m["Quota"]));
+    }
+  }
+
+
+  virtual ~ServiceInstanceCountInResource() = default;
+};
 class ServiceLabels : public Darabonba::Model {
 public:
   shared_ptr<string> labelKey{};
@@ -935,14 +1041,19 @@ public:
   shared_ptr<string> appSpecName{};
   shared_ptr<string> appType{};
   shared_ptr<string> appVersion{};
+  shared_ptr<bool> autoscalerEnabled{};
   shared_ptr<string> callerUid{};
   shared_ptr<long> cpu{};
   shared_ptr<string> createTime{};
+  shared_ptr<bool> cronscalerEnabled{};
   shared_ptr<long> currentVersion{};
   shared_ptr<string> extraData{};
+  shared_ptr<long> GPUCorePercentage{};
+  shared_ptr<long> GPUMemory{};
   shared_ptr<string> gateway{};
   shared_ptr<long> gpu{};
   shared_ptr<string> image{};
+  shared_ptr<ServiceInstanceCountInResource> instanceCountInResource{};
   shared_ptr<string> internetEndpoint{};
   shared_ptr<string> intranetEndpoint{};
   shared_ptr<vector<ServiceLabels>> labels{};
@@ -958,6 +1069,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resource{};
   shared_ptr<string> resourceAlias{};
+  shared_ptr<bool> resourceBurstable{};
   shared_ptr<string> role{};
   shared_ptr<string> roleAttrs{};
   shared_ptr<long> runningInstance{};
@@ -1002,6 +1114,9 @@ public:
     if (appVersion) {
       res["AppVersion"] = boost::any(*appVersion);
     }
+    if (autoscalerEnabled) {
+      res["AutoscalerEnabled"] = boost::any(*autoscalerEnabled);
+    }
     if (callerUid) {
       res["CallerUid"] = boost::any(*callerUid);
     }
@@ -1011,11 +1126,20 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (cronscalerEnabled) {
+      res["CronscalerEnabled"] = boost::any(*cronscalerEnabled);
+    }
     if (currentVersion) {
       res["CurrentVersion"] = boost::any(*currentVersion);
     }
     if (extraData) {
       res["ExtraData"] = boost::any(*extraData);
+    }
+    if (GPUCorePercentage) {
+      res["GPUCorePercentage"] = boost::any(*GPUCorePercentage);
+    }
+    if (GPUMemory) {
+      res["GPUMemory"] = boost::any(*GPUMemory);
     }
     if (gateway) {
       res["Gateway"] = boost::any(*gateway);
@@ -1025,6 +1149,9 @@ public:
     }
     if (image) {
       res["Image"] = boost::any(*image);
+    }
+    if (instanceCountInResource) {
+      res["InstanceCountInResource"] = instanceCountInResource ? boost::any(instanceCountInResource->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (internetEndpoint) {
       res["InternetEndpoint"] = boost::any(*internetEndpoint);
@@ -1074,6 +1201,9 @@ public:
     }
     if (resourceAlias) {
       res["ResourceAlias"] = boost::any(*resourceAlias);
+    }
+    if (resourceBurstable) {
+      res["ResourceBurstable"] = boost::any(*resourceBurstable);
     }
     if (role) {
       res["Role"] = boost::any(*role);
@@ -1148,6 +1278,9 @@ public:
     if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
       appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
     }
+    if (m.find("AutoscalerEnabled") != m.end() && !m["AutoscalerEnabled"].empty()) {
+      autoscalerEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoscalerEnabled"]));
+    }
     if (m.find("CallerUid") != m.end() && !m["CallerUid"].empty()) {
       callerUid = make_shared<string>(boost::any_cast<string>(m["CallerUid"]));
     }
@@ -1157,11 +1290,20 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
+    if (m.find("CronscalerEnabled") != m.end() && !m["CronscalerEnabled"].empty()) {
+      cronscalerEnabled = make_shared<bool>(boost::any_cast<bool>(m["CronscalerEnabled"]));
+    }
     if (m.find("CurrentVersion") != m.end() && !m["CurrentVersion"].empty()) {
       currentVersion = make_shared<long>(boost::any_cast<long>(m["CurrentVersion"]));
     }
     if (m.find("ExtraData") != m.end() && !m["ExtraData"].empty()) {
       extraData = make_shared<string>(boost::any_cast<string>(m["ExtraData"]));
+    }
+    if (m.find("GPUCorePercentage") != m.end() && !m["GPUCorePercentage"].empty()) {
+      GPUCorePercentage = make_shared<long>(boost::any_cast<long>(m["GPUCorePercentage"]));
+    }
+    if (m.find("GPUMemory") != m.end() && !m["GPUMemory"].empty()) {
+      GPUMemory = make_shared<long>(boost::any_cast<long>(m["GPUMemory"]));
     }
     if (m.find("Gateway") != m.end() && !m["Gateway"].empty()) {
       gateway = make_shared<string>(boost::any_cast<string>(m["Gateway"]));
@@ -1171,6 +1313,13 @@ public:
     }
     if (m.find("Image") != m.end() && !m["Image"].empty()) {
       image = make_shared<string>(boost::any_cast<string>(m["Image"]));
+    }
+    if (m.find("InstanceCountInResource") != m.end() && !m["InstanceCountInResource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceCountInResource"].type()) {
+        ServiceInstanceCountInResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceCountInResource"]));
+        instanceCountInResource = make_shared<ServiceInstanceCountInResource>(model1);
+      }
     }
     if (m.find("InternetEndpoint") != m.end() && !m["InternetEndpoint"].empty()) {
       internetEndpoint = make_shared<string>(boost::any_cast<string>(m["InternetEndpoint"]));
@@ -1226,6 +1375,9 @@ public:
     }
     if (m.find("ResourceAlias") != m.end() && !m["ResourceAlias"].empty()) {
       resourceAlias = make_shared<string>(boost::any_cast<string>(m["ResourceAlias"]));
+    }
+    if (m.find("ResourceBurstable") != m.end() && !m["ResourceBurstable"].empty()) {
+      resourceBurstable = make_shared<bool>(boost::any_cast<bool>(m["ResourceBurstable"]));
     }
     if (m.find("Role") != m.end() && !m["Role"].empty()) {
       role = make_shared<string>(boost::any_cast<string>(m["Role"]));
@@ -7870,9 +8022,13 @@ public:
   shared_ptr<long> cpuUsed{};
   shared_ptr<string> createTime{};
   shared_ptr<string> extraData{};
+  shared_ptr<vector<string>> features{};
   shared_ptr<long> gpuCount{};
   shared_ptr<double> gpuUsed{};
   shared_ptr<long> instanceCount{};
+  shared_ptr<long> instanceMaxAllocatableCPU{};
+  shared_ptr<double> instanceMaxAllocatableGPU{};
+  shared_ptr<long> instanceMaxAllocatableMemory{};
   shared_ptr<long> memory{};
   shared_ptr<long> memoryUsed{};
   shared_ptr<string> message{};
@@ -7911,6 +8067,9 @@ public:
     if (extraData) {
       res["ExtraData"] = boost::any(*extraData);
     }
+    if (features) {
+      res["Features"] = boost::any(*features);
+    }
     if (gpuCount) {
       res["GpuCount"] = boost::any(*gpuCount);
     }
@@ -7919,6 +8078,15 @@ public:
     }
     if (instanceCount) {
       res["InstanceCount"] = boost::any(*instanceCount);
+    }
+    if (instanceMaxAllocatableCPU) {
+      res["InstanceMaxAllocatableCPU"] = boost::any(*instanceMaxAllocatableCPU);
+    }
+    if (instanceMaxAllocatableGPU) {
+      res["InstanceMaxAllocatableGPU"] = boost::any(*instanceMaxAllocatableGPU);
+    }
+    if (instanceMaxAllocatableMemory) {
+      res["InstanceMaxAllocatableMemory"] = boost::any(*instanceMaxAllocatableMemory);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -7975,6 +8143,16 @@ public:
     if (m.find("ExtraData") != m.end() && !m["ExtraData"].empty()) {
       extraData = make_shared<string>(boost::any_cast<string>(m["ExtraData"]));
     }
+    if (m.find("Features") != m.end() && !m["Features"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Features"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Features"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      features = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
       gpuCount = make_shared<long>(boost::any_cast<long>(m["GpuCount"]));
     }
@@ -7983,6 +8161,15 @@ public:
     }
     if (m.find("InstanceCount") != m.end() && !m["InstanceCount"].empty()) {
       instanceCount = make_shared<long>(boost::any_cast<long>(m["InstanceCount"]));
+    }
+    if (m.find("InstanceMaxAllocatableCPU") != m.end() && !m["InstanceMaxAllocatableCPU"].empty()) {
+      instanceMaxAllocatableCPU = make_shared<long>(boost::any_cast<long>(m["InstanceMaxAllocatableCPU"]));
+    }
+    if (m.find("InstanceMaxAllocatableGPU") != m.end() && !m["InstanceMaxAllocatableGPU"].empty()) {
+      instanceMaxAllocatableGPU = make_shared<double>(boost::any_cast<double>(m["InstanceMaxAllocatableGPU"]));
+    }
+    if (m.find("InstanceMaxAllocatableMemory") != m.end() && !m["InstanceMaxAllocatableMemory"].empty()) {
+      instanceMaxAllocatableMemory = make_shared<long>(boost::any_cast<long>(m["InstanceMaxAllocatableMemory"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
@@ -10226,6 +10413,7 @@ class DescribeVirtualResourceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
   shared_ptr<bool> disableSpotProtectionPeriod{};
+  shared_ptr<vector<string>> features{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<DescribeVirtualResourceResponseBodyResources>> resources{};
   shared_ptr<long> serviceCount{};
@@ -10248,6 +10436,9 @@ public:
     }
     if (disableSpotProtectionPeriod) {
       res["DisableSpotProtectionPeriod"] = boost::any(*disableSpotProtectionPeriod);
+    }
+    if (features) {
+      res["Features"] = boost::any(*features);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -10280,6 +10471,16 @@ public:
     }
     if (m.find("DisableSpotProtectionPeriod") != m.end() && !m["DisableSpotProtectionPeriod"].empty()) {
       disableSpotProtectionPeriod = make_shared<bool>(boost::any_cast<bool>(m["DisableSpotProtectionPeriod"]));
+    }
+    if (m.find("Features") != m.end() && !m["Features"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Features"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Features"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      features = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -13846,6 +14047,8 @@ public:
 };
 class ListServicesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoscalerEnabled{};
+  shared_ptr<bool> cronscalerEnabled{};
   shared_ptr<string> filter{};
   shared_ptr<string> gateway{};
   shared_ptr<string> groupName{};
@@ -13857,6 +14060,7 @@ public:
   shared_ptr<string> parentServiceUid{};
   shared_ptr<string> quotaId{};
   shared_ptr<string> resourceAliasName{};
+  shared_ptr<bool> resourceBurstable{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> resourceType{};
@@ -13878,6 +14082,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoscalerEnabled) {
+      res["AutoscalerEnabled"] = boost::any(*autoscalerEnabled);
+    }
+    if (cronscalerEnabled) {
+      res["CronscalerEnabled"] = boost::any(*cronscalerEnabled);
+    }
     if (filter) {
       res["Filter"] = boost::any(*filter);
     }
@@ -13910,6 +14120,9 @@ public:
     }
     if (resourceAliasName) {
       res["ResourceAliasName"] = boost::any(*resourceAliasName);
+    }
+    if (resourceBurstable) {
+      res["ResourceBurstable"] = boost::any(*resourceBurstable);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -13945,6 +14158,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoscalerEnabled") != m.end() && !m["AutoscalerEnabled"].empty()) {
+      autoscalerEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoscalerEnabled"]));
+    }
+    if (m.find("CronscalerEnabled") != m.end() && !m["CronscalerEnabled"].empty()) {
+      cronscalerEnabled = make_shared<bool>(boost::any_cast<bool>(m["CronscalerEnabled"]));
+    }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
@@ -13983,6 +14202,9 @@ public:
     if (m.find("ResourceAliasName") != m.end() && !m["ResourceAliasName"].empty()) {
       resourceAliasName = make_shared<string>(boost::any_cast<string>(m["ResourceAliasName"]));
     }
+    if (m.find("ResourceBurstable") != m.end() && !m["ResourceBurstable"].empty()) {
+      resourceBurstable = make_shared<bool>(boost::any_cast<bool>(m["ResourceBurstable"]));
+    }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
@@ -14020,6 +14242,8 @@ public:
 };
 class ListServicesShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoscalerEnabled{};
+  shared_ptr<bool> cronscalerEnabled{};
   shared_ptr<string> filter{};
   shared_ptr<string> gateway{};
   shared_ptr<string> groupName{};
@@ -14031,6 +14255,7 @@ public:
   shared_ptr<string> parentServiceUid{};
   shared_ptr<string> quotaId{};
   shared_ptr<string> resourceAliasName{};
+  shared_ptr<bool> resourceBurstable{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> resourceType{};
@@ -14052,6 +14277,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoscalerEnabled) {
+      res["AutoscalerEnabled"] = boost::any(*autoscalerEnabled);
+    }
+    if (cronscalerEnabled) {
+      res["CronscalerEnabled"] = boost::any(*cronscalerEnabled);
+    }
     if (filter) {
       res["Filter"] = boost::any(*filter);
     }
@@ -14084,6 +14315,9 @@ public:
     }
     if (resourceAliasName) {
       res["ResourceAliasName"] = boost::any(*resourceAliasName);
+    }
+    if (resourceBurstable) {
+      res["ResourceBurstable"] = boost::any(*resourceBurstable);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -14119,6 +14353,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoscalerEnabled") != m.end() && !m["AutoscalerEnabled"].empty()) {
+      autoscalerEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoscalerEnabled"]));
+    }
+    if (m.find("CronscalerEnabled") != m.end() && !m["CronscalerEnabled"].empty()) {
+      cronscalerEnabled = make_shared<bool>(boost::any_cast<bool>(m["CronscalerEnabled"]));
+    }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
@@ -14151,6 +14391,9 @@ public:
     }
     if (m.find("ResourceAliasName") != m.end() && !m["ResourceAliasName"].empty()) {
       resourceAliasName = make_shared<string>(boost::any_cast<string>(m["ResourceAliasName"]));
+    }
+    if (m.find("ResourceBurstable") != m.end() && !m["ResourceBurstable"].empty()) {
+      resourceBurstable = make_shared<bool>(boost::any_cast<bool>(m["ResourceBurstable"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));

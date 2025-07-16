@@ -2684,6 +2684,12 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
     request->labelShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->label, make_shared<string>("Label"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoscalerEnabled)) {
+    query->insert(pair<string, bool>("AutoscalerEnabled", *request->autoscalerEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cronscalerEnabled)) {
+    query->insert(pair<string, bool>("CronscalerEnabled", *request->cronscalerEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
   }
@@ -2716,6 +2722,9 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceAliasName)) {
     query->insert(pair<string, string>("ResourceAliasName", *request->resourceAliasName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->resourceBurstable)) {
+    query->insert(pair<string, bool>("ResourceBurstable", *request->resourceBurstable));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
     query->insert(pair<string, string>("ResourceId", *request->resourceId));
