@@ -1209,6 +1209,56 @@ CancelScheduleConferenceResponse Alibabacloud_Aliding20230426::Client::cancelSch
   return cancelScheduleConferenceWithOptions(request, headers, runtime);
 }
 
+ChangeDingTalkIdResponse Alibabacloud_Aliding20230426::Client::changeDingTalkIdWithOptions(shared_ptr<ChangeDingTalkIdRequest> tmpReq, shared_ptr<ChangeDingTalkIdHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ChangeDingTalkIdShrinkRequest> request = make_shared<ChangeDingTalkIdShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<ChangeDingTalkIdShrinkHeaders> headers = make_shared<ChangeDingTalkIdShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<ChangeDingTalkIdHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<ChangeDingTalkIdRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dingTalkId)) {
+    body->insert(pair<string, string>("DingTalkId", *request->dingTalkId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeDingTalkId"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/user/changeDingTalkId"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChangeDingTalkIdResponse(callApi(params, req, runtime));
+}
+
+ChangeDingTalkIdResponse Alibabacloud_Aliding20230426::Client::changeDingTalkId(shared_ptr<ChangeDingTalkIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ChangeDingTalkIdHeaders> headers = make_shared<ChangeDingTalkIdHeaders>();
+  return changeDingTalkIdWithOptions(request, headers, runtime);
+}
+
 CheckAlibabaStaffResponse Alibabacloud_Aliding20230426::Client::checkAlibabaStaffWithOptions(shared_ptr<CheckAlibabaStaffRequest> tmpReq, shared_ptr<CheckAlibabaStaffHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CheckAlibabaStaffShrinkRequest> request = make_shared<CheckAlibabaStaffShrinkRequest>();
