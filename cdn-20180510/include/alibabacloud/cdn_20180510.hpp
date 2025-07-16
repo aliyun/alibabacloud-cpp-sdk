@@ -25541,6 +25541,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> field{};
   shared_ptr<string> interval{};
+  shared_ptr<string> serviceType{};
   shared_ptr<string> startTime{};
   shared_ptr<string> type{};
 
@@ -25572,6 +25573,9 @@ public:
     if (interval) {
       res["Interval"] = boost::any(*interval);
     }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -25599,6 +25603,9 @@ public:
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));

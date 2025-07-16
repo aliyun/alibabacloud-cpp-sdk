@@ -3940,6 +3940,9 @@ DescribeDomainUsageDataResponse Alibabacloud_Cdn20180510::Client::describeDomain
   if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
     query->insert(pair<string, string>("Interval", *request->interval));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
   }
