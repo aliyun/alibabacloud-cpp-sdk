@@ -6073,6 +6073,7 @@ public:
   shared_ptr<string> commodityCode{};
   shared_ptr<vector<DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs>> connAddrs{};
   shared_ptr<string> connectionString{};
+  shared_ptr<string> cpuType{};
   shared_ptr<string> createTime{};
   shared_ptr<string> DBInstanceType{};
   shared_ptr<string> DBNodeClass{};
@@ -6159,6 +6160,9 @@ public:
     }
     if (connectionString) {
       res["ConnectionString"] = boost::any(*connectionString);
+    }
+    if (cpuType) {
+      res["CpuType"] = boost::any(*cpuType);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -6360,6 +6364,9 @@ public:
     }
     if (m.find("ConnectionString") != m.end() && !m["ConnectionString"].empty()) {
       connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
+    }
+    if (m.find("CpuType") != m.end() && !m["CpuType"].empty()) {
+      cpuType = make_shared<string>(boost::any_cast<string>(m["CpuType"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
