@@ -1,3 +1,25 @@
+2025-07-17 Version: 8.0.0
+- Support API DescribeEnvDropMetricsRule.
+- Support API UpdateEnvDropMetricsRule.
+- Delete API ManageGetRecordingRule.
+- Delete API ManageRecordingRule.
+- Update API CreateOrUpdateAlertRule: add request parameters CheckCycle.
+- Update API CreateRumApp: add request parameters Language.
+- Update API DescribeEnvironmentFeature: add response parameters Body.Data.config.
+- Update API GetMultipleTrace: add request parameters PageNumber.
+- Update API GetMultipleTrace: add request parameters PageSize.
+- Update API GetPrometheusInstance: add response parameters Body.Data.OpenTelemetryInterUrl.
+- Update API GetPrometheusInstance: add response parameters Body.Data.OpenTelemetryIntraUrl.
+- Update API GetRumAppInfo: add response parameters Body.Data.AppConfig.
+- Update API GetRumApps: add request parameters AppType.
+- Update API GetTrace: add request parameters PageNumber.
+- Update API GetTrace: add request parameters PageSize.
+- Update API InstallManagedPrometheus: add request parameters VcExtraInfo.
+- Update API ListAddonReleases: add response parameters Body.Data.Releases.$.Config.
+- Update API ListAddonReleases: add response parameters Body.Data.Releases.$.NextVersion.
+- Update API UpdateRumApp: add request parameters AppConfig.
+
+
 2025-01-08 Version: 7.0.0
 - Update API CreateOrUpdateAlertRule: update response param.
 - Update API DoInsightsAction: add param RegionId.
