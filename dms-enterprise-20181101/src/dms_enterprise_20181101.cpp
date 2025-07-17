@@ -3783,6 +3783,9 @@ GenerateSqlFromNLResponse Alibabacloud_Dms-enterprise20181101::Client::generateS
   if (!Darabonba_Util::Client::isUnset<string>(request->question)) {
     query->insert(pair<string, string>("Question", *request->question));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableNames)) {
+    query->insert(pair<string, string>("TableNames", *request->tableNames));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

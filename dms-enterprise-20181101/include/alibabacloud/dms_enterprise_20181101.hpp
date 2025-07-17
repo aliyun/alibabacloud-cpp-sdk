@@ -21835,6 +21835,7 @@ public:
   shared_ptr<string> level{};
   shared_ptr<string> model{};
   shared_ptr<string> question{};
+  shared_ptr<string> tableNames{};
 
   GenerateSqlFromNLRequest() {}
 
@@ -21864,6 +21865,9 @@ public:
     if (question) {
       res["Question"] = boost::any(*question);
     }
+    if (tableNames) {
+      res["TableNames"] = boost::any(*tableNames);
+    }
     return res;
   }
 
@@ -21885,6 +21889,9 @@ public:
     }
     if (m.find("Question") != m.end() && !m["Question"].empty()) {
       question = make_shared<string>(boost::any_cast<string>(m["Question"]));
+    }
+    if (m.find("TableNames") != m.end() && !m["TableNames"].empty()) {
+      tableNames = make_shared<string>(boost::any_cast<string>(m["TableNames"]));
     }
   }
 
