@@ -250,11 +250,17 @@ CreateHttpApiResponse Alibabacloud_APIG20240327::Client::createHttpApiWithOption
   if (!Darabonba_Util::Client::isUnset<CreateHttpApiRequestIngressConfig>(request->ingressConfig)) {
     body->insert(pair<string, CreateHttpApiRequestIngressConfig>("ingressConfig", *request->ingressConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelCategory)) {
+    body->insert(pair<string, string>("modelCategory", *request->modelCategory));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->protocols)) {
     body->insert(pair<string, vector<string>>("protocols", *request->protocols));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->removeBasePathOnForward)) {
+    body->insert(pair<string, bool>("removeBasePathOnForward", *request->removeBasePathOnForward));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
@@ -2235,6 +2241,9 @@ UpdateHttpApiResponse Alibabacloud_APIG20240327::Client::updateHttpApiWithOption
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->protocols)) {
     body->insert(pair<string, vector<string>>("protocols", *request->protocols));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->removeBasePathOnForward)) {
+    body->insert(pair<string, bool>("removeBasePathOnForward", *request->removeBasePathOnForward));
   }
   if (!Darabonba_Util::Client::isUnset<HttpApiVersionConfig>(request->versionConfig)) {
     body->insert(pair<string, HttpApiVersionConfig>("versionConfig", *request->versionConfig));

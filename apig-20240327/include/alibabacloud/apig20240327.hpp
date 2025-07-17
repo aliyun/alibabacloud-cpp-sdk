@@ -7486,8 +7486,10 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> enableAuth{};
   shared_ptr<CreateHttpApiRequestIngressConfig> ingressConfig{};
+  shared_ptr<string> modelCategory{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> protocols{};
+  shared_ptr<bool> removeBasePathOnForward{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> type{};
   shared_ptr<HttpApiVersionConfig> versionConfig{};
@@ -7530,11 +7532,17 @@ public:
     if (ingressConfig) {
       res["ingressConfig"] = ingressConfig ? boost::any(ingressConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (modelCategory) {
+      res["modelCategory"] = boost::any(*modelCategory);
+    }
     if (name) {
       res["name"] = boost::any(*name);
     }
     if (protocols) {
       res["protocols"] = boost::any(*protocols);
+    }
+    if (removeBasePathOnForward) {
+      res["removeBasePathOnForward"] = boost::any(*removeBasePathOnForward);
     }
     if (resourceGroupId) {
       res["resourceGroupId"] = boost::any(*resourceGroupId);
@@ -7605,6 +7613,9 @@ public:
         ingressConfig = make_shared<CreateHttpApiRequestIngressConfig>(model1);
       }
     }
+    if (m.find("modelCategory") != m.end() && !m["modelCategory"].empty()) {
+      modelCategory = make_shared<string>(boost::any_cast<string>(m["modelCategory"]));
+    }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
@@ -7617,6 +7628,9 @@ public:
         }
       }
       protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("removeBasePathOnForward") != m.end() && !m["removeBasePathOnForward"].empty()) {
+      removeBasePathOnForward = make_shared<bool>(boost::any_cast<bool>(m["removeBasePathOnForward"]));
     }
     if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
@@ -19632,6 +19646,7 @@ public:
   shared_ptr<UpdateHttpApiRequestIngressConfig> ingressConfig{};
   shared_ptr<bool> onlyChangeConfig{};
   shared_ptr<vector<string>> protocols{};
+  shared_ptr<bool> removeBasePathOnForward{};
   shared_ptr<HttpApiVersionConfig> versionConfig{};
 
   UpdateHttpApiRequest() {}
@@ -19677,6 +19692,9 @@ public:
     }
     if (protocols) {
       res["protocols"] = boost::any(*protocols);
+    }
+    if (removeBasePathOnForward) {
+      res["removeBasePathOnForward"] = boost::any(*removeBasePathOnForward);
     }
     if (versionConfig) {
       res["versionConfig"] = versionConfig ? boost::any(versionConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -19753,6 +19771,9 @@ public:
         }
       }
       protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("removeBasePathOnForward") != m.end() && !m["removeBasePathOnForward"].empty()) {
+      removeBasePathOnForward = make_shared<bool>(boost::any_cast<bool>(m["removeBasePathOnForward"]));
     }
     if (m.find("versionConfig") != m.end() && !m["versionConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["versionConfig"].type()) {
