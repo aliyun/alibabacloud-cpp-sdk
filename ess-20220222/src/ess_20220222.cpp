@@ -4955,6 +4955,9 @@ ScaleWithAdjustmentResponse Alibabacloud_Ess20220222::Client::scaleWithAdjustmen
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->executionMode)) {
+    query->insert(pair<string, string>("ExecutionMode", *request->executionMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lifecycleHookContextShrink)) {
     query->insert(pair<string, string>("LifecycleHookContext", *request->lifecycleHookContextShrink));
   }

@@ -37933,6 +37933,7 @@ public:
   shared_ptr<string> adjustmentType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> executionMode{};
   shared_ptr<ScaleWithAdjustmentRequestLifecycleHookContext> lifecycleHookContext{};
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<ScaleWithAdjustmentRequestOverrides> overrides{};
@@ -37963,6 +37964,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (executionMode) {
+      res["ExecutionMode"] = boost::any(*executionMode);
     }
     if (lifecycleHookContext) {
       res["LifecycleHookContext"] = lifecycleHookContext ? boost::any(lifecycleHookContext->toMap()) : boost::any(map<string,boost::any>({}));
@@ -38003,6 +38007,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ExecutionMode") != m.end() && !m["ExecutionMode"].empty()) {
+      executionMode = make_shared<string>(boost::any_cast<string>(m["ExecutionMode"]));
     }
     if (m.find("LifecycleHookContext") != m.end() && !m["LifecycleHookContext"].empty()) {
       if (typeid(map<string, boost::any>) == m["LifecycleHookContext"].type()) {
@@ -38047,6 +38054,7 @@ public:
   shared_ptr<string> adjustmentType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> executionMode{};
   shared_ptr<string> lifecycleHookContextShrink{};
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<string> overridesShrink{};
@@ -38077,6 +38085,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (executionMode) {
+      res["ExecutionMode"] = boost::any(*executionMode);
     }
     if (lifecycleHookContextShrink) {
       res["LifecycleHookContext"] = boost::any(*lifecycleHookContextShrink);
@@ -38118,6 +38129,9 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ExecutionMode") != m.end() && !m["ExecutionMode"].empty()) {
+      executionMode = make_shared<string>(boost::any_cast<string>(m["ExecutionMode"]));
+    }
     if (m.find("LifecycleHookContext") != m.end() && !m["LifecycleHookContext"].empty()) {
       lifecycleHookContextShrink = make_shared<string>(boost::any_cast<string>(m["LifecycleHookContext"]));
     }
@@ -38147,9 +38161,110 @@ public:
 
   virtual ~ScaleWithAdjustmentShrinkRequest() = default;
 };
+class ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations : public Darabonba::Model {
+public:
+  shared_ptr<long> amount{};
+  shared_ptr<string> instanceChargeType{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> spotStrategy{};
+  shared_ptr<string> zoneId{};
+
+  ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations() {}
+
+  explicit ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
+    if (instanceChargeType) {
+      res["InstanceChargeType"] = boost::any(*instanceChargeType);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
+      instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations() = default;
+};
+class ScaleWithAdjustmentResponseBodyPlanResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations>> resourceAllocations{};
+
+  ScaleWithAdjustmentResponseBodyPlanResult() {}
+
+  explicit ScaleWithAdjustmentResponseBodyPlanResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceAllocations) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceAllocations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceAllocations"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceAllocations") != m.end() && !m["ResourceAllocations"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceAllocations"].type()) {
+        vector<ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceAllocations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceAllocations = make_shared<vector<ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ScaleWithAdjustmentResponseBodyPlanResult() = default;
+};
 class ScaleWithAdjustmentResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> activityType{};
+  shared_ptr<ScaleWithAdjustmentResponseBodyPlanResult> planResult{};
   shared_ptr<string> requestId{};
   shared_ptr<string> scalingActivityId{};
 
@@ -38166,6 +38281,9 @@ public:
     if (activityType) {
       res["ActivityType"] = boost::any(*activityType);
     }
+    if (planResult) {
+      res["PlanResult"] = planResult ? boost::any(planResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -38178,6 +38296,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ActivityType") != m.end() && !m["ActivityType"].empty()) {
       activityType = make_shared<string>(boost::any_cast<string>(m["ActivityType"]));
+    }
+    if (m.find("PlanResult") != m.end() && !m["PlanResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PlanResult"].type()) {
+        ScaleWithAdjustmentResponseBodyPlanResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PlanResult"]));
+        planResult = make_shared<ScaleWithAdjustmentResponseBodyPlanResult>(model1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
