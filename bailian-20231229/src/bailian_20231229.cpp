@@ -129,6 +129,62 @@ AddFileResponse Alibabacloud_Bailian20231229::Client::addFile(shared_ptr<string>
   return addFileWithOptions(WorkspaceId, request, headers, runtime);
 }
 
+AddFilesFromAuthorizedOssResponse Alibabacloud_Bailian20231229::Client::addFilesFromAuthorizedOssWithOptions(shared_ptr<string> WorkspaceId,
+                                                                                                             shared_ptr<AddFilesFromAuthorizedOssRequest> tmpReq,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AddFilesFromAuthorizedOssShrinkRequest> request = make_shared<AddFilesFromAuthorizedOssShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<AddFilesFromAuthorizedOssRequestFileDetails>>(tmpReq->fileDetails)) {
+    request->fileDetailsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fileDetails, make_shared<string>("FileDetails"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryId)) {
+    body->insert(pair<string, string>("CategoryId", *request->categoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryType)) {
+    body->insert(pair<string, string>("CategoryType", *request->categoryType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileDetailsShrink)) {
+    body->insert(pair<string, string>("FileDetails", *request->fileDetailsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossBucketName)) {
+    body->insert(pair<string, string>("OssBucketName", *request->ossBucketName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossRegionId)) {
+    body->insert(pair<string, string>("OssRegionId", *request->ossRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    body->insert(pair<string, string>("Tags", *request->tagsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddFilesFromAuthorizedOss"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(WorkspaceId)) + string("/datacenter/file/fromoss"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddFilesFromAuthorizedOssResponse(callApi(params, req, runtime));
+}
+
+AddFilesFromAuthorizedOssResponse Alibabacloud_Bailian20231229::Client::addFilesFromAuthorizedOss(shared_ptr<string> WorkspaceId, shared_ptr<AddFilesFromAuthorizedOssRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return addFilesFromAuthorizedOssWithOptions(WorkspaceId, request, headers, runtime);
+}
+
 ApplyFileUploadLeaseResponse Alibabacloud_Bailian20231229::Client::applyFileUploadLeaseWithOptions(shared_ptr<string> CategoryId,
                                                                                                    shared_ptr<string> WorkspaceId,
                                                                                                    shared_ptr<ApplyFileUploadLeaseRequest> request,

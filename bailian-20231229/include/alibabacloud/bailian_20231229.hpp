@@ -504,6 +504,404 @@ public:
 
   virtual ~AddFileResponse() = default;
 };
+class AddFilesFromAuthorizedOssRequestFileDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<string> ossKey{};
+
+  AddFilesFromAuthorizedOssRequestFileDetails() {}
+
+  explicit AddFilesFromAuthorizedOssRequestFileDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (ossKey) {
+      res["OssKey"] = boost::any(*ossKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("OssKey") != m.end() && !m["OssKey"].empty()) {
+      ossKey = make_shared<string>(boost::any_cast<string>(m["OssKey"]));
+    }
+  }
+
+
+  virtual ~AddFilesFromAuthorizedOssRequestFileDetails() = default;
+};
+class AddFilesFromAuthorizedOssRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryId{};
+  shared_ptr<string> categoryType{};
+  shared_ptr<vector<AddFilesFromAuthorizedOssRequestFileDetails>> fileDetails{};
+  shared_ptr<string> ossBucketName{};
+  shared_ptr<string> ossRegionId{};
+  shared_ptr<vector<string>> tags{};
+
+  AddFilesFromAuthorizedOssRequest() {}
+
+  explicit AddFilesFromAuthorizedOssRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (categoryType) {
+      res["CategoryType"] = boost::any(*categoryType);
+    }
+    if (fileDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*fileDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FileDetails"] = boost::any(temp1);
+    }
+    if (ossBucketName) {
+      res["OssBucketName"] = boost::any(*ossBucketName);
+    }
+    if (ossRegionId) {
+      res["OssRegionId"] = boost::any(*ossRegionId);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+    if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
+      categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
+    }
+    if (m.find("FileDetails") != m.end() && !m["FileDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["FileDetails"].type()) {
+        vector<AddFilesFromAuthorizedOssRequestFileDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FileDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddFilesFromAuthorizedOssRequestFileDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fileDetails = make_shared<vector<AddFilesFromAuthorizedOssRequestFileDetails>>(expect1);
+      }
+    }
+    if (m.find("OssBucketName") != m.end() && !m["OssBucketName"].empty()) {
+      ossBucketName = make_shared<string>(boost::any_cast<string>(m["OssBucketName"]));
+    }
+    if (m.find("OssRegionId") != m.end() && !m["OssRegionId"].empty()) {
+      ossRegionId = make_shared<string>(boost::any_cast<string>(m["OssRegionId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tags = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AddFilesFromAuthorizedOssRequest() = default;
+};
+class AddFilesFromAuthorizedOssShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryId{};
+  shared_ptr<string> categoryType{};
+  shared_ptr<string> fileDetailsShrink{};
+  shared_ptr<string> ossBucketName{};
+  shared_ptr<string> ossRegionId{};
+  shared_ptr<string> tagsShrink{};
+
+  AddFilesFromAuthorizedOssShrinkRequest() {}
+
+  explicit AddFilesFromAuthorizedOssShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (categoryType) {
+      res["CategoryType"] = boost::any(*categoryType);
+    }
+    if (fileDetailsShrink) {
+      res["FileDetails"] = boost::any(*fileDetailsShrink);
+    }
+    if (ossBucketName) {
+      res["OssBucketName"] = boost::any(*ossBucketName);
+    }
+    if (ossRegionId) {
+      res["OssRegionId"] = boost::any(*ossRegionId);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+    if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
+      categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
+    }
+    if (m.find("FileDetails") != m.end() && !m["FileDetails"].empty()) {
+      fileDetailsShrink = make_shared<string>(boost::any_cast<string>(m["FileDetails"]));
+    }
+    if (m.find("OssBucketName") != m.end() && !m["OssBucketName"].empty()) {
+      ossBucketName = make_shared<string>(boost::any_cast<string>(m["OssBucketName"]));
+    }
+    if (m.find("OssRegionId") != m.end() && !m["OssRegionId"].empty()) {
+      ossRegionId = make_shared<string>(boost::any_cast<string>(m["OssRegionId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~AddFilesFromAuthorizedOssShrinkRequest() = default;
+};
+class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList : public Darabonba::Model {
+public:
+  shared_ptr<string> fileId{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> ossKey{};
+  shared_ptr<string> status{};
+
+  AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList() {}
+
+  explicit AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (ossKey) {
+      res["OssKey"] = boost::any(*ossKey);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("OssKey") != m.end() && !m["OssKey"].empty()) {
+      ossKey = make_shared<string>(boost::any_cast<string>(m["OssKey"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList() = default;
+};
+class AddFilesFromAuthorizedOssResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList>> addFileResultList{};
+
+  AddFilesFromAuthorizedOssResponseBodyData() {}
+
+  explicit AddFilesFromAuthorizedOssResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addFileResultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*addFileResultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AddFileResultList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddFileResultList") != m.end() && !m["AddFileResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AddFileResultList"].type()) {
+        vector<AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AddFileResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        addFileResultList = make_shared<vector<AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AddFilesFromAuthorizedOssResponseBodyData() = default;
+};
+class AddFilesFromAuthorizedOssResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<AddFilesFromAuthorizedOssResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> success{};
+
+  AddFilesFromAuthorizedOssResponseBody() {}
+
+  explicit AddFilesFromAuthorizedOssResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        AddFilesFromAuthorizedOssResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<AddFilesFromAuthorizedOssResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddFilesFromAuthorizedOssResponseBody() = default;
+};
+class AddFilesFromAuthorizedOssResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddFilesFromAuthorizedOssResponseBody> body{};
+
+  AddFilesFromAuthorizedOssResponse() {}
+
+  explicit AddFilesFromAuthorizedOssResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddFilesFromAuthorizedOssResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddFilesFromAuthorizedOssResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddFilesFromAuthorizedOssResponse() = default;
+};
 class ApplyFileUploadLeaseRequest : public Darabonba::Model {
 public:
   shared_ptr<string> categoryType{};
@@ -11122,6 +11520,11 @@ public:
                                      shared_ptr<map<string, string>> headers,
                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddFileResponse addFile(shared_ptr<string> WorkspaceId, shared_ptr<AddFileRequest> request);
+  AddFilesFromAuthorizedOssResponse addFilesFromAuthorizedOssWithOptions(shared_ptr<string> WorkspaceId,
+                                                                         shared_ptr<AddFilesFromAuthorizedOssRequest> tmpReq,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddFilesFromAuthorizedOssResponse addFilesFromAuthorizedOss(shared_ptr<string> WorkspaceId, shared_ptr<AddFilesFromAuthorizedOssRequest> request);
   ApplyFileUploadLeaseResponse applyFileUploadLeaseWithOptions(shared_ptr<string> CategoryId,
                                                                shared_ptr<string> WorkspaceId,
                                                                shared_ptr<ApplyFileUploadLeaseRequest> request,
