@@ -1486,6 +1486,467 @@ public:
 
   virtual ~DescribeImageResultExtResponse() = default;
 };
+class DescribeMultimodalModerationResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> reqId{};
+
+  DescribeMultimodalModerationResultRequest() {}
+
+  explicit DescribeMultimodalModerationResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reqId) {
+      res["ReqId"] = boost::any(*reqId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReqId") != m.end() && !m["ReqId"].empty()) {
+      reqId = make_shared<string>(boost::any_cast<string>(m["ReqId"]));
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultRequest() = default;
+};
+class DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> label{};
+
+  DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults() {}
+
+  explicit DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults() = default;
+};
+class DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults>> results{};
+
+  DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas() {}
+
+  explicit DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas() = default;
+};
+class DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> label{};
+
+  DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults() {}
+
+  explicit DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults() = default;
+};
+class DescribeMultimodalModerationResultResponseBodyDataCommentDatas : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas>> commentDatas{};
+  shared_ptr<vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults>> results{};
+
+  DescribeMultimodalModerationResultResponseBodyDataCommentDatas() {}
+
+  explicit DescribeMultimodalModerationResultResponseBodyDataCommentDatas(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commentDatas) {
+      vector<boost::any> temp1;
+      for(auto item1:*commentDatas){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CommentDatas"] = boost::any(temp1);
+    }
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommentDatas") != m.end() && !m["CommentDatas"].empty()) {
+      if (typeid(vector<boost::any>) == m["CommentDatas"].type()) {
+        vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CommentDatas"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        commentDatas = make_shared<vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas>>(expect1);
+      }
+    }
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponseBodyDataCommentDatas() = default;
+};
+class DescribeMultimodalModerationResultResponseBodyDataMainDataResults : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> label{};
+
+  DescribeMultimodalModerationResultResponseBodyDataMainDataResults() {}
+
+  explicit DescribeMultimodalModerationResultResponseBodyDataMainDataResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponseBodyDataMainDataResults() = default;
+};
+class DescribeMultimodalModerationResultResponseBodyDataMainData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMultimodalModerationResultResponseBodyDataMainDataResults>> results{};
+
+  DescribeMultimodalModerationResultResponseBodyDataMainData() {}
+
+  explicit DescribeMultimodalModerationResultResponseBodyDataMainData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<DescribeMultimodalModerationResultResponseBodyDataMainDataResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMultimodalModerationResultResponseBodyDataMainDataResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<DescribeMultimodalModerationResultResponseBodyDataMainDataResults>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponseBodyDataMainData() = default;
+};
+class DescribeMultimodalModerationResultResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatas>> commentDatas{};
+  shared_ptr<DescribeMultimodalModerationResultResponseBodyDataMainData> mainData{};
+  shared_ptr<string> reqId{};
+  shared_ptr<string> riskLevel{};
+
+  DescribeMultimodalModerationResultResponseBodyData() {}
+
+  explicit DescribeMultimodalModerationResultResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commentDatas) {
+      vector<boost::any> temp1;
+      for(auto item1:*commentDatas){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CommentDatas"] = boost::any(temp1);
+    }
+    if (mainData) {
+      res["MainData"] = mainData ? boost::any(mainData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (reqId) {
+      res["ReqId"] = boost::any(*reqId);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommentDatas") != m.end() && !m["CommentDatas"].empty()) {
+      if (typeid(vector<boost::any>) == m["CommentDatas"].type()) {
+        vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatas> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CommentDatas"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMultimodalModerationResultResponseBodyDataCommentDatas model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        commentDatas = make_shared<vector<DescribeMultimodalModerationResultResponseBodyDataCommentDatas>>(expect1);
+      }
+    }
+    if (m.find("MainData") != m.end() && !m["MainData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MainData"].type()) {
+        DescribeMultimodalModerationResultResponseBodyDataMainData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MainData"]));
+        mainData = make_shared<DescribeMultimodalModerationResultResponseBodyDataMainData>(model1);
+      }
+    }
+    if (m.find("ReqId") != m.end() && !m["ReqId"].empty()) {
+      reqId = make_shared<string>(boost::any_cast<string>(m["ReqId"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponseBodyData() = default;
+};
+class DescribeMultimodalModerationResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<DescribeMultimodalModerationResultResponseBodyData> data{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+
+  DescribeMultimodalModerationResultResponseBody() {}
+
+  explicit DescribeMultimodalModerationResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeMultimodalModerationResultResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeMultimodalModerationResultResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponseBody() = default;
+};
+class DescribeMultimodalModerationResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeMultimodalModerationResultResponseBody> body{};
+
+  DescribeMultimodalModerationResultResponse() {}
+
+  explicit DescribeMultimodalModerationResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeMultimodalModerationResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeMultimodalModerationResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMultimodalModerationResultResponse() = default;
+};
 class DescribeUploadTokenResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> accessKeyId{};
@@ -5722,6 +6183,184 @@ public:
 
   virtual ~MultiModalGuardResponse() = default;
 };
+class MultimodalAsyncModerationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> service{};
+  shared_ptr<string> serviceParameters{};
+
+  MultimodalAsyncModerationRequest() {}
+
+  explicit MultimodalAsyncModerationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (service) {
+      res["Service"] = boost::any(*service);
+    }
+    if (serviceParameters) {
+      res["ServiceParameters"] = boost::any(*serviceParameters);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Service") != m.end() && !m["Service"].empty()) {
+      service = make_shared<string>(boost::any_cast<string>(m["Service"]));
+    }
+    if (m.find("ServiceParameters") != m.end() && !m["ServiceParameters"].empty()) {
+      serviceParameters = make_shared<string>(boost::any_cast<string>(m["ServiceParameters"]));
+    }
+  }
+
+
+  virtual ~MultimodalAsyncModerationRequest() = default;
+};
+class MultimodalAsyncModerationResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> dataId{};
+  shared_ptr<string> reqId{};
+
+  MultimodalAsyncModerationResponseBodyData() {}
+
+  explicit MultimodalAsyncModerationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataId) {
+      res["DataId"] = boost::any(*dataId);
+    }
+    if (reqId) {
+      res["ReqId"] = boost::any(*reqId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
+    if (m.find("ReqId") != m.end() && !m["ReqId"].empty()) {
+      reqId = make_shared<string>(boost::any_cast<string>(m["ReqId"]));
+    }
+  }
+
+
+  virtual ~MultimodalAsyncModerationResponseBodyData() = default;
+};
+class MultimodalAsyncModerationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<MultimodalAsyncModerationResponseBodyData> data{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+
+  MultimodalAsyncModerationResponseBody() {}
+
+  explicit MultimodalAsyncModerationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        MultimodalAsyncModerationResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<MultimodalAsyncModerationResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~MultimodalAsyncModerationResponseBody() = default;
+};
+class MultimodalAsyncModerationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<MultimodalAsyncModerationResponseBody> body{};
+
+  MultimodalAsyncModerationResponse() {}
+
+  explicit MultimodalAsyncModerationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        MultimodalAsyncModerationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<MultimodalAsyncModerationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MultimodalAsyncModerationResponse() = default;
+};
 class TextModerationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> service{};
@@ -8758,6 +9397,8 @@ public:
   DescribeImageModerationResultResponse describeImageModerationResult(shared_ptr<DescribeImageModerationResultRequest> request);
   DescribeImageResultExtResponse describeImageResultExtWithOptions(shared_ptr<DescribeImageResultExtRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeImageResultExtResponse describeImageResultExt(shared_ptr<DescribeImageResultExtRequest> request);
+  DescribeMultimodalModerationResultResponse describeMultimodalModerationResultWithOptions(shared_ptr<DescribeMultimodalModerationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeMultimodalModerationResultResponse describeMultimodalModerationResult(shared_ptr<DescribeMultimodalModerationResultRequest> request);
   DescribeUploadTokenResponse describeUploadTokenWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeUploadTokenResponse describeUploadToken();
   DescribeUrlModerationResultResponse describeUrlModerationResultWithOptions(shared_ptr<DescribeUrlModerationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8778,6 +9419,8 @@ public:
   ManualModerationResultResponse manualModerationResult(shared_ptr<ManualModerationResultRequest> request);
   MultiModalGuardResponse multiModalGuardWithOptions(shared_ptr<MultiModalGuardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   MultiModalGuardResponse multiModalGuard(shared_ptr<MultiModalGuardRequest> request);
+  MultimodalAsyncModerationResponse multimodalAsyncModerationWithOptions(shared_ptr<MultimodalAsyncModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MultimodalAsyncModerationResponse multimodalAsyncModeration(shared_ptr<MultimodalAsyncModerationRequest> request);
   TextModerationResponse textModerationWithOptions(shared_ptr<TextModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TextModerationResponse textModeration(shared_ptr<TextModerationRequest> request);
   TextModerationPlusResponse textModerationPlusWithOptions(shared_ptr<TextModerationPlusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
