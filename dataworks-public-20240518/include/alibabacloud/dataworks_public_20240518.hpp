@@ -29199,6 +29199,7 @@ public:
   shared_ptr<vector<GetProjectMemberResponseBodyProjectMemberRoles>> roles{};
   shared_ptr<string> status{};
   shared_ptr<string> userId{};
+  shared_ptr<string> userName{};
 
   GetProjectMemberResponseBodyProjectMember() {}
 
@@ -29226,6 +29227,9 @@ public:
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
     return res;
   }
 
@@ -29251,6 +29255,9 @@ public:
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
     }
   }
 
@@ -53275,6 +53282,7 @@ public:
   shared_ptr<vector<ListProjectMembersResponseBodyPagingInfoProjectMembersRoles>> roles{};
   shared_ptr<string> status{};
   shared_ptr<string> userId{};
+  shared_ptr<string> userName{};
 
   ListProjectMembersResponseBodyPagingInfoProjectMembers() {}
 
@@ -53302,6 +53310,9 @@ public:
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
     return res;
   }
 
@@ -53327,6 +53338,9 @@ public:
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
     }
   }
 
