@@ -3736,6 +3736,35 @@ public:
 
   virtual ~GetFeatureViewResponse() = default;
 };
+class GetInstanceResponseBodyFeatureDBInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+
+  GetInstanceResponseBodyFeatureDBInfo() {}
+
+  explicit GetInstanceResponseBodyFeatureDBInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyFeatureDBInfo() = default;
+};
 class GetInstanceResponseBodyFeatureDBInstanceInfo : public Darabonba::Model {
 public:
   shared_ptr<string> status{};
@@ -3767,6 +3796,7 @@ public:
 };
 class GetInstanceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<GetInstanceResponseBodyFeatureDBInfo> featureDBInfo{};
   shared_ptr<GetInstanceResponseBodyFeatureDBInstanceInfo> featureDBInstanceInfo{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
@@ -3787,6 +3817,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (featureDBInfo) {
+      res["FeatureDBInfo"] = featureDBInfo ? boost::any(featureDBInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (featureDBInstanceInfo) {
       res["FeatureDBInstanceInfo"] = featureDBInstanceInfo ? boost::any(featureDBInstanceInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3818,6 +3851,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeatureDBInfo") != m.end() && !m["FeatureDBInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FeatureDBInfo"].type()) {
+        GetInstanceResponseBodyFeatureDBInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FeatureDBInfo"]));
+        featureDBInfo = make_shared<GetInstanceResponseBodyFeatureDBInfo>(model1);
+      }
+    }
     if (m.find("FeatureDBInstanceInfo") != m.end() && !m["FeatureDBInstanceInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["FeatureDBInstanceInfo"].type()) {
         GetInstanceResponseBodyFeatureDBInstanceInfo model1;
@@ -8077,6 +8117,35 @@ public:
 
   virtual ~ListInstancesRequest() = default;
 };
+class ListInstancesResponseBodyInstancesFeatureDBInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+
+  ListInstancesResponseBodyInstancesFeatureDBInfo() {}
+
+  explicit ListInstancesResponseBodyInstancesFeatureDBInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyInstancesFeatureDBInfo() = default;
+};
 class ListInstancesResponseBodyInstancesFeatureDBInstanceInfo : public Darabonba::Model {
 public:
   shared_ptr<string> status{};
@@ -8108,6 +8177,7 @@ public:
 };
 class ListInstancesResponseBodyInstances : public Darabonba::Model {
 public:
+  shared_ptr<ListInstancesResponseBodyInstancesFeatureDBInfo> featureDBInfo{};
   shared_ptr<ListInstancesResponseBodyInstancesFeatureDBInstanceInfo> featureDBInstanceInfo{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
@@ -8126,6 +8196,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (featureDBInfo) {
+      res["FeatureDBInfo"] = featureDBInfo ? boost::any(featureDBInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (featureDBInstanceInfo) {
       res["FeatureDBInstanceInfo"] = featureDBInstanceInfo ? boost::any(featureDBInstanceInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -8151,6 +8224,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeatureDBInfo") != m.end() && !m["FeatureDBInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FeatureDBInfo"].type()) {
+        ListInstancesResponseBodyInstancesFeatureDBInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FeatureDBInfo"]));
+        featureDBInfo = make_shared<ListInstancesResponseBodyInstancesFeatureDBInfo>(model1);
+      }
+    }
     if (m.find("FeatureDBInstanceInfo") != m.end() && !m["FeatureDBInstanceInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["FeatureDBInstanceInfo"].type()) {
         ListInstancesResponseBodyInstancesFeatureDBInstanceInfo model1;
