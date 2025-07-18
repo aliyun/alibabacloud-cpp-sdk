@@ -46037,6 +46037,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> separators{};
   shared_ptr<string> textSplitterName{};
+  shared_ptr<bool> vlEnhance{};
   shared_ptr<bool> zhTitleEnhance{};
 
   UploadDocumentAsyncRequest() {}
@@ -46093,6 +46094,9 @@ public:
     }
     if (textSplitterName) {
       res["TextSplitterName"] = boost::any(*textSplitterName);
+    }
+    if (vlEnhance) {
+      res["VlEnhance"] = boost::any(*vlEnhance);
     }
     if (zhTitleEnhance) {
       res["ZhTitleEnhance"] = boost::any(*zhTitleEnhance);
@@ -46158,6 +46162,9 @@ public:
     if (m.find("TextSplitterName") != m.end() && !m["TextSplitterName"].empty()) {
       textSplitterName = make_shared<string>(boost::any_cast<string>(m["TextSplitterName"]));
     }
+    if (m.find("VlEnhance") != m.end() && !m["VlEnhance"].empty()) {
+      vlEnhance = make_shared<bool>(boost::any_cast<bool>(m["VlEnhance"]));
+    }
     if (m.find("ZhTitleEnhance") != m.end() && !m["ZhTitleEnhance"].empty()) {
       zhTitleEnhance = make_shared<bool>(boost::any_cast<bool>(m["ZhTitleEnhance"]));
     }
@@ -46183,6 +46190,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> separators{};
   shared_ptr<string> textSplitterName{};
+  shared_ptr<bool> vlEnhance{};
   shared_ptr<bool> zhTitleEnhance{};
 
   UploadDocumentAsyncAdvanceRequest() {}
@@ -46239,6 +46247,9 @@ public:
     }
     if (textSplitterName) {
       res["TextSplitterName"] = boost::any(*textSplitterName);
+    }
+    if (vlEnhance) {
+      res["VlEnhance"] = boost::any(*vlEnhance);
     }
     if (zhTitleEnhance) {
       res["ZhTitleEnhance"] = boost::any(*zhTitleEnhance);
@@ -46304,6 +46315,9 @@ public:
     if (m.find("TextSplitterName") != m.end() && !m["TextSplitterName"].empty()) {
       textSplitterName = make_shared<string>(boost::any_cast<string>(m["TextSplitterName"]));
     }
+    if (m.find("VlEnhance") != m.end() && !m["VlEnhance"].empty()) {
+      vlEnhance = make_shared<bool>(boost::any_cast<bool>(m["VlEnhance"]));
+    }
     if (m.find("ZhTitleEnhance") != m.end() && !m["ZhTitleEnhance"].empty()) {
       zhTitleEnhance = make_shared<bool>(boost::any_cast<bool>(m["ZhTitleEnhance"]));
     }
@@ -46329,6 +46343,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> separatorsShrink{};
   shared_ptr<string> textSplitterName{};
+  shared_ptr<bool> vlEnhance{};
   shared_ptr<bool> zhTitleEnhance{};
 
   UploadDocumentAsyncShrinkRequest() {}
@@ -46386,6 +46401,9 @@ public:
     if (textSplitterName) {
       res["TextSplitterName"] = boost::any(*textSplitterName);
     }
+    if (vlEnhance) {
+      res["VlEnhance"] = boost::any(*vlEnhance);
+    }
     if (zhTitleEnhance) {
       res["ZhTitleEnhance"] = boost::any(*zhTitleEnhance);
     }
@@ -46437,6 +46455,9 @@ public:
     }
     if (m.find("TextSplitterName") != m.end() && !m["TextSplitterName"].empty()) {
       textSplitterName = make_shared<string>(boost::any_cast<string>(m["TextSplitterName"]));
+    }
+    if (m.find("VlEnhance") != m.end() && !m["VlEnhance"].empty()) {
+      vlEnhance = make_shared<bool>(boost::any_cast<bool>(m["VlEnhance"]));
     }
     if (m.find("ZhTitleEnhance") != m.end() && !m["ZhTitleEnhance"].empty()) {
       zhTitleEnhance = make_shared<bool>(boost::any_cast<bool>(m["ZhTitleEnhance"]));

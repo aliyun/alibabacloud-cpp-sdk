@@ -9143,6 +9143,9 @@ UploadDocumentAsyncResponse Alibabacloud_Gpdb20160503::Client::uploadDocumentAsy
   if (!Darabonba_Util::Client::isUnset<string>(request->textSplitterName)) {
     body->insert(pair<string, string>("TextSplitterName", *request->textSplitterName));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->vlEnhance)) {
+    body->insert(pair<string, bool>("VlEnhance", *request->vlEnhance));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->zhTitleEnhance)) {
     body->insert(pair<string, bool>("ZhTitleEnhance", *request->zhTitleEnhance));
   }
