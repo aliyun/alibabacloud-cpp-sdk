@@ -1138,6 +1138,43 @@ KeepaliveIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::keepaliveIntl
   return keepaliveIntlWithOptions(runtime);
 }
 
+Mobile2MetaVerifyIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::mobile2MetaVerifyIntlWithOptions(shared_ptr<Mobile2MetaVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
+    body->insert(pair<string, string>("Mobile", *request->mobile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    body->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    body->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
+    body->insert(pair<string, string>("UserName", *request->userName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("Mobile2MetaVerifyIntl"))},
+    {"version", boost::any(string("2022-08-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return Mobile2MetaVerifyIntlResponse(callApi(params, req, runtime));
+}
+
+Mobile2MetaVerifyIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::mobile2MetaVerifyIntl(shared_ptr<Mobile2MetaVerifyIntlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return mobile2MetaVerifyIntlWithOptions(request, runtime);
+}
+
 Mobile3MetaVerifyIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::mobile3MetaVerifyIntlWithOptions(shared_ptr<Mobile3MetaVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
