@@ -15096,6 +15096,9 @@ ModifyCloudAssistantSettingsResponse Alibabacloud_Ecs20140526::Client::modifyClo
   if (!Darabonba_Util::Client::isUnset<ModifyCloudAssistantSettingsRequestOssDeliveryConfig>(tmpReq->ossDeliveryConfig)) {
     request->ossDeliveryConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ossDeliveryConfig, make_shared<string>("OssDeliveryConfig"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<ModifyCloudAssistantSettingsRequestSessionManagerConfig>(tmpReq->sessionManagerConfig)) {
+    request->sessionManagerConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sessionManagerConfig, make_shared<string>("SessionManagerConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ModifyCloudAssistantSettingsRequestSlsDeliveryConfig>(tmpReq->slsDeliveryConfig)) {
     request->slsDeliveryConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->slsDeliveryConfig, make_shared<string>("SlsDeliveryConfig"), make_shared<string>("json")));
   }
@@ -15120,6 +15123,9 @@ ModifyCloudAssistantSettingsResponse Alibabacloud_Ecs20140526::Client::modifyClo
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionManagerConfigShrink)) {
+    query->insert(pair<string, string>("SessionManagerConfig", *request->sessionManagerConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->settingType)) {
     query->insert(pair<string, string>("SettingType", *request->settingType));
