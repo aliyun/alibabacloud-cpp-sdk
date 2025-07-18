@@ -12372,6 +12372,7 @@ public:
   shared_ptr<long> expireTimestamp{};
   shared_ptr<string> gatewayId{};
   shared_ptr<string> gatewayType{};
+  shared_ptr<string> isp{};
   shared_ptr<vector<GetGatewayResponseBodyDataLoadBalancers>> loadBalancers{};
   shared_ptr<string> name{};
   shared_ptr<string> replicas{};
@@ -12421,6 +12422,9 @@ public:
     }
     if (gatewayType) {
       res["gatewayType"] = boost::any(*gatewayType);
+    }
+    if (isp) {
+      res["isp"] = boost::any(*isp);
     }
     if (loadBalancers) {
       vector<boost::any> temp1;
@@ -12510,6 +12514,9 @@ public:
     }
     if (m.find("gatewayType") != m.end() && !m["gatewayType"].empty()) {
       gatewayType = make_shared<string>(boost::any_cast<string>(m["gatewayType"]));
+    }
+    if (m.find("isp") != m.end() && !m["isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["isp"]));
     }
     if (m.find("loadBalancers") != m.end() && !m["loadBalancers"].empty()) {
       if (typeid(vector<boost::any>) == m["loadBalancers"].type()) {
