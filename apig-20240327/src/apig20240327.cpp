@@ -76,6 +76,36 @@ AddGatewaySecurityGroupRuleResponse Alibabacloud_APIG20240327::Client::addGatewa
   return addGatewaySecurityGroupRuleWithOptions(gatewayId, request, headers, runtime);
 }
 
+BatchDeleteConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::batchDeleteConsumerAuthorizationRuleWithOptions(shared_ptr<BatchDeleteConsumerAuthorizationRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->consumerAuthorizationRuleIds)) {
+    query->insert(pair<string, string>("consumerAuthorizationRuleIds", *request->consumerAuthorizationRuleIds));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchDeleteConsumerAuthorizationRule"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/authorization-rules"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchDeleteConsumerAuthorizationRuleResponse(callApi(params, req, runtime));
+}
+
+BatchDeleteConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::batchDeleteConsumerAuthorizationRule(shared_ptr<BatchDeleteConsumerAuthorizationRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return batchDeleteConsumerAuthorizationRuleWithOptions(request, headers, runtime);
+}
+
 ChangeResourceGroupResponse Alibabacloud_APIG20240327::Client::changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -113,6 +143,129 @@ ChangeResourceGroupResponse Alibabacloud_APIG20240327::Client::changeResourceGro
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return changeResourceGroupWithOptions(request, headers, runtime);
+}
+
+CreateConsumerResponse Alibabacloud_APIG20240327::Client::createConsumerWithOptions(shared_ptr<CreateConsumerRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AkSkIdentityConfig>>(request->akSkIdentityConfigs)) {
+    body->insert(pair<string, vector<AkSkIdentityConfig>>("akSkIdentityConfigs", *request->akSkIdentityConfigs));
+  }
+  if (!Darabonba_Util::Client::isUnset<ApiKeyIdentityConfig>(request->apikeyIdentityConfig)) {
+    body->insert(pair<string, ApiKeyIdentityConfig>("apikeyIdentityConfig", *request->apikeyIdentityConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
+    body->insert(pair<string, bool>("enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayType)) {
+    body->insert(pair<string, string>("gatewayType", *request->gatewayType));
+  }
+  if (!Darabonba_Util::Client::isUnset<JwtIdentityConfig>(request->jwtIdentityConfig)) {
+    body->insert(pair<string, JwtIdentityConfig>("jwtIdentityConfig", *request->jwtIdentityConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateConsumer"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateConsumerResponse(callApi(params, req, runtime));
+}
+
+CreateConsumerResponse Alibabacloud_APIG20240327::Client::createConsumer(shared_ptr<CreateConsumerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createConsumerWithOptions(request, headers, runtime);
+}
+
+CreateConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::createConsumerAuthorizationRuleWithOptions(shared_ptr<string> consumerId,
+                                                                                                                      shared_ptr<CreateConsumerAuthorizationRuleRequest> request,
+                                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AuthorizationResourceInfo>>(request->authorizationResourceInfos)) {
+    body->insert(pair<string, vector<AuthorizationResourceInfo>>("authorizationResourceInfos", *request->authorizationResourceInfos));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->expireMode)) {
+    body->insert(pair<string, string>("expireMode", *request->expireMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->expireTimestamp)) {
+    body->insert(pair<string, long>("expireTimestamp", *request->expireTimestamp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentResourceType)) {
+    body->insert(pair<string, string>("parentResourceType", *request->parentResourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    body->insert(pair<string, string>("resourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateConsumerAuthorizationRule"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerId)) + string("/authorization-rules"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateConsumerAuthorizationRuleResponse(callApi(params, req, runtime));
+}
+
+CreateConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::createConsumerAuthorizationRule(shared_ptr<string> consumerId, shared_ptr<CreateConsumerAuthorizationRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createConsumerAuthorizationRuleWithOptions(consumerId, request, headers, runtime);
+}
+
+CreateConsumerAuthorizationRulesResponse Alibabacloud_APIG20240327::Client::createConsumerAuthorizationRulesWithOptions(shared_ptr<CreateConsumerAuthorizationRulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateConsumerAuthorizationRulesRequestAuthorizationRules>>(request->authorizationRules)) {
+    body->insert(pair<string, vector<CreateConsumerAuthorizationRulesRequestAuthorizationRules>>("authorizationRules", *request->authorizationRules));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateConsumerAuthorizationRules"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/authorization-rules"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateConsumerAuthorizationRulesResponse(callApi(params, req, runtime));
+}
+
+CreateConsumerAuthorizationRulesResponse Alibabacloud_APIG20240327::Client::createConsumerAuthorizationRules(shared_ptr<CreateConsumerAuthorizationRulesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createConsumerAuthorizationRulesWithOptions(request, headers, runtime);
 }
 
 CreateDomainResponse Alibabacloud_APIG20240327::Client::createDomainWithOptions(shared_ptr<CreateDomainRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -221,6 +374,63 @@ CreateEnvironmentResponse Alibabacloud_APIG20240327::Client::createEnvironment(s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return createEnvironmentWithOptions(request, headers, runtime);
+}
+
+CreateGatewayResponse Alibabacloud_APIG20240327::Client::createGatewayWithOptions(shared_ptr<CreateGatewayRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
+    body->insert(pair<string, string>("chargeType", *request->chargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayType)) {
+    body->insert(pair<string, string>("gatewayType", *request->gatewayType));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateGatewayRequestLogConfig>(request->logConfig)) {
+    body->insert(pair<string, CreateGatewayRequestLogConfig>("logConfig", *request->logConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateGatewayRequestNetworkAccessConfig>(request->networkAccessConfig)) {
+    body->insert(pair<string, CreateGatewayRequestNetworkAccessConfig>("networkAccessConfig", *request->networkAccessConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
+    body->insert(pair<string, string>("spec", *request->spec));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateGatewayRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<CreateGatewayRequestTag>>("tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    body->insert(pair<string, string>("vpcId", *request->vpcId));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateGatewayRequestZoneConfig>(request->zoneConfig)) {
+    body->insert(pair<string, CreateGatewayRequestZoneConfig>("zoneConfig", *request->zoneConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateGateway"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/gateways"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateGatewayResponse(callApi(params, req, runtime));
+}
+
+CreateGatewayResponse Alibabacloud_APIG20240327::Client::createGateway(shared_ptr<CreateGatewayRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createGatewayWithOptions(request, headers, runtime);
 }
 
 CreateHttpApiResponse Alibabacloud_APIG20240327::Client::createHttpApiWithOptions(shared_ptr<CreateHttpApiRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -548,6 +758,57 @@ CreateServiceResponse Alibabacloud_APIG20240327::Client::createService(shared_pt
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return createServiceWithOptions(request, headers, runtime);
+}
+
+DeleteConsumerResponse Alibabacloud_APIG20240327::Client::deleteConsumerWithOptions(shared_ptr<string> consumerId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteConsumer"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteConsumerResponse(callApi(params, req, runtime));
+}
+
+DeleteConsumerResponse Alibabacloud_APIG20240327::Client::deleteConsumer(shared_ptr<string> consumerId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteConsumerWithOptions(consumerId, headers, runtime);
+}
+
+DeleteConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::deleteConsumerAuthorizationRuleWithOptions(shared_ptr<string> consumerAuthorizationRuleId,
+                                                                                                                      shared_ptr<string> consumerId,
+                                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteConsumerAuthorizationRule"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerId)) + string("/authorization-rules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerAuthorizationRuleId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteConsumerAuthorizationRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::deleteConsumerAuthorizationRule(shared_ptr<string> consumerAuthorizationRuleId, shared_ptr<string> consumerId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, consumerId, headers, runtime);
 }
 
 DeleteDomainResponse Alibabacloud_APIG20240327::Client::deleteDomainWithOptions(shared_ptr<string> domainId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -891,6 +1152,57 @@ ExportHttpApiResponse Alibabacloud_APIG20240327::Client::exportHttpApi(shared_pt
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return exportHttpApiWithOptions(httpApiId, headers, runtime);
+}
+
+GetConsumerResponse Alibabacloud_APIG20240327::Client::getConsumerWithOptions(shared_ptr<string> consumerId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetConsumer"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetConsumerResponse(callApi(params, req, runtime));
+}
+
+GetConsumerResponse Alibabacloud_APIG20240327::Client::getConsumer(shared_ptr<string> consumerId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getConsumerWithOptions(consumerId, headers, runtime);
+}
+
+GetConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::getConsumerAuthorizationRuleWithOptions(shared_ptr<string> consumerAuthorizationRuleId,
+                                                                                                                shared_ptr<string> consumerId,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetConsumerAuthorizationRule"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerId)) + string("/authorization-rules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerAuthorizationRuleId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetConsumerAuthorizationRuleResponse(callApi(params, req, runtime));
+}
+
+GetConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::getConsumerAuthorizationRule(shared_ptr<string> consumerAuthorizationRuleId, shared_ptr<string> consumerId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, consumerId, headers, runtime);
 }
 
 GetDashboardResponse Alibabacloud_APIG20240327::Client::getDashboardWithOptions(shared_ptr<string> gatewayId,
@@ -1343,6 +1655,45 @@ ImportHttpApiResponse Alibabacloud_APIG20240327::Client::importHttpApi(shared_pt
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return importHttpApiWithOptions(request, headers, runtime);
+}
+
+ListConsumersResponse Alibabacloud_APIG20240327::Client::listConsumersWithOptions(shared_ptr<ListConsumersRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayType)) {
+    query->insert(pair<string, string>("gatewayType", *request->gatewayType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nameLike)) {
+    query->insert(pair<string, string>("nameLike", *request->nameLike));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListConsumers"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListConsumersResponse(callApi(params, req, runtime));
+}
+
+ListConsumersResponse Alibabacloud_APIG20240327::Client::listConsumers(shared_ptr<ListConsumersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listConsumersWithOptions(request, headers, runtime);
 }
 
 ListDomainsResponse Alibabacloud_APIG20240327::Client::listDomainsWithOptions(shared_ptr<ListDomainsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1977,6 +2328,87 @@ ListZonesResponse Alibabacloud_APIG20240327::Client::listZones() {
   return listZonesWithOptions(headers, runtime);
 }
 
+QueryConsumerAuthorizationRulesResponse Alibabacloud_APIG20240327::Client::queryConsumerAuthorizationRulesWithOptions(shared_ptr<QueryConsumerAuthorizationRulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiNameLike)) {
+    query->insert(pair<string, string>("apiNameLike", *request->apiNameLike));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->consumerId)) {
+    query->insert(pair<string, string>("consumerId", *request->consumerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->consumerNameLike)) {
+    query->insert(pair<string, string>("consumerNameLike", *request->consumerNameLike));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
+    query->insert(pair<string, string>("environmentId", *request->environmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->groupByApi)) {
+    query->insert(pair<string, bool>("groupByApi", *request->groupByApi));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentResourceId)) {
+    query->insert(pair<string, string>("parentResourceId", *request->parentResourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    query->insert(pair<string, string>("resourceId", *request->resourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("resourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryConsumerAuthorizationRules"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/authorization-rules"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryConsumerAuthorizationRulesResponse(callApi(params, req, runtime));
+}
+
+QueryConsumerAuthorizationRulesResponse Alibabacloud_APIG20240327::Client::queryConsumerAuthorizationRules(shared_ptr<QueryConsumerAuthorizationRulesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryConsumerAuthorizationRulesWithOptions(request, headers, runtime);
+}
+
+RemoveConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::removeConsumerAuthorizationRuleWithOptions(shared_ptr<string> consumerAuthorizationRuleId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RemoveConsumerAuthorizationRule"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/authorization-rules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerAuthorizationRuleId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RemoveConsumerAuthorizationRuleResponse(callApi(params, req, runtime));
+}
+
+RemoveConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::removeConsumerAuthorizationRule(shared_ptr<string> consumerAuthorizationRuleId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return removeConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, headers, runtime);
+}
+
 RestartGatewayResponse Alibabacloud_APIG20240327::Client::restartGatewayWithOptions(shared_ptr<string> gatewayId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -2041,6 +2473,91 @@ UndeployHttpApiResponse Alibabacloud_APIG20240327::Client::undeployHttpApi(share
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return undeployHttpApiWithOptions(httpApiId, request, headers, runtime);
+}
+
+UpdateConsumerResponse Alibabacloud_APIG20240327::Client::updateConsumerWithOptions(shared_ptr<string> consumerId,
+                                                                                    shared_ptr<UpdateConsumerRequest> request,
+                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AkSkIdentityConfig>>(request->akSkIdentityConfigs)) {
+    body->insert(pair<string, vector<AkSkIdentityConfig>>("akSkIdentityConfigs", *request->akSkIdentityConfigs));
+  }
+  if (!Darabonba_Util::Client::isUnset<ApiKeyIdentityConfig>(request->apikeyIdentityConfig)) {
+    body->insert(pair<string, ApiKeyIdentityConfig>("apikeyIdentityConfig", *request->apikeyIdentityConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
+    body->insert(pair<string, bool>("enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<JwtIdentityConfig>(request->jwtIdentityConfig)) {
+    body->insert(pair<string, JwtIdentityConfig>("jwtIdentityConfig", *request->jwtIdentityConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateConsumer"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateConsumerResponse(callApi(params, req, runtime));
+}
+
+UpdateConsumerResponse Alibabacloud_APIG20240327::Client::updateConsumer(shared_ptr<string> consumerId, shared_ptr<UpdateConsumerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateConsumerWithOptions(consumerId, request, headers, runtime);
+}
+
+UpdateConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::updateConsumerAuthorizationRuleWithOptions(shared_ptr<string> consumerId,
+                                                                                                                      shared_ptr<string> consumerAuthorizationRuleId,
+                                                                                                                      shared_ptr<UpdateConsumerAuthorizationRuleRequest> request,
+                                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AuthorizationResourceInfo>>(request->authorizationResourceInfos)) {
+    body->insert(pair<string, vector<AuthorizationResourceInfo>>("authorizationResourceInfos", *request->authorizationResourceInfos));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->expireMode)) {
+    body->insert(pair<string, string>("expireMode", *request->expireMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->expireTimestamp)) {
+    body->insert(pair<string, long>("expireTimestamp", *request->expireTimestamp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateConsumerAuthorizationRule"))},
+    {"version", boost::any(string("2024-03-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/consumers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerId)) + string("/authorization-rules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerAuthorizationRuleId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateConsumerAuthorizationRuleResponse(callApi(params, req, runtime));
+}
+
+UpdateConsumerAuthorizationRuleResponse Alibabacloud_APIG20240327::Client::updateConsumerAuthorizationRule(shared_ptr<string> consumerId, shared_ptr<string> consumerAuthorizationRuleId, shared_ptr<UpdateConsumerAuthorizationRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateConsumerAuthorizationRuleWithOptions(consumerId, consumerAuthorizationRuleId, request, headers, runtime);
 }
 
 UpdateDomainResponse Alibabacloud_APIG20240327::Client::updateDomainWithOptions(shared_ptr<string> domainId,
