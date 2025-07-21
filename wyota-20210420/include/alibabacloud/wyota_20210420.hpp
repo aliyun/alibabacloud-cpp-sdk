@@ -2056,6 +2056,7 @@ public:
   shared_ptr<string> clientVersion{};
   shared_ptr<string> customId{};
   shared_ptr<string> etherMac{};
+  shared_ptr<string> hostOsInfo{};
   shared_ptr<string> loginRegionId{};
   shared_ptr<string> loginToken{};
   shared_ptr<string> serialNo{};
@@ -2094,6 +2095,9 @@ public:
     }
     if (etherMac) {
       res["EtherMac"] = boost::any(*etherMac);
+    }
+    if (hostOsInfo) {
+      res["HostOsInfo"] = boost::any(*hostOsInfo);
     }
     if (loginRegionId) {
       res["LoginRegionId"] = boost::any(*loginRegionId);
@@ -2140,6 +2144,9 @@ public:
     }
     if (m.find("EtherMac") != m.end() && !m["EtherMac"].empty()) {
       etherMac = make_shared<string>(boost::any_cast<string>(m["EtherMac"]));
+    }
+    if (m.find("HostOsInfo") != m.end() && !m["HostOsInfo"].empty()) {
+      hostOsInfo = make_shared<string>(boost::any_cast<string>(m["HostOsInfo"]));
     }
     if (m.find("LoginRegionId") != m.end() && !m["LoginRegionId"].empty()) {
       loginRegionId = make_shared<string>(boost::any_cast<string>(m["LoginRegionId"]));
@@ -7667,6 +7674,7 @@ public:
 };
 class GetFbOssConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> areaSite{};
   shared_ptr<string> dirPrefix{};
   shared_ptr<long> isDedicatedLine{};
   shared_ptr<string> region{};
@@ -7681,6 +7689,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (areaSite) {
+      res["AreaSite"] = boost::any(*areaSite);
+    }
     if (dirPrefix) {
       res["DirPrefix"] = boost::any(*dirPrefix);
     }
@@ -7694,6 +7705,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AreaSite") != m.end() && !m["AreaSite"].empty()) {
+      areaSite = make_shared<string>(boost::any_cast<string>(m["AreaSite"]));
+    }
     if (m.find("DirPrefix") != m.end() && !m["DirPrefix"].empty()) {
       dirPrefix = make_shared<string>(boost::any_cast<string>(m["DirPrefix"]));
     }
@@ -14882,10 +14896,14 @@ public:
   shared_ptr<string> errorMsg{};
   shared_ptr<long> fbType{};
   shared_ptr<vector<ReportUserFbIssueRequestFileList>> fileList{};
+  shared_ptr<bool> isSubstituteReport{};
   shared_ptr<string> issueLabel{};
+  shared_ptr<string> loginRegionId{};
+  shared_ptr<string> loginToken{};
   shared_ptr<long> occurTime{};
   shared_ptr<string> reservedA{};
   shared_ptr<string> reservedB{};
+  shared_ptr<string> sessionId{};
   shared_ptr<string> telNo{};
   shared_ptr<string> title{};
   shared_ptr<string> userEmail{};
@@ -14953,8 +14971,17 @@ public:
       }
       res["FileList"] = boost::any(temp1);
     }
+    if (isSubstituteReport) {
+      res["IsSubstituteReport"] = boost::any(*isSubstituteReport);
+    }
     if (issueLabel) {
       res["IssueLabel"] = boost::any(*issueLabel);
+    }
+    if (loginRegionId) {
+      res["LoginRegionId"] = boost::any(*loginRegionId);
+    }
+    if (loginToken) {
+      res["LoginToken"] = boost::any(*loginToken);
     }
     if (occurTime) {
       res["OccurTime"] = boost::any(*occurTime);
@@ -14964,6 +14991,9 @@ public:
     }
     if (reservedB) {
       res["ReservedB"] = boost::any(*reservedB);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
     }
     if (telNo) {
       res["TelNo"] = boost::any(*telNo);
@@ -15045,8 +15075,17 @@ public:
         fileList = make_shared<vector<ReportUserFbIssueRequestFileList>>(expect1);
       }
     }
+    if (m.find("IsSubstituteReport") != m.end() && !m["IsSubstituteReport"].empty()) {
+      isSubstituteReport = make_shared<bool>(boost::any_cast<bool>(m["IsSubstituteReport"]));
+    }
     if (m.find("IssueLabel") != m.end() && !m["IssueLabel"].empty()) {
       issueLabel = make_shared<string>(boost::any_cast<string>(m["IssueLabel"]));
+    }
+    if (m.find("LoginRegionId") != m.end() && !m["LoginRegionId"].empty()) {
+      loginRegionId = make_shared<string>(boost::any_cast<string>(m["LoginRegionId"]));
+    }
+    if (m.find("LoginToken") != m.end() && !m["LoginToken"].empty()) {
+      loginToken = make_shared<string>(boost::any_cast<string>(m["LoginToken"]));
     }
     if (m.find("OccurTime") != m.end() && !m["OccurTime"].empty()) {
       occurTime = make_shared<long>(boost::any_cast<long>(m["OccurTime"]));
@@ -15056,6 +15095,9 @@ public:
     }
     if (m.find("ReservedB") != m.end() && !m["ReservedB"].empty()) {
       reservedB = make_shared<string>(boost::any_cast<string>(m["ReservedB"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
     if (m.find("TelNo") != m.end() && !m["TelNo"].empty()) {
       telNo = make_shared<string>(boost::any_cast<string>(m["TelNo"]));
@@ -15100,10 +15142,14 @@ public:
   shared_ptr<string> errorMsg{};
   shared_ptr<long> fbType{};
   shared_ptr<string> fileListShrink{};
+  shared_ptr<bool> isSubstituteReport{};
   shared_ptr<string> issueLabel{};
+  shared_ptr<string> loginRegionId{};
+  shared_ptr<string> loginToken{};
   shared_ptr<long> occurTime{};
   shared_ptr<string> reservedA{};
   shared_ptr<string> reservedB{};
+  shared_ptr<string> sessionId{};
   shared_ptr<string> telNo{};
   shared_ptr<string> title{};
   shared_ptr<string> userEmail{};
@@ -15167,8 +15213,17 @@ public:
     if (fileListShrink) {
       res["FileList"] = boost::any(*fileListShrink);
     }
+    if (isSubstituteReport) {
+      res["IsSubstituteReport"] = boost::any(*isSubstituteReport);
+    }
     if (issueLabel) {
       res["IssueLabel"] = boost::any(*issueLabel);
+    }
+    if (loginRegionId) {
+      res["LoginRegionId"] = boost::any(*loginRegionId);
+    }
+    if (loginToken) {
+      res["LoginToken"] = boost::any(*loginToken);
     }
     if (occurTime) {
       res["OccurTime"] = boost::any(*occurTime);
@@ -15178,6 +15233,9 @@ public:
     }
     if (reservedB) {
       res["ReservedB"] = boost::any(*reservedB);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
     }
     if (telNo) {
       res["TelNo"] = boost::any(*telNo);
@@ -15249,8 +15307,17 @@ public:
     if (m.find("FileList") != m.end() && !m["FileList"].empty()) {
       fileListShrink = make_shared<string>(boost::any_cast<string>(m["FileList"]));
     }
+    if (m.find("IsSubstituteReport") != m.end() && !m["IsSubstituteReport"].empty()) {
+      isSubstituteReport = make_shared<bool>(boost::any_cast<bool>(m["IsSubstituteReport"]));
+    }
     if (m.find("IssueLabel") != m.end() && !m["IssueLabel"].empty()) {
       issueLabel = make_shared<string>(boost::any_cast<string>(m["IssueLabel"]));
+    }
+    if (m.find("LoginRegionId") != m.end() && !m["LoginRegionId"].empty()) {
+      loginRegionId = make_shared<string>(boost::any_cast<string>(m["LoginRegionId"]));
+    }
+    if (m.find("LoginToken") != m.end() && !m["LoginToken"].empty()) {
+      loginToken = make_shared<string>(boost::any_cast<string>(m["LoginToken"]));
     }
     if (m.find("OccurTime") != m.end() && !m["OccurTime"].empty()) {
       occurTime = make_shared<long>(boost::any_cast<long>(m["OccurTime"]));
@@ -15260,6 +15327,9 @@ public:
     }
     if (m.find("ReservedB") != m.end() && !m["ReservedB"].empty()) {
       reservedB = make_shared<string>(boost::any_cast<string>(m["ReservedB"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
     if (m.find("TelNo") != m.end() && !m["TelNo"].empty()) {
       telNo = make_shared<string>(boost::any_cast<string>(m["TelNo"]));

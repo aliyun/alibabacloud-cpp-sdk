@@ -527,6 +527,9 @@ CheckUuidValidResponse Alibabacloud_Wyota20210420::Client::checkUuidValidWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->etherMac)) {
     body->insert(pair<string, string>("EtherMac", *request->etherMac));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hostOsInfo)) {
+    body->insert(pair<string, string>("HostOsInfo", *request->hostOsInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->loginRegionId)) {
     body->insert(pair<string, string>("LoginRegionId", *request->loginRegionId));
   }
@@ -1467,6 +1470,9 @@ GetExportDeviceInfoOssUrlResponse Alibabacloud_Wyota20210420::Client::getExportD
 GetFbOssConfigResponse Alibabacloud_Wyota20210420::Client::getFbOssConfigWithOptions(shared_ptr<GetFbOssConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->areaSite)) {
+    body->insert(pair<string, string>("AreaSite", *request->areaSite));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dirPrefix)) {
     body->insert(pair<string, string>("DirPrefix", *request->dirPrefix));
   }
@@ -2583,8 +2589,17 @@ ReportUserFbIssueResponse Alibabacloud_Wyota20210420::Client::reportUserFbIssueW
   if (!Darabonba_Util::Client::isUnset<string>(request->fileListShrink)) {
     body->insert(pair<string, string>("FileList", *request->fileListShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isSubstituteReport)) {
+    body->insert(pair<string, bool>("IsSubstituteReport", *request->isSubstituteReport));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->issueLabel)) {
     body->insert(pair<string, string>("IssueLabel", *request->issueLabel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loginRegionId)) {
+    body->insert(pair<string, string>("LoginRegionId", *request->loginRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loginToken)) {
+    body->insert(pair<string, string>("LoginToken", *request->loginToken));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->occurTime)) {
     body->insert(pair<string, long>("OccurTime", *request->occurTime));
@@ -2594,6 +2609,9 @@ ReportUserFbIssueResponse Alibabacloud_Wyota20210420::Client::reportUserFbIssueW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->reservedB)) {
     body->insert(pair<string, string>("ReservedB", *request->reservedB));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->telNo)) {
     body->insert(pair<string, string>("TelNo", *request->telNo));
