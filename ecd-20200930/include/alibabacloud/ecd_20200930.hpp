@@ -25903,6 +25903,7 @@ public:
   shared_ptr<string> directoryId{};
   shared_ptr<string> directoryType{};
   shared_ptr<vector<DescribeDesktopsResponseBodyDesktopsDisks>> disks{};
+  shared_ptr<string> domainType{};
   shared_ptr<long> downgradeQuota{};
   shared_ptr<long> downgradedTimes{};
   shared_ptr<vector<string>> endUserIds{};
@@ -26021,6 +26022,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Disks"] = boost::any(temp1);
+    }
+    if (domainType) {
+      res["DomainType"] = boost::any(*domainType);
     }
     if (downgradeQuota) {
       res["DowngradeQuota"] = boost::any(*downgradeQuota);
@@ -26249,6 +26253,9 @@ public:
         }
         disks = make_shared<vector<DescribeDesktopsResponseBodyDesktopsDisks>>(expect1);
       }
+    }
+    if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
+      domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
     }
     if (m.find("DowngradeQuota") != m.end() && !m["DowngradeQuota"].empty()) {
       downgradeQuota = make_shared<long>(boost::any_cast<long>(m["DowngradeQuota"]));
