@@ -1957,6 +1957,7 @@ class GetInstanceResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenewInstance{};
   shared_ptr<string> classicEndpoint{};
+  shared_ptr<string> edition{};
   shared_ptr<bool> encryptedInstance{};
   shared_ptr<long> expireTime{};
   shared_ptr<string> instanceId{};
@@ -1971,6 +1972,7 @@ public:
   shared_ptr<long> orderCreateTime{};
   shared_ptr<string> orderType{};
   shared_ptr<string> privateEndpoint{};
+  shared_ptr<long> provisionedCapacity{};
   shared_ptr<string> publicEndpoint{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
@@ -1995,6 +1997,9 @@ public:
     }
     if (classicEndpoint) {
       res["ClassicEndpoint"] = boost::any(*classicEndpoint);
+    }
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
     }
     if (encryptedInstance) {
       res["EncryptedInstance"] = boost::any(*encryptedInstance);
@@ -2038,6 +2043,9 @@ public:
     if (privateEndpoint) {
       res["PrivateEndpoint"] = boost::any(*privateEndpoint);
     }
+    if (provisionedCapacity) {
+      res["ProvisionedCapacity"] = boost::any(*provisionedCapacity);
+    }
     if (publicEndpoint) {
       res["PublicEndpoint"] = boost::any(*publicEndpoint);
     }
@@ -2075,6 +2083,9 @@ public:
     }
     if (m.find("ClassicEndpoint") != m.end() && !m["ClassicEndpoint"].empty()) {
       classicEndpoint = make_shared<string>(boost::any_cast<string>(m["ClassicEndpoint"]));
+    }
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
     }
     if (m.find("EncryptedInstance") != m.end() && !m["EncryptedInstance"].empty()) {
       encryptedInstance = make_shared<bool>(boost::any_cast<bool>(m["EncryptedInstance"]));
@@ -2117,6 +2128,9 @@ public:
     }
     if (m.find("PrivateEndpoint") != m.end() && !m["PrivateEndpoint"].empty()) {
       privateEndpoint = make_shared<string>(boost::any_cast<string>(m["PrivateEndpoint"]));
+    }
+    if (m.find("ProvisionedCapacity") != m.end() && !m["ProvisionedCapacity"].empty()) {
+      provisionedCapacity = make_shared<long>(boost::any_cast<long>(m["ProvisionedCapacity"]));
     }
     if (m.find("PublicEndpoint") != m.end() && !m["PublicEndpoint"].empty()) {
       publicEndpoint = make_shared<string>(boost::any_cast<string>(m["PublicEndpoint"]));
@@ -3771,6 +3785,7 @@ class ListInstancesResponseBodyDataInstances : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenewInstance{};
   shared_ptr<string> classicEndpoint{};
+  shared_ptr<string> edition{};
   shared_ptr<bool> encryptedInstance{};
   shared_ptr<long> expireTime{};
   shared_ptr<string> instanceId{};
@@ -3784,6 +3799,7 @@ public:
   shared_ptr<long> orderCreateTime{};
   shared_ptr<string> orderType{};
   shared_ptr<string> privateEndpoint{};
+  shared_ptr<long> provisionedCapacity{};
   shared_ptr<string> publicEndpoint{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
@@ -3806,6 +3822,9 @@ public:
     }
     if (classicEndpoint) {
       res["ClassicEndpoint"] = boost::any(*classicEndpoint);
+    }
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
     }
     if (encryptedInstance) {
       res["EncryptedInstance"] = boost::any(*encryptedInstance);
@@ -3846,6 +3865,9 @@ public:
     if (privateEndpoint) {
       res["PrivateEndpoint"] = boost::any(*privateEndpoint);
     }
+    if (provisionedCapacity) {
+      res["ProvisionedCapacity"] = boost::any(*provisionedCapacity);
+    }
     if (publicEndpoint) {
       res["PublicEndpoint"] = boost::any(*publicEndpoint);
     }
@@ -3877,6 +3899,9 @@ public:
     }
     if (m.find("ClassicEndpoint") != m.end() && !m["ClassicEndpoint"].empty()) {
       classicEndpoint = make_shared<string>(boost::any_cast<string>(m["ClassicEndpoint"]));
+    }
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
     }
     if (m.find("EncryptedInstance") != m.end() && !m["EncryptedInstance"].empty()) {
       encryptedInstance = make_shared<bool>(boost::any_cast<bool>(m["EncryptedInstance"]));
@@ -3916,6 +3941,9 @@ public:
     }
     if (m.find("PrivateEndpoint") != m.end() && !m["PrivateEndpoint"].empty()) {
       privateEndpoint = make_shared<string>(boost::any_cast<string>(m["PrivateEndpoint"]));
+    }
+    if (m.find("ProvisionedCapacity") != m.end() && !m["ProvisionedCapacity"].empty()) {
+      provisionedCapacity = make_shared<long>(boost::any_cast<long>(m["ProvisionedCapacity"]));
     }
     if (m.find("PublicEndpoint") != m.end() && !m["PublicEndpoint"].empty()) {
       publicEndpoint = make_shared<string>(boost::any_cast<string>(m["PublicEndpoint"]));
