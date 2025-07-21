@@ -42,6 +42,9 @@ CreateAppFromTemplateResponse Alibabacloud_Mobi20240411::Client::createAppFromTe
   if (!Darabonba_Util::Client::isUnset<string>(request->actualParameters)) {
     query->insert(pair<string, string>("ActualParameters", *request->actualParameters));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentId)) {
+    query->insert(pair<string, string>("AgentId", *request->agentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->connectionsContent)) {
     query->insert(pair<string, string>("ConnectionsContent", *request->connectionsContent));
   }
@@ -86,12 +89,7 @@ CreateAppFromTemplateResponse Alibabacloud_Mobi20240411::Client::createAppFromTe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateAppFromTemplateResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateAppFromTemplateResponse(execute(params, req, runtime));
-  }
+  return CreateAppFromTemplateResponse(callApi(params, req, runtime));
 }
 
 CreateAppFromTemplateResponse Alibabacloud_Mobi20240411::Client::createAppFromTemplate(shared_ptr<CreateAppFromTemplateRequest> request) {

@@ -15,6 +15,7 @@ namespace Alibabacloud_Mobi20240411 {
 class CreateAppFromTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> actualParameters{};
+  shared_ptr<string> agentId{};
   shared_ptr<string> connectionsContent{};
   shared_ptr<string> databasesContent{};
   shared_ptr<string> description{};
@@ -38,6 +39,9 @@ public:
     map<string, boost::any> res;
     if (actualParameters) {
       res["ActualParameters"] = boost::any(*actualParameters);
+    }
+    if (agentId) {
+      res["AgentId"] = boost::any(*agentId);
     }
     if (connectionsContent) {
       res["ConnectionsContent"] = boost::any(*connectionsContent);
@@ -75,6 +79,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ActualParameters") != m.end() && !m["ActualParameters"].empty()) {
       actualParameters = make_shared<string>(boost::any_cast<string>(m["ActualParameters"]));
+    }
+    if (m.find("AgentId") != m.end() && !m["AgentId"].empty()) {
+      agentId = make_shared<string>(boost::any_cast<string>(m["AgentId"]));
     }
     if (m.find("ConnectionsContent") != m.end() && !m["ConnectionsContent"].empty()) {
       connectionsContent = make_shared<string>(boost::any_cast<string>(m["ConnectionsContent"]));
