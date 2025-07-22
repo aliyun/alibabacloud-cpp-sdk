@@ -1421,6 +1421,241 @@ public:
 
   virtual ~GetNodeByTemplateIdResponse() = default;
 };
+class GetOrderSummaryForPartnerRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> orderId{};
+
+  GetOrderSummaryForPartnerRequest() {}
+
+  explicit GetOrderSummaryForPartnerRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+  }
+
+
+  virtual ~GetOrderSummaryForPartnerRequest() = default;
+};
+class GetOrderSummaryForPartnerResponseBodyDataOrderLines : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> orderLineId{};
+  shared_ptr<string> orderType{};
+
+  GetOrderSummaryForPartnerResponseBodyDataOrderLines() {}
+
+  explicit GetOrderSummaryForPartnerResponseBodyDataOrderLines(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (orderLineId) {
+      res["OrderLineId"] = boost::any(*orderLineId);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OrderLineId") != m.end() && !m["OrderLineId"].empty()) {
+      orderLineId = make_shared<string>(boost::any_cast<string>(m["OrderLineId"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
+    }
+  }
+
+
+  virtual ~GetOrderSummaryForPartnerResponseBodyDataOrderLines() = default;
+};
+class GetOrderSummaryForPartnerResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> encryptedBuyerId{};
+  shared_ptr<string> encryptedPayerId{};
+  shared_ptr<string> encryptedUserId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<vector<GetOrderSummaryForPartnerResponseBodyDataOrderLines>> orderLines{};
+
+  GetOrderSummaryForPartnerResponseBodyData() {}
+
+  explicit GetOrderSummaryForPartnerResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encryptedBuyerId) {
+      res["EncryptedBuyerId"] = boost::any(*encryptedBuyerId);
+    }
+    if (encryptedPayerId) {
+      res["EncryptedPayerId"] = boost::any(*encryptedPayerId);
+    }
+    if (encryptedUserId) {
+      res["EncryptedUserId"] = boost::any(*encryptedUserId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (orderLines) {
+      vector<boost::any> temp1;
+      for(auto item1:*orderLines){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OrderLines"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptedBuyerId") != m.end() && !m["EncryptedBuyerId"].empty()) {
+      encryptedBuyerId = make_shared<string>(boost::any_cast<string>(m["EncryptedBuyerId"]));
+    }
+    if (m.find("EncryptedPayerId") != m.end() && !m["EncryptedPayerId"].empty()) {
+      encryptedPayerId = make_shared<string>(boost::any_cast<string>(m["EncryptedPayerId"]));
+    }
+    if (m.find("EncryptedUserId") != m.end() && !m["EncryptedUserId"].empty()) {
+      encryptedUserId = make_shared<string>(boost::any_cast<string>(m["EncryptedUserId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OrderLines") != m.end() && !m["OrderLines"].empty()) {
+      if (typeid(vector<boost::any>) == m["OrderLines"].type()) {
+        vector<GetOrderSummaryForPartnerResponseBodyDataOrderLines> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OrderLines"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetOrderSummaryForPartnerResponseBodyDataOrderLines model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        orderLines = make_shared<vector<GetOrderSummaryForPartnerResponseBodyDataOrderLines>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrderSummaryForPartnerResponseBodyData() = default;
+};
+class GetOrderSummaryForPartnerResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetOrderSummaryForPartnerResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetOrderSummaryForPartnerResponseBody() {}
+
+  explicit GetOrderSummaryForPartnerResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetOrderSummaryForPartnerResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetOrderSummaryForPartnerResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetOrderSummaryForPartnerResponseBody() = default;
+};
+class GetOrderSummaryForPartnerResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOrderSummaryForPartnerResponseBody> body{};
+
+  GetOrderSummaryForPartnerResponse() {}
+
+  explicit GetOrderSummaryForPartnerResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOrderSummaryForPartnerResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOrderSummaryForPartnerResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrderSummaryForPartnerResponse() = default;
+};
 class GetPlatformUserInfoForPartnerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -4622,6 +4857,8 @@ public:
   GetNodeByFlowIdResponse getNodeByFlowId(shared_ptr<GetNodeByFlowIdRequest> request);
   GetNodeByTemplateIdResponse getNodeByTemplateIdWithOptions(shared_ptr<GetNodeByTemplateIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNodeByTemplateIdResponse getNodeByTemplateId(shared_ptr<GetNodeByTemplateIdRequest> request);
+  GetOrderSummaryForPartnerResponse getOrderSummaryForPartnerWithOptions(shared_ptr<GetOrderSummaryForPartnerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOrderSummaryForPartnerResponse getOrderSummaryForPartner(shared_ptr<GetOrderSummaryForPartnerRequest> request);
   GetPlatformUserInfoForPartnerResponse getPlatformUserInfoForPartnerWithOptions(shared_ptr<GetPlatformUserInfoForPartnerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPlatformUserInfoForPartnerResponse getPlatformUserInfoForPartner(shared_ptr<GetPlatformUserInfoForPartnerRequest> request);
   GetProxyByTypeResponse getProxyByTypeWithOptions(shared_ptr<GetProxyByTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
